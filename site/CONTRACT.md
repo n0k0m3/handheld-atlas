@@ -73,14 +73,14 @@ body { background: var(--bg); color: var(--fg) }
 
 ## Design notes for this page
 
-- It is a tool, scanned and operated, not read top to bottom. Summary before detail. Encode state in form (pills for stick type, chips for port kinds, a stripe for status).
-- Semantic color (good / warn / critical) is separate from the accent and does not count as the accent.
-- Typography: Google Fonts allowed. Pair a display face with a body face and a tabular numeric face for data. Avoid Inter / Space Grotesk as the "safe" choice.
-- Neutrals carry a slight hue bias toward the accent. No pure mid-grey.
-- Use layout (`gap`) for spacing, not per-element margins.
-- Repeated elements (cards, rows, chips) share edges, baselines, and padding.
-- The page is complete at rest: every section visible on load, no observer-gated opacity.
-- The overlay SVG uses one scale: 1 user unit = 1 mm, then a zoom transform. Leave room in the viewBox for the ruler labels. Every shape has an explicit fill.
-- Give every form control a stable `id`.
-- Visible keyboard focus. Respect `prefers-reduced-motion`.
-- Avoid the generic AI look: cream + serif + terracotta, near-black + acid green, purple-blue gradient hero, emoji section markers, everything centered, rounded cards everywhere.
+- The page is an app shell with three screens: Browse, Compare, Detail. One sticky header holds the screen switch, the device search, the theme toggle, and the compare badge. Hash tokens: `#browse`, `#compare`, and `#<device-id>` for a device sheet.
+- Tokens follow the v3 design from the Claude Design project: cool slate greys, one blue accent (`#0768cf` light, `#247bd2` dark), green and red only for better and worse. Panels use 10 px corners, controls 6 px, chips 4 px.
+- Typography: Manrope for text, JetBrains Mono for every number, `font-feature-settings: "tnum"` on the body.
+- Browse: a filter sidebar at 760 px and above, a collapsible filter panel and cards below. The table groups its columns (Price, Size, Performance, Display, Memory, Battery, Controls, Ports). A reference device pins to the top and drives the delta pills.
+- Compare holds up to 4 devices with the `--dev-1` to `--dev-4` colours. The size panel draws 1 user unit = 1 mm inside a dot-grid stage with a scale bar. Views: Front and Back use the outlines, Top and Side are boxes from the stated size with a dashed `d_max` rect. The 3D view extrudes the front outline as stacked slices and rotates with pointer drag.
+- Detail keeps the source linkage: every sourced value has a dotted underline that opens the source popover, and the Conflicts, Unresolved, and Sources groups stay.
+- The list and the compare grid show the measured weight where a reviewer weighed a unit, else the stated weight. The device sheet shows both.
+- Slider ranges come from the data, never from constants.
+- Rows and cards are built once and reordered or hidden on filter and sort. Sliders re-apply on the next animation frame. The 3D drag writes one transform per frame and stores the angles on release.
+- Give every form control a stable `id`. Visible keyboard focus. Respect `prefers-reduced-motion`.
+- Avoid the generic AI look: cream + serif + terracotta, near-black + acid green, purple-blue gradient hero, emoji section markers, everything centered.
