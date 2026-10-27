@@ -1,0 +1,289 @@
+{
+  "id": "ayaneo-flip-ds-8840u",
+  "brand": "AYANEO",
+  "model": "Flip DS",
+  "variant": "Ryzen 7 8840U",
+  "status": "shipped",
+  "announce_date": "2024-01-30",
+  "release_date": null,
+  "msrp_usd": 979,
+  "form_factor": "clamshell",
+  "dims_mm": {
+    "handheld": {
+      "w": 180,
+      "h": 102,
+      "d": 29.8,
+      "d_max": 37.5
+    },
+    "closed": {
+      "w": 180,
+      "h": 102,
+      "d": 29.8,
+      "d_max": 37.5
+    },
+    "note": "Clamshell. Handheld footprint = closed footprint (project rule). AYANEO size: 180*102*29.8 mm, 37.5 mm at the grip."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 650,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r7-8840u",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": null,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": null,
+        "note": "Supports up to 2TB"
+      }
+    ],
+    "capacities_gb": [
+      512,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Full-feature USB4; DP 1.4 (4K@144Hz); PD charging, wattage not stated"
+    },
+    {
+      "kind": "USB-C 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": false,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Data only"
+    },
+    {
+      "kind": "OCuLink",
+      "count": 1,
+      "speed_gbps": 64,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "SFF-8612, PCIe 4x4 protocol, 64 Gbps effective"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "UHS-II, up to 300 MB/s read"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 120,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 400,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "Main screen 368 PPI, 100% sRGB coverage, 180-degree hinge. Secondary screen: 3.5\" 960x640 IPS touch screen, 3:2."
+  },
+  "battery": {
+    "wh": 45,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": null
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall sensing joystick, recessed so the lid can close",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "X-axis linear motor",
+    "note": "Optical finger mouse (not a trackpad). Master controller. Dual-screen key."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "Large-area vapor chamber + fan (air cooling); 28 W max TDP",
+  "fingerprint": true,
+  "notes": "Launch prices for 16GB/512GB Ryzen 7 8840U: early bird $779, Indiegogo $879, official retail $979. Launched on Indiegogo 2024-01-30. AYANEO planned shipping for mid-March 2024 (7840U) and end of April 2024 (8840U); Notebookcheck reports that first shipments came at least two months after March 2024. On 2025-02-25 AYANEO cancelled all outstanding Flip DS / KB orders (refund or exchange).",
+  "unresolved": [
+    {
+      "field": "release_date",
+      "reason": "AYANEO planned 8840U shipping for end of April 2024; no source confirms the first 8840U shipment date"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer scale weight found (Notebookcheck and overkill.wtf list 650 g / 656 g without stating a scale)"
+    },
+    {
+      "field": "ram.speed_mts",
+      "reason": "AYANEO lists LPDDR5X without a speed"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "USB4 supports PD charging; wattage not stated"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "Data-only port"
+    },
+    {
+      "field": "ports.2.dp_alt",
+      "reason": "Not applicable (OCuLink)"
+    },
+    {
+      "field": "ports.2.pd_in_w",
+      "reason": "Not applicable (OCuLink)"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ports.3",
+      "reason": "microSD slot: speed in Gbps, DP and PD not applicable; location not stated"
+    },
+    {
+      "field": "ports.4",
+      "reason": "3.5 mm jack: speed, DP and PD not applicable; location not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Only 400 nits (typical) stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "Charger wattage not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated; reviews mention only an extra shoulder button on each side"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/AYANEO-FLIP-DS",
+      "accessed": "2026-10-27",
+      "note": "Spec table image https://ayaneo-1305909189.cos.accelerate.myqcloud.com/ayaneo_com/image/product/2024/FLIP/DS/6_02.jpg; ports image https://ayaneo-1305909189.cos.accelerate.myqcloud.com/ayaneo_com/image/product/2024/FLIP/DS/0130_5_05.jpg"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/AYANEO-FLIP-DS",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 'Hall Sensing Joystick'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/AYANEO-FLIP-DS",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 'Linear Hall Trigger'"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://ayaneo.com/article/810",
+      "accessed": "2026-10-27",
+      "note": "Price table image https://cdn.ayaneo.com/ayaneo/article/2024/01/30/8642b202401301854045192.jpeg"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://ayaneo.com/article/810",
+      "accessed": "2026-10-27",
+      "note": "Official launch article dated 2024-01-30"
+    },
+    {
+      "field": "status",
+      "url": "https://www.notebookcheck.net/Ayaneo-issues-official-statement-and-resolutions-for-outstanding-Flip-DS-and-Flip-KB-orders.968352.0.html",
+      "accessed": "2026-10-27",
+      "note": "Units shipped; outstanding orders cancelled 2025-02-25"
+    },
+    {
+      "field": "ports.0.location",
+      "url": "https://overkill.wtf/ayaneo-flip-kb-review/",
+      "accessed": "2026-10-27",
+      "note": "USB4 and USB 3.2 ports both on the top edge"
+    },
+    {
+      "field": "ports.1.location",
+      "url": "https://overkill.wtf/ayaneo-flip-kb-review/",
+      "accessed": "2026-10-27",
+      "note": "USB4 and USB 3.2 ports both on the top edge"
+    },
+    {
+      "field": "screen.touch",
+      "url": "https://steamdeckhq.com/news/ayaneo-flip-ds-review/",
+      "accessed": "2026-10-27",
+      "note": "Main screen has touch support (7840U review unit)"
+    },
+    {
+      "field": "screen.note",
+      "url": "https://ayaneo.com/article/810",
+      "accessed": "2026-10-27",
+      "note": "3.5-inch touch secondary screen, 960*640, 3:2"
+    }
+  ]
+}

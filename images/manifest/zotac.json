@@ -1,0 +1,25 @@
+{
+  "zotac-zone": {
+    "page": "https://www.zotac.com/page/zotac-gaming-zone-portable-handheld",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_zotac-zone",
+      "https://www.zotacstore.com/media/catalog/product/cache/539723a2e9332d260af6c2353ed89eb7/z/g/zgc-g1a1w-01-image02_0.jpg"
+    ],
+    "bottom": [
+      "https://www.zotacstore.com/media/catalog/product/cache/539723a2e9332d260af6c2353ed89eb7/z/g/zgc-g1a1w-01-image05_0.jpg"
+    ],
+    "side": [],
+    "closed_top": [],
+    "note": "Top checked: the retrocatalog front is straight-on (aspect_err 0.051). The retrocatalog front image resolves (image/webp). zgc-g1a1w-01-image02_0.jpg is the ZOTAC store main product photo (cached small size; the store also has image03/05/06 at the same path). zotac.com is behind a WAF captcha, so official press renders were not reachable. bottom = ZOTAC store image05_0 (straight-on rear view, 700 px; aspect_err 0.044). image03_0 is a top-edge view and image06_0 is angled; there is no side profile, so side stays a box."
+  },
+  "zotac-zone-pro": {
+    "page": null,
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_zotac-zone-pro"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Not released; no official product page or press render found. The retrocatalog front image resolves (image/webp) and is straight-on (aspect_err 0.014). PCGH show-floor photo (https://www.pcgameshardware.de/screenshots/original/2025/08/Zotac-Zone-Pro-PC-Handheld-Manjaro-Gamescom4-pcgh_artwork.jpeg) is an angled photo, not a render. No official gallery exists for side or bottom views, so both stay boxes."
+  }
+}

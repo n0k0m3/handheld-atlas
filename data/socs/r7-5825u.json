@@ -1,0 +1,77 @@
+{
+  "id": "r7-5825u",
+  "vendor": "AMD",
+  "name": "Ryzen 7 5825U",
+  "codename": "Barcelo",
+  "cores": 8,
+  "threads": 16,
+  "core_mix": "8x Zen 3",
+  "cpu_arch": "Zen 3",
+  "base_ghz": 2.0,
+  "boost_ghz": 4.5,
+  "tdp_w": {
+    "default": 15,
+    "min": null,
+    "max": null
+  },
+  "process_nm": 7,
+  "process_note": "TSMC 7nm FinFET",
+  "npu_tops": 0,
+  "memory": "DDR4-3200, LPDDR4X-4267, dual-channel, up to 64 GB",
+  "launch_date": "2022-01-30",
+  "igpu": {
+    "name": "Radeon Vega 8",
+    "cu": 8,
+    "arch": "Vega (GCN 5)",
+    "clock_mhz": 2000,
+    "tflops_fp32": 2.05
+  },
+  "passmark": {
+    "cpu_mark": 17775,
+    "single_thread": 2988,
+    "cpu_samples": 3284,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+7+5825U&id=4788",
+    "g3d_mark": 2397,
+    "g3d_samples": 2593,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+7+5825U&id=4668",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry. GPU: chip-named entry 'Radeon Ryzen 7 5825U' (2593 samples); the iGPU reports as 'AMD Radeon Graphics'."
+  },
+  "notes": "Barcelo is a Cezanne refresh. AMD names the iGPU only 'AMD Radeon Graphics' with 8 graphics cores; TPU calls it Radeon Vega 8. AMD lists launch 01/30/2022; TPU lists Jan 6th, 2022. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [
+    {
+      "field": "tdp_w.min",
+      "reason": "AMD's spec table and TPU list only the 15 W default TDP, no cTDP range"
+    },
+    {
+      "field": "tdp_w.max",
+      "reason": "AMD's spec table and TPU list only the 15 W default TDP, no cTDP range"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-7-5825u.html",
+      "accessed": "2026-10-27",
+      "note": "the AMD product page returns 404; this AMD driver page carries the full spec table"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+7+5825U&id=4788",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+7+5825U&id=4668",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "igpu.name",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-7-5825u.c2521",
+      "accessed": "2026-10-27",
+      "note": "TPU: Radeon Vega 8"
+    }
+  ]
+}

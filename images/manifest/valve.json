@@ -1,0 +1,26 @@
+{
+  "steam-deck-lcd": {
+    "page": "https://www.steamdeck.com/en/tech/deck",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_steam-deck",
+      "https://cdn.akamai.steamstatic.com/steamdeck/images/press/renderings/rendering07.png",
+      "https://cdn.akamai.steamstatic.com/steamdeck/images/tech-specs/tech-specs_1_english.png"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "rendering07.png is the Valve press render of the original LCD Deck, straight-on on a white background with a soft shadow. The tech-specs_*.png files are labeled line diagrams (light lines on a transparent background); tech-specs_3 is the back view, shared by the LCD and OLED pages. No left/right profile exists. Valve top-edge profiles: https://cdn.akamai.steamstatic.com/steamdeck/images/press/renderings/rendering06.png (white background) and https://cdn.akamai.steamstatic.com/steamdeck/images/tech-specs/tech-specs_2_english.png (labeled diagram). Outline pass 2026-10-27: tech-specs_3 was removed from bottom because its callout lines and labels stretch the bounding box (aspect err 0.118), so the back view is a spec box. Press renderings 06-08 are top-edge and angled views; no clean back render exists. Outline pass 2026-10-27: retrocatalog moved first. rendering07.png is on a transparent background with soft shadow halos that the alpha mask keeps (aspect err 0.210)."
+  },
+  "steam-deck-oled": {
+    "page": "https://www.steamdeck.com/en/tech",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_steam-deck-oled",
+      "https://cdn.akamai.steamstatic.com/steamdeck/images/press/renderings/press_oled_front_english.png",
+      "https://cdn.akamai.steamstatic.com/steamdeck/images/tech-specs/tech-specs_oled_1_english.png"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "The retrocatalog front shows the translucent 1 TB Limited Edition (same outline). press_oled_front_english.png is the official straight-on front, but on a black background with a dark device, so contrast is low. tech-specs_oled_1 is a labeled line diagram. tech-specs_3 (back view) is shared with the LCD page. No left/right profile exists. Valve top-edge profiles: https://cdn.akamai.steamstatic.com/steamdeck/images/press/renderings/press_oled_top.jpg (dark background) and https://cdn.akamai.steamstatic.com/steamdeck/images/tech-specs/tech-specs_2_english.png (labeled diagram). Outline pass 2026-10-27: tech-specs_3 was removed from bottom because its callout lines and labels stretch the bounding box (aspect err 0.118), so the back view is a spec box. Press renderings 06-08 are top-edge and angled views; no clean back render exists."
+  }
+}

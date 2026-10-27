@@ -1,0 +1,83 @@
+{
+  "id": "acer-nitro-blaze-7",
+  "brand": "Acer",
+  "model": "Nitro Blaze 7",
+  "variant": "GN771 (Ryzen 7 8840HS)",
+  "status": "shipped",
+  "announce_date": "2024-09-04",
+  "release_date": null,
+  "msrp_usd": null,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 256, "h": 113.5, "d": 22.5, "d_max": null },
+    "note": "Acer lists 25.6 (W) x 11.35 (D) x 2.25 (H) cm. Acer's D is the height as held and H is the thickness. 22.5 mm is likely the body thickness, not the grips."
+  },
+  "weight_g": {
+    "handheld": { "stated": 670, "measured": null, "measured_source": null },
+    "note": null
+  },
+  "soc_id": "r7-8840hs",
+  "ram": { "sizes_gb": [16], "type": "LPDDR5X", "speed_mts": 7500, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "other", "pcie_gen": 4, "lanes": 4, "note": "M.2 NVMe PCIe 4.0 x4; Acer does not state the M.2 length" } ],
+    "capacities_gb": [512, 1024, 2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": 40, "dp_alt": null, "pd_in_w": null, "location": null, "note": "Type-C, 40 Gbps; fast charging" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "SD 4.0" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "CTIA" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1920, "res_h": 1080, "refresh_hz": 144, "vrr": true, "touch": true, "nits_sdr": 500, "nits_peak": null, "hdr": null, "note": "AMD FreeSync Premium, 100% sRGB, 7 ms response" },
+  "battery": { "wh": 50.04, "removable": null, "external": false, "charge_w": 65, "note": "Li-polymer. 65 W USB-C adapter." },
+  "controls": {
+    "stick_type": null,
+    "stick_note": "Not Hall. Acer's spec table lists Hall effect only for the triggers (\"LS/RS Sticks, LT/RT Hall effect triggers\"), and Gizmodo's hands-on says the sticks do not have Hall sensors. Likely potentiometer, but no source names the sensor. Some secondary summaries call the sticks Hall; none was verified.",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": 0,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "No trackpads in the official control list. Gizmodo confirms there are no back buttons. Dedicated pop-up keyboard, Game Space, quick menu and mode switch buttons."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.3" },
+  "os": ["Windows 11 Home"],
+  "cooling": null,
+  "fingerprint": true,
+  "notes": "Sold in Europe and Taiwan (Acer UK store GN771-08HS7 1 TB GBP 699 in stock; Acer Taiwan NT$24,900; EU pre-order price EUR 849 for 512 GB). No US price or US launch was announced. All storage sizes share this row.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
+    { "field": "release_date", "reason": "First retail date not found. Units are in stock at the Acer UK store on 2026-10-27." },
+    { "field": "msrp_usd", "reason": "No US launch; Acer never published a US price" },
+    { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value published" },
+    { "field": "weight_g.handheld.measured", "reason": "No reviewer scale reading found" },
+    { "field": "ram.channels", "reason": "Not stated" },
+    { "field": "ports.0.dp_alt", "reason": "Not stated" },
+    { "field": "ports.0.pd_in_w", "reason": "Not stated" },
+    { "field": "ports.0.location", "reason": "Not stated" },
+    { "field": "ports.1.location", "reason": "Not stated" },
+    { "field": "ports.2.location", "reason": "Not stated" },
+    { "field": "screen.nits_peak", "reason": "Acer publishes one brightness figure (500 nits)" },
+    { "field": "screen.hdr", "reason": "Not stated" },
+    { "field": "battery.removable", "reason": "Not stated" },
+    { "field": "controls.stick_type", "reason": "Sources say the sticks are not Hall, but no source names the sensor (potentiometer is likely, not confirmed)." },
+    { "field": "controls.trigger_lock", "reason": "Not stated" },
+    { "field": "controls.gyro", "reason": "Not stated" },
+    { "field": "controls.haptics", "reason": "Not stated" },
+    { "field": "cooling", "reason": "Not stated" }
+  ],
+  "sources": [
+    { "field": "controls.stick_type", "url": "https://gizmodo.com/acer-nitro-blaze-7-hands-on-staying-within-the-speed-limit-2000495157", "accessed": "2026-10-27", "note": "\"The sticks, unfortunately, don't include Hall effect sensors.\" The sensor is not named, so stick_type stays null." },
+    { "field": "controls.rear_buttons", "url": "https://gizmodo.com/acer-nitro-blaze-7-hands-on-staying-within-the-speed-limit-2000495157", "accessed": "2026-10-27", "note": "\"There are no back buttons to speak of.\"" },
+    { "field": "*", "url": "https://news.acer.com/acer-debuts-its-first-handheld-gaming-pc-the-nitro-blaze-7", "accessed": "2026-10-27", "note": "Official spec table (IFA 2024 press release)" },
+    { "field": "*", "url": "https://www.acer.com/us-en/handheld-gaming/nitro-handheld-gaming/nitro-blaze-7", "accessed": "2026-10-27", "note": "Official product page; no spec table" },
+    { "field": "controls.trigger_type", "url": "https://news.acer.com/acer-debuts-its-first-handheld-gaming-pc-the-nitro-blaze-7", "accessed": "2026-10-27", "note": "LT/RT Hall effect triggers" },
+    { "field": "status", "url": "https://store.acer.com/en-gb/acer-nitro-blaze-acer-nitro-blaze-7-handheld-gn771-08hs7-black-dh-e4jem-001", "accessed": "2026-10-27", "note": "GN771-08HS7, 1 TB, in stock" },
+    { "field": "storage.capacities_gb", "url": "https://www.lowyat.net/2024/331441/acer-nitro-blaze-7-official/", "accessed": "2026-10-27", "note": "EUR 849 for the 512 GB model; Acer: up to 2 TB" },
+    { "field": "notes", "url": "https://store.acer.com/zh-tw/gn771", "accessed": "2026-10-27", "note": "Acer Taiwan store listing" }
+  ]
+}

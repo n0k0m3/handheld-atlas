@@ -1,0 +1,97 @@
+{
+  "id": "orange-pi-neo-8840u",
+  "brand": "Orange Pi",
+  "model": "Neo",
+  "variant": "Ryzen 7 8840U",
+  "status": "announced",
+  "announce_date": "2024-03",
+  "release_date": null,
+  "msrp_usd": 550,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 259, "h": 107, "d": 19.9, "d_max": null },
+    "note": "Same chassis as the 7840U model. Official spec: 259 x 107 x 19.9 mm."
+  },
+  "weight_g": {
+    "handheld": { "stated": null, "measured": null, "measured_source": null },
+    "note": null
+  },
+  "soc_id": "r7-8840u",
+  "ram": { "sizes_gb": [32], "type": "LPDDR5", "speed_mts": 6400, "channels": 2, "soldered": null },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": null } ],
+    "capacities_gb": [512, 1024, 2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "USB 4.0 Type-C" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "TF card slot" }
+  ],
+  "screen": { "size_in": 7.0, "panel": null, "res_w": 1920, "res_h": 1200, "refresh_hz": 120, "vrr": null, "touch": null, "nits_sdr": 500, "nits_peak": null, "hdr": null, "note": "16:10 bezel-less, 2.5D glass cover" },
+  "battery": { "wh": 50, "removable": null, "external": false, "charge_w": 65, "note": "3S1P 3-cell Li-polymer. 65 W PD GaN adapter." },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall-sensing sticks with RGB lighting",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 2,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "Linear Hall triggers, about 8 mm travel. LC/RC custom keys on the top edge. Dual 6-axis gyros."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.3" },
+  "os": ["Manjaro Linux"],
+  "cooling": "single turbo fan, dual copper heat pipes",
+  "fingerprint": null,
+  "notes": "The official spec page lists only the 7840U; the 8840U option was announced with pricing in March 2024 (US$599) and re-priced at US$550 for 32 GB / 512 GB in June 2025. The Manjaro forum says all 8840U units ship with 32 GB. Project on indefinite hold since March 2026; no retail launch as of 2026-10-27. msrp_usd is the latest announced price.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
+    { "field": "release_date", "reason": "Not released; project on hold since March 2026" },
+    { "field": "weight_g.handheld.stated", "reason": "Official spec page gives no weight" },
+    { "field": "weight_g.handheld.measured", "reason": "Not released; no reviewer scale reading" },
+    { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value published" },
+    { "field": "ram.soldered", "reason": "Not stated" },
+    { "field": "storage.slots.0.lanes", "reason": "Not stated" },
+    { "field": "ports.0.speed_gbps", "reason": "Not stated" },
+    { "field": "ports.0.dp_alt", "reason": "Not stated" },
+    { "field": "ports.0.pd_in_w", "reason": "Not stated" },
+    { "field": "ports.0.location", "reason": "Not stated" },
+    { "field": "ports.1.location", "reason": "Not stated" },
+    { "field": "ports.2.location", "reason": "Not stated" },
+    { "field": "screen.panel", "reason": "Panel type not stated" },
+    { "field": "screen.vrr", "reason": "Not stated" },
+    { "field": "screen.touch", "reason": "Not stated in the spec table" },
+    { "field": "screen.nits_peak", "reason": "One brightness figure published" },
+    { "field": "screen.hdr", "reason": "Not stated" },
+    { "field": "battery.removable", "reason": "Not stated" },
+    { "field": "controls.trigger_lock", "reason": "Not stated; trigger sensitivity is adjustable in software" },
+    { "field": "controls.rear_buttons", "reason": "Not stated; custom keys are on the top edge" },
+    { "field": "controls.haptics", "reason": "Not stated" },
+    { "field": "fingerprint", "reason": "Not stated" }
+  ],
+  "conflicts": [
+    {
+      "field": "msrp_usd",
+      "values": [
+        { "value": 550, "url": "https://www.gamingonlinux.com/2025/06/pricing-announced-for-the-orange-pi-neo-gaming-handheld-with-manjaro-linux/" },
+        { "value": 599, "url": "https://www.gamingonlinux.com/2024/03/orange-pi-neo-linux-gaming-handheld-starts-at-499-with-ryzen-7840u-ryzen-8840u-at-599/" }
+      ],
+      "chosen_reason": "The June 2025 price supersedes the March 2024 price; neither was a retail launch"
+    }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://neo.manjaro.org/", "accessed": "2026-10-27", "note": "Official spec table (lists the 7840U; chassis, ports, controls and screen are shared)" },
+    { "field": "soc_id", "url": "https://www.gamingonlinux.com/2024/03/orange-pi-neo-linux-gaming-handheld-starts-at-499-with-ryzen-7840u-ryzen-8840u-at-599/", "accessed": "2026-10-27", "note": "Ryzen 7 8840U option at $599" },
+    { "field": "ram.sizes_gb", "url": "https://forum.manjaro.org/t/development-q-a-orangepi-neo-01/156450", "accessed": "2026-10-27", "note": "\"the 8840u models will all ship with 32GB of RAM\"" },
+    { "field": "controls.stick_type", "url": "https://neo.manjaro.org/", "accessed": "2026-10-27", "note": "\"Hall Sensing Joystick with RGB Lighting\"" },
+    { "field": "controls.trigger_type", "url": "https://neo.manjaro.org/", "accessed": "2026-10-27", "note": "\"Linear Hall Trigger\"" },
+    { "field": "msrp_usd", "url": "https://www.gamingonlinux.com/2025/06/pricing-announced-for-the-orange-pi-neo-gaming-handheld-with-manjaro-linux/", "accessed": "2026-10-27", "note": "Base 8840U 32 GB / 512 GB at $550" },
+    { "field": "announce_date", "url": "https://www.gamingonlinux.com/2024/03/orange-pi-neo-linux-gaming-handheld-starts-at-499-with-ryzen-7840u-ryzen-8840u-at-599/", "accessed": "2026-10-27", "note": "8840U option announced with pricing, March 2024" },
+    { "field": "status", "url": "https://liliputing.com/orange-pi-neo-linux-powered-handheld-gaming-pc-delayed-indefinitely-due-to-ram-ssd-increases/", "accessed": "2026-10-27", "note": "Project on ice since 2026-03-01" }
+  ]
+}

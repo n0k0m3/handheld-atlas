@@ -1,0 +1,77 @@
+{
+  "id": "acer-predator-atlas-7",
+  "brand": "Acer",
+  "model": "Predator Atlas 7",
+  "variant": "PA07-I51, Arc G3 Extreme (Arc B390)",
+  "status": "announced",
+  "announce_date": "2026-09-02",
+  "release_date": null,
+  "msrp_usd": null,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 292, "h": 123, "d": 28.5, "d_max": 48.4 },
+    "note": "Acer lists 292 x 112.7-123 x 28.5-48.4 mm. h uses the maximum (123 mm); d is the body, d_max the grips."
+  },
+  "weight_g": {
+    "handheld": { "stated": 750, "measured": null, "measured_source": null },
+    "note": "Acer: under 750 g with the 80 Wh battery, under 700 g with the 60 Wh battery. 750 g assumes the 80 Wh battery (see battery.note)."
+  },
+  "soc_id": "arc-g3-extreme",
+  "ram": { "sizes_gb": [24], "type": "LPDDR5X", "speed_mts": 7467, "channels": null, "soldered": null },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": "One M.2 2280 PCIe Gen4 NVMe slot" } ],
+    "capacities_gb": [1024],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "TB4", "count": 2, "speed_gbps": 40, "dp_alt": true, "pd_in_w": null, "location": null, "note": "Acer: dual Thunderbolt 4 for docking, display output and accessories" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "UHS-II, up to SD 4.0" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "Combo jack" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1920, "res_h": 1080, "refresh_hz": 120, "vrr": true, "touch": true, "nits_sdr": null, "nits_peak": 500, "hdr": null, "note": "IPS-level, 16:9, 100% sRGB, Gorilla Glass Victus with DXC, 10-point touch. Tempered-glass protector in the box." },
+  "battery": { "wh": 80, "removable": null, "external": false, "charge_w": 65, "note": "4S1P 4-cell Li-ion. Acer lists up to 80 Wh with a 60 Wh option on select models and does not map battery to SoC for the Atlas 7. 80 Wh here is an inference from the Atlas 8, where Extreme SKUs have 80 Wh. 65 W USB-C adapter." },
+  "controls": {
+    "stick_type": null,
+    "stick_note": "Acer spec: \"L and R full-size analog joysticks (Carbon Film) or L and R full-size TMR joysticks\". TMR is \"available on select models\"; Acer does not say which SoC SKUs get TMR.",
+    "trigger_type": "hall",
+    "trigger_lock": false,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "The Atlas 7 control list omits the adjustable trigger switches that the Atlas 8 lists, so trigger_lock is false. Rear L/R macro buttons."
+  },
+  "wireless": { "wifi": "Wi-Fi 7", "bt": "5.4" },
+  "os": ["Windows 11 Home"],
+  "cooling": "dual fan (one metal Predator AeroBlade fan, one plastic fan)",
+  "fingerprint": true,
+  "notes": "Announced at IFA 2026. Availability: North America Q4 2026, EMEA November 2026. Memory is \"up to 24 GB\"; lower RAM SKUs may exist. The Intel Arc G3 (non-Extreme, Arc B370) SKUs are in acer-predator-atlas-7-g3.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
+    { "field": "release_date", "reason": "Not on sale yet as of 2026-10-27" },
+    { "field": "msrp_usd", "reason": "No US price announced" },
+    { "field": "weight_g.handheld.measured", "reason": "Not released; no reviewer scale reading" },
+    { "field": "ram.channels", "reason": "Not stated" },
+    { "field": "ram.soldered", "reason": "Not stated" },
+    { "field": "storage.slots.0.lanes", "reason": "Not stated" },
+    { "field": "ports.0.pd_in_w", "reason": "Not stated" },
+    { "field": "ports.0.location", "reason": "Not stated" },
+    { "field": "ports.1.location", "reason": "Not stated" },
+    { "field": "ports.2.location", "reason": "Not stated" },
+    { "field": "screen.nits_sdr", "reason": "One brightness figure published" },
+    { "field": "screen.hdr", "reason": "Not stated" },
+    { "field": "battery.removable", "reason": "Not stated" },
+    { "field": "controls.stick_type", "reason": "Carbon-film (potentiometer) or TMR by SKU; Acer publishes no SKU-to-SoC mapping" },
+    { "field": "controls.gyro", "reason": "Not stated" },
+    { "field": "controls.haptics", "reason": "Not stated" }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://news.acer.com/acer-expands-gaming-handheld-portfolio-with-predator-atlas-7", "accessed": "2026-10-27", "note": "Official spec table and availability (IFA 2026 press release)" },
+    { "field": "*", "url": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-7", "accessed": "2026-10-27", "note": "Official US product page and button diagram" },
+    { "field": "controls.stick_type", "url": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-7", "accessed": "2026-10-27", "note": "\"Available on select models, TMR joysticks\"; press table: Carbon Film or TMR" },
+    { "field": "controls.trigger_type", "url": "https://news.acer.com/acer-expands-gaming-handheld-portfolio-with-predator-atlas-7", "accessed": "2026-10-27", "note": "L2/R2 Hall-effect analog triggers" }
+  ]
+}

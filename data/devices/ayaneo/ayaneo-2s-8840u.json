@@ -1,0 +1,273 @@
+{
+  "id": "ayaneo-2s-8840u",
+  "brand": "AYANEO",
+  "model": "AYANEO 2S",
+  "variant": "Ryzen 7 8840U",
+  "status": "shipped",
+  "announce_date": "2024-05-24",
+  "release_date": "2024-07",
+  "msrp_usd": 999,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 264.5,
+      "h": 105.5,
+      "d": 21.5,
+      "d_max": 36.1
+    },
+    "note": "Official size: 264.5*105.5*21.5mm, top of controller 36.1mm"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 667,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r7-8840u",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": null,
+        "note": "M.2 2280 PCIe 4.0; vendor says double-sided drives up to 8TB fit"
+      }
+    ],
+    "capacities_gb": [
+      512,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Full-featured USB4 Type-C"
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": false,
+      "pd_in_w": null,
+      "location": null,
+      "note": "USB 3.2 Type-C, data transfer only; generation not stated"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "TF card slot, up to 300 MB/s"
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "No-bezel IPS, 323 PPI, 500 nits full-screen peak, 130% sRGB, 2.5D glass cover"
+  },
+  "battery": {
+    "wh": 50.25,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": "13050 mAh"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall sensing big joystick",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD linear motor",
+    "note": "Dual six-axis gyroscopes (mainboard and controller). Linear Hall triggers, 7.5 mm travel. Custom buttons LC, RC, and ="
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Single turbo fan, \"3+1\" three copper heat pipes, copper sheet, graphene patch",
+  "fingerprint": true,
+  "notes": "Ryzen 7 8840U refresh of the AYANEO 2S, same chassis as ayaneo-2s-7840u. Pre-orders opened on Indiegogo on 2024-05-24. Early-bird price $799 and Indiegogo price $999 for 16GB/512GB; retail $999 (Liliputing). Retro Power edition is 32GB/2TB only. The AYANEO store listed 16GB/512GB at $1139 on 2026-10-27. Release month is the planned first-batch shipment, not a confirmed retail date.",
+  "unresolved": [
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found; reviews repeat the stated 667 g"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "not stated by the vendor"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "PCIe lane count not stated"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "charge input wattage per port not stated"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "port location not stated on the spec sheet"
+    },
+    {
+      "field": "ports.1.speed_gbps",
+      "reason": "USB 3.2 generation not stated"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "data-only port"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "port location not stated on the spec sheet"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed, DP, PD, and location do not apply or are not stated"
+    },
+    {
+      "field": "ports.3",
+      "reason": "speed, DP, PD, and location do not apply or are not stated"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "reason": "refresh rate not stated by the vendor or the fetched reviews"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "vendor gives only one brightness value (500 nits full screen)"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "charge wattage not stated on the official spec sheet"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "not stated by the vendor or the fetched reviews"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "release_date",
+      "values": [
+        {
+          "value": "2024-07",
+          "url": "https://www.ithome.com/0/770/622.htm"
+        },
+        {
+          "value": "2024-08",
+          "url": "https://www.notebookcheck.net/AYANEO-releases-three-new-refresh-gaming-handhelds-with-powerful-AMD-APUs-shortly-before-ASUS-ROG-Ally-X-announcement.841043.0.html"
+        }
+      ],
+      "chosen_reason": "earliest first-batch shipment (China, end of July 2024); both are planned dates given at pre-order time"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/AYANEO-2S",
+      "accessed": "2026-10-27",
+      "note": "Spec table image: https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/8840U/2SEN/4-0621.png (lists 7840U and 8840U configurations)"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/AYANEO-2S",
+      "accessed": "2026-10-27",
+      "note": "Spec table: Joystick = Hall sensing big joystick"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/AYANEO-2S",
+      "accessed": "2026-10-27",
+      "note": "Spec table: Trigger = Linear hall trigger"
+    },
+    {
+      "field": "screen.touch",
+      "url": "https://droix.net/blogs/aya-neo-2s-review-with-video/",
+      "accessed": "2026-10-27",
+      "note": "DROIX review: 7-inch IPS touchscreen"
+    },
+    {
+      "field": "wireless.wifi",
+      "url": "https://droix.net/blogs/aya-neo-2s-review-with-video/",
+      "accessed": "2026-10-27",
+      "note": "DROIX review spec list: WiFi 6E & Bluetooth 5.2; official sheet says only WiFi"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/ayaneo-upgrades-the-ayaneo-2s-air-1s-and-kun-handheld-gaming-pcs-with-ryzen-7-8840u-chips/",
+      "accessed": "2026-10-27",
+      "note": "Price table: 16GB/512GB early bird $799, IGG $999, retail $999"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://ayaneo.com/article/833",
+      "accessed": "2026-10-27",
+      "note": "Official news 2024-05-27: 8840U versions of AIR 1S, 2S, KUN opened for pre-order on May 24"
+    },
+    {
+      "field": "release_date",
+      "url": "https://www.ithome.com/0/770/622.htm",
+      "accessed": "2026-10-27",
+      "note": "IT Home 2024-05-25: 2S 8840U first batch ships end of July 2024 (planned date at pre-order time)"
+    }
+  ]
+}

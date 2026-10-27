@@ -1,0 +1,281 @@
+{
+  "id": "onexplayer-mini-5800u",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer Mini",
+  "variant": "AMD Ryzen 7 5800U",
+  "status": "shipped",
+  "announce_date": "2022-03-03",
+  "release_date": "2022-03",
+  "msrp_usd": 1259,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 262,
+      "h": 108,
+      "d": 23,
+      "d_max": null
+    },
+    "note": "Copied from the Intel OneXPlayer Mini (same 7-inch Mini family); no size was published for the AMD Edition."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": null,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Not stated. The Intel Mini weighs 589 g, but the AMD Edition has a larger 48 Wh battery."
+  },
+  "soc_id": "r7-5800u",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR4X",
+    "speed_mts": 4266,
+    "channels": null,
+    "soldered": null
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "other",
+        "pcie_gen": null,
+        "lanes": null,
+        "note": "PCIe NVMe; M.2 size not stated"
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024,
+      2048
+    ],
+    "expansion": []
+  },
+  "ports": [
+    {
+      "kind": "USB-C unspecified",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Two Type-C ports; speed not stated"
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Listed as USB 3.0 Type-A"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "Sold with a 1280 x 800 or a 1920 x 1200 panel; the row records the 1920 x 1200 option"
+  },
+  "battery": {
+    "wh": 48,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "12,450 mAh / 11.55 V; 65 W GaN USB-C charger"
+  },
+  "controls": {
+    "stick_type": null,
+    "stick_note": null,
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "Dual vibration motors",
+    "note": "Dual linear triggers (sensor not named)"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.0"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Fan, aluminium heat sink, two copper heat pipes",
+  "fingerprint": null,
+  "notes": "AMD Edition of the 7-inch OneXPlayer Mini. China launch March 2022 from CNY 5,299; international shipping from April 2022 (DroiX). US price $1,259 (Liliputing, April 2022). Dimensions copied from the Intel Mini; weight not published. The 8.4-inch OneXPlayer with the 5800U is a different chassis; no row for it.",
+  "unresolved": [
+    {
+      "field": "controls.stick_type",
+      "reason": "Sensor not named in any source found"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "Sensor not named"
+    },
+    {
+      "field": "weight_g.handheld.stated",
+      "reason": "Not published for the AMD Edition"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review measurement found"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ram.soldered",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "storage.slots.0.pcie_gen",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.0.speed_gbps",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.0.dp_alt",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.1.dp_alt",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.2.speed_gbps",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.2.dp_alt",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.2.pd_in_w",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "controls.gyro",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "storage.expansion",
+      "reason": "No card slot is mentioned; not confirmed absent"
+    }
+  ],
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://liliputing.com/onexplayer-mini-with-ryzen-7-5800u-launches-in-china-for-840-and-up/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook China launch details via Liliputing (ITHome, Sohu); the official page is gone"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-8-4-inch-handheld-gaming-pc-now-available-with-ryzen-7-5800u-but-it-will-cost-you/",
+      "accessed": "2026-10-27",
+      "note": "7 inch display + Ryzen 7 5800U for $1,259"
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/onexplayer-mini-with-ryzen-7-5800u-launches-in-china-for-840-and-up/",
+      "accessed": "2026-10-27",
+      "note": "On sale in China at the end of March 2022; international shipping from April 2022 (DroiX)"
+    },
+    {
+      "field": "dims_mm",
+      "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-now-available/",
+      "accessed": "2026-10-27",
+      "note": "Intel Mini size 262 x 108 x 23 mm, reused for the AMD Edition"
+    },
+    {
+      "field": "weight_g",
+      "url": "https://liliputing.com/onexplayer-mini-with-ryzen-7-5800u-launches-in-china-for-840-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Weight not stated"
+    }
+  ]
+}

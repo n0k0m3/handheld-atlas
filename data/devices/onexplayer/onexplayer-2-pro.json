@@ -1,0 +1,311 @@
+{
+  "id": "onexplayer-2-pro",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer 2 Pro",
+  "variant": "Ryzen 7 7840U",
+  "status": "shipped",
+  "announce_date": "2023-06",
+  "release_date": "2023-08",
+  "msrp_usd": 1399,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 310,
+      "h": 127,
+      "d": 23,
+      "d_max": null
+    },
+    "tablet_only": {
+      "w": 208,
+      "h": 127,
+      "d": 23,
+      "d_max": null
+    },
+    "note": null
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 848,
+      "measured": 876,
+      "measured_source": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html"
+    },
+    "tablet_only": {
+      "stated": 709,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Stated handheld weight = 709 g main body + 139 g controllers (One Netbook figures)"
+  },
+  "soc_id": "r7-7840u",
+  "ram": {
+    "sizes_gb": [
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Vendor says it also supports Thunderbolt technology (compatibility); no Thunderbolt certification stated"
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "Power Delivery and DisplayPort per NotebookCheck; Liliputing lists USB 3.1 / 3.2 Type-C"
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Listed as USB 3.0 Type-A"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 8.4,
+    "panel": "IPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": 60,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "Pen support"
+  },
+  "battery": {
+    "wh": 65.5,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": null
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall joysticks (official replacement part listing)",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": null,
+    "note": "Dual linear triggers (sensor not named)"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "single fan, two 8.6 mm copper heat pipes",
+  "fingerprint": null,
+  "notes": "Retail list $1399 for 32GB/1TB; pre-order $1159 (Liliputing) and $1259 (store, Aug 2023). The Intel Core i7-1360P version (refurbished '2 Pro 8.4') is the onexplayer-2-pro-1360p row.",
+  "unresolved": [
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "Not stated for the 2 Pro"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "Vendor says linear triggers but does not name the sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "Not stated"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "dims_mm.tablet_only.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "weight_g.tablet_only.measured",
+      "reason": "No reviewer scale measurement found for this configuration"
+    },
+    {
+      "field": "ports",
+      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+    }
+  ],
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20231229160223/https://onexplayerstore.com/products/onexplayer-2-pro",
+      "accessed": "2026-10-27",
+      "note": "Archived official store page"
+    },
+    {
+      "field": "dims_mm",
+      "url": "https://liliputing.com/onexplayer-2-pro-handheld-gaming-pc-with-ryzen-7-8840u-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "310 x 127 x 23 mm with controllers, 208 x 127 x 23 mm without"
+    },
+    {
+      "field": "weight_g",
+      "url": "https://liliputing.com/onexplayer-2-pro-handheld-gaming-pc-with-ryzen-7-8840u-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "Main body 709 g, controllers 139 g"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html",
+      "accessed": "2026-10-27",
+      "note": "Bottom: USB-C 3.2 with PD and DP; top: microSD, USB-A 3.0, USB4, 3.5 mm"
+    },
+    {
+      "field": "ports",
+      "url": "https://liliputing.com/onexplayer-2-pro-handheld-gaming-pc-with-ryzen-7-8840u-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "1x USB4, 1x USB 3.2 Type-C, 1x USB 3.0 Type-A, microSD"
+    },
+    {
+      "field": "screen",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "wireless",
+      "url": "https://liliputing.com/onexplayer-2-pro-handheld-gaming-pc-with-ryzen-7-8840u-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "os",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "controls.gyro",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official replacement joystick: ONEXPLAYER 2/2 PRO / Hall"
+    },
+    {
+      "field": "ram",
+      "url": "https://liliputing.com/onexplayer-2-pro-handheld-gaming-pc-with-ryzen-7-8840u-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "LPDDR5x-7500"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html",
+      "accessed": "2026-10-27",
+      "note": "Reviewer scale 876 g"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-2-pro-is-now-available-for-purchase-starts-shipping-in-august-handheld-gaming-pc-with-ryzen-7-7840u-32gb-ram-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "Retail $1399 for 32GB/1TB; $1159 pre-order"
+    },
+    {
+      "field": "release_date",
+      "url": "https://web.archive.org/web/20230818141622/https://onexplayerstore.com/products/onexplayer-2-pro-amd-ryzen-7-7840u-pre-order-ship-on-august-1st",
+      "accessed": "2026-10-27",
+      "note": "Store pre-order listing: shipping in batches from Aug 15, 2023"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-2-pro-is-now-available-for-purchase-starts-shipping-in-august-handheld-gaming-pc-with-ryzen-7-7840u-32gb-ram-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "First unveiled in June 2023"
+    }
+  ]
+}

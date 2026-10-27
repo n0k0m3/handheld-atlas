@@ -1,0 +1,231 @@
+{
+  "id": "msi-claw-8-ai-plus",
+  "brand": "MSI",
+  "model": "Claw 8 AI+",
+  "variant": "A2VM (Core Ultra 7 258V)",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2024-12",
+  "msrp_usd": 899.99,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 299,
+      "h": 126,
+      "d": 24,
+      "d_max": null
+    },
+    "note": "MSI WxDxH: 299 x 126 x 24 mm."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 795,
+      "measured": 793,
+      "measured_source": "https://www.notebookcheck.net/MSI-Claw-8-AI-review-The-best-gaming-handheld-thanks-to-Intel-Lunar-Lake.974004.0.html"
+    },
+    "note": "MSI: 795 g with battery."
+  },
+  "soc_id": "cu7-258v",
+  "ram": {
+    "sizes_gb": [
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8533,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": null,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "TB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Thunderbolt 4 (DisplayPort / Power Delivery 3.0)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Mic-in/headphone-out combo jack"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 8,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 120,
+    "vrr": true,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "48-120Hz VRR. Notebookcheck measured 533 nits max (panel PN8007QB1-2)."
+  },
+  "battery": {
+    "wh": 80,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "6-cell. Standard SKU ships a 65W PD adapter; the Super Pack ships a 100W PD adapter."
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "RGB Hall Effect analog sticks",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics",
+    "note": "MSI lists D-pad, RGB ABXY, L & R bumpers, MSI Center M button, Quick Settings button, View and Menu buttons, Macro buttons M1/M2."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "5.4"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": null,
+  "fingerprint": true,
+  "notes": "Memory on package (Lunar Lake). US price $899.99. MSI moved the launch to December 2024; MSI gave 2025-01-15 as the US shelf date. Colour editions on the same A2VM hardware: Polar Tempest Edition, Glacier Blue Edition (MSI spec page lists the same M.2 2230 slot; Notebookcheck CES 2026 coverage said Glacier Blue would ship with M.2 2280, which the MSI page does not confirm). A Core Ultra 7 256V / 16GB variant and a Core Ultra 5 228V prototype were reported but never sold.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "first-showing date (IFA 2024) not confirmed from a source read in this crawl"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "MSI does not state the brightness on the spec page"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "MSI publishes one thickness value"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "MSI states PCIe Gen4 but not the lane count"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "only typical or measured brightness is available"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "HDR is not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "MSI does not mention trigger stops"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "MSI lists Macro buttons M1/M2 but does not state their position"
+    },
+    {
+      "field": "cooling",
+      "reason": "fan count not stated in the sources checked"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "PD input wattage not stated"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "not stated in the sources checked"
+    },
+    {
+      "field": "ports.1",
+      "reason": "speed, DP alt and PD do not apply to this port kind; location not stated in the sources checked"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed, DP alt and PD do not apply to this port kind; location not stated in the sources checked"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.msi.com/Handheld/Claw-8-AI-plus-A2VMX/Specification",
+      "accessed": "2026-10-27",
+      "note": "MSI Claw 8 AI+ A2VM spec page (lists 'Up to Intel Core Ultra 7 processor (Series 2)')"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://www.notebookcheck.net/MSI-confirms-launch-timeline-and-prices-of-its-new-Intel-Lunar-Lake-powered-Claw-gaming-handhelds.929552.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck: both handhelds powered by the Intel Core Ultra 7 258V"
+    },
+    {
+      "field": "release_date",
+      "url": "https://lowyat.net/2024/338889/msi-claw-8-ai-officially-available",
+      "accessed": "2026-10-27",
+      "note": "MSI moved the Claw 8 AI+ launch to December 2024; US$899, Core Ultra 7 258V, 32GB, 1TB"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/MSI-Claw-8-AI-review-The-best-gaming-handheld-thanks-to-Intel-Lunar-Lake.974004.0.html",
+      "accessed": "2026-10-27",
+      "note": "retails for $899.99"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "url": "https://www.notebookcheck.net/MSI-Claw-8-AI-review-The-best-gaming-handheld-thanks-to-Intel-Lunar-Lake.974004.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck review spec box: 793 g"
+    },
+    {
+      "field": "ram.channels",
+      "url": "https://www.notebookcheck.net/MSI-Claw-8-AI-review-The-best-gaming-handheld-thanks-to-Intel-Lunar-Lake.974004.0.html",
+      "accessed": "2026-10-27",
+      "note": "LPDDR5x-8533, dual-channel, onboard"
+    },
+    {
+      "field": "screen.panel",
+      "url": "https://www.notebookcheck.net/MSI-Claw-8-AI-review-The-best-gaming-handheld-thanks-to-Intel-Lunar-Lake.974004.0.html",
+      "accessed": "2026-10-27",
+      "note": "IPS panel PN8007QB1-2"
+    },
+    {
+      "field": "storage.capacities_gb",
+      "url": "https://www.notebookcheck.net/MSI-Claw-8-AI-review-The-best-gaming-handheld-thanks-to-Intel-Lunar-Lake.974004.0.html",
+      "accessed": "2026-10-27",
+      "note": "review unit spec box 512 GB; intro and Lowyat say 1TB"
+    }
+  ]
+}

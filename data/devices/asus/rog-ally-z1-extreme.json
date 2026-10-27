@@ -1,0 +1,73 @@
+{
+  "id": "rog-ally-z1-extreme",
+  "brand": "ASUS",
+  "model": "ROG Ally",
+  "variant": "Ryzen Z1 Extreme (2023, RC71L)",
+  "status": "shipped",
+  "announce_date": "2023-04-01",
+  "release_date": "2023-06-13",
+  "msrp_usd": 699.99,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 280, "h": 111, "d": 21.2, "d_max": 32.4 },
+    "note": "ASUS: 28.0 x 11.1 x 2.12 ~ 3.24 cm (W x D x H). d is the thinnest point, d_max the grips."
+  },
+  "weight_g": {
+    "handheld": { "stated": 608, "measured": 611, "measured_source": "https://www.notebookcheck.net/Asus-ROG-Ally-Z1-Extreme-Review-Gaming-handheld-with-120-Hz-display-and-AMD-Zen4.716680.0.html" },
+    "note": "NotebookCheck spec table: 611 g, power supply 223 g. The Ally X review repeats 611 g for the original Ally."
+  },
+  "soc_id": "z1-extreme",
+  "ram": { "sizes_gb": [16], "type": "LPDDR5", "speed_mts": 6400, "channels": 2, "soldered": true },
+  "storage": {
+    "slots": [
+      { "form_factor": "2230", "pcie_gen": 4, "lanes": null, "note": "M.2 2230 NVMe, user-replaceable behind the back cover" }
+    ],
+    "capacities_gb": [512],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "Combo port with the XG Mobile interface. DisplayPort 1.4. pd_in_w is the bundled 65 W USB-C adapter rating." },
+    { "kind": "XG Mobile", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "ROG XG Mobile eGPU interface; shares one combo housing with the USB-C port" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Combo audio jack" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "UHS-II; supports SD, SDXC and SDHC" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1920, "res_h": 1080, "refresh_hz": 120, "vrr": true, "touch": true, "nits_sdr": 500, "nits_peak": null, "hdr": false, "note": "IPS-level, anti-glare low-reflection, 100% sRGB, 7 ms, AMD FreeSync Premium, Gorilla Glass Victus + DXC" },
+  "battery": { "wh": 40, "removable": false, "external": false, "charge_w": 65, "note": "40 Wh 4S1P 4-cell Li-ion. 65 W USB-C adapter (inclusion varies by region)." },
+  "controls": {
+    "stick_type": null,
+    "stick_note": "2 x full-size analog sticks. NotebookCheck: the sticks have no Hall sensors.",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics",
+    "note": "ASUS: L & R Hall Effect analog triggers, 2 x assignable grip buttons, 6-axis IMU"
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.4" },
+  "os": ["Windows 11 Home"],
+  "cooling": "two fans",
+  "fingerprint": true,
+  "notes": "One ASUS spec page (RC71L) covers the Z1 and Z1 Extreme rows. Black and white colorways share this hardware. ASUS lists Bluetooth 5.4 and says the version may change with the OS version.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "ASUS gives no speed, DP or PD data for the XG Mobile interface itself; video and power run through the USB-C side of the combo port" },
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
+    { "field": "ports.3", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "storage.slots.0.lanes", "reason": "ASUS and NotebookCheck give PCIe 4.0 but not the lane count" },
+    { "field": "screen.nits_peak", "reason": "ASUS gives one brightness value (500 nits); no HDR or peak figure" },
+    { "field": "controls.stick_type", "reason": "Sources say only that the sticks are not Hall effect; no source names the sensor" },
+    { "field": "controls.trigger_lock", "reason": "Not stated by ASUS or the reviews used" }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-ally-2023/spec/", "accessed": "2026-10-27", "note": "ASUS US spec page, ROG Ally (2023) RC71L" },
+    { "field": "weight_g.handheld.measured", "url": "https://www.notebookcheck.net/Asus-ROG-Ally-Z1-Extreme-Review-Gaming-handheld-with-120-Hz-display-and-AMD-Zen4.716680.0.html", "accessed": "2026-10-27", "note": "611 g, power supply 223 g" },
+    { "field": "controls.stick_note", "url": "https://www.notebookcheck.net/Asus-ROG-Ally-Z1-Extreme-Review-Gaming-handheld-with-120-Hz-display-and-AMD-Zen4.716680.0.html", "accessed": "2026-10-27", "note": "'The triggers at the top use hall sensors, so there are no hall sensors for the sticks'" },
+    { "field": "ports", "url": "https://www.notebookcheck.net/Asus-ROG-Ally-Z1-Extreme-Review-Gaming-handheld-with-120-Hz-display-and-AMD-Zen4.716680.0.html", "accessed": "2026-10-27", "note": "Port locations: 'Top: Power button w/ fingerprint scanner, volume, XG Mobile (USB-C 3.2 Gen.2 w/ Power Delivery & DisplayPort-ALT mode), microSD card reader, 3.5 mm stereo jack'" },
+    { "field": "cooling", "url": "https://www.notebookcheck.net/Asus-ROG-Ally-Z1-Extreme-Review-Gaming-handheld-with-120-Hz-display-and-AMD-Zen4.716680.0.html", "accessed": "2026-10-27", "note": "'a cooling solution with two fans'" },
+    { "field": "announce_date", "url": "https://liliputing.com/asus-rog-ally-is-a-handheld-gaming-pc-with-a-custom-amd-chip-its-real-despite-the-april-1-announcement/", "accessed": "2026-10-27", "note": "ASUS first announced the ROG Ally on April 1, 2023" },
+    { "field": "release_date", "url": "https://liliputing.com/asus-rog-ally-handheld-gaming-pc-goes-up-for-pre-order-for-600-and-up-available-starting-june-13/", "accessed": "2026-10-27", "note": "Pre-orders 2023-05-11; available starting June 13" },
+    { "field": "msrp_usd", "url": "https://www.notebookcheck.net/ASUS-ROG-Ally-Pre-orders-open-with-cheaper-AMD-Ryzen-Z1-model-to-follow.717043.0.html", "accessed": "2026-10-27", "note": "'retails for US$699.99 in the US'" }
+  ]
+}

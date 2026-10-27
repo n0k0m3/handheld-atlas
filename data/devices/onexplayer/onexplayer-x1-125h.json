@@ -1,0 +1,334 @@
+{
+  "id": "onexplayer-x1-125h",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer X1",
+  "variant": "Core Ultra 5 125H",
+  "status": "shipped",
+  "announce_date": "2024-01",
+  "release_date": "2024-03",
+  "msrp_usd": 989,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 355,
+      "h": 163,
+      "d": 13,
+      "d_max": 44
+    },
+    "tablet_only": {
+      "w": 252,
+      "h": 163,
+      "d": 13,
+      "d_max": null
+    },
+    "note": "Handheld width is the DroiX tape measurement of the X1 8840U with controllers (same 252 mm tablet and same controllers). d_max is the controller thickness."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": null,
+      "measured": null,
+      "measured_source": null
+    },
+    "tablet_only": {
+      "stated": 789,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "No stated or measured weight with controllers found. Controllers are listed at 125 g (One Netbook)."
+  },
+  "soc_id": "cu5-125h",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7467,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": null,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "TB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 100,
+      "location": "left",
+      "note": "USB4 full-function ports with Thunderbolt 4 capabilities (Indiegogo); 100W USB-C charging"
+    },
+    {
+      "kind": "OCuLink",
+      "count": 1,
+      "speed_gbps": 63,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "PCIe 4.0 x4"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "right",
+      "note": "Listed as USB-A 3.2 (generation not stated)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "right",
+      "note": "TF 4.0, up to 300 MB/s, cards up to 2TB"
+    }
+  ],
+  "screen": {
+    "size_in": 10.95,
+    "panel": "LTPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": 120,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 540,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "16:10, 10-point touch, 138% sRGB, 4096-level pen support (pen optional). Portrait-native panel."
+  },
+  "battery": {
+    "wh": 65.02,
+    "removable": false,
+    "external": false,
+    "charge_w": 100,
+    "note": "100W GaN charger"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall per the official replacement-joystick listing and the store page; the official X1 controllers page calls them 'ALPS esports-grade joysticks' (7.5 mm, 18 degree tilt) without naming the sensor",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": null,
+    "note": "Shared X1-series controllers: Hall linear triggers (about 8.1 mm travel), two mappable back buttons, removable D-pad keycap; optional connector with 1200 mAh battery for wireless use"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "liquid bearing fan, aluminum fins, dual copper heat pipes",
+  "fingerprint": true,
+  "notes": "Entry X1 configuration with the Core Ultra 5 125H (7-core Arc iGPU). Price is the Indiegogo regular price, the same basis as onexplayer-x1-155h. Chassis, ports and screen are copied from onexplayer-x1-155h; the Thunderbolt 4 claim on the Indiegogo page is not split by SKU.",
+  "unresolved": [
+    {
+      "field": "weight_g.handheld.stated",
+      "reason": "No official weight with controllers"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "Not stated for the 155H model"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.gyro",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.tablet_only.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review of this SKU; measurements in onexplayer-x1-155h are from a different SKU"
+    },
+    {
+      "field": "weight_g.tablet_only.measured",
+      "reason": "No review of this SKU; measurements in onexplayer-x1-155h are from a different SKU"
+    }
+  ],
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://onexplayerstore.com/products/x1-155h",
+      "accessed": "2026-10-27",
+      "note": "Official store page (text has no spec table)"
+    },
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20240319130130/https://onexplayerstore.com/products/x1",
+      "accessed": "2026-10-27",
+      "note": "Archived official store page at launch (Mar 2024), with variants and prices"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.indiegogo.com/en/projects/one-netbook/onexplayer-x1-ultra-155h-10-95in-3-in-1-handheld",
+      "accessed": "2026-10-27",
+      "note": "Official Indiegogo: two USB4 full-function ports with Thunderbolt 4 capabilities"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.xda-developers.com/one-xplayer-x1-review/",
+      "accessed": "2026-10-27",
+      "note": "Left: 2x USB4; right: USB-A, microSD; top: OCuLink, headphone jack"
+    },
+    {
+      "field": "ports.1",
+      "url": "https://liliputing.com/onexplayer-x1-gaming-tablet-with-detachable-controllers-and-intel-meteor-lake-launches-in-china-global-launch-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "63 Gbps OCuLink"
+    },
+    {
+      "field": "dims_mm.tablet_only",
+      "url": "https://liliputing.com/onexplayer-x1-handheld-gaming-pc-now-available-with-ryzen-7-8840u-instead-of-intel-meteor-lake/",
+      "accessed": "2026-10-27",
+      "note": "Tablet 252 x 163 x 13 mm, 789 g"
+    },
+    {
+      "field": "dims_mm.handheld.w",
+      "url": "https://droix.net/blogs/onexplayer-x1-amd-review/",
+      "accessed": "2026-10-27",
+      "note": "With controllers about 35.5 cm (measured on the X1 8840U)"
+    },
+    {
+      "field": "screen",
+      "url": "https://liliputing.com/onexplayer-x1-handheld-gaming-pc-now-available-with-ryzen-7-8840u-instead-of-intel-meteor-lake/",
+      "accessed": "2026-10-27",
+      "note": "10.95 inch 2560x1600 LTPS 120 Hz, 540 nits, 138% sRGB"
+    },
+    {
+      "field": "wireless",
+      "url": "https://liliputing.com/onexplayer-x1-gaming-tablet-with-detachable-controllers-and-intel-meteor-lake-launches-in-china-global-launch-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "battery",
+      "url": "https://onexplayerstore.com/products/x1-155h",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "fingerprint",
+      "url": "https://onexplayerstore.com/products/x1-155h",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://web.archive.org/web/20240704131817/https://onexplayerstore.com/products/onexplayer-x1-amd-ryzen%E2%84%A2-7-8840u-10-95-3-in-1-gaming-handheld-pre-sale",
+      "accessed": "2026-10-27",
+      "note": "Store X1 page: Hall Effect Pro-Level Joysticks"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://onexplayerstore.com/products/controllers-for-onexplayer-x1",
+      "accessed": "2026-10-27",
+      "note": "Official: trigger buttons use Hall linear technology, about 8.1 mm travel"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "url": "https://onexplayerstore.com/products/controllers-for-onexplayer-x1",
+      "accessed": "2026-10-27",
+      "note": "Official: two customizable back buttons"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official replacement joystick: ONEXPLAYER X1 / Hall"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "url": "https://liliputing.com/onexplayer-x1-handheld-gaming-pc-now-available-with-ryzen-7-8840u-instead-of-intel-meteor-lake/",
+      "accessed": "2026-10-27",
+      "note": "Controllers measure 111 x 57 x 44 mm (One Netbook figures)"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://liliputing.com/onexplayer-x1-gaming-tablet-with-detachable-controllers-and-intel-meteor-lake-launches-in-china-global-launch-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "Entry-level configuration: Intel Core Ultra 5 125H / 16GB / 1TB"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-x1-gaming-tablet-with-detachable-controllers-and-intel-meteor-lake-launches-in-china-global-launch-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "125H/16GB/1TB: Indiegogo regular price $989 (early bird $859)"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://liliputing.com/onexplayer-x1-gaming-tablet-with-detachable-controllers-and-intel-meteor-lake-launches-in-china-global-launch-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "16 GB on the 125H configuration"
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/onexplayer-x1-gaming-tablet-with-detachable-controllers-and-intel-meteor-lake-launches-in-china-global-launch-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "Shipping to backers from March 2024; same launch as the 155H model"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-x1-gaming-tablet-with-detachable-controllers-and-intel-meteor-lake-launches-in-china-global-launch-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "Launched in China in January 2024 with the 125H entry option"
+    }
+  ]
+}

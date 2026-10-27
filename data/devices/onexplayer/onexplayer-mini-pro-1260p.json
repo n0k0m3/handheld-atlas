@@ -1,0 +1,289 @@
+{
+  "id": "onexplayer-mini-pro-1260p",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer Mini Pro",
+  "variant": "Intel Core i7-1260P",
+  "status": "shipped",
+  "announce_date": "2022-08-01",
+  "release_date": null,
+  "msrp_usd": 1399,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 260,
+      "h": 106,
+      "d": 23,
+      "d_max": null
+    },
+    "note": null
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 619,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "i7-1260p",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR5",
+    "speed_mts": 5200,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 3,
+        "lanes": 4,
+        "note": "Spec table lists both PCIe 3.0 x4 and PCIe 4.0 x4"
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "none"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Listed as USB 3.2 Type-C (generation not stated)"
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Listed as USB 3.0 Type-A"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "IPS",
+    "res_w": 1280,
+    "res_h": 800,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "216 ppi; 10-point multitouch"
+  },
+  "battery": {
+    "wh": 48,
+    "removable": false,
+    "external": false,
+    "charge_w": 100,
+    "note": null
+  },
+  "controls": {
+    "stick_type": null,
+    "stick_note": null,
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "Dual vibration motors",
+    "note": "Linear triggers with 7 mm travel; bumpers 0.25-0.8 mm travel"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.0"
+  },
+  "os": [],
+  "cooling": "Fan, dual copper heat pipes, aluminium heat sink",
+  "fingerprint": null,
+  "notes": "Intel Mini Pro with a 1280 x 800 screen. Pre-order from $1,399 (Aug 2022). Shares the Mini Pro body with onexplayer-mini-pro-6800u. The earlier Gundam RX-78-2 edition (China, 1920 x 1200) used the same chip and is not a separate row.",
+  "unresolved": [
+    {
+      "field": "screen.refresh_hz",
+      "reason": "Not stated in the published spec table"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "No source names the trigger sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+    },
+    {
+      "field": "release_date",
+      "reason": "Pre-order opened around 2022-08-01; first ship date not found"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Not stated for the 800p panel"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review of this SKU; measurements in onexplayer-mini-pro-6800u are from a different SKU"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated for this SKU"
+    },
+    {
+      "field": "controls.stick_type",
+      "reason": "No source names the sensor for the i7-1260P Mini Pro; the official joystick part page lists Hall only for the Mini Pro 6800U"
+    }
+  ],
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook spec table via Liliputing; the original store page is gone"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "ram",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "16 GB LPDDR5-5200"
+    },
+    {
+      "field": "storage",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "M.2 2280, PCIe 3.0 x4 (table also lists PCIe 4.0 x4); 1 TB / 2 TB"
+    },
+    {
+      "field": "ports",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "1x USB4 Type-C, 1x USB 3.2 Type-C, 1x USB 3.0 Type-A, 3.5 mm"
+    },
+    {
+      "field": "screen",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "7 inch 1280 x 800 IPS, 10-point multitouch"
+    },
+    {
+      "field": "battery",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "48 Wh, 100 W GaN USB-C"
+    },
+    {
+      "field": "dims_mm",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "260 x 106 x 23 mm"
+    },
+    {
+      "field": "weight_g.handheld.stated",
+      "url": "https://liliputing.com/onexplayer-mini-handheld-gaming-pc-with-core-i7-1260p-alder-lake-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "619 g for the i7-1260P Mini (Gundam edition, same 260 x 106 x 23 mm body)"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "Linear triggers with 7 mm travel (sensor not named)"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "Available for pre-order for $1,399 and up"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "Published 2022-08-01"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://onexplayerstore.com/products/refurbished-onexplayer-mini-pro-intel%C2%AE-core%E2%84%A2-i7-1260p-1280-800",
+      "accessed": "2026-10-27",
+      "note": "Official refurb listing handle names the i7-1260P 1280x800 model"
+    },
+    {
+      "field": "controls.gyro",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "Game controllers: Xbox-style, dual vibration motors, gyroscope sensor"
+    },
+    {
+      "field": "controls.haptics",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+      "accessed": "2026-10-27",
+      "note": "Dual vibration motors"
+    }
+  ]
+}

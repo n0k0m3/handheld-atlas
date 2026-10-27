@@ -1,0 +1,546 @@
+{
+ "acer-nitro-blaze-11": {
+  "top": {
+   "kind": "traced",
+   "source": "https://images.acer.com/is/image/acer/acer-nitro-blaze-11-gn7112u-wp-logo-black-01?wid=1600",
+   "aspect_err": 0.026
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "acer-nitro-blaze-7": {
+  "top": {
+   "kind": "traced",
+   "source": "https://m.media-amazon.com/images/I/61GhF5oLL8L.jpg",
+   "aspect_err": 0.027
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "acer-nitro-blaze-8": {
+  "top": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "acer-predator-atlas-7": {
+  "top": {
+   "kind": "traced",
+   "source": "https://images.acer.com/is/image/acer/predator-atlas-7-pa07-i51-wp-shale-black-01?wid=1600",
+   "aspect_err": 0.022
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "acer-predator-atlas-7-g3": {
+  "top": {
+   "kind": "traced",
+   "source": "https://images.acer.com/is/image/acer/predator-atlas-7-pa07-i51-wp-shale-black-01?wid=1600",
+   "aspect_err": 0.022
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "acer-predator-atlas-8": {
+  "top": {
+   "kind": "traced",
+   "source": "https://images.acer.com/is/image/acer/predator-atlas-8-pa08-i51-wp-shale-black-01-1?wid=1600",
+   "aspect_err": 0.06
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "acer-predator-atlas-8-g3": {
+  "top": {
+   "kind": "traced",
+   "source": "https://images.acer.com/is/image/acer/predator-atlas-8-pa08-i51-wp-shale-black-01-1?wid=1600",
+   "aspect_err": 0.06
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "ayn-loki-max": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_loki-max",
+   "aspect_err": 0.052
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "legion-go": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_lenovo-legion-go",
+   "aspect_err": 0.002
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_8APU1/Compressedimage/Legion_Go_8APU1_CT2_01.png",
+   "aspect_err": 0.003
+  }
+ },
+ "legion-go-2": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_legion-go-gen-2",
+   "aspect_err": 0.013
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "legion-go-2-z2": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_legion-go-gen-2",
+   "aspect_err": 0.013
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "legion-go-s-z1-extreme": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_legion-go-s",
+   "aspect_err": 0.023
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_S_8ARP1/Legion_Go_S_8ARP1_CT2_08.png",
+   "aspect_err": 0.02
+  }
+ },
+ "legion-go-s-z2-go": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_legion-go-s",
+   "aspect_err": 0.023
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_S_8ARP1/Legion_Go_S_8ARP1_CT2_08.png",
+   "aspect_err": 0.02
+  }
+ },
+ "legion-go-z1": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_lenovo-legion-go",
+   "aspect_err": 0.002
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_8APU1/Compressedimage/Legion_Go_8APU1_CT2_01.png",
+   "aspect_err": 0.003
+  }
+ },
+ "msi-claw-7-ai-plus": {
+  "top": {
+   "kind": "traced",
+   "source": "https://storage-asset.msi.com/global/picture/product/product_1777014970718fd088045ed7a93ad88343bcd92c86.webp",
+   "aspect_err": 0.071
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "msi-claw-8-ai-plus": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_msi-claw-8-ai",
+   "aspect_err": 0.051
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://storage-asset.msi.com/global/picture/product/product_1732863142b61ca3885c398bc42a50e55accda0ec1.webp",
+   "aspect_err": 0.035
+  }
+ },
+ "msi-claw-8-ex-ai-plus": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_msi-claw-8-ex-ai",
+   "aspect_err": 0.014
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "msi-claw-8-ex-ai-plus-cg3m": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_msi-claw-8-ex-ai",
+   "aspect_err": 0.014
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "msi-claw-a1m-135h": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_msi-claw-a1m",
+   "aspect_err": 0.082
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "msi-claw-a1m-155h": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_msi-claw-a1m",
+   "aspect_err": 0.082
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "msi-claw-a8": {
+  "top": {
+   "kind": "traced",
+   "source": "https://storage-asset.msi.com/global/picture/product/product_17501412831a5f8410f3f57086c7f018c79a965d2c.webp",
+   "aspect_err": 0.02
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "orange-pi-neo-7840u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://neo.manjaro.org/img/os-view.png",
+   "aspect_err": 0.017
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "orange-pi-neo-8840u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://neo.manjaro.org/img/os-view.png",
+   "aspect_err": 0.017
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "rog-ally-x": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_rog-ally-x",
+   "aspect_err": 0.027
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/42464A36-63B3-4ADA-B46F-84BC1D019D2D/w2000/h1470",
+   "aspect_err": 0.026
+  }
+ },
+ "rog-ally-z1": {
+  "top": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/9B345703-C095-4C0C-A86F-0E48FB76F93F/w2000/h1470",
+   "aspect_err": 0.06
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/27E3C5C6-05A9-4191-BAC4-B1B8DE1EF9A7/w2000/h1470",
+   "aspect_err": 0.062
+  }
+ },
+ "rog-ally-z1-extreme": {
+  "top": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/9B345703-C095-4C0C-A86F-0E48FB76F93F/w2000/h1470",
+   "aspect_err": 0.06
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/27E3C5C6-05A9-4191-BAC4-B1B8DE1EF9A7/w2000/h1470",
+   "aspect_err": 0.062
+  }
+ },
+ "rog-xbox-ally": {
+  "top": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/828CE44B-7B48-4F48-88F7-88BEA7D13C5D/w2000/h1470",
+   "aspect_err": 0.001
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/3E3E2E81-1386-46C1-833C-5CA58B7ACBDC/w2000/h1470",
+   "aspect_err": 0.0
+  }
+ },
+ "rog-xbox-ally-x": {
+  "top": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/31017D2D-6DF1-4D89-9784-10D7A92C80BD/w2000/h1470",
+   "aspect_err": 0.003
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/2C9F70CB-18CD-4AB4-A6FA-F0FAFDA4542B/w2000/h1470",
+   "aspect_err": 0.001
+  }
+ },
+ "rog-xbox-ally-x20": {
+  "top": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/D797EEA6-B797-472F-9E8B-EC9E07963B27/w2000/h1470",
+   "aspect_err": 0.004
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://dlcdnwebimgs.asus.com/gain/328FCEFC-088C-4CA2-B54C-111B93C48950/w2000/h1470",
+   "aspect_err": 0.0
+  }
+ },
+ "suiplay-0x1": {
+  "top": {
+   "kind": "traced",
+   "source": "https://cdn.prod.website-files.com/66cf3cbcef83aa4c33ac95de/67978bd81936c89f922e3b2e_Middle%20Page%20Animation_0160.webp",
+   "aspect_err": 0.086
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "zotac-zone": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_zotac-zone",
+   "aspect_err": 0.051
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://www.zotacstore.com/media/catalog/product/cache/539723a2e9332d260af6c2353ed89eb7/z/g/zgc-g1a1w-01-image05_0.jpg",
+   "aspect_err": 0.044
+  }
+ },
+ "zotac-zone-pro": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_zotac-zone-pro",
+   "aspect_err": 0.014
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ }
+}

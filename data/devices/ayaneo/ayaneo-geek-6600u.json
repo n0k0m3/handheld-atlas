@@ -1,0 +1,273 @@
+{
+  "id": "ayaneo-geek-6600u",
+  "brand": "AYANEO",
+  "model": "Geek",
+  "variant": "Ryzen 5 6600U",
+  "status": "announced",
+  "announce_date": "2022-06-07",
+  "release_date": null,
+  "msrp_usd": null,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 264.5,
+      "h": 105.5,
+      "d": 22.3,
+      "d_max": 36.9
+    },
+    "note": "Official size: 264.5*105.5*22.3mm, 36.9mm at the grips"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 660,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "AYANEO lists about 660 g"
+  },
+  "soc_id": "r5-6600u",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR5",
+    "speed_mts": 6400,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 3,
+        "lanes": null,
+        "note": "M.2 2280 PCIe 3.0; double-sided drives up to 8TB fit"
+      }
+    ],
+    "capacities_gb": [
+      512
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Type-C USB 4.0 with charging and video output"
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Third Type-C port; speed not stated (spec: Type C*3, USB4*2)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "TF card slot, up to 300 MB/s"
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": null,
+    "res_w": 1280,
+    "res_h": 800,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": null,
+    "nits_sdr": 400,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "Two panels: Fantasy Black has a slim-bezel 800P (1280x800) screen, 400 nits, the same panel as the NEXT; Crystal Purple has the no-bezel 1200P (1920x1200) screen of the AYANEO 2. Values in this row are the 800P base panel"
+  },
+  "battery": {
+    "wh": 50.25,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": null
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Big Hall joystick",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "X-axis linear motors",
+    "note": "Geek controller. Body gyroscope only. Hall triggers, 7.5 mm travel. Custom buttons LC, RC, and ="
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Custom fan cooler; vendor states up to 32-35 W heat dissipation",
+  "fingerprint": true,
+  "notes": "Base Geek option with the Ryzen 5 6600U, announced 2022-06-07 as the 'AYANEO 2 GEEK' (16GB/512GB) with a China pre-order. Announced US price: $699 retail, $619 early bird (NotebookCheck, 2022-06-02). The November 2022 Indiegogo campaign offered the Geek with the 6800U only, and no source confirms that a 6600U unit shipped, so status is 'announced'. Chassis, screen, and controls are copied from the official Geek comparison table, which lists 'AMD 6800U / AMD 6600U' in one column.",
+  "unresolved": [
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found; no NotebookCheck review exists"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "not stated by the vendor"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "PCIe lane count not stated"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "charge input wattage per port not stated"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "port location not stated on the official page"
+    },
+    {
+      "field": "ports.1",
+      "reason": "speed, DP, PD, and location of the third Type-C port not stated"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed, DP, PD, and location do not apply or are not stated"
+    },
+    {
+      "field": "ports.3",
+      "reason": "speed, DP, PD, and location do not apply or are not stated"
+    },
+    {
+      "field": "screen.panel",
+      "reason": "official page gives resolution and brightness but not the panel technology"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "reason": "refresh rate not stated by the vendor"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "touch support not stated on the official page"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "vendor gives only one brightness value (400 nits)"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "vendor says fast charging but gives no wattage"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "not stated by the vendor"
+    },
+    {
+      "field": "release_date",
+      "reason": "no source confirms that the 6600U version shipped"
+    },
+    {
+      "field": "msrp_usd",
+      "reason": "only an announced US price ($699, June 2022) exists; the 6600U was not offered at the Indiegogo launch"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "weight_g.handheld.stated",
+      "values": [
+        {
+          "value": 660,
+          "url": "https://ayaneo.com/product/AYANEOGEEK"
+        },
+        {
+          "value": 680,
+          "url": "https://ayaneo.com/product/AYANEOGEEK"
+        }
+      ],
+      "chosen_reason": "The comparison image has a per-model weight row (AYANEO 2 about 680g, GEEK about 660g) and a later shared row that says 680g for both. The per-model row is used."
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/AYANEOGEEK",
+      "accessed": "2026-10-27",
+      "note": "Comparison table image https://cdn.ayaneo.com/ayaneo%2Fimg%2Fproduct%2FGEEK%2Fayaneoa14.png (CPU 6800U/6600U, 800P/1200P, PCIe 3.0 M.2 2280, about 660g, 264.5*105.5*22.3mm 36.9mm, Type C*3 USB4*2, TF 300 MB/s, Wi-Fi 6, BT 5.2, 50.25Wh); page text (400 nits 800P, 3.5mm port)"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/AYANEOGEEK",
+      "accessed": "2026-10-27",
+      "note": "Comparison table: Rocker = Hall big rocker; page: Hall Joystick"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/AYANEOGEEK",
+      "accessed": "2026-10-27",
+      "note": "Comparison table: Trigger = Hall Trigger"
+    },
+    {
+      "field": "screen.note",
+      "url": "https://www.notebookcheck.net/AYA-NEO-2-and-AYA-NEO-GEEK-arrive-on-Indiegogo-with-AMD-Ryzen-7-6800U-and-Radeon-680M-offering.666266.0.html",
+      "accessed": "2026-10-27",
+      "note": "Fantasy Black GEEK has an 800p display; Crystal Purple GEEK has 1200p"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://ayaneo.com/article/205",
+      "accessed": "2026-10-27",
+      "note": "AYANEO news 2022-06-07: AYANEO 2 GEEK standard version with AMD 6600U, 16GB memory, 512GB"
+    },
+    {
+      "field": "notes",
+      "url": "https://www.notebookcheck.net/AYA-NEO-2-GEEK-AYA-NEO-announces-another-gaming-handheld-powered-by-AMD-Ryzen-6800U-and-Radeon-680M-silicon.624341.0.html",
+      "accessed": "2026-10-27",
+      "note": "Announced price US$699 retail / US$619 early bird for the Ryzen 5 6600U model; shipping hoped for 2023"
+    },
+    {
+      "field": "status",
+      "url": "https://www.notebookcheck.net/AMD-Ryzen-7-6800U-powered-GEEK-AYANEO-2-handheld-gaming-consoles-by-AYANEO-to-ship-starting-in-December.657642.0.html",
+      "accessed": "2026-10-27",
+      "note": "Indiegogo launch (Nov 2022): both GEEK and AYANEO 2 use the Ryzen 7 6800U"
+    }
+  ]
+}

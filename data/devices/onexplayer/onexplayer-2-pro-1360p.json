@@ -1,0 +1,322 @@
+{
+  "id": "onexplayer-2-pro-1360p",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer 2 Pro",
+  "variant": "Intel Core i7-1360P",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": null,
+  "msrp_usd": null,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 310,
+      "h": 127,
+      "d": 23,
+      "d_max": null
+    },
+    "tablet_only": {
+      "w": 208,
+      "h": 127,
+      "d": 23,
+      "d_max": null
+    },
+    "note": null
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 848,
+      "measured": null,
+      "measured_source": null
+    },
+    "tablet_only": {
+      "stated": 709,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Stated handheld weight = 709 g main body + 139 g controllers (One Netbook figures)"
+  },
+  "soc_id": "i7-1360p",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": null,
+    "speed_mts": null,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Vendor says it also supports Thunderbolt technology (compatibility); no Thunderbolt certification stated"
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "Power Delivery and DisplayPort per NotebookCheck; Liliputing lists USB 3.1 / 3.2 Type-C"
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Listed as USB 3.0 Type-A"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 8.4,
+    "panel": "IPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": 60,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "Pen support"
+  },
+  "battery": {
+    "wh": 65.5,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": null
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall joysticks (official replacement part listing)",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": null,
+    "note": "Dual linear triggers (sensor not named)"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "single fan, two 8.6 mm copper heat pipes",
+  "fingerprint": null,
+  "notes": "Intel version of the OneXPlayer 2 Pro (8.4-inch). The only official evidence is a refurb store listing (2026). Chassis, screen and controls are copied from onexplayer-2-pro. Liliputing reported a planned i7-1370P model in 2023 (https://liliputing.com/the-next-onexplayer-handheld-gaming-pc-could-have-core-i7-1370p-and-detachable-controllers/).",
+  "unresolved": [
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "Not stated for the 2 Pro"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "Vendor says linear triggers but does not name the sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "Not stated"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "dims_mm.tablet_only.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+    },
+    {
+      "field": "msrp_usd",
+      "reason": "Only a 2026 refurb listing ($499) names this SKU; no launch price found"
+    },
+    {
+      "field": "release_date",
+      "reason": "No launch article found. Liliputing (2023-03-30) reported an Intel i7-1370P beta of the OneXPlayer 2; the shipped refurb SKU names the i7-1360P."
+    },
+    {
+      "field": "announce_date",
+      "reason": "No announcement found for the i7-1360P SKU"
+    },
+    {
+      "field": "ram.type",
+      "reason": "Not stated for the Intel SKU"
+    },
+    {
+      "field": "ram.speed_mts",
+      "reason": "Not stated for the Intel SKU"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review of this SKU; measurements in onexplayer-2-pro are from a different SKU"
+    },
+    {
+      "field": "weight_g.tablet_only.measured",
+      "reason": "No review of this SKU; measurements in onexplayer-2-pro are from a different SKU"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated for this SKU"
+    }
+  ],
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20231229160223/https://onexplayerstore.com/products/onexplayer-2-pro",
+      "accessed": "2026-10-27",
+      "note": "Archived official store page"
+    },
+    {
+      "field": "dims_mm",
+      "url": "https://liliputing.com/onexplayer-2-pro-handheld-gaming-pc-with-ryzen-7-8840u-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "310 x 127 x 23 mm with controllers, 208 x 127 x 23 mm without"
+    },
+    {
+      "field": "weight_g",
+      "url": "https://liliputing.com/onexplayer-2-pro-handheld-gaming-pc-with-ryzen-7-8840u-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "Main body 709 g, controllers 139 g"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html",
+      "accessed": "2026-10-27",
+      "note": "Bottom: USB-C 3.2 with PD and DP; top: microSD, USB-A 3.0, USB4, 3.5 mm"
+    },
+    {
+      "field": "ports",
+      "url": "https://liliputing.com/onexplayer-2-pro-handheld-gaming-pc-with-ryzen-7-8840u-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": "1x USB4, 1x USB 3.2 Type-C, 1x USB 3.0 Type-A, microSD"
+    },
+    {
+      "field": "screen",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "wireless",
+      "url": "https://liliputing.com/onexplayer-2-pro-handheld-gaming-pc-with-ryzen-7-8840u-coming-soon/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "os",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "controls.gyro",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-Pro-gaming-handheld-tablet-or-detachable-in-review-multifaceted-device-with-strong-Ryzen-7.798258.0.html",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official replacement joystick: ONEXPLAYER 2/2 PRO / Hall"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://onexplayerstore.com/products/refurbished-2-pro-8-4",
+      "accessed": "2026-10-27",
+      "note": "Official refurb listing 'Refurbished ONEXPLAYER 2 PRO 8.4': variant 'Intel - 1360P - 16GB + 1TB'"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://onexplayerstore.com/products/refurbished-2-pro-8-4",
+      "accessed": "2026-10-27",
+      "note": "16 GB + 1 TB"
+    },
+    {
+      "field": "ports",
+      "url": "https://onexplayerstore.com/products/refurbished-2-pro-8-4",
+      "accessed": "2026-10-27",
+      "note": "USB 4.0 port up to 40 Gbps with 'Thunderbolt Technology compatibility' (same text as the AMD model)"
+    }
+  ]
+}

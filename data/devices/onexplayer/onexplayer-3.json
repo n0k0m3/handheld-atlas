@@ -1,0 +1,339 @@
+{
+  "id": "onexplayer-3",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer 3",
+  "variant": "Intel Arc G3 Extreme",
+  "status": "shipped",
+  "announce_date": "2026-05-28",
+  "release_date": "2026-08",
+  "msrp_usd": 1499,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 313,
+      "h": 138,
+      "d": 22,
+      "d_max": null
+    },
+    "tablet_only": null,
+    "note": "Vendor: 313 x 138 x 22 mm at the thinnest point (with controllers, by matching the X2 Mini sheet)."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 939,
+      "measured": null,
+      "measured_source": null
+    },
+    "tablet_only": {
+      "stated": 779,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Vendor: about 939 g with controllers, 779 g without"
+  },
+  "soc_id": "arc-g3-extreme",
+  "ram": {
+    "sizes_gb": [
+      24,
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8533,
+    "channels": null,
+    "soldered": null
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024
+    ],
+    "expansion": [
+      "microSD",
+      "mini-ssd-1517"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Vendor: USB 3.2 Type-A (generation not stated)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "microSD 4.0, up to 300 MB/s, up to 2 TB"
+    },
+    {
+      "kind": "mini-ssd-1517",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Mini SSD slot, PCIe 4.0"
+    }
+  ],
+  "screen": {
+    "size_in": 8.8,
+    "panel": "AMOLED",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 144,
+    "vrr": true,
+    "touch": null,
+    "nits_sdr": 475,
+    "nits_peak": 1100,
+    "hdr": true,
+    "note": "30-144 Hz VRR; 700 nits HBM, 1100 nits HDR; 100% DCI-P3"
+  },
+  "battery": {
+    "wh": 85,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": "Built-in battery"
+  },
+  "controls": {
+    "stick_type": "capacitive",
+    "stick_note": "Capacitive joystick, 9 mm height, 22 degree tilt, RGB",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": "Dual vibration motors",
+    "note": "Hall triggers with switchable long and short travel; swappable 4/8-way D-pad; controller connector base 1,100 mAh, 99 g"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "5.4"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Single 4200 RPM fan, 11,203 mm2 vapor chamber, 16,644 mm2 aluminium fins; 35 W",
+  "fingerprint": true,
+  "notes": "Indiegogo from 2026-06-24 ($1,399 base). Moved to the official store for pre-order on 2026-07-30 at $1,499 (24 GB/512 GB); shipping expected late August 2026. Store list price at crawl time $1,699 (sale $1,549).",
+  "unresolved": [
+    {
+      "field": "dims_mm.tablet_only",
+      "reason": "Not stated"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review measurement found"
+    },
+    {
+      "field": "weight_g.tablet_only.measured",
+      "reason": "No review measurement found"
+    },
+    {
+      "field": "ram.soldered",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "msrp_usd",
+      "values": [
+        {
+          "value": 1499,
+          "url": "https://www.notebookcheck.net/OneXPlayer-3-now-available-for-pre-order-but-prices-have-changed.1356089.0.html"
+        },
+        {
+          "value": 1399,
+          "url": "https://www.notebookcheck.net/Onexplayer-3-pricing-officially-confirmed.1327954.0.html"
+        }
+      ],
+      "chosen_reason": "Retail store price; $1,399 was the Indiegogo price"
+    },
+    {
+      "field": "controls.stick_type",
+      "values": [
+        {
+          "value": "capacitive",
+          "url": "https://onexplayerstore.com/products/joystick"
+        },
+        {
+          "value": "hall",
+          "url": "https://liliputing.com/onexplayer-3-is-a-handheld-gaming-pc-with-intel-arc-g3-extreme-and-detachable-controllers/"
+        }
+      ],
+      "chosen_reason": "Official joystick part page names the stick type 'Capacitor' (its other option is 'Hall'). Liliputing says 'analog sticks with hall effect sensors'."
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://onexplayerstore.com/products/onexplayer-3-next-gen-3-in-1-ai-gaming-and-productivity-handheld",
+      "accessed": "2026-10-27",
+      "note": "Official store page; spec table is the image https://cdn.shopify.com/s/files/1/0557/8535/7492/files/ONEXPLAYER3_PC.png?v=1785236163"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official joystick part listing: 'Onexplayer 3/X2 Mini Pro/X2 Mini / Capacitor'. Official spec image: 'Joystick: Capacitive joystick, 9mm height, 22 tilt angle'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/ONEXPLAYER3_PC.png?v=1785236163",
+      "accessed": "2026-10-27",
+      "note": "Official spec image: 'Hall-effect triggers with switchable long and short travel modes'"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/OneXPlayer-3-now-available-for-pre-order-but-prices-have-changed.1356089.0.html",
+      "accessed": "2026-10-27",
+      "note": "Retail pre-order on the official store: $1,499 / $1,599 / $1,799"
+    },
+    {
+      "field": "release_date",
+      "url": "https://www.notebookcheck.net/OneXPlayer-3-now-available-for-pre-order-but-prices-have-changed.1356089.0.html",
+      "accessed": "2026-10-27",
+      "note": "Shipping expected late August 2026"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-3-is-a-handheld-gaming-pc-with-intel-arc-g3-extreme-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": null
+    }
+  ]
+}

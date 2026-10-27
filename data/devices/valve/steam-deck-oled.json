@@ -1,0 +1,80 @@
+{
+  "id": "steam-deck-oled",
+  "brand": "Valve",
+  "model": "Steam Deck OLED",
+  "variant": null,
+  "status": "shipped",
+  "announce_date": "2023-11-09",
+  "release_date": "2023-11-16",
+  "msrp_usd": 549,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 298, "h": 117, "d": 49, "d_max": null },
+    "note": "Valve publishes one size: 298 x 117 x 49 mm."
+  },
+  "weight_g": {
+    "handheld": { "stated": 640, "measured": 637, "measured_source": "https://www.notebookcheck.net/Steam-Deck-1-TB-OLED-review-Minimalist-performance-maximum-gaming-fun.802764.0.html" },
+    "note": "Valve states approx. 640 g. NotebookCheck weighed its 1 TB unit at 637 g (its spec table repeats the 640 g vendor figure)."
+  },
+  "soc_id": "steam-deck-apu-oled",
+  "ram": { "sizes_gb": [16], "type": "LPDDR5", "speed_mts": 6400, "channels": 4, "soldered": true },
+  "storage": {
+    "slots": [
+      { "form_factor": "2230", "pcie_gen": 3, "lanes": 4, "note": "Single M.2 2230 slot; takes single-sided drives. Valve lists NVMe SSD only." }
+    ],
+    "capacities_gb": [512, 1024],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 45, "location": "top", "note": "DisplayPort over USB-C, up to 8K@60Hz or 4K@120Hz. pd_in_w is the Valve PD 3.0 power supply rating." },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Stereo headphone / headset jack" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "bottom", "note": "UHS-I; supports SD, SDXC and SDHC" }
+  ],
+  "screen": { "size_in": 7.4, "panel": "OLED", "res_w": 1280, "res_h": 800, "refresh_hz": 90, "vrr": false, "touch": true, "nits_sdr": 600, "nits_peak": 1000, "hdr": true, "note": "HDR OLED, 110% P3, <0.1 ms response. The 1 TB model has anti-glare etched glass; the 512 GB model does not." },
+  "battery": { "wh": 50, "removable": false, "external": false, "charge_w": 45, "note": "Valve: 3-12 hours of gameplay. 45 W PD 3.0 USB-C power supply, 2.5 m cable." },
+  "controls": {
+    "stick_type": "potentiometer",
+    "stick_note": "2 x full-size analog sticks with capacitive touch",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 2,
+    "gyro": true,
+    "rear_buttons": 4,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics",
+    "note": "Trackpads are 32.5 mm square with haptic feedback and pressure sensitivity."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.3" },
+  "os": ["SteamOS 3"],
+  "cooling": "single fan",
+  "fingerprint": false,
+  "notes": "Rows merged: 512 GB, 1 TB, and the 1 TB Limited Edition (translucent shell, $679, US/Canada only) share this hardware. Replaces the hand-written seed row; the seed cited /en/tech/deck, which is the LCD tech page.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
+    { "field": "ports.2", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "dims_mm.handheld.d_max", "reason": "Valve publishes one thickness value" },
+    { "field": "controls.trigger_type", "reason": "Valve lists 'L & R analog triggers' without the sensor type; no review or teardown found that names it" },
+    { "field": "controls.trigger_lock", "reason": "Not stated by Valve or the reviews used" }
+  ],
+  "conflicts": [
+    {
+      "field": "wireless.bt",
+      "values": [
+        { "value": "5.3", "url": "https://www.steamdeck.com/en/tech" },
+        { "value": "5.2", "url": "https://www.notebookcheck.net/Steam-Deck-1-TB-OLED-review-Minimalist-performance-maximum-gaming-fun.802764.0.html" }
+      ],
+      "chosen_reason": "Official Valve value"
+    }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://www.steamdeck.com/en/tech", "accessed": "2026-10-27", "note": "Valve tech specs page, Steam Deck OLED tab" },
+    { "field": "weight_g.handheld.measured", "url": "https://www.notebookcheck.net/Steam-Deck-1-TB-OLED-review-Minimalist-performance-maximum-gaming-fun.802764.0.html", "accessed": "2026-10-27", "note": "Review text: 'at 637 grams'" },
+    { "field": "controls.stick_type", "url": "https://www.notebookcheck.net/Steam-Deck-1-TB-OLED-review-Minimalist-performance-maximum-gaming-fun.802764.0.html", "accessed": "2026-10-27", "note": "'the Steam Deck OLED has thumbsticks with potentiometers'" },
+    { "field": "storage.slots", "url": "https://www.tomshardware.com/video-games/handheld-gaming/how-to-upgrade-steam-deck-ssd", "accessed": "2026-10-27", "note": "'All models come with a single M.2 2230 slot'; 'All the SSD models use a PCIe 3.0 x4 interface'" },
+    { "field": "announce_date", "url": "https://gameinformer.com/2023/11/09/steam-deck-oled-announced", "accessed": "2026-10-27", "note": "Announcement article dated 2023-11-09" },
+    { "field": "release_date", "url": "https://gameinformer.com/2023/11/09/steam-deck-oled-announced", "accessed": "2026-10-27", "note": "'available for purchase on November 16'" },
+    { "field": "msrp_usd", "url": "https://gameinformer.com/2023/11/09/steam-deck-oled-announced", "accessed": "2026-10-27", "note": "512GB OLED $549, 1TB $649, Limited Edition 1TB $679" },
+    { "field": "screen.note", "url": "https://www.notebookcheck.net/Steam-Deck-1-TB-OLED-review-Minimalist-performance-maximum-gaming-fun.802764.0.html", "accessed": "2026-10-27", "note": "512 GB model lacks the etched screen glass" }
+  ]
+}

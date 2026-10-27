@@ -1,0 +1,310 @@
+{
+  "id": "onexfly-7840u",
+  "brand": "OneXPlayer",
+  "model": "OneXFly",
+  "variant": "Ryzen 7 7840U",
+  "status": "shipped",
+  "announce_date": "2023-06",
+  "release_date": "2023-10",
+  "msrp_usd": 999,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 263.6,
+      "h": 98.25,
+      "d": 22.6,
+      "d_max": null
+    },
+    "note": null
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 580,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r7-7840u",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top, bottom",
+      "note": "One on the top edge, one on the bottom edge (DroiX)"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Listed as USB-A 3.2 (generation not stated)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "Micro SD 4.0"
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 120,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "100% sRGB"
+  },
+  "battery": {
+    "wh": 48,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65W GaN charger included"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall, 18 degree tilt, 7.5 mm height",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "Two programmable macro buttons next to the triggers (top edge)"
+  },
+  "wireless": {
+    "wifi": null,
+    "bt": null
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": null,
+  "fingerprint": null,
+  "notes": "Indiegogo campaign from Aug 10, 2023 ($739 early bird for 16GB/512GB). Store pre-order in Sept 2023 at $999 for 32GB/1TB with shipping from mid-October 2023; no separate list price seen. First announced in 2022 as a 6 inch Mendocino model; that design never shipped.",
+  "unresolved": [
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer scale measurement found"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "No source names the trigger sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.gyro",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "Not stated"
+    },
+    {
+      "field": "wireless",
+      "reason": "Wi-Fi and Bluetooth versions not stated in the sources used"
+    },
+    {
+      "field": "cooling",
+      "reason": "Not stated"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "weight_g.handheld.stated",
+      "values": [
+        {
+          "value": 580,
+          "url": "https://web.archive.org/web/20230926015414/https://onexplayerstore.com/products/onexfly"
+        },
+        {
+          "value": 599,
+          "url": "https://web.archive.org/web/20240629154318/https://onexplayerstore.com/products/onexfly"
+        }
+      ],
+      "chosen_reason": "Value on this row's official page"
+    },
+    {
+      "field": "battery.wh",
+      "values": [
+        {
+          "value": 48,
+          "url": "https://web.archive.org/web/20230926015414/https://onexplayerstore.com/products/onexfly"
+        },
+        {
+          "value": 48.5,
+          "url": "https://web.archive.org/web/20240629154318/https://onexplayerstore.com/products/onexfly"
+        }
+      ],
+      "chosen_reason": "Official spec table at launch"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20230926015414/https://onexplayerstore.com/products/onexfly",
+      "accessed": "2026-10-27",
+      "note": "Archived official store page"
+    },
+    {
+      "field": "dims_mm",
+      "url": "https://web.archive.org/web/20230926015414/https://onexplayerstore.com/products/onexfly",
+      "accessed": "2026-10-27",
+      "note": "Official spec table: 263.6 x 98.25 x 22.6 mm"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://web.archive.org/web/20230926015414/https://onexplayerstore.com/products/onexfly",
+      "accessed": "2026-10-27",
+      "note": "Official spec table: Joystick: Hall, 18 degree tilt, 7.5 mm height"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official replacement joystick: ONEXFLY / Hall"
+    },
+    {
+      "field": "ports.0.location",
+      "url": "https://droix.net/blogs/onexplayer-onexfly-review-with-video/",
+      "accessed": "2026-10-27",
+      "note": "Top: USB4, USB-A, 3.5 mm; bottom: USB4, microSD"
+    },
+    {
+      "field": "screen.touch",
+      "url": "https://droix.net/blogs/onexplayer-onexfly-review-with-video/",
+      "accessed": "2026-10-27",
+      "note": "7 inch touchscreen"
+    },
+    {
+      "field": "storage.slots",
+      "url": "https://liliputing.com/onexfly-handheld-gaming-pc-coming-soon-with-a-7-inch-screen-and-ryzen-7-7840u/",
+      "accessed": "2026-10-27",
+      "note": "M.2 2280 slot, PCIe 4.0 x4"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://web.archive.org/web/20230926015414/https://onexplayerstore.com/products/onexfly",
+      "accessed": "2026-10-27",
+      "note": "Store price $999 for 32GB/1TB at launch"
+    },
+    {
+      "field": "release_date",
+      "url": "https://web.archive.org/web/20230926015414/https://onexplayerstore.com/products/onexfly",
+      "accessed": "2026-10-27",
+      "note": "Store pre-order; shipping begins mid-October 2023"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexfly-handheld-gaming-pc-coming-soon-with-a-7-inch-screen-and-ryzen-7-7840u/",
+      "accessed": "2026-10-27",
+      "note": "Reintroduced with the 7840U on June 15, 2023"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://web.archive.org/web/20230926015414/https://onexplayerstore.com/products/onexfly",
+      "accessed": "2026-10-27",
+      "note": "Options 16/32/64GB"
+    },
+    {
+      "field": "storage.capacities_gb",
+      "url": "https://liliputing.com/onexfly-handheld-gaming-pc-coming-soon-with-a-7-inch-screen-and-ryzen-7-7840u/",
+      "accessed": "2026-10-27",
+      "note": "512GB to 4TB configurations"
+    }
+  ]
+}

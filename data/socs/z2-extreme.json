@@ -1,0 +1,86 @@
+{
+  "id": "z2-extreme",
+  "vendor": "AMD",
+  "name": "Ryzen Z2 Extreme",
+  "codename": "Strix Point",
+  "cores": 8,
+  "threads": 16,
+  "core_mix": "3x Zen 5 + 5x Zen 5c",
+  "cpu_arch": "Zen 5 / Zen 5c",
+  "base_ghz": 2.0,
+  "boost_ghz": 5.0,
+  "tdp_w": {
+    "default": 28,
+    "min": 15,
+    "max": 35
+  },
+  "process_nm": 4,
+  "process_note": "TSMC 4nm",
+  "npu_tops": 0,
+  "memory": "DDR5-5600, LPDDR5X-8000, dual-channel",
+  "launch_date": "2025-01-06",
+  "igpu": {
+    "name": "Radeon 890M-class (16 CU)",
+    "cu": 16,
+    "arch": "RDNA 3.5",
+    "clock_mhz": 2900,
+    "tflops_fp32": 5.94
+  },
+  "passmark": {
+    "cpu_mark": 23200,
+    "single_thread": 3899,
+    "cpu_samples": 33,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z2+Extreme&id=6816",
+    "g3d_mark": 8061,
+    "g3d_samples": 2367,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+890M&id=5113",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry 'AMD Ryzen Z2 Extreme' (33 samples). GPU: no Z2 Extreme iGPU entry; stand-in 'Radeon 890M' (laptop twin with 16 CU RDNA 3.5; laptop samples often run at higher TDP)."
+  },
+  "notes": "Zen 5c cores run up to 3.3 GHz. Separate chip from the Ryzen AI Z2 Extreme, which exposes a 50 TOPS NPU. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/handhelds/ryzen-z-series/z2-series/z2-extreme.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: core mix, clocks, TDP, iGPU CU and clock"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z2+Extreme&id=6816",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+890M&id=5113",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z2-extreme.c4602",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Jan 6th, 2025"
+    },
+    {
+      "field": "process_nm",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z2-extreme.c4602",
+      "accessed": "2026-10-27",
+      "note": "TPU: TSMC 4 nm"
+    },
+    {
+      "field": "memory",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z2-extreme.c4602",
+      "accessed": "2026-10-27",
+      "note": "TPU: DDR5-5600, LPDDR5X-8000"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/ryzen-z2-extreme-gpu.c4304",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 5.939 TFLOPS"
+    }
+  ]
+}

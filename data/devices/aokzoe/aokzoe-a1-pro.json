@@ -1,0 +1,311 @@
+{
+  "id": "aokzoe-a1-pro",
+  "brand": "AOKZOE",
+  "model": "A1 Pro",
+  "variant": "Ryzen 7 7840U",
+  "status": "shipped",
+  "announce_date": "2023-04-05",
+  "release_date": "2023-07",
+  "msrp_usd": 999,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 285,
+      "h": 125,
+      "d": 21,
+      "d_max": null
+    },
+    "note": "Vendor gives 21 mm at the thinnest point."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 729,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r7-7840u",
+  "ram": {
+    "sizes_gb": [
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "NVMe"
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "USB-C 4.0 per vendor"
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "Vendor says USB-C 3.2 without a generation; bottom port for docking stations"
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "USB 3.0 per vendor"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "TF card slot per vendor"
+    }
+  ],
+  "screen": {
+    "size_in": 8,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 350,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "100% sRGB, DC dimming, 283 ppi, 10-point touch"
+  },
+  "battery": {
+    "wh": 65,
+    "removable": null,
+    "external": false,
+    "charge_w": 65,
+    "note": "17100 mAh at 3.85 V. Store: 65 W GaN PD charger, upgradable to 100 W."
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "The store parts page says replacement sticks for A1/A1 Pro come in ALPS or Hall versions by serial number; A1 Pro launch material names Hall sticks.",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "vibration motors",
+    "note": "Linear triggers. RGB light strips on the front."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [],
+  "cooling": "single fan, aluminium fins, two copper heat pipes",
+  "fingerprint": null,
+  "notes": "Indiegogo opened 2023-04-30 with Super Early Bird prices from $799 (32GB/512GB). Retail for that config was $999.",
+  "unresolved": [
+    {
+      "field": "screen.refresh_hz",
+      "reason": "not stated by the vendor"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated by the vendor"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "vendor gives only 350 nits"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "battery.removable",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "not stated"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "not stated"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "vendor gives only the thinnest point"
+    },
+    {
+      "field": "os",
+      "reason": "no fetched source states the shipped OS"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "not stated"
+    },
+    {
+      "field": "ports",
+      "reason": "per-port fields not stated by the vendor, or not applicable to the port kind (DP alt, PD input, speed on audio, card, or USB-A ports)"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "ports.USB4.count",
+      "values": [
+        {
+          "value": 1,
+          "url": "https://aokzoestore.com/products/aokzoe-a1-pro"
+        },
+        {
+          "value": 2,
+          "url": "https://liliputing.com/aokzoe-a1-pro-handheld-gaming-pc-with-ryzen-7-7840u-and-up-to-64gb-ram-hits-indiegogo-for-799-and-up/"
+        }
+      ],
+      "chosen_reason": "official store spec lists 1x USB-C 4.0 and 1x USB-C 3.2"
+    },
+    {
+      "field": "ram",
+      "values": [
+        {
+          "value": "LPDDR5X-7500",
+          "url": "https://aokzoestore.com/products/aokzoe-a1-pro"
+        },
+        {
+          "value": "LPDDR5-6400",
+          "url": "https://liliputing.com/aokzoe-a1-pro-handheld-gaming-pc-with-ryzen-7-7840u-and-up-to-64gb-ram-hits-indiegogo-for-799-and-up/"
+        }
+      ],
+      "chosen_reason": "official value"
+    },
+    {
+      "field": "battery.charge_w",
+      "values": [
+        {
+          "value": 65,
+          "url": "https://aokzoestore.com/products/aokzoe-a1-pro"
+        },
+        {
+          "value": 100,
+          "url": "https://liliputing.com/aokzoe-a1-pro-handheld-gaming-pc-with-ryzen-7-7840u-and-up-to-64gb-ram-hits-indiegogo-for-799-and-up/"
+        }
+      ],
+      "chosen_reason": "official store spec: 65 W GaN charger, upgradable to 100 W"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://aokzoestore.com/products/aokzoe-a1-pro",
+      "accessed": "2026-10-27",
+      "note": "Official store spec table"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://liliputing.com/aokzoe-a1-pro-handheld-gaming-pc-with-ryzen-7-7840u-and-up-to-64gb-ram-hits-indiegogo-for-799-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Hall Effect joysticks and triggers"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://aokzoestore.com/products/aokzoe-a1pro-worlds-1st-7840u-gaming-handheld",
+      "accessed": "2026-10-27",
+      "note": "store listing: 'Hall Joysticks'"
+    },
+    {
+      "field": "controls.stick_note",
+      "url": "https://aokzoestore.com/products/joystick-for-aokzoe-a1-game-handheld",
+      "accessed": "2026-10-27",
+      "note": "'If you require the Alps or Hall section, kindly leave a comment'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://liliputing.com/aokzoe-a1-pro-handheld-gaming-pc-with-ryzen-7-7840u-and-up-to-64gb-ram-hits-indiegogo-for-799-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Hall Effect joysticks and triggers"
+    },
+    {
+      "field": "controls.gyro",
+      "url": "https://liliputing.com/aokzoe-a1-pro-handheld-gaming-pc-with-ryzen-7-7840u-and-up-to-64gb-ram-hits-indiegogo-for-799-and-up/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "wireless",
+      "url": "https://liliputing.com/aokzoe-a1-pro-handheld-gaming-pc-with-ryzen-7-7840u-and-up-to-64gb-ram-hits-indiegogo-for-799-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Intel AX210, Wi-Fi 6E, Bluetooth 5.2"
+    },
+    {
+      "field": "storage.capacities_gb",
+      "url": "https://liliputing.com/aokzoe-a1-pro-handheld-gaming-pc-with-ryzen-7-7840u-and-up-to-64gb-ram-hits-indiegogo-for-799-and-up/",
+      "accessed": "2026-10-27",
+      "note": "512GB / 1TB / 2TB configurations"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/aokzoe-a1-pro-and-a2-handheld-gaming-pcs-with-ryzen-7000-chips-are-on-the-way/",
+      "accessed": "2026-10-27",
+      "note": "article dated 2023-04-05"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://videocardz.com/newz/aokzoe-a1-pro-console-with-ryzen-7-7840u-phoenix-apu-has-a-retail-price-of-999",
+      "accessed": "2026-10-27",
+      "note": "$999 at retail; read from the search excerpt"
+    },
+    {
+      "field": "release_date",
+      "url": "https://droix.net/knowledge-base/article/getting-started-with-the-aokzoe-a1-pro/",
+      "accessed": "2026-10-27",
+      "note": "retailer guide dated 13 July 2023; read from the search excerpt"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "ayaneo-2",
+  "brand": "AYANEO",
+  "model": "AYANEO 2",
+  "variant": null,
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2022-12",
+  "msrp_usd": 1099,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 264.5, "h": 105.5, "d": 21.5, "d_max": 36.1 },
+    "note": "Official size: 264.5*105.5*21.5mm; 36.1mm at the grips (AYANEO 2 vs GEEK comparison table)"
+  },
+  "weight_g": {
+    "handheld": { "stated": 680, "measured": null, "measured_source": null },
+    "note": "AYANEO lists ~680 g"
+  },
+  "soc_id": "r7-6800u",
+  "ram": { "sizes_gb": [16, 32], "type": "LPDDR5", "speed_mts": 6400, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": "M.2 2280 PCIe 4.0; vendor says double-sided drives up to 8TB fit" } ],
+    "capacities_gb": [512, 1024, 2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": 40, "dp_alt": true, "pd_in_w": null, "location": null, "note": "Fully functional USB 4.0 Type-C; charging and DP 1.4 4K60 output" },
+    { "kind": "USB-C unspecified", "count": 1, "speed_gbps": null, "dp_alt": false, "pd_in_w": null, "location": null, "note": "Type-C, data transfer only; speed not stated" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "TF card slot, up to 300 MB/s" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1920, "res_h": 1200, "refresh_hz": null, "vrr": null, "touch": null, "nits_sdr": 400, "nits_peak": null, "hdr": null, "note": "No-bezel full display, 323 PPI, 400 nits, anti-fingerprint coated glass. AYANEO calls it LCD; panel type IPS from Wikipedia" },
+  "battery": { "wh": 50.25, "removable": false, "external": false, "charge_w": null, "note": "50.25Wh (vendor also prints 4350mAh)" },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Big Hall joystick",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD linear motor (two-axis)",
+    "note": "Master controller. Dual gyroscopes (body and controller). Hall linear triggers, 7.5 mm travel. Custom buttons LC, RC, and ="
+  },
+  "wireless": { "wifi": "Wi-Fi 6", "bt": "5.2" },
+  "os": ["Windows 11"],
+  "cooling": "Custom fan cooler; vendor states up to 32-35 W heat dissipation",
+  "fingerprint": true,
+  "notes": "Only SoC option is the Ryzen 7 6800U. Retail start price $1,099 (16GB/512GB); Super Early Bird $949 on Indiegogo. Indiegogo campaign ended 2023-01-03. Release date is the December 2022 shipping start given by Wikipedia (citing Liliputing). The spec table also lists AYANEO OS, which did not ship as an OS option.",
+  "unresolved": [
+    { "field": "announce_date", "reason": "exact announcement date not sourced within the fetch budget" },
+    { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found; no NotebookCheck review exists" },
+    { "field": "ram.channels", "reason": "not stated by the vendor" },
+    { "field": "storage.slots.0.lanes", "reason": "PCIe lane count not stated" },
+    { "field": "ports.0.pd_in_w", "reason": "charge input wattage per port not stated" },
+    { "field": "ports.0.location", "reason": "port location not stated on the official page" },
+    { "field": "ports.1.speed_gbps", "reason": "speed of the data-only Type-C port not stated" },
+    { "field": "ports.1.pd_in_w", "reason": "data-only port" },
+    { "field": "ports.1.location", "reason": "port location not stated on the official page" },
+    { "field": "ports.2", "reason": "speed, DP, PD, and location do not apply or are not stated" },
+    { "field": "ports.3", "reason": "speed, DP, PD, and location do not apply or are not stated" },
+    { "field": "screen.refresh_hz", "reason": "refresh rate not stated by the vendor" },
+    { "field": "screen.vrr", "reason": "not stated" },
+    { "field": "screen.touch", "reason": "touch support not stated on the official page" },
+    { "field": "screen.nits_peak", "reason": "vendor gives only one brightness value (400 nits)" },
+    { "field": "screen.hdr", "reason": "not stated" },
+    { "field": "battery.charge_w", "reason": "vendor says fast charging but gives no wattage" },
+    { "field": "controls.trigger_lock", "reason": "not stated" },
+    { "field": "controls.rear_buttons", "reason": "not stated by the vendor" }
+  ],
+  "conflicts": [],
+  "sources": [
+    { "field": "*", "url": "https://ayaneo.com/product/AYANEO-2", "accessed": "2026-10-27", "note": "Spec text block on the page (CPU, RAM, SSD, screen, Wi-Fi, size, ~680g) and interface image https://cdn.ayaneo.com/ayaneo%2Fimg%2Fproduct%2FAYANEO-2%2Fayab1.png (USB4 x2 DP1.4, data-only Type-C, M.2 2280 PCIe 4.0, TF 300 MB/s, Wi-Fi 6, BT 5.2, 3.5mm)" },
+    { "field": "controls.stick_type", "url": "https://ayaneo.com/product/AYANEO-2", "accessed": "2026-10-27", "note": "Big Hall Joystick / Hall Linear Trigger / HD Linear Motor" },
+    { "field": "controls.trigger_type", "url": "https://ayaneo.com/product/AYANEO-2", "accessed": "2026-10-27", "note": "LT/RT Hall linear trigger" },
+    { "field": "dims_mm.handheld.d_max", "url": "https://ayaneo.com/product/AYANEOGEEK", "accessed": "2026-10-27", "note": "AYANEO 2 vs GEEK comparison image https://cdn.ayaneo.com/ayaneo%2Fimg%2Fproduct%2FGEEK%2Fayaneoa14.png: 264.5*105.5*21.5mm, 36.1mm" },
+    { "field": "screen.panel", "url": "https://en.wikipedia.org/wiki/Ayaneo_2", "accessed": "2026-10-27", "note": "7-inch 1200p IPS" },
+    { "field": "release_date", "url": "https://en.wikipedia.org/wiki/Ayaneo_2", "accessed": "2026-10-27", "note": "released in December 2022 (cites Liliputing: AYA Neo 2 and AYA Neo Geek shipping in December)" },
+    { "field": "msrp_usd", "url": "https://www.notebookcheck.net/AMD-Ryzen-7-6800U-powered-GEEK-AYANEO-2-handheld-gaming-consoles-by-AYANEO-to-ship-starting-in-December.657642.0.html", "accessed": "2026-10-27", "note": "AYANEO 2 16/512 GB: US$949 Super Early Bird, from US$1,099" }
+  ]
+}

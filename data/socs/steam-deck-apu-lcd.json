@@ -1,0 +1,80 @@
+{
+  "id": "steam-deck-apu-lcd",
+  "vendor": "Valve/AMD",
+  "name": "Steam Deck APU (LCD)",
+  "codename": "Aerith",
+  "cores": 4,
+  "threads": 8,
+  "core_mix": "4x Zen 2",
+  "cpu_arch": "Zen 2",
+  "base_ghz": 2.4,
+  "boost_ghz": 3.5,
+  "tdp_w": {
+    "default": 15,
+    "min": 4,
+    "max": 15
+  },
+  "process_nm": 7,
+  "process_note": "TSMC 7nm (Valve: 7 nm; foundry per TPU)",
+  "npu_tops": 0,
+  "memory": "16 GB LPDDR5-5500 on-board, quad 32-bit channels",
+  "launch_date": "2022-02-25",
+  "igpu": {
+    "name": "AMD Custom GPU 0405",
+    "cu": 8,
+    "arch": "RDNA 2",
+    "clock_mhz": 1600,
+    "tflops_fp32": 1.6
+  },
+  "passmark": {
+    "cpu_mark": 9342,
+    "single_thread": 2201,
+    "cpu_samples": 27,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Custom+APU+0932&id=6154",
+    "g3d_mark": 2949,
+    "g3d_samples": 118,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Custom+GPU+0405&id=4528",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: PassMark has no 'AMD Custom APU 0405' entry (cpu.php and cpu_lookup.php return 404; it is absent from the full CPU list). Stand-in = 'AMD Custom APU 0932' (Steam Deck OLED APU: same 4C/8T Zen 2 at 2.4-3.5 GHz, 6 nm). GPU: exact entry 'Custom GPU 0405'."
+  },
+  "notes": "Valve gives 4-15 W APU power; default set to the 15 W maximum. AMD part number 100-000000405 (TPU). tflops_fp32 is Valve's stated 1.6 TFLOPS. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.steamdeck.com/en/tech/deck",
+      "accessed": "2026-10-27",
+      "note": "Valve tech specs: APU, CPU/GPU clocks, 1.6 TFLOPS, 4-15 W, RAM"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Custom+APU+0932&id=6154",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Custom+GPU+0405&id=4528",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/steam-deck-cpu-lcd.c3397",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Feb 25th, 2022; part 100-000000405"
+    },
+    {
+      "field": "process_note",
+      "url": "https://www.techpowerup.com/cpu-specs/steam-deck-cpu-lcd.c3397",
+      "accessed": "2026-10-27",
+      "note": "TPU: TSMC 7 nm"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/steam-deck-gpu.c3897",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 1.638 TFLOPS"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "id": "ayn-loki-max",
+  "brand": "AYN",
+  "model": "Loki Max",
+  "variant": "Ryzen 7 6800U",
+  "status": "shipped",
+  "announce_date": "2022-05",
+  "release_date": "2023-06",
+  "msrp_usd": 750,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 248, "h": 96, "d": 35, "d_max": null },
+    "note": "Uncertain. DROIX gives one line for both the Loki and the Loki Max: \"around 9.7 x 3.7 x 1.5 inches (24.8 x 9.6 x 3.5)\". 1.5 in is 38 mm, so the thickness is 35-38 mm by that source. Other listings give 248 x 98 x 20-23.7 mm (body only; not verified). AYN's own product page is gone."
+  },
+  "weight_g": {
+    "handheld": { "stated": 575, "measured": null, "measured_source": null },
+    "note": "Spec weight quoted by Retro Handhelds. DROIX gives 573 g in a line shared by the Loki and the Loki Max."
+  },
+  "soc_id": "r7-6800u",
+  "ram": { "sizes_gb": [16], "type": "LPDDR5", "speed_mts": 6400, "channels": null, "soldered": null },
+  "storage": {
+    "slots": [ { "form_factor": "2242", "pcie_gen": null, "lanes": null, "note": "Swappable M.2 2242 NVMe; see conflicts" } ],
+    "capacities_gb": [512],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "bottom", "note": "USB 4.0 Type-C; also used for TV output" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "bottom", "note": null },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "bottom", "note": null }
+  ],
+  "screen": { "size_in": 6.0, "panel": "IPS", "res_w": 1920, "res_h": 1080, "refresh_hz": null, "vrr": null, "touch": true, "nits_sdr": null, "nits_peak": null, "hdr": null, "note": null },
+  "battery": { "wh": 46.2, "removable": null, "external": false, "charge_w": null, "note": "DROIX (a reseller) bundles a 100 W charger; that is not a device charge-rate spec." },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Larger sticks than the Loki / Loki Mini, with Hall sensors",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": null,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": null
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.2" },
+  "os": ["Windows 11"],
+  "cooling": null,
+  "fingerprint": null,
+  "notes": "AYN shipped the first 100 Loki Max units in June 2023. The Loki line is discontinued and the AYN product page is gone, so no official spec page exists. Other Loki models (Loki Zero, Loki MiniPro) are under US$450 and excluded. Price later dropped to US$550.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
+    { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value found" },
+    { "field": "weight_g.handheld.measured", "reason": "No reviewer scale reading found" },
+    { "field": "ram.channels", "reason": "Not stated" },
+    { "field": "ram.soldered", "reason": "Not stated" },
+    { "field": "storage.slots.0.pcie_gen", "reason": "Not stated" },
+    { "field": "storage.slots.0.lanes", "reason": "Not stated" },
+    { "field": "ports.0.speed_gbps", "reason": "Not stated" },
+    { "field": "ports.0.dp_alt", "reason": "Display output confirmed but DP alt mode not named" },
+    { "field": "ports.0.pd_in_w", "reason": "Not stated" },
+    { "field": "screen.refresh_hz", "reason": "Not confirmed by a fetched source" },
+    { "field": "screen.vrr", "reason": "Not stated" },
+    { "field": "screen.nits_sdr", "reason": "Not stated" },
+    { "field": "screen.nits_peak", "reason": "Not stated" },
+    { "field": "screen.hdr", "reason": "Not stated" },
+    { "field": "battery.removable", "reason": "Not stated" },
+    { "field": "battery.charge_w", "reason": "Max charge input not stated; DROIX bundles a 100 W charger" },
+    { "field": "controls.trigger_lock", "reason": "Not stated" },
+    { "field": "controls.trackpads", "reason": "Not stated" },
+    { "field": "controls.rear_buttons", "reason": "Not stated" },
+    { "field": "controls.haptics", "reason": "Not stated" },
+    { "field": "cooling", "reason": "Not stated" },
+    { "field": "fingerprint", "reason": "Not stated" }
+  ],
+  "conflicts": [
+    {
+      "field": "storage.slots.0.form_factor",
+      "values": [
+        { "value": "2242", "url": "https://droix.net/blogs/ayn-loki-ayn-loki-max-review-with-video/" },
+        { "value": "2242", "url": "https://retrohandhelds.gg/loki-max-reaching-the-summit/" },
+        { "value": "2230", "url": "https://liliputing.com/ayn-loki-max-begins-shipping-to-some-customers-handheld-gaming-pc-with-6-inch-display-and-ryzen-7-6800u/" }
+      ],
+      "chosen_reason": "Two hands-on reviews say 2242; no official spec page remains"
+    },
+    {
+      "field": "msrp_usd",
+      "values": [
+        { "value": 750, "url": "https://retrohandhelds.gg/loki-max-reaching-the-summit/" },
+        { "value": 775, "url": "https://liliputing.com/?p=160070" }
+      ],
+      "chosen_reason": "Review states $750 at release; $775 appears as the earlier pre-order list price (search snippet, not fetched)"
+    }
+  ],
+  "sources": [
+    { "field": "dims_mm", "url": "https://droix.net/blogs/ayn-loki-ayn-loki-max-review-with-video/", "accessed": "2026-10-27", "note": "\"around 9.7 x 3.7 x 1.5 inches (24.8 x 9.6 x 3.5)\" for Loki and Loki Max. No official AYN page remains." },
+    { "field": "weight_g", "url": "https://retrohandhelds.gg/loki-max-reaching-the-summit/", "accessed": "2026-10-27", "note": "575 g (stated)" },
+    { "field": "soc_id", "url": "https://liliputing.com/ayn-loki-max-begins-shipping-to-some-customers-handheld-gaming-pc-with-6-inch-display-and-ryzen-7-6800u/", "accessed": "2026-10-27", "note": "Ryzen 7 6800U, 16 GB LPDDR5-6400, 512 GB, 6 in 1080p, 46.2 Wh" },
+    { "field": "storage", "url": "https://droix.net/blogs/ayn-loki-ayn-loki-max-review-with-video/", "accessed": "2026-10-27", "note": "M.2 2242 NVMe, microSD" },
+    { "field": "ports", "url": "https://droix.net/blogs/ayn-loki-ayn-loki-max-review-with-video/", "accessed": "2026-10-27", "note": "USB4 Type-C, microSD and 3.5 mm on the bottom" },
+    { "field": "screen", "url": "https://droix.net/blogs/ayn-loki-ayn-loki-max-review-with-video/", "accessed": "2026-10-27", "note": "6 in IPS touchscreen, 1080p" },
+    { "field": "battery", "url": "https://droix.net/blogs/ayn-loki-ayn-loki-max-review-with-video/", "accessed": "2026-10-27", "note": "46.2 Wh; DROIX bundles a 100 W charger" },
+    { "field": "controls.stick_type", "url": "https://liliputing.com/ayn-loki-max-begins-shipping-to-some-customers-handheld-gaming-pc-with-6-inch-display-and-ryzen-7-6800u/", "accessed": "2026-10-27", "note": "\"bigger joysticks (with hall sensors)\"" },
+    { "field": "controls.trigger_type", "url": "https://droix.net/blogs/ayn-loki-ayn-loki-max-review-with-video/", "accessed": "2026-10-27", "note": "Hall sensor trigger buttons" },
+    { "field": "controls.gyro", "url": "https://retrohandhelds.gg/loki-max-reaching-the-summit/", "accessed": "2026-10-27", "note": "Gyroscope" },
+    { "field": "wireless", "url": "https://retrohandhelds.gg/loki-max-reaching-the-summit/", "accessed": "2026-10-27", "note": "Wi-Fi 6E, Bluetooth 5.2" },
+    { "field": "msrp_usd", "url": "https://retrohandhelds.gg/loki-max-reaching-the-summit/", "accessed": "2026-10-27", "note": "$750 upon release" },
+    { "field": "release_date", "url": "https://liliputing.com/ayn-loki-max-begins-shipping-to-some-customers-handheld-gaming-pc-with-6-inch-display-and-ryzen-7-6800u/", "accessed": "2026-10-27", "note": "2023-06-09: first 100 units shipped to customers" },
+    { "field": "announce_date", "url": "https://www.computerbase.de/2022-05/ayn-loki-mini-max-zen3-rdna2-alder-lake-u/", "accessed": "2026-10-27", "note": "Loki series announced May 2022" }
+  ]
+}

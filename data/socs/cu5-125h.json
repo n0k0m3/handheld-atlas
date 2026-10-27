@@ -1,0 +1,80 @@
+{
+  "id": "cu5-125h",
+  "vendor": "Intel",
+  "name": "Core Ultra 5 125H",
+  "codename": "Meteor Lake",
+  "cores": 14,
+  "threads": 18,
+  "core_mix": "4P + 8E + 2LPE",
+  "cpu_arch": "Redwood Cove + Crestmont",
+  "base_ghz": 1.2,
+  "boost_ghz": 4.5,
+  "tdp_w": {
+    "default": 28,
+    "min": 20,
+    "max": 115
+  },
+  "process_nm": 4,
+  "process_note": "Intel 4 (compute tile, per ARK); TPU lists 7 nm",
+  "npu_tops": 11,
+  "memory": "LPDDR5/X-7467, DDR5-5600, dual-channel, up to 96 GB",
+  "launch_date": "2023-12-14",
+  "igpu": {
+    "name": "Intel Arc Graphics (7 Xe)",
+    "cu": 7,
+    "arch": "Xe-LPG",
+    "clock_mhz": 2200,
+    "tflops_fp32": 3.94
+  },
+  "passmark": {
+    "cpu_mark": 19913,
+    "single_thread": 3311,
+    "cpu_samples": 2470,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+Ultra+5+125H&id=5777",
+    "g3d_mark": 5478,
+    "g3d_samples": 7493,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc&id=4955",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry. GPU: PassMark pools every 'Intel(R) Arc(TM) Graphics' iGPU (Meteor Lake and later H parts) under 'Intel Arc'; there is no per-SKU entry."
+  },
+  "notes": "base_ghz is the P-core base. ARK lists 7 Xe-cores (the 135H has 8). NPU 11 TOPS (33 TOPS overall). launch_date from TPU; ARK says Q4'23. Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.intel.com/content/www/us/en/products/sku/236848/intel-core-ultra-5-processor-125h-18m-cache-up-to-4-50-ghz/specifications.html",
+      "accessed": "2026-10-27",
+      "note": "Intel ARK: cores, clocks, power, lithography, memory, 7 Xe-cores at 2.2 GHz, NPU"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+Ultra+5+125H&id=5777",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc&id=4955",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/core-ultra-5-125h.c3309",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Dec 14th, 2023"
+    },
+    {
+      "field": "cpu_arch",
+      "url": "https://www.techpowerup.com/cpu-specs/core-ultra-5-125h.c3309",
+      "accessed": "2026-10-27",
+      "note": "TPU: Redwood Cove P-cores, Crestmont E-cores"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/arc-graphics-112eu-mobile.c4196",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 3.942 TFLOPS"
+    }
+  ]
+}

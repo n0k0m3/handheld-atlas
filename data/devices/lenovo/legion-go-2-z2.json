@@ -1,0 +1,258 @@
+{
+  "id": "legion-go-2-z2",
+  "brand": "Lenovo",
+  "model": "Legion Go 2",
+  "variant": "Ryzen Z2 (8AHP2)",
+  "status": "shipped",
+  "announce_date": "2025-09-05",
+  "release_date": "2025-10",
+  "msrp_usd": 1099.99,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 295.6,
+      "h": 136.7,
+      "d": 42.25,
+      "d_max": 50.85
+    },
+    "tablet_only": {
+      "w": 206,
+      "h": 136.7,
+      "d": 22.95,
+      "d_max": null
+    },
+    "note": "PSREF WxDxH: gamepad with controllers 295.6 x 136.7 x 42.25 mm (50.85 mm with the joysticks); gamepad 206 x 136.7 x 22.95 mm."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 920,
+      "measured": null,
+      "measured_source": null
+    },
+    "tablet_only": null,
+    "note": "PSREF: gamepad with controllers around 920 g; controllers only less than 210 g. Press release: 920 +/- 10 g with controllers; controllers 210 g. Notebookcheck measured 922 g on a Z2 Extreme unit; no Ryzen Z2 unit weighed."
+  },
+  "soc_id": "z2",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "PSREF lists one M.2 2280 PCIe 4.0 x4 slot; the factory SSD is M.2 2242 (512GB / 1TB)."
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 100,
+      "location": "top, bottom",
+      "note": "PSREF: USB4 40Gbps, USB PD 65-100W input / 15W output, DisplayPort 1.4; one on top, one on the bottom"
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": false,
+      "pd_in_w": null,
+      "location": null,
+      "note": "One on each detachable controller; charging only"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "Headphone / microphone combo jack"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 8.8,
+    "panel": "OLED",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 144,
+    "vrr": true,
+    "touch": true,
+    "nits_sdr": 500,
+    "nits_peak": 1100,
+    "hdr": true,
+    "note": "100% DCI-P3, DisplayHDR True Black 1000, Corning Gorilla Glass 3"
+  },
+  "battery": {
+    "wh": 74,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65W USB-C adapter (PD 3.0); ports accept PD 65-100W. Rapid Charge: 50% in 30 min."
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall effect joysticks on the redesigned TrueStrike controllers",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 1,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": null,
+    "note": "Touchpad 24 x 24 mm on the right controller. Mouse wheel and FPS mode switch on the right controller. Lenovo: three user-programmable buttons."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.3"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Legion Coldfront 2.0, single central fan",
+  "fingerprint": true,
+  "notes": "PSREF: installed memory is LPDDR5X-8533 but runs at LPDDR5X-7500. A SteamOS edition (same hardware) was announced at CES 2026 for June 2026 from $1,199. No source checked confirms that it shipped, so os lists Windows only.",
+  "unresolved": [
+    {
+      "field": "os",
+      "reason": "SteamOS edition announced for June 2026; shipment not confirmed by any source checked"
+    },
+    {
+      "field": "weight_g.tablet_only",
+      "reason": "no source states the tablet weight without controllers"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "controller USB-C port position not stated"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no review weight for a Ryzen Z2 unit found; the Notebookcheck unit was Z2 Extreme"
+    },
+    {
+      "field": "dims_mm.tablet_only.d_max",
+      "reason": "not stated in the sources checked"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "PSREF and reviews do not state the memory channel count"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "no checked source names the trigger sensor type"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated in the sources checked"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "sources list the button names but do not say how many sit on the back"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "no checked source describes the haptics"
+    },
+    {
+      "field": "ports.1.speed_gbps",
+      "reason": "not stated in the sources checked"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "not stated in the sources checked"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed, DP alt and PD do not apply to this port kind"
+    },
+    {
+      "field": "ports.3",
+      "reason": "speed, DP alt and PD do not apply to this port kind"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_8AHP2/Legion_Go_8AHP2_Spec.pdf",
+      "accessed": "2026-10-27",
+      "note": "Lenovo PSREF Legion Go 8AHP2 spec sheet (August 04 2026)"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://news.lenovo.com/pressroom/press-releases/legion-gaming-devices-ai-tablets-software-best-in-customer-choice/",
+      "accessed": "2026-10-27",
+      "note": "Lenovo press release: Hall effect joysticks"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://news.lenovo.com/pressroom/press-releases/legion-gaming-devices-ai-tablets-software-best-in-customer-choice/",
+      "accessed": "2026-10-27",
+      "note": "press release dated 2025-09-05 (prototype first shown at CES 2025)"
+    },
+    {
+      "field": "release_date",
+      "url": "https://gamingonlinux.com/2025/09/the-lenovo-legion-go-2-launches-in-october-its-heavier-and-very-pricey",
+      "accessed": "2026-10-27",
+      "note": "US launch in October 2025; Best Buy pre-orders opened in September 2025"
+    },
+    {
+      "field": "screen.vrr",
+      "url": "https://www.notebookcheck.net/Gaming-handheld-with-great-144-Hz-OLED-and-detachable-controllers-Lenovo-Legion-Go-2-review.1225235.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck: 144 Hz OLED with VRR (Adaptive Sync)"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.notebookcheck.net/Gaming-handheld-with-great-144-Hz-OLED-and-detachable-controllers-Lenovo-Legion-Go-2-review.1225235.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck: USB4 on top and bottom; microSD and 3.5 mm on the bottom"
+    },
+    {
+      "field": "cooling",
+      "url": "https://www.notebookcheck.net/Gaming-handheld-with-great-144-Hz-OLED-and-detachable-controllers-Lenovo-Legion-Go-2-review.1225235.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck: single fan in the center"
+    },
+    {
+      "field": "os",
+      "url": "https://www.androidauthority.com/lenovo-legion-go-2-steamos-launched-3628420/",
+      "accessed": "2026-10-27",
+      "note": "SteamOS edition announced 2026-01-06 for June 2026"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/Lenovo-releases-Legion-Go-2-for-1-349-with-AMD-Ryzen-Z2-Extreme-and-32-GB-RAM.1106113.0.html",
+      "accessed": "2026-10-27",
+      "note": "Ryzen Z2, 16GB, 1TB at $1,099.99 (Best Buy pre-order)"
+    }
+  ]
+}

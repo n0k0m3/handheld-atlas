@@ -1,0 +1,329 @@
+{
+  "id": "onexplayer-x1-air-228v",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer X1 Air",
+  "variant": "Core Ultra 5 228V",
+  "status": "shipped",
+  "announce_date": "2025-07",
+  "release_date": "2025-09",
+  "msrp_usd": null,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 355,
+      "h": 163.5,
+      "d": 13.5,
+      "d_max": 44
+    },
+    "tablet_only": {
+      "w": 252,
+      "h": 163.5,
+      "d": 13.5,
+      "d_max": null
+    },
+    "note": "Handheld width and d_max are not published for the Air. They come from the X1-series controllers (DroiX measured 35.5 cm on the X1 8840U; controllers 44 mm thick). The X1 Air uses the same 252 mm tablet width and the controllers are sold for X1/X1 Mini/X1 Pro/X1 Air."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 892,
+      "measured": null,
+      "measured_source": null
+    },
+    "tablet_only": {
+      "stated": 835,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "892 g with controllers (One Netbook via Liliputing / PC Gamer) and 835 g tablet (One-Netbook post) imply only 57 g of controllers, while the X1 controllers are listed at 125 g. Treat as approximate."
+  },
+  "soc_id": "cu5-228v",
+  "ram": {
+    "sizes_gb": [
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8533,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      512
+    ],
+    "expansion": [
+      "microSD",
+      "mini-ssd-1517"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Full-function USB4 Type-C; no Thunderbolt branding stated"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Listed as USB 3.2 Type-A (generation not stated)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Up to 2TB"
+    },
+    {
+      "kind": "mini-ssd-1517",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Mini SSD slot, PCIe 4.0"
+    }
+  ],
+  "screen": {
+    "size_in": 10.95,
+    "panel": "LTPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": 120,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 540,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "4096-level stylus support (stylus optional). Portrait-native panel per NotebookCheck."
+  },
+  "battery": {
+    "wh": 72.77,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": null
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "RGB e-sports-grade Hall joysticks (store text)",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": null,
+    "note": "8.1 mm linear triggers; X1-series detachable controllers"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "dual fans (8500 RPM, liquid bearing), dual heat pipes",
+  "fingerprint": true,
+  "notes": "Entry X1 Air configuration with the Core Ultra 5 228V (Arc 130V). Global pre-order $1,099 (Sept 2025). Chassis fields are copied from onexplayer-x1-air.",
+  "unresolved": [
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.gyro",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.tablet_only.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+    },
+    {
+      "field": "msrp_usd",
+      "reason": "Only the global pre-order price is known ($1,099, with a $200 pre-order discount); no retail list price found"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review of this SKU; measurements in onexplayer-x1-air are from a different SKU"
+    },
+    {
+      "field": "weight_g.tablet_only.measured",
+      "reason": "No review of this SKU; measurements in onexplayer-x1-air are from a different SKU"
+    }
+  ],
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20251229135820/https://onexplayerstore.com/products/onexplayer-x1-air-portable-3-in-1-gaming-creator-pc-with-expandable-mini-ssd",
+      "accessed": "2026-10-27",
+      "note": "Archived official store page (Dec 2025)"
+    },
+    {
+      "field": "*",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-air-key_features.jpg?v=1756884773",
+      "accessed": "2026-10-27",
+      "note": "Official key-features image from the store page"
+    },
+    {
+      "field": "dims_mm.tablet_only",
+      "url": "https://www.pcgamer.com/hardware/handheld-gaming-pcs/onexplayer-x1-air-review/",
+      "accessed": "2026-10-27",
+      "note": "252 x 163.5 x 13.5 mm"
+    },
+    {
+      "field": "dims_mm.handheld.w",
+      "url": "https://droix.net/blogs/onexplayer-x1-amd-review/",
+      "accessed": "2026-10-27",
+      "note": "X1-series controllers: 35.5 cm wide with controllers on a 252 mm tablet"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "url": "https://liliputing.com/onexplayer-x1-handheld-gaming-pc-now-available-with-ryzen-7-8840u-instead-of-intel-meteor-lake/",
+      "accessed": "2026-10-27",
+      "note": "X1 controllers 111 x 57 x 44 mm"
+    },
+    {
+      "field": "weight_g.handheld.stated",
+      "url": "https://liliputing.com/onexplayer-x1-air-lunar-lake-handheld-gaming-pc-is-now-available-for-pre-order-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "892 g with the controllers attached"
+    },
+    {
+      "field": "weight_g.tablet_only.stated",
+      "url": "https://www.facebook.com/onexplayerofficial/posts/at-just-835g-the-onexplayer-x1-air-redefines-portable-performance-fueled-by-a-72/804598395414661/",
+      "accessed": "2026-10-27",
+      "note": "At just 835g"
+    },
+    {
+      "field": "storage",
+      "url": "https://liliputing.com/onexplayer-x1-air-lunar-lake-handheld-gaming-pc-is-now-available-for-pre-order-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "M.2 2230 PCIe 4.0 x4, mini SSD slot, microSD"
+    },
+    {
+      "field": "ports",
+      "url": "https://liliputing.com/onexplayer-x1-air-lunar-lake-handheld-gaming-pc-is-now-available-for-pre-order-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "ports",
+      "url": "https://www.notebookcheck.net/OneXPlayer-X1-Air-released-globally-as-new-Intel-Lunar-Lake-gaming-handheld-without-OCuLink.1105560.0.html",
+      "accessed": "2026-10-27",
+      "note": "No OCuLink"
+    },
+    {
+      "field": "wireless",
+      "url": "https://liliputing.com/onexplayer-x1-air-lunar-lake-handheld-gaming-pc-is-now-available-for-pre-order-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "screen.nits_sdr",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-air-key_features.jpg?v=1756884773",
+      "accessed": "2026-10-27",
+      "note": "540 nits"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://web.archive.org/web/20251229135820/https://onexplayerstore.com/products/onexplayer-x1-air-portable-3-in-1-gaming-creator-pc-with-expandable-mini-ssd",
+      "accessed": "2026-10-27",
+      "note": "RGB e-sports-grade Hall joysticks"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://onexplayerstore.com/products/controllers-for-onexplayer-x1",
+      "accessed": "2026-10-27",
+      "note": "X1-series controllers: Hall linear triggers"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "url": "https://onexplayerstore.com/products/controllers-for-onexplayer-x1",
+      "accessed": "2026-10-27",
+      "note": "Two customizable back buttons"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://liliputing.com/onexplayer-x1-air-lunar-lake-handheld-gaming-pc-is-now-available-for-pre-order-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "Starting price is for a model with an Intel Core Ultra 5 228V, 32GB LPDDR5x-8533 and a 512GB SSD"
+    },
+    {
+      "field": "ram",
+      "url": "https://liliputing.com/onexplayer-x1-air-lunar-lake-handheld-gaming-pc-is-now-available-for-pre-order-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "32 GB LPDDR5x-8533"
+    },
+    {
+      "field": "storage.capacities_gb",
+      "url": "https://liliputing.com/onexplayer-x1-air-lunar-lake-handheld-gaming-pc-is-now-available-for-pre-order-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "512 GB base SSD"
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/onexplayer-x1-air-lunar-lake-handheld-gaming-pc-is-now-available-for-pre-order-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "Expected to begin shipping September 25, 2025"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-x1-air-is-an-intel-lunar-lake-handheld-gaming-pc-with-a-big-screen-and-detachable-controllers-and-keyboard/",
+      "accessed": "2026-10-27",
+      "note": null
+    }
+  ]
+}

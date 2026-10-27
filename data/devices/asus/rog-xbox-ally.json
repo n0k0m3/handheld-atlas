@@ -1,0 +1,89 @@
+{
+  "id": "rog-xbox-ally",
+  "brand": "ASUS",
+  "model": "ROG Xbox Ally",
+  "variant": "Ryzen Z2 A (2025, RC73YA)",
+  "status": "shipped",
+  "announce_date": "2025-06",
+  "release_date": "2025-10-16",
+  "msrp_usd": 599.99,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 290, "h": 121, "d": 27.5, "d_max": 50.9 },
+    "note": "ASUS: 29.0 x 12.1 x 2.75 ~ 5.09 cm (W x D x H). d is the thinnest point, d_max the grips."
+  },
+  "weight_g": {
+    "handheld": { "stated": 670, "measured": null, "measured_source": null },
+    "note": "NotebookCheck lists 670 g, the same as the ASUS figure, with no scale statement in the text; not recorded as measured."
+  },
+  "soc_id": "z2-a",
+  "ram": { "sizes_gb": [16], "type": "LPDDR5", "speed_mts": 6400, "channels": 2, "soldered": true },
+  "storage": {
+    "slots": [
+      { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": "M.2 2280 NVMe" }
+    ],
+    "capacities_gb": [512],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB-C 3.2 Gen2", "count": 2, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "Both ports support DisplayPort and power delivery. pd_in_w is the bundled 65 W adapter rating. No USB4." },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Combo audio jack" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "UHS-II; supports SD, SDXC and SDHC" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1920, "res_h": 1080, "refresh_hz": 120, "vrr": true, "touch": true, "nits_sdr": 500, "nits_peak": null, "hdr": false, "note": "IPS-level, anti-glare low-reflection, 100% sRGB, AMD FreeSync Premium, Gorilla Glass Victus + DXC" },
+  "battery": { "wh": 60, "removable": false, "external": false, "charge_w": 65, "note": "60 Wh 4S1P 4-cell Li-ion. 65 W USB-C adapter (inclusion varies by region)." },
+  "controls": {
+    "stick_type": "potentiometer",
+    "stick_note": "2 x full-size analog sticks",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics",
+    "note": "ASUS: L & R Hall Effect analog triggers, 2 x assignable grip buttons, 6-axis IMU. Controller-style grips."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.4" },
+  "os": ["Windows 11 Home"],
+  "cooling": null,
+  "fingerprint": true,
+  "notes": "White chassis, same shell as the ROG Xbox Ally X. Boots into the Xbox full-screen experience. ASUS lists Bluetooth 5.4 and says the version may change with the OS version.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
+    { "field": "ports.2", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "weight_g.handheld.measured", "reason": "NotebookCheck gives 670 g, identical to the ASUS figure, without a scale statement" },
+    { "field": "storage.slots.0.lanes", "reason": "ASUS gives PCIe 4.0 but not the lane count" },
+    { "field": "screen.nits_peak", "reason": "ASUS gives one brightness value (500 nits); no HDR or peak figure" },
+    { "field": "controls.trigger_lock", "reason": "Not stated by ASUS or the reviews used" },
+    { "field": "cooling", "reason": "NotebookCheck mentions 'fans' (plural) but gives no count or design" }
+  ],
+  "conflicts": [
+    {
+      "field": "ram.type",
+      "values": [
+        { "value": "LPDDR5", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-2025/spec/" },
+        { "value": "LPDDR5x-6400", "url": "https://www.notebookcheck.net/Slower-than-the-Steam-Deck-OLED-Asus-ROG-Xbox-Ally-handheld-review.1143681.0.html" },
+        { "value": "LPDDR5X-6400", "url": "https://liliputing.com/599-asus-rog-xbox-ally-and-999-rog-xbox-ally-x-now-available-for-pre-order/" }
+      ],
+      "chosen_reason": "Official ASUS value kept per project rule"
+    },
+    {
+      "field": "wireless.bt",
+      "values": [
+        { "value": "5.4", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-2025/spec/" },
+        { "value": "5.3", "url": "https://www.notebookcheck.net/Slower-than-the-Steam-Deck-OLED-Asus-ROG-Xbox-Ally-handheld-review.1143681.0.html" }
+      ],
+      "chosen_reason": "Official ASUS value; ASUS notes the version can change with the OS"
+    }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-2025/spec/", "accessed": "2026-10-27", "note": "ASUS US spec page, ROG Xbox Ally (2025) RC73YA" },
+    { "field": "controls.stick_type", "url": "https://www.notebookcheck.net/GuliKit-launches-official-19-99-TMR-anti-drift-joysticks-for-Xbox-Ally-and-Ally-X.1190606.0.html", "accessed": "2026-10-27", "note": "'the ROG Xbox Ally and Xbox Ally X ... both still use traditional potentiometer joysticks'" },
+    { "field": "ports", "url": "https://www.notebookcheck.net/Xbox-Full-screen-Experience-for-Gaming-Handhelds-Asus-ROG-Xbox-Ally-X-Review.1139045.0.html", "accessed": "2026-10-27", "note": "Port locations from the Xbox Ally X review (all on top); NotebookCheck's Xbox Ally review says the chassis is essentially identical" },
+    { "field": "announce_date", "url": "https://liliputing.com/599-asus-rog-xbox-ally-and-999-rog-xbox-ally-x-now-available-for-pre-order/", "accessed": "2026-10-27", "note": "'Microsoft and Asus announced in June'" },
+    { "field": "release_date", "url": "https://press.asus.com/news/press-releases/rog-xbox-ally-ally-x-launch-date/", "accessed": "2026-10-27", "note": "'available on shelves on October 16, 2025'" },
+    { "field": "msrp_usd", "url": "https://www.notebookcheck.net/Slower-than-the-Steam-Deck-OLED-Asus-ROG-Xbox-Ally-handheld-review.1143681.0.html", "accessed": "2026-10-27", "note": "'$599.99 USD in the United States'" }
+  ]
+}

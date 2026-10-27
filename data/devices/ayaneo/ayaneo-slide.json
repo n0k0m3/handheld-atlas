@@ -1,0 +1,78 @@
+{
+  "id": "ayaneo-slide",
+  "brand": "AYANEO",
+  "model": "Slide",
+  "variant": null,
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2023-12",
+  "msrp_usd": 899,
+  "form_factor": "slider",
+  "dims_mm": {
+    "handheld": { "w": 226, "h": 90, "d": 28.5, "d_max": 37.5 },
+    "note": "Official size 226 x 90 x 28.5 mm (37.5 mm at the controller), screen closed. The screen slides up and tilts up to 30 degrees to show the keyboard."
+  },
+  "weight_g": {
+    "handheld": { "stated": 650, "measured": null, "measured_source": null },
+    "note": "Official: about 650 g"
+  },
+  "soc_id": "r7-7840u",
+  "ram": { "sizes_gb": [16, 32, 64], "type": "LPDDR5X", "speed_mts": null, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": "M.2 2280 PCIe 4.0 SSD; supports single-sided drives up to 4TB" } ],
+    "capacities_gb": [512, 2048, 4096],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": 40, "dp_alt": true, "pd_in_w": null, "location": null, "note": "Full-function USB4 Type-C (power, video, data)" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "SD 7.0 TF card slot, read speed up to 700 MB/s" }
+  ],
+  "screen": { "size_in": 6.0, "panel": "IPS", "res_w": 1920, "res_h": 1080, "refresh_hz": 60, "vrr": null, "touch": null, "nits_sdr": 400, "nits_peak": null, "hdr": null, "note": "368 PPI, 120% sRGB volume, 100% sRGB, 85% DCI-P3. Adjustable screen angle." },
+  "battery": { "wh": 46.2, "removable": false, "external": false, "charge_w": null, "note": "12000 mAh" },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall sensing joystick with RGB lighting",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": true,
+    "detachable_controllers": false,
+    "haptics": "X-axis linear motor",
+    "note": "Linear Hall triggers, 7.5 mm travel. Six-axis gyroscope. QWERTY keyboard with Fn keys and RGB lighting under the sliding screen. The official spec sheet lists no touchpad."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.2" },
+  "os": ["Windows 11"],
+  "cooling": "\"3+2\" triple copper tube cooling (fan, three copper heat pipes, two copper sheets)",
+  "fingerprint": true,
+  "notes": "Only a Ryzen 7 7840U model was found. Max TDP 28 W. The official interface list shows two USB4 ports and a TF slot; no 3.5 mm jack is listed. Launch prices for 16GB/512GB: early bird $699, Indiegogo $799, retail $899. Release date is the AYANEO plan to start shipping in December 2023; NotebookCheck reported DroiX retail stock on 2023-12-20 with a general launch on 2024-01-15. The Antec Core HS is a rebadged Slide (separate brand).",
+  "unresolved": [
+    { "field": "announce_date", "reason": "first shown in 2022 with a Ryzen 7 6800U; the 7840U model's announcement date was not sourced" },
+    { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found; reviews repeat about 650 g" },
+    { "field": "ram.speed_mts", "reason": "memory speed not stated" },
+    { "field": "ram.channels", "reason": "not stated" },
+    { "field": "storage.slots.0.lanes", "reason": "not stated" },
+    { "field": "ports.0.pd_in_w", "reason": "per-port charge wattage not stated" },
+    { "field": "ports.0.location", "reason": "port location not stated" },
+    { "field": "ports.1", "reason": "speed, DP, and PD do not apply to the card slot; location not stated" },
+    { "field": "screen.vrr", "reason": "not stated" },
+    { "field": "screen.touch", "reason": "touch support not stated on the official sheet or in the fetched articles" },
+    { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (400 nits)" },
+    { "field": "screen.hdr", "reason": "not stated" },
+    { "field": "battery.charge_w", "reason": "charger wattage not stated" },
+    { "field": "controls.trigger_lock", "reason": "not stated" },
+    { "field": "controls.rear_buttons", "reason": "not stated" }
+  ],
+  "conflicts": [],
+  "sources": [
+    { "field": "*", "url": "https://ayaneo.com/product/AYANEO-SLIDE", "accessed": "2026-10-27", "note": "Spec table image: https://cdn.ayaneo.com/ayaneo/img/product/AYANEO-SLIDE/4_06.jpg" },
+    { "field": "controls.stick_type", "url": "https://ayaneo.com/product/AYANEO-SLIDE", "accessed": "2026-10-27", "note": "Spec table: Joystick = Hall sensing joystick" },
+    { "field": "controls.trigger_type", "url": "https://ayaneo.com/product/AYANEO-SLIDE", "accessed": "2026-10-27", "note": "Spec table: Trigger = Linear Hall Trigger" },
+    { "field": "msrp_usd", "url": "https://liliputing.com/aya-neo-slide-hits-indiegogo-for-700-and-up-ryzen-7840u-handheld-gaming-pc-with-a-keyboard-and-slide-up-display/", "accessed": "2026-10-27", "note": "16GB+512GB: early bird $699, Indiegogo $799, retail $899" },
+    { "field": "release_date", "url": "https://liliputing.com/aya-neo-slide-hits-indiegogo-for-700-and-up-ryzen-7840u-handheld-gaming-pc-with-a-keyboard-and-slide-up-display/", "accessed": "2026-10-27", "note": "AYA says shipping begins in December 2023" },
+    { "field": "release_date", "url": "https://www.notebookcheck.com/Ayaneo-Slide-Gaming-Handheld-mit-Tastatur-ist-ab-sofort-bestellbar.785097.0.html", "accessed": "2026-10-27", "note": "2023-12-20: DroiX sells the Slide; larger version in stock, launch 2024-01-15" },
+    { "field": "screen.refresh_hz", "url": "https://liliputing.com/aya-neo-slide-hits-indiegogo-for-700-and-up-ryzen-7840u-handheld-gaming-pc-with-a-keyboard-and-slide-up-display/", "accessed": "2026-10-27", "note": "60 Hz refresh rate" },
+    { "field": "notes", "url": "https://www.notebookcheck.net/Antec-Core-HS-launches-as-rebadged-Ayaneo-Slide-but-with-a-launch-price-starting-at-499.876565.0.html", "accessed": "2026-10-27", "note": "Antec Core HS is a rebadged Slide (search result title only)" }
+  ]
+}

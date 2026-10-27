@@ -1,0 +1,93 @@
+{
+  "id": "zotac-zone-pro",
+  "brand": "ZOTAC",
+  "model": "Zone Pro",
+  "variant": "Ryzen AI 9 HX 370",
+  "status": "announced",
+  "announce_date": "2025-01",
+  "release_date": null,
+  "msrp_usd": null,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 310, "h": 135, "d": 40, "d_max": null },
+    "note": "Pre-launch figure reported by PCGH at Gamescom 2025. It equals the Computex 2024 prototype figure of the first Zone (retail Zone: 285 x 115 x 35 mm), so treat it as provisional."
+  },
+  "weight_g": {
+    "handheld": { "stated": 692, "measured": null, "measured_source": null },
+    "note": "Pre-launch figure; equals the first Zone's weight."
+  },
+  "soc_id": "ai9-hx370",
+  "ram": { "sizes_gb": [32], "type": "LPDDR5X", "speed_mts": 7500, "channels": null, "soldered": null },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": 4, "lanes": 4, "note": null } ],
+    "capacities_gb": [1024],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "UHS-II" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "AMOLED", "res_w": 1920, "res_h": 1080, "refresh_hz": 120, "vrr": null, "touch": true, "nits_sdr": null, "nits_peak": 800, "hdr": null, "note": null },
+  "battery": { "wh": 48.5, "removable": null, "external": false, "charge_w": null, "note": null },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": null,
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 2,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "2-stage triggers. 1.0 MP front camera (1280 x 720)."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.2" },
+  "os": ["Manjaro Linux"],
+  "cooling": null,
+  "fingerprint": null,
+  "notes": "First shown as an upgraded Zone at CES 2025, renamed Zone Pro at Computex/Gamescom 2025 with a ZOTAC build of Manjaro Linux. ZOTAC targeted October 2025; VideoCardz reported in late 2025 that no retail launch happened. No 2026 launch news found. zotac.com is behind a WAF captcha, so no official spec page was reachable.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
+    { "field": "release_date", "reason": "No retail launch found as of 2026-10-27" },
+    { "field": "msrp_usd", "reason": "ZOTAC never announced a price" },
+    { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value published" },
+    { "field": "weight_g.handheld.measured", "reason": "Not released; no review units" },
+    { "field": "ram.channels", "reason": "Not stated" },
+    { "field": "ram.soldered", "reason": "Not stated" },
+    { "field": "ports.0.speed_gbps", "reason": "PCGH lists 2x USB4 without speed, DP or PD details" },
+    { "field": "ports.0.dp_alt", "reason": "Not stated" },
+    { "field": "ports.0.pd_in_w", "reason": "Not stated" },
+    { "field": "ports.0.location", "reason": "Not stated" },
+    { "field": "ports.1.location", "reason": "Not stated" },
+    { "field": "ports.2.location", "reason": "Not stated" },
+    { "field": "screen.vrr", "reason": "Not listed in the spec table" },
+    { "field": "screen.nits_sdr", "reason": "One brightness figure published" },
+    { "field": "screen.hdr", "reason": "Not stated" },
+    { "field": "battery.removable", "reason": "Not stated" },
+    { "field": "battery.charge_w", "reason": "Not stated" },
+    { "field": "controls.rear_buttons", "reason": "Not stated" },
+    { "field": "controls.haptics", "reason": "Not stated" },
+    { "field": "cooling", "reason": "Not stated" },
+    { "field": "fingerprint", "reason": "Not stated" }
+  ],
+  "sources": [
+    { "field": "dims_mm", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "Spec table: 310 x 135 x 40 mm. No official ZOTAC spec page reachable (zotac.com WAF captcha)." },
+    { "field": "weight_g", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "692 g" },
+    { "field": "soc_id", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "AMD Ryzen AI 9 HX 370, 12 cores / 24 threads" },
+    { "field": "ram", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "32 GiB LPDDR5X-7500" },
+    { "field": "storage", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "1 TB M.2 2280 PCIe 4.0 x4, UHS-II microSD" },
+    { "field": "ports", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "2x USB4, UHS-II microSD, 3.5 mm" },
+    { "field": "screen", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "7 in AMOLED multitouch, Full HD, 120 Hz, 800 cd/m2" },
+    { "field": "battery", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "48.5 Wh" },
+    { "field": "controls", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "2 trackpads, 6-axis gyro, 2-stage triggers" },
+    { "field": "controls.stick_type", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "\"Hall-Effect-Schultertasten & Thumbsticks\"" },
+    { "field": "controls.trigger_type", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "\"Hall-Effect-Sticks und -Schultertasten\"" },
+    { "field": "wireless", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "Wi-Fi 6E, Bluetooth 5.2" },
+    { "field": "os", "url": "https://www.pcgameshardware.de/Handheld-PC-Hardware-279763/Specials/Zotac-Zone-Pro-Gamescom-2025-1480299/", "accessed": "2026-10-27", "note": "Manjaro Linux with a ZOTAC overlay" },
+    { "field": "status", "url": "https://videocardz.com/newz/amd-ryzen-powered-zotac-zone-pro-and-acer-nitro-blaze-miss-planned-launch-window", "accessed": "2026-10-27", "note": "October 2025 window passed without a general release" },
+    { "field": "announce_date", "url": "https://videocardz.com/newz/amd-ryzen-powered-zotac-zone-pro-and-acer-nitro-blaze-miss-planned-launch-window", "accessed": "2026-10-27", "note": "Upgraded Zone first shown in January 2025" }
+  ]
+}

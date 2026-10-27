@@ -1,0 +1,256 @@
+{
+  "id": "legion-go-z1",
+  "brand": "Lenovo",
+  "model": "Legion Go",
+  "variant": "Ryzen Z1 (8APU1, regional SKUs)",
+  "status": "shipped",
+  "announce_date": "2024-03-30",
+  "release_date": null,
+  "msrp_usd": null,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 298.83,
+      "h": 131,
+      "d": 40.7,
+      "d_max": null
+    },
+    "tablet_only": {
+      "w": 210,
+      "h": 131,
+      "d": 20.1,
+      "d_max": null
+    },
+    "note": "PSREF WxDxH: gamepad with controllers 298.83 x 131 x 40.7 mm; gamepad 210 x 131 x 20.1 mm."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 854,
+      "measured": null,
+      "measured_source": null
+    },
+    "tablet_only": {
+      "stated": 640,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "PSREF gives upper bounds: gamepad with controllers less than 854 g; gamepad less than 640 g."
+  },
+  "soc_id": "z1",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2242",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      256,
+      512,
+      1024
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": "top, bottom",
+      "note": "PSREF: USB4 40Gbps with Power Delivery 3.0 and DisplayPort 1.4; one on top, one on the bottom"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Headphone / microphone combo jack"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "pogo",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "5-point pogo pin connectors for the detachable controllers"
+    }
+  ],
+  "screen": {
+    "size_in": 8.8,
+    "panel": "IPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": 144,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "97% DCI-P3, 1500:1, Corning Gorilla Glass 5"
+  },
+  "battery": {
+    "wh": 49.2,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65W USB-C adapter (PD 3.0). Super Rapid Charge: 0-70% in 30 min."
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall effect joysticks on the detachable TrueStrike controllers",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 1,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": "HD haptics",
+    "note": "Trackpad 28.5 x 28.5 mm on the right controller. Mouse wheel and FPS mode switch on the right controller. Lenovo spec table: L & R analog triggers, 6 assignable grip buttons."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.3"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Legion Coldfront cooling system",
+  "fingerprint": false,
+  "notes": "PSREF model list shows 9 Ryzen Z1 models of machine type 83E1, all 16GB LPDDR5X-7500 with a 256GB, 512GB or 1TB M.2 2242 SSD: 83E1000CBR and 83E1000DBR (announced 2024-03-30), 83E1004RMJ/SMJ/TMJ (2024-06), 83E1004XVN, 83E10050TA, 83E10051VN (2024-07), 83E10057AR (2024-11). No US model. Same chassis as legion-go.",
+  "unresolved": [
+    {
+      "field": "release_date",
+      "reason": "PSREF gives model announce dates only; no retail date found for the Ryzen Z1 models"
+    },
+    {
+      "field": "msrp_usd",
+      "reason": "not sold in the US; no USD price"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no review of a Ryzen Z1 unit found"
+    },
+    {
+      "field": "weight_g.tablet_only.measured",
+      "reason": "no review of a Ryzen Z1 unit found"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "only one thickness value is published"
+    },
+    {
+      "field": "dims_mm.tablet_only.d_max",
+      "reason": "not stated in the sources checked"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "PSREF and reviews do not state the memory channel count"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "VRR is not stated in the sources checked"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "only one brightness value is published"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "HDR is not stated for this panel"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "no checked source names the trigger sensor type"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated in the sources checked"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "sources list the button names but do not say how many sit on the back"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "not stated in the sources checked"
+    },
+    {
+      "field": "ports.1",
+      "reason": "speed, DP alt and PD do not apply to this port kind"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed, DP alt and PD do not apply to this port kind"
+    },
+    {
+      "field": "ports.3",
+      "reason": "speed, DP alt and PD do not apply to this port kind; location not stated in the sources checked"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_8APU1/Legion_Go_8APU1_Spec.pdf",
+      "accessed": "2026-10-27",
+      "note": "Lenovo PSREF Legion Go 8APU1 spec sheet"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://news.lenovo.com/pressroom/press-releases/legion-go-gaming-handheld-device-and-accessories/",
+      "accessed": "2026-10-27",
+      "note": "Lenovo press release: hall effect joysticks"
+    },
+    {
+      "field": "controls.haptics",
+      "url": "https://news.lenovo.com/pressroom/press-releases/legion-go-gaming-handheld-device-and-accessories/",
+      "accessed": "2026-10-27",
+      "note": "Lenovo press release spec table: HD haptics"
+    },
+    {
+      "field": "ports",
+      "url": "https://news.lenovo.com/pressroom/press-releases/legion-go-gaming-handheld-device-and-accessories/",
+      "accessed": "2026-10-27",
+      "note": "Lenovo press release: port locations (top: 3.5mm, USB-C, microSD; bottom: USB-C)"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1?tab=model",
+      "accessed": "2026-10-27",
+      "note": "PSREF model tab: Ryzen Z1 (6C/12T) models listed"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1?tab=model",
+      "accessed": "2026-10-27",
+      "note": "earliest PSREF announce date among the Ryzen Z1 models (83E1000CBR, 83E1000DBR)"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "r7-6800u",
+  "vendor": "AMD",
+  "name": "Ryzen 7 6800U",
+  "codename": "Rembrandt",
+  "cores": 8,
+  "threads": 16,
+  "core_mix": "8x Zen 3+",
+  "cpu_arch": "Zen 3+",
+  "base_ghz": 2.7,
+  "boost_ghz": 4.7,
+  "tdp_w": {
+    "default": 15,
+    "min": 15,
+    "max": 28
+  },
+  "process_nm": 6,
+  "process_note": "TSMC 6nm FinFET",
+  "npu_tops": 0,
+  "memory": "DDR5-4800, LPDDR5-6400, dual-channel, up to 64 GB",
+  "launch_date": "2022-04-19",
+  "igpu": {
+    "name": "Radeon 680M",
+    "cu": 12,
+    "arch": "RDNA 2",
+    "clock_mhz": 2200,
+    "tflops_fp32": 3.38
+  },
+  "passmark": {
+    "cpu_mark": 20651,
+    "single_thread": 3197,
+    "cpu_samples": 553,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+7+6800U&id=4923",
+    "g3d_mark": 4226,
+    "g3d_samples": 386,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+7+6800U&id=4648",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry. GPU: chip-named entry 'Radeon Ryzen 7 6800U' (the iGPU reports as 'AMD Radeon Graphics'), chosen over the generic 'Radeon 680M' entry (4016 G3D, only 10 samples)."
+  },
+  "notes": "AMD gives only a 15-28 W cTDP; the 15 W default is from TPU. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-6000-series/amd-ryzen-7-6800u.html",
+      "accessed": "2026-10-27",
+      "note": "the AMD product page returns 404; this AMD driver page carries the full spec table"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+7+6800U&id=4923",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+7+6800U&id=4648",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "tdp_w.default",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-7-6800u.c2523",
+      "accessed": "2026-10-27",
+      "note": "TPU: TDP 15 W"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/radeon-680m.c3871",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 3.379 TFLOPS"
+    }
+  ]
+}

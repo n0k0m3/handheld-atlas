@@ -1,0 +1,332 @@
+{
+  "id": "aokzoe-a1",
+  "brand": "AOKZOE",
+  "model": "A1",
+  "variant": "Ryzen 7 6800U",
+  "status": "shipped",
+  "announce_date": "2022-06",
+  "release_date": "2022-09",
+  "msrp_usd": 1099,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 285,
+      "h": 125,
+      "d": 21,
+      "d_max": null
+    },
+    "note": "Vendor gives 21 mm at the thinnest point. NotebookCheck reports about 41 mm at the grips."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 729,
+      "measured": 735,
+      "measured_source": "https://www.notebookcheck.net/Aokzoe-A1-gaming-handheld-review-Ambitious-with-room-for-improvement.751897.0.html"
+    },
+    "note": "This row describes the 65 Wh version (A1 Ultimate, sold in China as A1L), 729 g. The 48 Wh Standard version is 668 g. The NotebookCheck unit had the 65 Wh battery."
+  },
+  "soc_id": "r7-6800u",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR5",
+    "speed_mts": 6400,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 3,
+        "lanes": 4,
+        "note": "NVMe"
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 100,
+      "location": "top / bottom",
+      "note": "Vendor lists 2x USB 4.0. NotebookCheck found only the top port USB4-capable; it lists the bottom port as USB 3.1 Gen 2. Both ports charge and output video."
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "USB 3.0 per vendor"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "TF 3.0 per vendor"
+    }
+  ],
+  "screen": {
+    "size_in": 8,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 60,
+    "vrr": false,
+    "touch": true,
+    "nits_sdr": 350,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "100% sRGB, DC dimming, 283 ppi, 10-point touch"
+  },
+  "battery": {
+    "wh": 65,
+    "removable": false,
+    "external": false,
+    "charge_w": 100,
+    "note": "48 Wh Standard version also sold. 100 W GaN USB-C charger; full charge in about 1.5 h (vendor)."
+  },
+  "controls": {
+    "stick_type": null,
+    "stick_note": "Buyer's choice of Hall-effect or ALPS potentiometer sticks; 8.5 mm tall, 18 degree tilt (AOKZOE launch text)",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "linear vibration motors",
+    "note": "Linear triggers with 8.5 mm travel and 160 g actuation force. Turbo button switches between 15 W and 28 W. RGB light bars. Built-in kickstand."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.0"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "single fan, aluminium fins, two copper heat pipes",
+  "fingerprint": null,
+  "notes": "Kickstarter opened 2022-07-12 at $899 for 16GB/512GB; the retail price for that config was $1099. Retail sale in China began in September 2022.",
+  "unresolved": [
+    {
+      "field": "controls.stick_type",
+      "reason": "AOKZOE sold the A1 with either Hall-effect or ALPS potentiometer sticks; one row cannot hold both"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "Vendor calls the triggers linear but does not name the sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated by the vendor or the reviewer"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "not stated by the vendor or the reviewer"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "vendor gives only 350 nits"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "vendor gives only the thinnest point; the 41 mm grip value is a reviewer estimate"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "not stated"
+    },
+    {
+      "field": "ports",
+      "reason": "per-port fields not stated by the vendor, or not applicable to the port kind (DP alt, PD input, speed on audio, card, or USB-A ports)"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "dims_mm.handheld.d",
+      "values": [
+        {
+          "value": 21,
+          "url": "https://aokzoe.com/newest/2.html"
+        },
+        {
+          "value": 24,
+          "url": "https://aokzoestore.com/products/refurbished-aokzoe-a1-65w-amd%C2%AE-ryzen%C2%AE-6800u-8-inch"
+        }
+      ],
+      "chosen_reason": "AOKZOE launch text, Liliputing, and NotebookCheck all give 21 mm"
+    },
+    {
+      "field": "ports.USB4.count",
+      "values": [
+        {
+          "value": 2,
+          "url": "https://aokzoe.com/newest/2.html"
+        },
+        {
+          "value": 1,
+          "url": "https://www.notebookcheck.net/Aokzoe-A1-gaming-handheld-review-Ambitious-with-room-for-improvement.751897.0.html"
+        }
+      ],
+      "chosen_reason": "official value"
+    },
+    {
+      "field": "wireless.wifi",
+      "values": [
+        {
+          "value": "Wi-Fi 6",
+          "url": "https://aokzoestore.com/products/refurbished-aokzoe-a1-65w-amd%C2%AE-ryzen%C2%AE-6800u-8-inch"
+        },
+        {
+          "value": "Wi-Fi 6E (MediaTek RZ608)",
+          "url": "https://www.notebookcheck.net/Aokzoe-A1-gaming-handheld-review-Ambitious-with-room-for-improvement.751897.0.html"
+        }
+      ],
+      "chosen_reason": "official value; the review unit may have a later Wi-Fi card"
+    },
+    {
+      "field": "wireless.bt",
+      "values": [
+        {
+          "value": "5.0",
+          "url": "https://aokzoestore.com/products/refurbished-aokzoe-a1-65w-amd%C2%AE-ryzen%C2%AE-6800u-8-inch"
+        },
+        {
+          "value": "5.2",
+          "url": "https://www.notebookcheck.net/Aokzoe-A1-gaming-handheld-review-Ambitious-with-room-for-improvement.751897.0.html"
+        }
+      ],
+      "chosen_reason": "official value"
+    },
+    {
+      "field": "ram.type",
+      "values": [
+        {
+          "value": "LPDDR5",
+          "url": "https://aokzoe.com/newest/2.html"
+        },
+        {
+          "value": "LPDDR5X",
+          "url": "https://liliputing.com/aokzoe-a1-handheld-gaming-pc-with-ryzen-7-6800u-hits-kickstarter-for-899-and-up/"
+        }
+      ],
+      "chosen_reason": "official value"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://aokzoestore.com/products/refurbished-aokzoe-a1-65w-amd%C2%AE-ryzen%C2%AE-6800u-8-inch",
+      "accessed": "2026-10-27",
+      "note": "Official store spec list (the new-unit page is gone; this refurb page keeps the full spec text)"
+    },
+    {
+      "field": "*",
+      "url": "https://aokzoe.com/newest/2.html",
+      "accessed": "2026-10-27",
+      "note": "Official AOKZOE China launch article dated 2022-09-21: sticks, triggers, ports, dims, PCIe 3.0 x4, cooling, A1 (48 Wh) and A1L (65 Wh)"
+    },
+    {
+      "field": "controls.stick_note",
+      "url": "https://aokzoe.com/newest/2.html",
+      "accessed": "2026-10-27",
+      "note": "Hall-effect or ALPS potentiometer sticks as a buyer option"
+    },
+    {
+      "field": "release_date",
+      "url": "https://aokzoe.com/newest/2.html",
+      "accessed": "2026-10-27",
+      "note": "'new product on sale' article, September 2022"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/aokzoe-a1-handheld-gaming-pc-with-ryzen-7-6800u-hits-kickstarter-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": "first unveiled in June 2022"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/aokzoe-a1-handheld-gaming-pc-with-ryzen-7-6800u-hits-kickstarter-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": "16GB/512GB retail $1099"
+    },
+    {
+      "field": "storage.capacities_gb",
+      "url": "https://liliputing.com/aokzoe-a1-handheld-gaming-pc-with-ryzen-7-6800u-hits-kickstarter-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "ram.soldered",
+      "url": "https://liliputing.com/aokzoe-a1-handheld-gaming-pc-with-ryzen-7-6800u-hits-kickstarter-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "url": "https://www.notebookcheck.net/Aokzoe-A1-gaming-handheld-review-Ambitious-with-room-for-improvement.751897.0.html",
+      "accessed": "2026-10-27",
+      "note": "735 g, 65 Wh unit"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "url": "https://www.notebookcheck.net/Aokzoe-A1-gaming-handheld-review-Ambitious-with-room-for-improvement.751897.0.html",
+      "accessed": "2026-10-27",
+      "note": "60 Hz panel"
+    },
+    {
+      "field": "screen.vrr",
+      "url": "https://www.notebookcheck.net/Aokzoe-A1-gaming-handheld-review-Ambitious-with-room-for-improvement.751897.0.html",
+      "accessed": "2026-10-27",
+      "note": "internal display does not support FreeSync"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.notebookcheck.net/Aokzoe-A1-gaming-handheld-review-Ambitious-with-room-for-improvement.751897.0.html",
+      "accessed": "2026-10-27",
+      "note": "port locations"
+    },
+    {
+      "field": "battery.removable",
+      "url": "https://www.notebookcheck.net/Aokzoe-A1-gaming-handheld-review-Ambitious-with-room-for-improvement.751897.0.html",
+      "accessed": "2026-10-27",
+      "note": "internal battery, replaceable only after opening the case"
+    }
+  ]
+}

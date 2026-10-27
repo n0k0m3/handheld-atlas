@@ -1,0 +1,86 @@
+{
+  "id": "z2-go",
+  "vendor": "AMD",
+  "name": "Ryzen Z2 Go",
+  "codename": "Rembrandt",
+  "cores": 4,
+  "threads": 8,
+  "core_mix": "4x Zen 3+",
+  "cpu_arch": "Zen 3+",
+  "base_ghz": 3.0,
+  "boost_ghz": 4.3,
+  "tdp_w": {
+    "default": 28,
+    "min": 15,
+    "max": 30
+  },
+  "process_nm": 6,
+  "process_note": "TSMC 6nm",
+  "npu_tops": 0,
+  "memory": "DDR5-4800, LPDDR5-6400, dual-channel",
+  "launch_date": "2025-01-06",
+  "igpu": {
+    "name": "Radeon (12 CU RDNA 2)",
+    "cu": 12,
+    "arch": "RDNA 2",
+    "clock_mhz": 2200,
+    "tflops_fp32": 3.38
+  },
+  "passmark": {
+    "cpu_mark": 11090,
+    "single_thread": 2833,
+    "cpu_samples": 22,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z2+Go&id=6563",
+    "g3d_mark": 4733,
+    "g3d_samples": 18,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+Z2+Go&id=5988",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU and GPU: exact entries 'AMD Ryzen Z2 Go' (22 samples) and 'Radeon Ryzen Z2 Go' (only 18 samples). The laptop twin 'Radeon Ryzen 7 6800U' (680M) scores 4226 G3D with 386 samples."
+  },
+  "notes": "npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/handhelds/ryzen-z-series/z2-series/z2-go.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: cores, clocks, TDP, iGPU CU and clock"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z2+Go&id=6563",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+Z2+Go&id=5988",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z2-go.c4604",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Jan 6th, 2025"
+    },
+    {
+      "field": "process_nm",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z2-go.c4604",
+      "accessed": "2026-10-27",
+      "note": "TPU: TSMC 6 nm, Rembrandt"
+    },
+    {
+      "field": "memory",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z2-go.c4604",
+      "accessed": "2026-10-27",
+      "note": "TPU: DDR5-4800, LPDDR5-6400"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/ryzen-z2-go-gpu.c4307",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 3.379 TFLOPS"
+    }
+  ]
+}

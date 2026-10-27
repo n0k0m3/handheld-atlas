@@ -1,0 +1,245 @@
+{
+  "id": "ayaneo-3-hx370",
+  "brand": "AYANEO",
+  "model": "AYANEO 3",
+  "variant": "Ryzen AI 9 HX 370",
+  "status": "shipped",
+  "announce_date": "2024-11-08",
+  "release_date": "2025-08",
+  "msrp_usd": 1499,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 289.8,
+      "h": 115,
+      "d": 22.4,
+      "d_max": 34.8
+    },
+    "note": "Official: 289.8 x 115 x 22.4 mm, grip area 34.8 mm. Same body for the OLED and LCD panels."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 690,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "690 g with the standard modules installed. AYANEO gives one weight for both panels."
+  },
+  "soc_id": "ai9-hx370",
+  "ram": {
+    "sizes_gb": [
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": null,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048,
+      4096
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 65,
+      "location": null,
+      "note": "40 Gbps, DP 1.4; charging, data and video. 65 W PD charging with bypass."
+    },
+    {
+      "kind": "OCuLink",
+      "count": 1,
+      "speed_gbps": 64,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "AYANEO states 64 Gbps maximum bandwidth"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "SD 4.0, up to 300 MB/s"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "OLED",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 144,
+    "vrr": null,
+    "touch": null,
+    "nits_sdr": null,
+    "nits_peak": 800,
+    "hdr": true,
+    "note": "Two panels at the same price. Main fields describe the OLED: 1920x1080, 800 nits max, 60/90/120/144 Hz, 150% sRGB, 110% DCI-P3, HDR. LCD option: 7 in 1920x1080, 500 nits, 60/120 Hz, 7 ms, VRR, 100% sRGB, native landscape."
+  },
+  "battery": {
+    "wh": 49,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65 W PD, bypass charging supported"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "RGB Hall joysticks, 250 Hz report rate, on swappable Magic Modules",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "Magnetic suspension motor",
+    "note": "Modular controller: standard module installed. Optional touchpad module (touchpad + D-pad + ABXY) and fighting module are sold separately. ABXY buttons are detachable. Dual six-axis gyroscopes. Trigger lock switches 7.5 mm linear and 3 mm micro-action modes."
+  },
+  "wireless": {
+    "wifi": null,
+    "bt": "5.3"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "Large turbo fan, triple copper heat pipes + copper sheet; up to 35 W",
+  "fingerprint": true,
+  "notes": "Indiegogo early-bird price for 32GB/1TB was $1,299 (January 2025); retail $1,499. Backer shipping was planned for April 2025. release_date uses the AYANEO store listing for the HX 370 model (published 2025-08-04). OLED and LCD versions share one row: same price, dimensions and stated weight.",
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/AYANEO-3",
+      "accessed": "2026-10-27",
+      "note": "Spec list is HTML text at the end of the product page"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/AYANEO-3",
+      "accessed": "2026-10-27",
+      "note": "Joystick: RGB Hall Joysticks 250Hz"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/AYANEO-3",
+      "accessed": "2026-10-27",
+      "note": "Triggers: Limited Hall-effect Triggers 250Hz, Linear / Micro-action one-click switch"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://ayaneo.com/article/859",
+      "accessed": "2026-10-27",
+      "note": "Annual Flagship Handheld AYANEO 3 Officially Announced, 2024-11-08"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/Ayaneo-3-gaming-handheld-now-available-with-AMD-Ryzen-AI-9-HX-370-OLED-display-OCuLink-and-up-to-64-GB-of-RAM.952195.0.html",
+      "accessed": "2026-10-27",
+      "note": "Early-bird and retail price table, 2025-01-24"
+    },
+    {
+      "field": "release_date",
+      "url": "https://shop.ayaneo.com/products/ayaneo-3-amd-ai-9-hx370",
+      "accessed": "2026-10-27",
+      "note": "Store product published 2025-08-04 (Shopify products.json)"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://shop.ayaneo.com/products/ayaneo-3-amd-ai-9-hx370",
+      "accessed": "2026-10-27",
+      "note": "HX 370 variants: 32G+1T, 64G+2T, 64G+4T"
+    }
+  ],
+  "unresolved": [
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer scale weight found (Notebookcheck has news posts only)"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "PCIe lane count not stated"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Port locations are not stated on the spec list"
+    },
+    {
+      "field": "ports.1.dp_alt",
+      "reason": "Not applicable to OCuLink"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "Not applicable to OCuLink"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Port locations are not stated on the spec list"
+    },
+    {
+      "field": "ports.2",
+      "reason": "Not applicable to a card slot (speed in MB/s is in the note)"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Port locations are not stated on the spec list"
+    },
+    {
+      "field": "ports.3",
+      "reason": "Not applicable to an audio jack"
+    },
+    {
+      "field": "ports.3.location",
+      "reason": "Port locations are not stated on the spec list"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "LCD panel has VRR; AYANEO does not state VRR for the OLED panel that the main fields describe"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "Touch input is not stated on the official spec list"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Only one maximum brightness figure is published"
+    },
+    {
+      "field": "wireless.wifi",
+      "reason": "AYANEO says 'Latest Ultra-fast WiFi' without a version"
+    }
+  ]
+}

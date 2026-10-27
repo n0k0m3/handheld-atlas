@@ -1,0 +1,355 @@
+{
+ "onexfly-7840u": {
+  "page": "https://web.archive.org/web/20230926015414/https://onexplayerstore.com/products/onexfly",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexfly"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Official image angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/oxf_90483a6e-81b1-410e-8199-337965e8a047.jpg?v=1716794666"
+ },
+ "onexfly-8840u": {
+  "page": "https://web.archive.org/web/20240808144831/https://onexplayerstore.com/products/onexfly-gaming-handheld",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexfly"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as the 7840U model; official image angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexfly8840-1.jpg?v=1721097097"
+ },
+ "onexfly-apex-385": {
+  "page": "https://onexplayerstore.com/products/onexfly-apex-worlds-most-powerful-8-gaming-handheld",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexfly-apex",
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/Onexplayer_Apex_388.png?v=1784354033"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Store image is a front view on a dark background with graphics; retrocatalog cut-out preferred. Battery pack is on the back and not visible from the front."
+ },
+ "onexfly-apex-388": {
+  "page": "https://onexplayerstore.com/products/onexfly-apex-worlds-most-powerful-8-gaming-handheld",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexfly-apex",
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/Onexplayer_Apex_388.png?v=1784354033"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as onexfly-apex-385."
+ },
+ "onexfly-apex-395": {
+  "page": "https://onexplayerstore.com/products/onexfly-apex-worlds-most-powerful-8-gaming-handheld",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexfly-apex",
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/Onexplayer_Apex_388.png?v=1784354033"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as onexfly-apex-385."
+ },
+ "onexfly-apex-air": {
+  "page": "https://onexplayerstore.com/products/onexfly-apex-air-8-gaming-handheld-with-intel-arc-g3-extreme",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexfly-apex"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Not on retrocatalog. Top uses the OneXFly Apex retrocatalog cut-out: the Apex Air has the same shell per NotebookCheck, and the spec dimensions match. Removed from top (banner with text, dark background, fails the aspect check): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/ONEXPLAYER_APEX_Air_Gaming_Handheld-3.png?v=1784714287"
+ },
+ "onexfly-f1-pro-365": {
+  "page": "https://onexplayerstore.com/products/onexfly-f1-pro-wolrd-s-first-amd-ai-370-oled-144hz-gaming-handheld-console",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexfly-f1-pro",
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexfly-f1-pro-black.webp?v=1766717233"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as onexfly-f1-pro-hx370."
+ },
+ "onexfly-f1-pro-8840u": {
+  "page": "https://onexplayerstore.com/products/onexfly-f1-pro-wolrd-s-first-amd-ai-370-oled-144hz-gaming-handheld-console",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexfly-f1-pro",
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexfly-f1-pro-black.webp?v=1766717233"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as onexfly-f1-pro-hx370."
+ },
+ "onexfly-f1-pro-hx370": {
+  "page": "https://onexplayerstore.com/products/onexfly-f1-pro-wolrd-s-first-amd-ai-370-oled-144hz-gaming-handheld-console",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexfly-f1-pro",
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexfly-f1-pro-black.webp?v=1766717233"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Store image is a straight-on front view on a black background with a reflection; retrocatalog cut-out preferred."
+ },
+ "onexplayer-2": {
+  "page": "https://web.archive.org/web/20230328175638/https://onexplayerstore.com/products/onexplayer-2-amd%C2%AE-ryzen%C2%AE-6800u",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-2"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Second URL is an official store product image; view angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/products/0.jpg?v=1675306182"
+ },
+ "onexplayer-2-pro": {
+  "page": "https://web.archive.org/web/20231229160223/https://onexplayerstore.com/products/onexplayer-2-pro",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-2"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as OneXPlayer 2; retrocatalog image is the OneXPlayer 2. Official image angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/1_17fe1d36-7e8a-4b50-bc71-4eb854a0ad4c.jpg?v=1698997472"
+ },
+ "onexplayer-2-pro-1360p": {
+  "page": "https://onexplayerstore.com/products/refurbished-2-pro-8-4",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-2"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as onexplayer-2-pro; images copied from that entry.  Same chassis as OneXPlayer 2; retrocatalog image is the OneXPlayer 2. Official image angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/1_17fe1d36-7e8a-4b50-bc71-4eb854a0ad4c.jpg?v=1698997472"
+ },
+ "onexplayer-2-pro-8840u": {
+  "page": "https://web.archive.org/web/20240516070115/https://onexplayerstore.com/products/onexplayer-2-pro-8840u",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-2"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as OneXPlayer 2; official image angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/2Pro8840U-10002.png?v=1710143254"
+ },
+ "onexplayer-3": {
+  "page": "https://onexplayerstore.com/products/onexplayer-3-next-gen-3-in-1-ai-gaming-and-productivity-handheld",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-3"
+  ],
+  "bottom": [
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/Onexplayer_3_main_imagine-5.png?v=1785235700"
+  ],
+  "side": [],
+  "closed_top": [],
+  "note": "Bottom image is a straight-on back view on a dark background with callout labels and the kickstand visible."
+ },
+ "onexplayer-g1": {
+  "page": "https://onexplayerstore.com/products/onexplayer-g1-amd-ryzen-ai-9-hx-370-ultimate-gaming-handheld-console-versatile-laptop",
+  "top": [],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Clamshell. Top is a box. No lid-closed top-down render found: the store gallery has only angled and lifestyle shots, and an image search found none. Removed from top (lid open, so it shows the open footprint, not the closed one; it failed the aspect check as is and rotated): https://retrocatalog.com/images/retro-handheld_front_onexplayer-g1 All three SoC rows share this chassis."
+ },
+ "onexplayer-g1-255h": {
+  "page": "https://onexplayerstore.com/products/onexplayer-g1-amd-ryzen-ai-9-hx-370-ultimate-gaming-handheld-console-versatile-laptop",
+  "top": [],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Clamshell. Top is a box. No lid-closed top-down render found: the store gallery has only angled and lifestyle shots, and an image search found none. Removed from top (lid open, so it shows the open footprint, not the closed one; it failed the aspect check as is and rotated): https://retrocatalog.com/images/retro-handheld_front_onexplayer-g1 All three SoC rows share this chassis."
+ },
+ "onexplayer-g1-8840u": {
+  "page": "https://onexplayerstore.com/products/onexplayer-g1-amd-ryzen-ai-9-hx-370-ultimate-gaming-handheld-console-versatile-laptop",
+  "top": [],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Clamshell. Top is a box. No lid-closed top-down render found: the store gallery has only angled and lifestyle shots, and an image search found none. Removed from top (lid open, so it shows the open footprint, not the closed one; it failed the aspect check as is and rotated): https://retrocatalog.com/images/retro-handheld_front_onexplayer-g1 All three SoC rows share this chassis."
+ },
+ "onexplayer-mini-1195g7": {
+  "page": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-now-available/",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_one-xplayer-mini"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "2022 OneXPlayer Mini. Top: retrocatalog front cut-out (retrocatalog slug one-xplayer-mini), checked visually: clean straight-on, white unit, controllers on the body. Both SoC rows share this chassis."
+ },
+ "onexplayer-mini-5800u": {
+  "page": "https://liliputing.com/onexplayer-mini-with-ryzen-7-5800u-launches-in-china-for-840-and-up/",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_one-xplayer-mini"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "2022 OneXPlayer Mini. Top: retrocatalog front cut-out (retrocatalog slug one-xplayer-mini), checked visually: clean straight-on, white unit, controllers on the body. Both SoC rows share this chassis."
+ },
+ "onexplayer-mini-pro-1260p": {
+  "page": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-features-intel-core-i7-1260p-lpddr5-ram-and-up-to-2tb-storage/",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_one-xplayer-mini-pro"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "OneXPlayer Mini Pro. Top: retrocatalog front cut-out (retrocatalog slug one-xplayer-mini-pro), checked visually: clean straight-on. Both SoC rows share this chassis. Removed earlier from top (banner): https://cdn.shopify.com/s/files/1/0557/8535/7492/products/800-800_01.jpg?v=1663670885"
+ },
+ "onexplayer-mini-pro-6800u": {
+  "page": "https://web.archive.org/web/20220926133734/https://onexplayerstore.com/products/onexplayer-mini-amd%C2%AE-ryzen%C2%AE-6800u-1920-1200",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_one-xplayer-mini-pro"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "OneXPlayer Mini Pro. Top: retrocatalog front cut-out (retrocatalog slug one-xplayer-mini-pro), checked visually: clean straight-on. Both SoC rows share this chassis. Removed earlier from top (banner): https://cdn.shopify.com/s/files/1/0557/8535/7492/products/800-800_01.jpg?v=1663670885"
+ },
+ "onexplayer-x1-125h": {
+  "page": "https://onexplayerstore.com/products/x1-155h",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as onexplayer-x1-155h; images copied from that entry.  Official image angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/1000_aabd5aef-5850-4380-9276-409fe9e934cd.png?v=1756115888"
+ },
+ "onexplayer-x1-155h": {
+  "page": "https://onexplayerstore.com/products/x1-155h",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Official image angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/1000_aabd5aef-5850-4380-9276-409fe9e934cd.png?v=1756115888"
+ },
+ "onexplayer-x1-8840u": {
+  "page": "https://web.archive.org/web/20240917145834/https://onexplayerstore.com/products/onexplayer-x1-amd-ryzen%E2%84%A2-7-8840u-10-95-3-in-1-gaming-handheld-console",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as X1 155H; official image angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://onexplayerstore.com/cdn/shop/files/1-8840u.jpg?v=1718172977"
+ },
+ "onexplayer-x1-air": {
+  "page": "https://web.archive.org/web/20251229135820/https://onexplayerstore.com/products/onexplayer-x1-air-portable-3-in-1-gaming-creator-pc-with-expandable-mini-ssd",
+  "top": [
+   "https://i.ebayimg.com/images/g/tgwAAeSwiG5pCycF/s-l1200.png"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Top: eBay listing image (transparent PNG, straight-on, controllers attached), checked visually; no clean official render found. Both SoC rows share this chassis. Removed earlier from top (banner): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-air-3-in-1-gaming-handheld.webp?v=1763625154"
+ },
+ "onexplayer-x1-air-228v": {
+  "page": "https://web.archive.org/web/20251229135820/https://onexplayerstore.com/products/onexplayer-x1-air-portable-3-in-1-gaming-creator-pc-with-expandable-mini-ssd",
+  "top": [
+   "https://i.ebayimg.com/images/g/tgwAAeSwiG5pCycF/s-l1200.png"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Top: eBay listing image (transparent PNG, straight-on, controllers attached), checked visually; no clean official render found. Both SoC rows share this chassis. Removed earlier from top (banner): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-air-3-in-1-gaming-handheld.webp?v=1763625154"
+ },
+ "onexplayer-x1-mini": {
+  "page": "https://web.archive.org/web/20240731025621/https://onexplayerstore.com/products/onexplayer-x1-mini-8840u-144hz-gaminghandheld",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-mini"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Official image angle not verified. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/OneXPlayer_X1_Mini-cover1.jpg?v=1752056430"
+ },
+ "onexplayer-x1-mini-hx370": {
+  "page": "https://www.notebookcheck.net/OneXPlayer-X1-Mini-now-available-with-AMD-Ryzen-AI-9-HX-370-64-GB-RAM-and-apparent-launch-discounts.1035462.0.html",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-mini"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as the 8840U X1 Mini; no official HX 370 page found."
+ },
+ "onexplayer-x1-pro": {
+  "page": "https://onexplayerstore.com/products/refurbish-onexplayer-x1-pro-amd-ryzen%E2%84%A2-ai-9-hx-370-10-95-3-in-1-redefining-handheld-gaming",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-pro",
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-pro-front-view-2.jpg?v=1763625389"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Official images are named front-view; not visually checked. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-pro-front-view.jpg?v=1763625389 Kept front-view-2: straight-on, no hands, but on a dark photo background."
+ },
+ "onexplayer-x1-pro-255h": {
+  "page": "https://onexplayerstore.com/products/refurbish-onexplayer-x1-pro-amd-ryzen%E2%84%A2-ai-9-hx-370-10-95-3-in-1-redefining-handheld-gaming",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-pro",
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-pro-front-view-2.jpg?v=1763625389"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as onexplayer-x1-pro; images copied from that entry. The EVA edition has a red Evangelion livery, so colours differ. Official images are named front-view; not visually checked. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-pro-front-view.jpg?v=1763625389 Kept front-view-2: straight-on, no hands, but on a dark photo background."
+ },
+ "onexplayer-x1-pro-hx470": {
+  "page": "https://onexplayerstore.com/products/onexplayer-x1-pro-amd-ryzen%E2%84%A2-ai-9-hx-370-8840u-10-95-3-in-1-gaming-handheld-pc-bundle-onexgpu2",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-pro",
+   "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-pro-front-view-2.jpg?v=1763625389"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as onexplayer-x1-pro; images copied from that entry.  Official images are named front-view; not visually checked. Checked visually: retrocatalog image is a clean straight-on front cut-out. Removed from top (banner, chip graphic, hands or collage): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexplayer-x1-pro-front-view.jpg?v=1763625389 Kept front-view-2: straight-on, no hands, but on a dark photo background."
+ },
+ "onexplayer-x2": {
+  "page": "https://onexplayerstore.com/products/onexplayer-x2-portable-3-in-1-gaming-pc-with-intel%C2%AE-arc%E2%84%A2-g3-extreme-expandable-mini-ssd-slot",
+  "top": [],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "No straight-on render with controllers attached on a clean background found. Tried: the store gallery (hands, banners, dark backgrounds) and the Amazon image https://m.media-amazon.com/images/I/71j8XDLqbqL.jpg (controllers placed at different heights with a text overlay; the trace was wrong). Not on retrocatalog. Box."
+ },
+ "onexplayer-x2-air": {
+  "page": "https://onexplayerstore.com/products/onexplayer-x2-air-portable-3-in-1-gaming-creator-pc-with-expandable-mini-ssd",
+  "top": [
+   "https://i.ebayimg.com/images/g/tgwAAeSwiG5pCycF/s-l1200.png"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Top: the X1 Air render (eBay listing image, transparent PNG, controllers attached). The X2 Air store listing is the renamed X1 Air listing and its gallery reuses the onexplayer-x1-air-*.webp files, so the body is shown as the same. The store gallery has no clean front view. Removed earlier from top (banner): https://cdn.shopify.com/s/files/1/0557/8535/7492/files/ONEXPLAYER_X2_Air.jpg?v=1788145992"
+ },
+ "onexplayer-x2-mini": {
+  "page": "https://onexplayerstore.com/products/onexplayer-x2-mini-with-intel%C2%AE-arc%E2%84%A2-g3-extreme-8-8-oled-3-in-1-gaming-handheld",
+  "top": [
+   "https://www.kibotek.com/wp-content/uploads/2026/09/kiboTEK_onexplayer_x2_mini_025.png"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Top: kiboTEK retailer image (transparent PNG, straight-on, controllers attached), checked visually. Store gallery images show hands, banners or dark backgrounds. Not on retrocatalog."
+ },
+ "onexplayer-x2-mini-pro-388": {
+  "page": "https://onexplayerstore.com/products/onexplayer-x2-mini-pro-8-8-3-in-1-oled-gaming-handheld-with-amd-ryzen%E2%84%A2-ai-max-388-liquid-cooling",
+  "top": [
+   "https://www.playersvaultph.com/web/image/product.image/1004/image_1024/onexplayer%20x2minipro%20004.webp?unique=47d4187"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Top: Players Vault retailer image (white background, straight-on, controllers attached), checked visually. Store gallery images show hands, banners or dark backgrounds. Not on retrocatalog."
+ }
+}

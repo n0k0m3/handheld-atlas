@@ -1,0 +1,74 @@
+{
+  "id": "ai-max-395",
+  "vendor": "AMD",
+  "name": "Ryzen AI Max+ 395",
+  "codename": "Strix Halo",
+  "cores": 16,
+  "threads": 32,
+  "core_mix": "16x Zen 5",
+  "cpu_arch": "Zen 5",
+  "base_ghz": 3.0,
+  "boost_ghz": 5.1,
+  "tdp_w": {
+    "default": 55,
+    "min": 45,
+    "max": 120
+  },
+  "process_nm": 4,
+  "process_note": "TSMC 4nm FinFET (CCDs and I/O die)",
+  "npu_tops": 50,
+  "memory": "LPDDR5X-8000, 256-bit, up to 128 GB",
+  "launch_date": "2025-01-06",
+  "igpu": {
+    "name": "Radeon 8060S",
+    "cu": 40,
+    "arch": "RDNA 3.5",
+    "clock_mhz": 2900,
+    "tflops_fp32": 14.85
+  },
+  "passmark": {
+    "cpu_mark": 54782,
+    "single_thread": 4144,
+    "cpu_samples": 1240,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+AI+Max%2B+395&id=6403",
+    "g3d_mark": 18056,
+    "g3d_samples": 1457,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+8060S&id=5327",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU and GPU: exact entries."
+  },
+  "notes": "Package with 3 dies (2 CCDs + I/O die). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-plus-395.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: CPU, memory, NPU and iGPU fields (no launch date)"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+AI+Max%2B+395&id=6403",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+8060S&id=5327",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-ai-max-395.c3994",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Jan 6th, 2025"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/radeon-8060s.c4270",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 14.85 TFLOPS"
+    }
+  ]
+}

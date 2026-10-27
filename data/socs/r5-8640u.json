@@ -1,0 +1,68 @@
+{
+  "id": "r5-8640u",
+  "vendor": "AMD",
+  "name": "Ryzen 5 8640U",
+  "codename": "Hawk Point",
+  "cores": 6,
+  "threads": 12,
+  "core_mix": "6x Zen 4",
+  "cpu_arch": "Zen 4",
+  "base_ghz": 3.5,
+  "boost_ghz": 4.9,
+  "tdp_w": {
+    "default": 28,
+    "min": 15,
+    "max": 30
+  },
+  "process_nm": 4,
+  "process_note": "TSMC 4nm FinFET",
+  "npu_tops": 16,
+  "memory": "DDR5-5600, LPDDR5X-7500, dual-channel, up to 96 GB DDR5 / 64 GB LPDDR5X",
+  "launch_date": "2023-12-06",
+  "igpu": {
+    "name": "Radeon 760M",
+    "cu": 8,
+    "arch": "RDNA 3",
+    "clock_mhz": 2600,
+    "tflops_fp32": 2.66
+  },
+  "passmark": {
+    "cpu_mark": 19859,
+    "single_thread": 3459,
+    "cpu_samples": 44,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+8640U&id=6089",
+    "g3d_mark": 5294,
+    "g3d_samples": 2782,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+760M&id=4902",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry 'AMD Ryzen 5 8640U' (44 samples). GPU: exact entry 'Radeon 760M'."
+  },
+  "notes": "AMD lists the NPU at up to 16 TOPS (31 TOPS overall). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-5-8640u.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: CPU, memory, NPU and iGPU fields (no launch date)"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+8640U&id=6089",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+760M&id=4902",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-5-8640u.c3405",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Dec 6th, 2023"
+    }
+  ]
+}

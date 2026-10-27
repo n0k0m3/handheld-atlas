@@ -1,0 +1,83 @@
+{
+  "id": "rog-xbox-ally-x20",
+  "brand": "ASUS",
+  "model": "ROG Xbox Ally X20",
+  "variant": "Ryzen AI Z2 Extreme (2026, RC74XA)",
+  "status": "shipped",
+  "announce_date": "2026-06-01",
+  "release_date": "2026-10-15",
+  "msrp_usd": 1299.99,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 300, "h": 121, "d": 27.5, "d_max": 51.3 },
+    "note": "ASUS: 30.0 x 12.1 x 2.75 ~ 5.13 cm (W x D x H). d is the thinnest point, d_max the grips."
+  },
+  "weight_g": {
+    "handheld": { "stated": 756, "measured": null, "measured_source": null },
+    "note": "NotebookCheck lists 756 g, the same as the ASUS figure, with no scale statement in the text; not recorded as measured."
+  },
+  "soc_id": "z2-ai-extreme",
+  "ram": { "sizes_gb": [24], "type": "LPDDR5X", "speed_mts": 8000, "channels": 2, "soldered": true },
+  "storage": {
+    "slots": [
+      { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": "M.2 2280 NVMe; a cable runs to the rear cover" }
+    ],
+    "capacities_gb": [1024],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 1, "speed_gbps": 40, "dp_alt": true, "pd_in_w": 68, "location": "top", "note": "ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 2.1 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 68 W adapter rating." },
+    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 68, "location": "top", "note": "DisplayPort and power delivery. pd_in_w is the bundled 68 W adapter rating." },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Combo audio jack" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "microSD Express (SD 8.0, PCIe Gen4 x1); UHS-I with DDR200 mode. NotebookCheck measured about 800 MB/s." }
+  ],
+  "screen": { "size_in": 7.4, "panel": "OLED", "res_w": 1920, "res_h": 1080, "refresh_hz": 120, "vrr": true, "touch": true, "nits_sdr": 600, "nits_peak": 1400, "hdr": true, "note": "ROG Nebula HDR OLED, anti-reflection, 100% DCI-P3, Dolby Vision, FreeSync Premium Pro, Gorilla Glass Victus + DXC" },
+  "battery": { "wh": 80, "removable": false, "external": false, "charge_w": 68, "note": "80 Wh 4S1P 4-cell Li-ion. 68 W USB-C adapter (20 V, 3.4 A; inclusion varies by region)." },
+  "controls": {
+    "stick_type": "tmr",
+    "stick_note": "TMR joysticks with Aura RGB light rings",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics; L & R impulse triggers",
+    "note": "ASUS: L & R Hall Effect analog triggers, transforming D-pad (4-way / 8-way), 2 x assignable grip buttons, 6-axis IMU"
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.4" },
+  "os": ["Windows 11 Home"],
+  "cooling": null,
+  "fingerprint": true,
+  "notes": "ROG 20th anniversary 'Edition 20' model with a translucent black and gold chassis. Rows merged: the standalone unit (RC74XA-XB-ALLYX.Z2E.24) and the bundle (RC74XA-XB-ALLYXBUN.Z2E.24, $2,499.99, adds ROG XREAL R1 Edition 20 glasses, a Pelican case and a dbrand Killswitch) share this hardware. Pre-orders opened 2026-08-25.",
+  "unresolved": [
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
+    { "field": "ports.3", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "weight_g.handheld.measured", "reason": "NotebookCheck gives 756 g, identical to the ASUS figure, without a scale statement" },
+    { "field": "storage.slots.0.lanes", "reason": "ASUS gives PCIe 4.0 but not the lane count" },
+    { "field": "controls.trigger_lock", "reason": "Not stated by ASUS or the reviews used" },
+    { "field": "cooling", "reason": "ASUS cites an improved cooling solution and NotebookCheck mentions 'fans' (plural), but neither gives a count or design" }
+  ],
+  "conflicts": [
+    {
+      "field": "ports.0.kind",
+      "values": [
+        { "value": "USB4", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-x20-2026/spec/" },
+        { "value": "Thunderbolt 4", "url": "https://www.notebookcheck.net/A-stunning-OLED-screen-Asus-ROG-Xbox-Ally-X20-Gaming-Handheld-Review.1425337.0.html" }
+      ],
+      "chosen_reason": "ASUS says 'USB 4 (Thunderbolt 4 compliance)', not a Thunderbolt-branded port; same wording as the Ally X, which the project records as USB4"
+    }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-x20-2026/spec/", "accessed": "2026-10-27", "note": "ASUS US spec page, ROG Xbox Ally X20 (2026) RC74XA" },
+    { "field": "notes", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-x20-bundle-2026/spec/", "accessed": "2026-10-27", "note": "Bundle spec page: same RC74XA hardware, adds 'Included in the Box' items" },
+    { "field": "ram.speed_mts", "url": "https://www.notebookcheck.net/A-stunning-OLED-screen-Asus-ROG-Xbox-Ally-X20-Gaming-Handheld-Review.1425337.0.html", "accessed": "2026-10-27", "note": "'24 GB RAM (LPDDR5x-8000)'; ASUS does not state the speed" },
+    { "field": "controls.stick_type", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-x20-2026/spec/", "accessed": "2026-10-27", "note": "'TMR Joysticks with Aura RGB joystick light rings'; NotebookCheck: 'now magnetic TMR'" },
+    { "field": "ports", "url": "https://www.notebookcheck.net/A-stunning-OLED-screen-Asus-ROG-Xbox-Ally-X20-Gaming-Handheld-Review.1425337.0.html", "accessed": "2026-10-27", "note": "Port locations: all ports on top; microSD Express about 800 MB/s" },
+    { "field": "announce_date", "url": "https://liliputing.com/asus-rog-xbox-ally-x20-bundle-brings-a-bigger-brighter-screen-and-a-pair-of-ar-glasses/", "accessed": "2026-10-27", "note": "Article dated 2026-06-01, citing the ASUS press release (Computex 2026)" },
+    { "field": "release_date", "url": "https://purexbox.com/news/2026/08/rog-xbox-ally-x20-pre-orders-go-live-today-release-date-and-prices-revealed", "accessed": "2026-10-27", "note": "'official release date of October 15th, 2026'; pre-orders 2026-08-25" },
+    { "field": "msrp_usd", "url": "https://purexbox.com/news/2026/08/rog-xbox-ally-x20-pre-orders-go-live-today-release-date-and-prices-revealed", "accessed": "2026-10-27", "note": "Standalone $1,299.99; Ultimate Bundle with ROG glasses $2,499.99" },
+    { "field": "status", "url": "https://www.notebookcheck.net/A-stunning-OLED-screen-Asus-ROG-Xbox-Ally-X20-Gaming-Handheld-Review.1425337.0.html", "accessed": "2026-10-27", "note": "'available for $1299 from BestBuy'" }
+  ]
+}

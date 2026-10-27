@@ -1,0 +1,80 @@
+{
+  "id": "i7-1195g7",
+  "vendor": "Intel",
+  "name": "Core i7-1195G7",
+  "codename": "Tiger Lake",
+  "cores": 4,
+  "threads": 8,
+  "core_mix": "4x Willow Cove",
+  "cpu_arch": "Willow Cove",
+  "base_ghz": 2.9,
+  "boost_ghz": 5.0,
+  "tdp_w": {
+    "default": 28,
+    "min": 12,
+    "max": 28
+  },
+  "process_nm": 10,
+  "process_note": "Intel 10 nm SuperFin (per ARK)",
+  "npu_tops": 0,
+  "memory": "DDR4-3200, LPDDR4X-4267, dual-channel, up to 64 GB",
+  "launch_date": "2021-05-31",
+  "igpu": {
+    "name": "Intel Iris Xe (96 EU)",
+    "cu": 6,
+    "arch": "Xe-LP",
+    "clock_mhz": 1400,
+    "tflops_fp32": 2.15
+  },
+  "passmark": {
+    "cpu_mark": 10349,
+    "single_thread": 2940,
+    "cpu_samples": 864,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-1195G7+%40+2.90GHz&id=4514",
+    "g3d_mark": 2587,
+    "g3d_samples": 73915,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Iris+Xe&id=4265",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry 'Intel Core i7-1195G7 @ 2.90GHz'. GPU: PassMark pools every 'Intel Iris Xe' iGPU (80 and 96 EU, many chips) under one entry; there is no per-SKU entry."
+  },
+  "notes": "igpu.cu counts the 96 EU as 6 subslices of 16 EU (the Xe-LP equivalent of an Xe-core). Tiger Lake has no hybrid cores and no NPU (ARK lists none; the 'with IPU' SKU name refers to the image processing unit). tdp_w: default 28 W from TPU; min and max are ARK's cTDP-down 12 W and cTDP-up 28 W. base_ghz is the 28 W base from TPU. launch_date from TPU; ARK says Q2'21. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.intel.com/content/www/us/en/products/sku/217181/intel-core-i71195g7-processor-12m-cache-up-to-5-00-ghz-with-ipu/specifications.html",
+      "accessed": "2026-10-27",
+      "note": "Intel ARK: cores, turbo clock, cTDP 12-28 W, 10 nm SuperFin, memory, Iris Xe 96 EU at 1.40 GHz"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-1195G7+%40+2.90GHz&id=4514",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Iris+Xe&id=4265",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "base_ghz",
+      "url": "https://www.techpowerup.com/cpu-specs/core-i7-1195g7.c4212",
+      "accessed": "2026-10-27",
+      "note": "TPU: 2.9 GHz base, TDP 28 W"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/core-i7-1195g7.c4212",
+      "accessed": "2026-10-27",
+      "note": "TPU: release May 31st, 2021"
+    },
+    {
+      "field": "cpu_arch",
+      "url": "https://download.intel.com/newsroom/2020/client-computing/intel-2020-architecture-day-fact-sheet.pdf",
+      "accessed": "2026-10-27",
+      "note": "Intel Architecture Day 2020: Tiger Lake uses Willow Cove cores"
+    }
+  ]
+}

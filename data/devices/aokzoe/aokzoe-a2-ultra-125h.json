@@ -1,0 +1,286 @@
+{
+  "id": "aokzoe-a2-ultra-125h",
+  "brand": "AOKZOE",
+  "model": "A2 Ultra",
+  "variant": "Core Ultra 5 125H (A2 Intel base model)",
+  "status": "shipped",
+  "announce_date": "2024-04-08",
+  "release_date": "2024-05",
+  "msrp_usd": null,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 265,
+      "h": 105,
+      "d": 22,
+      "d_max": null
+    },
+    "note": "NOT sourced for the A2 Ultra. Values copied from the AOKZOE A2 spec sheet because the A2 Ultra keeps the A2 design (Kuai Technology hands-on). Replace when a vendor figure appears."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 666,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "cu5-125h",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7467,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "NVMe"
+      }
+    ],
+    "capacities_gb": [
+      512
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB-C unspecified",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Speed not announced; no Thunderbolt claim from AOKZOE"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7,
+    "panel": null,
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": null,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "Borderless front glass, as on the A2"
+  },
+  "battery": {
+    "wh": null,
+    "removable": null,
+    "external": false,
+    "charge_w": null,
+    "note": "12600 mAh stated. The A2 lists the same 12600 mAh as 48.5 Wh."
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Large Hall-effect sticks, 22 degree tilt, 8.6 mm tall, RGB rings",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "dual linear motors",
+    "note": "Hall linear triggers, 8.5 mm travel, 150 gf. Micro-switch shoulder buttons."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "5.4"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": null,
+  "fingerprint": null,
+  "notes": "Base A2 Ultra with the Core Ultra 5 125H, later sold on aokzoestore.com as a refurbished 'A2 Intel'. Chassis fields are copied from aokzoe-a2-ultra (whose size is itself copied from the A2).",
+  "unresolved": [
+    {
+      "field": "dims_mm.handheld",
+      "reason": "no A2 Ultra dimensions published; values copied from the A2 (same design)"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "not stated"
+    },
+    {
+      "field": "ports",
+      "reason": "AOKZOE gave port counts only; no speeds, DP alt mode, PD input, or locations"
+    },
+    {
+      "field": "screen",
+      "reason": "only size and resolution announced; panel, refresh, touch, brightness not stated"
+    },
+    {
+      "field": "battery.wh",
+      "reason": "only 12600 mAh stated"
+    },
+    {
+      "field": "battery.removable",
+      "reason": "not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "not stated"
+    },
+    {
+      "field": "cooling",
+      "reason": "not stated"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "not stated"
+    },
+    {
+      "field": "msrp_usd",
+      "reason": "Sold in China only at CNY 4,999 (about $692); later sold as a refurb 'A2 Intel' on aokzoestore.com for $399"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review of this SKU; measurements in aokzoe-a2-ultra are from a different SKU"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated for this SKU"
+    }
+  ],
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "weight_g",
+      "url": "https://liliputing.com/aokzoe-a2-ultra-is-an-intel-meteor-lake-powered-handheld-gaming-pc/",
+      "accessed": "2026-10-27",
+      "note": "666 g"
+    },
+    {
+      "field": "storage",
+      "url": "https://liliputing.com/aokzoe-a2-ultra-is-an-intel-meteor-lake-powered-handheld-gaming-pc/",
+      "accessed": "2026-10-27",
+      "note": "M.2 2280 PCIe 4.0; 512GB/1TB/2TB across both chips"
+    },
+    {
+      "field": "ports",
+      "url": "https://liliputing.com/aokzoe-a2-ultra-is-an-intel-meteor-lake-powered-handheld-gaming-pc/",
+      "accessed": "2026-10-27",
+      "note": "2x USB-C, 1x USB-A, 3.5mm, microSD"
+    },
+    {
+      "field": "screen",
+      "url": "https://liliputing.com/aokzoe-a2-ultra-is-an-intel-meteor-lake-powered-handheld-gaming-pc/",
+      "accessed": "2026-10-27",
+      "note": "7 inch, 1920 x 1200"
+    },
+    {
+      "field": "wireless",
+      "url": "https://liliputing.com/aokzoe-a2-ultra-is-an-intel-meteor-lake-powered-handheld-gaming-pc/",
+      "accessed": "2026-10-27",
+      "note": "WiFi 7, BT 5.4"
+    },
+    {
+      "field": "battery",
+      "url": "https://liliputing.com/aokzoe-a2-ultra-is-an-intel-meteor-lake-powered-handheld-gaming-pc/",
+      "accessed": "2026-10-27",
+      "note": "12,600 mAh"
+    },
+    {
+      "field": "notes",
+      "url": "https://www.notebookcheck.net/AOKZOE-A2-Ultra-gaming-handheld-gets-its-pricing-revealed.835764.0.html",
+      "accessed": "2026-10-27",
+      "note": "China pricing and pre-order"
+    },
+    {
+      "field": "controls",
+      "url": "https://finance.sina.com.cn/tech/roll/2024-09-13/doc-incnyytq8970664.shtml",
+      "accessed": "2026-10-27",
+      "note": "Kuai Technology hands-on: Hall linear triggers (8.5 mm / 150 gf), large Hall sticks (22 degree / 8.6 mm), dual linear motors, gyro"
+    },
+    {
+      "field": "os",
+      "url": "https://finance.sina.com.cn/tech/roll/2024-09-13/doc-incnyytq8970664.shtml",
+      "accessed": "2026-10-27",
+      "note": "Windows 11"
+    },
+    {
+      "field": "dims_mm",
+      "url": "https://cdn.shopify.com/s/files/1/0650/6879/4073/files/A2-_B-__17.jpg",
+      "accessed": "2026-10-27",
+      "note": "A2 (7840U) spec sheet; borrowed because the A2 Ultra keeps the A2 design per the Kuai Technology hands-on"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://liliputing.com/aokzoe-a2-ultra-is-an-intel-meteor-lake-powered-handheld-gaming-pc/",
+      "accessed": "2026-10-27",
+      "note": "China configuration: Core Ultra 5 125H/16GB/512GB for CNY 4,999"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://aokzoestore.com/products/refurbished-a2-intel-aok-7",
+      "accessed": "2026-10-27",
+      "note": "Official refurb listing 'AOKZOE A2: Intel 125H', variant 'Intel- 125H - 16GB + 512GB'"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://www.notebookcheck.net/AOKZOE-A2-Ultra-gaming-handheld-gets-its-pricing-revealed.835764.0.html",
+      "accessed": "2026-10-27",
+      "note": "Core Ultra 5 125H, 16 GB RAM, 512 GB storage, CNY 4,999"
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/aokzoe-a2-ultra-is-an-intel-meteor-lake-powered-handheld-gaming-pc/",
+      "accessed": "2026-10-27",
+      "note": "On sale in China from May 16, 2024"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/aokzoe-a2-ultra-is-an-intel-meteor-lake-powered-handheld-gaming-pc/",
+      "accessed": "2026-10-27",
+      "note": "AOKZOE released details in April 2024"
+    }
+  ]
+}

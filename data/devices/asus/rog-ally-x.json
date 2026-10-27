@@ -1,0 +1,85 @@
+{
+  "id": "rog-ally-x",
+  "brand": "ASUS",
+  "model": "ROG Ally X",
+  "variant": "Ryzen Z1 Extreme (2024, RC72LA)",
+  "status": "shipped",
+  "announce_date": "2024-06-02",
+  "release_date": "2024-07-22",
+  "msrp_usd": 799.99,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 280, "h": 111, "d": 24.7, "d_max": 36.9 },
+    "note": "ASUS: 28.0 x 11.1 x 2.47 ~ 3.69 cm (W x D x H). d is the thinnest point, d_max the grips."
+  },
+  "weight_g": {
+    "handheld": { "stated": 678, "measured": 685, "measured_source": "https://www.notebookcheck.net/Asus-ROG-Ally-X-Review-The-best-gaming-handheld-thanks-to-faster-RAM-and-a-huge-80-Wh-battery.865721.0.html" },
+    "note": "NotebookCheck: 'tips the scale at 685 grams'; the 65 W power supply weighs 224 g."
+  },
+  "soc_id": "z1-extreme",
+  "ram": { "sizes_gb": [24], "type": "LPDDR5", "speed_mts": 7500, "channels": 2, "soldered": true },
+  "storage": {
+    "slots": [
+      { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": "Full-length M.2 2280 NVMe; ships with a 2280 drive" }
+    ],
+    "capacities_gb": [1024, 2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 1, "speed_gbps": 40, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 65 W adapter rating." },
+    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "DisplayPort 1.4 and power delivery. pd_in_w is the bundled 65 W adapter rating." },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Combo audio jack" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "UHS-II; supports SD, SDXC and SDHC" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1920, "res_h": 1080, "refresh_hz": 120, "vrr": true, "touch": true, "nits_sdr": 500, "nits_peak": null, "hdr": false, "note": "IPS-level, anti-glare low-reflection, 100% sRGB, 7 ms, AMD FreeSync Premium, Gorilla Glass Victus" },
+  "battery": { "wh": 80, "removable": false, "external": false, "charge_w": 65, "note": "80 Wh 4S1P 4-cell Li-ion. 65 W USB-C adapter (inclusion varies by region)." },
+  "controls": {
+    "stick_type": null,
+    "stick_note": "2 x full-size analog sticks with light rings. Tom's Hardware: Hall effect sticks need a separate upgrade kit.",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics",
+    "note": "ASUS: L & R Hall Effect analog triggers, 2 x assignable grip buttons, 6-axis IMU"
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.4" },
+  "os": ["Windows 11 Home"],
+  "cooling": "two fans",
+  "fingerprint": true,
+  "notes": "Rows merged: 1 TB (RC72LA-ALLYX.Z1X) and 2 TB (RC72LA-ALLYX.Z1X2TB) share this hardware. No XG Mobile connector. ASUS lists Bluetooth 5.4 and says the version may change with the OS version.",
+  "unresolved": [
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
+    { "field": "ports.3", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "storage.slots.0.lanes", "reason": "ASUS and reviews give PCIe 4.0 but not the lane count" },
+    { "field": "screen.nits_peak", "reason": "ASUS gives one brightness value (500 nits); no HDR or peak figure" },
+    { "field": "controls.stick_type", "reason": "Sources say only that the stock sticks are not Hall effect; no source names the sensor" },
+    { "field": "controls.trigger_lock", "reason": "Not stated by ASUS or the reviews used" }
+  ],
+  "conflicts": [
+    {
+      "field": "ram.type",
+      "values": [
+        { "value": "LPDDR5", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/" },
+        { "value": "LPDDR5X-7500", "url": "https://www.tomshardware.com/video-games/console-gaming/asus-rog-ally-x-review" },
+        { "value": "LPDDR5X-7500", "url": "https://liliputing.com/asus-rog-ally-x-is-now-available-for-800-handheld-gaming-pc-with-bigger-battery-more-ram-and-usb4/" },
+        { "value": "LPDDR5x-7467 (measured)", "url": "https://www.notebookcheck.net/Asus-ROG-Ally-X-Review-The-best-gaming-handheld-thanks-to-faster-RAM-and-a-huge-80-Wh-battery.865721.0.html" }
+      ],
+      "chosen_reason": "Official ASUS value kept per project rule. Every review says LPDDR5X; the ASUS page likely drops the X."
+    }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/", "accessed": "2026-10-27", "note": "ASUS US spec page, ROG Ally X (2024) RC72LA" },
+    { "field": "weight_g.handheld.measured", "url": "https://www.notebookcheck.net/Asus-ROG-Ally-X-Review-The-best-gaming-handheld-thanks-to-faster-RAM-and-a-huge-80-Wh-battery.865721.0.html", "accessed": "2026-10-27", "note": "'tips the scale at 685 grams'" },
+    { "field": "ram.speed_mts", "url": "https://www.tomshardware.com/video-games/console-gaming/asus-rog-ally-x-review", "accessed": "2026-10-27", "note": "'24GB LPDDR5x-7500'; ASUS does not state the speed" },
+    { "field": "controls.stick_note", "url": "https://www.tomshardware.com/video-games/console-gaming/asus-rog-ally-x-review", "accessed": "2026-10-27", "note": "'if you want Hall effect joysticks, you'll need a separate upgrade kit'" },
+    { "field": "ports", "url": "https://www.notebookcheck.net/Asus-ROG-Ally-X-Review-The-best-gaming-handheld-thanks-to-faster-RAM-and-a-huge-80-Wh-battery.865721.0.html", "accessed": "2026-10-27", "note": "Port locations: all ports on top" },
+    { "field": "cooling", "url": "https://www.notebookcheck.net/Asus-ROG-Ally-X-Review-The-best-gaming-handheld-thanks-to-faster-RAM-and-a-huge-80-Wh-battery.865721.0.html", "accessed": "2026-10-27", "note": "'The two fans are usually turned off while idling'" },
+    { "field": "announce_date", "url": "https://liliputing.com/asus-rog-ally-x-handheld-gaming-pc-is-available-for-pre-order-for-800-bigger-battery-more-memory-more-storage/", "accessed": "2026-10-27", "note": "Official launch and pre-order article dated 2024-06-02" },
+    { "field": "release_date", "url": "https://liliputing.com/asus-rog-ally-x-is-now-available-for-800-handheld-gaming-pc-with-bigger-battery-more-ram-and-usb4/", "accessed": "2026-10-27", "note": "'now available' article dated 2024-07-22" },
+    { "field": "msrp_usd", "url": "https://www.tomshardware.com/video-games/console-gaming/asus-rog-ally-x-review", "accessed": "2026-10-27", "note": "$799.99" }
+  ]
+}

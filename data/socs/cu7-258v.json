@@ -1,0 +1,80 @@
+{
+  "id": "cu7-258v",
+  "vendor": "Intel",
+  "name": "Core Ultra 7 258V",
+  "codename": "Lunar Lake",
+  "cores": 8,
+  "threads": 8,
+  "core_mix": "4P + 4LPE",
+  "cpu_arch": "Lion Cove + Skymont",
+  "base_ghz": 2.2,
+  "boost_ghz": 4.8,
+  "tdp_w": {
+    "default": 17,
+    "min": 8,
+    "max": 37
+  },
+  "process_nm": 3,
+  "process_note": "TSMC N3B (compute tile, per ARK)",
+  "npu_tops": 47,
+  "memory": "LPDDR5X-8533 on-package, 32 GB",
+  "launch_date": "2024-09-24",
+  "igpu": {
+    "name": "Intel Arc 140V",
+    "cu": 8,
+    "arch": "Xe2",
+    "clock_mhz": 1950,
+    "tflops_fp32": 3.99
+  },
+  "passmark": {
+    "cpu_mark": 18877,
+    "single_thread": 4010,
+    "cpu_samples": 2339,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+Ultra+7+258V&id=6281",
+    "g3d_mark": 5146,
+    "g3d_samples": 4843,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+140V+GPU&id=5176",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU and GPU: exact entries ('Intel Arc 140V GPU')."
+  },
+  "notes": "No Hyper-Threading. NPU 47 TOPS (115 TOPS overall). Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.intel.com/content/www/us/en/products/sku/240957/intel-core-ultra-7-processor-258v-12m-cache-up-to-4-80-ghz/specifications.html",
+      "accessed": "2026-10-27",
+      "note": "Intel ARK: cores, clocks, power, lithography, memory, Xe-cores, GPU clock, NPU"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+Ultra+7+258V&id=6281",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+140V+GPU&id=5176",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/core-ultra-7-258v.c3795",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Sep 24th, 2024 (ARK: Q3'24)"
+    },
+    {
+      "field": "cpu_arch",
+      "url": "https://www.techpowerup.com/cpu-specs/core-ultra-7-258v.c3795",
+      "accessed": "2026-10-27",
+      "note": "TPU: Lion Cove P-cores, Skymont E-cores"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/arc-140v-mobile.c4314",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 3.994 TFLOPS"
+    }
+  ]
+}

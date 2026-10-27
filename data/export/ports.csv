@@ -1,0 +1,587 @@
+device_id,kind,count,speed_gbps,dp_alt,pd_in_w,location,note
+acer-nitro-blaze-11,USB4,1,40,,,,Type-C
+acer-nitro-blaze-11,USB-C unspecified,1,,,,,"Acer: ""USB 3.2 Type-C""; generation not stated"
+acer-nitro-blaze-11,USB-A unspecified,1,,,,,"Acer: ""USB 3.2 Type-A""; generation not stated"
+acer-nitro-blaze-11,microSD,1,,,,,SDHC
+acer-nitro-blaze-11,3.5mm,1,,,,,CTIA
+acer-nitro-blaze-7,USB4,2,40,,,,"Type-C, 40 Gbps; fast charging"
+acer-nitro-blaze-7,microSD,1,,,,,SD 4.0
+acer-nitro-blaze-7,3.5mm,1,,,,,CTIA
+acer-nitro-blaze-8,USB4,1,40,,,,Type-C
+acer-nitro-blaze-8,USB-C unspecified,1,,,,,"Acer: ""USB 3.2 Type-C""; generation not stated"
+acer-nitro-blaze-8,USB-A unspecified,1,,,,,"Acer: ""USB 3.2 Type-A""; generation not stated"
+acer-nitro-blaze-8,microSD,1,,,,,SDHC
+acer-nitro-blaze-8,3.5mm,1,,,,,CTIA
+acer-predator-atlas-7,TB4,2,40,true,,,"Acer: dual Thunderbolt 4 for docking, display output and accessories"
+acer-predator-atlas-7,microSD,1,,,,,"UHS-II, up to SD 4.0"
+acer-predator-atlas-7,3.5mm,1,,,,,Combo jack
+acer-predator-atlas-7-g3,TB4,2,40,true,,,"Acer: dual Thunderbolt 4 for docking, display output and accessories"
+acer-predator-atlas-7-g3,microSD,1,,,,,"UHS-II, up to SD 4.0"
+acer-predator-atlas-7-g3,3.5mm,1,,,,,Combo jack
+acer-predator-atlas-8,TB4,2,40,true,,,"Acer: two Thunderbolt 4 ports for docking, display output and accessories"
+acer-predator-atlas-8,microSD,1,,,,,"UHS-II, up to SD 4.0 (SD, SDHC, SDXC, SDUC)"
+acer-predator-atlas-8,3.5mm,1,,,,,Combo jack
+acer-predator-atlas-8-g3,TB4,2,40,true,,,"Acer: two Thunderbolt 4 ports for docking, display output and accessories"
+acer-predator-atlas-8-g3,microSD,1,,,,,"UHS-II, up to SD 4.0 (SD, SDHC, SDXC, SDUC)"
+acer-predator-atlas-8-g3,3.5mm,1,,,,,Combo jack
+aokzoe-a1,USB4,2,40,true,100,top / bottom,Vendor lists 2x USB 4.0. NotebookCheck found only the top port USB4-capable; it lists the bottom port as USB 3.1 Gen 2. Both ports charge and output video.
+aokzoe-a1,USB-A 3.2 Gen1,1,5,,,top,USB 3.0 per vendor
+aokzoe-a1,3.5mm,1,,,,top,
+aokzoe-a1,microSD,1,,,,bottom,TF 3.0 per vendor
+aokzoe-a1-pro,USB4,1,40,,,,USB-C 4.0 per vendor
+aokzoe-a1-pro,USB-C unspecified,1,,,,bottom,Vendor says USB-C 3.2 without a generation; bottom port for docking stations
+aokzoe-a1-pro,USB-A 3.2 Gen1,1,5,,,,USB 3.0 per vendor
+aokzoe-a1-pro,3.5mm,1,,,,,
+aokzoe-a1-pro,microSD,1,,,,,TF card slot per vendor
+aokzoe-a1x,USB4,2,40,true,100,top / bottom,Full-function USB 4.0 per vendor: video out and USB PD
+aokzoe-a1x,USB-A 3.2 Gen2,1,10,,,top,
+aokzoe-a1x,OCuLink,1,64,,,bottom,64 Gbps per vendor
+aokzoe-a1x,microSD,1,,,,bottom,"MicroSD 4.0, 300 MB/s per vendor"
+aokzoe-a1x,3.5mm,1,,,,top,
+aokzoe-a1x-8840u,USB4,2,40,true,100,top / bottom,Full-function USB 4.0 per vendor: video out and USB PD
+aokzoe-a1x-8840u,USB-A 3.2 Gen2,1,10,,,top,
+aokzoe-a1x-8840u,OCuLink,1,64,,,bottom,64 Gbps per vendor
+aokzoe-a1x-8840u,microSD,1,,,,bottom,"MicroSD 4.0, 300 MB/s per vendor"
+aokzoe-a1x-8840u,3.5mm,1,,,,top,
+aokzoe-a2,USB4,2,40,,,,
+aokzoe-a2,USB-A 3.2 Gen1,1,5,,,,USB-A 3.0 per vendor
+aokzoe-a2,3.5mm,1,,,,,
+aokzoe-a2,microSD,1,,,,,Micro SD 4.0 per vendor
+aokzoe-a2-ultra,USB-C unspecified,2,,,,,Speed not announced; no Thunderbolt claim from AOKZOE
+aokzoe-a2-ultra,USB-A unspecified,1,,,,,
+aokzoe-a2-ultra,3.5mm,1,,,,,
+aokzoe-a2-ultra,microSD,1,,,,,
+aokzoe-a2-ultra-125h,USB-C unspecified,2,,,,,Speed not announced; no Thunderbolt claim from AOKZOE
+aokzoe-a2-ultra-125h,USB-A unspecified,1,,,,,
+aokzoe-a2-ultra-125h,3.5mm,1,,,,,
+aokzoe-a2-ultra-125h,microSD,1,,,,,
+rog-ally-x,USB4,1,40,true,65,top,"ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 65 W adapter rating."
+rog-ally-x,USB-C 3.2 Gen2,1,10,true,65,top,DisplayPort 1.4 and power delivery. pd_in_w is the bundled 65 W adapter rating.
+rog-ally-x,3.5mm,1,,,,top,Combo audio jack
+rog-ally-x,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
+rog-ally-z1,USB-C 3.2 Gen2,1,10,true,65,top,Combo port with the XG Mobile interface. DisplayPort 1.4. pd_in_w is the bundled 65 W USB-C adapter rating.
+rog-ally-z1,XG Mobile,1,,,,top,ROG XG Mobile eGPU interface; shares one combo housing with the USB-C port
+rog-ally-z1,3.5mm,1,,,,top,Combo audio jack
+rog-ally-z1,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
+rog-ally-z1-extreme,USB-C 3.2 Gen2,1,10,true,65,top,Combo port with the XG Mobile interface. DisplayPort 1.4. pd_in_w is the bundled 65 W USB-C adapter rating.
+rog-ally-z1-extreme,XG Mobile,1,,,,top,ROG XG Mobile eGPU interface; shares one combo housing with the USB-C port
+rog-ally-z1-extreme,3.5mm,1,,,,top,Combo audio jack
+rog-ally-z1-extreme,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
+rog-xbox-ally,USB-C 3.2 Gen2,2,10,true,65,top,Both ports support DisplayPort and power delivery. pd_in_w is the bundled 65 W adapter rating. No USB4.
+rog-xbox-ally,3.5mm,1,,,,top,Combo audio jack
+rog-xbox-ally,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
+rog-xbox-ally-x,USB4,1,40,true,65,top,"ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 65 W adapter rating."
+rog-xbox-ally-x,USB-C 3.2 Gen2,1,10,true,65,top,DisplayPort and power delivery. pd_in_w is the bundled 65 W adapter rating.
+rog-xbox-ally-x,3.5mm,1,,,,top,Combo audio jack
+rog-xbox-ally-x,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
+rog-xbox-ally-x20,USB4,1,40,true,68,top,"ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 2.1 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 68 W adapter rating."
+rog-xbox-ally-x20,USB-C 3.2 Gen2,1,10,true,68,top,DisplayPort and power delivery. pd_in_w is the bundled 68 W adapter rating.
+rog-xbox-ally-x20,3.5mm,1,,,,top,Combo audio jack
+rog-xbox-ally-x20,microSD,1,,,,top,"microSD Express (SD 8.0, PCIe Gen4 x1); UHS-I with DDR200 mode. NotebookCheck measured about 800 MB/s."
+ayaneo-2,USB4,2,40,true,,,Fully functional USB 4.0 Type-C; charging and DP 1.4 4K60 output
+ayaneo-2,USB-C unspecified,1,,false,,,"Type-C, data transfer only; speed not stated"
+ayaneo-2,3.5mm,1,,,,,
+ayaneo-2,microSD,1,,,,,"TF card slot, up to 300 MB/s"
+ayaneo-2s-7840u,USB4,2,40,true,,,Full-featured USB4 Type-C
+ayaneo-2s-7840u,USB-C unspecified,1,,false,,,"USB 3.2 Type-C, data transfer only; generation not stated"
+ayaneo-2s-7840u,3.5mm,1,,,,,
+ayaneo-2s-7840u,microSD,1,,,,,"TF card slot, up to 300 MB/s"
+ayaneo-2s-8840u,USB4,2,40,true,,,Full-featured USB4 Type-C
+ayaneo-2s-8840u,USB-C unspecified,1,,false,,,"USB 3.2 Type-C, data transfer only; generation not stated"
+ayaneo-2s-8840u,3.5mm,1,,,,,
+ayaneo-2s-8840u,microSD,1,,,,,"TF card slot, up to 300 MB/s"
+ayaneo-3-8840u,USB4,2,40,true,65,,"40 Gbps, DP 1.4; charging, data and video. 65 W PD charging with bypass."
+ayaneo-3-8840u,OCuLink,1,64,,,,AYANEO states 64 Gbps maximum bandwidth
+ayaneo-3-8840u,microSD,1,,,,,"SD 4.0, up to 300 MB/s"
+ayaneo-3-8840u,3.5mm,1,,,,,
+ayaneo-3-hx370,USB4,2,40,true,65,,"40 Gbps, DP 1.4; charging, data and video. 65 W PD charging with bypass."
+ayaneo-3-hx370,OCuLink,1,64,,,,AYANEO states 64 Gbps maximum bandwidth
+ayaneo-3-hx370,microSD,1,,,,,"SD 4.0, up to 300 MB/s"
+ayaneo-3-hx370,3.5mm,1,,,,,
+ayaneo-air-1s-7840u,USB4,2,40,true,,"top, bottom","Full-function USB4 Type-C. One port on the top edge, one on the bottom edge; both carry DisplayPort and Power Delivery (NotebookCheck)."
+ayaneo-air-1s-7840u,3.5mm,1,,,,bottom,
+ayaneo-air-1s-7840u,microSD,1,,,,bottom,"TF card slot, up to 100 MB/s, under a cover"
+ayaneo-air-1s-8840u,USB4,2,40,true,,,Full-function USB4 Type-C
+ayaneo-air-1s-8840u,3.5mm,1,,,,,
+ayaneo-air-1s-8840u,microSD,1,,,,,"TF card slot, up to 100 MB/s"
+ayaneo-air-1s-limited,USB4,2,40,true,,,Full-function USB4 Type-C
+ayaneo-air-1s-limited,3.5mm,1,,,,,
+ayaneo-air-1s-limited,microSD,1,,,,,"TF card slot, up to 100 MB/s"
+ayaneo-air-5560u,USB-C unspecified,2,,true,,,"Full-featured Type-C, DP 1.4 4K60, two-way power input; USB speed not stated"
+ayaneo-air-5560u,3.5mm,1,,,,,
+ayaneo-air-5560u,microSD,1,,,,,"TF card slot, about 100 MB/s (USB 3.0 class reader)"
+ayaneo-air-plus-6800u,USB4,2,,,,,Type C (USB4) x2; speed and DP support not stated
+ayaneo-air-plus-6800u,3.5mm,1,,,,,
+ayaneo-air-plus-6800u,microSD,1,,,,,Micro SD card slot
+ayaneo-air-pro-5560u,USB-C unspecified,2,,true,,,"Full-featured Type-C, DP 1.4 4K60, two-way power input; USB speed not stated"
+ayaneo-air-pro-5560u,3.5mm,1,,,,,
+ayaneo-air-pro-5560u,microSD,1,,,,,"TF card slot, about 100 MB/s (USB 3.0 class reader)"
+ayaneo-air-pro-5825u,USB-C unspecified,2,,true,,,"Full-featured Type-C, DP 1.4 4K60, two-way power input; USB speed not stated"
+ayaneo-air-pro-5825u,3.5mm,1,,,,,
+ayaneo-air-pro-5825u,microSD,1,,,,,"TF card slot, about 100 MB/s (USB 3.0 class reader)"
+ayaneo-flip-1s-ds-8840u,USB4,2,40,true,65,top,"Both ports full-featured: DP 1.4, PD charging (65 W PD charger spec), data"
+ayaneo-flip-1s-ds-8840u,microSD,1,,,,top,Up to 300 MB/s
+ayaneo-flip-1s-ds-8840u,3.5mm,1,,,,,
+ayaneo-flip-1s-ds-hx370,USB4,2,40,true,65,top,"Both ports full-featured: DP 1.4, PD charging (65 W PD charger spec), data"
+ayaneo-flip-1s-ds-hx370,microSD,1,,,,top,Up to 300 MB/s
+ayaneo-flip-1s-ds-hx370,3.5mm,1,,,,,
+ayaneo-flip-1s-kb-8840u,USB4,2,40,true,65,top,"Both ports full-featured: DP 1.4, PD charging (65 W PD charger spec), data"
+ayaneo-flip-1s-kb-8840u,microSD,1,,,,top,Up to 300 MB/s
+ayaneo-flip-1s-kb-8840u,3.5mm,1,,,,,
+ayaneo-flip-1s-kb-hx370,USB4,2,40,true,65,top,"Both ports full-featured: DP 1.4, PD charging (65 W PD charger spec), data"
+ayaneo-flip-1s-kb-hx370,microSD,1,,,,top,Up to 300 MB/s
+ayaneo-flip-1s-kb-hx370,3.5mm,1,,,,,
+ayaneo-flip-ds-7840u,USB4,1,40,true,,top,"Full-feature USB4; DP 1.4 (4K@144Hz); PD charging, wattage not stated"
+ayaneo-flip-ds-7840u,USB-C 3.2 Gen2,1,10,false,,top,Data only
+ayaneo-flip-ds-7840u,OCuLink,1,64,,,,"SFF-8612, PCIe 4x4 protocol, 64 Gbps effective"
+ayaneo-flip-ds-7840u,microSD,1,,,,,"UHS-II, up to 300 MB/s read"
+ayaneo-flip-ds-7840u,3.5mm,1,,,,,
+ayaneo-flip-ds-8840u,USB4,1,40,true,,top,"Full-feature USB4; DP 1.4 (4K@144Hz); PD charging, wattage not stated"
+ayaneo-flip-ds-8840u,USB-C 3.2 Gen2,1,10,false,,top,Data only
+ayaneo-flip-ds-8840u,OCuLink,1,64,,,,"SFF-8612, PCIe 4x4 protocol, 64 Gbps effective"
+ayaneo-flip-ds-8840u,microSD,1,,,,,"UHS-II, up to 300 MB/s read"
+ayaneo-flip-ds-8840u,3.5mm,1,,,,,
+ayaneo-flip-kb-7840u,USB4,1,40,true,,top,"Full-feature USB4; DP 1.4 (4K@144Hz); PD charging, wattage not stated"
+ayaneo-flip-kb-7840u,USB-C 3.2 Gen2,1,10,false,,top,Data only
+ayaneo-flip-kb-7840u,OCuLink,1,64,,,,"SFF-8612, PCIe 4x4 protocol, 64 Gbps effective"
+ayaneo-flip-kb-7840u,microSD,1,,,,,"UHS-II, up to 300 MB/s read"
+ayaneo-flip-kb-7840u,3.5mm,1,,,,,
+ayaneo-flip-kb-8840u,USB4,1,40,true,,top,"Full-feature USB4; DP 1.4 (4K@144Hz); PD charging, wattage not stated"
+ayaneo-flip-kb-8840u,USB-C 3.2 Gen2,1,10,false,,top,Data only
+ayaneo-flip-kb-8840u,OCuLink,1,64,,,,"SFF-8612, PCIe 4x4 protocol, 64 Gbps effective"
+ayaneo-flip-kb-8840u,microSD,1,,,,,"UHS-II, up to 300 MB/s read"
+ayaneo-flip-kb-8840u,3.5mm,1,,,,,
+ayaneo-geek-1s,USB4,2,40,true,,,Full-featured USB4 Type-C
+ayaneo-geek-1s,USB-C unspecified,1,,false,,,"USB 3.2 Type-C, data transfer only; generation not stated"
+ayaneo-geek-1s,3.5mm,1,,,,,
+ayaneo-geek-1s,microSD,1,,,,,"TF card slot, up to 300 MB/s"
+ayaneo-geek-6600u,USB4,2,40,true,,,Type-C USB 4.0 with charging and video output
+ayaneo-geek-6600u,USB-C unspecified,1,,,,,"Third Type-C port; speed not stated (spec: Type C*3, USB4*2)"
+ayaneo-geek-6600u,3.5mm,1,,,,,
+ayaneo-geek-6600u,microSD,1,,,,,"TF card slot, up to 300 MB/s"
+ayaneo-geek-6800u,USB4,2,40,true,,,Type-C USB 4.0 with charging and video output
+ayaneo-geek-6800u,USB-C unspecified,1,,,,,"Third Type-C port; speed not stated (spec: Type C*3, USB4*2)"
+ayaneo-geek-6800u,3.5mm,1,,,,,
+ayaneo-geek-6800u,microSD,1,,,,,"TF card slot, up to 300 MB/s"
+ayaneo-konkr-fit-hx370,USB4,2,40,true,,,"Product page: dual full-function USB4, up to 40 Gbps, DP 1.4. Spec table: 1 x full-function USB-C (PD 3.0 / DP 1.4) + 1 x data USB-C."
+ayaneo-konkr-fit-hx370,microSD,1,,,,,"SD 4.0, 300 MB/s"
+ayaneo-konkr-fit-hx370,3.5mm,1,,,,,
+ayaneo-konkr-fit-hx470,USB4,2,40,true,,,"Product page: dual full-function USB4, up to 40 Gbps, DP 1.4. Spec table: 1 x full-function USB-C (PD 3.0 / DP 1.4) + 1 x data USB-C."
+ayaneo-konkr-fit-hx470,microSD,1,,,,,"SD 4.0, 300 MB/s"
+ayaneo-konkr-fit-hx470,3.5mm,1,,,,,
+ayaneo-kun-7840u,USB4,2,40,true,,,Full-featured USB4 Type-C
+ayaneo-kun-7840u,USB-A 3.2 Gen2,1,10,,,,
+ayaneo-kun-7840u,3.5mm,1,,,,,
+ayaneo-kun-7840u,microSD,1,,,,back,"UHS-II TF card slot, up to 300 MB/s; under the built-in stand (NotebookCheck)"
+ayaneo-kun-8840u,USB4,2,40,true,,,Full-featured USB4 Type-C
+ayaneo-kun-8840u,USB-A 3.2 Gen2,1,10,,,,
+ayaneo-kun-8840u,3.5mm,1,,,,,
+ayaneo-kun-8840u,microSD,1,,,,,"UHS-II TF card slot, up to 300 MB/s"
+ayaneo-next-5800u,USB-C unspecified,2,,true,,,"Full-function Type-C, PD 3.0, DisplayPort 1.4 4K60; USB speed not stated"
+ayaneo-next-5800u,3.5mm,1,,,,,
+ayaneo-next-5825u,USB-C unspecified,2,,true,,,"Full-function Type-C, PD 3.0, DisplayPort 1.4 4K60; USB speed not stated"
+ayaneo-next-5825u,3.5mm,1,,,,,
+ayaneo-next-ii-385,USB4,2,40,true,,,"Full-function USB-C: USB4 40 Gbps, PD 3.1, DP 1.4"
+ayaneo-next-ii-385,microSD,1,,,,,"SD 4.0, up to 100/300 MB/s"
+ayaneo-next-ii-385,3.5mm,1,,,,,
+ayaneo-next-ii-395,USB4,2,40,true,,,"Full-function USB-C: USB4 40 Gbps, PD 3.1, DP 1.4"
+ayaneo-next-ii-395,microSD,1,,,,,"SD 4.0, up to 100/300 MB/s"
+ayaneo-next-ii-395,3.5mm,1,,,,,
+ayaneo-slide,USB4,2,40,true,,,"Full-function USB4 Type-C (power, video, data)"
+ayaneo-slide,microSD,1,,,,,"SD 7.0 TF card slot, read speed up to 700 MB/s"
+ayn-loki-max,USB4,1,,,,bottom,USB 4.0 Type-C; also used for TV output
+ayn-loki-max,microSD,1,,,,bottom,
+ayn-loki-max,3.5mm,1,,,,bottom,
+gpd-win-4-2022,USB4,1,40,true,,,full-speed USB4; video/data/charging
+gpd-win-4-2022,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-4-2022,USB-A 3.2 Gen2,1,10,,,,1 on device; 3 more on the optional dock
+gpd-win-4-2022,3.5mm,1,,,,,headphone/mic combo
+gpd-win-4-2022,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-4-2023,USB4,1,40,true,,,full-speed USB4; video/data/charging
+gpd-win-4-2023,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-4-2023,OCuLink,1,63,,,,"SFF-8612, PCIe 4.0 x4, 63 Gbps"
+gpd-win-4-2023,3.5mm,1,,,,,headphone/mic combo
+gpd-win-4-2023,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-4-2023-7640u,USB4,1,40,true,,,full-speed USB4; video/data/charging
+gpd-win-4-2023-7640u,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-4-2023-7640u,OCuLink,1,63,,,,"SFF-8612, PCIe 4.0 x4, 63 Gbps"
+gpd-win-4-2023-7640u,3.5mm,1,,,,,headphone/mic combo
+gpd-win-4-2023-7640u,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-4-2024,USB4,1,40,true,,,full-speed USB4; video/data/charging
+gpd-win-4-2024,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-4-2024,OCuLink,1,63,,,,"SFF-8612, PCIe 4.0 x4, 63 Gbps"
+gpd-win-4-2024,3.5mm,1,,,,,headphone/mic combo
+gpd-win-4-2024,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-4-2024-8640u,USB4,1,40,true,,,full-speed USB4; video/data/charging
+gpd-win-4-2024-8640u,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-4-2024-8640u,OCuLink,1,63,,,,"SFF-8612, PCIe 4.0 x4, 63 Gbps"
+gpd-win-4-2024-8640u,3.5mm,1,,,,,headphone/mic combo
+gpd-win-4-2024-8640u,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-4-2025,USB4,1,40,true,65,,full-speed USB4; PD 3.0 65 W
+gpd-win-4-2025,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-4-2025,OCuLink,1,63,,,,"SFF-8612, PCIe 4.0 x4, 63 Gbps"
+gpd-win-4-2025,3.5mm,1,,,,,headphone/mic combo
+gpd-win-4-2025,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-5-385,USB4,1,40,true,100,,DP 2.1 (8K60); PD 100 W (20 V 5 A)
+gpd-win-5-385,USB-C 3.2 Gen2,1,10,true,,,DP 2.1; no charging
+gpd-win-5-385,USB-A 3.2 Gen2,1,10,,,,
+gpd-win-5-385,DC,1,,,180,,"5525 jack, 180 W (20 V 9 A), primary charging port"
+gpd-win-5-385,mini-ssd-1517,1,,,,,"PCIe Gen4 x1, 1600 MB/s; BIWIN Mini SSD only"
+gpd-win-5-385,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-5-385,3.5mm,1,,,,,headphone/mic combo
+gpd-win-5-388,USB4,1,40,true,100,,DP 2.1 (8K60); PD 100 W (20 V 5 A)
+gpd-win-5-388,USB-C 3.2 Gen2,1,10,true,,,DP 2.1; no charging
+gpd-win-5-388,USB-A 3.2 Gen2,1,10,,,,
+gpd-win-5-388,DC,1,,,180,,"5525 jack, 180 W (20 V 9 A), primary charging port"
+gpd-win-5-388,mini-ssd-1517,1,,,,,"PCIe Gen4 x1, 1600 MB/s; BIWIN Mini SSD only"
+gpd-win-5-388,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-5-388,3.5mm,1,,,,,headphone/mic combo
+gpd-win-5-395,USB4,1,40,true,100,,DP 2.1 (8K60); PD 100 W (20 V 5 A)
+gpd-win-5-395,USB-C 3.2 Gen2,1,10,true,,,DP 2.1; no charging
+gpd-win-5-395,USB-A 3.2 Gen2,1,10,,,,
+gpd-win-5-395,DC,1,,,180,,"5525 jack, 180 W (20 V 9 A), primary charging port"
+gpd-win-5-395,mini-ssd-1517,1,,,,,"PCIe Gen4 x1, 1600 MB/s; BIWIN Mini SSD only"
+gpd-win-5-395,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-5-395,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-2-2022,USB4,1,40,true,,,video/data/charging
+gpd-win-max-2-2022,USB-C 3.2 Gen2,1,10,true,,,video/data/charging
+gpd-win-max-2-2022,USB-A 3.2 Gen1,3,5,,,,
+gpd-win-max-2-2022,HDMI,1,,,,,HDMI 2.1
+gpd-win-max-2-2022,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-2-2022,SD,1,,,,,"UHS-II, V90, 312 MB/s"
+gpd-win-max-2-2022,microSD,1,,,,,"UHS-I, A2, 160 MB/s"
+gpd-win-max-2-2022-1260p,TB4,1,40,true,,,Thunderbolt 4; video/data/charging
+gpd-win-max-2-2022-1260p,USB-C 3.2 Gen2,1,10,true,,,video/data/charging
+gpd-win-max-2-2022-1260p,USB-A 3.2 Gen1,3,5,,,,
+gpd-win-max-2-2022-1260p,HDMI,1,,,,,HDMI 2.1
+gpd-win-max-2-2022-1260p,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-2-2022-1260p,SD,1,,,,,"UHS-II, V90, 312 MB/s"
+gpd-win-max-2-2022-1260p,microSD,1,,,,,"UHS-I, A2, 160 MB/s"
+gpd-win-max-2-2023,USB4,1,40,true,,,video/data/charging
+gpd-win-max-2-2023,USB-C 3.2 Gen2,1,10,true,,,video/data/charging
+gpd-win-max-2-2023,USB-A 3.2 Gen2,2,10,,,,
+gpd-win-max-2-2023,OCuLink,1,63,,,,"SFF-8612, 63 Gbps"
+gpd-win-max-2-2023,HDMI,1,,,,,HDMI 2.1
+gpd-win-max-2-2023,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-2-2023,SD,1,,,,,"UHS-II, V90, 312 MB/s"
+gpd-win-max-2-2023,microSD,1,,,,,"UHS-I, A1, 100 MB/s; mutually exclusive with the SD slot"
+gpd-win-max-2-2023-7640u,USB4,1,40,true,,,video/data/charging
+gpd-win-max-2-2023-7640u,USB-C 3.2 Gen2,1,10,true,,,video/data/charging
+gpd-win-max-2-2023-7640u,USB-A 3.2 Gen2,2,10,,,,
+gpd-win-max-2-2023-7640u,OCuLink,1,63,,,,"SFF-8612, 63 Gbps"
+gpd-win-max-2-2023-7640u,HDMI,1,,,,,HDMI 2.1
+gpd-win-max-2-2023-7640u,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-2-2023-7640u,SD,1,,,,,"UHS-II, V90, 312 MB/s"
+gpd-win-max-2-2023-7640u,microSD,1,,,,,"UHS-I, A1, 100 MB/s; mutually exclusive with the SD slot"
+gpd-win-max-2-2024,USB4,1,40,true,,,video/data/charging
+gpd-win-max-2-2024,USB-C 3.2 Gen2,1,10,true,,,video/data/charging
+gpd-win-max-2-2024,USB-A 3.2 Gen2,2,10,,,,
+gpd-win-max-2-2024,OCuLink,1,63,,,,"SFF-8612, 63 Gbps"
+gpd-win-max-2-2024,HDMI,1,,,,,HDMI 2.1
+gpd-win-max-2-2024,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-2-2024,SD,1,,,,,"UHS-II, V90, 312 MB/s"
+gpd-win-max-2-2024,microSD,1,,,,,"UHS-I, A1, 100 MB/s; mutually exclusive with the SD slot"
+gpd-win-max-2-2024-8640u,USB4,1,40,true,,,video/data/charging
+gpd-win-max-2-2024-8640u,USB-C 3.2 Gen2,1,10,true,,,video/data/charging
+gpd-win-max-2-2024-8640u,USB-A 3.2 Gen2,2,10,,,,
+gpd-win-max-2-2024-8640u,OCuLink,1,63,,,,"SFF-8612, 63 Gbps"
+gpd-win-max-2-2024-8640u,HDMI,1,,,,,HDMI 2.1
+gpd-win-max-2-2024-8640u,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-2-2024-8640u,SD,1,,,,,"UHS-II, V90, 312 MB/s"
+gpd-win-max-2-2024-8640u,microSD,1,,,,,"UHS-I, A1, 100 MB/s; mutually exclusive with the SD slot"
+gpd-win-max-2-2025,USB4,2,40,true,100,,DP 2.1; 100 W PD
+gpd-win-max-2-2025,OCuLink,1,63,,,,"PCIe 4.0 x4, 63 Gbps"
+gpd-win-max-2-2025,HDMI,1,,,,,HDMI 2.1 (FRL)
+gpd-win-max-2-2025,USB-A 3.2 Gen2,2,10,,,,
+gpd-win-max-2-2025,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-2-2025,SD,1,,,,,"UHS-II, V90, 312 MB/s"
+gpd-win-max-2-2025,microSD,1,,,,,"UHS-I, A2, 160 MB/s; mutually exclusive with the SD slot"
+gpd-win-max-2-2025-8840u,USB4,2,40,true,100,,DP 2.1; 100 W PD
+gpd-win-max-2-2025-8840u,OCuLink,1,63,,,,"PCIe 4.0 x4, 63 Gbps"
+gpd-win-max-2-2025-8840u,HDMI,1,,,,,HDMI 2.1 (FRL)
+gpd-win-max-2-2025-8840u,USB-A 3.2 Gen2,2,10,,,,
+gpd-win-max-2-2025-8840u,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-2-2025-8840u,SD,1,,,,,"UHS-II, V90, 312 MB/s"
+gpd-win-max-2-2025-8840u,microSD,1,,,,,"UHS-I, A2, 160 MB/s; mutually exclusive with the SD slot"
+gpd-win-max-3-388,USB4,1,40,true,100,,DP 2.1 (8K60); PD 3.0 100 W (20 V 5 A)
+gpd-win-max-3-388,USB-C 3.2 Gen2,1,10,true,,,DP 2.1; no charging
+gpd-win-max-3-388,USB-A unspecified,2,,,,,USB 3.2 Type-A; generation not stated
+gpd-win-max-3-388,HDMI,1,,,,,HDMI 2.1 (FRL)
+gpd-win-max-3-388,DC,1,,,180,,"5525 jack, 180 W (20 V 9 A), main charging port"
+gpd-win-max-3-388,microSD,1,,,,,"microSD Express (SD 7.1, PCIe 3.1 x1, ~900 MB/s); UHS-I fallback"
+gpd-win-max-3-388,3.5mm,1,,,,,headphone/mic combo
+gpd-win-max-3-395,USB4,1,40,true,100,,DP 2.1 (8K60); PD 3.0 100 W (20 V 5 A)
+gpd-win-max-3-395,USB-C 3.2 Gen2,1,10,true,,,DP 2.1; no charging
+gpd-win-max-3-395,USB-A unspecified,2,,,,,USB 3.2 Type-A; generation not stated
+gpd-win-max-3-395,HDMI,1,,,,,HDMI 2.1 (FRL)
+gpd-win-max-3-395,DC,1,,,180,,"5525 jack, 180 W (20 V 9 A), main charging port"
+gpd-win-max-3-395,microSD,1,,,,,"microSD Express (SD 7.1, PCIe 3.1 x1, ~900 MB/s); UHS-I fallback"
+gpd-win-max-3-395,3.5mm,1,,,,,headphone/mic combo
+gpd-win-mini-2023,USB4,1,40,true,,,video/data/charging
+gpd-win-mini-2023,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-mini-2023,OCuLink,1,,,,,SFF-8612
+gpd-win-mini-2023,3.5mm,1,,,,,headphone/mic combo
+gpd-win-mini-2023,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-mini-2023-7640u,USB4,1,40,true,,,video/data/charging
+gpd-win-mini-2023-7640u,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-mini-2023-7640u,OCuLink,1,,,,,SFF-8612
+gpd-win-mini-2023-7640u,3.5mm,1,,,,,headphone/mic combo
+gpd-win-mini-2023-7640u,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-mini-2024,USB4,1,40,true,,,video/data/charging
+gpd-win-mini-2024,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-mini-2024,USB-A 3.2 Gen2,1,10,,,,replaces the 2023 OCuLink port
+gpd-win-mini-2024,3.5mm,1,,,,,headphone/mic combo
+gpd-win-mini-2024,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-mini-2024-8640u,USB4,1,40,true,,,video/data/charging
+gpd-win-mini-2024-8640u,USB-C 3.2 Gen2,1,10,true,,,full-featured; video/data/charging
+gpd-win-mini-2024-8640u,USB-A 3.2 Gen2,1,10,,,,replaces the 2023 OCuLink port
+gpd-win-mini-2024-8640u,3.5mm,1,,,,,headphone/mic combo
+gpd-win-mini-2024-8640u,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-mini-2025,USB4,1,40,true,65,,PD 3.0 65 W; eGPU capable
+gpd-win-mini-2025,USB-C 3.2 Gen2,1,10,true,,,full-featured; 8K60 output
+gpd-win-mini-2025,USB-A 3.2 Gen2,1,10,,,,
+gpd-win-mini-2025,3.5mm,1,,,,,headphone/mic combo
+gpd-win-mini-2025,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-mini-2025-365,USB4,1,40,true,65,,PD 3.0 65 W; eGPU capable
+gpd-win-mini-2025-365,USB-C 3.2 Gen2,1,10,true,,,full-featured; 8K60 output
+gpd-win-mini-2025-365,USB-A 3.2 Gen2,1,10,,,,
+gpd-win-mini-2025-365,3.5mm,1,,,,,headphone/mic combo
+gpd-win-mini-2025-365,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+gpd-win-mini-2025-8840u,USB4,1,40,true,65,,PD 3.0 65 W; eGPU capable
+gpd-win-mini-2025-8840u,USB-C 3.2 Gen2,1,10,true,,,full-featured; 8K60 output
+gpd-win-mini-2025-8840u,USB-A 3.2 Gen2,1,10,,,,
+gpd-win-mini-2025-8840u,3.5mm,1,,,,,headphone/mic combo
+gpd-win-mini-2025-8840u,microSD,1,,,,,"UHS-I, A2, 160 MB/s read"
+legion-go,USB4,2,40,true,,"top, bottom","PSREF: USB4 40Gbps with Power Delivery 3.0 and DisplayPort 1.4; one on top, one on the bottom"
+legion-go,3.5mm,1,,,,top,Headphone / microphone combo jack
+legion-go,microSD,1,,,,top,
+legion-go,pogo,2,,,,,5-point pogo pin connectors for the detachable controllers
+legion-go-2,USB4,2,40,true,100,"top, bottom","PSREF: USB4 40Gbps, USB PD 65-100W input / 15W output, DisplayPort 2.1; one on top, one on the bottom"
+legion-go-2,USB-C unspecified,2,,false,,,One on each detachable controller; charging only
+legion-go-2,3.5mm,1,,,,bottom,Headphone / microphone combo jack
+legion-go-2,microSD,1,,,,bottom,
+legion-go-2-z2,USB4,2,40,true,100,"top, bottom","PSREF: USB4 40Gbps, USB PD 65-100W input / 15W output, DisplayPort 1.4; one on top, one on the bottom"
+legion-go-2-z2,USB-C unspecified,2,,false,,,One on each detachable controller; charging only
+legion-go-2-z2,3.5mm,1,,,,bottom,Headphone / microphone combo jack
+legion-go-2-z2,microSD,1,,,,bottom,
+legion-go-s-z1-extreme,USB4,2,40,true,100,top,"PSREF: USB4 40Gbps, USB PD 65-100W input / 15W output, DisplayPort 1.4"
+legion-go-s-z1-extreme,3.5mm,1,,,,top,Headphone / microphone combo jack
+legion-go-s-z1-extreme,microSD,1,,,,bottom,
+legion-go-s-z2-go,USB4,2,40,true,100,top,"PSREF: USB4 40Gbps, USB PD 65-100W input / 15W output, DisplayPort 1.4"
+legion-go-s-z2-go,3.5mm,1,,,,top,Headphone / microphone combo jack
+legion-go-s-z2-go,microSD,1,,,,bottom,
+legion-go-z1,USB4,2,40,true,,"top, bottom","PSREF: USB4 40Gbps with Power Delivery 3.0 and DisplayPort 1.4; one on top, one on the bottom"
+legion-go-z1,3.5mm,1,,,,top,Headphone / microphone combo jack
+legion-go-z1,microSD,1,,,,top,
+legion-go-z1,pogo,2,,,,,5-point pogo pin connectors for the detachable controllers
+msi-claw-7-ai-plus,TB4,2,40,true,,,Thunderbolt 4 (DisplayPort / Power Delivery 3.0)
+msi-claw-7-ai-plus,3.5mm,1,,,,,Mic-in/headphone-out combo jack
+msi-claw-7-ai-plus,microSD,1,,,,,
+msi-claw-8-ai-plus,TB4,2,40,true,,,Thunderbolt 4 (DisplayPort / Power Delivery 3.0)
+msi-claw-8-ai-plus,3.5mm,1,,,,,Mic-in/headphone-out combo jack
+msi-claw-8-ai-plus,microSD,1,,,,,
+msi-claw-8-ex-ai-plus,TB4,2,40,true,,,Thunderbolt 4 (DisplayPort / Power Delivery 3.0)
+msi-claw-8-ex-ai-plus,3.5mm,1,,,,,Mic-in/headphone-out combo jack
+msi-claw-8-ex-ai-plus,microSD,1,,,,,microSD Express card reader
+msi-claw-8-ex-ai-plus-cg3m,TB4,2,40,true,,,Thunderbolt 4 (DisplayPort / Power Delivery 3.0)
+msi-claw-8-ex-ai-plus-cg3m,3.5mm,1,,,,,Mic-in/headphone-out combo jack
+msi-claw-8-ex-ai-plus-cg3m,microSD,1,,,,,microSD Express card reader
+msi-claw-a1m-135h,TB4,1,40,true,,top,Thunderbolt 4 (DisplayPort / Power Delivery 3.0)
+msi-claw-a1m-135h,3.5mm,1,,,,top,Mic-in/headphone-out combo jack
+msi-claw-a1m-135h,microSD,1,,,,top,
+msi-claw-a1m-155h,TB4,1,40,true,,top,Thunderbolt 4 (DisplayPort / Power Delivery 3.0)
+msi-claw-a1m-155h,3.5mm,1,,,,top,Mic-in/headphone-out combo jack
+msi-claw-a1m-155h,microSD,1,,,,top,
+msi-claw-a8,USB4,2,40,true,,,MSI: USB4 / DisplayPort / Power Delivery 3.0 / Thunderbolt 4 compatible
+msi-claw-a8,3.5mm,1,,,,,Mic-in/headphone-out combo jack
+msi-claw-a8,microSD,1,,,,,
+onexfly-7840u,USB4,2,40,,,"top, bottom","One on the top edge, one on the bottom edge (DroiX)"
+onexfly-7840u,USB-A unspecified,1,,,,top,Listed as USB-A 3.2 (generation not stated)
+onexfly-7840u,3.5mm,1,,,,top,
+onexfly-7840u,microSD,1,,,,bottom,Micro SD 4.0
+onexfly-8840u,USB4,2,40,,,"top, bottom","One on the top edge, one on the bottom edge (DroiX)"
+onexfly-8840u,USB-A unspecified,1,,,,top,Listed as USB-A 3.2 (generation not stated)
+onexfly-8840u,3.5mm,1,,,,top,
+onexfly-8840u,microSD,1,,,,bottom,Micro SD 4.0
+onexfly-apex-385,USB4,1,40,,,top,
+onexfly-apex-385,USB-C unspecified,1,,,,bottom,Vendor: USB-C 3.2 (generation not stated)
+onexfly-apex-385,USB-A unspecified,1,,,,top,Vendor: USB-A 3.2 (generation not stated)
+onexfly-apex-385,mini-ssd-1517,1,,,,bottom,Mini SSD slot
+onexfly-apex-385,microSD,1,,,,bottom,
+onexfly-apex-385,3.5mm,1,,,,top,
+onexfly-apex-385,DC,1,,,,top,DC power jack
+onexfly-apex-388,USB4,1,40,,,top,
+onexfly-apex-388,USB-C unspecified,1,,,,bottom,Vendor: USB-C 3.2 (generation not stated)
+onexfly-apex-388,USB-A unspecified,1,,,,top,Vendor: USB-A 3.2 (generation not stated)
+onexfly-apex-388,mini-ssd-1517,1,,,,bottom,Mini SSD slot
+onexfly-apex-388,microSD,1,,,,bottom,
+onexfly-apex-388,3.5mm,1,,,,top,
+onexfly-apex-388,DC,1,,,,top,DC power jack
+onexfly-apex-395,USB4,1,40,,,top,
+onexfly-apex-395,USB-C unspecified,1,,,,bottom,Vendor: USB-C 3.2 (generation not stated)
+onexfly-apex-395,USB-A unspecified,1,,,,top,Vendor: USB-A 3.2 (generation not stated)
+onexfly-apex-395,mini-ssd-1517,1,,,,bottom,Mini SSD slot
+onexfly-apex-395,microSD,1,,,,bottom,
+onexfly-apex-395,3.5mm,1,,,,top,
+onexfly-apex-395,DC,1,,,,top,DC power jack
+onexfly-apex-air,USB4,1,,,,,Vendor: USB-C 4.0
+onexfly-apex-air,USB-C unspecified,1,,,,,Vendor: USB-C 3.2 (generation not stated)
+onexfly-apex-air,USB-A unspecified,1,,,,,Vendor: USB-A 3.2 (generation not stated)
+onexfly-apex-air,mini-ssd-1517,1,,,,,"Mini SSD slot, up to 2 TB"
+onexfly-apex-air,microSD,1,,,,,up to 2 TB
+onexfly-apex-air,3.5mm,1,,,,,
+onexfly-f1-pro-365,USB4,2,,true,,,"Vendor: two full-feature USB 4.0 ports (display output and charging). One on the top edge, one on the bottom edge (DroiX)."
+onexfly-f1-pro-365,USB-A 3.2 Gen1,1,5,,,top,Vendor: USB-A 3.0
+onexfly-f1-pro-365,3.5mm,1,,,,top,
+onexfly-f1-pro-365,microSD,1,,,,bottom,microSD 4.0 protocol
+onexfly-f1-pro-8840u,USB4,2,,true,,,"Vendor: two full-feature USB 4.0 ports (display output and charging). One on the top edge, one on the bottom edge (DroiX)."
+onexfly-f1-pro-8840u,USB-A 3.2 Gen1,1,5,,,top,Vendor: USB-A 3.0
+onexfly-f1-pro-8840u,3.5mm,1,,,,top,
+onexfly-f1-pro-8840u,microSD,1,,,,bottom,microSD 4.0 protocol
+onexfly-f1-pro-hx370,USB4,2,,true,,,"Vendor: two full-feature USB 4.0 ports (display output and charging). One on the top edge, one on the bottom edge (DroiX)."
+onexfly-f1-pro-hx370,USB-A 3.2 Gen1,1,5,,,top,Vendor: USB-A 3.0
+onexfly-f1-pro-hx370,3.5mm,1,,,,top,
+onexfly-f1-pro-hx370,microSD,1,,,,bottom,microSD 4.0 protocol
+onexplayer-2,USB4,1,40,true,,top,Vendor says it also supports Thunderbolt technology (compatibility); no Thunderbolt certification stated
+onexplayer-2,USB-C 3.2 Gen1,1,5,true,,bottom,Reviewer port listing (NotebookCheck); Power Delivery
+onexplayer-2,USB-A 3.2 Gen1,1,5,,,top,Listed as USB 3.0 Type-A
+onexplayer-2,3.5mm,1,,,,top,
+onexplayer-2,microSD,1,,,,top,Up to 60 MB/s
+onexplayer-2-pro,USB4,1,40,true,,top,Vendor says it also supports Thunderbolt technology (compatibility); no Thunderbolt certification stated
+onexplayer-2-pro,USB-C unspecified,1,,true,,bottom,Power Delivery and DisplayPort per NotebookCheck; Liliputing lists USB 3.1 / 3.2 Type-C
+onexplayer-2-pro,USB-A 3.2 Gen1,1,5,,,top,Listed as USB 3.0 Type-A
+onexplayer-2-pro,3.5mm,1,,,,top,
+onexplayer-2-pro,microSD,1,,,,top,
+onexplayer-2-pro-1360p,USB4,1,40,true,,top,Vendor says it also supports Thunderbolt technology (compatibility); no Thunderbolt certification stated
+onexplayer-2-pro-1360p,USB-C unspecified,1,,true,,bottom,Power Delivery and DisplayPort per NotebookCheck; Liliputing lists USB 3.1 / 3.2 Type-C
+onexplayer-2-pro-1360p,USB-A 3.2 Gen1,1,5,,,top,Listed as USB 3.0 Type-A
+onexplayer-2-pro-1360p,3.5mm,1,,,,top,
+onexplayer-2-pro-1360p,microSD,1,,,,top,
+onexplayer-2-pro-8840u,USB4,1,40,true,,top,Vendor says it also supports Thunderbolt technology (compatibility); no Thunderbolt certification stated
+onexplayer-2-pro-8840u,USB-C unspecified,1,,true,,bottom,Power Delivery and DisplayPort per NotebookCheck; Liliputing lists USB 3.1 / 3.2 Type-C
+onexplayer-2-pro-8840u,USB-A 3.2 Gen1,1,5,,,top,Listed as USB 3.0 Type-A
+onexplayer-2-pro-8840u,3.5mm,1,,,,top,
+onexplayer-2-pro-8840u,microSD,1,,,,top,
+onexplayer-3,USB4,2,,,,,
+onexplayer-3,USB-A unspecified,1,,,,,Vendor: USB 3.2 Type-A (generation not stated)
+onexplayer-3,3.5mm,1,,,,,
+onexplayer-3,microSD,1,,,,,"microSD 4.0, up to 300 MB/s, up to 2 TB"
+onexplayer-3,mini-ssd-1517,1,,,,,"Mini SSD slot, PCIe 4.0"
+onexplayer-g1,USB4,2,,,,,
+onexplayer-g1,other,1,,,,,USB 3.2 port; connector type and generation not stated
+onexplayer-g1,OCuLink,1,,,,,
+onexplayer-g1,3.5mm,1,,,,,
+onexplayer-g1,microSD,1,,,,,
+onexplayer-g1-255h,USB4,2,,,,,
+onexplayer-g1-255h,other,1,,,,,USB 3.2 port; connector type and generation not stated
+onexplayer-g1-255h,OCuLink,1,,,,,
+onexplayer-g1-255h,3.5mm,1,,,,,
+onexplayer-g1-255h,microSD,1,,,,,
+onexplayer-g1-8840u,USB4,2,,,,,
+onexplayer-g1-8840u,other,1,,,,,USB 3.2 port; connector type and generation not stated
+onexplayer-g1-8840u,OCuLink,1,,,,,
+onexplayer-g1-8840u,3.5mm,1,,,,,
+onexplayer-g1-8840u,microSD,1,,,,,
+onexplayer-mini-1195g7,USB4,2,,,,,"Two USB4 Type-C (full function: power, data, video)"
+onexplayer-mini-1195g7,USB-A 3.2 Gen1,1,5,,,,Listed as USB 3.0 Type-A
+onexplayer-mini-1195g7,3.5mm,1,,,,,
+onexplayer-mini-5800u,USB-C unspecified,2,,,,,Two Type-C ports; speed not stated
+onexplayer-mini-5800u,USB-A 3.2 Gen1,1,5,,,,Listed as USB 3.0 Type-A
+onexplayer-mini-5800u,3.5mm,1,,,,,
+onexplayer-mini-pro-1260p,USB4,1,,,,,
+onexplayer-mini-pro-1260p,USB-C unspecified,1,,,,,Listed as USB 3.2 Type-C (generation not stated)
+onexplayer-mini-pro-1260p,USB-A 3.2 Gen1,1,5,,,,Listed as USB 3.0 Type-A
+onexplayer-mini-pro-1260p,3.5mm,1,,,,,
+onexplayer-mini-pro-6800u,USB4,2,40,,,,USB4 Type-C
+onexplayer-mini-pro-6800u,USB-A 3.2 Gen1,1,5,,,,Listed as USB 3.0 Type-A
+onexplayer-mini-pro-6800u,3.5mm,1,,,,,
+onexplayer-x1-125h,TB4,2,40,true,100,left,USB4 full-function ports with Thunderbolt 4 capabilities (Indiegogo); 100W USB-C charging
+onexplayer-x1-125h,OCuLink,1,63,,,top,PCIe 4.0 x4
+onexplayer-x1-125h,USB-A unspecified,1,,,,right,Listed as USB-A 3.2 (generation not stated)
+onexplayer-x1-125h,3.5mm,1,,,,top,
+onexplayer-x1-125h,microSD,1,,,,right,"TF 4.0, up to 300 MB/s, cards up to 2TB"
+onexplayer-x1-155h,TB4,2,40,true,100,left,USB4 full-function ports with Thunderbolt 4 capabilities (Indiegogo); 100W USB-C charging
+onexplayer-x1-155h,OCuLink,1,63,,,top,PCIe 4.0 x4
+onexplayer-x1-155h,USB-A unspecified,1,,,,right,Listed as USB-A 3.2 (generation not stated)
+onexplayer-x1-155h,3.5mm,1,,,,top,
+onexplayer-x1-155h,microSD,1,,,,right,"TF 4.0, up to 300 MB/s, cards up to 2TB"
+onexplayer-x1-8840u,USB4,2,40,true,100,left,USB-C 4.0 full-function; 100W USB-C charging
+onexplayer-x1-8840u,OCuLink,1,63,,,top,PCIe 4.0 x4
+onexplayer-x1-8840u,USB-A unspecified,1,,,,right,Listed as USB-A 3.2 (generation not stated)
+onexplayer-x1-8840u,3.5mm,1,,,,top,
+onexplayer-x1-8840u,microSD,1,,,,right,"TF 4.0, up to 300 MB/s, cards up to 2TB"
+onexplayer-x1-air,USB4,2,40,,,,Full-function USB4 Type-C; no Thunderbolt branding stated
+onexplayer-x1-air,USB-A unspecified,1,,,,,Listed as USB 3.2 Type-A (generation not stated)
+onexplayer-x1-air,3.5mm,1,,,,,
+onexplayer-x1-air,microSD,1,,,,,Up to 2TB
+onexplayer-x1-air,mini-ssd-1517,1,,,,,"Mini SSD slot, PCIe 4.0"
+onexplayer-x1-air-228v,USB4,2,40,,,,Full-function USB4 Type-C; no Thunderbolt branding stated
+onexplayer-x1-air-228v,USB-A unspecified,1,,,,,Listed as USB 3.2 Type-A (generation not stated)
+onexplayer-x1-air-228v,3.5mm,1,,,,,
+onexplayer-x1-air-228v,microSD,1,,,,,Up to 2TB
+onexplayer-x1-air-228v,mini-ssd-1517,1,,,,,"Mini SSD slot, PCIe 4.0"
+onexplayer-x1-mini,USB4,2,40,,,"top, bottom","One on the top edge, one on the bottom edge (DroiX)"
+onexplayer-x1-mini,OCuLink,1,,,,bottom,Covered port (DroiX)
+onexplayer-x1-mini,USB-A unspecified,1,,,,top,Listed as USB-A 3.2 (generation not stated)
+onexplayer-x1-mini,3.5mm,1,,,,top,
+onexplayer-x1-mini,microSD,1,,,,,
+onexplayer-x1-mini-hx370,USB4,2,40,,,"top, bottom","One on the top edge, one on the bottom edge (DroiX)"
+onexplayer-x1-mini-hx370,OCuLink,1,,,,bottom,Covered port (DroiX)
+onexplayer-x1-mini-hx370,USB-A unspecified,1,,,,top,Listed as USB-A 3.2 (generation not stated)
+onexplayer-x1-mini-hx370,3.5mm,1,,,,top,
+onexplayer-x1-mini-hx370,microSD,1,,,,,
+onexplayer-x1-pro,USB4,2,40,true,100,left,Full-feature USB 4.0; 100W USB-C charging
+onexplayer-x1-pro,OCuLink,1,63,,,top,PCIe 4.0 x4
+onexplayer-x1-pro,USB-A unspecified,1,,,,right,Listed as USB-A 3.2 (generation not stated)
+onexplayer-x1-pro,3.5mm,1,,,,top,
+onexplayer-x1-pro,microSD,1,,,,right,"TF 4.0, up to 300 MB/s, cards up to 2TB"
+onexplayer-x1-pro-255h,TB4,2,40,true,100,left,Thunderbolt 4 on this edition (NotebookCheck: USB4 changed to Thunderbolt 4); 100W USB-C charging
+onexplayer-x1-pro-255h,OCuLink,1,63,,,top,PCIe 4.0 x4
+onexplayer-x1-pro-255h,USB-A unspecified,1,,,,right,Listed as USB-A 3.2 (generation not stated)
+onexplayer-x1-pro-255h,3.5mm,1,,,,top,
+onexplayer-x1-pro-255h,microSD,1,,,,right,"TF 4.0, up to 300 MB/s, cards up to 2TB"
+onexplayer-x1-pro-hx470,USB4,2,40,true,100,left,Full-feature USB 4.0; 100W USB-C charging
+onexplayer-x1-pro-hx470,OCuLink,1,63,,,top,PCIe 4.0 x4
+onexplayer-x1-pro-hx470,USB-A unspecified,1,,,,right,Listed as USB-A 3.2 (generation not stated)
+onexplayer-x1-pro-hx470,3.5mm,1,,,,top,
+onexplayer-x1-pro-hx470,microSD,1,,,,right,"TF 4.0, up to 300 MB/s, cards up to 2TB"
+onexplayer-x2,USB4,2,,true,,,"Vendor: 2x USB-C 4.0 full-function (power, charging, video)"
+onexplayer-x2,USB-A unspecified,1,,,,,Vendor: USB-A 3.2 (generation not stated)
+onexplayer-x2,3.5mm,1,,,,,
+onexplayer-x2,microSD,1,,,,,"TF 4.0, 300 MB/s, up to 2 TB"
+onexplayer-x2-air,USB4,2,40,,,,Listed as USB-C 4.0 full-function; no Thunderbolt branding stated
+onexplayer-x2-air,USB-A unspecified,1,,,,,Listed as USB-A 3.2 (generation not stated)
+onexplayer-x2-air,mini-ssd-1517,1,,,,,Mini SSD slot
+onexplayer-x2-air,3.5mm,1,,,,,
+onexplayer-x2-air,microSD,1,,,,,"TF Card 4.0, 300 MB/s, up to 2TB"
+onexplayer-x2-mini,TB4,1,40,,,,Spec image: 'Full-Featured USB-C 4.0'; store gallery: Thunderbolt 4 interface for the OneXPlayer GPU dock
+onexplayer-x2-mini,USB-C unspecified,1,,,,,Vendor: USB-C 3.2 (generation not stated)
+onexplayer-x2-mini,USB-A unspecified,1,,,,,Vendor: USB-A 3.2 (generation not stated)
+onexplayer-x2-mini,3.5mm,1,,,,,
+onexplayer-x2-mini,microSD,1,,,,,"TF 4.0, 300 MB/s, up to 2 TB"
+onexplayer-x2-mini,mini-ssd-1517,1,,,,,"Mini SSD slot, PCIe 4.0"
+onexplayer-x2-mini-pro-388,USB4,1,,,,,Vendor: USB-C 4.0
+onexplayer-x2-mini-pro-388,USB-C unspecified,1,,,,,Vendor: USB-C 3.2 (generation not stated)
+onexplayer-x2-mini-pro-388,USB-A unspecified,1,,,,,Vendor: USB-A 3.2 (generation not stated)
+onexplayer-x2-mini-pro-388,mini-ssd-1517,1,,,,,"Mini SSD slot, PCIe 4.0"
+onexplayer-x2-mini-pro-388,microSD,1,,,,,"microSD 4.0, up to 2 TB"
+onexplayer-x2-mini-pro-388,3.5mm,1,,,,,
+onexplayer-x2-mini-pro-388,DC,1,,,,,DC power jack
+orange-pi-neo-7840u,USB4,2,,,,,USB 4.0 Type-C
+orange-pi-neo-7840u,3.5mm,1,,,,,
+orange-pi-neo-7840u,microSD,1,,,,,TF card slot
+orange-pi-neo-8840u,USB4,2,,,,,USB 4.0 Type-C
+orange-pi-neo-8840u,3.5mm,1,,,,,
+orange-pi-neo-8840u,microSD,1,,,,,TF card slot
+steam-deck-lcd,USB-C 3.2 Gen2,1,10,true,45,top,"DisplayPort 1.4 alt mode, up to 8K@60Hz or 4K@120Hz. pd_in_w is the Valve PD 3.0 power supply rating."
+steam-deck-lcd,3.5mm,1,,,,top,Stereo headphone / headset jack
+steam-deck-lcd,microSD,1,,,,bottom,"UHS-I; supports SD, SDXC and SDHC"
+steam-deck-oled,USB-C 3.2 Gen2,1,10,true,45,top,"DisplayPort over USB-C, up to 8K@60Hz or 4K@120Hz. pd_in_w is the Valve PD 3.0 power supply rating."
+steam-deck-oled,3.5mm,1,,,,top,Stereo headphone / headset jack
+steam-deck-oled,microSD,1,,,,bottom,"UHS-I; supports SD, SDXC and SDHC"
+zotac-zone,USB4,2,40,true,,"top, bottom","One port on the top edge, one on the bottom edge (NotebookCheck). DisplayPort output over USB4 (ZOTAC store spec)."
+zotac-zone,3.5mm,1,,,,top,
+zotac-zone,microSD,1,,,,bottom,UHS-II
+zotac-zone-pro,USB4,2,,,,,
+zotac-zone-pro,3.5mm,1,,,,,
+zotac-zone-pro,microSD,1,,,,,UHS-II

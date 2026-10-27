@@ -1,0 +1,290 @@
+{
+  "id": "ayaneo-next-ii-395",
+  "brand": "AYANEO",
+  "model": "Next II",
+  "variant": "Ryzen AI Max+ 395",
+  "status": "shipped",
+  "announce_date": "2025-11-29",
+  "release_date": "2026-07",
+  "msrp_usd": 2699,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 341.69,
+      "h": 146.24,
+      "d": 26.15,
+      "d_max": null
+    },
+    "note": "Official: 341.69 x 146.24 x 26.15 mm"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 1426,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "AYANEO states approx. 1426 g"
+  },
+  "soc_id": "ai-max-395",
+  "ram": {
+    "sizes_gb": [
+      64,
+      128
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8533,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "Main drive, NVMe"
+      },
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "Secondary drive, NVMe"
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Full-function USB-C: USB4 40 Gbps, PD 3.1, DP 1.4"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "SD 4.0, up to 100/300 MB/s"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 9.06,
+    "panel": "OLED",
+    "res_w": 2400,
+    "res_h": 1504,
+    "refresh_hz": 165,
+    "vrr": null,
+    "touch": null,
+    "nits_sdr": null,
+    "nits_peak": 1155,
+    "hdr": null,
+    "note": "Custom native-landscape OLED; 60/120/144/165 Hz selectable; 100% DCI-P3; 5280 Hz PWM dimming"
+  },
+  "battery": {
+    "wh": 116,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": "AYANEO: 'built-in battery, no swaps needed'. PD fast charging, wattage not stated."
+  },
+  "controls": {
+    "stick_type": "tmr",
+    "stick_note": "2 x TMR joysticks with adjustable torque, RGB light rings",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 2,
+    "gyro": true,
+    "rear_buttons": 4,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "2 x magnetic levitation motors",
+    "note": "Hall effect linear triggers with 2 trigger locks (linear / button mode). Back buttons LC1, RC1, LC2, RC2. 8-way replaceable D-pad. One six-axis gyroscope."
+  },
+  "wireless": {
+    "wifi": null,
+    "bt": "5.4"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "2 turbo centrifugal fans, 2 vapor-chamber cooling fins",
+  "fingerprint": true,
+  "notes": "Also sold as NEXT 2. Configs: 64GB/1TB and 128GB/2TB. Indiegogo early bird $2,299 (64GB/1TB) and $3,499 (128GB/2TB); announced retail $2,699 and $4,299. AYANEO suspended new sales in 2026 because of memory costs and raised store prices to $3,699 and $5,299. AYANEO said on 2026-07-03 that shipping had begun; international shipments were set for late July 2026.",
+  "conflicts": [
+    {
+      "field": "battery.external",
+      "values": [
+        {
+          "value": false,
+          "url": "https://ayaneo.com/product/AYANEO-NEXT-%E2%85%A1"
+        },
+        {
+          "value": true,
+          "url": "https://www.notebookcheck.net/Ayaneo-Next-2-New-handheld-receives-global-release-with-up-to-128-GB-RAM-and-1-155-nit-OLED-display.1223611.0.html"
+        }
+      ],
+      "chosen_reason": "Official page says built-in battery, no swaps needed; Notebookcheck news calls it an external battery pack"
+    },
+    {
+      "field": "battery.wh",
+      "values": [
+        {
+          "value": 116,
+          "url": "https://ayaneo.com/product/AYANEO-NEXT-%E2%85%A1"
+        },
+        {
+          "value": 115,
+          "url": "https://m.gsmarena.com/ayaneo_next_2_gaming_handheld_debuts_with_115wh_battery_906inch_oled_display-amp-70525.php"
+        }
+      ],
+      "chosen_reason": "Official spec table states 116Wh"
+    },
+    {
+      "field": "msrp_usd",
+      "values": [
+        {
+          "value": 2699,
+          "url": "https://tbreak.com/ayaneo-next-2-price-2026/"
+        },
+        {
+          "value": 3699,
+          "url": "https://tbreak.com/ayaneo-next-ships-globally-late-july-top-model/"
+        }
+      ],
+      "chosen_reason": "2699 is the retail price announced at the February 2026 launch; 3699 is the raised store price from mid-2026"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/AYANEO-NEXT-%E2%85%A1",
+      "accessed": "2026-10-27",
+      "note": "Spec table image: https://ayaneo-1305909189.cos.accelerate.myqcloud.com/ayaneo_com/image/product/2026/AYANEO_NEXT2/EN/05-1.webp (bottom section)"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/AYANEO-NEXT-%E2%85%A1",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 2 * TMR Joysticks / Adjustable Torque"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/AYANEO-NEXT-%E2%85%A1",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 2 * Hall Effect Linear Triggers"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://ayaneo.com/article/905",
+      "accessed": "2026-10-27",
+      "note": "AYANEO NEXT II officially unveiled, 2025-11-29"
+    },
+    {
+      "field": "release_date",
+      "url": "https://ayaneo.com/article/940",
+      "accessed": "2026-10-27",
+      "note": "2026-07-03 sharing session: NEXT 2 officially beginning shipment; international orders ship soon"
+    },
+    {
+      "field": "release_date",
+      "url": "https://tbreak.com/ayaneo-next-ships-globally-late-july-top-model/",
+      "accessed": "2026-10-27",
+      "note": "Global shipments in late July 2026"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://tbreak.com/ayaneo-next-2-price-2026/",
+      "accessed": "2026-10-27",
+      "note": "Launch prices, 2026-02-09: early bird and retail per configuration"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://shop.ayaneo.com/products/ayaneo-next-2",
+      "accessed": "2026-10-27",
+      "note": "Store variants: AI395-64GB+1TB, AI395-128GB+2TB"
+    }
+  ],
+  "unresolved": [
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer scale weight found; no hands-on review located"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "PD 3.1 stated without a wattage"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Port locations are not stated on the spec table"
+    },
+    {
+      "field": "ports.1",
+      "reason": "Not applicable to a card slot (speed in MB/s is in the note)"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Port locations are not stated on the spec table"
+    },
+    {
+      "field": "ports.2",
+      "reason": "Not applicable to an audio jack"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Port locations are not stated on the spec table"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated (adjustable refresh rates only)"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "Touch input is not stated on the official spec table"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Only a peak brightness figure is published"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "HDR support is not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "AYANEO states PD fast charging without a wattage"
+    },
+    {
+      "field": "wireless.wifi",
+      "reason": "AYANEO says 'High-Speed Wi-Fi' without a version"
+    }
+  ]
+}

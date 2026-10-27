@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "device.schema.json",
+  "title": "Handheld device variant",
+  "description": "One row per hardware variant of an x86 handheld gaming PC. Every top-level fact needs a source URL in sources[]. Unknown values stay null and get an entry in unresolved[].",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "brand", "model", "status", "form_factor",
+    "dims_mm", "weight_g", "soc_id", "ram", "storage", "ports",
+    "screen", "battery", "controls", "sources"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "Slug. Also the file name. Example: gpd-win-max-3-395" },
+    "brand": { "type": "string" },
+    "model": { "type": "string", "description": "Marketing name without the variant. Example: Win Max 3" },
+    "variant": { "type": ["string", "null"], "description": "What makes this row different from sibling rows. Example: Ryzen AI Max+ 395 / 2025 (HX 370)" },
+    "status": { "enum": ["shipped", "pre-order", "announced"] },
+    "announce_date": { "$ref": "#/$defs/dateOrNull" },
+    "release_date": { "$ref": "#/$defs/dateOrNull", "description": "First retail availability. Pre-order start does not count." },
+    "msrp_usd": { "type": ["number", "null"], "description": "Launch price of the base configuration of this variant." },
+    "form_factor": { "enum": ["classic", "clamshell", "3-in-1", "slider", "other"], "description": "classic = Deck-like one piece. clamshell = GPD Win Max. 3-in-1 = tablet with detachable controllers. slider = AYANEO Slide." },
+
+    "dims_mm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["handheld"],
+      "description": "handheld is required: controllers attached, battery pack attached, lid open and flat for clamshells. The overlay draws handheld.",
+      "properties": {
+        "handheld": { "$ref": "#/$defs/dims" },
+        "tablet_only": { "$ref": "#/$defs/dimsOrNull" },
+        "closed": { "$ref": "#/$defs/dimsOrNull" },
+        "with_keyboard": { "$ref": "#/$defs/dimsOrNull" },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+    "weight_g": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["handheld"],
+      "description": "handheld is required and uses the same configuration as dims_mm.handheld. Keep stated (manufacturer) and measured (reviewer scale) separate.",
+      "properties": {
+        "handheld": { "$ref": "#/$defs/weight" },
+        "tablet_only": { "$ref": "#/$defs/weightOrNull" },
+        "without_battery": { "$ref": "#/$defs/weightOrNull" },
+        "closed": { "$ref": "#/$defs/weightOrNull" },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+
+    "soc_id": { "type": "string", "description": "Key of a file in data/socs/. Never invent a new id; report it instead." },
+    "ram": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sizes_gb": { "type": "array", "items": { "type": "integer" } },
+        "type": { "type": ["string", "null"], "description": "LPDDR5 / LPDDR5X / DDR5 SODIMM" },
+        "speed_mts": { "type": ["integer", "null"] },
+        "channels": { "type": ["integer", "null"] },
+        "soldered": { "type": ["boolean", "null"] }
+      }
+    },
+    "storage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["form_factor"],
+            "properties": {
+              "form_factor": { "enum": ["2230", "2242", "2280", "mini-ssd-1517", "emmc", "other"] },
+              "pcie_gen": { "type": ["integer", "null"] },
+              "lanes": { "type": ["integer", "null"] },
+              "note": { "type": ["string", "null"], "description": "Example: 2242 slot also accepts 2230 with a bracket" }
+            }
+          }
+        },
+        "capacities_gb": { "type": "array", "items": { "type": "integer" } },
+        "expansion": { "type": "array", "items": { "enum": ["microSD", "SD", "mini-ssd-1517", "none"] } }
+      }
+    },
+    "ports": {
+      "type": "array",
+      "description": "One entry per port kind. USB4 means 40 Gbps USB4 without Thunderbolt certification. TB4/TB5 only when the vendor says Thunderbolt.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "count"],
+        "properties": {
+          "kind": { "enum": ["USB4", "USB4v2", "TB4", "TB5", "USB-C 3.2 Gen2", "USB-C 3.2 Gen1", "USB-C 2.0", "USB-C unspecified", "USB-A 3.2 Gen2", "USB-A 3.2 Gen1", "USB-A 2.0", "USB-A unspecified", "OCuLink", "HDMI", "DP", "3.5mm", "RJ45", "microSD", "SD", "mini-ssd-1517", "XG Mobile", "DC", "pogo", "other"], "description": "Use 'USB-C unspecified' when the vendor gives no speed. Never guess a generation." },
+          "count": { "type": "integer", "minimum": 1 },
+          "speed_gbps": { "type": ["number", "null"] },
+          "dp_alt": { "type": ["boolean", "null"] },
+          "pd_in_w": { "type": ["number", "null"], "description": "Max charge input in watts on this port" },
+          "location": { "type": ["string", "null"], "description": "top / bottom / left / right / back" },
+          "note": { "type": ["string", "null"], "description": "Example: HDMI 2.1, OCuLink 4i PCIe 4.0 x4" }
+        }
+      }
+    },
+    "screen": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "size_in": { "type": ["number", "null"] },
+        "panel": { "enum": ["IPS", "LTPS", "OLED", "AMOLED", "VA", "TN", null] },
+        "res_w": { "type": ["integer", "null"] },
+        "res_h": { "type": ["integer", "null"] },
+        "refresh_hz": { "type": ["integer", "null"], "description": "Maximum refresh rate" },
+        "vrr": { "type": ["boolean", "null"] },
+        "touch": { "type": ["boolean", "null"] },
+        "nits_sdr": { "type": ["number", "null"] },
+        "nits_peak": { "type": ["number", "null"] },
+        "hdr": { "type": ["boolean", "null"] },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+    "battery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "wh": { "type": ["number", "null"] },
+        "removable": { "type": ["boolean", "null"] },
+        "external": { "type": ["boolean", "null"], "description": "true when the pack clips on outside the shell (GPD Win 5, Win Max 3, OneXFly Apex)" },
+        "charge_w": { "type": ["number", "null"] },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+    "controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stick_type": { "enum": ["potentiometer", "hall", "tmr", "capacitive", "optical", null], "description": "tmr = tunnel magnetoresistance. Do not record TMR as hall. capacitive = vendor states capacitive sensing (GPD Win 5 / Win Max 3)." },
+        "stick_note": { "type": ["string", "null"], "description": "Example: ALPS RKJXV, full-size, swappable module" },
+        "trigger_type": { "enum": ["potentiometer", "hall", "tmr", "capacitive", "digital", null] },
+        "trigger_lock": { "type": ["boolean", "null"] },
+        "trackpads": { "type": ["integer", "null"] },
+        "gyro": { "type": ["boolean", "null"] },
+        "rear_buttons": { "type": ["integer", "null"] },
+        "keyboard": { "type": ["boolean", "null"], "description": "Physical keyboard built in" },
+        "detachable_controllers": { "type": ["boolean", "null"] },
+        "haptics": { "type": ["string", "null"] },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+    "wireless": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "wifi": { "type": ["string", "null"], "description": "Wi-Fi 6 / 6E / 7" },
+        "bt": { "type": ["string", "null"] }
+      }
+    },
+    "os": { "type": "array", "items": { "type": "string" }, "description": "OS options as sold. Example: [\"Windows 11\", \"SteamOS\"]" },
+    "cooling": { "type": ["string", "null"] },
+    "fingerprint": { "type": ["boolean", "null"] },
+    "notes": { "type": ["string", "null"] },
+    "unresolved": {
+      "type": "array",
+      "description": "One entry per null field that the crawler could not source.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "reason"],
+        "properties": {
+          "field": { "type": "string", "description": "Dot path. Example: controls.trigger_type" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "description": "Values that differ between sources. The chosen value is in the main field.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "values"],
+        "properties": {
+          "field": { "type": "string" },
+          "values": { "type": "array", "items": { "type": "object", "required": ["value", "url"], "properties": { "value": {}, "url": { "type": "string" } } } },
+          "chosen_reason": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "description": "field is a dot path or a top-level key. Use \"*\" for the official spec page that covers most fields.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "url"],
+        "properties": {
+          "field": { "type": "string" },
+          "url": { "type": "string", "pattern": "^https?://" },
+          "accessed": { "$ref": "#/$defs/dateOrNull" },
+          "note": { "type": ["string", "null"] }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "dateOrNull": { "type": ["string", "null"], "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$" },
+    "dims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["w", "h", "d"],
+      "description": "w = width across the grips, h = height top to bottom as held, d = thickness. Millimetres.",
+      "properties": {
+        "w": { "type": "number" },
+        "h": { "type": "number" },
+        "d": { "type": "number" },
+        "d_max": { "type": ["number", "null"], "description": "Thickness at the grips when the vendor lists two values" }
+      }
+    },
+    "dimsOrNull": { "anyOf": [ { "$ref": "#/$defs/dims" }, { "type": "null" } ] },
+    "weight": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stated": { "type": ["number", "null"] },
+        "measured": { "type": ["number", "null"] },
+        "measured_source": { "type": ["string", "null"], "pattern": "^https?://" }
+      }
+    },
+    "weightOrNull": { "anyOf": [ { "$ref": "#/$defs/weight" }, { "type": "null" } ] }
+  }
+}

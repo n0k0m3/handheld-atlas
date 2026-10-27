@@ -1,0 +1,232 @@
+{
+  "id": "msi-claw-8-ex-ai-plus",
+  "brand": "MSI",
+  "model": "Claw 8 EX AI+",
+  "variant": "Arc G3 Extreme (CG3EM)",
+  "status": "shipped",
+  "announce_date": "2026-06-01",
+  "release_date": "2026-06-23",
+  "msrp_usd": 1799,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 321,
+      "h": 130,
+      "d": 25,
+      "d_max": 48
+    },
+    "note": "MSI WxDxH: 296-321 x 130 x 25-48 mm. w uses the larger width value."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 785,
+      "measured": 786,
+      "measured_source": "https://www.notebookcheck.net/intel-s-arc-g3-extreme-changes-the-handheld-game-msi-claw-8-ex-ai-review.1325574.0.html"
+    },
+    "note": "MSI: 785 g with battery."
+  },
+  "soc_id": "arc-g3-extreme",
+  "ram": {
+    "sizes_gb": [
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8533,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "Previous Claw 8 AI+ used M.2 2230"
+      }
+    ],
+    "capacities_gb": [
+      1024
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "TB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Thunderbolt 4 (DisplayPort / Power Delivery 3.0)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Mic-in/headphone-out combo jack"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "microSD Express card reader"
+    }
+  ],
+  "screen": {
+    "size_in": 8,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 120,
+    "vrr": true,
+    "touch": true,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "48-120Hz VRR, 100% sRGB, IPS-level. Notebookcheck measured 560 nits max."
+  },
+  "battery": {
+    "wh": 80,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "4-cell; 65W PD adapter. MSI recommends a 65W or higher PD charger."
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "RGB Hall Effect analog sticks",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics; high-end linear motor",
+    "note": "MSI lists D-pad, RGB ABXY, L & R bumpers, MSI Center M button, Quick Settings button, View and Menu buttons, Macro buttons M1/M2."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "6.0"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": null,
+  "fingerprint": true,
+  "notes": "Intel Arc G3 Extreme: 14 cores (2 Cougar Cove P-cores up to 4.7 GHz, 8 E-cores, 4 LP E-cores), Arc B390 GPU. US price $1,799 at launch (MSI US store, Best Buy). An Arc G3 (non-Extreme) model, CG3M, uses the same chassis; see discover notes.",
+  "unresolved": [
+    {
+      "field": "screen.nits_peak",
+      "reason": "only typical or measured brightness is available"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "HDR is not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "MSI does not mention trigger stops"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "MSI lists Macro buttons M1/M2 but does not state their position"
+    },
+    {
+      "field": "cooling",
+      "reason": "fan count not stated in the sources checked"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "PD input wattage not stated"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "not stated in the sources checked"
+    },
+    {
+      "field": "ports.1",
+      "reason": "speed, DP alt and PD do not apply to this port kind; location not stated in the sources checked"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed, DP alt and PD do not apply to this port kind; location not stated in the sources checked"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.msi.com/Handheld/Claw-8-EX-AI-Plus-CG3EMX/Specification",
+      "accessed": "2026-10-27",
+      "note": "MSI Claw 8 EX AI+ CG3EM spec page"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://www.msi.com/news/detail/MSI-Debuts-Claw-8-EX-AI--Handheld-with-Intel--Arc-G3-Extreme-and-Titan-18-HX-Dragon-Edition-Draco-Epic-at-COMPUTEX-2026-148880",
+      "accessed": "2026-10-27",
+      "note": "MSI COMPUTEX 2026 press release dated 2026-06-01"
+    },
+    {
+      "field": "controls.haptics",
+      "url": "https://www.msi.com/news/detail/MSI-Debuts-Claw-8-EX-AI--Handheld-with-Intel--Arc-G3-Extreme-and-Titan-18-HX-Dragon-Edition-Draco-Epic-at-COMPUTEX-2026-148880",
+      "accessed": "2026-10-27",
+      "note": "MSI: Hall-effect triggers and sticks; high-end linear motor"
+    },
+    {
+      "field": "release_date",
+      "url": "https://tech-insider.org/intel-arc-g3-extreme-handheld-msi-claw-8-2026/",
+      "accessed": "2026-10-27",
+      "note": "launching on June 23, 2026 at $1,799 direct (citing TechTimes)"
+    },
+    {
+      "field": "release_date",
+      "url": "https://www.notebookcheck.net/intel-s-arc-g3-extreme-changes-the-handheld-game-msi-claw-8-ex-ai-review.1325574.0.html",
+      "accessed": "2026-10-27",
+      "note": "review dated 2026-06-23 says the unit is available for $1799 at retailers such as Best Buy"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/intel-s-arc-g3-extreme-changes-the-handheld-game-msi-claw-8-ex-ai-review.1325574.0.html",
+      "accessed": "2026-10-27",
+      "note": "$1799"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "url": "https://www.notebookcheck.net/intel-s-arc-g3-extreme-changes-the-handheld-game-msi-claw-8-ex-ai-review.1325574.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck review spec box: 786 g"
+    },
+    {
+      "field": "ram",
+      "url": "https://www.notebookcheck.net/intel-s-arc-g3-extreme-changes-the-handheld-game-msi-claw-8-ex-ai-review.1325574.0.html",
+      "accessed": "2026-10-27",
+      "note": "LPDDR5x-8533, dual-channel, onboard"
+    },
+    {
+      "field": "ram.channels",
+      "url": "https://us-store.msi.com/Claw-8-EX-AI-CG3EM",
+      "accessed": "2026-10-27",
+      "note": "MSI US store: up to 32GB LPDDR5x in dual-channel configuration"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "url": "https://us-store.msi.com/Claw-8-EX-AI-CG3EM",
+      "accessed": "2026-10-27",
+      "note": "MSI US store: 500nits (typical)"
+    },
+    {
+      "field": "storage.capacities_gb",
+      "url": "https://us-store.msi.com/Claw-8-EX-AI-CG3EM-024US",
+      "accessed": "2026-10-27",
+      "note": "CG3EM-024US: 32GB, 1TB NVMe Gen4x4 2280"
+    }
+  ]
+}

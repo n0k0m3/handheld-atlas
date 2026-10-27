@@ -1,0 +1,277 @@
+{
+  "id": "onexplayer-x2-air",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer X2 Air",
+  "variant": "Core Ultra 7 258V",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": null,
+  "msrp_usd": null,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 355,
+      "h": 163.5,
+      "d": 14,
+      "d_max": 44
+    },
+    "tablet_only": {
+      "w": 252,
+      "h": 163.5,
+      "d": 14,
+      "d_max": null
+    },
+    "note": "Official sheet gives only the size without controllers. Handheld width and d_max come from the X1-series controllers (DroiX 35.5 cm on a 252 mm tablet; controllers 44 mm thick); the controllers listing names the X2 series as compatible."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": null,
+      "measured": null,
+      "measured_source": null
+    },
+    "tablet_only": {
+      "stated": 835,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Official sheet: approx. 835 g without controllers; controllers approx. 125 g; controller base approx. 62.5 g"
+  },
+  "soc_id": "cu7-258v",
+  "ram": {
+    "sizes_gb": [
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8533,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD",
+      "mini-ssd-1517"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Listed as USB-C 4.0 full-function; no Thunderbolt branding stated"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Listed as USB-A 3.2 (generation not stated)"
+    },
+    {
+      "kind": "mini-ssd-1517",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Mini SSD slot"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "TF Card 4.0, 300 MB/s, up to 2TB"
+    }
+  ],
+  "screen": {
+    "size_in": 10.95,
+    "panel": "LTPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": 120,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 540,
+    "nits_peak": 630,
+    "hdr": null,
+    "note": "16:10, 10-point touch, 470 min / 540 typ / 630 max nits, DCI-P3 100%, sRGB 138%, DC dimming"
+  },
+  "battery": {
+    "wh": 72.77,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": null
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall-effect joysticks, 22 degree tilt, 6.7 mm height",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": "standard rumble motor",
+    "note": "Hall triggers 8.1 mm travel, 150 gf; micro-switch shoulder buttons; swappable D-pad; controller base with 1200 mAh battery"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "single fan (5400 RPM), dual copper heat pipes (8 mm + 5 mm)",
+  "fingerprint": true,
+  "notes": "The store renamed the X1 Air listing (same product handle, created 2025-09-02) to X2 Air in 2026. Kept as a separate row because the official X2 Air sheet differs from X1 Air sources: M.2 2280 instead of 2230, one 5400 RPM fan instead of two 8500 RPM fans, and a 6.7 mm Hall stick. The store body text still repeats X1 Air copy (dual 8500 RPM fans). A Reddit thread suggests the hardware is the same; treat this row as unconfirmed revised hardware. Seen in Oct 2026 at a $1499 sale price (compare-at $1899).",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "No announcement found; the listing was renamed"
+    },
+    {
+      "field": "release_date",
+      "reason": "Renamed listing appeared around 2026-08-31 (spec image upload time); no retail date found"
+    },
+    {
+      "field": "msrp_usd",
+      "reason": "Only an Oct 2026 sale listing seen ($1499, compare-at $1899); launch price not found"
+    },
+    {
+      "field": "weight_g.handheld.stated",
+      "reason": "Official sheet lists the tablet and controllers separately; no combined weight"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer measurement"
+    },
+    {
+      "field": "weight_g.tablet_only.measured",
+      "reason": "No reviewer measurement"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated on the sheet"
+    },
+    {
+      "field": "dims_mm.tablet_only.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "cooling",
+      "values": [
+        {
+          "value": "single fan 5400 RPM",
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/X2_AIR_PC_1.jpg?v=1788146043"
+        },
+        {
+          "value": "dual liquid-bearing fans 8500 RPM",
+          "url": "https://onexplayerstore.com/products/onexplayer-x2-air-portable-3-in-1-gaming-creator-pc-with-expandable-mini-ssd"
+        }
+      ],
+      "chosen_reason": "Model-specific spec sheet; the body text is reused X1 Air copy"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://onexplayerstore.com/products/onexplayer-x2-air-portable-3-in-1-gaming-creator-pc-with-expandable-mini-ssd",
+      "accessed": "2026-10-27",
+      "note": "Official store page"
+    },
+    {
+      "field": "*",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/X2_AIR_PC_1.jpg?v=1788146043",
+      "accessed": "2026-10-27",
+      "note": "Official X2 Air technical specification image on the store page"
+    },
+    {
+      "field": "dims_mm.handheld.w",
+      "url": "https://droix.net/blogs/onexplayer-x1-amd-review/",
+      "accessed": "2026-10-27",
+      "note": "X1-series controllers: 35.5 cm wide on a 252 mm tablet"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "url": "https://liliputing.com/onexplayer-x1-handheld-gaming-pc-now-available-with-ryzen-7-8840u-instead-of-intel-meteor-lake/",
+      "accessed": "2026-10-27",
+      "note": "X1 controllers 111 x 57 x 44 mm"
+    },
+    {
+      "field": "dims_mm.handheld",
+      "url": "https://onexplayerstore.com/products/controllers-for-onexplayer-x1",
+      "accessed": "2026-10-27",
+      "note": "Controllers listing: compatible with X1/X1 Mini/X1 Pro/X1 Air/X2"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/X2_AIR_PC_1.jpg?v=1788146043",
+      "accessed": "2026-10-27",
+      "note": "Hall-Effect Joysticks"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/X2_AIR_PC_1.jpg?v=1788146043",
+      "accessed": "2026-10-27",
+      "note": "Hall Triggers"
+    },
+    {
+      "field": "notes",
+      "url": "https://www.reddit.com/r/OneXPlayer/comments/1w4fjpz/x2_air/",
+      "accessed": "2026-10-27",
+      "note": "User report that X2 Air looks the same as X1 Air"
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "id": "ayaneo-flip-1s-ds-hx370",
+  "brand": "AYANEO",
+  "model": "Flip 1S DS",
+  "variant": "Ryzen AI 9 HX 370",
+  "status": "shipped",
+  "announce_date": "2025-07-10",
+  "release_date": "2026-03",
+  "msrp_usd": 1499,
+  "form_factor": "clamshell",
+  "dims_mm": {
+    "handheld": {
+      "w": 180,
+      "h": 102,
+      "d": 29.3,
+      "d_max": 35.7
+    },
+    "closed": {
+      "w": 180,
+      "h": 102,
+      "d": 29.3,
+      "d_max": 35.7
+    },
+    "note": "Clamshell. Handheld footprint = closed footprint (project rule). AYANEO size: 180*102*29.3 mm, 35.7 mm at the grip."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 655,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "AYANEO states 'about' this weight"
+  },
+  "soc_id": "ai9-hx370",
+  "ram": {
+    "sizes_gb": [
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": null,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 65,
+      "location": "top",
+      "note": "Both ports full-featured: DP 1.4, PD charging (65 W PD charger spec), data"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Up to 300 MB/s"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7,
+    "panel": "OLED",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 144,
+    "vrr": null,
+    "touch": null,
+    "nits_sdr": 800,
+    "nits_peak": null,
+    "hdr": true,
+    "note": "315 PPI, 150% sRGB volume, 110% DCI-P3, 10-bit, 144/120/90/60 Hz steps, software (system-level) HDR. Stepless hinge to 180 degrees. Secondary screen: 4.5\" 1620x1080 IPS, 3:2, 433 PPI, 550 nits; AYASpace offers a virtual keyboard and trackpad on it."
+  },
+  "battery": {
+    "wh": 45,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65 W PD, bypass charging"
+  },
+  "controls": {
+    "stick_type": "tmr",
+    "stick_note": "TMR electromagnetic medium-size joystick, 1000 Hz polling",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "Dual X-axis linear motors",
+    "note": "Optical finger mouse (not a trackpad). Dual 6-axis gyroscope. Dual-screen button and navigation button."
+  },
+  "wireless": {
+    "wifi": null,
+    "bt": "5.3"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "Vapor chamber + heat-sink fins with fan (air cooling); 30 W max TDP",
+  "fingerprint": true,
+  "notes": "Launch price for 32GB + 1TB: early bird $1299, retail $1499. Indiegogo pre-orders opened 2025-07-10 with shipping planned for mid-September 2025. In late December 2025 AYANEO said the remaining HX 370 units would ship before Chinese New Year 2026. release_date is the AYANEO store listing date (2026-03-31); earlier units went to Indiegogo backers.",
+  "unresolved": [
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer scale weight found (DROIX repeats ~655 g without stating a scale)"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ports.1",
+      "reason": "microSD: speed in Gbps, DP and PD not applicable"
+    },
+    {
+      "field": "ports.2",
+      "reason": "3.5 mm jack: speed, DP and PD not applicable; location not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated; AYANEO lists four fixed refresh steps"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "AYANEO does not state touch for the main OLED screen"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Only 800 nits stated, not labelled as peak"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "wireless.wifi",
+      "reason": "AYANEO says only 'latest high-speed WiFi'; DROIX review says Wi-Fi 6E, which is not confirmed by AYANEO"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/AYANEO-Flip-1S-DS",
+      "accessed": "2026-10-27",
+      "note": "Spec table at the bottom of https://ayaneo-1305909189.cos.accelerate.myqcloud.com/ayaneo_com/image/product/2025/AYANEO_FLIP_1S_DS_EN_20250710/07.webp"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/AYANEO-Flip-1S-DS",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 'TMR electromagnetic medium joystick (1000Hz polling rate)'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/AYANEO-Flip-1S-DS",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 'Hall linear triggers'"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://ayaneo.com/article/887",
+      "accessed": "2026-10-27",
+      "note": "Price table image https://cdn.ayaneo.com/ayaneo/article/2025/07/10/0b9e8202507101813288614.jpeg"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://ayaneo.com/article/887",
+      "accessed": "2026-10-27",
+      "note": "Official launch article dated 2025-07-10"
+    },
+    {
+      "field": "ports.0.location",
+      "url": "https://droix.net/blogs/ayaneo-flip-1s-ds-review/",
+      "accessed": "2026-10-27",
+      "note": "Two USB4 ports and the microSD reader on the top edge"
+    },
+    {
+      "field": "ports.1.location",
+      "url": "https://droix.net/blogs/ayaneo-flip-1s-ds-review/",
+      "accessed": "2026-10-27",
+      "note": "Two USB4 ports and the microSD reader on the top edge"
+    },
+    {
+      "field": "release_date",
+      "url": "https://shop.ayaneo.com/products/ayaneo-flip-1s-ds",
+      "accessed": "2026-10-27",
+      "note": "Shopify products.json published_at 2026-03-31 (HX 370 configs only)"
+    },
+    {
+      "field": "status",
+      "url": "https://retrohandhelds.gg/ayaneo-refuses-to-accept-responsibility-puts-blame-on-everyone-else-for-delays/",
+      "accessed": "2026-10-27",
+      "note": "AYANEO late-December update: remaining AI 370 units to ship before Chinese New Year"
+    }
+  ]
+}

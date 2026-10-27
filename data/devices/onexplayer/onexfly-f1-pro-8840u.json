@@ -1,0 +1,302 @@
+{
+  "id": "onexfly-f1-pro-8840u",
+  "brand": "OneXPlayer",
+  "model": "OneXFly F1 Pro",
+  "variant": "Ryzen 7 8840U",
+  "status": "shipped",
+  "announce_date": "2024-10-30",
+  "release_date": null,
+  "msrp_usd": 1099,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 263.6,
+      "h": 98.2,
+      "d": 22.6,
+      "d_max": null
+    },
+    "note": "Vendor gives 22.6 mm as the thickest point."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 599,
+      "measured": 607,
+      "measured_source": "https://droix.net/blogs/onexplayer-onexfly-f1-pro-review/"
+    },
+    "note": "Vendor: about 599 g. DroiX: around 607 g (review of the 8840U, 365 and HX 370 units; one figure for all)."
+  },
+  "soc_id": "r7-8840u",
+  "ram": {
+    "sizes_gb": [
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": 2,
+    "soldered": null
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Vendor: two full-feature USB 4.0 ports (display output and charging). One on the top edge, one on the bottom edge (DroiX)."
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Vendor: USB-A 3.0"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "microSD 4.0 protocol"
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "OLED",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 144,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": 800,
+    "hdr": null,
+    "note": "10-point touch; 315 PPI; vendor quotes 800 nits without saying typical or peak"
+  },
+  "battery": {
+    "wh": 48.5,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "12,600 mAh; 65 W GaN charger"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "ALPS Hall-effect sticks, 18 degree tilt, 6.7 mm height, RGB rings",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "Asymmetric dual linear motors",
+    "note": "Micro-switch shoulder buttons, 0.2-1.0 mm travel"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Single liquid-bearing fan, aluminium fins, 3 copper heat pipes",
+  "fingerprint": null,
+  "notes": "OLED F1 Pro with the Ryzen 7 8840U. A Liliputing teaser (Oct 2024) showed the 8840U option; DroiX reviewed an 8840U unit by Feb 2025; Amazon lists 32 GB/2 TB. The official store re-listed a 32 GB/1 TB variant in Dec 2025. msrp_usd is the store list price at crawl time; the launch price was not found.",
+  "unresolved": [
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated by the vendor"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Vendor gives one 800-nit figure only"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated by the vendor"
+    },
+    {
+      "field": "ram.soldered",
+      "reason": "Not stated; LPDDR5x is normally soldered but no source says so"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated by the vendor"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Count not stated in the spec image or launch articles"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "Not listed in the spec image or launch articles"
+    },
+    {
+      "field": "release_date",
+      "reason": "First retail date not found. Retail units existed by 2025-02-11 (DroiX review); the current store variant dates from 2025-12-07."
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "weight_g.handheld.stated",
+      "values": [
+        {
+          "value": 599,
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexfly_gaming_handheld_spec_compare.jpg?v=1730988117"
+        },
+        {
+          "value": 598,
+          "url": "https://liliputing.com/onexfly-f1-pro-handheld-gaming-pc-features-ryzen-ai-9-hx-370-and-a-7-inch-144-hz-oled-display/"
+        }
+      ],
+      "chosen_reason": "Official spec image; 598 g came from a pre-launch promo video"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://onexplayerstore.com/products/onexfly-f1-pro-wolrd-s-first-amd-ai-370-oled-144hz-gaming-handheld-console",
+      "accessed": "2026-10-27",
+      "note": "Official store page; spec table is the image https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexfly_gaming_handheld_spec_compare.jpg?v=1730988117"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://onexplayerstore.com/products/onexfly-f1-pro-wolrd-s-first-amd-ai-370-oled-144hz-gaming-handheld-console.json",
+      "accessed": "2026-10-27",
+      "note": "Store variant 'AMD 8840U - 32G + 1TB' on the F1 Pro product (current variant created 2025-12-07)"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://droix.net/blogs/onexplayer-onexfly-f1-pro-review/",
+      "accessed": "2026-10-27",
+      "note": "Review dated 2025-02-11 covers F1 Pro units with 8840U, HX 365 and HX 370"
+    },
+    {
+      "field": "storage.capacities_gb",
+      "url": "https://www.amazon.com/dp/B0DPJ21KQW",
+      "accessed": "2026-10-27",
+      "note": "Amazon listing: F1 Pro, Ryzen 7 8840U, 32 GB, 2 TB, 7-inch 144 Hz OLED"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://onexplayerstore.com/products/onexfly-f1-pro-wolrd-s-first-amd-ai-370-oled-144hz-gaming-handheld-console.json",
+      "accessed": "2026-10-27",
+      "note": "Store list (compare-at) price $1,099 at crawl time; sale price $999"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexfly_gaming_handheld_spec_compare.jpg?v=1730988117",
+      "accessed": "2026-10-27",
+      "note": "Official spec image row 'Joystick (Alps/Hall)'; Liliputing table: 'Alps/hall joysticks'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/onexfly_gaming_handheld_spec_compare.jpg?v=1730988117",
+      "accessed": "2026-10-27",
+      "note": "Official spec image row 'Hal Trigger'"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.notebookcheck.net/OneXPlayer-OneXFly-F1-Pro-First-AMD-Radeon-890M-gaming-handheld-released-with-144-Hz-OLED-display.914604.0.html",
+      "accessed": "2026-10-27",
+      "note": "I/O: 1x 3.5 mm, 1x microSD, 1x USB 3.0 Type-A, 2x USB 4"
+    },
+    {
+      "field": "ports",
+      "url": "https://droix.net/blogs/onexplayer-onexfly-f1-pro-review/",
+      "accessed": "2026-10-27",
+      "note": "Bottom: USB4 and microSD. Top: 3.5 mm, USB4, USB-A"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "url": "https://droix.net/blogs/onexplayer-onexfly-f1-pro-review/",
+      "accessed": "2026-10-27",
+      "note": "Weighs around 607 g"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://liliputing.com/first-handheld-gaming-pc-with-amd-strix-point-and-a-144-hz-oled-display-goes-up-for-pre-order/",
+      "accessed": "2026-10-27",
+      "note": "Launch configurations and LPDDR5x-7500 dual channel"
+    }
+  ]
+}

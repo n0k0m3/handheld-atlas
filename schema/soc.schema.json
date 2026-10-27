@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "soc.schema.json",
+  "title": "SoC / APU",
+  "description": "One row per processor used by a device. passmark scores come from cpubenchmark.net and videocardbenchmark.net. Note that PassMark samples mix TDPs and host devices.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "vendor", "name", "igpu", "passmark", "sources"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "vendor": { "enum": ["AMD", "Intel", "Valve/AMD"] },
+    "name": { "type": "string", "description": "Example: Ryzen AI Max+ 395" },
+    "codename": { "type": ["string", "null"], "description": "Example: Strix Halo" },
+    "cores": { "type": ["integer", "null"] },
+    "threads": { "type": ["integer", "null"] },
+    "core_mix": { "type": ["string", "null"], "description": "Example: 4P + 8E + 2LPE, or 3x Zen 5 + 5x Zen 5c" },
+    "cpu_arch": { "type": ["string", "null"], "description": "Example: Zen 5 / Lion Cove + Skymont" },
+    "base_ghz": { "type": ["number", "null"] },
+    "boost_ghz": { "type": ["number", "null"] },
+    "tdp_w": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "default": { "type": ["number", "null"] },
+        "min": { "type": ["number", "null"] },
+        "max": { "type": ["number", "null"] }
+      }
+    },
+    "process_nm": { "type": ["number", "null"] },
+    "process_note": { "type": ["string", "null"], "description": "Example: TSMC N4P" },
+    "npu_tops": { "type": ["number", "null"] },
+    "memory": { "type": ["string", "null"], "description": "Max supported. Example: LPDDR5X-8000 quad-channel" },
+    "launch_date": { "type": ["string", "null"], "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$" },
+    "igpu": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "description": "Example: Radeon 8060S" },
+        "cu": { "type": ["integer", "null"], "description": "Compute units (AMD) or Xe cores (Intel)" },
+        "arch": { "type": ["string", "null"], "description": "RDNA 3.5 / Xe2 / Xe3" },
+        "clock_mhz": { "type": ["integer", "null"] },
+        "tflops_fp32": { "type": ["number", "null"] }
+      }
+    },
+    "passmark": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cpu_mark": { "type": ["integer", "null"] },
+        "single_thread": { "type": ["integer", "null"] },
+        "cpu_samples": { "type": ["integer", "null"] },
+        "cpu_url": { "type": ["string", "null"], "pattern": "^https?://" },
+        "g3d_mark": { "type": ["integer", "null"] },
+        "g3d_samples": { "type": ["integer", "null"] },
+        "gpu_url": { "type": ["string", "null"], "pattern": "^https?://" },
+        "fetched": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "mapping_note": { "type": ["string", "null"], "description": "When the score comes from a stand-in entry (example: Z2 A scored via the Steam Deck APU) say so here." }
+      }
+    },
+    "notes": { "type": ["string", "null"] },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "reason"],
+        "properties": { "field": { "type": "string" }, "reason": { "type": "string" } }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "url"],
+        "properties": {
+          "field": { "type": "string" },
+          "url": { "type": "string", "pattern": "^https?://" },
+          "accessed": { "type": ["string", "null"] },
+          "note": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "id": "gpd-win-5-395",
+  "brand": "GPD",
+  "model": "Win 5",
+  "variant": "Ryzen AI Max+ 395",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2025-10",
+  "msrp_usd": 1650,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 267,
+      "h": 111.6,
+      "d": 24.21,
+      "d_max": 42.3
+    },
+    "note": "d_max derived: 24.21 mm body + 18.1 mm battery pack (GPD gives no combined figure)"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 940,
+      "measured": null,
+      "measured_source": null
+    },
+    "without_battery": {
+      "stated": 590,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "940 g with the 350 g pack on the back (GPD overview calls it 'dock-attached mode'); 590 g with the pack on a cable or no pack."
+  },
+  "soc_id": "ai-max-395",
+  "ram": {
+    "sizes_gb": [
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8000,
+    "channels": 4,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "single-sided SSD only"
+      },
+      {
+        "form_factor": "mini-ssd-1517",
+        "pcie_gen": 4,
+        "lanes": 1,
+        "note": "external card slot, BIWIN Mini SSD 512 GB - 2 TB"
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD",
+      "mini-ssd-1517"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 100,
+      "location": null,
+      "note": "DP 2.1 (8K60); PD 100 W (20 V 5 A)"
+    },
+    {
+      "kind": "USB-C 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "DP 2.1; no charging"
+    },
+    {
+      "kind": "USB-A 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "DC",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": 180,
+      "location": null,
+      "note": "5525 jack, 180 W (20 V 9 A), primary charging port"
+    },
+    {
+      "kind": "mini-ssd-1517",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "PCIe Gen4 x1, 1600 MB/s; BIWIN Mini SSD only"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "UHS-I, A2, 160 MB/s read"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "headphone/mic combo"
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "LTPS",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 120,
+    "vrr": true,
+    "touch": true,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "315 PPI, FreeSync Premium, 6 ms, 100% sRGB, Gorilla Glass 6"
+  },
+  "battery": {
+    "wh": 80,
+    "removable": true,
+    "external": true,
+    "charge_w": 180,
+    "note": "FlexPower external pack, 350 g, 110.76 x 110.3 x 18.1 mm; back-mounted or on a cable. 180 W DC is the main input; USB4 also takes 100 W PD. Runs from DC with no pack."
+  },
+  "controls": {
+    "stick_type": "capacitive",
+    "stick_note": "Capacitive analog sticks, 8000 Hz sampling, 2000 Hz report, recessed, L3/R3; POM limit ring and metal guide ring",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "dual vibration motors (off / low / high)",
+    "note": "Hall triggers with a long/short travel switch (short = digital). Optical finger mouse; no physical keyboard (on-screen keyboard and desktop buttons)."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.3"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "dual fans + four heat pipes",
+  "fingerprint": true,
+  "notes": "Flagship SKU. msrp_usd is the Indiegogo price of the 395 / 32 GB model. LPDDR5X is soldered by design.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "official pages give a launch month only; no dated announcement sourced"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found within the fetch budget"
+    },
+    {
+      "field": "ports",
+      "reason": "spec page does not state port location or per-port PD input; null subfields are unstated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "weight_g.without_battery.measured",
+      "reason": "no reviewer scale weight found within the fetch budget"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "weight_g.without_battery.stated",
+      "values": [
+        {
+          "value": 590,
+          "url": "https://www.gpd.hk/gpdwin5techspecs34524234456"
+        },
+        {
+          "value": 565,
+          "url": "https://web.archive.org/web/20250905070257/https://gpd.hk/gpdwin5techspecs34524234456"
+        }
+      ],
+      "chosen_reason": "current official page; the 2025-09 page said 565 g"
+    },
+    {
+      "field": "release_date",
+      "values": [
+        {
+          "value": "2025-10",
+          "url": "https://www.gpd.hk/gpdwin5techspecs34524234456"
+        },
+        {
+          "value": "2025-11",
+          "url": "https://www.notebookcheck.net/GPD-Win-5-released-globally-with-AMD-Ryzen-AI-Max-395-and-up-to-64-GB-RAM.1123906.0.html"
+        }
+      ],
+      "chosen_reason": "official launch month; NotebookCheck said Indiegogo shipping would start in November 2025"
+    },
+    {
+      "field": "controls.stick_type",
+      "values": [
+        {
+          "value": "capacitive",
+          "url": "https://www.gpd.hk/gpdwin5techspecs34524234456"
+        },
+        {
+          "value": "hall",
+          "url": "https://liliputing.com/amd-strix-halo-handheld-gaming-pc-spec-shoot-out-ayaneo-next-ii-vs-gpd-win-5-vs-onexfly-apex/"
+        }
+      ],
+      "chosen_reason": "official GPD spec names capacitive sticks; the Liliputing comparison table says Hall"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "values": [
+        {
+          "value": [
+            32,
+            64
+          ],
+          "url": "https://www.gpd.hk/gpdwin5techspecs34524234456"
+        },
+        {
+          "value": [
+            32,
+            64,
+            128
+          ],
+          "url": "https://web.archive.org/web/20250905070257/https://gpd.hk/gpdwin5techspecs34524234456"
+        }
+      ],
+      "chosen_reason": "current page; NotebookCheck said 128 GB was not available at launch"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.gpd.hk/gpdwin5techspecs34524234456",
+      "accessed": "2026-10-27",
+      "note": "official tech specs page (395 / 388)"
+    },
+    {
+      "field": "*",
+      "url": "https://www.gpd.hk/gpdwin56773453f",
+      "accessed": "2026-10-27",
+      "note": "official overview page"
+    },
+    {
+      "field": "weight_g",
+      "url": "https://www.gpd.hk/gpdwin56773453f",
+      "accessed": "2026-10-27",
+      "note": "overview: 590 g (detachable cable design), 940 g with the pack"
+    },
+    {
+      "field": "weight_g.handheld.stated",
+      "url": "https://www.notebookcheck.net/GPD-Win-5-released-globally-with-AMD-Ryzen-AI-Max-395-and-up-to-64-GB-RAM.1123906.0.html",
+      "accessed": "2026-10-27",
+      "note": "940 g with the external battery, 590 g without"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://www.gpd.hk/gpdwin5techspecs34524234456",
+      "accessed": "2026-10-27",
+      "note": "GPD: 'LT / RT are Hall-effect trigger buttons'"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.gpd.hk/gpdwin5techspecs34524234456",
+      "accessed": "2026-10-27",
+      "note": "GPD: 'Capacitive Analog Stick - Ultra-high precision and sensitivity, 8000Hz sampling rate, 2000Hz reporting rate, 4000-step resolution'"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "url": "https://www.gpd.hk/gpdwin5techspecs34524234456",
+      "accessed": "2026-10-27",
+      "note": "body 24.21 mm (Size) + battery 18.1 mm (Battery Size); sum derived"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/GPD-Win-5-released-globally-with-AMD-Ryzen-AI-Max-395-and-up-to-64-GB-RAM.1123906.0.html",
+      "accessed": "2026-10-27",
+      "note": "about US$1,650 for 395 / 32 GB"
+    }
+  ]
+}

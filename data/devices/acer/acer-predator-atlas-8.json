@@ -1,0 +1,266 @@
+{
+  "id": "acer-predator-atlas-8",
+  "brand": "Acer",
+  "model": "Predator Atlas 8",
+  "variant": "PA08-I51, Arc G3 Extreme (Arc B390)",
+  "status": "shipped",
+  "announce_date": "2026-05-28",
+  "release_date": "2026-09",
+  "msrp_usd": 1299.99,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 299,
+      "h": 127.4,
+      "d": 28.5,
+      "d_max": 58.37
+    },
+    "note": "Acer lists 299 x 127.4 x 28.5/58.37 mm. 58.37 mm is the depth at the grips."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 810,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Acer: under 810 g with the 80 Wh battery, under 770 g with the 60 Wh battery. A UK owner reported 870 g for an 80 Wh G3 Extreme unit (relayed by NotebookCheck; not a reviewer scale)."
+  },
+  "soc_id": "arc-g3-extreme",
+  "ram": {
+    "sizes_gb": [
+      24,
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7467,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": null,
+        "note": "One M.2 2280 PCIe Gen4 NVMe slot"
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "TB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Acer: two Thunderbolt 4 ports for docking, display output and accessories"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "UHS-II, up to SD 4.0 (SD, SDHC, SDXC, SDUC)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Combo jack"
+    }
+  ],
+  "screen": {
+    "size_in": 8.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 120,
+    "vrr": true,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": 500,
+    "hdr": null,
+    "note": "IPS-level, 16:10, 100% sRGB, Gorilla Glass Victus with DXC anti-reflection, 10-point touch. Matte 9H screen protector in the box."
+  },
+  "battery": {
+    "wh": 80,
+    "removable": null,
+    "external": false,
+    "charge_w": 65,
+    "note": "4S1P 4-cell Li-ion. Acer UK SKU table: Arc G3 Extreme SKUs have 80 Wh; the 60 Wh battery is on the Arc G3 SKUs. 65 W USB-C adapter."
+  },
+  "controls": {
+    "stick_type": "tmr",
+    "stick_note": "Full-size TMR sticks with RGB lighting (US product page and button diagram). Acer UK: \"Every Atlas 8 is built with premium TMR\" sticks. The May 2026 press spec table says carbon-film sticks; see conflicts.",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "L/R adjustable trigger switches change between micro-switch mode and full-travel Hall analog mode. Rear L/R macro buttons. PredatorSense and Game Bar buttons."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "5.4"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "dual fan (one metal Predator AeroBlade fan, one plastic fan)",
+  "fingerprint": true,
+  "notes": "UK units reached buyers in September 2026 (Currys, GBP 1,300 for 24 GB / 1 TB); US launch at US$1,299.99 in October 2026. Acer UK SKUs: Arc G3 Extreme 24 GB / 1 TB / 80 Wh GBP 1,299.99 and 32 GB / 1 TB / 80 Wh GBP 1,499.99. The Arc G3 (non-Extreme) SKUs are in acer-predator-atlas-8-g3.",
+  "unresolved": [
+    {
+      "field": "ports.1",
+      "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer scale reading found; only an owner report of 870 g"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "Max PD input per port not stated; adapter is 65 W"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Button diagram shows both ports but does not name the edge"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Acer publishes one figure (500 nits peak)"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.removable",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "Not stated"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "controls.stick_type",
+      "values": [
+        {
+          "value": "tmr",
+          "url": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-8"
+        },
+        {
+          "value": "potentiometer (\"full-size analog joysticks (Carbon Film)\")",
+          "url": "https://news.acer.com/acer-expands-gaming-portfolio-with-predator-atlas-8-handheld-powered-by-intel"
+        }
+      ],
+      "chosen_reason": "The current US product page and its button diagram say TMR, Acer UK launch material says every Atlas 8 has TMR sticks, and the Currys G3 Extreme SKU title includes \"TMR\". The May 2026 press table is older."
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://news.acer.com/acer-expands-gaming-portfolio-with-predator-atlas-8-handheld-powered-by-intel",
+      "accessed": "2026-10-27",
+      "note": "Official spec table: dimensions, weight, ports, RAM, storage, battery, display, controls"
+    },
+    {
+      "field": "*",
+      "url": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-8",
+      "accessed": "2026-10-27",
+      "note": "Official US product page and button diagram"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-8",
+      "accessed": "2026-10-27",
+      "note": "\"Full-size TMR joysticks use magnetic sensing\"; diagram item 2: Left/Right TMR Joysticks"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-8",
+      "accessed": "2026-10-27",
+      "note": "Hall-effect analog triggers with micro-switch mode"
+    },
+    {
+      "field": "controls.gyro",
+      "url": "https://www.acer.com/gb-en/predator/handheld-gaming/predator-atlas/predator-atlas-8/pdp/NH.U7XEF.001",
+      "accessed": "2026-10-27",
+      "note": "Sensor type: Gyroscope (PA08-I51-G6AC, G3 Extreme, 24 GB, 1 TB)"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.ign.com/articles/acer-predator-atlas-8-intel-arc-g3-extreme-handheld-gaming-pc-is-now-available",
+      "accessed": "2026-10-27",
+      "note": "US launch price $1,299.99 (Best Buy SKU PA08-I51-G9Y7, 24 GB / 512 GB)"
+    },
+    {
+      "field": "storage.capacities_gb",
+      "url": "https://www.bestbuy.com/product/acer-predator-atlas-8-gaming-handheld-intel-arc-g3-extreme-touchscreenwuxga-8-120hz-24gb-storage-512gb-ssd-159-ai-tops-shale-black/JJ8V8HL8YJ",
+      "accessed": "2026-10-27",
+      "note": "512 GB SKU; 1 TB SKU on the Acer UK spec page"
+    },
+    {
+      "field": "release_date",
+      "url": "https://www.notebookcheck.net/Acer-Predator-Atlas-8-First-units-arrive-initial-impressions-surface.1403487.0.html",
+      "accessed": "2026-10-27",
+      "note": "First UK deliveries reported 2026-09-19"
+    },
+    {
+      "field": "weight_g.note",
+      "url": "https://www.notebookcheck.net/Acer-Predator-Atlas-8-First-units-arrive-initial-impressions-surface.1403487.0.html",
+      "accessed": "2026-10-27",
+      "note": "Owner-reported 870 g"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://www.gamingonlinux.com/2026/07/acer-predator-atlas-8-handheld-with-intel-arc-g3-gets-uk-pricing-and-launch-month/",
+      "accessed": "2026-10-27",
+      "note": "Acer UK SKU table (via GamingOnLinux, from uk-offers.acer.com): Extreme with 24 GB or 32 GB, 1 TB, 80 Wh"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.gamingonlinux.com/2026/07/acer-predator-atlas-8-handheld-with-intel-arc-g3-gets-uk-pricing-and-launch-month/",
+      "accessed": "2026-10-27",
+      "note": "Acer UK key features: \"Every Atlas 8 is built with premium TMR (Tunnel Magnetoresistance) magnetic thumbsticks\""
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "ai-max-388",
+  "vendor": "AMD",
+  "name": "Ryzen AI Max+ 388",
+  "codename": "Strix Halo",
+  "cores": 8,
+  "threads": 16,
+  "core_mix": "8x Zen 5",
+  "cpu_arch": "Zen 5",
+  "base_ghz": 3.6,
+  "boost_ghz": 5.0,
+  "tdp_w": {
+    "default": 55,
+    "min": 45,
+    "max": 120
+  },
+  "process_nm": 4,
+  "process_note": "TSMC 4nm FinFET (CCD and I/O die)",
+  "npu_tops": 50,
+  "memory": "LPDDR5X-8000, 256-bit, up to 128 GB",
+  "launch_date": "2026-01-06",
+  "igpu": {
+    "name": "Radeon 8060S",
+    "cu": 40,
+    "arch": "RDNA 3.5",
+    "clock_mhz": 2900,
+    "tflops_fp32": 14.85
+  },
+  "passmark": {
+    "cpu_mark": 32831,
+    "single_thread": 4119,
+    "cpu_samples": 24,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+RYZEN+AI+MAX%2B+388&id=7006",
+    "g3d_mark": 18056,
+    "g3d_samples": 1457,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+8060S&id=5327",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU and GPU: exact entries (CPU entry 'AMD RYZEN AI MAX+ 388' has only 24 samples; the GPU entry pools all 8060S hosts, mostly the 16-core 395)."
+  },
+  "notes": "8 cores with the full 40 CU Radeon 8060S. PassMark first saw it in Q4 2025, before the TPU release date. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-plus-388.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: CPU, memory, NPU and iGPU fields (no launch date)"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+RYZEN+AI+MAX%2B+388&id=7006",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+8060S&id=5327",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-ai-max-388.c4312",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Jan 6th, 2026"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/radeon-8060s.c4270",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 14.85 TFLOPS"
+    }
+  ]
+}

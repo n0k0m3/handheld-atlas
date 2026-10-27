@@ -1,0 +1,320 @@
+{
+  "id": "onexfly-apex-385",
+  "brand": "OneXPlayer",
+  "model": "OneXFly Apex",
+  "variant": "Ryzen AI Max 385",
+  "status": "shipped",
+  "announce_date": "2025-09-26",
+  "release_date": "2026-01",
+  "msrp_usd": null,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 291,
+      "h": 124,
+      "d": 23,
+      "d_max": 40.5
+    },
+    "note": "d_max derived: 23 mm body + 17.5 mm battery pack (vendor gives no combined figure)"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 1109,
+      "measured": null,
+      "measured_source": null
+    },
+    "without_battery": {
+      "stated": 729,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "handheld.stated = vendor 729 g (standard version, without battery) + vendor 380 g battery. Liquid-cooling version adds about 70 g."
+  },
+  "soc_id": "ai-max-385",
+  "ram": {
+    "sizes_gb": [
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8000,
+    "channels": 4,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024
+    ],
+    "expansion": [
+      "microSD",
+      "mini-ssd-1517"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "Vendor: USB-C 3.2 (generation not stated)"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Vendor: USB-A 3.2 (generation not stated)"
+    },
+    {
+      "kind": "mini-ssd-1517",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "Mini SSD slot"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": null
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "DC",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "DC power jack"
+    }
+  ],
+  "screen": {
+    "size_in": 8.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 120,
+    "vrr": true,
+    "touch": null,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "Native landscape; 48-120 Hz VRR; 100% sRGB"
+  },
+  "battery": {
+    "wh": 85,
+    "removable": true,
+    "external": true,
+    "charge_w": null,
+    "note": "Swappable external pack with blade connector and kickstand; can also connect by cable. About 380 g."
+  },
+  "controls": {
+    "stick_type": "capacitive",
+    "stick_note": "Capacitive joystick, 9 mm height, RGB",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "Dual linear rumble motors",
+    "note": "Dual-stage triggers: 8 mm long throw / 2 mm short throw with a physical switch"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Dual 5400 RPM fans, 4 copper heat pipes, 47,200 mm2 fins; Liquid Cooling version accepts the external Frost Bay unit (up to 120 W)",
+  "fingerprint": true,
+  "notes": "Crowdfunded on Indiegogo from 2025-11-09 with Ryzen AI Max 385 and Max+ 395. The official store now sells only Ryzen AI Max+ 388 builds; its spec image describes that build. Standard and Liquid Cooling versions differ only by Frost Bay support (+70 g). The 385 is the entry Strix Halo option and has a 32-CU Radeon 8050S.",
+  "unresolved": [
+    {
+      "field": "screen.touch",
+      "reason": "Not stated by the vendor"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Vendor gives 500 nits only"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "In-box adapter wattage not stated; a 240 W GaN charger + DC cable is sold separately"
+    },
+    {
+      "field": "ports",
+      "reason": "USB4 DP alt mode and USB-C PD input wattage not stated"
+    },
+    {
+      "field": "msrp_usd",
+      "reason": "Only crowdfunding prices are known ($1,399 at launch, $1,599 from 2025-12-01). China retail was CNY 9,999. The store variants were later renamed to Max+ 388."
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "DroiX measured a Max+ 395 unit (1,093 g); no 385 measurement found"
+    },
+    {
+      "field": "weight_g.without_battery.measured",
+      "reason": "Not stated in the official spec image or the sources used"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "weight_g.without_battery.stated",
+      "values": [
+        {
+          "value": 729,
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/APEX_PC4_1.png?v=1788513726"
+        },
+        {
+          "value": 699,
+          "url": "https://liliputing.com/onexfly-apex-strix-halo-handheld-gaming-pc-to-sell-for-1399-and-up-during-crowdfunding/"
+        }
+      ],
+      "chosen_reason": "Current official spec image; 699 g was the One Netbook launch figure (total 1,079 g with battery)"
+    },
+    {
+      "field": "dims_mm.handheld.w",
+      "values": [
+        {
+          "value": 291,
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/APEX_PC4_1.png?v=1788513726"
+        },
+        {
+          "value": 290,
+          "url": "https://liliputing.com/onexfly-apex-strix-halo-handheld-gaming-pc-to-sell-for-1399-and-up-during-crowdfunding/"
+        }
+      ],
+      "chosen_reason": "Current official spec image"
+    },
+    {
+      "field": "controls.stick_type",
+      "values": [
+        {
+          "value": "capacitive",
+          "url": "https://onexplayerstore.com/products/joystick"
+        },
+        {
+          "value": "hall",
+          "url": "https://liliputing.com/amd-strix-halo-handheld-gaming-pc-spec-shoot-out-ayaneo-next-ii-vs-gpd-win-5-vs-onexfly-apex/"
+        }
+      ],
+      "chosen_reason": "Official joystick part page names the stick type 'Capacitor' (its other option is 'Hall'). The Liliputing spec table lists 'Hall joysticks'."
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://onexplayerstore.com/products/onexfly-apex-worlds-most-powerful-8-gaming-handheld",
+      "accessed": "2026-10-27",
+      "note": "Official store page; spec table is the image https://cdn.shopify.com/s/files/1/0557/8535/7492/files/APEX_PC4_1.png?v=1788513726 (current sheet shows the Max+ 388 build)"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official joystick part listing: 'Apex / Capacitor'. Official spec image: 'Joystick: Capacitive Joystick, 9 mm Height'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://onexplayerstore.com/products/onexfly-apex-worlds-most-powerful-8-gaming-handheld",
+      "accessed": "2026-10-27",
+      "note": "Store text: triggers 'adopt Hall magnetic sensing technology'"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/APEX_PC4_1.png?v=1788513726",
+      "accessed": "2026-10-27",
+      "note": "Body 23 mm (min.); battery pack 119.5 x 109 x 17.5 mm"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "url": "https://droix.net/blogs/onexplayer-onexfly-apex-review-pc/",
+      "accessed": "2026-10-27",
+      "note": "Two customisable macro buttons on the back"
+    },
+    {
+      "field": "ports",
+      "url": "https://droix.net/blogs/onexplayer-onexfly-apex-review-pc/",
+      "accessed": "2026-10-27",
+      "note": "Port locations: bottom USB 3.2 C, microSD, mini SSD; top 3.5 mm, USB-A 3.2, DC input, USB4"
+    },
+    {
+      "field": "ports.0.speed_gbps",
+      "url": "https://liliputing.com/amd-strix-halo-handheld-gaming-pc-spec-shoot-out-ayaneo-next-ii-vs-gpd-win-5-vs-onexfly-apex/",
+      "accessed": "2026-10-27",
+      "note": "1 x USB4 Type-C (40 Gbps)"
+    },
+    {
+      "field": "screen.panel",
+      "url": "https://liliputing.com/onexfly-apex-strix-halo-handheld-gaming-pc-to-sell-for-1399-and-up-during-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": "8 inch 1920 x 1200 120 Hz IPS LCD, up to 500 nits"
+    },
+    {
+      "field": "ram.channels",
+      "url": "https://liliputing.com/onexfly-apex-strix-halo-handheld-gaming-pc-to-sell-for-1399-and-up-during-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": "LPDDR5x-8000 quad-channel memory"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://liliputing.com/onexfly-apex-strix-halo-handheld-gaming-pc-to-sell-for-1399-and-up-during-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": "Max 385 / 32 GB / 1 TB was the entry configuration"
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/onexfly-apex-strix-halo-handheld-gaming-pc-to-sell-for-1399-and-up-during-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": "Backer shipping planned for January 2026; store listing created 2025-12-29 (https://onexplayerstore.com/products/onexfly-apex-worlds-most-powerful-8-gaming-handheld.json)"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexfly-apex-handheld-gaming-pc-with-amd-strix-halo-is-on-the-way/",
+      "accessed": "2026-10-27",
+      "note": null
+    }
+  ]
+}

@@ -1,0 +1,716 @@
+{
+ "aokzoe-a1": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a1",
+   "aspect_err": 0.01
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "aokzoe-a1-pro": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a1-pro",
+   "aspect_err": 0.007
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "aokzoe-a1x": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a1x",
+   "aspect_err": 0.007
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "aokzoe-a1x-8840u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a1x",
+   "aspect_err": 0.007
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "aokzoe-a2": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a2",
+   "aspect_err": 0.031
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_82ba5b77-ec19-4d34-86f0-547867ba7867.jpg",
+   "aspect_err": 0.036
+  }
+ },
+ "aokzoe-a2-ultra": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a2",
+   "aspect_err": 0.031
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_82ba5b77-ec19-4d34-86f0-547867ba7867.jpg",
+   "aspect_err": 0.036
+  }
+ },
+ "aokzoe-a2-ultra-125h": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a2",
+   "aspect_err": 0.031
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "traced",
+   "source": "https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_82ba5b77-ec19-4d34-86f0-547867ba7867.jpg",
+   "aspect_err": 0.036
+  }
+ },
+ "onexfly-7840u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexfly",
+   "aspect_err": 0.052
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexfly-8840u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexfly",
+   "aspect_err": 0.052
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexfly-apex-385": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexfly-apex",
+   "aspect_err": 0.002
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexfly-apex-388": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexfly-apex",
+   "aspect_err": 0.002
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexfly-apex-395": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexfly-apex",
+   "aspect_err": 0.002
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexfly-apex-air": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexfly-apex",
+   "aspect_err": 0.002
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexfly-f1-pro-365": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexfly-f1-pro",
+   "aspect_err": 0.027
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexfly-f1-pro-8840u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexfly-f1-pro",
+   "aspect_err": 0.027
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexfly-f1-pro-hx370": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexfly-f1-pro",
+   "aspect_err": 0.027
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-2": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-2",
+   "aspect_err": 0.035
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-2-pro": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-2",
+   "aspect_err": 0.035
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-2-pro-1360p": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-2",
+   "aspect_err": 0.035
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-2-pro-8840u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-2",
+   "aspect_err": 0.035
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-3": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-3",
+   "aspect_err": 0.003
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-g1": {
+  "top": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-g1-255h": {
+  "top": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-g1-8840u": {
+  "top": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-mini-1195g7": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_one-xplayer-mini",
+   "aspect_err": 0.009
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-mini-5800u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_one-xplayer-mini",
+   "aspect_err": 0.009
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-mini-pro-1260p": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_one-xplayer-mini-pro",
+   "aspect_err": 0.014
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-mini-pro-6800u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_one-xplayer-mini-pro",
+   "aspect_err": 0.014
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-125h": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1",
+   "aspect_err": 0.008
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-155h": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1",
+   "aspect_err": 0.008
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-8840u": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1",
+   "aspect_err": 0.008
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-air": {
+  "top": {
+   "kind": "traced",
+   "source": "https://i.ebayimg.com/images/g/tgwAAeSwiG5pCycF/s-l1200.png",
+   "aspect_err": 0.0
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-air-228v": {
+  "top": {
+   "kind": "traced",
+   "source": "https://i.ebayimg.com/images/g/tgwAAeSwiG5pCycF/s-l1200.png",
+   "aspect_err": 0.0
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-mini": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-mini",
+   "aspect_err": 0.008
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-mini-hx370": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-mini",
+   "aspect_err": 0.008
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-pro": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-pro",
+   "aspect_err": 0.007
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-pro-255h": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-pro",
+   "aspect_err": 0.007
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x1-pro-hx470": {
+  "top": {
+   "kind": "traced",
+   "source": "https://retrocatalog.com/images/retro-handheld_front_onexplayer-x1-pro",
+   "aspect_err": 0.007
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x2": {
+  "top": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x2-air": {
+  "top": {
+   "kind": "traced",
+   "source": "https://i.ebayimg.com/images/g/tgwAAeSwiG5pCycF/s-l1200.png",
+   "aspect_err": 0.0
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x2-mini": {
+  "top": {
+   "kind": "traced",
+   "source": "https://www.kibotek.com/wp-content/uploads/2026/09/kiboTEK_onexplayer_x2_mini_025.png",
+   "aspect_err": 0.007
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ },
+ "onexplayer-x2-mini-pro-388": {
+  "top": {
+   "kind": "traced",
+   "source": "https://www.playersvaultph.com/web/image/product.image/1004/image_1024/onexplayer%20x2minipro%20004.webp?unique=47d4187",
+   "aspect_err": 0.003
+  },
+  "side": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  },
+  "bottom": {
+   "kind": "box",
+   "source": null,
+   "aspect_err": null
+  }
+ }
+}

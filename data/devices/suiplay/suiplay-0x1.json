@@ -1,0 +1,78 @@
+{
+  "id": "suiplay-0x1",
+  "brand": "SuiPlay",
+  "model": "SuiPlay0X1",
+  "variant": "Ryzen 7 7840U",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2025",
+  "msrp_usd": 599,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 264.5, "h": 105.5, "d": 21.5, "d_max": 36.1 },
+    "note": "Mysten Labs spec: 264.5 x 105.5 x 21.5 mm; 36.1 mm at the top of the controller grips."
+  },
+  "weight_g": {
+    "handheld": { "stated": 677, "measured": null, "measured_source": null },
+    "note": null
+  },
+  "soc_id": "r7-7840u",
+  "ram": { "sizes_gb": [16], "type": "LPDDR5X", "speed_mts": 7500, "channels": null, "soldered": null },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": null } ],
+    "capacities_gb": [512],
+    "expansion": []
+  },
+  "ports": [],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1920, "res_h": 1200, "refresh_hz": null, "vrr": null, "touch": null, "nits_sdr": null, "nits_peak": null, "hdr": null, "note": "No-bezel design" },
+  "battery": { "wh": 48, "removable": null, "external": false, "charge_w": 65, "note": "Official spec gives 48-50 Wh; the lower value is used. 65 W PD charging." },
+  "controls": {
+    "stick_type": null,
+    "stick_note": null,
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": null,
+    "gyro": null,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": null
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.2" },
+  "os": ["Playtron GameOS"],
+  "cooling": null,
+  "fingerprint": null,
+  "notes": "Web3 handheld from Mysten Labs (Sui) built with Playtron. Pre-orders opened in 2024 at US$599 for one 16 GB / 512 GB config; 10,000 units were produced. By August 2025, 2,000 units had shipped, then shipping paused over US import duties and resumed. The official site now shows Sold Out. Official specs are marked \"subject to change\".",
+  "unresolved": [
+    { "field": "announce_date", "reason": "Exact first announcement date not sourced; specs and pre-orders were published 2024-09" },
+    { "field": "ports", "reason": "No fetched source lists the ports" },
+    { "field": "storage.expansion", "reason": "Official X post says \"expandable storage\" without naming microSD" },
+    { "field": "weight_g.handheld.measured", "reason": "No reviewer scale reading found" },
+    { "field": "ram.channels", "reason": "Not stated" },
+    { "field": "ram.soldered", "reason": "Not stated" },
+    { "field": "storage.slots.0.lanes", "reason": "Not stated" },
+    { "field": "screen.refresh_hz", "reason": "Not stated" },
+    { "field": "screen.vrr", "reason": "Not stated" },
+    { "field": "screen.touch", "reason": "Not stated" },
+    { "field": "screen.nits_sdr", "reason": "Not stated" },
+    { "field": "screen.nits_peak", "reason": "Not stated" },
+    { "field": "screen.hdr", "reason": "Not stated" },
+    { "field": "battery.removable", "reason": "Not stated" },
+    { "field": "controls.stick_type", "reason": "No source names the stick sensor" },
+    { "field": "controls.trigger_type", "reason": "No source names the trigger sensor" },
+    { "field": "controls.trigger_lock", "reason": "Not stated" },
+    { "field": "controls.trackpads", "reason": "Not stated" },
+    { "field": "controls.gyro", "reason": "Not stated" },
+    { "field": "controls.rear_buttons", "reason": "Not stated" },
+    { "field": "controls.haptics", "reason": "Not stated" },
+    { "field": "cooling", "reason": "Not stated" },
+    { "field": "fingerprint", "reason": "Not stated" }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://www.suiplay0x1.com/", "accessed": "2026-10-27", "note": "Official spec block: 7 in IPS 1920x1200, Ryzen 7 7840U, 48-50 Wh, 65 W PD, 16 GB LPDDR5X-7500, 512 GB PCIe 4.0 M.2 2280, Wi-Fi 6E / BT 5.2, Playtron GameOS, $599, Sold Out" },
+    { "field": "dims_mm", "url": "https://decrypt.co/247583/mysten-labs-unveils-specs-and-updates-on-suiplay0x1-the-first-blockchain-based-handheld-gaming-device", "accessed": "2026-10-27", "note": "Mysten Labs press release: 264.5 x 105.5 x 21.5 mm, 36.1 mm at the controller" },
+    { "field": "weight_g", "url": "https://decrypt.co/247583/mysten-labs-unveils-specs-and-updates-on-suiplay0x1-the-first-blockchain-based-handheld-gaming-device", "accessed": "2026-10-27", "note": "677 g" },
+    { "field": "release_date", "url": "https://decrypt.co/336347/crypto-gaming-handheld-shipments-delayed-excessive-import-duties", "accessed": "2026-10-27", "note": "2025-08-22: 2,000 units sent so far" }
+  ]
+}

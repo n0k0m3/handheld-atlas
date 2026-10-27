@@ -1,0 +1,84 @@
+{
+  "id": "ayaneo-air-plus-6800u",
+  "brand": "AYANEO",
+  "model": "Air Plus",
+  "variant": "Ryzen 7 6800U",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2023-05",
+  "msrp_usd": null,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 237, "h": 91.4, "d": 23.1, "d_max": null },
+    "note": "Official size: 237mm x 91.4mm, thickness 23.1mm. The 7320U and i3-1215U versions list the same size"
+  },
+  "weight_g": {
+    "handheld": { "stated": 525, "measured": null, "measured_source": null },
+    "note": "The 7320U and i3-1215U versions are listed at 510 g. NotebookCheck says the Advance (32GB/2TB) version is heavier but gives no figure"
+  },
+  "soc_id": "r7-6800u",
+  "ram": { "sizes_gb": [16, 32], "type": "LPDDR5", "speed_mts": 6400, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": null, "lanes": null, "note": "M.2 2280 SSD per NotebookCheck" } ],
+    "capacities_gb": [512, 1024, 2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "Type C (USB4) x2; speed and DP support not stated" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "Micro SD card slot" }
+  ],
+  "screen": { "size_in": 6.0, "panel": "IPS", "res_w": 1920, "res_h": 1080, "refresh_hz": null, "vrr": null, "touch": true, "nits_sdr": 400, "nits_peak": null, "hdr": null, "note": "368 PPI, five-point touch" },
+  "battery": { "wh": 46.2, "removable": false, "external": false, "charge_w": 65, "note": "PD 3.0 65W fast charge" },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall sensing mini joystick",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "Master controller with adjustable RGB light"
+  },
+  "wireless": { "wifi": "Wi-Fi 6", "bt": "5.2" },
+  "os": ["Windows 11"],
+  "cooling": "Vendor states a 28 W cooling system",
+  "fingerprint": true,
+  "notes": "Air Plus SoC options on the official page: Ryzen 7 6800U, Ryzen 3 7320U, Ryzen 5 7520U, Intel Core i3-1215U, Intel Pentium 8505 (NotebookCheck says the 8505 edition was cancelled). Only the 6800U has a file in data/socs/. Pre-order price for the 6800U 16GB/512GB was $779 (official page and NotebookCheck); the Advance 32GB/2TB was $1,179. NotebookCheck (2023-02-28) gave early May 2023 as the 6800U shipping start; release month is that planned date, not a confirmed shipment.",
+  "unresolved": [
+    { "field": "announce_date", "reason": "exact announcement date not sourced within the fetch budget" },
+    { "field": "msrp_usd", "reason": "only the $779 pre-order price was found; a separate launch retail price was not found" },
+    { "field": "dims_mm.handheld.d_max", "reason": "single thickness value published" },
+    { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found; no NotebookCheck review exists" },
+    { "field": "ram.channels", "reason": "not stated by the vendor" },
+    { "field": "storage.slots.0.pcie_gen", "reason": "PCIe generation not stated" },
+    { "field": "storage.slots.0.lanes", "reason": "PCIe lane count not stated" },
+    { "field": "ports.0.speed_gbps", "reason": "vendor says USB4 but gives no speed" },
+    { "field": "ports.0.dp_alt", "reason": "video output not stated on the official page" },
+    { "field": "ports.0.pd_in_w", "reason": "charge input per port not stated; 65W PD charger only" },
+    { "field": "ports.0.location", "reason": "port location not stated on the official page" },
+    { "field": "ports.1", "reason": "speed, DP, PD, and location do not apply or are not stated" },
+    { "field": "ports.2", "reason": "speed, DP, PD, and location do not apply or are not stated" },
+    { "field": "screen.refresh_hz", "reason": "refresh rate not stated by the vendor" },
+    { "field": "screen.vrr", "reason": "not stated" },
+    { "field": "screen.nits_peak", "reason": "vendor gives only one brightness value (400 nits)" },
+    { "field": "screen.hdr", "reason": "not stated" },
+    { "field": "controls.trigger_lock", "reason": "not stated" },
+    { "field": "controls.gyro", "reason": "not stated on the official page" },
+    { "field": "controls.rear_buttons", "reason": "not stated by the vendor" },
+    { "field": "controls.haptics", "reason": "vibration motor type not stated" }
+  ],
+  "conflicts": [],
+  "sources": [
+    { "field": "*", "url": "https://ayaneo.com/product/AYANEO-AIR-Plus", "accessed": "2026-10-27", "note": "Per-SoC spec text blocks on the page (6800U: 16/32GB LPDDR5 6400, 512GB/1TB/2TB, 237 x 91.4 mm, 23.1 mm, 525 g, 6-inch 1920x1080 IPS 400 nits, touch, Hall mini joystick, Hall trigger, fingerprint, microSD, 46.2Wh, PD3.0 65W, Wi-Fi 6, BT 5.2, Type C (USB4) x2)" },
+    { "field": "controls.stick_type", "url": "https://ayaneo.com/product/AYANEO-AIR-Plus", "accessed": "2026-10-27", "note": "Master Controller / Hall Sensing Mini Joystick / Hall Trigger" },
+    { "field": "controls.trigger_type", "url": "https://ayaneo.com/product/AYANEO-AIR-Plus", "accessed": "2026-10-27", "note": "Hall Trigger" },
+    { "field": "storage.slots", "url": "https://www.notebookcheck.net/AYA-NEO-Air-Plus-New-gaming-handheld-revealed-at-higher-than-expected-prices.698162.0.html", "accessed": "2026-10-27", "note": "M.2 2280 SSD" },
+    { "field": "ports", "url": "https://www.notebookcheck.net/AYA-NEO-Air-Plus-New-gaming-handheld-revealed-at-higher-than-expected-prices.698162.0.html", "accessed": "2026-10-27", "note": "2x USB Type-C, 3.5 mm audio jack, microSD card reader" },
+    { "field": "release_date", "url": "https://www.notebookcheck.net/AYA-NEO-Air-Plus-New-gaming-handheld-revealed-at-higher-than-expected-prices.698162.0.html", "accessed": "2026-10-27", "note": "2023-02-28: Ryzen 7 6800U ships early May; other SoCs end of May" },
+    { "field": "notes", "url": "https://www.notebookcheck.net/AYA-NEO-AIR-Plus-launches-as-new-affordable-gaming-handheld-with-AMD-and-Intel-processor-options.705177.0.html", "accessed": "2026-10-27", "note": "2023-04-03: sales started; Advance units hoped to ship in April, regular Early Bird orders in May" }
+  ]
+}

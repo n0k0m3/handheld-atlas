@@ -1,0 +1,79 @@
+{
+  "msi-claw-a1m-135h": {
+    "page": "https://www.msi.com/Handheld/Claw-A1MX",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_msi-claw-a1m",
+      "https://storage-asset.msi.com/global/picture/product/product_1777259637bbaf6b7fa643bebc2c492c5a4436365b.webp"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "MSI product render is a straight-on front view with the screen lit. Both straight-on top renders are taller than the spec ratio: h/w about 0.432 against 117/294 = 0.398 (aspect_err retrocatalog 0.082, MSI 0.086). They failed the earlier 8 % limit and pass the current 12 % limit, so top is traced from the retrocatalog front and fitted to 294 x 117. The Claw-A1MX page now redirects to its support page with no gallery, so side and bottom stay boxes."
+  },
+  "msi-claw-a1m-155h": {
+    "page": "https://www.msi.com/Handheld/Claw-A1MX",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_msi-claw-a1m",
+      "https://storage-asset.msi.com/global/picture/product/product_1777259637bbaf6b7fa643bebc2c492c5a4436365b.webp"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "same chassis as msi-claw-a1m-135h. Top traced from the same retrocatalog front (aspect_err 0.082, under the 12 % limit); side and bottom stay boxes."
+  },
+  "msi-claw-7-ai-plus": {
+    "page": "https://www.msi.com/Handheld/Claw-7-AI-Plus-A2VMX",
+    "top": [
+      "https://storage-asset.msi.com/global/picture/product/product_1777014970718fd088045ed7a93ad88343bcd92c86.webp",
+      "https://retrocatalog.com/images/retro-handheld_front_msi-claw-7-ai"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "MSI product render (product_1777014970718fd088045ed7a93ad88343bcd92c86.webp) is front-on but carries a Good Design Award badge. Top now lists that MSI render first: the award badge is a separate shape, so the tracer keeps only the device (aspect_err 0.071; the retrocatalog front gives 0.080). The MSI gallery has only an angled rear view and edge views, so side and bottom stay boxes."
+  },
+  "msi-claw-8-ai-plus": {
+    "page": "https://www.msi.com/Handheld/Claw-8-AI-Plus-A2VMX",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_msi-claw-8-ai"
+    ],
+    "bottom": [
+      "https://storage-asset.msi.com/global/picture/product/product_1732863142b61ca3885c398bc42a50e55accda0ec1.webp"
+    ],
+    "side": [],
+    "closed_top": [],
+    "note": "MSI product render (product_1777014915761e885681c4cb2c1d73b18c62b15d1a.webp) is front-on but carries a CES Innovation Award badge; not listed. bottom = MSI gallery rear view (product_1732863142b61ca3885c398bc42a50e55accda0ec1.webp), straight-on on a transparent background (aspect_err 0.035). The gallery has no side profile."
+  },
+  "msi-claw-a8": {
+    "page": "https://www.msi.com/Handheld/Claw-A8-BZ2EMX",
+    "top": [
+      "https://storage-asset.msi.com/global/picture/product/product_17501412831a5f8410f3f57086c7f018c79a965d2c.webp",
+      "https://retrocatalog.com/images/retro-handheld_front_msi-claw-a8"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "MSI product render (product_1750141283b9704d3dcdb4d373afc73fa84362d26f.webp) is an angled two-unit shot; not listed. Top now uses the MSI gallery front render (Neon Green, straight-on, 1000 px; aspect_err 0.020); it traces cleaner than the 480 px retrocatalog image. The gallery rear view (product_17501422707a1d695b3e76967b18e24e260ea20f8c.webp) is tilted and fails the aspect check (0.155), so bottom stays a box."
+  },
+  "msi-claw-8-ex-ai-plus": {
+    "page": "https://www.msi.com/Handheld/Claw-8-EX-AI-Plus-CG3EMX",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_msi-claw-8-ex-ai",
+      "https://storage-asset.msi.com/global/picture/product/product_1789350524d07b59314abe42ed6e70777585e51a91.webp"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "MSI product render is a straight-on front view (Void Purple) with the screen lit. The MSI CG3EMX gallery has only angled rear views and an edge view, so side and bottom stay boxes."
+  },
+  "msi-claw-8-ex-ai-plus-cg3m": {
+    "page": "https://www.msi.com/Handheld/Claw-8-EX-AI-Plus-CG3MX",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_msi-claw-8-ex-ai"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "same chassis as msi-claw-8-ex-ai-plus; retrocatalog front render shows the Void Purple CG3EM. MSI CG3M product render (product_17893508005a2d54cc3ec353baabab0de110e1ca3c.webp, Luminous Blue) not classified. The MSI CG3EMX gallery has only angled rear views and an edge view, so side and bottom stay boxes."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "rog-xbox-ally-x",
+  "brand": "ASUS",
+  "model": "ROG Xbox Ally X",
+  "variant": "Ryzen AI Z2 Extreme (2025, RC73XA)",
+  "status": "shipped",
+  "announce_date": "2025-06",
+  "release_date": "2025-10-16",
+  "msrp_usd": 999,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 290, "h": 121, "d": 27.5, "d_max": 50.9 },
+    "note": "ASUS: 29.0 x 12.1 x 2.75 ~ 5.09 cm (W x D x H). d is the thinnest point, d_max the grips."
+  },
+  "weight_g": {
+    "handheld": { "stated": 715, "measured": 718, "measured_source": "https://www.notebookcheck.net/Xbox-Full-screen-Experience-for-Gaming-Handhelds-Asus-ROG-Xbox-Ally-X-Review.1139045.0.html" },
+    "note": "NotebookCheck: 718 g, power supply 221 g."
+  },
+  "soc_id": "z2-ai-extreme",
+  "ram": { "sizes_gb": [24], "type": "LPDDR5X", "speed_mts": 8000, "channels": 2, "soldered": true },
+  "storage": {
+    "slots": [
+      { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": "M.2 2280 NVMe" }
+    ],
+    "capacities_gb": [1024],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 1, "speed_gbps": 40, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 65 W adapter rating." },
+    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "DisplayPort and power delivery. pd_in_w is the bundled 65 W adapter rating." },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Combo audio jack" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "UHS-II; supports SD, SDXC and SDHC" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1920, "res_h": 1080, "refresh_hz": 120, "vrr": true, "touch": true, "nits_sdr": 500, "nits_peak": null, "hdr": false, "note": "IPS-level, anti-glare low-reflection, 100% sRGB, AMD FreeSync Premium, Gorilla Glass Victus + DXC" },
+  "battery": { "wh": 80, "removable": false, "external": false, "charge_w": 65, "note": "80 Wh 4S1P 4-cell Li-ion. 65 W USB-C adapter (inclusion varies by region)." },
+  "controls": {
+    "stick_type": "potentiometer",
+    "stick_note": "2 x full-size analog sticks",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics",
+    "note": "ASUS: L & R Hall Effect analog triggers, 2 x assignable grip buttons, 6-axis IMU. Controller-style grips."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.4" },
+  "os": ["Windows 11 Home"],
+  "cooling": null,
+  "fingerprint": true,
+  "notes": "Black chassis. Boots into the Xbox full-screen experience. ASUS lists Bluetooth 5.4 and says the version may change with the OS version.",
+  "unresolved": [
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
+    { "field": "ports.3", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "storage.slots.0.lanes", "reason": "ASUS gives PCIe 4.0 but not the lane count" },
+    { "field": "screen.nits_peak", "reason": "ASUS gives one brightness value (500 nits); no HDR or peak figure" },
+    { "field": "controls.trigger_lock", "reason": "Not stated by ASUS or the reviews used" },
+    { "field": "cooling", "reason": "NotebookCheck mentions 'fans' (plural) but gives no count or design" }
+  ],
+  "conflicts": [
+    {
+      "field": "ports.0.note",
+      "values": [
+        { "value": "DisplayPort 1.4", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-x-2025/spec/" },
+        { "value": "DisplayPort 2.1", "url": "https://www.notebookcheck.net/Xbox-Full-screen-Experience-for-Gaming-Handhelds-Asus-ROG-Xbox-Ally-X-Review.1139045.0.html" }
+      ],
+      "chosen_reason": "Official ASUS value"
+    }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-x-2025/spec/", "accessed": "2026-10-27", "note": "ASUS US spec page, ROG Xbox Ally X (2025) RC73XA" },
+    { "field": "weight_g.handheld.measured", "url": "https://www.notebookcheck.net/Xbox-Full-screen-Experience-for-Gaming-Handhelds-Asus-ROG-Xbox-Ally-X-Review.1139045.0.html", "accessed": "2026-10-27", "note": "718 g, differs from the 715 g ASUS figure" },
+    { "field": "ram.speed_mts", "url": "https://www.notebookcheck.net/Xbox-Full-screen-Experience-for-Gaming-Handhelds-Asus-ROG-Xbox-Ally-X-Review.1139045.0.html", "accessed": "2026-10-27", "note": "'24 GB of fast memory (LPDDR5x-8000)'; ASUS does not state the speed" },
+    { "field": "controls.stick_type", "url": "https://www.notebookcheck.net/GuliKit-launches-official-19-99-TMR-anti-drift-joysticks-for-Xbox-Ally-and-Ally-X.1190606.0.html", "accessed": "2026-10-27", "note": "'the ROG Xbox Ally and Xbox Ally X ... both still use traditional potentiometer joysticks'" },
+    { "field": "ports", "url": "https://www.notebookcheck.net/Xbox-Full-screen-Experience-for-Gaming-Handhelds-Asus-ROG-Xbox-Ally-X-Review.1139045.0.html", "accessed": "2026-10-27", "note": "Port locations: all ports on top" },
+    { "field": "announce_date", "url": "https://liliputing.com/599-asus-rog-xbox-ally-and-999-rog-xbox-ally-x-now-available-for-pre-order/", "accessed": "2026-10-27", "note": "'Microsoft and Asus announced in June'" },
+    { "field": "release_date", "url": "https://press.asus.com/news/press-releases/rog-xbox-ally-ally-x-launch-date/", "accessed": "2026-10-27", "note": "'available on shelves on October 16, 2025'" },
+    { "field": "msrp_usd", "url": "https://liliputing.com/599-asus-rog-xbox-ally-and-999-rog-xbox-ally-x-now-available-for-pre-order/", "accessed": "2026-10-27", "note": "$999; NotebookCheck also gives $999" }
+  ]
+}

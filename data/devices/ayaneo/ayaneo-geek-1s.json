@@ -1,0 +1,90 @@
+{
+  "id": "ayaneo-geek-1s",
+  "brand": "AYANEO",
+  "model": "Geek 1S",
+  "variant": null,
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2023-07",
+  "msrp_usd": 999,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 264.5, "h": 105.5, "d": 22.3, "d_max": 36.9 },
+    "note": "Official size: 264.5*105.5*22.3mm, top of controller 36.9mm"
+  },
+  "weight_g": {
+    "handheld": { "stated": 672, "measured": null, "measured_source": null },
+    "note": null
+  },
+  "soc_id": "r7-7840u",
+  "ram": { "sizes_gb": [16, 32], "type": "LPDDR5X", "speed_mts": 7500, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": "Standard M.2 2280 PCIe 4.0" } ],
+    "capacities_gb": [512, 2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": 40, "dp_alt": true, "pd_in_w": null, "location": null, "note": "Full-featured USB4 Type-C" },
+    { "kind": "USB-C unspecified", "count": 1, "speed_gbps": null, "dp_alt": false, "pd_in_w": null, "location": null, "note": "USB 3.2 Type-C, data transfer only; generation not stated" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "TF card slot, up to 300 MB/s" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1280, "res_h": 800, "refresh_hz": null, "vrr": null, "touch": null, "nits_sdr": 500, "nits_peak": null, "hdr": null, "note": "7-inch slim-bezel IPS with two resolution options: 800P (1280x800) and 1200P (1920x1200). Vendor states max 500 nits. Values in this row are the 800P base panel" },
+  "battery": { "wh": 50.25, "removable": false, "external": false, "charge_w": null, "note": null },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall sensing big joystick",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "Dual X-axis linear motors",
+    "note": "Geek controller. One six-axis gyroscope in the body. Linear Hall triggers, 7.5 mm travel. Custom buttons LC, RC, and ="
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.2" },
+  "os": ["Windows 11"],
+  "cooling": "\"3+1\" three copper heat pipes, large copper sheet, graphene patch",
+  "fingerprint": true,
+  "notes": "Only SoC option is the Ryzen 7 7840U. Retail price $999; Indiegogo early bird from $699 (16GB/512GB, black). Indiegogo campaign started 2023-05-30 with the AYANEO 2S. Release month is the planned early-July 2023 backer shipment; the actual first-shipment date was not confirmed.",
+  "unresolved": [
+    { "field": "announce_date", "reason": "exact announcement date not sourced within the fetch budget" },
+    { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found; no NotebookCheck review exists" },
+    { "field": "ram.channels", "reason": "not stated by the vendor" },
+    { "field": "storage.slots.0.lanes", "reason": "PCIe lane count not stated" },
+    { "field": "ports.0.pd_in_w", "reason": "charge input wattage per port not stated" },
+    { "field": "ports.0.location", "reason": "port location not stated on the official page" },
+    { "field": "ports.1.speed_gbps", "reason": "USB 3.2 generation not stated" },
+    { "field": "ports.1.pd_in_w", "reason": "data-only port" },
+    { "field": "ports.1.location", "reason": "port location not stated on the official page" },
+    { "field": "ports.2", "reason": "speed, DP, PD, and location do not apply or are not stated" },
+    { "field": "ports.3", "reason": "speed, DP, PD, and location do not apply or are not stated" },
+    { "field": "screen.refresh_hz", "reason": "refresh rate not stated by the vendor" },
+    { "field": "screen.vrr", "reason": "not stated" },
+    { "field": "screen.touch", "reason": "touch support not stated on the official page" },
+    { "field": "screen.nits_peak", "reason": "vendor gives only one brightness value (500 nits max)" },
+    { "field": "screen.hdr", "reason": "not stated" },
+    { "field": "battery.charge_w", "reason": "charge wattage not stated for the Geek 1S (the page's hidden spec block that says 65W PD is a copy of the AYANEO 2S sheet)" },
+    { "field": "controls.trigger_lock", "reason": "not stated" },
+    { "field": "controls.rear_buttons", "reason": "not stated by the vendor" }
+  ],
+  "conflicts": [
+    {
+      "field": "wireless.wifi",
+      "values": [
+        { "value": "Wi-Fi 6E", "url": "https://ayaneo.com/product/AYANEOGEEK1S" },
+        { "value": "Wi-Fi 6", "url": "https://ayaneo.com/product/AYANEOGEEK1S" }
+      ],
+      "chosen_reason": "The English page text and the Geek 1S comparison table say Wi-Fi 6E. A hidden Chinese spec block on the same page says WiFi 6, but that block repeats AYANEO 2S data (2S colors, 667 g, 21.5 mm, dual gyroscopes)."
+    }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://ayaneo.com/product/AYANEOGEEK1S", "accessed": "2026-10-27", "note": "AYANEO 2S vs GEEK 1S comparison table image https://cdn.ayaneo.com/ayaneo/img/product/AYANEOGEEK1S/yw0001.png (800P/1200P IPS, 264.5*105.5*22.3mm 36.9mm, 672g, 16/32GB LPDDR5X 7500, 512GB/2TB, 7840U, ports, 50.25Wh, WiFi 6E / BT 5.2); page text (M.2 2280 PCIe 4.0, 500 nits)" },
+    { "field": "controls.stick_type", "url": "https://ayaneo.com/product/AYANEOGEEK1S", "accessed": "2026-10-27", "note": "Comparison table: Hall sensing big joystick" },
+    { "field": "controls.trigger_type", "url": "https://ayaneo.com/product/AYANEOGEEK1S", "accessed": "2026-10-27", "note": "Comparison table: Linear hall trigger" },
+    { "field": "msrp_usd", "url": "https://archive.overkill.wtf/ayaneo-2s-campaign-now-available-on-indiegogo/", "accessed": "2026-10-27", "note": "2023-05-30: early bird from $699; retail price $999" },
+    { "field": "release_date", "url": "https://www.notebookcheck.com/Ayaneo-2S-und-Geek-1S-Neue-Handhelds-mit-Phoenix-APU-koennen-noch-mit-Rabatt-vorbestellt-werden.716276.0.html", "accessed": "2026-10-27", "note": "2023-05-31: backers to receive the Geek 1S from July; overkill.wtf says early July" }
+  ]
+}

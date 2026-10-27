@@ -1,0 +1,330 @@
+{
+  "id": "onexplayer-2",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer 2",
+  "variant": "Ryzen 7 6800U",
+  "status": "shipped",
+  "announce_date": "2022-11",
+  "release_date": "2023-03",
+  "msrp_usd": 1249,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 310,
+      "h": 127,
+      "d": 23,
+      "d_max": null
+    },
+    "tablet_only": {
+      "w": 208,
+      "h": 127,
+      "d": 23,
+      "d_max": null
+    },
+    "note": null
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 848,
+      "measured": 864,
+      "measured_source": "https://www.notebookcheck.net/OneXPlayer-2-review-Gaming-handheld-with-AMD-Zen3-and-detachable-controllers.732600.0.html"
+    },
+    "tablet_only": {
+      "stated": 709,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r7-6800u",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR5",
+    "speed_mts": 6400,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 3,
+        "lanes": 4,
+        "note": "Ships with a PCIe 3.0 x4 SSD; the slot supports PCIe 4.0 x4 drives"
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Vendor says it also supports Thunderbolt technology (compatibility); no Thunderbolt certification stated"
+    },
+    {
+      "kind": "USB-C 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "Reviewer port listing (NotebookCheck); Power Delivery"
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Listed as USB 3.0 Type-A"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Up to 60 MB/s"
+    }
+  ],
+  "screen": {
+    "size_in": 8.4,
+    "panel": "IPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": 60,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 350,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "Active stylus support"
+  },
+  "battery": {
+    "wh": 65.5,
+    "removable": false,
+    "external": false,
+    "charge_w": 100,
+    "note": "100W GaN charger"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall-sensor analog sticks",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": "vibration",
+    "note": "Shoulder buttons with 8.1 mm travel; controllers have no battery of their own"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "single fan, two 8.6 mm copper heat pipes",
+  "fingerprint": null,
+  "notes": "Vendor calls it 5-in-1 (handheld, tablet, laptop with optional keyboard, TV); recorded as 3-in-1 (tablet with detachable controllers). Retail list $1249 for 16GB/512GB; store pre-order $1099 (Feb 2023); Indiegogo early bird $899 (Dec 2022).",
+  "unresolved": [
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "No source names the trigger sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "dims_mm.tablet_only.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "weight_g.tablet_only.measured",
+      "reason": "No reviewer scale measurement found for this configuration"
+    },
+    {
+      "field": "ports",
+      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "ram.type",
+      "values": [
+        {
+          "value": "LPDDR5-6400",
+          "url": "https://web.archive.org/web/20230328175638/https://onexplayerstore.com/products/onexplayer-2-amd%C2%AE-ryzen%C2%AE-6800u"
+        },
+        {
+          "value": "LPDDR5x-6400",
+          "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-with-ryzen-7-6800u-and-detachable-controllers-hits-indiegogo/"
+        }
+      ],
+      "chosen_reason": "Official store text"
+    },
+    {
+      "field": "battery.charge_w",
+      "values": [
+        {
+          "value": 100,
+          "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-with-ryzen-7-6800u-and-detachable-controllers-hits-indiegogo/"
+        },
+        {
+          "value": 65,
+          "url": "https://www.notebookcheck.net/OneXPlayer-2-review-Gaming-handheld-with-AMD-Zen3-and-detachable-controllers.732600.0.html"
+        }
+      ],
+      "chosen_reason": "One Netbook spec (100W GaN charger); NotebookCheck lists a 65W PSU with its unit"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20230328175638/https://onexplayerstore.com/products/onexplayer-2-amd%C2%AE-ryzen%C2%AE-6800u",
+      "accessed": "2026-10-27",
+      "note": "Archived official store page (Mar 2023)"
+    },
+    {
+      "field": "dims_mm",
+      "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-with-ryzen-7-6800u-and-detachable-controllers-hits-indiegogo/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook spec table: with / without controllers"
+    },
+    {
+      "field": "weight_g",
+      "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-with-ryzen-7-6800u-and-detachable-controllers-hits-indiegogo/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook spec table: 848 g with, 709 g without controllers"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-review-Gaming-handheld-with-AMD-Zen3-and-detachable-controllers.732600.0.html",
+      "accessed": "2026-10-27",
+      "note": "Reviewer scale 864 g"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-review-Gaming-handheld-with-AMD-Zen3-and-detachable-controllers.732600.0.html",
+      "accessed": "2026-10-27",
+      "note": "Top: microSD, USB-A 3.2 Gen1, USB4, 3.5 mm; bottom: USB-C 3.2 Gen1"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-review-Gaming-handheld-with-AMD-Zen3-and-detachable-controllers.732600.0.html",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "screen.nits_sdr",
+      "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-with-ryzen-7-6800u-and-detachable-controllers-hits-indiegogo/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "wireless",
+      "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-with-ryzen-7-6800u-and-detachable-controllers-hits-indiegogo/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "battery",
+      "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-with-ryzen-7-6800u-and-detachable-controllers-hits-indiegogo/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "os",
+      "url": "https://www.notebookcheck.net/OneXPlayer-2-review-Gaming-handheld-with-AMD-Zen3-and-detachable-controllers.732600.0.html",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-with-ryzen-7-6800u-and-detachable-controllers-hits-indiegogo/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook says the analog sticks feature hall sensors"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official replacement joystick: ONEXPLAYER 2/2 PRO / Hall"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-is-up-for-pre-order-for-1099-and-up/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-is-up-for-pre-order-for-1099-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Store pre-orders ship late Feb / early Mar 2023; store listed stock by 2023-03-28"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-2-handheld-gaming-pc-with-ryzen-7-6800u-and-detachable-controllers-hits-indiegogo/",
+      "accessed": "2026-10-27",
+      "note": null
+    }
+  ]
+}

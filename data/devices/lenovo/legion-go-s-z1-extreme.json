@@ -1,0 +1,223 @@
+{
+  "id": "legion-go-s-z1-extreme",
+  "brand": "Lenovo",
+  "model": "Legion Go S",
+  "variant": "Ryzen Z1 Extreme (8APU1)",
+  "status": "shipped",
+  "announce_date": "2025-01-07",
+  "release_date": "2025-05-25",
+  "msrp_usd": 749.99,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 298.5,
+      "h": 127.55,
+      "d": 22.6,
+      "d_max": 43.4
+    },
+    "note": "PSREF WxDxH: 298.5 x 127.55 x 22.6-43.4 mm."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 740,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "PSREF: around 740 g. Notebookcheck measured 738 g on a Z2 Go unit; no Z1 Extreme unit weighed."
+  },
+  "soc_id": "z1-extreme",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "PSREF lists one M.2 2280 PCIe 4.0 x4 slot; the factory SSD is M.2 2242 (512GB / 1TB)."
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 100,
+      "location": "top",
+      "note": "PSREF: USB4 40Gbps, USB PD 65-100W input / 15W output, DisplayPort 1.4"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Headphone / microphone combo jack"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 8.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 120,
+    "vrr": true,
+    "touch": true,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "48-120Hz VRR, 100% sRGB, 1200:1, Panda King Glass"
+  },
+  "battery": {
+    "wh": 55.5,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65W USB-C adapter (PD 3.0); ports accept PD 65-100W. Super Rapid Charge: 0-70% in 30 min."
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall effect joysticks (fused TrueStrike controllers)",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 1,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "PSREF: LT & RT button range switch. Touchpad 10 x 10 mm on the right side."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.3"
+  },
+  "os": [
+    "Windows 11",
+    "SteamOS"
+  ],
+  "cooling": "Legion Coldfront cooling system",
+  "fingerprint": false,
+  "notes": "Lenovo said the Windows Z1 Extreme model was expected in April 2025. SteamOS Z1 Extreme 32GB/1TB listed at $749.99 at Best Buy for 2025-05-25. Some outlets report $829.99 for a Z1 Extreme config; not verified.",
+  "unresolved": [
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no review weight for a Z1 Extreme unit found; the Notebookcheck unit was Z2 Go"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "PSREF and reviews do not state the memory channel count"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "only one brightness value is published"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "HDR is not stated for this panel"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "sources list the button names but do not say how many sit on the back"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "no checked source describes the haptics"
+    },
+    {
+      "field": "ports.1",
+      "reason": "speed, DP alt and PD do not apply to this port kind"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed, DP alt and PD do not apply to this port kind"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "weight_g.handheld.stated",
+      "values": [
+        {
+          "value": 740,
+          "url": "https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_S_8APU1/Legion_Go_S_8APU1_Spec.pdf"
+        },
+        {
+          "value": 730,
+          "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-legion-unleashes-next-gen-gaming-power-at-ces-2025/"
+        }
+      ],
+      "chosen_reason": "PSREF spec sheet is the official spec page; the press release text says 730 g but its own spec table says 740 g"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_S_8APU1/Legion_Go_S_8APU1_Spec.pdf",
+      "accessed": "2026-10-27",
+      "note": "Lenovo PSREF Legion Go S 8APU1 spec sheet (May 06 2026)"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-legion-unleashes-next-gen-gaming-power-at-ces-2025/",
+      "accessed": "2026-10-27",
+      "note": "Lenovo CES 2025 press release: hall-effect joysticks, adjustable trigger switches"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://www.notebookcheck.net/Lenovo-Legion-Go-S-gaming-handheld-review-Steam-Deck-killer-or-Windows-victim.961296.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck: both the trigger and thumbsticks are equipped with Hall effect sensors (Z2 Go unit; same controls on both SoCs per PSREF)"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.notebookcheck.net/Lenovo-Legion-Go-S-gaming-handheld-review-Steam-Deck-killer-or-Windows-victim.961296.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck: two USB4 ports and the headset jack on top, microSD on the underside"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://news.lenovo.com/pressroom/press-releases/lenovo-legion-unleashes-next-gen-gaming-power-at-ces-2025/",
+      "accessed": "2026-10-27",
+      "note": "press release dated 2025-01-07"
+    },
+    {
+      "field": "release_date",
+      "url": "https://www.notebookcheck.net/Lenovo-s-SteamOS-gaming-handheld-now-live-for-preorder-on-Best-Buy-but-with-a-50-price-bump.982704.0.html",
+      "accessed": "2026-10-27",
+      "note": "Best Buy SteamOS listing: release 2025-05-25"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/Lenovo-s-SteamOS-gaming-handheld-now-live-for-preorder-on-Best-Buy-but-with-a-50-price-bump.982704.0.html",
+      "accessed": "2026-10-27",
+      "note": "SteamOS Z1 Extreme, 32GB, 1TB at $749.99"
+    }
+  ]
+}

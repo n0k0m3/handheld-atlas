@@ -1,0 +1,254 @@
+{
+  "id": "ayaneo-konkr-fit-hx370",
+  "brand": "AYANEO",
+  "model": "KONKR Fit",
+  "variant": "Ryzen AI 9 HX 370",
+  "status": "pre-order",
+  "announce_date": "2026-01-19",
+  "release_date": null,
+  "msrp_usd": 1299,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 270.8,
+      "h": 100.4,
+      "d": 25.1,
+      "d_max": null
+    },
+    "note": "Official: 270.8 x 100.4 x 25.1 mm"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 738,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "AYANEO states about 738 g"
+  },
+  "soc_id": "ai9-hx370",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8533,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "NVMe"
+      }
+    ],
+    "capacities_gb": [
+      512
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Product page: dual full-function USB4, up to 40 Gbps, DP 1.4. Spec table: 1 x full-function USB-C (PD 3.0 / DP 1.4) + 1 x data USB-C."
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "SD 4.0, 300 MB/s"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "OLED",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 144,
+    "vrr": null,
+    "touch": null,
+    "nits_sdr": null,
+    "nits_peak": 800,
+    "hdr": true,
+    "note": "144/120/90/60 Hz selectable; 150% sRGB, 110% DCI-P3; HDR True Color"
+  },
+  "battery": {
+    "wh": 80.85,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": "PD fast charging, bypass charging; wattage not stated"
+  },
+  "controls": {
+    "stick_type": "tmr",
+    "stick_note": "2 x TMR joysticks with RGB light rings",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "2 x magnetic suspension motors",
+    "note": "Linear Hall triggers with 2 trigger locks. Rear buttons LC1, RC1. Dual six-axis gyroscope. No touchpad in the official button list."
+  },
+  "wireless": {
+    "wifi": null,
+    "bt": "5.4"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "1 turbo centrifugal fan, vapor-chamber cooling fins",
+  "fingerprint": true,
+  "notes": "KONKR is an AYANEO sub-brand; KONKR Fit is its first Windows handheld. Sold only through the AYANEO store (no crowdfunding). HX 370 config: 16GB/512GB. Pre-order opened 2026-02-06 at an early-bird price of $999 (200 units); retail $1,299. AYANEO scheduled shipments for the end of April 2026. No shipment confirmation was found; status stays pre-order. Sibling row: ayaneo-konkr-fit-hx470 (32GB/1TB, $1,699 retail).",
+  "conflicts": [
+    {
+      "field": "ports",
+      "values": [
+        {
+          "value": "2 x USB4 40 Gbps, DP 1.4",
+          "url": "https://ayaneo-1305909189.cos.accelerate.myqcloud.com/ayaneo_com/image/product/2026/KONKR_FIT/EN/03.webp"
+        },
+        {
+          "value": "1 x full-function USB-C (PD 3.0 / DP 1.4) + 1 x data USB-C, no speed",
+          "url": "https://ayaneo-1305909189.cos.accelerate.myqcloud.com/ayaneo_com/image/product/2026/KONKR_FIT/EN/04.webp"
+        }
+      ],
+      "chosen_reason": "Product page feature section and the AYANEO launch article (https://ayaneo.com/article/918) both say dual USB4; the spec table gives no speed"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/KONKR-FIT",
+      "accessed": "2026-10-27",
+      "note": "Spec table image: https://ayaneo-1305909189.cos.accelerate.myqcloud.com/ayaneo_com/image/product/2026/KONKR_FIT/EN/04.webp (bottom section)"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/KONKR-FIT",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 2 x TMR Joysticks"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/KONKR-FIT",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 2 x Linear Hall Triggers, 2 x Trigger Locks"
+    },
+    {
+      "field": "ports",
+      "url": "https://ayaneo.com/article/918",
+      "accessed": "2026-10-27",
+      "note": "Launch article 2026-02-06: Dual USB4 ports; shipments scheduled end of April 2026"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/ayaneo-unveils-konkr-fit-handheld-gaming-pc-with-ryzen-ai-9-hx-470/",
+      "accessed": "2026-10-27",
+      "note": "Unveiled via AYANEO X post, 2026-01-19"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://shop.ayaneo.com/products/konkr-fit",
+      "accessed": "2026-10-27",
+      "note": "HX370+16G+512G: price $999, compare-at (retail) $1,299"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://retrohandhelds.gg/ayaneos-konkr-fit-is-now-up-for-pre-order-but-wont-ship-until-end-of-april/",
+      "accessed": "2026-10-27",
+      "note": "Early bird $999; retail $1,299 or $1,699 by chip"
+    },
+    {
+      "field": "status",
+      "url": "https://finalboss.io/handhelds/ayaneo-konkr-fit",
+      "accessed": "2026-10-27",
+      "note": "Pre-order, shipping Apr-Jun 2026 (verified 2026-06-29)"
+    }
+  ],
+  "unresolved": [
+    {
+      "field": "release_date",
+      "reason": "AYANEO scheduled shipments for end of April 2026; no source confirms that retail units shipped"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer scale weight found; no review located"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "PD 3.0 stated without a wattage"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Port locations are not stated on the spec table"
+    },
+    {
+      "field": "ports.1",
+      "reason": "Not applicable to a card slot (speed in MB/s is in the note)"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Port locations are not stated on the spec table"
+    },
+    {
+      "field": "ports.2",
+      "reason": "Not applicable to an audio jack"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Port locations are not stated on the spec table"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "Touch input is not stated on the official spec table"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Only one brightness figure (800 nits) is published"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "AYANEO states PD fast charging without a wattage"
+    },
+    {
+      "field": "wireless.wifi",
+      "reason": "AYANEO says 'High-Speed Wi-Fi' without a version"
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "id": "onexplayer-x2",
+  "brand": "OneXPlayer",
+  "model": "X2",
+  "variant": "Intel Arc G3 Extreme",
+  "status": "shipped",
+  "announce_date": "2026-06",
+  "release_date": "2026-07",
+  "msrp_usd": 2099,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 355,
+      "h": 163.5,
+      "d": 14,
+      "d_max": 44
+    },
+    "tablet_only": {
+      "w": 252,
+      "h": 163.5,
+      "d": 14,
+      "d_max": null
+    },
+    "note": "Vendor gives only the tablet size (excluding controllers). Handheld width and d_max come from the X1-series controllers, which the store lists as X2-compatible: DroiX measured 35.5 cm with controllers on the 252 mm X1 tablet; One Netbook gives the controllers as 44 mm thick. Same method as the X1 Air and X2 Air rows."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": null,
+      "measured": null,
+      "measured_source": null
+    },
+    "tablet_only": {
+      "stated": 835,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Vendor: about 835 g excluding controllers. Controllers listed as about 125 g (not stated whether per pair or each)."
+  },
+  "soc_id": "arc-g3-extreme",
+  "ram": {
+    "sizes_gb": [
+      48
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": null,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Vendor: 2x USB-C 4.0 full-function (power, charging, video)"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Vendor: USB-A 3.2 (generation not stated)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "TF 4.0, 300 MB/s, up to 2 TB"
+    }
+  ],
+  "screen": {
+    "size_in": 10.95,
+    "panel": "LTPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": 120,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 540,
+    "nits_peak": 630,
+    "hdr": null,
+    "note": "470 min / 540 typ / 630 max nits; DC dimming; 10-point touch"
+  },
+  "battery": {
+    "wh": 65,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": "16,890 mAh; PD fast charging"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall-effect sticks, 22 degree tilt, 6.7 mm height, RGB",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": "Standard rumble motor",
+    "note": "Hall triggers 8.1 mm travel; swappable 8-way D-pad; uses the X1-series pogo controller rail"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "5.4"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Single 5400 RPM fan, dual copper heat pipes (8 mm + 5 mm), 17,952 mm2 fins",
+  "fingerprint": true,
+  "notes": "Fourth model in the X series (after X1, X1 Pro, X1 Air). Kickstand 0-173 degrees; 1 MP IR camera; optional pogo-pin magnetic keyboard. The store URL slug mentions a Mini SSD slot, but the official spec image and NotebookCheck show none.",
+  "unresolved": [
+    {
+      "field": "weight_g.handheld.stated",
+      "reason": "Vendor gives weight excluding controllers only"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review measurement found"
+    },
+    {
+      "field": "weight_g.tablet_only.measured",
+      "reason": "No review measurement found"
+    },
+    {
+      "field": "ram.speed_mts",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.tablet_only.d_max",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    }
+  ],
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://onexplayerstore.com/products/onexplayer-x2-portable-3-in-1-gaming-pc-with-intel%C2%AE-arc%E2%84%A2-g3-extreme-expandable-mini-ssd-slot",
+      "accessed": "2026-10-27",
+      "note": "Official store page; spec table is the image https://cdn.shopify.com/s/files/1/0557/8535/7492/files/Onexplayer_X2_Gaming_Handheld_PC-5.png?v=1789020990"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/Onexplayer_X2_Gaming_Handheld_PC-5.png?v=1789020990",
+      "accessed": "2026-10-27",
+      "note": "Official spec image: 'Hall-Effect Joysticks'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/Onexplayer_X2_Gaming_Handheld_PC-5.png?v=1789020990",
+      "accessed": "2026-10-27",
+      "note": "Official spec image: 'Hall Triggers'"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-x2-handheld-gaming-pc-combines-intel-arc-g3-extreme-with-an-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "List price $2,099; $1,899 for pre-orders"
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/onexplayer-x2-handheld-gaming-pc-combines-intel-arc-g3-extreme-with-an-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "Estimated ship date July 7, 2026"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://liliputing.com/onexplayer-x2-handheld-gaming-pc-combines-intel-arc-g3-extreme-with-an-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "48 GB LPDDR5x onboard memory"
+    },
+    {
+      "field": "storage.expansion",
+      "url": "https://www.notebookcheck.net/OneXPlayer-details-new-gaming-handhelds-powered-by-Intel-Arc-G3-Extreme.1342355.0.html",
+      "accessed": "2026-10-27",
+      "note": "Only the X2 Mini supports mini SSD; the X2 does not"
+    },
+    {
+      "field": "dims_mm.handheld.w",
+      "url": "https://droix.net/blogs/onexplayer-x1-amd-review/",
+      "accessed": "2026-10-27",
+      "note": "X1-series controllers: 35.5 cm wide on a 252 mm tablet (measured on the X1 8840U)"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "url": "https://liliputing.com/onexplayer-x1-handheld-gaming-pc-now-available-with-ryzen-7-8840u-instead-of-intel-meteor-lake/",
+      "accessed": "2026-10-27",
+      "note": "X1 controllers 111 x 57 x 44 mm (One Netbook figures)"
+    },
+    {
+      "field": "dims_mm.handheld",
+      "url": "https://onexplayerstore.com/products/controllers-for-onexplayer-x1",
+      "accessed": "2026-10-27",
+      "note": "Controllers listing: compatible with X1/X1 Mini/X1 Pro/X1 Air/X2"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://www.notebookcheck.net/OneXPlayer-details-new-gaming-handhelds-powered-by-Intel-Arc-G3-Extreme.1342355.0.html",
+      "accessed": "2026-10-27",
+      "note": "Shown at a OneXPlayer event in mid 2026"
+    }
+  ]
+}

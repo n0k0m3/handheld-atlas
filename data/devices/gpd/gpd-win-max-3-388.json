@@ -1,0 +1,317 @@
+{
+  "id": "gpd-win-max-3-388",
+  "brand": "GPD",
+  "model": "Win Max 3",
+  "variant": "Ryzen AI Max+ 388",
+  "status": "pre-order",
+  "announce_date": null,
+  "release_date": null,
+  "msrp_usd": 1750,
+  "form_factor": "clamshell",
+  "dims_mm": {
+    "handheld": {
+      "w": 207,
+      "h": 180,
+      "d": 34,
+      "d_max": null
+    },
+    "closed": {
+      "w": 207,
+      "h": 180,
+      "d": 34,
+      "d_max": null
+    },
+    "note": "Clamshell. handheld = closed footprint W x H x D with the battery module on the front edge (it doubles as a palm rest); the lid opens upward. Without modules: 207 x 147 x 34 mm."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 1220,
+      "measured": null,
+      "measured_source": null
+    },
+    "without_battery": {
+      "stated": 815,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "1220 g with the 405 g battery module; 815 g without modules; 985 g with the optional fan module (fan module 170 g on the spec page, 145 g on the overview)."
+  },
+  "soc_id": "ai-max-388",
+  "ram": {
+    "sizes_gb": [
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8000,
+    "channels": 4,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "pre-installed; single-sided SSD only"
+      },
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": 2,
+        "note": "empty by default"
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 100,
+      "location": null,
+      "note": "DP 2.1 (8K60); PD 3.0 100 W (20 V 5 A)"
+    },
+    {
+      "kind": "USB-C 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "DP 2.1; no charging"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "USB 3.2 Type-A; generation not stated"
+    },
+    {
+      "kind": "HDMI",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "HDMI 2.1 (FRL)"
+    },
+    {
+      "kind": "DC",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": 180,
+      "location": null,
+      "note": "5525 jack, 180 W (20 V 9 A), main charging port"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "microSD Express (SD 7.1, PCIe 3.1 x1, ~900 MB/s); UHS-I fallback"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "headphone/mic combo"
+    }
+  ],
+  "screen": {
+    "size_in": 9.06,
+    "panel": "AMOLED",
+    "res_w": 2400,
+    "res_h": 1504,
+    "refresh_hz": 165,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": 650,
+    "nits_peak": 1050,
+    "hdr": true,
+    "note": "16:10, 313 PPI, Real RGB, HDR10, 165/144/120/60 Hz, Gorilla Glass 6, MPP 2.0 stylus"
+  },
+  "battery": {
+    "wh": 97.53,
+    "removable": true,
+    "external": true,
+    "charge_w": 180,
+    "note": "Magnetic plug-in module on the front edge, 405 g. 180 W DC is the main input; USB4 also takes 100 W PD. Runs from DC with no module."
+  },
+  "controls": {
+    "stick_type": "capacitive",
+    "stick_note": "Capacitive mini joysticks, 8000 Hz sampling, 2000 Hz report, recessed, L3/R3",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 1,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": true,
+    "detachable_controllers": false,
+    "haptics": "dual linear motors (off / light / strong)",
+    "note": "Linear Hall triggers; L4/R4 custom back buttons; precision touchpad; magnetic joystick cover"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.3"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "dual fans + four heat pipes; optional external dual-fan module",
+  "fingerprint": true,
+  "notes": "Status rule differs here: the official 'Release Date August 2026' is treated as an announcement month, because only presales (China 2026-09, Indiegogo 2026-09-02, DroiX shipping 2026-12-15) were found and no retail units have shipped. msrp_usd is the Indiegogo price of 388 / 32 GB / 1 TB (list US$1,999). The official page lists no mini SSD slot. LPDDR5X is soldered by design.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "official pages give a launch month only; no dated announcement sourced"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found within the fetch budget"
+    },
+    {
+      "field": "ports",
+      "reason": "spec page does not state port location or per-port PD input; null subfields are unstated"
+    },
+    {
+      "field": "release_date",
+      "reason": "no retail units shipped yet; Indiegogo opened 2026-09-02 and DroiX plans shipping from 2026-12-15"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "GPD states no battery-module thickness; it gives 34 mm both with and without modules because the module sits on the front edge, not the back"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "dims_mm.closed.d_max",
+      "reason": "single thickness value published"
+    },
+    {
+      "field": "weight_g.without_battery.measured",
+      "reason": "no reviewer scale weight found within the fetch budget"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "release_date",
+      "values": [
+        {
+          "value": "2026-08",
+          "url": "https://www.gpd.hk/gpdwinmax3techspecs"
+        },
+        {
+          "value": "2026-09 (China presale)",
+          "url": "https://www.technetbooks.com/2026/09/gpd-win-max-3-handheld-gaming-pc-opens.html"
+        },
+        {
+          "value": "2026-12-15 (planned)",
+          "url": "https://www.notebookcheck.net/GPD-Win-Max-3-Powerful-gaming-handheld-now-available-with-up-to-128-GB-RAM-and-better-warranty-options-via-third-party.1429224.0.html"
+        }
+      ],
+      "chosen_reason": "official 'Release Date August 2026' predates any retail shipping; China opened presales only; kept null"
+    },
+    {
+      "field": "battery.wh",
+      "values": [
+        {
+          "value": 97.53,
+          "url": "https://www.gpd.hk/gpdwinmax3techspecs"
+        },
+        {
+          "value": 97,
+          "url": "https://www.gpd.hk/gpdwinmax3"
+        }
+      ],
+      "chosen_reason": "tech specs page value"
+    },
+    {
+      "field": "screen.size_in",
+      "values": [
+        {
+          "value": 9.06,
+          "url": "https://www.gpd.hk/gpdwinmax3techspecs"
+        },
+        {
+          "value": 9.6,
+          "url": "https://www.gpd.hk/gpdwinmax3techspecs"
+        }
+      ],
+      "chosen_reason": "9.6 appears only in the page banner; the spec table and overview say 9.06"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.gpd.hk/gpdwinmax3techspecs",
+      "accessed": "2026-10-27",
+      "note": "official tech specs page (395 / 388)"
+    },
+    {
+      "field": "*",
+      "url": "https://www.gpd.hk/gpdwinmax3",
+      "accessed": "2026-10-27",
+      "note": "official overview page"
+    },
+    {
+      "field": "weight_g",
+      "url": "https://www.gpd.hk/gpdwinmax3",
+      "accessed": "2026-10-27",
+      "note": "815 g w/o modules, 1220 g with battery, 985 g with fan"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://www.gpd.hk/gpdwinmax3techspecs",
+      "accessed": "2026-10-27",
+      "note": "GPD: 'Triggers: LT/RT are linear Hall effect triggers'"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.gpd.hk/gpdwinmax3techspecs",
+      "accessed": "2026-10-27",
+      "note": "GPD: 'capacitive mini joystick, ultra-high precision and sensitivity, 8000Hz sampling rate, 2000Hz Polling Rate'"
+    },
+    {
+      "field": "status",
+      "url": "https://www.notebookcheck.net/GPD-Win-Max-3-Powerful-gaming-handheld-now-available-with-up-to-128-GB-RAM-and-better-warranty-options-via-third-party.1429224.0.html",
+      "accessed": "2026-10-27",
+      "note": "DroiX pre-orders; shipping from 15 December (2026)"
+    },
+    {
+      "field": "status",
+      "url": "https://www.technetbooks.com/2026/09/gpd-win-max-3-handheld-gaming-pc-opens.html",
+      "accessed": "2026-10-27",
+      "note": "China presale opened 2026-09: 388 / 32 GB / 1 TB at CNY 9,999"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.gpd.hk/",
+      "accessed": "2026-10-27",
+      "note": "home page price table: 388 + 32GB + 1TB US$1,750 (was US$1,999); 388 + 64GB + 2TB US$2,246"
+    }
+  ]
+}

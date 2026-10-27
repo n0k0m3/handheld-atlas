@@ -1,0 +1,234 @@
+{
+  "id": "ayaneo-flip-1s-kb-8840u",
+  "brand": "AYANEO",
+  "model": "Flip 1S KB",
+  "variant": "Ryzen 7 8840U",
+  "status": "announced",
+  "announce_date": "2025-07-10",
+  "release_date": null,
+  "msrp_usd": 979,
+  "form_factor": "clamshell",
+  "dims_mm": {
+    "handheld": {
+      "w": 180,
+      "h": 102,
+      "d": 29.3,
+      "d_max": 35.7
+    },
+    "closed": {
+      "w": 180,
+      "h": 102,
+      "d": 29.3,
+      "d_max": 35.7
+    },
+    "note": "Clamshell. Handheld footprint = closed footprint (project rule). AYANEO size: 180*102*29.3 mm, 35.7 mm at the grip."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 650,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "AYANEO states 'about' this weight"
+  },
+  "soc_id": "r7-8840u",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": null,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 65,
+      "location": "top",
+      "note": "Both ports full-featured: DP 1.4, PD charging (65 W PD charger spec), data"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Up to 300 MB/s"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7,
+    "panel": "OLED",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 144,
+    "vrr": null,
+    "touch": null,
+    "nits_sdr": 800,
+    "nits_peak": null,
+    "hdr": true,
+    "note": "315 PPI, 150% sRGB volume, 110% DCI-P3, 10-bit, 144/120/90/60 Hz steps, software (system-level) HDR. Stepless hinge to 180 degrees. No secondary screen."
+  },
+  "battery": {
+    "wh": 45,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65 W PD, bypass charging"
+  },
+  "controls": {
+    "stick_type": "tmr",
+    "stick_note": "TMR electromagnetic medium-size joystick, 1000 Hz polling",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": true,
+    "detachable_controllers": false,
+    "haptics": "Dual X-axis linear motors",
+    "note": "Optical finger mouse (not a trackpad). Dual 6-axis gyroscope. RGB full-featured keyboard; navigation key."
+  },
+  "wireless": {
+    "wifi": null,
+    "bt": "5.3"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "Vapor chamber + heat-sink fins with fan (air cooling); 30 W max TDP",
+  "fingerprint": true,
+  "notes": "Launch price for 16GB + 1TB: early bird $779, retail $979. Pre-ordered on Indiegogo from 2025-07-10. In late December 2025 AYANEO said the 8840U supplier could not deliver for the foreseeable future and offered 8840U backers an exchange for an AYANEO 3 or a paid upgrade to the HX 370 model. No source confirms that any 8840U unit shipped. The AYANEO store lists only HX 370 configs. Status 'announced' means not shipped; the variant appears cancelled.",
+  "unresolved": [
+    {
+      "field": "release_date",
+      "reason": "No 8840U unit is known to have shipped (supplier problem, late December 2025)"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer scale weight found (DROIX repeats ~655 g without stating a scale)"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ports.1",
+      "reason": "microSD: speed in Gbps, DP and PD not applicable"
+    },
+    {
+      "field": "ports.2",
+      "reason": "3.5 mm jack: speed, DP and PD not applicable; location not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated; AYANEO lists four fixed refresh steps"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "AYANEO does not state touch for the main OLED screen"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Only 800 nits stated, not labelled as peak"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "wireless.wifi",
+      "reason": "AYANEO says only 'latest high-speed WiFi'; DROIX review says Wi-Fi 6E, which is not confirmed by AYANEO"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/AYANEO-Flip-1S-KB",
+      "accessed": "2026-10-27",
+      "note": "Spec table at the bottom of https://ayaneo-1305909189.cos.accelerate.myqcloud.com/ayaneo_com/image/product/2025/AYANEO_FLIP_1S_KB_EN_20250710/06.webp"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/AYANEO-Flip-1S-KB",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 'TMR electromagnetic medium joystick (1000Hz polling rate)'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/AYANEO-Flip-1S-KB",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 'Hall linear triggers'"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://ayaneo.com/article/887",
+      "accessed": "2026-10-27",
+      "note": "Price table image https://cdn.ayaneo.com/ayaneo/article/2025/07/10/8a796202507101813132471.jpeg"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://ayaneo.com/article/887",
+      "accessed": "2026-10-27",
+      "note": "Official launch article dated 2025-07-10"
+    },
+    {
+      "field": "ports.0.location",
+      "url": "https://droix.net/blogs/ayaneo-flip-1s-ds-review/",
+      "accessed": "2026-10-27",
+      "note": "Two USB4 ports and the microSD reader on the top edge"
+    },
+    {
+      "field": "ports.1.location",
+      "url": "https://droix.net/blogs/ayaneo-flip-1s-ds-review/",
+      "accessed": "2026-10-27",
+      "note": "Two USB4 ports and the microSD reader on the top edge"
+    },
+    {
+      "field": "status",
+      "url": "https://retrohandhelds.gg/ayaneo-refuses-to-accept-responsibility-puts-blame-on-everyone-else-for-delays/",
+      "accessed": "2026-10-27",
+      "note": "8840U supplier unable to deliver; backers offered exchange"
+    }
+  ]
+}

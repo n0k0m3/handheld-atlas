@@ -1,0 +1,251 @@
+{
+  "id": "gpd-win-mini-2025",
+  "brand": "GPD",
+  "model": "Win Mini",
+  "variant": "2025 (Ryzen AI 9 HX 370)",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2024-12",
+  "msrp_usd": 1288,
+  "form_factor": "clamshell",
+  "dims_mm": {
+    "handheld": {
+      "w": 172,
+      "h": 109,
+      "d": 27,
+      "d_max": null
+    },
+    "closed": {
+      "w": 172,
+      "h": 109,
+      "d": 27,
+      "d_max": null
+    },
+    "note": "Clamshell. handheld = closed footprint W x H x D; the lid opens upward (max 168 degrees). GPD lists one size."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 555,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "ai9-hx370",
+  "ram": {
+    "sizes_gb": [
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 65,
+      "location": null,
+      "note": "PD 3.0 65 W; eGPU capable"
+    },
+    {
+      "kind": "USB-C 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "full-featured; 8K60 output"
+    },
+    {
+      "kind": "USB-A 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "headphone/mic combo"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "UHS-I, A2, 160 MB/s read"
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "LTPS",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 120,
+    "vrr": true,
+    "touch": true,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "314 PPI, 60/120 Hz, FreeSync Premium, Gorilla Glass 6, AF+AR coating"
+  },
+  "battery": {
+    "wh": 44.24,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65 W USB-C PD adapter in the box (20 V 3.25 A)"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall effect mini joysticks, recessed, L3/R3 press",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 1,
+    "gyro": true,
+    "rear_buttons": 0,
+    "keyboard": true,
+    "detachable_controllers": false,
+    "haptics": "dual linear motors",
+    "note": "L4/R4 programmable macro keys sit on the C-side (keyboard deck), not on the back; precision touchpad (PTP)"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.3"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "fan + heat pipe (35 W TDP)",
+  "fingerprint": null,
+  "notes": "2025 Win Mini: larger shell (172 x 109 x 27 mm), 2280 SSD slot, LPDDR5X-7500. The 8840U config differs from gpd-win-mini-2024 (RAM type, SSD slot, size). form_factor is clamshell (hinged lid). msrp_usd is the Indiegogo price. LPDDR5X is soldered by design.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "official pages give a launch month only; no dated announcement sourced"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found within the fetch budget"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "spec page does not state port location or per-port PD input; null subfields are unstated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "GPD says 'linear analog' triggers but does not name the sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "spec page lists a plain power button; fingerprint not stated"
+    },
+    {
+      "field": "dims_mm.closed.d_max",
+      "reason": "single thickness value published"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "release_date",
+      "values": [
+        {
+          "value": "2024-12",
+          "url": "https://www.gpd.hk/gpdwinmini2025techspecs"
+        },
+        {
+          "value": "2025-03",
+          "url": "https://www.notebookcheck.net/GPD-Win-Mini-2025-released-globally-in-fetching-new-colour-with-tweaked-design-improved-cooling-and-up-to-64-GB-of-RAM.946298.0.html"
+        },
+        {
+          "value": "2025-04",
+          "url": "https://www.gpd.hk/newsinfo/1028841.html"
+        }
+      ],
+      "chosen_reason": "official spec-page launch month; NotebookCheck reported global shipping from March 2025; a GPD news post dated 2025-04-11 says 'WIN Mini 2025 released'"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.gpd.hk/gpdwinmini2025techspecs",
+      "accessed": "2026-10-27",
+      "note": "official tech specs page (HX 370 / AI 9 365 / 8840U)"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "url": "https://www.gpd.hk/gpdwinmini2025",
+      "accessed": "2026-10-27",
+      "note": "overview: 500 nit"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.gpd.hk/gpdwinmini2025",
+      "accessed": "2026-10-27",
+      "note": "overview: USB4 with 65 W PD 3.0"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "url": "https://www.gpd.hk/gpdwinmini2025",
+      "accessed": "2026-10-27",
+      "note": "overview: 'The C-side of the controller adds programmable macro keys L4 and R4'"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.gpd.hk/gpdwinmini2025techspecs",
+      "accessed": "2026-10-27",
+      "note": "official spec page names 'Hall Effect Joystick'"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/gpd-win-mini-2025-handheld-gaming-pc-hits-indiegogo-for-769-and-up/",
+      "accessed": "2026-10-27",
+      "note": "US$1288 Indiegogo, HX 370 / 32 GB / 2 TB"
+    }
+  ]
+}

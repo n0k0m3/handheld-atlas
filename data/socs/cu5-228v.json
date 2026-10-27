@@ -1,0 +1,80 @@
+{
+  "id": "cu5-228v",
+  "vendor": "Intel",
+  "name": "Core Ultra 5 228V",
+  "codename": "Lunar Lake",
+  "cores": 8,
+  "threads": 8,
+  "core_mix": "4P + 4LPE",
+  "cpu_arch": "Lion Cove + Skymont",
+  "base_ghz": 2.1,
+  "boost_ghz": 4.5,
+  "tdp_w": {
+    "default": 17,
+    "min": 8,
+    "max": 37
+  },
+  "process_nm": 3,
+  "process_note": "TSMC N3B (compute tile, per ARK)",
+  "npu_tops": 40,
+  "memory": "LPDDR5X-8533 on-package, 32 GB",
+  "launch_date": "2024-09-24",
+  "igpu": {
+    "name": "Intel Arc 130V",
+    "cu": 7,
+    "arch": "Xe2",
+    "clock_mhz": 1850,
+    "tflops_fp32": 3.32
+  },
+  "passmark": {
+    "cpu_mark": 18121,
+    "single_thread": 3790,
+    "cpu_samples": 209,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+Ultra+5+228V&id=6364",
+    "g3d_mark": 4517,
+    "g3d_samples": 1456,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+130V+GPU&id=5185",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU and GPU: exact entries ('Intel Arc 130V GPU', 1456 samples)."
+  },
+  "notes": "No Hyper-Threading. NPU 40 TOPS (97 TOPS overall). launch_date from TPU; ARK says Q3'24. Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.intel.com/content/www/us/en/products/sku/240955/intel-core-ultra-5-processor-228v-8m-cache-up-to-4-50-ghz/specifications.html",
+      "accessed": "2026-10-27",
+      "note": "Intel ARK: cores, clocks, power, TSMC N3B, memory, Arc 130V with 7 Xe-cores at 1.85 GHz, NPU"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+Ultra+5+228V&id=6364",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+130V+GPU&id=5185",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/core-ultra-5-228v.c3799",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Sep 24th, 2024"
+    },
+    {
+      "field": "cpu_arch",
+      "url": "https://www.techpowerup.com/cpu-specs/core-ultra-5-228v.c3799",
+      "accessed": "2026-10-27",
+      "note": "TPU: Lion Cove P-cores, Skymont E-cores"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/arc-130v-mobile.c4315",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 3.315 TFLOPS"
+    }
+  ]
+}

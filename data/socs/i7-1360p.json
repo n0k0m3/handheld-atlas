@@ -1,0 +1,80 @@
+{
+  "id": "i7-1360p",
+  "vendor": "Intel",
+  "name": "Core i7-1360P",
+  "codename": "Raptor Lake-P",
+  "cores": 12,
+  "threads": 16,
+  "core_mix": "4P + 8E",
+  "cpu_arch": "Raptor Cove + Gracemont",
+  "base_ghz": 2.2,
+  "boost_ghz": 5.0,
+  "tdp_w": {
+    "default": 28,
+    "min": 20,
+    "max": 64
+  },
+  "process_nm": 7,
+  "process_note": "Intel 7 (per ARK); TPU lists 10 nm",
+  "npu_tops": 0,
+  "memory": "DDR5-5200, DDR4-3200, LPDDR5/X-6400, LPDDR4X-4267, dual-channel, up to 96 GB",
+  "launch_date": "2023-01-04",
+  "igpu": {
+    "name": "Intel Iris Xe (96 EU)",
+    "cu": 6,
+    "arch": "Xe-LP",
+    "clock_mhz": 1500,
+    "tflops_fp32": 2.3
+  },
+  "passmark": {
+    "cpu_mark": 18215,
+    "single_thread": 3406,
+    "cpu_samples": 2102,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-1360P&id=5198",
+    "g3d_mark": 2587,
+    "g3d_samples": 73915,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Iris+Xe&id=4265",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry. GPU: PassMark pools every 'Intel Iris Xe' iGPU (80 and 96 EU, many chips) under one entry; there is no per-SKU entry."
+  },
+  "notes": "igpu.cu counts the 96 EU as 6 subslices of 16 EU (the Xe-LP equivalent of an Xe-core). base_ghz is the P-core base from TPU (E-core 1.6 GHz). ARK lists no NPU, so npu_tops is 0. launch_date from TPU; ARK says Q1'23. Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.intel.com/content/www/us/en/products/sku/232155/intel-core-i71360p-processor-18m-cache-up-to-5-00-ghz/specifications.html",
+      "accessed": "2026-10-27",
+      "note": "Intel ARK: cores, turbo clock, power, Intel 7, memory, Iris Xe 96 EU at 1.50 GHz"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i7-1360P&id=5198",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Iris+Xe&id=4265",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "base_ghz",
+      "url": "https://www.techpowerup.com/cpu-specs/core-i7-1360p.c3059",
+      "accessed": "2026-10-27",
+      "note": "TPU: 2.2 GHz P-core base, 1.6 GHz E-core base"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/core-i7-1360p.c3059",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Jan 4th, 2023"
+    },
+    {
+      "field": "cpu_arch",
+      "url": "https://download.intel.com/newsroom/2022/2022innovation/13th-Gen-Intel-Core-Desktop-Media-presentation.pdf",
+      "accessed": "2026-10-27",
+      "note": "Intel names the 13th Gen P-core Raptor Cove; the E-core is Gracemont, carried over from Alder Lake"
+    }
+  ]
+}

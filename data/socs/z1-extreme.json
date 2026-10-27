@@ -1,0 +1,86 @@
+{
+  "id": "z1-extreme",
+  "vendor": "AMD",
+  "name": "Ryzen Z1 Extreme",
+  "codename": "Phoenix",
+  "cores": 8,
+  "threads": 16,
+  "core_mix": "8x Zen 4",
+  "cpu_arch": "Zen 4",
+  "base_ghz": 3.3,
+  "boost_ghz": 5.1,
+  "tdp_w": {
+    "default": 28,
+    "min": 9,
+    "max": 30
+  },
+  "process_nm": 4,
+  "process_note": "TSMC 4nm (same Phoenix die as the Ryzen 7 7840U)",
+  "npu_tops": 0,
+  "memory": "DDR5-5600, LPDDR5X-7500, dual-channel",
+  "launch_date": "2023-05",
+  "igpu": {
+    "name": "Radeon 780M-class (12 CU)",
+    "cu": 12,
+    "arch": "RDNA 3",
+    "clock_mhz": 2900,
+    "tflops_fp32": 4.45
+  },
+  "passmark": {
+    "cpu_mark": 24556,
+    "single_thread": 3522,
+    "cpu_samples": 1252,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z1+Extreme&id=5508",
+    "g3d_mark": 6419,
+    "g3d_samples": 903,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=AMD+Ryzen+Z1+Extreme&id=4918",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU and GPU: exact PassMark entries 'AMD Ryzen Z1 Extreme'. The GPU entry is the Z1 Extreme iGPU (reported as 'AMD Radeon Graphics'). The laptop twin 'Radeon 780M' scores 6724 G3D (12851 samples)."
+  },
+  "notes": "AMD names the iGPU only 'AMD Radeon Graphics'; TPU equates it to the Radeon 780M. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/handhelds/ryzen-z-series/z1-series/z1-extreme.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: cores, clocks, TDP, iGPU CU and clock"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z1+Extreme&id=5508",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=AMD+Ryzen+Z1+Extreme&id=4918",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z1-extreme.c3276",
+      "accessed": "2026-10-27",
+      "note": "TPU: release May 2023; also process_nm and memory"
+    },
+    {
+      "field": "process_nm",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z1-extreme.c3276",
+      "accessed": "2026-10-27",
+      "note": "TPU: TSMC 4 nm"
+    },
+    {
+      "field": "memory",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z1-extreme.c3276",
+      "accessed": "2026-10-27",
+      "note": "TPU: DDR5-5600, LPDDR5X-7500"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/ryzen-z1-extreme-gpu.c4157",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 8.294 TFLOPS (counts RDNA 3 dual-issue at 2700 MHz)"
+    }
+  ]
+}

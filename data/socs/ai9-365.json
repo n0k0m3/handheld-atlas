@@ -1,0 +1,74 @@
+{
+  "id": "ai9-365",
+  "vendor": "AMD",
+  "name": "Ryzen AI 9 365",
+  "codename": "Strix Point",
+  "cores": 10,
+  "threads": 20,
+  "core_mix": "4x Zen 5 + 6x Zen 5c",
+  "cpu_arch": "Zen 5 / Zen 5c",
+  "base_ghz": 2.0,
+  "boost_ghz": 5.0,
+  "tdp_w": {
+    "default": 28,
+    "min": 15,
+    "max": 54
+  },
+  "process_nm": 4,
+  "process_note": "TSMC 4nm FinFET",
+  "npu_tops": 50,
+  "memory": "DDR5-5600, LPDDR5X-8000, dual-channel, up to 256 GB",
+  "launch_date": "2024-07",
+  "igpu": {
+    "name": "Radeon 880M",
+    "cu": 12,
+    "arch": "RDNA 3.5",
+    "clock_mhz": 2900,
+    "tflops_fp32": 4.45
+  },
+  "passmark": {
+    "cpu_mark": 30326,
+    "single_thread": 3857,
+    "cpu_samples": 947,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+AI+9+365&id=6180",
+    "g3d_mark": 7597,
+    "g3d_samples": 849,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+880M&id=5123",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU and GPU: exact entries."
+  },
+  "notes": "Zen 5c cores run up to 3.3 GHz. AMD's page shows Launch Date 7/28/2025, which conflicts with TPU (Jul 2024) and PassMark (first seen Q3 2024); launch_date uses 2024-07. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-9-365.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: CPU, memory, NPU and iGPU fields; its launch date 7/28/2025 is not used"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+AI+9+365&id=6180",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+880M&id=5123",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-ai-9-365.c3656",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Jul 2024"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/radeon-880m.c4225",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 4.454 TFLOPS"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "r5-6600u",
+  "vendor": "AMD",
+  "name": "Ryzen 5 6600U",
+  "codename": "Rembrandt",
+  "cores": 6,
+  "threads": 12,
+  "core_mix": "6x Zen 3+",
+  "cpu_arch": "Zen 3+",
+  "base_ghz": 2.9,
+  "boost_ghz": 4.5,
+  "tdp_w": {
+    "default": 15,
+    "min": 15,
+    "max": 28
+  },
+  "process_nm": 6,
+  "process_note": "TSMC 6nm FinFET",
+  "npu_tops": 0,
+  "memory": "DDR5-4800, LPDDR5-6400, dual-channel, up to 64 GB",
+  "launch_date": "2022-04-19",
+  "igpu": {
+    "name": "Radeon 660M",
+    "cu": 6,
+    "arch": "RDNA 2",
+    "clock_mhz": 1900,
+    "tflops_fp32": 1.46
+  },
+  "passmark": {
+    "cpu_mark": 16871,
+    "single_thread": 3075,
+    "cpu_samples": 96,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+6600U&id=4949",
+    "g3d_mark": 3221,
+    "g3d_samples": 81,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+5+6600U&id=4675",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry (96 samples). GPU: chip-named entry 'Radeon Ryzen 5 6600U' (the iGPU reports as 'AMD Radeon Graphics'), chosen over the generic 'Radeon 660M' entry (3197 G3D, only 13 samples)."
+  },
+  "notes": "AMD gives only a 15-28 W cTDP; the 15 W default is from TPU. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-6000-series/amd-ryzen-5-6600u.html",
+      "accessed": "2026-10-27",
+      "note": "the AMD product page returns 404; this AMD driver page carries the full spec table"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+6600U&id=4949",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+5+6600U&id=4675",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "tdp_w.default",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-5-6600u.c2522",
+      "accessed": "2026-10-27",
+      "note": "TPU: TDP 15 W"
+    }
+  ]
+}

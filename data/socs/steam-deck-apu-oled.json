@@ -1,0 +1,86 @@
+{
+  "id": "steam-deck-apu-oled",
+  "vendor": "Valve/AMD",
+  "name": "Steam Deck APU (OLED)",
+  "codename": "Sephiroth",
+  "cores": 4,
+  "threads": 8,
+  "core_mix": "4x Zen 2",
+  "cpu_arch": "Zen 2",
+  "base_ghz": 2.4,
+  "boost_ghz": 3.5,
+  "tdp_w": {
+    "default": 15,
+    "min": 4,
+    "max": 15
+  },
+  "process_nm": 6,
+  "process_note": "TSMC 6nm (Valve: 6 nm; foundry per TPU)",
+  "npu_tops": 0,
+  "memory": "16 GB LPDDR5-6400 on-board, quad 32-bit channels",
+  "launch_date": "2023-11-09",
+  "igpu": {
+    "name": "AMD Custom GPU 0932",
+    "cu": 8,
+    "arch": "RDNA 2",
+    "clock_mhz": 1600,
+    "tflops_fp32": 1.6
+  },
+  "passmark": {
+    "cpu_mark": 9342,
+    "single_thread": 2201,
+    "cpu_samples": 27,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Custom+APU+0932&id=6154",
+    "g3d_mark": 3194,
+    "g3d_samples": 19,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Custom+GPU+0932&id=5164",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU and GPU: exact entries 'AMD Custom APU 0932' (27 samples) and 'Custom GPU 0932' (19 samples). The brief assumed the OLED shares the LCD '0405' entry; the OLED APU is part 100-000000932 and has its own entries."
+  },
+  "notes": "igpu.name changed from the stub's 'AMD Custom GPU 0405' to 'AMD Custom GPU 0932' (OLED part 100-000000932 per TPU). Valve gives 4-15 W APU power; default set to the 15 W maximum. tflops_fp32 is Valve's stated 1.6 TFLOPS. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.steamdeck.com/en/tech/oled",
+      "accessed": "2026-10-27",
+      "note": "Valve tech specs (OLED): 6 nm APU, clocks, 1.6 TFLOPS, 4-15 W, RAM"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Custom+APU+0932&id=6154",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Custom+GPU+0932&id=5164",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/steam-deck-cpu-oled.c3398",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Nov 9th, 2023; part 100-000000932"
+    },
+    {
+      "field": "igpu.name",
+      "url": "https://www.techpowerup.com/cpu-specs/steam-deck-cpu-oled.c3398",
+      "accessed": "2026-10-27",
+      "note": "part number 100-000000932 matches PassMark 'Custom GPU 0932'"
+    },
+    {
+      "field": "process_note",
+      "url": "https://www.techpowerup.com/cpu-specs/steam-deck-cpu-oled.c3398",
+      "accessed": "2026-10-27",
+      "note": "TPU: TSMC 6 nm"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/steam-deck-oled-gpu.c4185",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 1.638 TFLOPS"
+    }
+  ]
+}

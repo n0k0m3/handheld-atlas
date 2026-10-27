@@ -1,0 +1,390 @@
+{
+  "id": "onexplayer-x2-mini",
+  "brand": "OneXPlayer",
+  "model": "X2 Mini",
+  "variant": "Intel Arc G3 Extreme",
+  "status": "shipped",
+  "announce_date": "2026-06-15",
+  "release_date": "2026-08",
+  "msrp_usd": 2199,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 313,
+      "h": 138,
+      "d": 22,
+      "d_max": 39.5
+    },
+    "note": "d_max derived: 22 mm body + 17.5 mm battery pack (vendor gives no combined figure)"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": null,
+      "measured": null,
+      "measured_source": null
+    },
+    "without_battery": {
+      "stated": null,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Spec image says 'Approx. 729 g (With battery)', but the external battery alone weighs about 380 g, so the label cannot be right. Value not used."
+  },
+  "soc_id": "arc-g3-extreme",
+  "ram": {
+    "sizes_gb": [
+      24,
+      32
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8533,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024
+    ],
+    "expansion": [
+      "microSD",
+      "mini-ssd-1517"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "TB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Spec image: 'Full-Featured USB-C 4.0'; store gallery: Thunderbolt 4 interface for the OneXPlayer GPU dock"
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Vendor: USB-C 3.2 (generation not stated)"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Vendor: USB-A 3.2 (generation not stated)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "TF 4.0, 300 MB/s, up to 2 TB"
+    },
+    {
+      "kind": "mini-ssd-1517",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Mini SSD slot, PCIe 4.0"
+    }
+  ],
+  "screen": {
+    "size_in": 8.8,
+    "panel": "AMOLED",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 144,
+    "vrr": true,
+    "touch": null,
+    "nits_sdr": 475,
+    "nits_peak": 1100,
+    "hdr": true,
+    "note": "30-144 Hz VRR; 700 nits HBM; 1100 nits HDR peak (store text); 100% DCI-P3"
+  },
+  "battery": {
+    "wh": 85,
+    "removable": true,
+    "external": true,
+    "charge_w": null,
+    "note": "Blade-style snap-on pack with built-in kickstand, about 380 g"
+  },
+  "controls": {
+    "stick_type": "capacitive",
+    "stick_note": "Capacitive joysticks, 9 mm height, 22 degree tilt, RGB; same joystick part as the X2 Mini Pro and OneXPlayer 3",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": "Dual vibration motors",
+    "note": "Dual-stage adjustable triggers with a physical switch; swappable 8/4-way D-pad"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "5.4"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Dual 5400 RPM fans, 4 copper heat pipes, 47,200 mm2 fins; 45 W sustained",
+  "fingerprint": true,
+  "notes": "Intel version of the X2 Mini Pro shell. The X2 Mini was first teased (April 2026) with a Ryzen AI Max+ 395; that design became the X2 Mini Pro (Max+ 388). US store sells 32 GB/1 TB only; the spec image also lists 24 GB at 7467 MT/s. Store price $1,999 at launch, MSRP $2,199.",
+  "unresolved": [
+    {
+      "field": "weight_g.handheld",
+      "reason": "Vendor weight label is inconsistent (see conflicts); no review measurement found"
+    },
+    {
+      "field": "weight_g.without_battery",
+      "reason": "Not stated unambiguously"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "Not stated"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.5.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.5.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.5.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.5.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "ports.0.kind",
+      "values": [
+        {
+          "value": "TB4",
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/ONEXPLAYER_X2_Mini_with_Intel_Arc_G3_Extreme_8.8_OLED_3-in-1_Gaming_Handheld_4.png?v=1783316592"
+        },
+        {
+          "value": "USB4",
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/pc17_c244f8f3-ba9f-431d-914f-9ac4aeb79fb4.png?v=1786429743"
+        }
+      ],
+      "chosen_reason": "Vendor gallery says Thunderbolt 4; the project rule records TB4 when the vendor says Thunderbolt"
+    },
+    {
+      "field": "screen.nits_peak",
+      "values": [
+        {
+          "value": 1100,
+          "url": "https://onexplayerstore.com/products/onexplayer-x2-mini-with-intel%C2%AE-arc%E2%84%A2-g3-extreme-8-8-oled-3-in-1-gaming-handheld"
+        },
+        {
+          "value": 700,
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/pc17_c244f8f3-ba9f-431d-914f-9ac4aeb79fb4.png?v=1786429743"
+        }
+      ],
+      "chosen_reason": "Store text gives 1100 nits HDR peak; the spec image gives 700 nits as 'Peak HDR HBM'"
+    },
+    {
+      "field": "weight_g.handheld.stated",
+      "values": [
+        {
+          "value": 729,
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/pc17_c244f8f3-ba9f-431d-914f-9ac4aeb79fb4.png?v=1786429743"
+        }
+      ],
+      "chosen_reason": "Not used: the '(With battery)' label conflicts with the vendor's own 380 g battery weight"
+    },
+    {
+      "field": "controls.stick_type",
+      "values": [
+        {
+          "value": "capacitive",
+          "url": "https://onexplayerstore.com/products/joystick"
+        },
+        {
+          "value": "hall",
+          "url": "https://onexplayerstore.com/products/onexplayer-x2-mini-pro-8-8-3-in-1-oled-gaming-handheld-with-amd-ryzen%E2%84%A2-ai-max-388-liquid-cooling"
+        }
+      ],
+      "chosen_reason": "Official joystick part page names the stick type 'Capacitor' (its other option is 'Hall'). The X2 Mini Pro store text says the shared sticks use 'non-contact Hall-effect technology'."
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://onexplayerstore.com/products/onexplayer-x2-mini-with-intel%C2%AE-arc%E2%84%A2-g3-extreme-8-8-oled-3-in-1-gaming-handheld",
+      "accessed": "2026-10-27",
+      "note": "Official store page; spec table is the image https://cdn.shopify.com/s/files/1/0557/8535/7492/files/pc17_c244f8f3-ba9f-431d-914f-9ac4aeb79fb4.png?v=1786429743"
+    },
+    {
+      "field": "ports.0.kind",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/ONEXPLAYER_X2_Mini_with_Intel_Arc_G3_Extreme_8.8_OLED_3-in-1_Gaming_Handheld_4.png?v=1783316592",
+      "accessed": "2026-10-27",
+      "note": "Store gallery image: 'Thunderbolt Interface ... via Thunderbolt 4'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/pc17_c244f8f3-ba9f-431d-914f-9ac4aeb79fb4.png?v=1786429743",
+      "accessed": "2026-10-27",
+      "note": "Official spec image: 'Hall Effect Triggers with Adjustable Trigger Travel'"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official joystick part listing: 'Onexplayer 3/X2 Mini Pro/X2 Mini / Capacitor'. Official spec image: 'Joysticks: Capacitive Joysticks (9mm Height, 22 Tilt Angle)'"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/pc17_c244f8f3-ba9f-431d-914f-9ac4aeb79fb4.png?v=1786429743",
+      "accessed": "2026-10-27",
+      "note": "Body 22 mm (thinnest point); external battery 119.5 x 109 x 17.5 mm"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "url": "https://onexplayerstore.com/products/onexplayer-x2-mini-with-intel%C2%AE-arc%E2%84%A2-g3-extreme-8-8-oled-3-in-1-gaming-handheld",
+      "accessed": "2026-10-27",
+      "note": "Store text: 'dual custom back buttons'"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/OneXPlayer-reveals-new-gaming-handheld-with-up-to-32-GB-RAM-and-144-Hz-AMOLED-display.1380446.0.html",
+      "accessed": "2026-10-27",
+      "note": "$1,999 at the store with an MSRP of $2,199"
+    },
+    {
+      "field": "release_date",
+      "url": "https://www.notebookcheck.net/OneXPlayer-reveals-new-gaming-handheld-with-up-to-32-GB-RAM-and-144-Hz-AMOLED-display.1380446.0.html",
+      "accessed": "2026-10-27",
+      "note": "Already available from the official store on 2026-08-27"
+    },
+    {
+      "field": "ram.soldered",
+      "url": "https://www.notebookcheck.net/OneXPlayer-reveals-new-gaming-handheld-with-up-to-32-GB-RAM-and-144-Hz-AMOLED-display.1380446.0.html",
+      "accessed": "2026-10-27",
+      "note": "24 GB or 32 GB RAM is soldered"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-x2-mini-pro-handheld-gaming-pc-with-ryzen-ai-max-388-hits-indiegogo-for-2466-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Intel X2 Mini first named on 2026-06-15"
+    }
+  ]
+}

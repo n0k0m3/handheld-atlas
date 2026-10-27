@@ -1,0 +1,97 @@
+{
+  "rog-ally-z1-extreme": {
+    "page": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-ally-2023/",
+    "top": [
+      "https://dlcdnwebimgs.asus.com/gain/9B345703-C095-4C0C-A86F-0E48FB76F93F/w2000/h1470",
+      "https://retrocatalog.com/images/retro-handheld_front_rog-ally"
+    ],
+    "bottom": [
+      "https://dlcdnwebimgs.asus.com/gain/27E3C5C6-05A9-4191-BAC4-B1B8DE1EF9A7/w2000/h1470"
+    ],
+    "side": [
+      "https://dlcdnwebimgs.asus.com/gain/2B2C09FE-1C0B-44CA-8EAB-D4C1024857C4/w2000/h1470",
+      "https://dlcdnwebimgs.asus.com/gain/0730674A-EFB2-4993-9D14-AB2CE16205CB/w2000/h1470"
+    ],
+    "closed_top": [],
+    "note": "ASUS gallery renders on a transparent background. side = left and right profiles, rendered upright (device height runs vertically). Top-edge profile: https://dlcdnwebimgs.asus.com/gain/A33F296A-EEFA-4443-9F40-96B4FCB5F081/w2000/h1470; bottom-edge profile: https://dlcdnwebimgs.asus.com/gain/9CF3A3DE-867D-4F97-B758-C328CBFD0A2F/w2000/h1470. Same chassis as rog-ally-z1."
+  },
+  "rog-ally-z1": {
+    "page": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-ally-2023/",
+    "top": [
+      "https://dlcdnwebimgs.asus.com/gain/9B345703-C095-4C0C-A86F-0E48FB76F93F/w2000/h1470",
+      "https://retrocatalog.com/images/retro-handheld_front_rog-ally"
+    ],
+    "bottom": [
+      "https://dlcdnwebimgs.asus.com/gain/27E3C5C6-05A9-4191-BAC4-B1B8DE1EF9A7/w2000/h1470"
+    ],
+    "side": [
+      "https://dlcdnwebimgs.asus.com/gain/2B2C09FE-1C0B-44CA-8EAB-D4C1024857C4/w2000/h1470",
+      "https://dlcdnwebimgs.asus.com/gain/0730674A-EFB2-4993-9D14-AB2CE16205CB/w2000/h1470"
+    ],
+    "closed_top": [],
+    "note": "Same RC71L chassis and renders as rog-ally-z1-extreme. side = left and right profiles, rendered upright (device height runs vertically). Top-edge profile: https://dlcdnwebimgs.asus.com/gain/A33F296A-EEFA-4443-9F40-96B4FCB5F081/w2000/h1470."
+  },
+  "rog-ally-x": {
+    "page": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-ally-x-2024/",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_rog-ally-x"
+    ],
+    "bottom": [
+      "https://dlcdnwebimgs.asus.com/gain/42464A36-63B3-4ADA-B46F-84BC1D019D2D/w2000/h1470"
+    ],
+    "side": [
+      "https://dlcdnwebimgs.asus.com/gain/3A5E94D7-956C-4216-BF92-FA2241168C77/w2000/h1470",
+      "https://dlcdnwebimgs.asus.com/gain/E8DCDBDA-5D45-4678-AB9B-E9E57CE984ED/w2000/h1470"
+    ],
+    "closed_top": [],
+    "note": "The ASUS US spec-page gallery has only rear, left and right views; no official straight-on front was found, so top uses the retrocatalog front. side = left and right profiles, rendered upright (device height runs vertically)."
+  },
+  "rog-xbox-ally": {
+    "page": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-2025/",
+    "top": [
+      "https://dlcdnwebimgs.asus.com/gain/828CE44B-7B48-4F48-88F7-88BEA7D13C5D/w2000/h1470",
+      "https://retrocatalog.com/images/retro-handheld_front_rog-xbox-ally"
+    ],
+    "bottom": [
+      "https://dlcdnwebimgs.asus.com/gain/3E3E2E81-1386-46C1-833C-5CA58B7ACBDC/w2000/h1470"
+    ],
+    "side": [
+      "https://dlcdnwebimgs.asus.com/gain/B1B9C625-D1DB-4BC5-BC07-69CC8BA0BBBC/w2000/h1470",
+      "https://dlcdnwebimgs.asus.com/gain/EA408DCC-6A7E-467F-8E3E-D0D6CD7124A4/w2000/h1470"
+    ],
+    "closed_top": [],
+    "note": "White chassis on a transparent background. side = left and right profiles, rendered upright (device height runs vertically). Top-edge profile: https://dlcdnwebimgs.asus.com/gain/3DEDD322-2CF5-4694-B6C7-83E2DC4CC931/w2000/h1470; bottom-edge profile: https://dlcdnwebimgs.asus.com/gain/74FBC37C-7423-465E-94B6-66EAC18890A2/w2000/h1470."
+  },
+  "rog-xbox-ally-x": {
+    "page": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-x-2025/",
+    "top": [
+      "https://dlcdnwebimgs.asus.com/gain/31017D2D-6DF1-4D89-9784-10D7A92C80BD/w2000/h1470",
+      "https://retrocatalog.com/images/retro-handheld_front_rog-xbox-ally-x"
+    ],
+    "bottom": [
+      "https://dlcdnwebimgs.asus.com/gain/2C9F70CB-18CD-4AB4-A6FA-F0FAFDA4542B/w2000/h1470"
+    ],
+    "side": [
+      "https://dlcdnwebimgs.asus.com/gain/BD48B1F7-3085-421A-9313-2420A60E838A/w2000/h1470",
+      "https://dlcdnwebimgs.asus.com/gain/1E18DFDE-55DA-4DDE-A858-7D03D422DDEF/w2000/h1470"
+    ],
+    "closed_top": [],
+    "note": "Black chassis on a transparent background. side = left and right profiles, rendered upright (device height runs vertically). Top-edge profile: https://dlcdnwebimgs.asus.com/gain/89EFEA24-3A76-4BEA-B7D8-5BBD96D972A3/w2000/h1470; bottom-edge profile: https://dlcdnwebimgs.asus.com/gain/87A7270B-CF4D-4CE1-AA5E-C345500F375E/w2000/h1470."
+  },
+  "rog-xbox-ally-x20": {
+    "page": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-x20-2026/",
+    "top": [
+      "https://dlcdnwebimgs.asus.com/gain/D797EEA6-B797-472F-9E8B-EC9E07963B27/w2000/h1470",
+      "https://retrocatalog.com/images/retro-handheld_front_rog-xbox-ally-x20"
+    ],
+    "bottom": [
+      "https://dlcdnwebimgs.asus.com/gain/328FCEFC-088C-4CA2-B54C-111B93C48950/w2000/h1470"
+    ],
+    "side": [
+      "https://dlcdnwebimgs.asus.com/gain/27D58942-00DD-45D9-B3EA-EBFF03897D43/w2000/h1470",
+      "https://dlcdnwebimgs.asus.com/gain/54B1B5E5-B70A-43DA-A26F-883FF42EFF23/w2000/h1470"
+    ],
+    "closed_top": [],
+    "note": "Translucent black chassis on a transparent background; the translucent shell can make edge tracing harder. ASUS alt text says 'angled view from the front', but the image is straight-on. side = left and right profiles, rendered upright (device height runs vertically). Top-edge profile: https://dlcdnwebimgs.asus.com/gain/9C502E4F-85E0-4A9C-81C2-9F383969D0B7/w2000/h1470; bottom-edge profile: https://dlcdnwebimgs.asus.com/gain/AF507E4F-2B9A-4FFF-AD53-D4C3E6A6577A/w2000/h1470. The bundle page (rog-xbox-ally-x20-bundle-2026) has the same views under other image IDs."
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "id": "onexplayer-mini-pro-6800u",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer Mini Pro",
+  "variant": "Ryzen 7 6800U",
+  "status": "shipped",
+  "announce_date": "2022-09-20",
+  "release_date": "2022-10-30",
+  "msrp_usd": 1199,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 260,
+      "h": 106,
+      "d": 23,
+      "d_max": null
+    },
+    "note": null
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 599,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r7-6800u",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR5",
+    "speed_mts": 6400,
+    "channels": null,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 3,
+        "lanes": null,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024,
+      2048
+    ],
+    "expansion": [
+      "none"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "USB4 Type-C"
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Listed as USB 3.0 Type-A"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": null,
+    "nits_sdr": 350,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "100% sRGB"
+  },
+  "battery": {
+    "wh": 48,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": null
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall-sensor analog sticks",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "Optional dock and detachable keyboard accessories"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.0"
+  },
+  "os": [],
+  "cooling": null,
+  "fingerprint": null,
+  "notes": "Pre-order price from $919 (Sept 2022); retail $1199-$1549. No microSD slot (Liliputing). The store spec page is gone; the archived store URL is a deposit page, so the spec values come from the Liliputing copy of the One Netbook spec table.",
+  "unresolved": [
+    {
+      "field": "screen.refresh_hz",
+      "reason": "Not stated in the published spec table"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "Not stated in the published spec table"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No reviewer scale measurement found"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "Not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "No source names the trigger sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "Not stated"
+    },
+    {
+      "field": "os",
+      "reason": "OS not stated in the sources used"
+    },
+    {
+      "field": "cooling",
+      "reason": "Not stated"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+    }
+  ],
+  "conflicts": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20220926133734/https://onexplayerstore.com/products/onexplayer-mini-amd%C2%AE-ryzen%C2%AE-6800u-1920-1200",
+      "accessed": "2026-10-27",
+      "note": "Archived official store page (deposit listing); spec text not in the archive"
+    },
+    {
+      "field": "dims_mm",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook spec table"
+    },
+    {
+      "field": "weight_g",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook spec table"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "ram",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "storage",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "ports",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "screen",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "battery",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "wireless",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-with-ryzen-7-6800u-coming-oson/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook: analog sticks with hall sensors"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official replacement joystick: ONEXPLAYER MINI PRO 6800U / Hall"
+    },
+    {
+      "field": "controls.gyro",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-with-ryzen-7-6800u-coming-oson/",
+      "accessed": "2026-10-27",
+      "note": "6-axis motion sensor"
+    },
+    {
+      "field": "storage.expansion",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-with-ryzen-7-6800u-coming-oson/",
+      "accessed": "2026-10-27",
+      "note": "No microSD card slot"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/onexplayer-mini-pro-launches-oct-30-handheld-gaming-pc-with-7-inch-screen-and-ryzen-7-6800u/",
+      "accessed": "2026-10-27",
+      "note": "Available for purchase Oct 30, 2022; ships by Nov 8"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-mini-pro-handheld-gaming-pc-with-ryzen-7-6800u-coming-oson/",
+      "accessed": "2026-10-27",
+      "note": null
+    }
+  ]
+}

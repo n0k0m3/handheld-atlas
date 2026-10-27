@@ -1,0 +1,358 @@
+{
+  "ayaneo-2": {
+    "page": "https://ayaneo.com/product/AYANEO-2",
+    "top": [
+      "https://cdn.ayaneo.com/ayaneo%2Fimg%2Fproduct%2FAYANEO-2%2Fcdn16.png",
+      "https://cdn.ayaneo.com/ayaneo%2Fimg%2Fproduct%2FAYANEO-2%2Fcdn15.png",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-2"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "The official cdn renders are small (377x191)."
+  },
+  "ayaneo-2s-7840u": {
+    "page": "https://ayaneo.com/product/AYANEO-2S",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/2S_25ce8cc4-6611-4361-87e0-ce227e8b1845.png?v=1763956811",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/2S_6ff4be63-4f1a-4066-a034-bdf21a84243e.png?v=1763956811",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-2s"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Store renders are shared by the 7840U and 8840U versions (same chassis). First URL is Starry Black, second is Sky White, both straight-on on white."
+  },
+  "ayaneo-2s-8840u": {
+    "page": "https://ayaneo.com/product/AYANEO-2S",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/2S_25ce8cc4-6611-4361-87e0-ce227e8b1845.png?v=1763956811",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/2S_6ff4be63-4f1a-4066-a034-bdf21a84243e.png?v=1763956811",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-2s"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Same chassis as ayaneo-2s-7840u."
+  },
+  "ayaneo-3-8840u": {
+    "page": "https://ayaneo.com/product/AYANEO-3",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/OLED_e49cfeea-6bc1-439e-8c91-776ab75647b2.png?v=1770711590",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/OLED.png?v=1770711590",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-3"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Store renders are viewed from slightly above, so the top edge shows. Both SoC rows share the chassis."
+  },
+  "ayaneo-3-hx370": {
+    "page": "https://ayaneo.com/product/AYANEO-3",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/OLED_e49cfeea-6bc1-439e-8c91-776ab75647b2.png?v=1770711590",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/OLED.png?v=1770711590",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-3"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Store renders are viewed from slightly above, so the top edge shows. Both SoC rows share the chassis."
+  },
+  "ayaneo-air-1s-7840u": {
+    "page": "https://ayaneo.com/product/AYANEOAIR1S",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-air-1s"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Official orthographic multi-view sheets (back, front, sides, top, bottom in one image, black background) need cropping: https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/0809/%E6%9E%81%E5%85%89%E7%99%BD.png ; https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/0809/%E6%9E%81%E5%A4%9C%E9%BB%91.png ; https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/0809/Retro%20Power.png"
+  },
+  "ayaneo-air-1s-8840u": {
+    "page": "https://ayaneo.com/product/AYANEOAIR1S",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-air-1s"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Official orthographic multi-view sheets (back, front, sides, top, bottom in one image, black background) need cropping: https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/0809/%E6%9E%81%E5%85%89%E7%99%BD.png ; https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/0809/%E6%9E%81%E5%A4%9C%E9%BB%91.png ; https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/0809/Retro%20Power.png"
+  },
+  "ayaneo-air-1s-limited": {
+    "page": "https://ayaneo.com/product/AYANEOAIR1S",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-air-1s"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "The Limited Edition is thinner (18 mm) than the standard Air 1S; the front view matches. Official orthographic multi-view sheets (back, front, sides, top, bottom in one image, black background) need cropping: https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/0809/%E6%9E%81%E5%85%89%E7%99%BD.png ; https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/0809/%E6%9E%81%E5%A4%9C%E9%BB%91.png ; https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/0809/Retro%20Power.png"
+  },
+  "ayaneo-air-5560u": {
+    "page": "https://ayaneo.com/product/AYANEOAIR",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-air-pro",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-air"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "First URL is the retrocatalog Air Pro front: the Air and Air Pro share the 224 x 89.5 mm front shape (only the thickness differs). The retrocatalog Air image has a cut-out defect in its alpha at the top-right corner, which put a notch in the trace. Official page images show only half-device crops."
+  },
+  "ayaneo-air-plus-6800u": {
+    "page": "https://ayaneo.com/product/AYANEO-AIR-Plus",
+    "top": [
+      "https://cdn.ayaneo.com.cn/ayaneo/img/product/AIR-Mendocino/Men62.png",
+      "https://cdn.ayaneo.com.cn/ayaneo/img/product/air-plus-intel/ayaneo111.png",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-air-plus"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Air Plus variants share one chassis; the first two renders come from the Mendocino and Intel sections of the page."
+  },
+  "ayaneo-air-pro-5560u": {
+    "page": "https://ayaneo.com/product/AYANEOAIR",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-air-pro"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Air Pro is 21.6 mm thick vs 18 mm for the Air; the front view matches the Air. Official page images are half-device crops."
+  },
+  "ayaneo-air-pro-5825u": {
+    "page": "https://ayaneo.com/product/AYANEOAIR",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-air-pro"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Air Pro is 21.6 mm thick vs 18 mm for the Air; the front view matches the Air. Official page images are half-device crops."
+  },
+  "ayaneo-flip-1s-ds-8840u": {
+    "page": "https://ayaneo.com/product/AYANEO-Flip-1S-DS",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/03_96c3fe0a-127a-4476-8258-345193703c45.png?v=1774945271",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/02_8f8faa54-15a4-4cb8-ba4d-587f1f20b18c.png?v=1774945270",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/01_513fca56-c0ff-47ce-870f-b23846712059.png?v=1774945270"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Shopify renders show the open device on white from a slightly raised camera, not strictly straight-on. No clean closed-lid, side, or back view found. Retrocatalog front image returns 404. Outline pass 2026-10-27: no top-down lid-closed render found (image search; the ayaneo.com Flip 1S DS page uses long composite strips); the top view stays a spec box."
+  },
+  "ayaneo-flip-1s-ds-hx370": {
+    "page": "https://ayaneo.com/product/AYANEO-Flip-1S-DS",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/03_96c3fe0a-127a-4476-8258-345193703c45.png?v=1774945271",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/02_8f8faa54-15a4-4cb8-ba4d-587f1f20b18c.png?v=1774945270",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/01_513fca56-c0ff-47ce-870f-b23846712059.png?v=1774945270"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Shopify renders show the open device on white from a slightly raised camera, not strictly straight-on. No clean closed-lid, side, or back view found. Retrocatalog front image returns 404. Outline pass 2026-10-27: no top-down lid-closed render found (image search; the ayaneo.com Flip 1S DS page uses long composite strips); the top view stays a spec box."
+  },
+  "ayaneo-flip-1s-kb-8840u": {
+    "page": "https://ayaneo.com/product/AYANEO-Flip-1S-KB",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/02_c722852e-b2b3-40b6-afe5-7d6f0652adb4.png?v=1774942110",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/03_33944c35-62a8-4e3f-90c1-44097f7e78d3.png?v=1774942111",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/01_5016bc7d-5f8b-452a-a12b-dee2a39677bd.png?v=1774942110"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Shopify renders show the open device on white from a slightly raised camera, not strictly straight-on. No clean closed-lid, side, or back view found. Retrocatalog front image returns 404. Outline pass 2026-10-27: no top-down lid-closed render found (image search; the ayaneo.com Flip 1S DS page uses long composite strips); the top view stays a spec box."
+  },
+  "ayaneo-flip-1s-kb-hx370": {
+    "page": "https://ayaneo.com/product/AYANEO-Flip-1S-KB",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/02_c722852e-b2b3-40b6-afe5-7d6f0652adb4.png?v=1774942110",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/03_33944c35-62a8-4e3f-90c1-44097f7e78d3.png?v=1774942111",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/01_5016bc7d-5f8b-452a-a12b-dee2a39677bd.png?v=1774942110"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Shopify renders show the open device on white from a slightly raised camera, not strictly straight-on. No clean closed-lid, side, or back view found. Retrocatalog front image returns 404. Outline pass 2026-10-27: no top-down lid-closed render found (image search; the ayaneo.com Flip 1S DS page uses long composite strips); the top view stays a spec box."
+  },
+  "ayaneo-flip-ds-7840u": {
+    "page": "https://ayaneo.com/product/AYANEO-FLIP-DS",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-flip-ds"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Retrocatalog image is open, top-down, transparent background. Both SoC rows share the chassis. No closed-lid, side, or back view found. Outline pass 2026-10-27: no top-down lid-closed render found (image search, ayaneo.com FLIP DS page); the top view stays a spec box."
+  },
+  "ayaneo-flip-ds-8840u": {
+    "page": "https://ayaneo.com/product/AYANEO-FLIP-DS",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-flip-ds"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Retrocatalog image is open, top-down, transparent background. Both SoC rows share the chassis. No closed-lid, side, or back view found. Outline pass 2026-10-27: no top-down lid-closed render found (image search, ayaneo.com FLIP DS page); the top view stays a spec box."
+  },
+  "ayaneo-flip-kb-7840u": {
+    "page": "https://ayaneo.com/product/AYANEO-FLIP-KB",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-flip-kb",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/FLIP_20240521__1_8.png?v=1749205786",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/FLIP_20240521__1_7.png?v=1749205786"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Retrocatalog image is straight top-down. Shopify renders show the open device on white from a slightly raised camera, not strictly straight-on. No clean closed-lid, side, or back view found. Outline pass 2026-10-27: no top-down lid-closed render found (image search, ayaneo.com FLIP DS page); the top view stays a spec box."
+  },
+  "ayaneo-flip-kb-8840u": {
+    "page": "https://ayaneo.com/product/AYANEO-FLIP-KB",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-flip-kb",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/FLIP_20240521__1_8.png?v=1749205786",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/FLIP_20240521__1_7.png?v=1749205786"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Retrocatalog image is straight top-down. Shopify renders show the open device on white from a slightly raised camera, not strictly straight-on. No clean closed-lid, side, or back view found. Outline pass 2026-10-27: no top-down lid-closed render found (image search, ayaneo.com FLIP DS page); the top view stays a spec box."
+  },
+  "ayaneo-geek-1s": {
+    "page": "https://ayaneo.com/product/AYANEOGEEK1S",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-geek-1s"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Official six-view composite sheets (6000x6000, front, back, both sides, top, bottom in one image): https://cdn.ayaneo.com/ayaneo/img/product/AYANEO-2S/Geek%201S-%E5%85%AD%E8%A7%86%E5%9B%BE-%E9%BB%91.png (black); replace %E9%BB%91 with %E7%99%BD (white) or %E7%B4%AB (purple). Crop these for bottom and side views."
+  },
+  "ayaneo-geek-6600u": {
+    "page": "https://ayaneo.com/product/AYANEOGEEK",
+    "top": [
+      "https://cdn.ayaneo.com/ayaneo%2Fimg%2Fproduct%2FGEEK%2Fayaneob3.png",
+      "https://cdn.ayaneo.com/ayaneo%2Fimg%2Fproduct%2FGEEK%2Fayaneob4.png"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Same chassis as ayaneo-geek-6800u. Retrocatalog has no Geek page."
+  },
+  "ayaneo-geek-6800u": {
+    "page": "https://ayaneo.com/product/AYANEOGEEK",
+    "top": [
+      "https://cdn.ayaneo.com/ayaneo%2Fimg%2Fproduct%2FGEEK%2Fayaneob3.png",
+      "https://cdn.ayaneo.com/ayaneo%2Fimg%2Fproduct%2FGEEK%2Fayaneob4.png"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Retrocatalog has no Geek page."
+  },
+  "ayaneo-konkr-fit-hx370": {
+    "page": "https://ayaneo.com/product/KONKR-FIT",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_konkr-fit",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/KONKR-FIT.png?v=1770380348",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/KONKR-FIT_d853571f-0644-42f3-aa94-39dff408d927.png?v=1770380348"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Store renders are viewed from slightly above, so the top edge shows. Outline pass 2026-10-27: retrocatalog moved first. All three renders trace 8.2-8.9 % taller than the 270.8 x 100.4 mm spec (camera slightly above; shoulder buttons show), so the top view stays a spec box."
+  },
+  "ayaneo-konkr-fit-hx470": {
+    "page": "https://ayaneo.com/product/KONKR-FIT",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_konkr-fit",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/KONKR-FIT.png?v=1770380348",
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/KONKR-FIT_d853571f-0644-42f3-aa94-39dff408d927.png?v=1770380348"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Same body as ayaneo-konkr-fit-hx370. Store renders are viewed from slightly above, so the top edge shows. Outline pass 2026-10-27: retrocatalog moved first. All three renders trace 8.2-8.9 % taller than the 270.8 x 100.4 mm spec (camera slightly above; shoulder buttons show), so the top view stays a spec box."
+  },
+  "ayaneo-kun-7840u": {
+    "page": "https://ayaneo.com/product/AYANEO-KUN",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-kun"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Both SoC rows share the chassis."
+  },
+  "ayaneo-kun-8840u": {
+    "page": "https://ayaneo.com/product/AYANEO-KUN",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-kun"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Both SoC rows share the chassis."
+  },
+  "ayaneo-next-5800u": {
+    "page": "https://ayaneo.com/product/ayaneo-next-pro",
+    "top": [
+      "https://cdn.ayaneo.com.cn/image/product/ayaneo_nexts/product-option/1-1.png",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-next"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Official edition renders are small (about 414x187) straight-on PNGs with transparency. 1-1 is the grey trim."
+  },
+  "ayaneo-next-5825u": {
+    "page": "https://ayaneo.com/product/ayaneo-next-pro",
+    "top": [
+      "https://cdn.ayaneo.com.cn/image/product/ayaneo_nexts/product-option/5-1.png",
+      "https://cdn.ayaneo.com.cn/image/product/ayaneo_nexts/product-option/2-1.png",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-next"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Official edition renders are small (about 414x187) straight-on PNGs with transparency (5-1 Jet Black, 2-1 Pastel Blue). Same chassis as ayaneo-next-5800u."
+  },
+  "ayaneo-next-ii-385": {
+    "page": "https://ayaneo.com/product/AYANEO-NEXT-%E2%85%A1",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/sku.png?v=1781493207",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-next-2"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Store front render is viewed from slightly above. Side candidate 0022.jpg (two detached grip profiles on a dark gradient) was removed; the side view is a spec box."
+  },
+  "ayaneo-next-ii-395": {
+    "page": "https://ayaneo.com/product/AYANEO-NEXT-%E2%85%A1",
+    "top": [
+      "https://cdn.shopify.com/s/files/1/0569/2771/5482/files/sku.png?v=1781493207",
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-next-2"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Store front render is viewed from slightly above. Side candidate 0022.jpg (two detached grip profiles on a dark gradient) was removed; the side view is a spec box."
+  },
+  "ayaneo-slide": {
+    "page": "https://ayaneo.com/product/AYANEO-SLIDE",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_ayaneo-slide"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "The retrocatalog image shows the screen slid up with the keyboard visible. dims_mm.handheld uses the closed position, so the outline height will not match this image. Outline pass 2026-10-27: no straight-on screen-closed front render found (image search, ayaneo.com/product/AYANEO-SLIDE gallery); the top view stays a spec box."
+  }
+}

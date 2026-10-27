@@ -1,0 +1,115 @@
+{
+  "id": "acer-nitro-blaze-11",
+  "brand": "Acer",
+  "model": "Nitro Blaze 11",
+  "variant": "GN7112U (Ryzen 7 8840HS)",
+  "status": "announced",
+  "announce_date": "2025-01-06",
+  "release_date": null,
+  "msrp_usd": 1099,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": { "w": 364, "h": 171, "d": 15.9, "d_max": null },
+    "tablet_only": null,
+    "note": "Acer lists 36.4 (W) x 17.1 (D) x 1.59 (H) cm and does not say whether the controllers are attached. The 364 mm width implies controllers attached. 15.9 mm is the tablet body; the grips are likely thicker."
+  },
+  "weight_g": {
+    "handheld": { "stated": 1050, "measured": null, "measured_source": null },
+    "tablet_only": null,
+    "note": "Acer gives one weight (1050 g) without saying whether it includes the controllers."
+  },
+  "soc_id": "r7-8840hs",
+  "ram": { "sizes_gb": [16], "type": "LPDDR5X", "speed_mts": 7500, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "other", "pcie_gen": 4, "lanes": null, "note": "M.2 PCIe Gen 4 NVMe; Acer does not state the M.2 length" } ],
+    "capacities_gb": [2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 1, "speed_gbps": 40, "dp_alt": null, "pd_in_w": null, "location": null, "note": "Type-C" },
+    { "kind": "USB-C unspecified", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "Acer: \"USB 3.2 Type-C\"; generation not stated" },
+    { "kind": "USB-A unspecified", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "Acer: \"USB 3.2 Type-A\"; generation not stated" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "SDHC" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "CTIA" }
+  ],
+  "screen": { "size_in": 10.95, "panel": "IPS", "res_w": 2560, "res_h": 1600, "refresh_hz": 120, "vrr": null, "touch": true, "nits_sdr": 500, "nits_peak": null, "hdr": null, "note": "98% DCI-P3" },
+  "battery": { "wh": 55, "removable": null, "external": false, "charge_w": 100, "note": "Li-polymer. 100 W USB-C adapter." },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": null,
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": null,
+    "note": "Detachable controllers join with an included connector for separate play. Built-in kickstand and front camera. Control list names macro buttons without a count."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.3" },
+  "os": ["Windows 11 Home"],
+  "cooling": null,
+  "fingerprint": null,
+  "notes": "Announced at CES 2025 for Q2 2025 (US$1,099, EUR 1,199). It never reached normal retail: VideoCardz (late 2025) found no retail listings, and TechPowerUp and Guru3D (January 2026) reported the US launch on hold. msrp_usd is the announced price. Acer's product page uses the model code GN7211U in image names; the spec table says GN7112U.",
+  "unresolved": [
+    { "field": "ports.3", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
+    { "field": "ports.4", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
+    { "field": "release_date", "reason": "Never released as of 2026-10-27" },
+    { "field": "dims_mm.tablet_only", "reason": "Acer does not publish tablet-only dimensions" },
+    { "field": "weight_g.tablet_only", "reason": "Acer does not publish the weight without controllers" },
+    { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value published" },
+    { "field": "weight_g.handheld.measured", "reason": "Not released; no reviewer scale reading" },
+    { "field": "ram.channels", "reason": "Not stated" },
+    { "field": "storage.slots.0.lanes", "reason": "Not stated" },
+    { "field": "ports.0.dp_alt", "reason": "Not stated" },
+    { "field": "ports.0.pd_in_w", "reason": "Not stated" },
+    { "field": "ports.0.location", "reason": "Not stated" },
+    { "field": "ports.1.speed_gbps", "reason": "USB 3.2 generation not stated" },
+    { "field": "ports.1.dp_alt", "reason": "Not stated" },
+    { "field": "ports.1.pd_in_w", "reason": "Not stated" },
+    { "field": "ports.1.location", "reason": "Not stated" },
+    { "field": "ports.2.speed_gbps", "reason": "USB 3.2 generation not stated" },
+    { "field": "ports.2.dp_alt", "reason": "Not applicable / not stated" },
+    { "field": "ports.2.pd_in_w", "reason": "Not stated" },
+    { "field": "ports.2.location", "reason": "Not stated" },
+    { "field": "ports.3.location", "reason": "Not stated" },
+    { "field": "ports.4.location", "reason": "Not stated" },
+    { "field": "screen.vrr", "reason": "Not stated" },
+    { "field": "screen.nits_peak", "reason": "One brightness figure published" },
+    { "field": "screen.hdr", "reason": "Not stated" },
+    { "field": "battery.removable", "reason": "Not stated" },
+    { "field": "controls.trigger_lock", "reason": "Not stated" },
+    { "field": "controls.gyro", "reason": "Not stated" },
+    { "field": "controls.rear_buttons", "reason": "Macro buttons listed without a count" },
+    { "field": "controls.haptics", "reason": "Not stated" },
+    { "field": "cooling", "reason": "Not stated" },
+    { "field": "fingerprint", "reason": "Not stated" }
+  ],
+  "conflicts": [
+    {
+      "field": "soc_id",
+      "values": [
+        { "value": "Ryzen 7 8840HS", "url": "https://news.acer.com/acer-expands-handheld-gaming-portfolio-with-new-nitro-blaze-8-and-nitro-blaze-11" },
+        { "value": "Ryzen 7 8845HS", "url": "https://liliputing.com/acer-expands-nitro-blaze-line-of-handheld-gaming-pcs-with-new-8-and-11-inch-models/" }
+      ],
+      "chosen_reason": "Official Acer spec table"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "values": [
+        { "value": 120, "url": "https://news.acer.com/acer-expands-handheld-gaming-portfolio-with-new-nitro-blaze-8-and-nitro-blaze-11" },
+        { "value": 144, "url": "https://liliputing.com/acer-expands-nitro-blaze-line-of-handheld-gaming-pcs-with-new-8-and-11-inch-models/" }
+      ],
+      "chosen_reason": "Acer spec table and product page say 120 Hz; 144 Hz applies to the Blaze 8"
+    }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://news.acer.com/acer-expands-handheld-gaming-portfolio-with-new-nitro-blaze-8-and-nitro-blaze-11", "accessed": "2026-10-27", "note": "Official spec table, price and availability (CES 2025 press release)" },
+    { "field": "*", "url": "https://www.acer.com/us-en/handheld-gaming/nitro-handheld-gaming/nitro-blaze-11", "accessed": "2026-10-27", "note": "Official product page: Hall Effect sticks, detachable controllers, 120 Hz" },
+    { "field": "controls.stick_type", "url": "https://www.acer.com/us-en/handheld-gaming/nitro-handheld-gaming/nitro-blaze-11", "accessed": "2026-10-27", "note": "\"precise Hall Effect sticks\"; spec table: LS/RS Hall effect Sticks" },
+    { "field": "controls.trigger_type", "url": "https://news.acer.com/acer-expands-handheld-gaming-portfolio-with-new-nitro-blaze-8-and-nitro-blaze-11", "accessed": "2026-10-27", "note": "LT/RT Hall effect triggers" },
+    { "field": "status", "url": "https://videocardz.com/newz/amd-ryzen-powered-zotac-zone-pro-and-acer-nitro-blaze-miss-planned-launch-window", "accessed": "2026-10-27", "note": "No retail listings; never released" },
+    { "field": "status", "url": "https://www.techpowerup.com/344992/acer-nitro-blaze-gaming-handheld-on-ice", "accessed": "2026-10-27", "note": "US launch on hold (January 2026)" }
+  ]
+}

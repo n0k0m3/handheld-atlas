@@ -1,0 +1,92 @@
+{
+  "id": "arc-g3-extreme",
+  "vendor": "Intel",
+  "name": "Arc G3 Extreme",
+  "codename": "Panther Lake",
+  "cores": 14,
+  "threads": 14,
+  "core_mix": "2P + 8E + 4LPE",
+  "cpu_arch": "Cougar Cove + Darkmont",
+  "base_ghz": 1.9,
+  "boost_ghz": 4.7,
+  "tdp_w": {
+    "default": 25,
+    "min": 15,
+    "max": 80
+  },
+  "process_nm": 1.8,
+  "process_note": "Intel 18A (per ARK); TPU lists 3 nm",
+  "npu_tops": 46,
+  "memory": "LPDDR5X-8533, dual-channel, up to 96 GB",
+  "launch_date": "2026-05-28",
+  "igpu": {
+    "name": "Intel Arc B390",
+    "cu": 12,
+    "arch": "Xe3",
+    "clock_mhz": 2300,
+    "tflops_fp32": 7.07
+  },
+  "passmark": {
+    "cpu_mark": 28624,
+    "single_thread": 4056,
+    "cpu_samples": 9,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Arc+G3+Extreme&id=7300",
+    "g3d_mark": 9001,
+    "g3d_samples": 604,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+B390+GPU&id=7571",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry 'Intel Arc G3 Extreme' (only 9 samples; PassMark's description says 'Intel Arc B380', but ARK names the iGPU Arc B390). GPU: 'Intel Arc B390 GPU' entry; most of its samples come from Panther Lake-H laptops (Core Ultra X7/X9) at higher power."
+  },
+  "notes": "Real SKU name of the stub 'Core Ultra / Arc G3 Extreme (handheld SKU)'; Intel brands it 'Intel Arc G3 Extreme Processor' (Arc G3 Processor Series). Used by the Acer Predator Atlas 8 and the MSI Claw 8 EX AI+. base_ghz is the P-core base (E-core and LP E-core 1.5 GHz). No Hyper-Threading. NPU 46 TOPS. launch_date from TPU; ARK says Q2'26. Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.intel.com/content/www/us/en/products/sku/245625/intel-arc-g3-extreme-processor-12m-cache-up-to-4-70-ghz/specifications.html",
+      "accessed": "2026-10-27",
+      "note": "Intel ARK: cores, clocks, power, Intel 18A, memory, Arc B390 GPU with 12 Xe-cores at 2.3 GHz, NPU 46 TOPS"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Arc+G3+Extreme&id=7300",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+B390+GPU&id=7571",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "name",
+      "url": "https://www.intel.com/content/www/us/en/products/details/processors/arc/g-series/handheld-gaming.html",
+      "accessed": "2026-10-27",
+      "note": "Intel Arc G-Series handheld page lists Arc G3 Extreme and Arc G3"
+    },
+    {
+      "field": "name",
+      "url": "https://retrohandhelds.gg/acer-predator-atlas-8-announced-at-computex-2026-powered-by-intel-arc-g3-extreme/",
+      "accessed": "2026-10-27",
+      "note": "Acer Predator Atlas 8 uses the Intel Arc G3 Extreme"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/arc-g3-extreme.c4437",
+      "accessed": "2026-10-27",
+      "note": "TPU: release May 28th, 2026"
+    },
+    {
+      "field": "cpu_arch",
+      "url": "https://www.techpowerup.com/cpu-specs/arc-g3-extreme.c4437",
+      "accessed": "2026-10-27",
+      "note": "TPU: Cougar Cove P-cores, Darkmont E-cores"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/arc-g3-extreme.c4412",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 7.680 TFLOPS (at 2500 MHz; ARK gives 2.3 GHz)"
+    }
+  ]
+}

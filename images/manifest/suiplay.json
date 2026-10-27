@@ -1,0 +1,12 @@
+{
+  "suiplay-0x1": {
+    "page": "https://www.suiplay0x1.com/",
+    "top": [
+      "https://cdn.prod.website-files.com/66cf3cbcef83aa4c33ac95de/67978bd81936c89f922e3b2e_Middle%20Page%20Animation_0160.webp"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Top uses the homepage animation frame (Middle Page Animation_0160.webp): a near straight-on front on a transparent background. Its aspect_err is 0.086 (h/w 0.434 against 105.5/264.5 = 0.399), under the 12 % limit; it failed the earlier 8 % limit. The official og:image (https://cdn.prod.website-files.com/66cf3cbcef83aa4c33ac95de/66d034ad9121fcb7a74fca5d_SuiPlay0X1_OG_image.jpg) is a 'Pre-order Now' text banner with no device, so it was removed. The media kit (https://www.suiplay0x1.com/media-kit) holds only logos and a background texture. No rear or side view was found, so side and bottom stay boxes. No retrocatalog front image exists."
+  }
+}

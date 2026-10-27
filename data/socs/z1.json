@@ -1,0 +1,92 @@
+{
+  "id": "z1",
+  "vendor": "AMD",
+  "name": "Ryzen Z1",
+  "codename": "Phoenix 2",
+  "cores": 6,
+  "threads": 12,
+  "core_mix": "2x Zen 4 + 4x Zen 4c",
+  "cpu_arch": "Zen 4 / Zen 4c",
+  "base_ghz": 3.2,
+  "boost_ghz": 4.9,
+  "tdp_w": {
+    "default": 28,
+    "min": 9,
+    "max": 30
+  },
+  "process_nm": 4,
+  "process_note": "TSMC 4nm",
+  "npu_tops": 0,
+  "memory": "DDR5-5600, LPDDR5X-7500, dual-channel",
+  "launch_date": "2023-05",
+  "igpu": {
+    "name": "Radeon 740M-class (4 CU)",
+    "cu": 4,
+    "arch": "RDNA 3",
+    "clock_mhz": 2800,
+    "tflops_fp32": 1.43
+  },
+  "passmark": {
+    "cpu_mark": 18258,
+    "single_thread": 3577,
+    "cpu_samples": 65,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z1&id=5756",
+    "g3d_mark": 2940,
+    "g3d_samples": 2410,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+740M&id=4926",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry 'AMD Ryzen Z1' (65 samples). GPU: no Z1 iGPU entry; stand-in 'Radeon 740M' (laptop twin with 4 CU RDNA 3)."
+  },
+  "notes": "Zen 4 cores: 3.7 GHz base; Zen 4c cores: 3.0 GHz base, up to 3.5 GHz. Codename set to Phoenix 2 (the 2+4 core die); the stub said Phoenix. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/handhelds/ryzen-z-series/z1-series/z1.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: cores, clocks, TDP, iGPU CU and clock"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z1&id=5756",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+740M&id=4926",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "codename",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z1.c3287",
+      "accessed": "2026-10-27",
+      "note": "TPU lists the Z1 under Phoenix2"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z1.c3287",
+      "accessed": "2026-10-27",
+      "note": "TPU: release May 2023"
+    },
+    {
+      "field": "process_nm",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z1.c3287",
+      "accessed": "2026-10-27",
+      "note": "TPU: TSMC 4 nm"
+    },
+    {
+      "field": "memory",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z1.c3287",
+      "accessed": "2026-10-27",
+      "note": "TPU: DDR5-5600, LPDDR5X-7500"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/ryzen-z1-gpu.c4158",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 2.560 TFLOPS (counts RDNA 3 dual-issue at 2500 MHz)"
+    }
+  ]
+}

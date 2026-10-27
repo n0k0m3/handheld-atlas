@@ -1,0 +1,86 @@
+{
+  "id": "cu7-255h",
+  "vendor": "Intel",
+  "name": "Core Ultra 7 255H",
+  "codename": "Arrow Lake-H",
+  "cores": 16,
+  "threads": 16,
+  "core_mix": "6P + 8E + 2LPE",
+  "cpu_arch": "Lion Cove + Skymont",
+  "base_ghz": 2.0,
+  "boost_ghz": 5.1,
+  "tdp_w": {
+    "default": 28,
+    "min": 20,
+    "max": 115
+  },
+  "process_nm": 3,
+  "process_note": "TSMC N3B (compute tile, per ARK)",
+  "npu_tops": 13,
+  "memory": "LPDDR5/X-8400, DDR5-6400, dual-channel, up to 128 GB",
+  "launch_date": "2025-01-13",
+  "igpu": {
+    "name": "Intel Arc 140T",
+    "cu": 8,
+    "arch": "Xe-LPG+",
+    "clock_mhz": 2250,
+    "tflops_fp32": 4.61
+  },
+  "passmark": {
+    "cpu_mark": 30792,
+    "single_thread": 4309,
+    "cpu_samples": 2292,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+Ultra+7+255H&id=6471",
+    "g3d_mark": 6586,
+    "g3d_samples": 2295,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+140T+GPU&id=5577",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU and GPU: exact entries ('Intel Arc 140T GPU', 2295 samples)."
+  },
+  "notes": "base_ghz is the P-core base (E-core 1.5 GHz). No Hyper-Threading. NPU 13 TOPS (96 TOPS overall). launch_date from TPU; ARK says Q1'25. Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.intel.com/content/www/us/en/products/sku/241751/intel-core-ultra-7-processor-255h-24m-cache-up-to-5-10-ghz/specifications.html",
+      "accessed": "2026-10-27",
+      "note": "Intel ARK: cores, clocks, power, TSMC N3B, memory, Arc 140T with 8 Xe-cores at 2.25 GHz, NPU"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+Ultra+7+255H&id=6471",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+140T+GPU&id=5577",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/core-ultra-7-255h.c4268",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Jan 13th, 2025"
+    },
+    {
+      "field": "cpu_arch",
+      "url": "https://www.techpowerup.com/cpu-specs/core-ultra-7-255h.c4268",
+      "accessed": "2026-10-27",
+      "note": "TPU: Lion Cove P-cores, Skymont E-cores"
+    },
+    {
+      "field": "igpu.arch",
+      "url": "https://www.techpowerup.com/gpu-specs/arc-140t-mobile.c4268",
+      "accessed": "2026-10-27",
+      "note": "TPU: Xe-LPG+"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/arc-140t-mobile.c4268",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 4.813 TFLOPS (at 2350 MHz; ARK gives 2.25 GHz for the 255H)"
+    }
+  ]
+}

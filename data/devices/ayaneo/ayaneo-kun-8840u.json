@@ -1,0 +1,84 @@
+{
+  "id": "ayaneo-kun-8840u",
+  "brand": "AYANEO",
+  "model": "Kun",
+  "variant": "Ryzen 7 8840U",
+  "status": "shipped",
+  "announce_date": "2024-05-24",
+  "release_date": "2024-07",
+  "msrp_usd": 1209,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 312.4, "h": 132.5, "d": 21.9, "d_max": 37.6 },
+    "note": "Official size 312.4 x 132.5 x 21.9 mm, 37.6 mm at the controller grips (same chassis as the 7840U model)"
+  },
+  "weight_g": {
+    "handheld": { "stated": 950, "measured": null, "measured_source": null },
+    "note": "Official: 950 g, 960 g with the optional 4G module"
+  },
+  "soc_id": "r7-8840u",
+  "ram": { "sizes_gb": [16, 32], "type": "LPDDR5X", "speed_mts": null, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": 4, "lanes": null, "note": "M.2 2280 PCIe 4.0 SSD" } ],
+    "capacities_gb": [512, 2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": 40, "dp_alt": true, "pd_in_w": null, "location": null, "note": "Full-featured USB4 Type-C" },
+    { "kind": "USB-A 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "UHS-II TF card slot, up to 300 MB/s" }
+  ],
+  "screen": { "size_in": 8.4, "panel": "IPS", "res_w": 2560, "res_h": 1600, "refresh_hz": 60, "vrr": null, "touch": true, "nits_sdr": 500, "nits_peak": null, "hdr": null, "note": "350 PPI, 100% sRGB, 90% DCI-P3. Refresh and touch come from the NotebookCheck review of the 7840U model; the official sheet lists one screen for both SoCs." },
+  "battery": { "wh": 75, "removable": false, "external": false, "charge_w": null, "note": "19500 mAh" },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall sensing big joystick",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 2,
+    "gyro": true,
+    "rear_buttons": 4,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD linear motor",
+    "note": "Linear Hall triggers. Dual intelligent touchpads. Floating 8-way D-pad. Double six-axis gyroscope. Metal kickstand."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.2" },
+  "os": ["Windows 11"],
+  "cooling": "KUNPeng heat dissipation system",
+  "fingerprint": null,
+  "notes": "Ryzen 7 8840U refresh of the Kun. TDP 5-54 W. Optional 4G LTE module sold separately. Prices for 16GB/512GB: early bird $999, Indiegogo $1,129, retail $1,209. First batch shipped in China at the end of July 2024 (IT Home); NotebookCheck says Indiegogo refresh orders ship from early August 2024. The official storage portfolio also lists 32GB+1TB and 64GB+4TB, but it does not split them by SoC; this row lists the 8840U launch configurations only.",
+  "unresolved": [
+    { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found for the 8840U model" },
+    { "field": "ram.speed_mts", "reason": "memory speed not stated" },
+    { "field": "ram.channels", "reason": "not stated" },
+    { "field": "storage.slots.0.lanes", "reason": "not stated" },
+    { "field": "ports.0.pd_in_w", "reason": "per-port charge wattage not stated" },
+    { "field": "ports.0.location", "reason": "port location not stated" },
+    { "field": "ports.1.dp_alt", "reason": "does not apply to USB-A" },
+    { "field": "ports.1.pd_in_w", "reason": "does not apply to USB-A" },
+    { "field": "ports.1.location", "reason": "port location not stated" },
+    { "field": "ports.2", "reason": "speed, DP, and PD do not apply; location not stated" },
+    { "field": "ports.3", "reason": "speed, DP, and PD do not apply; location not sourced for the 8840U model" },
+    { "field": "screen.vrr", "reason": "not stated" },
+    { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (500 nits)" },
+    { "field": "screen.hdr", "reason": "not stated" },
+    { "field": "battery.charge_w", "reason": "charger wattage not stated" },
+    { "field": "controls.trigger_lock", "reason": "not stated" },
+    { "field": "fingerprint", "reason": "official sheet lists Windows Hello face recognition only; a fingerprint sensor is reported only for the 7840U review unit" }
+  ],
+  "conflicts": [
+    { "field": "release_date", "values": [ { "value": "2024-07", "url": "https://www.ithome.com/0/770/622.htm" }, { "value": "2024-08", "url": "https://www.notebookcheck.net/AYANEO-releases-three-new-refresh-gaming-handhelds-with-powerful-AMD-APUs-shortly-before-ASUS-ROG-Ally-X-announcement.841043.0.html" } ], "chosen_reason": "earliest first-batch shipment (China, end of July 2024)" }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://ayaneo.com/product/AYANEO-KUN", "accessed": "2026-10-27", "note": "Spec table image: https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/8840U/KUNEN/04.jpg (lists 8840U and 7840U)" },
+    { "field": "controls.stick_type", "url": "https://ayaneo.com/product/AYANEO-KUN", "accessed": "2026-10-27", "note": "Spec table: Joystick = Hall sensing big joystick" },
+    { "field": "controls.trigger_type", "url": "https://ayaneo.com/product/AYANEO-KUN", "accessed": "2026-10-27", "note": "Spec table: Trigger = Linear hall trigger" },
+    { "field": "announce_date", "url": "https://ayaneo.com/article/833", "accessed": "2026-10-27", "note": "Official article: 8840U versions opened for pre-order on May 24th, 2024" },
+    { "field": "msrp_usd", "url": "https://liliputing.com/ayaneo-upgrades-the-ayaneo-2s-air-1s-and-kun-handheld-gaming-pcs-with-ryzen-7-8840u-chips/", "accessed": "2026-10-27", "note": "16GB/512GB: early bird $999, IGG $1,129, retail $1,209; 32GB/2TB retail $1,429" },
+    { "field": "release_date", "url": "https://www.ithome.com/0/770/622.htm", "accessed": "2026-10-27", "note": "KUN first batch ships end of July 2024" },
+    { "field": "screen.refresh_hz", "url": "https://www.notebookcheck.net/Ayaneo-Kun-gaming-handheld-in-review-Performance-beast-for-individualists.797526.0.html", "accessed": "2026-10-27", "note": "7840U unit: 60 Hz touchscreen" },
+    { "field": "screen.touch", "url": "https://www.notebookcheck.net/Ayaneo-Kun-gaming-handheld-in-review-Performance-beast-for-individualists.797526.0.html", "accessed": "2026-10-27", "note": null }
+  ]
+}

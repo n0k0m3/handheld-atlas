@@ -1,0 +1,258 @@
+{
+  "id": "gpd-win-4-2022",
+  "brand": "GPD",
+  "model": "Win 4",
+  "variant": "2022 (Ryzen 7 6800U)",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2023-03",
+  "msrp_usd": 799,
+  "form_factor": "slider",
+  "dims_mm": {
+    "handheld": {
+      "w": 220,
+      "h": 92,
+      "d": 28,
+      "d_max": null
+    },
+    "note": "Slider closed (gaming position). The screen slides up to expose the keyboard; GPD lists one size."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 598,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r7-6800u",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR5",
+    "speed_mts": 6400,
+    "channels": 4,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "single-sided SSD only; shipped SSD is PCIe 3.0"
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "full-speed USB4; video/data/charging"
+    },
+    {
+      "kind": "USB-C 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "full-featured; video/data/charging"
+    },
+    {
+      "kind": "USB-A 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "1 on device; 3 more on the optional dock"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "headphone/mic combo"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "UHS-I, A2, 160 MB/s read"
+    }
+  ],
+  "screen": {
+    "size_in": 6.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 60,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "H-IPS, 368 PPI, DC dimming, Gorilla Glass 5; 45 Hz and 60 Hz modes (2022 page: 40 Hz)"
+  },
+  "battery": {
+    "wh": 45.62,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65 W USB-C PD adapter in the box (20 V 3.25 A)"
+  },
+  "controls": {
+    "stick_type": "potentiometer",
+    "stick_note": "ALPS 3D joysticks (OEM), L3/R3 press",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": true,
+    "detachable_controllers": false,
+    "haptics": "dual vibration motors (off / weak / strong)",
+    "note": "Optical finger mouse (OFN) instead of a touchpad; L1/R1 RGB lighting; L2/R2 linear analog triggers"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "single fan + dual heat pipes",
+  "fingerprint": true,
+  "notes": "Launch Win 4. No OCuLink; a USB-A port sits where later models have OCuLink. Dock ports (HDMI, RJ45, 3x USB-A, charge-only USB-C) are not counted. msrp_usd is the Indiegogo price of the 16 GB base model. RAM is LPDDR5, which is soldered by design. The pre-launch spec page (2022-09) claimed Hall sticks and 570 g; the post-launch page (2023-05) lists ALPS sticks and 598 g.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "official pages give a launch month only; no dated announcement sourced"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found within the fetch budget"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "spec page does not state port location or per-port PD input; null subfields are unstated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated on the spec page"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "brightness not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "GPD says 'linear analog' triggers but does not name the sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "release_date",
+      "values": [
+        {
+          "value": "2023-03",
+          "url": "https://web.archive.org/web/20230516105947/https://gpd.hk/gpdwin4techspecs"
+        },
+        {
+          "value": "2022-12",
+          "url": "https://web.archive.org/web/20220930184835/https://gpd.hk/gpdwin4techspecs"
+        }
+      ],
+      "chosen_reason": "post-launch official page; 2022-12 was the planned date on the pre-launch page"
+    },
+    {
+      "field": "weight_g.handheld.stated",
+      "values": [
+        {
+          "value": 598,
+          "url": "https://web.archive.org/web/20230516105947/https://gpd.hk/gpdwin4techspecs"
+        },
+        {
+          "value": 570,
+          "url": "https://web.archive.org/web/20220930184835/https://gpd.hk/gpdwin4techspecs"
+        }
+      ],
+      "chosen_reason": "post-launch official page"
+    },
+    {
+      "field": "controls.stick_type",
+      "values": [
+        {
+          "value": "potentiometer (ALPS 3D)",
+          "url": "https://web.archive.org/web/20230516105947/https://gpd.hk/gpdwin4techspecs"
+        },
+        {
+          "value": "hall",
+          "url": "https://web.archive.org/web/20220930184835/https://gpd.hk/gpdwin4techspecs"
+        }
+      ],
+      "chosen_reason": "shipped units use ALPS sticks per the post-launch page and a hands-on review"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20230516105947/https://gpd.hk/gpdwin4techspecs",
+      "accessed": "2026-10-27",
+      "note": "Wayback copy of the official tech specs page, 2023-05 (6800U)"
+    },
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20220930184835/https://gpd.hk/gpdwin4techspecs",
+      "accessed": "2026-10-27",
+      "note": "Wayback copy, 2022-09 pre-launch version"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.china-gadgets.de/gpd-win-4-gaming-handheld-test/",
+      "accessed": "2026-10-27",
+      "note": "Review (6800U unit): 'Verbaut sind ALPS Joysticks ... Da es sich nicht um Hall-Sticks handelt'. Later Win 4 spec pages list the same ALPS 3D joysticks."
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/GPD-Win-4-PSP-Vita-lookalike-launches-for-US-799-with-design-improvements-and-Radeon-680M-iGPU.675748.0.html",
+      "accessed": "2026-10-27",
+      "note": "US$799 Indiegogo, 6800U / 16 GB / 512 GB"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "r5-5560u",
+  "vendor": "AMD",
+  "name": "Ryzen 5 5560U",
+  "codename": "Cezanne",
+  "cores": 6,
+  "threads": 12,
+  "core_mix": "6x Zen 3",
+  "cpu_arch": "Zen 3",
+  "base_ghz": 2.3,
+  "boost_ghz": 4.0,
+  "tdp_w": {
+    "default": 15,
+    "min": 10,
+    "max": 25
+  },
+  "process_nm": 7,
+  "process_note": "TSMC 7nm FinFET",
+  "npu_tops": 0,
+  "memory": "DDR4-3200, LPDDR4X-4267, dual-channel, up to 64 GB",
+  "launch_date": "2021-01-12",
+  "igpu": {
+    "name": "Radeon Vega 6",
+    "cu": 6,
+    "arch": "Vega (GCN 5)",
+    "clock_mhz": 1600,
+    "tflops_fp32": 1.23
+  },
+  "passmark": {
+    "cpu_mark": 15173,
+    "single_thread": 2830,
+    "cpu_samples": 409,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+5560U&id=4883",
+    "g3d_mark": 2028,
+    "g3d_samples": 341,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+5+5560U&id=4555",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry. GPU: chip-named entry 'Radeon Ryzen 5 5560U' (341 samples); the iGPU reports as 'AMD Radeon Graphics' and PassMark's generic Vega 6 entries pool older chips."
+  },
+  "notes": "AMD names the iGPU only 'AMD Radeon Graphics' with 6 graphics cores; Vega 6 is the common name. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5560u.html",
+      "accessed": "2026-10-27",
+      "note": "the AMD product page returns 404; this AMD driver page carries the full spec table"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+5+5560U&id=4883",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+Ryzen+5+5560U&id=4555",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    }
+  ]
+}

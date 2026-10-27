@@ -1,0 +1,283 @@
+{
+  "brand": "AYANEO",
+  "model": "NEXT",
+  "status": "shipped",
+  "announce_date": "2022-01-05",
+  "release_date": "2022-05",
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 267,
+      "h": 112,
+      "d": 22,
+      "d_max": null
+    },
+    "note": "Official: 267 x 112 x 22mm"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 720,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR4X",
+    "speed_mts": 4266,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": null,
+        "lanes": null,
+        "note": "M.2 2280 PCIe NVMe"
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "none"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB-C unspecified",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Full-function Type-C, PD 3.0, DisplayPort 1.4 4K60; USB speed not stated"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "IPS",
+    "res_w": 1280,
+    "res_h": 800,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "7.0\" LCD IPS, 215 PPI, 5-point capacitive touch"
+  },
+  "battery": {
+    "wh": 47,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": "3 x 4100 mAh 3.85 V Li-ion; Type-C PD fast charging"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall effect joysticks, removable modular design",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "Dual X-axis linear motors",
+    "note": "Official table: Hall Effect Sensor (Joysticks, Triggers)"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows"
+  ],
+  "cooling": "Silent fan, dual copper heat pipes, pure copper fins",
+  "fingerprint": true,
+  "id": "ayaneo-next-5825u",
+  "variant": "Ryzen 7 5825U (NEXT, NEXT Pro)",
+  "msrp_usd": 1335,
+  "soc_id": "r7-5825u",
+  "notes": "NEXT (16GB, 1TB or 2TB) and NEXT Pro (32GB/2TB) share this row: same chassis and SoC, they differ only by RAM and SSD. Launch prices (DroiX, updated 2022-02-25): NEXT 1TB $1,335 retail ($1,285 early bird), NEXT 2TB $1,435 ($1,385), NEXT Pro $1,535 ($1,485). The 2022-01-05 reveal prices were lower (NEXT $1,315, Pro $1,565 retail per Liliputing). The NEXT Pro first batch was limited to 500 units. Early review units used a 5800U; DroiX says retail units use the 5825U. Release month is the May 2022 start reported by Wikipedia and DroiX.",
+  "unresolved": [
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found; Tom's Hardware review was behind a captcha"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "single thickness value published"
+    },
+    {
+      "field": "storage.slots.0.pcie_gen",
+      "reason": "PCIe generation not stated"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "not stated"
+    },
+    {
+      "field": "ports.0.speed_gbps",
+      "reason": "USB speed of the Type-C ports not stated"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "PD 3.0 stated without a wattage"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "port location not stated"
+    },
+    {
+      "field": "ports.1",
+      "reason": "speed, DP, PD, and location do not apply or are not stated"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "reason": "refresh rate not stated by the vendor"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "brightness not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "brightness not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "PD fast charging stated without a wattage"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.gyro",
+      "reason": "gyroscope not mentioned on the official page"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "not stated"
+    },
+    {
+      "field": "os",
+      "reason": "official page does not name the Windows version"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "wireless.wifi",
+      "values": [
+        {
+          "value": "Wi-Fi 6",
+          "url": "https://ayaneo.com/product/ayaneo-next-pro"
+        },
+        {
+          "value": "Wi-Fi 6E",
+          "url": "https://liliputing.com/aya-neo-next-is-a-handheld-gaming-pc-with-ryzen-7-5800u-and-up-to-32gb-of-ram/"
+        },
+        {
+          "value": "Wi-Fi 6E",
+          "url": "https://droix.net/blogs/ayaneo-next-faq-ayas-next-windows-gaming-handheld/"
+        }
+      ],
+      "chosen_reason": "official label; the official page also names the AMD RZ608 module with the 6 GHz band, which is Wi-Fi 6E hardware"
+    },
+    {
+      "field": "msrp_usd",
+      "values": [
+        {
+          "value": 1335,
+          "url": "https://droix.net/blogs/ayaneo-next-faq-ayas-next-windows-gaming-handheld/"
+        },
+        {
+          "value": 1315,
+          "url": "https://liliputing.com/aya-neo-next-is-a-handheld-gaming-pc-with-ryzen-7-5800u-and-up-to-32gb-of-ram/"
+        }
+      ],
+      "chosen_reason": "DroiX table is the later price list (2022-02-25, before the campaign); Liliputing has the 2022-01-05 reveal price"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/ayaneo-next-pro",
+      "accessed": "2026-10-27",
+      "note": "Page text and the 'Choose Your AYANEO NEXT Edition' table (NEXT Advance 5800U, NEXT 5825U, NEXT Pro 5825U; 267 x 112 x 22mm, 720g)"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/ayaneo-next-pro",
+      "accessed": "2026-10-27",
+      "note": "Hall Effect Sensor (Joysticks, Triggers)"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/ayaneo-next-pro",
+      "accessed": "2026-10-27",
+      "note": "Hall Effect Sensor (Joysticks, Triggers)"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://www.notebookcheck.net/AYA-NEO-NEXT-revealed-with-an-AMD-Ryzen-7-5800U-APU-up-to-32-GB-and-an-extraordinary-price.590158.0.html",
+      "accessed": "2026-10-27",
+      "note": "Revealed 2022-01-05; crowdfunding from February 2022"
+    },
+    {
+      "field": "release_date",
+      "url": "https://en.wikipedia.org/wiki/Ayaneo",
+      "accessed": "2026-10-27",
+      "note": "Ayaneo Next: May 2022"
+    },
+    {
+      "field": "release_date",
+      "url": "https://droix.net/blogs/ayaneo-next-faq-ayas-next-windows-gaming-handheld/",
+      "accessed": "2026-10-27",
+      "note": "Indiegogo orders expected to ship mid-April 2022; DroiX tentative release 2022-05-02"
+    },
+    {
+      "field": "storage.expansion",
+      "url": "https://liliputing.com/aya-neo-next-is-a-handheld-gaming-pc-with-ryzen-7-5800u-and-up-to-32gb-of-ram/",
+      "accessed": "2026-10-27",
+      "note": "Ports: 2 x USB Type-C, 1 x 3.5mm audio (no card reader)"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://droix.net/blogs/ayaneo-next-faq-ayas-next-windows-gaming-handheld/",
+      "accessed": "2026-10-27",
+      "note": "NEXT [1TB] Ryzen 7 5825U 16GB/1TB: $1285 early bird, $1335 retail (2022-02-25)"
+    },
+    {
+      "field": "notes",
+      "url": "https://liliputing.com/aya-neo-next-is-a-handheld-gaming-pc-with-ryzen-7-5800u-and-up-to-32gb-of-ram/",
+      "accessed": "2026-10-27",
+      "note": "Reveal prices 2022-01-05; NEXT Pro limited to 500 units in the first batch"
+    }
+  ]
+}

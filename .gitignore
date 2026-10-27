@@ -1,0 +1,11 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Downloaded renders. Regenerate with: cd scripts && uv run fetch_images.py
+images/raw/
+
+# Editor and OS files
+.DS_Store
+*.swp

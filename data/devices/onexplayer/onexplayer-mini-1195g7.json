@@ -1,0 +1,304 @@
+{
+  "id": "onexplayer-mini-1195g7",
+  "brand": "OneXPlayer",
+  "model": "OneXPlayer Mini",
+  "variant": "Intel Core i7-1195G7",
+  "status": "shipped",
+  "announce_date": "2021-11",
+  "release_date": "2022-01-13",
+  "msrp_usd": 1259,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 262,
+      "h": 108,
+      "d": 23,
+      "d_max": null
+    },
+    "note": null
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 589,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "i7-1195g7",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR4X",
+    "speed_mts": 4266,
+    "channels": null,
+    "soldered": null
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "other",
+        "pcie_gen": 3,
+        "lanes": 4,
+        "note": "PCIe 3.0 x4 NVMe; M.2 size not stated"
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024,
+      2048
+    ],
+    "expansion": []
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Two USB4 Type-C (full function: power, data, video)"
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 1,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Listed as USB 3.0 Type-A"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": null
+  },
+  "battery": {
+    "wh": 40.25,
+    "removable": false,
+    "external": false,
+    "charge_w": 100,
+    "note": "10,455 mAh; 100 W GaN charger"
+  },
+  "controls": {
+    "stick_type": null,
+    "stick_note": null,
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "Dual vibration motors",
+    "note": "Dual linear triggers (sensor not named)"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.0"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Fan, aluminium heat sink, two copper heat pipes",
+  "fingerprint": null,
+  "notes": "7-inch OneXPlayer Mini (2022). Store launch 2022-01-13 at $1,259 list ($1,039 for the first 24 hours). The 8.4-inch OneXPlayer / OneXPlayer 1S is a different, larger chassis (280 x 128 x 25 mm, 825 g); no row for it.",
+  "unresolved": [
+    {
+      "field": "controls.stick_type",
+      "reason": "Sensor not named in any source found"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "Vendor says 'linear triggers' without naming the sensor"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review measurement found"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ram.soldered",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.0.speed_gbps",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.0.dp_alt",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.1.dp_alt",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.2.speed_gbps",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.2.dp_alt",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.2.pd_in_w",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "controls.gyro",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "Not stated in the launch articles; the official page is gone"
+    },
+    {
+      "field": "storage.expansion",
+      "reason": "No card slot is mentioned; not confirmed absent"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "dims_mm.handheld.w",
+      "values": [
+        {
+          "value": 262,
+          "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-now-available/"
+        },
+        {
+          "value": 272,
+          "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-coming-in-january/"
+        }
+      ],
+      "chosen_reason": "262 mm appears in the launch article and in every comparison table; 272 mm appears once in the pre-launch text"
+    },
+    {
+      "field": "ports.0.kind",
+      "values": [
+        {
+          "value": "USB4",
+          "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-is-smaller-but-thicker-than-the-8-4-inch-onexplayer/"
+        },
+        {
+          "value": "USB-C full function",
+          "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-now-available/"
+        }
+      ],
+      "chosen_reason": "Two Liliputing articles name USB4; the launch article says only full-function Type-C"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-now-available/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook launch details via Liliputing; the original store page is gone"
+    },
+    {
+      "field": "ports",
+      "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-is-smaller-but-thicker-than-the-8-4-inch-onexplayer/",
+      "accessed": "2026-10-27",
+      "note": "Two USB4 Type-C ports, one USB 3.0 Type-A, 3.5 mm"
+    },
+    {
+      "field": "ram.type",
+      "url": "https://liliputing.com/onexplayer-mini-with-ryzen-7-5800u-launches-in-china-for-840-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Like the Intel Mini, the AMD Edition has 16 GB of LPDDR4x-4266"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-coming-in-january/",
+      "accessed": "2026-10-27",
+      "note": "First shown in China in November 2021; Japan launch event 2021-12-17"
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-now-available/",
+      "accessed": "2026-10-27",
+      "note": "Available from the ONEXPLAYER Store on 2022-01-13"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-mini-7-inch-handheld-gaming-pc-now-available/",
+      "accessed": "2026-10-27",
+      "note": "List price $1,259 for 16 GB/512 GB"
+    }
+  ]
+}

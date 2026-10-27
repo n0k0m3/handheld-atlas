@@ -1,0 +1,74 @@
+{
+  "legion-go": {
+    "page": "https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_lenovo-legion-go"
+    ],
+    "bottom": [
+      "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_8APU1/Compressedimage/Legion_Go_8APU1_CT2_01.png"
+    ],
+    "side": [],
+    "closed_top": [],
+    "note": "retrocatalog front render; no official press render collected. bottom = PSREF CT2_01 rear view with the controllers attached (compressed JPEG; the full PNG keeps a faint floor shadow that the alpha mask traces as slivers). PSREF CT2_06/CT2_07 profile a detached controller only, so side stays a box."
+  },
+  "legion-go-z1": {
+    "page": "https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_lenovo-legion-go"
+    ],
+    "bottom": [
+      "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_8APU1/Compressedimage/Legion_Go_8APU1_CT2_01.png"
+    ],
+    "side": [],
+    "closed_top": [],
+    "note": "same 8APU1 chassis as legion-go; retrocatalog front render. bottom = PSREF 8APU1 CT2_01 rear view, as legion-go. side stays a box."
+  },
+  "legion-go-s-z2-go": {
+    "page": "https://psref.lenovo.com/Product/Legion/Legion_Go_S_8ARP1",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_legion-go-s"
+    ],
+    "bottom": [
+      "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_S_8ARP1/Legion_Go_S_8ARP1_CT2_08.png"
+    ],
+    "side": [
+      "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_S_8ARP1/Legion_Go_S_8ARP1_CT2_09.png"
+    ],
+    "closed_top": [],
+    "note": "retrocatalog front render (white Windows colourway). bottom = PSREF CT2_08 rear view (purple; the white CT2_02 rear traces with the white body cut out). side = PSREF CT2_09 left profile, upright; it fails the aspect check because the profile includes the grip and sticks while d is the 22.6 mm body."
+  },
+  "legion-go-s-z1-extreme": {
+    "page": "https://psref.lenovo.com/Product/Legion/Legion_Go_S_8APU1",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_legion-go-s"
+    ],
+    "bottom": [
+      "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_S_8ARP1/Legion_Go_S_8ARP1_CT2_08.png"
+    ],
+    "side": [
+      "https://psrefstuff.lenovo.com/syspool/Sys/Image/Legion/Legion_Go_S_8ARP1/Legion_Go_S_8ARP1_CT2_09.png"
+    ],
+    "closed_top": [],
+    "note": "same chassis as legion-go-s-z2-go; retrocatalog front render. bottom and side use the same PSREF 8ARP1 CT2_08 / CT2_09 images as legion-go-s-z2-go; side fails the aspect check (profile includes grip and sticks; d is the body)."
+  },
+  "legion-go-2": {
+    "page": "https://psref.lenovo.com/Product/Legion/Legion_Go_8ASP2",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_legion-go-gen-2"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "retrocatalog front render. The PSREF 8ASP2 gallery has a rear view only with the controllers detached (CT1_03) and no side profile, so side and bottom stay boxes."
+  },
+  "legion-go-2-z2": {
+    "page": "https://psref.lenovo.com/Product/Legion/Legion_Go_8AHP2",
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_legion-go-gen-2"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "same chassis as legion-go-2; retrocatalog front render. Same as legion-go-2: no rear view with controllers attached and no side profile, so side and bottom stay boxes."
+  }
+}

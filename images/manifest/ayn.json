@@ -1,0 +1,13 @@
+{
+  "ayn-loki-max": {
+    "page": null,
+    "top": [
+      "https://retrocatalog.com/images/retro-handheld_front_loki-max",
+      "https://liliputing.com/wp-content/uploads/2023/06/loki-max_02.jpg"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "AYN's product page is gone. The retrocatalog front image resolves (image/webp). The Liliputing image is an AYN photo from the June 2023 shipping article; view not inspected. Top checked: the retrocatalog front is straight-on (aspect_err 0.052); the Liliputing image is not fetched. No official gallery exists, so side and bottom stay boxes."
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "id": "ayaneo-air-1s-8840u",
+  "brand": "AYANEO",
+  "model": "Air 1S",
+  "variant": "Ryzen 7 8840U",
+  "status": "shipped",
+  "announce_date": "2024-05-24",
+  "release_date": "2024-08",
+  "msrp_usd": 899,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 224, "h": 89.5, "d": 21.6, "d_max": null },
+    "note": "Official size 224 x 89.5 x 21.6 mm (same chassis as the 7840U Standard Edition)"
+  },
+  "weight_g": {
+    "handheld": { "stated": 450, "measured": null, "measured_source": null },
+    "note": null
+  },
+  "soc_id": "r7-8840u",
+  "ram": { "sizes_gb": [16, 32], "type": "LPDDR5X", "speed_mts": null, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": null, "lanes": null, "note": "M.2 2280 PCIe SSD" } ],
+    "capacities_gb": [512, 2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": 40, "dp_alt": true, "pd_in_w": null, "location": null, "note": "Full-function USB4 Type-C" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "TF card slot, up to 100 MB/s" }
+  ],
+  "screen": { "size_in": 5.5, "panel": "AMOLED", "res_w": 1920, "res_h": 1080, "refresh_hz": 60, "vrr": null, "touch": true, "nits_sdr": 350, "nits_peak": null, "hdr": null, "note": "Same panel row as the 7840U editions on the official sheet. 404 PPI, 100% sRGB, 99% DCI-P3. Refresh and touch come from the NotebookCheck review of a 7840U unit." },
+  "battery": { "wh": 38, "removable": false, "external": false, "charge_w": null, "note": "10050 mAh" },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall sensing joystick",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "X-axis linear motor",
+    "note": "Linear Hall triggers. Dual six-axis gyroscopes. The official spec sheet lists no touchpad."
+  },
+  "wireless": { "wifi": null, "bt": "5.2" },
+  "os": ["Windows 11"],
+  "cooling": "Customized heat dissipation system (single fan)",
+  "fingerprint": true,
+  "notes": "Ryzen 7 8840U refresh of the Air 1S. TDP 5-20 W on battery, 5-25 W plugged in. Prices for 16GB/512GB: early bird $699, Indiegogo $849, retail $899. First batch planned for early August 2024 (IT Home; NotebookCheck says no refresh orders ship before early August). A co-branded Eiyuden Chronicle edition has no technical differences (NotebookCheck).",
+  "unresolved": [
+    { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found for the 8840U model" },
+    { "field": "ram.speed_mts", "reason": "memory speed not stated" },
+    { "field": "ram.channels", "reason": "not stated" },
+    { "field": "storage.slots.0.pcie_gen", "reason": "official sheet says only M.2 2280 PCIe SSD" },
+    { "field": "storage.slots.0.lanes", "reason": "not stated" },
+    { "field": "dims_mm.handheld.d_max", "reason": "single thickness value published" },
+    { "field": "ports.0.pd_in_w", "reason": "per-port charge wattage not stated" },
+    { "field": "ports.0.location", "reason": "location not sourced for the 8840U model" },
+    { "field": "ports.1", "reason": "speed, DP, and PD do not apply; location not sourced" },
+    { "field": "ports.2", "reason": "speed, DP, and PD do not apply; location not sourced" },
+    { "field": "screen.vrr", "reason": "not stated" },
+    { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (350 nits)" },
+    { "field": "screen.hdr", "reason": "not stated" },
+    { "field": "battery.charge_w", "reason": "bundled charger wattage not stated for the 8840U model" },
+    { "field": "controls.trigger_lock", "reason": "not stated" },
+    { "field": "controls.rear_buttons", "reason": "not stated" },
+    { "field": "wireless.wifi", "reason": "official sheet says only WiFi; Wi-Fi 6E is sourced only for the 7840U model" }
+  ],
+  "conflicts": [],
+  "sources": [
+    { "field": "*", "url": "https://ayaneo.com/product/AYANEOAIR1S", "accessed": "2026-10-27", "note": "Spec table image: https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/4-0621.png (column: AYANEO AIR 1S 8840U)" },
+    { "field": "controls.stick_type", "url": "https://ayaneo.com/product/AYANEOAIR1S", "accessed": "2026-10-27", "note": "Spec table: Joystick = Hall sensing joystick" },
+    { "field": "controls.trigger_type", "url": "https://ayaneo.com/product/AYANEOAIR1S", "accessed": "2026-10-27", "note": "Spec table: Trigger = Linear hall trigger" },
+    { "field": "announce_date", "url": "https://ayaneo.com/article/833", "accessed": "2026-10-27", "note": "Official article 2024-05-27: 8840U versions opened for pre-order on May 24th" },
+    { "field": "msrp_usd", "url": "https://liliputing.com/ayaneo-upgrades-the-ayaneo-2s-air-1s-and-kun-handheld-gaming-pcs-with-ryzen-7-8840u-chips/", "accessed": "2026-10-27", "note": "16GB/512GB: early bird $699, IGG $849, retail $899" },
+    { "field": "release_date", "url": "https://www.ithome.com/0/770/622.htm", "accessed": "2026-10-27", "note": "First batch ships early August 2024" },
+    { "field": "release_date", "url": "https://www.notebookcheck.net/AYANEO-releases-three-new-refresh-gaming-handhelds-with-powerful-AMD-APUs-shortly-before-ASUS-ROG-Ally-X-announcement.841043.0.html", "accessed": "2026-10-27", "note": "No refresh orders ship until early August 2024" },
+    { "field": "screen.refresh_hz", "url": "https://www.notebookcheck.net/Ayaneo-Air-1S-Retro-Power-gaming-handheld-in-test-Zen4-Power-for-your-pocket.761047.0.html", "accessed": "2026-10-27", "note": "7840U unit: 60 Hz touchscreen; official sheet shares the screen row" },
+    { "field": "screen.touch", "url": "https://www.notebookcheck.net/Ayaneo-Air-1S-Retro-Power-gaming-handheld-in-test-Zen4-Power-for-your-pocket.761047.0.html", "accessed": "2026-10-27", "note": null },
+    { "field": "screen.nits_sdr", "url": "https://www.notebookcheck.com/450g-leichter-Ayaneo-Air-1S-Gaming-Handheld-mit-AMOLED-Display-erhaelt-Upgrade-auf-AMD-Ryzen-7-8840U.839726.0.html", "accessed": "2026-10-27", "note": "350 nits maximum brightness (search snippet)" },
+    { "field": "notes", "url": "https://www.notebookcheck.net/AIR-1S-AYANEO-announces-AMD-Ryzen-7-8840U-refresh-with-Eiyuden-Chronicle-limited-edition-model.839063.0.html", "accessed": "2026-10-27", "note": "No other hardware changes for the refresh; Eiyuden Chronicle edition" }
+  ]
+}

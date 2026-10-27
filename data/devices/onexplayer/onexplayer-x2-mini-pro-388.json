@@ -1,0 +1,422 @@
+{
+  "id": "onexplayer-x2-mini-pro-388",
+  "brand": "OneXPlayer",
+  "model": "X2 Mini Pro",
+  "variant": "Ryzen AI Max+ 388",
+  "status": "shipped",
+  "announce_date": "2026-04-14",
+  "release_date": "2026-07",
+  "msrp_usd": 2699,
+  "form_factor": "3-in-1",
+  "dims_mm": {
+    "handheld": {
+      "w": 313,
+      "h": 138,
+      "d": 22,
+      "d_max": 39.5
+    },
+    "note": "d_max derived: 22 mm body + 17.5 mm battery pack (vendor gives no combined figure)"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 1180,
+      "measured": null,
+      "measured_source": null
+    },
+    "without_battery": {
+      "stated": 799,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Vendor: about 799 g with controllers and without battery (standard version; Liquid Cooling version +70 g). handheld.stated = 799 g + vendor 381 g battery."
+  },
+  "soc_id": "ai-max-388",
+  "ram": {
+    "sizes_gb": [
+      48,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 8000,
+    "channels": 4,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD",
+      "mini-ssd-1517"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Vendor: USB-C 4.0"
+    },
+    {
+      "kind": "USB-C unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Vendor: USB-C 3.2 (generation not stated)"
+    },
+    {
+      "kind": "USB-A unspecified",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Vendor: USB-A 3.2 (generation not stated)"
+    },
+    {
+      "kind": "mini-ssd-1517",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Mini SSD slot, PCIe 4.0"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "microSD 4.0, up to 2 TB"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "DC",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "DC power jack"
+    }
+  ],
+  "screen": {
+    "size_in": 8.8,
+    "panel": "OLED",
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 144,
+    "vrr": true,
+    "touch": null,
+    "nits_sdr": 475,
+    "nits_peak": 1100,
+    "hdr": true,
+    "note": "30-144 Hz VRR; 700 nits HBM, 1100 nits HDR; 100% DCI-P3"
+  },
+  "battery": {
+    "wh": 85,
+    "removable": true,
+    "external": true,
+    "charge_w": 240,
+    "note": "Blade-style snap-on pack with built-in kickstand, about 381 g; also works over a cable. 240 W GaN charger via the DC jack; 55 W max TDP on battery or USB power."
+  },
+  "controls": {
+    "stick_type": "capacitive",
+    "stick_note": "Capacitive joysticks, 9 mm height, 22 degree tilt, RGB",
+    "trigger_type": "capacitive",
+    "trigger_lock": true,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": true,
+    "haptics": "Dual vibration motors",
+    "note": "Dual-stage triggers with physical travel switch; hot-swappable 8/4-way D-pad; controller connector base (1,100 mAh, 99 g) sold with early configurations"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Dual 5400 RPM fans, 4 copper heat pipes, 47,200 mm2 fins; 80 W air-cooled; Liquid Cooling version up to 120 W with the Frost Bay unit",
+  "fingerprint": true,
+  "notes": "Teased in April 2026 as the X2 Mini with a Ryzen AI Max+ 395; it launched with the Max+ 388 instead, so there is no 395 row. Indiegogo from 2026-06-15 ($2,466 and up; VideoCardz quoted $2,399). Store list price $2,699, sale price $2,499 at crawl time. Brief said 'shipped June 2026'; sources show Indiegogo in June and shipping from late July 2026.",
+  "unresolved": [
+    {
+      "field": "dims_mm.tablet_only",
+      "reason": "Not stated"
+    },
+    {
+      "field": "weight_g.tablet_only",
+      "reason": "Not stated"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review measurement found"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated for the Pro"
+    },
+    {
+      "field": "weight_g.without_battery.measured",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.1.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.2.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.3.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.4.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.5.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.5.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.5.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.5.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.6.speed_gbps",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.6.dp_alt",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.6.pd_in_w",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "ports.6.location",
+      "reason": "Not stated in the official spec image or the sources used"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "weight_g.without_battery.stated",
+      "values": [
+        {
+          "value": 799,
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/17863282263688.png?v=1786328848"
+        },
+        {
+          "value": 719,
+          "url": "https://www.notebookcheck.net/OneXPlayer-reveals-X2-Mini-Pro-pricing-OpenClaw-ready-Ryzen-AI-Max-388-handheld-PC-launching-with-up-to-64-GB-RAM-optional-liquid-cooling-and-118-TOPS-of-AI-performance.1321358.0.html"
+        }
+      ],
+      "chosen_reason": "Official store spec image (799 g with controllers, without battery); 719 g / 1,099 g came from the Indiegogo campaign"
+    },
+    {
+      "field": "dims_mm.handheld.w",
+      "values": [
+        {
+          "value": 313,
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/17863282263688.png?v=1786328848"
+        },
+        {
+          "value": 331,
+          "url": "https://liliputing.com/onexplayer-x2-mini-pro-handheld-gaming-pc-with-ryzen-ai-max-388-hits-indiegogo-for-2466-and-up/"
+        }
+      ],
+      "chosen_reason": "Official spec image; the X2 Mini and OneXPlayer 3 sheets also give 313 mm"
+    },
+    {
+      "field": "controls.trigger_type",
+      "values": [
+        {
+          "value": "capacitive",
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/17863282263688.png?v=1786328848"
+        },
+        {
+          "value": "hall",
+          "url": "https://onexplayerstore.com/products/onexplayer-x2-mini-pro-8-8-3-in-1-oled-gaming-handheld-with-amd-ryzen%E2%84%A2-ai-max-388-liquid-cooling"
+        }
+      ],
+      "chosen_reason": "Official spec image names 'Capacitive Sensor Triggers'; the store text and NotebookCheck say Hall-effect triggers"
+    },
+    {
+      "field": "controls.stick_type",
+      "values": [
+        {
+          "value": "capacitive",
+          "url": "https://onexplayerstore.com/products/joystick"
+        },
+        {
+          "value": "hall",
+          "url": "https://onexplayerstore.com/products/onexplayer-x2-mini-pro-8-8-3-in-1-oled-gaming-handheld-with-amd-ryzen%E2%84%A2-ai-max-388-liquid-cooling"
+        }
+      ],
+      "chosen_reason": "Official joystick part page names the stick type 'Capacitor' (its other option is 'Hall'). The store text says the sticks use 'non-contact Hall-effect technology'; NotebookCheck also says Hall-effect sticks."
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://onexplayerstore.com/products/onexplayer-x2-mini-pro-8-8-3-in-1-oled-gaming-handheld-with-amd-ryzen%E2%84%A2-ai-max-388-liquid-cooling",
+      "accessed": "2026-10-27",
+      "note": "Official store page; spec table is the image https://cdn.shopify.com/s/files/1/0557/8535/7492/files/17863282263688.png?v=1786328848"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://onexplayerstore.com/products/joystick",
+      "accessed": "2026-10-27",
+      "note": "Official joystick part listing: 'Onexplayer 3/X2 Mini Pro/X2 Mini / Capacitor'. Official spec image: 'Joysticks: Capacitive Joysticks (9mm Height, 22 Tilt Angle)'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/17863282263688.png?v=1786328848",
+      "accessed": "2026-10-27",
+      "note": "Official spec image: 'Triggers: Capacitive Sensor Triggers (Switchable Long/Short Travel)'"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/17863282263688.png?v=1786328848",
+      "accessed": "2026-10-27",
+      "note": "Body 22 mm (thinnest point); external battery 119.5 x 109 x 17.5 mm"
+    },
+    {
+      "field": "battery.charge_w",
+      "url": "https://www.notebookcheck.net/OneXPlayer-reveals-X2-Mini-Pro-pricing-OpenClaw-ready-Ryzen-AI-Max-388-handheld-PC-launching-with-up-to-64-GB-RAM-optional-liquid-cooling-and-118-TOPS-of-AI-performance.1321358.0.html",
+      "accessed": "2026-10-27",
+      "note": "80 W TDP when connected to its 240 W GaN fast charger"
+    },
+    {
+      "field": "release_date",
+      "url": "https://www.notebookcheck.net/OneXPlayer-reveals-X2-Mini-Pro-pricing-OpenClaw-ready-Ryzen-AI-Max-388-handheld-PC-launching-with-up-to-64-GB-RAM-optional-liquid-cooling-and-118-TOPS-of-AI-performance.1321358.0.html",
+      "accessed": "2026-10-27",
+      "note": "Shipping scheduled to begin at the end of July 2026; store listing published 2026-07-17 (https://onexplayerstore.com/products/onexplayer-x2-mini-pro-8-8-3-in-1-oled-gaming-handheld-with-amd-ryzen%E2%84%A2-ai-max-388-liquid-cooling.json)"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://onexplayerstore.com/products/onexplayer-x2-mini-pro-8-8-3-in-1-oled-gaming-handheld-with-amd-ryzen%E2%84%A2-ai-max-388-liquid-cooling.json",
+      "accessed": "2026-10-27",
+      "note": "Store list (compare-at) price $2,699 for Standard 48 GB/1 TB"
+    },
+    {
+      "field": "ram.soldered",
+      "url": "https://liliputing.com/onexplayer-x2-mini-pro-handheld-gaming-pc-with-ryzen-ai-max-388-hits-indiegogo-for-2466-and-up/",
+      "accessed": "2026-10-27",
+      "note": "On-board LPDDR5x-7464/8000 quad-channel memory"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-x2-mini-is-a-ryzen-ai-max-395-handheld-gaming-pc-with-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "Teased as the X2 Mini with Ryzen AI Max+ 395"
+    }
+  ]
+}

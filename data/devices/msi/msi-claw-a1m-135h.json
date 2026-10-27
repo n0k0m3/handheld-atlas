@@ -1,0 +1,250 @@
+{
+  "id": "msi-claw-a1m-135h",
+  "brand": "MSI",
+  "model": "Claw A1M",
+  "variant": "Core Ultra 5 135H",
+  "status": "shipped",
+  "announce_date": "2024-01-09",
+  "release_date": "2024-03-15",
+  "msrp_usd": 699.99,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 294,
+      "h": 117,
+      "d": 21.2,
+      "d_max": null
+    },
+    "note": "MSI WxDxH: 294 x 117 x 21.2 mm. Notebookcheck gives about 34 mm thickness with the grips."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 675,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "MSI: 675 g with battery. Notebookcheck measured 672 g on a 155H unit; no 135H unit weighed."
+  },
+  "soc_id": "cu5-135h",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR5",
+    "speed_mts": 6400,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      512
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "TB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Thunderbolt 4 (DisplayPort / Power Delivery 3.0)"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": "Mic-in/headphone-out combo jack"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 7,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 120,
+    "vrr": true,
+    "touch": true,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "MSI: IPS-level. 48-120 Hz VRR per Wikipedia."
+  },
+  "battery": {
+    "wh": 53,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "6-cell; 65W PD adapter"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "RGB Hall Effect analog sticks",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": null,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics",
+    "note": "MSI lists D-pad, RGB ABXY, L & R bumpers, MSI Center M button, Quick Settings button, View and Menu buttons, Macro buttons M1/M2."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 7",
+    "bt": "5.4"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": null,
+  "fingerprint": true,
+  "notes": "US launch SKU: Core Ultra 5 135H, 16GB, 512GB at $699.99 (2024-03-15). Same chassis as the 155H row.",
+  "unresolved": [
+    {
+      "field": "controls.gyro",
+      "reason": "the A1M spec page lists no IMU or gyro"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no review weight for a 135H unit found; the Notebookcheck unit was 155H"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "MSI publishes one thickness value"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "only typical or measured brightness is available"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "HDR is not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "MSI does not mention trigger stops"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "MSI lists Macro buttons M1/M2 but does not state their position"
+    },
+    {
+      "field": "cooling",
+      "reason": "fan count not stated in the sources checked"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "PD input wattage not stated"
+    },
+    {
+      "field": "ports.1",
+      "reason": "speed, DP alt and PD do not apply to this port kind"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed, DP alt and PD do not apply to this port kind"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "ram.type",
+      "values": [
+        {
+          "value": "LPDDR5-6400",
+          "url": "https://www.msi.com/Handheld/Claw-A1MX/Specification"
+        },
+        {
+          "value": "LPDDR5x-6400",
+          "url": "https://www.notebookcheck.net/MSI-Claw-review-The-gaming-handheld-with-an-Intel-Core-Ultra-processor-disappoints.848787.0.html"
+        }
+      ],
+      "chosen_reason": "MSI spec page is official"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.msi.com/Handheld/Claw-A1MX/Specification",
+      "accessed": "2026-10-27",
+      "note": "MSI Claw A1M spec page (lists 'Up to Intel Core Ultra 7')"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://en.wikipedia.org/wiki/MSI_Claw_A1M",
+      "accessed": "2026-10-27",
+      "note": "CPU options: Core Ultra 5 135H or Core Ultra 7 155H, with US launch SKUs and prices"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://en.wikipedia.org/wiki/MSI_Claw_A1M",
+      "accessed": "2026-10-27",
+      "note": "cites the MSI CES 2024 press release dated 2024-01-09"
+    },
+    {
+      "field": "release_date",
+      "url": "https://en.wikipedia.org/wiki/MSI_Claw_A1M",
+      "accessed": "2026-10-27",
+      "note": "infobox release dates per configuration"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://en.wikipedia.org/wiki/MSI_Claw_A1M",
+      "accessed": "2026-10-27",
+      "note": "infobox introductory prices"
+    },
+    {
+      "field": "ram.channels",
+      "url": "https://en.wikipedia.org/wiki/MSI_Claw_A1M",
+      "accessed": "2026-10-27",
+      "note": "16 GB LPDDR5-6400, dual-channel"
+    },
+    {
+      "field": "screen.vrr",
+      "url": "https://www.notebookcheck.net/MSI-Claw-review-The-gaming-handheld-with-an-Intel-Core-Ultra-processor-disappoints.848787.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck: the panel supports VRR"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "url": "https://en.wikipedia.org/wiki/MSI_Claw_A1M",
+      "accessed": "2026-10-27",
+      "note": "500 nits"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.notebookcheck.net/MSI-Claw-review-The-gaming-handheld-with-an-Intel-Core-Ultra-processor-disappoints.848787.0.html",
+      "accessed": "2026-10-27",
+      "note": "Notebookcheck: USB-C (Thunderbolt 4), microSD and audio jack on top"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.msi.com/Handheld/Claw-A1MX/Specification",
+      "accessed": "2026-10-27",
+      "note": "MSI spec page: RGB L & R Hall Effect analog sticks; L & R Hall Effect analog triggers"
+    }
+  ]
+}

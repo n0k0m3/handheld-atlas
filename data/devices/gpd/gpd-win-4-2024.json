@@ -1,0 +1,272 @@
+{
+  "id": "gpd-win-4-2024",
+  "brand": "GPD",
+  "model": "Win 4",
+  "variant": "2024 (Ryzen 7 8840U)",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2024-04",
+  "msrp_usd": 985,
+  "form_factor": "slider",
+  "dims_mm": {
+    "handheld": {
+      "w": 220,
+      "h": 92,
+      "d": 28,
+      "d_max": null
+    },
+    "note": "Slider closed (gaming position). The screen slides up to expose the keyboard; GPD lists one size."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 598,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r7-8840u",
+  "ram": {
+    "sizes_gb": [
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": 4,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      512,
+      1024,
+      2048,
+      4096
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "full-speed USB4; video/data/charging"
+    },
+    {
+      "kind": "USB-C 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "full-featured; video/data/charging"
+    },
+    {
+      "kind": "OCuLink",
+      "count": 1,
+      "speed_gbps": 63,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "SFF-8612, PCIe 4.0 x4, 63 Gbps"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "headphone/mic combo"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "UHS-I, A2, 160 MB/s read"
+    }
+  ],
+  "screen": {
+    "size_in": 6.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 60,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "H-IPS, 368 PPI, DC dimming, Gorilla Glass 5; 40 Hz and 60 Hz modes"
+  },
+  "battery": {
+    "wh": 45.62,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65 W USB-C PD adapter in the box (20 V 3.25 A)"
+  },
+  "controls": {
+    "stick_type": "potentiometer",
+    "stick_note": "ALPS 3D joysticks (OEM), L3/R3 press",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": true,
+    "detachable_controllers": false,
+    "haptics": "dual vibration motors (off / weak / strong)",
+    "note": "Optical finger mouse (OFN) instead of a touchpad; L1/R1 RGB lighting; L2/R2 linear analog triggers"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "single fan + dual heat pipes",
+  "fingerprint": true,
+  "notes": "Includes the 8840U configuration that GPD also sells as 'Win 4 (2025)' (32 GB / 1 TB): same chassis, ports, screen and battery on the official pages. The 2025 page lists Wi-Fi 6E and BT 5.3 for that config (see conflicts). The Ryzen 5 8640U option is its own row (-8640u). msrp_usd is the Indiegogo InDemand launch config (32 GB / 2 TB). LPDDR5X is soldered by design.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "official pages give a launch month only; no dated announcement sourced"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found within the fetch budget"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "spec page does not state port location or per-port PD input; null subfields are unstated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated on the spec page"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "brightness not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "GPD says 'linear analog' triggers but does not name the sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "release_date",
+      "values": [
+        {
+          "value": "2024-04",
+          "url": "https://liliputing.com/the-gpd-win-4-2024-handheld-gaming-pc-is-now-available-with-a-ryzen-7-8840u-processor/"
+        },
+        {
+          "value": "2023-08",
+          "url": "https://web.archive.org/web/20240425004609/https://gpd.hk/gpdwin4techspecs"
+        }
+      ],
+      "chosen_reason": "the 2024 spec page still carries the 2023 launch month; Liliputing reports April 2024 shipping"
+    },
+    {
+      "field": "ram.channels",
+      "values": [
+        {
+          "value": 4,
+          "url": "https://web.archive.org/web/20240425004609/https://gpd.hk/gpdwin4techspecs"
+        },
+        {
+          "value": 2,
+          "url": "https://www.gpd.hk/gpdwin42025techspecs"
+        }
+      ],
+      "chosen_reason": "the 2024 page says quad 32-bit channels; the 2025 page says dual channel for the same 128-bit bus"
+    },
+    {
+      "field": "wireless.wifi",
+      "values": [
+        {
+          "value": "Wi-Fi 6",
+          "url": "https://web.archive.org/web/20240425004609/https://gpd.hk/gpdwin4techspecs"
+        },
+        {
+          "value": "Wi-Fi 6E",
+          "url": "https://www.gpd.hk/gpdwin42025techspecs"
+        }
+      ],
+      "chosen_reason": "2024 page; the 2025 page lists 6E for the 8840U config merged here"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20240425004609/https://gpd.hk/gpdwin4techspecs",
+      "accessed": "2026-10-27",
+      "note": "Wayback copy of the official tech specs page, 2024-04 (8840U / 8640U)"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://www.gpd.hk/gpdwin42025techspecs",
+      "accessed": "2026-10-27",
+      "note": "2025 page: 8840U config 32 GB / 1 TB"
+    },
+    {
+      "field": "storage.capacities_gb",
+      "url": "https://www.gpd.hk/gpdwin42025techspecs",
+      "accessed": "2026-10-27",
+      "note": "2025 page: 8840U config 1 TB"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.china-gadgets.de/gpd-win-4-gaming-handheld-test/",
+      "accessed": "2026-10-27",
+      "note": "Review (6800U unit): 'Verbaut sind ALPS Joysticks ... Da es sich nicht um Hall-Sticks handelt'. Later Win 4 spec pages list the same ALPS 3D joysticks."
+    },
+    {
+      "field": "release_date",
+      "url": "https://liliputing.com/the-gpd-win-4-2024-handheld-gaming-pc-is-now-available-with-a-ryzen-7-8840u-processor/",
+      "accessed": "2026-10-27",
+      "note": "8840U orders ship April 2024"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/the-gpd-win-4-2024-handheld-gaming-pc-is-now-available-with-a-ryzen-7-8840u-processor/",
+      "accessed": "2026-10-27",
+      "note": "US$985 Indiegogo InDemand, 8840U / 32 GB / 2 TB"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "acer-nitro-blaze-7": {
+    "page": "https://www.acer.com/us-en/handheld-gaming/nitro-handheld-gaming/nitro-blaze-7",
+    "top": [
+      "https://m.media-amazon.com/images/I/61GhF5oLL8L.jpg"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Top uses the Amazon product image (straight-on, white background; aspect_err 0.027). The Acer press PNG from the IFA 2024 release (https://cdn.assets.prezly.com/471954e0-41a3-4d5d-94e2-bea727d687fb/-/preview/-/format/auto/Nitro-Blaze-GN771_GN771-02.png) is an angled two-unit collage and was removed. The Acer product page has only marketing banners, so side and bottom stay boxes. No retrocatalog front image exists."
+  },
+  "acer-nitro-blaze-8": {
+    "page": "https://www.acer.com/us-en/handheld-gaming/nitro-handheld-gaming/nitro-blaze-8",
+    "top": [],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Top is a spec box. The Acer press PNG from the CES 2025 release (https://cdn.assets.prezly.com/b96853cc-de7c-474d-9e1b-e3e4bdff2e01/-/preview/-/format/auto/Nitro-Blaze-8-GN782U-01.png) is an angled two-unit collage; it passed the aspect check by chance and traced a tilted shape, so it was removed. Tried with no straight-on result: Liliputing nitro-blaze-8_01..05.jpg (https://liliputing.com/wp-content/uploads/2024/12/; angled or lifestyle), gamermatters acer-Nitro-Blaze-8-GN782U-02 (angled), RetroDock device_nitro-blaze-8.png (HTTP 403). No retrocatalog front image exists."
+  },
+  "acer-nitro-blaze-11": {
+    "page": "https://www.acer.com/us-en/handheld-gaming/nitro-handheld-gaming/nitro-blaze-11",
+    "top": [
+      "https://images.acer.com/is/image/acer/acer-nitro-blaze-11-gn7112u-wp-logo-black-01?wid=1600"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Top uses the Scene7 product shot at wid=1600: straight-on with the controllers attached (aspect_err 0.026). The press PNG (https://cdn.assets.prezly.com/7aa9da80-c326-4ca1-ba33-40ba7d75f9db/-/preview/-/format/auto/Nitro-Blaze-11-GN7112U-SA01_high.png) shows the tablet with detached controllers at an angle and was removed. Scene7 -03 is an angled front; no rear or side view was found, so side and bottom stay boxes. No retrocatalog front image exists."
+  },
+  "acer-predator-atlas-8": {
+    "page": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-8",
+    "top": [
+      "https://images.acer.com/is/image/acer/predator-atlas-8-pa08-i51-wp-shale-black-01-1?wid=1600",
+      "https://images.acer.com/is/image/acer/predator-atlas-8-pa08-i51-wp-shale-black-01-1",
+      "https://cdn.assets.prezly.com/b2fffe4d-093c-42c4-bc1e-cd97f4c46dec/-/preview/-/format/auto/PREDATOR-ATLAS-8-PA08-I51-02.jpg"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Top uses the Scene7 product shot (og:image of the Acer UK spec page) at wid=1600; the default size is 400 px. The prezly file is from the May 2026 press release. Scene7 -02, -03 and -04 are angled fronts; no rear or side view was found, so side and bottom stay boxes. No retrocatalog front image exists."
+  },
+  "acer-predator-atlas-7": {
+    "page": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-7",
+    "top": [
+      "https://images.acer.com/is/image/acer/predator-atlas-7-pa07-i51-wp-shale-black-01?wid=1600",
+      "https://images.acer.com/is/image/acer/predator-atlas-7-pa07-i51-wp-shale-black-01",
+      "https://cdn.assets.prezly.com/19aee69d-24b3-41e4-aa9a-257f95e1e122/-/preview/-/format/auto/PREDATOR-ATLAS-7-PA07-I51-01.jpg"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Top uses the Scene7 product shot at wid=1600 (name derived from the Atlas 8 pattern); the default size is 400 px. The prezly file is from the IFA 2026 press release. Scene7 -02, -03 and -04 are angled fronts; no rear or side view was found, so side and bottom stay boxes. No retrocatalog front image exists."
+  },
+  "acer-predator-atlas-8-g3": {
+    "page": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-8",
+    "top": [
+      "https://images.acer.com/is/image/acer/predator-atlas-8-pa08-i51-wp-shale-black-01-1?wid=1600",
+      "https://images.acer.com/is/image/acer/predator-atlas-8-pa08-i51-wp-shale-black-01-1",
+      "https://cdn.assets.prezly.com/b2fffe4d-093c-42c4-bc1e-cd97f4c46dec/-/preview/-/format/auto/PREDATOR-ATLAS-8-PA08-I51-02.jpg"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Same chassis as acer-predator-atlas-8 (Arc G3 Extreme); same images. Scene7 -02 to -04 are angled fronts, so side and bottom stay boxes."
+  },
+  "acer-predator-atlas-7-g3": {
+    "page": "https://www.acer.com/us-en/predator/handheld-gaming/predator-atlas/predator-atlas-7",
+    "top": [
+      "https://images.acer.com/is/image/acer/predator-atlas-7-pa07-i51-wp-shale-black-01?wid=1600",
+      "https://images.acer.com/is/image/acer/predator-atlas-7-pa07-i51-wp-shale-black-01",
+      "https://cdn.assets.prezly.com/19aee69d-24b3-41e4-aa9a-257f95e1e122/-/preview/-/format/auto/PREDATOR-ATLAS-7-PA07-I51-01.jpg"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Same chassis as acer-predator-atlas-7 (Arc G3 Extreme); same images. Scene7 -02 to -04 are angled fronts, so side and bottom stay boxes."
+  }
+}

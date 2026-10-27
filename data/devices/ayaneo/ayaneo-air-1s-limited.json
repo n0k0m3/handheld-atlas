@@ -1,0 +1,82 @@
+{
+  "id": "ayaneo-air-1s-limited",
+  "brand": "AYANEO",
+  "model": "Air 1S",
+  "variant": "Ultra Thin & Light Limited Edition (Ryzen 7 7840U)",
+  "status": "shipped",
+  "announce_date": "2023-07",
+  "release_date": "2023-08",
+  "msrp_usd": 1129,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 224, "h": 89.5, "d": 18, "d_max": null },
+    "note": "Official size 224 x 89.5 x 18 mm. Same footprint as the Standard Edition, 3.6 mm thinner."
+  },
+  "weight_g": {
+    "handheld": { "stated": 405, "measured": null, "measured_source": null },
+    "note": null
+  },
+  "soc_id": "r7-7840u",
+  "ram": { "sizes_gb": [32], "type": "LPDDR5X", "speed_mts": null, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": null, "lanes": null, "note": "M.2 2280 PCIe SSD" } ],
+    "capacities_gb": [2048],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": 40, "dp_alt": true, "pd_in_w": null, "location": null, "note": "Full-function USB4 Type-C" },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": null },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": null, "note": "TF card slot, up to 100 MB/s" }
+  ],
+  "screen": { "size_in": 5.5, "panel": "AMOLED", "res_w": 1920, "res_h": 1080, "refresh_hz": 60, "vrr": null, "touch": true, "nits_sdr": 350, "nits_peak": null, "hdr": null, "note": "Same panel row as the Standard Edition on the official sheet. 404 PPI, 100% sRGB, 99% DCI-P3. Refresh and touch come from the NotebookCheck review of a Standard Edition unit." },
+  "battery": { "wh": 28, "removable": false, "external": false, "charge_w": null, "note": "7350 mAh" },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall sensing joystick",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "X-axis linear motor",
+    "note": "Linear Hall triggers. Dual six-axis gyroscopes. The official spec sheet lists no touchpad."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.2" },
+  "os": ["Windows 11"],
+  "cooling": "Customized heat dissipation system (single fan)",
+  "fingerprint": true,
+  "notes": "Separate row because dimensions, weight, and battery differ from the Standard Edition. TDP 5-15 W on battery, 5-18 W plugged in. Sold only as 32GB/2TB in the Retro Limited colour. Official prices: early bird $999, retail $1,129. Release date is the AYANEO plan for first shipments in late August 2023.",
+  "unresolved": [
+    { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found for the Limited Edition" },
+    { "field": "ram.speed_mts", "reason": "memory speed not stated" },
+    { "field": "ram.channels", "reason": "not stated" },
+    { "field": "storage.slots.0.pcie_gen", "reason": "official sheet says only M.2 2280 PCIe SSD" },
+    { "field": "storage.slots.0.lanes", "reason": "not stated" },
+    { "field": "dims_mm.handheld.d_max", "reason": "single thickness value published" },
+    { "field": "ports.0.pd_in_w", "reason": "per-port charge wattage not stated" },
+    { "field": "ports.0.location", "reason": "location sourced only for the Standard Edition" },
+    { "field": "ports.1", "reason": "speed, DP, and PD do not apply; location not sourced for this edition" },
+    { "field": "ports.2", "reason": "speed, DP, and PD do not apply; location not sourced for this edition" },
+    { "field": "screen.vrr", "reason": "not stated" },
+    { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (350 nits)" },
+    { "field": "screen.hdr", "reason": "not stated" },
+    { "field": "battery.charge_w", "reason": "bundled charger wattage not stated for this edition" },
+    { "field": "controls.trigger_lock", "reason": "not stated" },
+    { "field": "controls.rear_buttons", "reason": "not stated" }
+  ],
+  "conflicts": [],
+  "sources": [
+    { "field": "*", "url": "https://ayaneo.com/product/AYANEOAIR1S", "accessed": "2026-10-27", "note": "Spec table image: https://ayaneo-1305909189.file.myqcloud.com/ayaneo_com/image/product/2024/AIR1S/4-0621.png (column: Ultra thin & light limited edition)" },
+    { "field": "controls.stick_type", "url": "https://ayaneo.com/product/AYANEOAIR1S", "accessed": "2026-10-27", "note": "Spec table: Joystick = Hall sensing joystick (shared row)" },
+    { "field": "controls.trigger_type", "url": "https://ayaneo.com/product/AYANEOAIR1S", "accessed": "2026-10-27", "note": "Spec table: Trigger = Linear hall trigger (shared row)" },
+    { "field": "msrp_usd", "url": "https://www.ayaneo.com/article/773", "accessed": "2026-10-27", "note": "Official price table image https://cdn.ayaneo.com/ayaneo/article/2023/07/09/6095d202307091740038666.jpeg: Limited Edition 32G+2T early bird $999, official retail $1,129" },
+    { "field": "release_date", "url": "https://www.ayaneo.com/article/773", "accessed": "2026-10-27", "note": "Shipment sequence image: Limited Edition shipments begin in late August 2023" },
+    { "field": "announce_date", "url": "https://liliputing.com/aya-neo-air-1s-crowdfunding-starts-july-11-ships-in-august-handheld-gaming-pc-with-5-5-inch-oled-display-and-ryzen-7-7840u-2/", "accessed": "2026-10-27", "note": "Limited Edition revealed with pricing on 2023-07-09" },
+    { "field": "wireless.wifi", "url": "https://liliputing.com/aya-neo-air-1s-crowdfunding-starts-july-11-ships-in-august-handheld-gaming-pc-with-5-5-inch-oled-display-and-ryzen-7-7840u-2/", "accessed": "2026-10-27", "note": "Spec table row shared by both editions: WiFi 6E, Bluetooth 5.2" },
+    { "field": "screen.refresh_hz", "url": "https://www.notebookcheck.net/Ayaneo-Air-1S-Retro-Power-gaming-handheld-in-test-Zen4-Power-for-your-pocket.761047.0.html", "accessed": "2026-10-27", "note": "Standard Edition unit: 60 Hz touchscreen; official sheet shares the screen row" },
+    { "field": "screen.touch", "url": "https://www.notebookcheck.net/Ayaneo-Air-1S-Retro-Power-gaming-handheld-in-test-Zen4-Power-for-your-pocket.761047.0.html", "accessed": "2026-10-27", "note": null },
+    { "field": "screen.nits_sdr", "url": "https://liliputing.com/aya-neo-air-1s-crowdfunding-starts-july-11-ships-in-august-handheld-gaming-pc-with-5-5-inch-oled-display-and-ryzen-7-7840u-2/", "accessed": "2026-10-27", "note": "350 nits" }
+  ]
+}

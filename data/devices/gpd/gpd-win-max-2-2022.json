@@ -1,0 +1,273 @@
+{
+  "id": "gpd-win-max-2-2022",
+  "brand": "GPD",
+  "model": "Win Max 2",
+  "variant": "2022 (Ryzen 7 6800U)",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2022-06",
+  "msrp_usd": 999,
+  "form_factor": "clamshell",
+  "dims_mm": {
+    "handheld": {
+      "w": 227,
+      "h": 160,
+      "d": 23,
+      "d_max": null
+    },
+    "closed": {
+      "w": 227,
+      "h": 160,
+      "d": 23,
+      "d_max": null
+    },
+    "note": "Clamshell. handheld = closed footprint W x H x D; the lid opens upward. GPD lists one size."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 1005,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r7-6800u",
+  "ram": {
+    "sizes_gb": [
+      16,
+      32
+    ],
+    "type": "LPDDR5",
+    "speed_mts": 6400,
+    "channels": 4,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "shipped SSD is PCIe 3.0"
+      },
+      {
+        "form_factor": "2230",
+        "pcie_gen": 4,
+        "lanes": null,
+        "note": "second slot, empty by default"
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "SD",
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "video/data/charging"
+    },
+    {
+      "kind": "USB-C 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "video/data/charging"
+    },
+    {
+      "kind": "USB-A 3.2 Gen1",
+      "count": 3,
+      "speed_gbps": 5,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "HDMI",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "HDMI 2.1"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "headphone/mic combo"
+    },
+    {
+      "kind": "SD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "UHS-II, V90, 312 MB/s"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "UHS-I, A2, 160 MB/s"
+    }
+  ],
+  "screen": {
+    "size_in": 10.1,
+    "panel": "IPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "16:10, 299 PPI, Gorilla Glass 5, MPP 2.0 pen support; default 1920x1200, max 2560x1600"
+  },
+  "battery": {
+    "wh": 67,
+    "removable": false,
+    "external": false,
+    "charge_w": 100,
+    "note": "100 W USB-C PD adapter in the box"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall sensor sticks, recessed, L3/R3 press; magnetic covers",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 1,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": true,
+    "detachable_controllers": false,
+    "haptics": "dual vibration motors",
+    "note": "precision touchpad (PTP); 2 custom back buttons"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "single fan + dual heat pipes",
+  "fingerprint": true,
+  "notes": "Launch Win Max 2. No OCuLink; three USB-A 3.2 Gen1 ports. The Intel Core i7-1260P version (Thunderbolt 4) is its own row (gpd-win-max-2-2022-1260p). msrp_usd is the Indiegogo price of the 6800U / 16 GB / 1 TB model (a limited US$899 early-bird tier had 128 GB storage). LPDDR5 is soldered by design.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "official pages give a launch month only; no dated announcement sourced"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found within the fetch budget"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "spec page does not state port location or per-port PD input; null subfields are unstated"
+    },
+    {
+      "field": "storage.slots.1.lanes",
+      "reason": "lane count for the 2230 slot not stated"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "reason": "refresh rate not stated on this spec page"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "brightness not stated on this spec page"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "GPD says 'analog triggers' but does not name the sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "dims_mm.closed.d_max",
+      "reason": "single thickness value published"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "release_date",
+      "values": [
+        {
+          "value": "2022-06",
+          "url": "https://web.archive.org/web/20221209000108/https://gpd.hk/gpdwinmax2techspecs"
+        },
+        {
+          "value": "2022-09",
+          "url": "https://liliputing.com/gpd-win-max-2-mini-gaming-laptop-with-ryzen-7-6800u-or-core-i7-1260p-hits-indiegogo-july-7-for-899-and-up-crowdfunding/"
+        }
+      ],
+      "chosen_reason": "official launch month; Indiegogo backer shipping was planned for September 2022"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20221209000108/https://gpd.hk/gpdwinmax2techspecs",
+      "accessed": "2026-10-27",
+      "note": "Wayback copy of the official tech specs page, 2022-12 (6800U / i7-1260P)"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://web.archive.org/web/20221209000108/https://gpd.hk/gpdwinmax2techspecs",
+      "accessed": "2026-10-27",
+      "note": "official spec page names 'Hall Sensor Sticks'"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "url": "https://www.gpd.hk/gpdwinmax2",
+      "accessed": "2026-10-27",
+      "note": "overview: '2 mappable buttons like on WIN 3's back'"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/gpd-win-max-2-mini-gaming-laptop-with-ryzen-7-6800u-or-core-i7-1260p-hits-indiegogo-july-7-for-899-and-up-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": "US$999 Indiegogo, 6800U / 16 GB / 1 TB"
+    }
+  ]
+}

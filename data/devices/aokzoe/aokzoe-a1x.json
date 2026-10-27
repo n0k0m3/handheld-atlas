@@ -1,0 +1,304 @@
+{
+  "id": "aokzoe-a1x",
+  "brand": "AOKZOE",
+  "model": "A1X",
+  "variant": "Ryzen AI 9 HX 370",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": "2025-07",
+  "msrp_usd": 1459,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": {
+      "w": 285,
+      "h": 125,
+      "d": 21,
+      "d_max": 40
+    },
+    "note": "Vendor store gives 21 mm at the thinnest part. Liliputing gives 285 x 125 x 40 mm from the crowdfunding specs."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 750,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Store says about 750 g. Crowdfunding specs said about 730 g."
+  },
+  "soc_id": "ai9-hx370",
+  "ram": {
+    "sizes_gb": [
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": "single-sided SSD"
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": 100,
+      "location": "top / bottom",
+      "note": "Full-function USB 4.0 per vendor: video out and USB PD"
+    },
+    {
+      "kind": "USB-A 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    },
+    {
+      "kind": "OCuLink",
+      "count": 1,
+      "speed_gbps": 64,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "64 Gbps per vendor"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "bottom",
+      "note": "MicroSD 4.0, 300 MB/s per vendor"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": "top",
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 8,
+    "panel": null,
+    "res_w": 1920,
+    "res_h": 1200,
+    "refresh_hz": 120,
+    "vrr": true,
+    "touch": true,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "LCD, native landscape, 60/120 Hz, 100% sRGB, about 500 nits, 10-point touch, DC dimming"
+  },
+  "battery": {
+    "wh": 72.7,
+    "removable": null,
+    "external": false,
+    "charge_w": 100,
+    "note": "18880 mAh; 100 W GaN fast charging"
+  },
+  "controls": {
+    "stick_type": "capacitive",
+    "stick_note": "Capacitive, contact-free sticks with RGB rings (900 Hz polling, 100 uA)",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 0,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "Hall-effect linear triggers. Mouse-click shoulder buttons. Built-in stand."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "single fan, three heat pipes, aluminium fins",
+  "fingerprint": null,
+  "notes": "Kickstarter opened 2025-04-17 (HX 370 32GB/1TB Early Bird $1059). General sale opened in June 2025 with shipping from July 16, 2025. The store compare-at price ($1459 for 32GB/1TB) matches the 'save up to 18% on MSRP' launch offer.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "teased by AOKZOE in early 2025 before the April Kickstarter; exact first-announcement date not sourced"
+    },
+    {
+      "field": "screen.panel",
+      "reason": "vendor says LCD without the panel type"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "vendor gives only about 500 nits"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "battery.removable",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.haptics",
+      "reason": "not stated in fetched sources"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found; PCGamesN repeats the 730 g spec"
+    },
+    {
+      "field": "fingerprint",
+      "reason": "not stated"
+    },
+    {
+      "field": "ports",
+      "reason": "per-port fields not stated by the vendor, or not applicable to the port kind (DP alt, PD input, speed on audio, card, or USB-A ports)"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "weight_g.handheld.stated",
+      "values": [
+        {
+          "value": 750,
+          "url": "https://aokzoestore.com/products/aokzoe-a1x"
+        },
+        {
+          "value": 730,
+          "url": "https://liliputing.com/aokzoe-a1x-handheld-gaming-pc-supports-up-to-a-ryzen-ai-9-hx-370-processor-crowdfunding/"
+        }
+      ],
+      "chosen_reason": "official store value"
+    },
+    {
+      "field": "msrp_usd",
+      "values": [
+        {
+          "value": 1459,
+          "url": "https://aokzoestore.com/products/aokzoe-a1x"
+        },
+        {
+          "value": 1499,
+          "url": "https://liliputing.com/aokzoe-a1x-handheld-gaming-pc-supports-up-to-a-ryzen-ai-9-hx-370-processor-crowdfunding/"
+        },
+        {
+          "value": 1138,
+          "url": "https://www.notebookcheck.net/Aokzoe-A1X-officially-released-ahead-of-schedule-with-up-to-AMD-Ryzen-AI-9-HX-370-and-64-GB-RAM.1036125.0.html"
+        }
+      ],
+      "chosen_reason": "official store compare-at (MSRP). Liliputing gave the planned retail price at Kickstarter. NotebookCheck gave the discounted price at release ($899 base + $239)."
+    },
+    {
+      "field": "controls.stick_type",
+      "values": [
+        {
+          "value": "capacitive",
+          "url": "https://liliputing.com/aokzoe-a1x-handheld-gaming-pc-supports-up-to-a-ryzen-ai-9-hx-370-processor-crowdfunding/"
+        },
+        {
+          "value": "hall",
+          "url": "https://www.amazon.com/AOKZOE-A1X-Ryzen-120Hz-OCuLink-PC/dp/B0GVD3S9LX"
+        }
+      ],
+      "chosen_reason": "AOKZOE's own spec wording says capacitive, contact-free sticks; the Amazon listing ('Hall-Effect Controls') comes from an unverified seller"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://aokzoestore.com/products/aokzoe-a1x",
+      "accessed": "2026-10-27",
+      "note": "Official store spec table"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "url": "https://liliputing.com/aokzoe-a1x-handheld-gaming-pc-supports-up-to-a-ryzen-ai-9-hx-370-processor-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": "285 x 125 x 40 mm"
+    },
+    {
+      "field": "controls.gyro",
+      "url": "https://liliputing.com/aokzoe-a1x-handheld-gaming-pc-supports-up-to-a-ryzen-ai-9-hx-370-processor-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": "3-axis gyroscope and 3-axis accelerometer"
+    },
+    {
+      "field": "cooling",
+      "url": "https://liliputing.com/aokzoe-a1x-handheld-gaming-pc-supports-up-to-a-ryzen-ai-9-hx-370-processor-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": null
+    },
+    {
+      "field": "ports.0.dp_alt",
+      "url": "https://liliputing.com/aokzoe-a1x-handheld-gaming-pc-supports-up-to-a-ryzen-ai-9-hx-370-processor-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": "USB4 with video out and USB power delivery"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://www.pcgamesn.com/aokzoe/a1x-review",
+      "accessed": "2026-10-27",
+      "note": "'the triggers are Hall Effect linear ones'"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "url": "https://www.pcgamesn.com/aokzoe/a1x-review",
+      "accessed": "2026-10-27",
+      "note": "'There are no rear inputs'"
+    },
+    {
+      "field": "ports",
+      "url": "https://www.pcgamesn.com/aokzoe/a1x-review",
+      "accessed": "2026-10-27",
+      "note": "port locations: top 3.5mm, USB-C 4.0, USB-A 3.2; bottom USB-C 4.0, OCuLink, microSD"
+    },
+    {
+      "field": "release_date",
+      "url": "https://www.notebookcheck.net/Aokzoe-A1X-officially-released-ahead-of-schedule-with-up-to-AMD-Ryzen-AI-9-HX-370-and-64-GB-RAM.1036125.0.html",
+      "accessed": "2026-10-27",
+      "note": "released for order 2025-06-14; shipping planned for July 16, 2025"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://liliputing.com/aokzoe-a1x-handheld-gaming-pc-supports-up-to-a-ryzen-ai-9-hx-370-processor-crowdfunding/",
+      "accessed": "2026-10-27",
+      "note": "AOKZOE Kickstarter spec via Liliputing: 'capacitive joysticks with RGB lighting'"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.pcgamesn.com/aokzoe/a1x-review",
+      "accessed": "2026-10-27",
+      "note": "Spec table: 'Capacitive Joysticks'; 'AOKZOE claims the thumbsticks are contact-free' and names no Hall or magnetic sensor"
+    }
+  ]
+}

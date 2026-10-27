@@ -1,0 +1,68 @@
+{
+  "id": "ai9-hx470",
+  "vendor": "AMD",
+  "name": "Ryzen AI 9 HX 470",
+  "codename": "Gorgon Point",
+  "cores": 12,
+  "threads": 24,
+  "core_mix": "4x Zen 5 + 8x Zen 5c",
+  "cpu_arch": "Zen 5 / Zen 5c",
+  "base_ghz": 2.0,
+  "boost_ghz": 5.2,
+  "tdp_w": {
+    "default": 28,
+    "min": 15,
+    "max": 54
+  },
+  "process_nm": 4,
+  "process_note": "TSMC 4nm FinFET",
+  "npu_tops": 55,
+  "memory": "DDR5-5600, LPDDR5X-8533, dual-channel, up to 256 GB",
+  "launch_date": "2026-01-05",
+  "igpu": {
+    "name": "Radeon 890M",
+    "cu": 16,
+    "arch": "RDNA 3.5",
+    "clock_mhz": 3100,
+    "tflops_fp32": 6.35
+  },
+  "passmark": {
+    "cpu_mark": 37238,
+    "single_thread": 4139,
+    "cpu_samples": 162,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+AI+9+HX+470&id=7087",
+    "g3d_mark": 8061,
+    "g3d_samples": 2367,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+890M&id=5113",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry (162 samples). GPU: 'Radeon 890M' entry; it pools all 890M hosts, mostly the HX 370 at 2.9 GHz, so the HX 470's 3.1 GHz iGPU may score higher."
+  },
+  "notes": "Strix Point refresh (AMD codename Gorgon Point, Ryzen AI 400 series). AMD confirms the name and the Radeon 890M iGPU at 3.1 GHz. Zen 5c cores run up to 3.3 GHz. NPU 55 TOPS (86 TOPS overall). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/laptop/ryzen/ai-400-series/amd-ryzen-ai-9-hx-470.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: codename, CPU, memory, NPU, iGPU, launch 1/5/2026"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+AI+9+HX+470&id=7087",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Radeon+890M&id=5113",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "process_nm",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-ai-9-hx-470.c4320",
+      "accessed": "2026-10-27",
+      "note": "TPU: 4 nm, Gorgon Point, release Jan 2026"
+    }
+  ]
+}

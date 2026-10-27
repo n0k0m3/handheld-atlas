@@ -1,0 +1,78 @@
+{
+  "id": "zotac-zone",
+  "brand": "ZOTAC",
+  "model": "Zone",
+  "variant": "Ryzen 7 8840U",
+  "status": "shipped",
+  "announce_date": "2024-06",
+  "release_date": "2024-09",
+  "msrp_usd": 799,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 285, "h": 115, "d": 35, "d_max": null },
+    "note": "Final retail dimensions from the TechPowerUp spec table. Computex 2024 prototype figures (310 x 125-135 x 40 mm) do not apply to the retail unit."
+  },
+  "weight_g": {
+    "handheld": { "stated": 692, "measured": null, "measured_source": null },
+    "note": null
+  },
+  "soc_id": "r7-8840u",
+  "ram": { "sizes_gb": [16], "type": "LPDDR5X", "speed_mts": 7500, "channels": null, "soldered": true },
+  "storage": {
+    "slots": [ { "form_factor": "2280", "pcie_gen": 4, "lanes": 4, "note": null } ],
+    "capacities_gb": [512],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB4", "count": 2, "speed_gbps": 40, "dp_alt": true, "pd_in_w": null, "location": "top, bottom", "note": "One port on the top edge, one on the bottom edge (NotebookCheck). DisplayPort output over USB4 (ZOTAC store spec)." },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": null },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "bottom", "note": "UHS-II" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "AMOLED", "res_w": 1920, "res_h": 1080, "refresh_hz": 120, "vrr": false, "touch": true, "nits_sdr": null, "nits_peak": 800, "hdr": true, "note": "NotebookCheck measured a maximum of 837 nits." },
+  "battery": { "wh": 48.5, "removable": null, "external": false, "charge_w": 65, "note": "3-cell Li-ion. 65 W USB-C PD GaN charger in the box." },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall-effect sticks with RGB rings",
+    "trigger_type": "hall",
+    "trigger_lock": true,
+    "trackpads": 2,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": null,
+    "note": "2-stage triggers: a switch changes between full analog travel and a short rapid-fire mode. 1.0 MP front camera."
+  },
+  "wireless": { "wifi": "Wi-Fi 6E", "bt": "5.2" },
+  "os": ["Windows 11 Home"],
+  "cooling": "active (heatsink and fan)",
+  "fingerprint": true,
+  "notes": "zotac.com product page is behind a SafeLine WAF captcha for both Firecrawl and the agent browser. The ZOTAC store page (official ZOTAC property) is the main source. US pre-orders were not offered at first; EU price was EUR 849.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
+    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
+    { "field": "weight_g.handheld.measured", "reason": "No reviewer scale reading found. NotebookCheck and TechPowerUp repeat the 692 g spec figure." },
+    { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value published" },
+    { "field": "ram.channels", "reason": "Not stated by ZOTAC or reviewers" },
+    { "field": "ports.0.pd_in_w", "reason": "Max PD input per port not stated; the bundled charger is 65 W" },
+    { "field": "screen.nits_sdr", "reason": "ZOTAC publishes one brightness figure (800 nits)" },
+    { "field": "battery.removable", "reason": "Not stated" },
+    { "field": "controls.haptics", "reason": "Haptic motor type not stated in the sources used" }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://www.zotacstore.com/us/gaming-console", "accessed": "2026-10-27", "note": "Official ZOTAC store spec table (CPU, RAM, SSD, card reader, ports, Wi-Fi, BT, charger). zotac.com/page/zotac-gaming-zone-portable-handheld was blocked by a WAF captcha." },
+    { "field": "dims_mm", "url": "https://www.techpowerup.com/review/zotac-zone/", "accessed": "2026-10-27", "note": "Spec table: 285 x 115 x 35 mm" },
+    { "field": "weight_g.handheld.stated", "url": "https://www.techpowerup.com/review/zotac-zone/", "accessed": "2026-10-27", "note": "692 g" },
+    { "field": "battery", "url": "https://www.techpowerup.com/review/zotac-zone/", "accessed": "2026-10-27", "note": "48.5 Wh 3-cell, 65 W PD GaN charger" },
+    { "field": "screen", "url": "https://www.techpowerup.com/review/zotac-zone/", "accessed": "2026-10-27", "note": "7 in 1920x1080 120 Hz OLED, VRR: No, HDR support" },
+    { "field": "screen.nits_peak", "url": "https://www.notebookcheck.net/Zotac-Zone-review-Display-galore-with-class-leading-inputs.895001.0.html", "accessed": "2026-10-27", "note": "Over 800 nits; measured max 837.42 nits" },
+    { "field": "controls.stick_type", "url": "https://www.techpowerup.com/review/zotac-zone/", "accessed": "2026-10-27", "note": "Hall Effect thumbsticks and triggers" },
+    { "field": "controls.trigger_type", "url": "https://www.notebookcheck.net/Zotac-Zone-review-Display-galore-with-class-leading-inputs.895001.0.html", "accessed": "2026-10-27", "note": "Hall-effect triggers with a switch between analog travel and rapid-fire mode" },
+    { "field": "controls", "url": "https://www.techpowerup.com/review/zotac-zone/", "accessed": "2026-10-27", "note": "6-axis gyro, 2 trackpads, 2 programmable grip buttons, 1.0 MP front camera" },
+    { "field": "ports", "url": "https://www.notebookcheck.net/Zotac-Zone-review-Display-galore-with-class-leading-inputs.895001.0.html", "accessed": "2026-10-27", "note": "USB4 top and bottom, headphone jack top, microSD bottom" },
+    { "field": "fingerprint", "url": "https://www.notebookcheck.net/Zotac-Zone-review-Display-galore-with-class-leading-inputs.895001.0.html", "accessed": "2026-10-27", "note": "Power button with fingerprint reader" },
+    { "field": "msrp_usd", "url": "https://www.techpowerup.com/review/zotac-zone/", "accessed": "2026-10-27", "note": "MSRP $799 / EUR 849" },
+    { "field": "release_date", "url": "https://lowyat.net/2024/330597/zotac-zone-gets-12-september-launch-date-preorders-start-at-e849", "accessed": "2026-10-27", "note": "Global launch on 12 September 2024" },
+    { "field": "announce_date", "url": "https://liliputing.com/zotac-gaming-zone-is-a-ryzen-7-8840u-handheld-gaming-pc-with-an-amoled-screen-and-a-webcam/", "accessed": "2026-10-27", "note": "Shown at Computex 2024" }
+  ]
+}

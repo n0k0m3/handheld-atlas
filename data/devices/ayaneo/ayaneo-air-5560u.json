@@ -1,0 +1,265 @@
+{
+  "brand": "AYANEO",
+  "status": "shipped",
+  "announce_date": null,
+  "form_factor": "classic",
+  "ram": {
+    "sizes_gb": [
+      8,
+      16
+    ],
+    "type": "LPDDR4X",
+    "speed_mts": 4266,
+    "channels": 2,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": null,
+        "lanes": null,
+        "note": "M.2 2280 SSD; vendor says up to 2TB single-sided"
+      }
+    ],
+    "capacities_gb": [
+      128,
+      256,
+      512
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB-C unspecified",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "Full-featured Type-C, DP 1.4 4K60, two-way power input; USB speed not stated"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "TF card slot, about 100 MB/s (USB 3.0 class reader)"
+    }
+  ],
+  "screen": {
+    "size_in": 5.5,
+    "panel": "AMOLED",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": null,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "5.5\" AMOLED, 404 PPI, NTSC 109%, contrast 100000:1, touch panel (TP), anti-fingerprint glass"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Small Hall joystick, no dead zone",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "X-axis linear motor",
+    "note": "Dual gyroscope. Hall triggers with 7.5 mm travel and 0.09 mm accuracy. Standard handle buttons plus AYANEO custom buttons."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows"
+  ],
+  "cooling": "Fan with copper heat pipe",
+  "fingerprint": true,
+  "id": "ayaneo-air-5560u",
+  "model": "Air",
+  "variant": "Ryzen 5 5560U (Lite and Standard)",
+  "release_date": "2022-08",
+  "msrp_usd": 599,
+  "dims_mm": {
+    "handheld": {
+      "w": 224,
+      "h": 89.5,
+      "d": 18,
+      "d_max": 26.7
+    },
+    "note": "Official size 224x89.5x26.7mm, thickness 18mm"
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 398,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Official: about 398 g (Lite and Standard)"
+  },
+  "soc_id": "r5-5560u",
+  "battery": {
+    "wh": 28,
+    "removable": false,
+    "external": false,
+    "charge_w": null,
+    "note": "7350 mAh"
+  },
+  "notes": "AYANEO Air (2022). Lite (8GB LPDDR4X-3200, 128GB, white, TDP 8-12 W) and Standard (16GB LPDDR4X-4266, 256GB or 512GB, TDP 8-15 W) share one row: same chassis, they differ only by RAM and SSD. ram.speed_mts is the Standard value. Launch prices (NotebookCheck 2022-05-29): 8GB/128GB $599 retail ($499 early bird); 16GB/256GB $629 retail ($569 early bird). Release month is the planned start of shipments (early August 2022) for non-Pro models. NotebookCheck says the 8GB/128GB model has no fingerprint reader; the official table says all models have one.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "first announcement date not sourced; full specs and prices were published 2022-05-29"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found"
+    },
+    {
+      "field": "storage.slots.0.pcie_gen",
+      "reason": "official page says only high-speed M.2 2280 SSD"
+    },
+    {
+      "field": "storage.slots.0.lanes",
+      "reason": "not stated"
+    },
+    {
+      "field": "ports.0.speed_gbps",
+      "reason": "USB speed of the Type-C ports not stated"
+    },
+    {
+      "field": "ports.0.pd_in_w",
+      "reason": "charge input wattage not stated"
+    },
+    {
+      "field": "ports.0.location",
+      "reason": "port location not stated"
+    },
+    {
+      "field": "ports.1",
+      "reason": "speed, DP, PD, and location do not apply or are not stated"
+    },
+    {
+      "field": "ports.2",
+      "reason": "speed, DP, PD, and location do not apply or are not stated"
+    },
+    {
+      "field": "screen.refresh_hz",
+      "reason": "refresh rate not stated by the vendor"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "brightness not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "brightness not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "battery.charge_w",
+      "reason": "vendor says fast charging but gives no wattage"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "not stated by the vendor"
+    },
+    {
+      "field": "os",
+      "reason": "official page lists the Air under Windows Gaming Handhelds but does not name the Windows version"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "weight_g.handheld.stated",
+      "values": [
+        {
+          "value": 398,
+          "url": "https://ayaneo.com/product/AYANEOAIR"
+        },
+        {
+          "value": "395 (8GB/128GB), 410 (16GB/256GB)",
+          "url": "https://www.notebookcheck.net/AYA-NEO-AIR-Full-specifications-and-prices-confirmed-for-multiple-configurations.622991.0.html"
+        }
+      ],
+      "chosen_reason": "official value"
+    },
+    {
+      "field": "fingerprint",
+      "values": [
+        {
+          "value": true,
+          "url": "https://ayaneo.com/product/AYANEOAIR"
+        },
+        {
+          "value": "false for 8GB/128GB",
+          "url": "https://www.notebookcheck.net/AYA-NEO-AIR-Full-specifications-and-prices-confirmed-for-multiple-configurations.622991.0.html"
+        }
+      ],
+      "chosen_reason": "official table lists power key fingerprint for every model"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://ayaneo.com/product/AYANEOAIR",
+      "accessed": "2026-10-27",
+      "note": "Page text and the 'Which one AYANEO AIR suits you?' table: Lite / Standard / Pro configurations, CPU, RAM, storage, screen, Wi-Fi 6 / BT 5.2, size, thickness, battery, weight"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://ayaneo.com/product/AYANEOAIR",
+      "accessed": "2026-10-27",
+      "note": "Config table: Hall Joystick, hall trigger, linear motor"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://ayaneo.com/product/AYANEOAIR",
+      "accessed": "2026-10-27",
+      "note": "High-precision Hall trigger, 7.5 mm stroke"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/AYA-NEO-AIR-Full-specifications-and-prices-confirmed-for-multiple-configurations.622991.0.html",
+      "accessed": "2026-10-27",
+      "note": "AIR 8GB/128GB: US$499 early bird / US$599 retail"
+    },
+    {
+      "field": "release_date",
+      "url": "https://www.notebookcheck.net/AYA-NEO-AIR-Full-specifications-and-prices-confirmed-for-multiple-configurations.622991.0.html",
+      "accessed": "2026-10-27",
+      "note": "AIR series begins shipping in early August 2022, non-Pro configurations only (plan as of 2022-05-29)"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "steam-deck-lcd",
+  "brand": "Valve",
+  "model": "Steam Deck LCD",
+  "variant": null,
+  "status": "shipped",
+  "announce_date": "2021-07-15",
+  "release_date": "2022-02-25",
+  "msrp_usd": 399,
+  "form_factor": "classic",
+  "dims_mm": {
+    "handheld": { "w": 298, "h": 117, "d": 49, "d_max": null },
+    "note": "Valve publishes one size: 298 x 117 x 49 mm."
+  },
+  "weight_g": {
+    "handheld": { "stated": 669, "measured": null, "measured_source": null },
+    "note": "Valve states approx. 669 g."
+  },
+  "soc_id": "steam-deck-apu-lcd",
+  "ram": { "sizes_gb": [16], "type": "LPDDR5", "speed_mts": 5500, "channels": 4, "soldered": true },
+  "storage": {
+    "slots": [
+      { "form_factor": "2230", "pcie_gen": 3, "lanes": 4, "note": "Single M.2 2230 slot. The 64 GB model ships an eMMC module in this slot instead of an NVMe SSD." }
+    ],
+    "capacities_gb": [64, 256, 512],
+    "expansion": ["microSD"]
+  },
+  "ports": [
+    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 45, "location": "top", "note": "DisplayPort 1.4 alt mode, up to 8K@60Hz or 4K@120Hz. pd_in_w is the Valve PD 3.0 power supply rating." },
+    { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Stereo headphone / headset jack" },
+    { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "bottom", "note": "UHS-I; supports SD, SDXC and SDHC" }
+  ],
+  "screen": { "size_in": 7.0, "panel": "IPS", "res_w": 1280, "res_h": 800, "refresh_hz": 60, "vrr": false, "touch": true, "nits_sdr": 400, "nits_peak": null, "hdr": false, "note": "Optically bonded IPS LCD, 400 nits typical. The launch 512 GB model added anti-glare etched glass." },
+  "battery": { "wh": 40, "removable": false, "external": false, "charge_w": 45, "note": "Valve: 2-8 hours of gameplay. 45 W PD 3.0 USB-C power supply, 1.5 m cable." },
+  "controls": {
+    "stick_type": null,
+    "stick_note": "2 x full-size analog sticks with capacitive touch",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 2,
+    "gyro": true,
+    "rear_buttons": 4,
+    "keyboard": false,
+    "detachable_controllers": false,
+    "haptics": "HD haptics",
+    "note": "Trackpads are 32.5 mm square with haptic feedback and pressure sensitivity."
+  },
+  "wireless": { "wifi": "Wi-Fi 5", "bt": "5.0" },
+  "os": ["SteamOS 3"],
+  "cooling": "single fan",
+  "fingerprint": false,
+  "notes": "Rows merged: 64 GB eMMC, 256 GB NVMe, and 512 GB NVMe share this hardware. Launch prices $399 / $529 / $649; Valve cut them to $349 / $399 / $449 when the OLED launched and phased the LCD models out. Valve opened orders on 2022-02-25; first shipments went out on 2022-02-28.",
+  "unresolved": [
+    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
+    { "field": "ports.2", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "dims_mm.handheld.d_max", "reason": "Valve publishes one thickness value" },
+    { "field": "weight_g.handheld.measured", "reason": "No reviewer scale weight found; NotebookCheck has no English review of the LCD model" },
+    { "field": "screen.nits_peak", "reason": "Valve gives only a typical brightness (400 nits); no peak or HDR figure" },
+    { "field": "controls.stick_type", "reason": "Valve does not state the stick sensor; no fetched review or teardown names it for the LCD model" },
+    { "field": "controls.trigger_type", "reason": "Valve lists 'L & R analog triggers' without the sensor type; no review or teardown found that names it" },
+    { "field": "controls.trigger_lock", "reason": "Not stated by Valve or the sources used" }
+  ],
+  "sources": [
+    { "field": "*", "url": "https://www.steamdeck.com/en/tech/deck", "accessed": "2026-10-27", "note": "Valve tech specs page, Steam Deck LCD tab" },
+    { "field": "storage.slots", "url": "https://www.tomshardware.com/video-games/handheld-gaming/how-to-upgrade-steam-deck-ssd", "accessed": "2026-10-27", "note": "'All models come with a single M.2 2230 slot'; 'All the SSD models use a PCIe 3.0 x4 interface'; 64 GB model uses eMMC" },
+    { "field": "storage.capacities_gb", "url": "https://www.tomshardware.com/news/valve-steam-deck-launches-feb25", "accessed": "2026-10-27", "note": "64GB eMMC, 256GB NVMe, 512GB NVMe" },
+    { "field": "announce_date", "url": "https://www.tomshardware.com/news/valve-steam-deck-price-specs-release-date", "accessed": "2026-10-27", "note": "Reveal article published 2021-07-15" },
+    { "field": "screen.note", "url": "https://www.tomshardware.com/news/valve-steam-deck-price-specs-release-date", "accessed": "2026-10-27", "note": "'$649 version has a 512GB NVMe SSD as well as anti-glare glass'" },
+    { "field": "release_date", "url": "https://www.tomshardware.com/news/valve-steam-deck-launches-feb25", "accessed": "2026-10-27", "note": "Launch Feb 25, 2022; shipments from Feb 28" },
+    { "field": "msrp_usd", "url": "https://www.tomshardware.com/news/valve-steam-deck-launches-feb25", "accessed": "2026-10-27", "note": "Base $399 with 64GB eMMC" },
+    { "field": "notes", "url": "https://gameinformer.com/2023/11/09/steam-deck-oled-announced", "accessed": "2026-10-27", "note": "LCD price cuts and phase-out" }
+  ]
+}

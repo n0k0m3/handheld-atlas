@@ -1,0 +1,79 @@
+{
+ "aokzoe-a1": {
+  "page": "https://aokzoestore.com/products/refurbished-aokzoe-a1-65w-amd%C2%AE-ryzen%C2%AE-6800u-8-inch",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a1"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "No straight-on official render on white found; the store images are angled or on dark backgrounds."
+ },
+ "aokzoe-a1-pro": {
+  "page": "https://aokzoestore.com/products/aokzoe-a1-pro",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a1-pro"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Top: retrocatalog front cut-out, checked visually: clean straight-on. Removed from top (floor reflection under the unit joins the mask and fails the aspect check): https://cdn.shopify.com/s/files/1/0650/6879/4073/files/800-01.jpg"
+ },
+ "aokzoe-a1x": {
+  "page": "https://aokzoestore.com/products/aokzoe-a1x",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a1x"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Store image https://cdn.shopify.com/s/files/1/0650/6879/4073/files/A1X-__01.jpg is straight-on but on a black background with a logo, so it is not listed under top."
+ },
+ "aokzoe-a1x-8840u": {
+  "page": "https://aokzoestore.com/products/aokzoe-a1x",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a1x"
+  ],
+  "bottom": [],
+  "side": [],
+  "closed_top": [],
+  "note": "Same chassis as aokzoe-a1x."
+ },
+ "aokzoe-a2": {
+  "page": "https://aokzoestore.com/products/aokzoe-a2-7840u-handheld",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a2"
+  ],
+  "bottom": [
+   "https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_82ba5b77-ec19-4d34-86f0-547867ba7867.jpg",
+   "https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_e22f6f6a-4d3c-4501-ad0a-971ddb02c004.jpg"
+  ],
+  "side": [],
+  "closed_top": [],
+  "note": "Top: retrocatalog front cut-out (black unit), checked visually: clean straight-on. Removed from top and bottom (white unit on a white background; the flood fill cut into the body although the trace passed the aspect check): https://cdn.shopify.com/s/files/1/0650/6879/4073/files/1_ec55c138-e296-4680-b0d6-e1809bf4dd64.jpg (front), https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_3e48813e-651f-40e3-951b-b4febabac7c1.jpg (back). Bottom: store back views on white of the black unit (https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_82ba5b77-ec19-4d34-86f0-547867ba7867.jpg) and the green unit (https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_e22f6f6a-4d3c-4501-ad0a-971ddb02c004.jpg), both checked visually and test-traced clean."
+ },
+ "aokzoe-a2-ultra": {
+  "page": "https://aokzoestore.com/products/refurbished-a2-intel-aok-7",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a2"
+  ],
+  "bottom": [
+   "https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_82ba5b77-ec19-4d34-86f0-547867ba7867.jpg"
+  ],
+  "side": [],
+  "closed_top": [],
+  "note": "Top: the aokzoe-a2 retrocatalog cut-out. The store front image of the A2 Ultra (https://cdn.shopify.com/s/files/1/0650/6879/4073/files/A2_1.jpg, dark background with a text banner) shows the same body as the A2: same stick rings, D-pad and button layout. Spec dimensions match. The store back view A2_3.jpg is black on black; its trace was wrong. Bottom uses the A2 black-unit back view on white instead; A2_3.jpg shows the same back."
+ },
+ "aokzoe-a2-ultra-125h": {
+  "page": "https://aokzoestore.com/products/refurbished-a2-intel-aok-7",
+  "top": [
+   "https://retrocatalog.com/images/retro-handheld_front_aokzoe-a2"
+  ],
+  "bottom": [
+   "https://cdn.shopify.com/s/files/1/0650/6879/4073/files/2_82ba5b77-ec19-4d34-86f0-547867ba7867.jpg"
+  ],
+  "side": [],
+  "closed_top": [],
+  "note": "Top: the aokzoe-a2 retrocatalog cut-out. The store front image of the A2 Ultra (https://cdn.shopify.com/s/files/1/0650/6879/4073/files/A2_1.jpg, dark background with a text banner) shows the same body as the A2: same stick rings, D-pad and button layout. Spec dimensions match. The store back view A2_3.jpg is black on black; its trace was wrong. Bottom uses the A2 black-unit back view on white instead; A2_3.jpg shows the same back."
+ }
+}

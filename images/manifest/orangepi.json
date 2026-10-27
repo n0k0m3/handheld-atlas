@@ -1,0 +1,22 @@
+{
+  "orange-pi-neo-7840u": {
+    "page": "https://neo.manjaro.org/",
+    "top": [
+      "https://neo.manjaro.org/img/os-view.png"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Top uses os-view.png from the official Manjaro Neo gallery: a straight-on front cutout on a transparent background (aspect_err 0.017). The other gallery images (019.jpg, 016.jpg, 047.jpg and the rest) are angled marketing shots or internals, so side and bottom stay boxes. No retrocatalog front image exists."
+  },
+  "orange-pi-neo-8840u": {
+    "page": "https://neo.manjaro.org/",
+    "top": [
+      "https://neo.manjaro.org/img/os-view.png"
+    ],
+    "bottom": [],
+    "side": [],
+    "closed_top": [],
+    "note": "Same chassis as orange-pi-neo-7840u; same gallery image."
+  }
+}

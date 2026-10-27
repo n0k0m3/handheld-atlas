@@ -1,0 +1,1859 @@
+<title>Handheld Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="x86 handheld gaming PCs drawn at true scale, with every spec linked to its source.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one 1200 px column. The size overlay is the hero: a framed drawing sheet with a side rail.
+   Devices are silhouette plates on one shared mm scale. Chips are a ruled list. Notes run at 65ch.
+   Material: matte anodized hardware. Cool grey paper, graphite ink, one machinist-scale red for active state. */
+:root {
+  --paper: #e7ecea;
+  --sheet: #f1f4f3;
+  --ink: #1b2422;
+  --ink-2: #45514e;
+  --muted: #5b6764;
+  --rule: #c8d0cd;
+  --rule-2: #a3adaa;
+  --accent: #a5333a;
+  --accent-wash: rgba(165, 51, 58, .09);
+  --sil-fill: rgba(27, 36, 34, .07);
+  --sil-box: #7f8a87;
+  --grid-minor: #e0e6e4;
+  --grid-major: #c9d1ce;
+  --bar: #3e4a48;
+  --track: #d3dad7;
+  --scrim: rgba(27, 36, 34, .30);
+  --dev-1: #2a78d6; --dev-2: #1baf7a; --dev-3: #6250d6; --dev-4: #eda100; --dev-5: #e87ba4; --dev-6: #008300;
+  --tag-ink: #ffffff; --tag-ink-alt: #0b0b0b;
+  --f-ui: "Schibsted Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --nav-h: 46px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #171b1b; --sheet: #202525; --ink: #e6e2dc; --ink-2: #c2bdb5; --muted: #99938b;
+    --rule: #2f3535; --rule-2: #465050; --accent: #e5867f; --accent-wash: rgba(229, 134, 127, .13);
+    --sil-fill: rgba(230, 226, 220, .08); --sil-box: #8b8f8c; --grid-minor: #272d2d; --grid-major: #363e3e;
+    --bar: #b8b2a9; --track: #313838; --scrim: rgba(0, 0, 0, .5);
+    --dev-1: #3987e5; --dev-2: #199e70; --dev-3: #9085e9; --dev-4: #c98500; --dev-5: #d55181; --dev-6: #008300;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #171b1b; --sheet: #202525; --ink: #e6e2dc; --ink-2: #c2bdb5; --muted: #99938b;
+  --rule: #2f3535; --rule-2: #465050; --accent: #e5867f; --accent-wash: rgba(229, 134, 127, .13);
+  --sil-fill: rgba(230, 226, 220, .08); --sil-box: #8b8f8c; --grid-minor: #272d2d; --grid-major: #363e3e;
+  --bar: #b8b2a9; --track: #313838; --scrim: rgba(0, 0, 0, .5);
+  --dev-1: #3987e5; --dev-2: #199e70; --dev-3: #9085e9; --dev-4: #c98500; --dev-5: #d55181; --dev-6: #008300;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-padding-top: calc(var(--nav-h) + 20px); }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.5 var(--f-ui);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 72px;
+  -webkit-text-size-adjust: 100%;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+a { color: inherit; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }
+a:hover { text-decoration-color: currentColor; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3, h4, p, dl, dd, figure { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+code { font-family: var(--f-mono); font-size: .9em; }
+.m { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.na { color: var(--muted); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.page { max-width: 1200px; margin-inline: auto; min-width: 0; }
+
+/* ---------- masthead ---------- */
+.mast {
+  display: grid; grid-template-columns: auto minmax(0, 36ch);
+  justify-content: space-between; align-items: end; gap: 14px 56px;
+  padding-block: 64px 22px;
+}
+.mast h1 { font-size: clamp(44px, 7vw, 80px); font-weight: 700; letter-spacing: -0.035em; line-height: .92; }
+.mast-r { display: grid; gap: 10px; padding-bottom: 4px; }
+.lede { font-size: 17px; line-height: 1.45; color: var(--ink-2); }
+.counts { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ruler { height: 30px; overflow: hidden; border-top: 1px solid var(--ink-2); }
+.ruler svg { display: block; width: 100%; height: 30px; }
+.ruler line { stroke: var(--ink-2); stroke-width: 1; }
+.ruler text { fill: var(--muted); font: 10px var(--f-mono); }
+
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--paper); border-bottom: 1px solid var(--rule);
+  display: flex; flex-wrap: wrap; gap: 4px 28px; padding-block: 10px 0;
+}
+.nav a { text-decoration: none; color: var(--ink-2); font-weight: 500; padding-block: 2px 9px; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.nav a[aria-current] { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* ---------- sections ---------- */
+.sec { padding-block: 60px 0; display: grid; gap: 20px; min-width: 0; }
+.sec > * { min-width: 0; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; }
+.sec-head h2 { font-size: 27px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; }
+.sec-note { color: var(--muted); font-size: 14px; }
+.sec-head .end { margin-left: auto; }
+
+/* text tabs: radios that read as words */
+.tabs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 18px; }
+.tabs .lbl { font-size: 12.5px; color: var(--muted); margin-right: -6px; }
+.tabs input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }
+.tabs label { cursor: pointer; color: var(--ink-2); font-weight: 500; padding-block: 3px 4px; border-bottom: 2px solid transparent; white-space: nowrap; }
+.tabs input:checked + label { color: var(--ink); border-bottom-color: var(--accent); }
+.tabs input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.tbtn {
+  background: none; border: 0; padding: 3px 0; font-weight: 600; font-size: 13.5px; color: var(--ink);
+  text-decoration: underline; text-decoration-color: var(--rule-2); text-underline-offset: 4px; white-space: nowrap;
+}
+.tbtn:hover { text-decoration-color: currentColor; }
+.tbtn[aria-pressed="true"], .tbtn[aria-expanded="true"] { color: var(--accent); text-decoration-color: currentColor; }
+
+input[type="search"], select {
+  border: 0; border-bottom: 1px solid var(--rule-2); border-radius: 0; background-color: transparent;
+  padding: 5px 0 6px; min-width: 0; font-size: 14.5px;
+}
+input[type="search"]::placeholder { color: var(--muted); opacity: 1; }
+select {
+  -webkit-appearance: none; appearance: none; padding-right: 22px; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%;
+  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+}
+select option { background: var(--paper); color: var(--ink); }
+input[type="checkbox"], input[type="range"] { accent-color: var(--accent); }
+.fld { display: grid; gap: 1px; min-width: 0; }
+.fld > label, .fld > .lbl { font-size: 12.5px; color: var(--muted); }
+.msg { font-size: 13px; color: var(--accent); min-height: 0; }
+.msg:empty { display: none; }
+
+/* device colour slots */
+.s1 { --c: var(--dev-1); } .s2 { --c: var(--dev-2); } .s3 { --c: var(--dev-3); }
+.s4 { --c: var(--dev-4); } .s5 { --c: var(--dev-5); } .s6 { --c: var(--dev-6); }
+.sw {
+  display: inline-grid; place-items: center; width: 20px; height: 20px; flex: none;
+  background: var(--c); color: var(--tag-ink); font: 600 11px/1 var(--f-mono); border-radius: 2px;
+}
+.sw.s4 { color: var(--tag-ink-alt); }
+
+/* ---------- overlay ---------- */
+.ov { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 32px; align-items: start; }
+.ov-main { display: grid; gap: 12px; min-width: 0; }
+.ov-ctrls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 30px; }
+.zoom { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+.zoom label { font-size: 12.5px; color: var(--muted); }
+.zoom input[type="range"] { width: 140px; }
+.zoom output { font: 12px var(--f-mono); color: var(--muted); min-width: 7ch; font-variant-numeric: tabular-nums; }
+.sheet { background: var(--sheet); border: 1px solid var(--rule-2); min-width: 0; }
+.ov-canvas { overflow: auto; max-width: 100%; }
+.ov-canvas svg { display: block; }
+.strip { display: flex; flex-wrap: wrap; border-top: 1px solid var(--rule-2); }
+.strip .axes { flex: 1 1 260px; padding: 8px 12px; font-size: 12.5px; color: var(--ink-2); min-width: 0; }
+.tblock { display: grid; grid-template-columns: repeat(4, auto); border-left: 1px solid var(--rule-2); }
+.tblock > div { padding: 6px 14px 7px; border-left: 1px solid var(--rule); }
+.tblock > div:first-child { border-left: 0; }
+.tblock dt { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.tblock dd { font: 500 13px var(--f-mono); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+#ov-svg .plot { fill: var(--sheet); }
+#ov-svg .gm { stroke: var(--grid-minor); stroke-width: 1; }
+#ov-svg .gM { stroke: var(--grid-major); stroke-width: 1; }
+#ov-svg .rl { stroke: var(--rule-2); stroke-width: 1; }
+#ov-svg text { fill: var(--muted); font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+#ov-svg .dev .shape { fill: var(--c); fill-opacity: .14; stroke: var(--c); stroke-width: 1.5; stroke-linejoin: round; }
+#ov-svg .dev .screen { fill: none; stroke: var(--c); stroke-width: .8; stroke-opacity: .7; }
+#ov-svg .dev .grip { fill: var(--c); fill-opacity: .04; stroke: var(--c); stroke-width: 1; stroke-dasharray: 5 4; }
+#ov-svg .tag rect { fill: var(--c); }
+#ov-svg .tag text { fill: var(--tag-ink); font-weight: 600; }
+#ov-svg .tag.s4 text { fill: var(--tag-ink-alt); }
+#ov-svg .empty-t { fill: var(--muted); font-family: var(--f-ui); }
+#ov-svg.hl .dev:not(.on), #ov-svg.hl .tag:not(.on) { opacity: .22; }
+@media (prefers-reduced-motion: no-preference) {
+  #ov-svg.settle .dev > .in { animation: settle 230ms cubic-bezier(.2, .8, .2, 1) both; }
+  #ov-svg.settle .dev.s2 > .in { animation-delay: 12ms; }
+  #ov-svg.settle .dev.s3 > .in { animation-delay: 24ms; }
+  #ov-svg.settle .dev.s4 > .in { animation-delay: 36ms; }
+  #ov-svg.settle .dev.s5 > .in { animation-delay: 48ms; }
+  #ov-svg.settle .dev.s6 > .in { animation-delay: 60ms; }
+}
+@keyframes settle { from { opacity: .3; transform: translateY(-7px); } to { opacity: 1; transform: none; } }
+
+.rail { display: grid; gap: 22px; min-width: 0; }
+.rail h3 { font-size: 14px; font-weight: 600; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.rail h3 .m { font-size: 12px; color: var(--muted); font-weight: 400; }
+.legend { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--rule); }
+.lg { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: 10px; align-items: start; padding-block: 10px; border-bottom: 1px solid var(--rule); }
+.lg .sw { margin-top: 1px; }
+.lg-open { background: none; border: 0; padding: 0; text-align: left; font-weight: 600; font-size: 14px; line-height: 1.3; }
+.lg-open:hover { text-decoration: underline; text-underline-offset: 3px; }
+.lg-v { display: block; font-weight: 400; color: var(--muted); font-size: 12.5px; }
+.lg-d { display: block; margin-top: 3px; font: 12px/1.45 var(--f-mono); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.kind { font-style: italic; color: var(--muted); font-family: var(--f-ui); }
+.lg-x { background: none; border: 0; padding: 0 2px; font-size: 18px; line-height: 1; color: var(--muted); }
+.lg-x:hover { color: var(--ink); }
+.lg-empty { padding-block: 12px; color: var(--muted); font-size: 13.5px; border-bottom: 1px solid var(--rule); }
+.gripkey { display: flex; gap: 10px; align-items: center; font-size: 12.5px; color: var(--ink-2); margin-top: 10px; }
+.gripkey svg { flex: none; }
+.gripkey rect { fill: none; stroke: var(--ink-2); stroke-dasharray: 5 4; }
+.rail-act { display: flex; gap: 18px; margin-top: 10px; }
+.picker { display: grid; gap: 8px; }
+.picker input { width: 100%; }
+.pick-hint { font-size: 13px; color: var(--muted); }
+.pick-list { list-style: none; margin: 0; padding: 0; }
+.pick-list button {
+  width: 100%; display: flex; gap: 10px; align-items: baseline; background: none; border: 0; border-bottom: 1px solid var(--rule);
+  padding: 7px 0; text-align: left; font-size: 13.5px;
+}
+.pick-list button .v { color: var(--muted); font-size: 12.5px; }
+.pick-list button .act { margin-left: auto; font-weight: 600; font-size: 12.5px; white-space: nowrap; }
+.pick-list button[aria-pressed="true"] .act { color: var(--accent); }
+.pick-list button:hover .act { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- devices ---------- */
+.toolbar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 26px; }
+.toolbar .search { flex: 1 1 200px; }
+.toolbar .search input { width: 100%; }
+.toolbar .tabs { padding-bottom: 2px; }
+.more {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px 28px;
+  padding-block: 18px; border-block: 1px solid var(--rule);
+}
+.more fieldset { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 3px; align-content: start; }
+.more legend { padding: 0; margin-bottom: 4px; font-size: 12.5px; color: var(--muted); }
+.more label { display: flex; gap: 8px; align-items: baseline; font-size: 14px; cursor: pointer; }
+.more label .ct { margin-left: auto; font: 11.5px var(--f-mono); color: var(--muted); }
+.more .wide select { width: 100%; }
+.more .hint { grid-column: 1 / -1; font-size: 12.5px; color: var(--muted); }
+.tokens { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+.tok {
+  display: inline-flex; gap: 8px; align-items: baseline; background: var(--accent-wash); color: var(--ink);
+  border: 0; border-radius: 2px; padding: 3px 9px 4px; font-size: 13px;
+}
+.tok b { font-weight: 600; }
+.tok .x { color: var(--accent); font-size: 15px; line-height: 1; }
+.scale-note { font-size: 12.5px; color: var(--muted); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 44px 28px; }
+.card { container-type: inline-size; display: grid; gap: 12px; align-content: start; min-width: 0; cursor: pointer; }
+.plate { background: var(--sheet); display: grid; }
+.stage {
+  height: calc(var(--span-h, 200) / var(--span, 380) * 100cqi);
+  display: flex; align-items: center; justify-content: center;
+}
+.sil { display: block; overflow: visible; width: calc(var(--w, 100) / var(--span, 380) * 100cqi); height: calc(var(--h, 50) / var(--span, 380) * 100cqi); }
+.sil path { fill: var(--sil-fill); stroke: var(--ink); stroke-width: 1.2; stroke-linejoin: round; }
+.sil.box path { fill: none; stroke: var(--sil-box); stroke-width: 1; }
+.plate-foot { display: flex; justify-content: space-between; gap: 10px; padding: 0 10px 6px; font-size: 11.5px; color: var(--muted); min-height: 22px; align-items: end; }
+.plate-foot .m { font-size: 11px; }
+.plate-foot .kind { font-size: 11.5px; }
+.cap { display: grid; gap: 10px; min-width: 0; }
+.cap-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 14px; }
+.cap-head > div { min-width: 0; }
+.card h3 { font-size: 16.5px; font-weight: 600; line-height: 1.25; letter-spacing: -0.005em; }
+.open { background: none; border: 0; padding: 0; text-align: left; font-weight: 600; }
+.card:hover .open, .open:focus-visible { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.variant { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.status { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); margin-right: 6px; }
+.add {
+  background: none; border: 0; padding: 2px 0; flex: none; display: inline-flex; gap: 6px; align-items: center;
+  font-size: 12.5px; font-weight: 600; color: var(--ink-2); white-space: nowrap;
+  text-decoration: underline; text-decoration-color: var(--rule-2); text-underline-offset: 4px;
+}
+.add:hover { color: var(--ink); text-decoration-color: currentColor; }
+.add[aria-pressed="true"] { color: var(--accent); text-decoration: none; }
+.add .sw { width: 17px; height: 17px; font-size: 10px; }
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 16px; font-size: 13px; }
+.facts dt { color: var(--muted); }
+.facts dd { font: 12.5px/1.5 var(--f-mono); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; color: var(--ink); }
+.facts .u { color: var(--muted); }
+.refuse { font-size: 12.5px; color: var(--accent); }
+.card.flash .plate { outline: 2px solid var(--accent); outline-offset: 2px; }
+.empty { color: var(--muted); padding-block: 24px; }
+.more-cards { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; padding-top: 6px; border-top: 1px solid var(--rule); }
+.more-cards .na { font-size: 13px; }
+
+.tbl-tools { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-bottom: 10px; position: relative; }
+.tbl-tools .hint { font-size: 12.5px; color: var(--muted); }
+.colpick summary { list-style: none; }
+.colpick summary::-webkit-details-marker { display: none; }
+.colpick[open] summary { color: var(--accent); text-decoration-color: currentColor; }
+.col-panel {
+  position: absolute; z-index: 15; left: 0; top: 100%; margin-top: 6px; width: min(560px, calc(100vw - 32px));
+  background: var(--sheet); border: 1px solid var(--rule-2); padding: 14px 16px; display: grid; gap: 12px;
+}
+.col-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 4px 18px; }
+.col-list label { display: flex; gap: 8px; align-items: baseline; font-size: 13.5px; cursor: pointer; }
+.tbl-wrap { overflow: auto; max-height: 76vh; border-top: 1px solid var(--rule-2); min-width: 0; }
+#tbl { border-collapse: collapse; width: max-content; min-width: 100%; font-size: 13.5px; }
+#tbl th, #tbl td { white-space: nowrap; text-align: left; padding: 7px 18px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: baseline; }
+#tbl th:first-child, #tbl td:first-child { padding-left: 2px; }
+#tbl thead th { position: sticky; top: 0; z-index: 2; background: var(--paper); padding-block: 9px 7px; border-bottom-color: var(--rule-2); }
+#tbl .num { text-align: right; }
+#tbl td.mono { font-family: var(--f-mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+#tbl .u { color: var(--muted); }
+#tbl tbody tr { cursor: pointer; }
+#tbl tbody tr:hover td { background: var(--sheet); }
+#tbl tbody tr.flash td { background: var(--accent-wash); }
+.sort { background: none; border: 0; padding: 0; font-weight: 600; font-size: 12.5px; color: var(--ink-2); white-space: nowrap; }
+.sort .unit { font-weight: 400; color: var(--muted); margin-left: 4px; }
+.sort .arr { color: var(--accent); margin-left: 4px; font-size: 10px; }
+th[aria-sort="ascending"] .sort, th[aria-sort="descending"] .sort { color: var(--ink); }
+.dcell { display: flex; align-items: baseline; gap: 10px; }
+.dcell input { margin: 0; align-self: center; }
+.dcell .b { font-weight: 600; }
+.dcell .v { color: var(--muted); max-width: 260px; overflow: hidden; text-overflow: ellipsis; display: inline-block; vertical-align: bottom; }
+.dcell .sw { width: 16px; height: 16px; font-size: 9.5px; align-self: center; }
+
+/* ---------- chips ---------- */
+.chips { list-style: none; margin: 0; padding: 0; }
+.chip-head, .chip-row {
+  display: grid; gap: 6px 26px; align-items: start;
+  grid-template-columns: minmax(0, 1.7fr) repeat(3, minmax(0, 1fr)) minmax(0, .55fr) minmax(0, .95fr);
+}
+.chip-head { padding-bottom: 8px; border-bottom: 1px solid var(--rule-2); position: sticky; top: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); background: var(--paper); z-index: 5; padding-top: 8px; }
+.chip-head > div { display: grid; gap: 1px; justify-items: start; }
+.chip-head .sort { text-align: left; }
+.chip-head .scl { font: 11px var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip-row { padding-block: 13px; border-bottom: 1px solid var(--rule); }
+.chip-row .nm { font-weight: 600; font-size: 15px; line-height: 1.3; }
+.chip-row .ig { display: block; font-size: 13px; color: var(--muted); }
+.chip-row sup a { color: var(--accent); text-decoration: none; font-family: var(--f-mono); font-size: 11px; margin-left: 2px; }
+.sc { display: grid; gap: 4px; min-width: 0; }
+.sc .top { display: flex; align-items: baseline; gap: 8px; }
+.sc .v { font: 500 13.5px var(--f-mono); font-variant-numeric: tabular-nums; }
+.sc .n { font: 11px var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { display: block; height: 4px; background: var(--track); border-radius: 0 2px 2px 0; }
+.bar i { display: block; height: 100%; background: var(--bar); border-radius: 0 2px 2px 0; }
+.cl { display: none; font-size: 11.5px; color: var(--muted); }
+.tdp { font: 13px var(--f-mono); font-variant-numeric: tabular-nums; }
+.used summary { cursor: pointer; font-size: 13.5px; color: var(--ink-2); list-style-position: inside; }
+.used summary:hover { color: var(--ink); }
+.used[open] summary { color: var(--ink); }
+.used ul { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 2px; }
+.used button { background: none; border: 0; padding: 1px 0; text-align: left; font-size: 13.5px; text-decoration: underline; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }
+.used button:hover { text-decoration-color: currentColor; }
+.fns { margin: 18px 0 0; padding-left: 20px; display: grid; gap: 8px; font-size: 13.5px; color: var(--ink-2); max-width: 90ch; }
+.fns-h { margin-top: 18px; font-size: 13.5px; color: var(--muted); }
+
+/* ---------- notes ---------- */
+.notes { display: grid; gap: 22px; max-width: 65ch; }
+.notes h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.notes p + p { margin-top: 8px; }
+.notes ol { margin: 6px 0 0; padding-left: 20px; }
+
+/* ---------- drawer and popover ---------- */
+#scrim { position: fixed; inset: 0; background: var(--scrim); z-index: 40; }
+#drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 41; width: min(580px, 100%);
+  background: var(--paper); border-left: 1px solid var(--rule-2);
+  display: grid; grid-template-rows: auto minmax(0, 1fr);
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.dr-head {
+  display: flex; justify-content: space-between; align-items: start; gap: 16px;
+  padding: 20px max(22px, env(safe-area-inset-right, 0px)) 14px 24px; border-bottom: 1px solid var(--rule);
+}
+.dr-brand { font-size: 13px; color: var(--muted); }
+#dr-title { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+.dr-variant { font-size: 14px; color: var(--ink-2); margin-top: 2px; }
+#dr-close { flex: none; }
+.dr-body { overflow: auto; padding: 18px max(22px, env(safe-area-inset-right, 0px)) 40px 24px; display: grid; gap: 28px; align-content: start; overscroll-behavior: contain; }
+.dr-plate { container-type: inline-size; }
+.dr-act { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+.grp h3 { font-size: 15px; font-weight: 600; padding-bottom: 7px; border-bottom: 1px solid var(--rule-2); margin-bottom: 8px; }
+.kv { display: grid; grid-template-columns: minmax(110px, 36%) minmax(0, 1fr); gap: 6px 16px; font-size: 14px; }
+.kv dt { color: var(--muted); }
+.kv dd { min-width: 0; overflow-wrap: anywhere; }
+.kv .sub { display: block; font-size: 12.5px; color: var(--muted); margin-top: 1px; }
+.gnote { font-size: 13px; color: var(--ink-2); margin-top: 10px; }
+.sv {
+  background: none; border: 0; padding: 0; text-align: left; color: inherit;
+  text-decoration: underline dotted; text-decoration-color: var(--muted); text-underline-offset: 3px;
+}
+.sv.m { font-family: var(--f-mono); }
+.sv:hover, .sv[aria-expanded="true"] { text-decoration-color: var(--accent); }
+.dl { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 13.5px; }
+.dl .f { font: 12px var(--f-mono); color: var(--ink-2); }
+.dl .why { display: block; color: var(--muted); font-size: 12.5px; }
+.dl .url { display: block; font: 11.5px var(--f-mono); color: var(--muted); overflow-wrap: anywhere; }
+.cfv { display: grid; gap: 2px; margin-top: 2px; }
+#pop {
+  position: fixed; z-index: 60; width: max-content; max-width: min(360px, calc(100vw - 32px));
+  background: var(--sheet); border: 1px solid var(--rule-2); padding: 10px 14px 12px; font-size: 13px;
+}
+#pop h4 { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 6px; }
+#pop ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+#pop .why { display: block; color: var(--muted); font-size: 12px; }
+
+/* ---------- narrow screens ---------- */
+@media (max-width: 960px) {
+  .ov { grid-template-columns: minmax(0, 1fr); }
+  .rail { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px 32px; align-items: start; }
+}
+@media (max-width: 760px) {
+  .mast { grid-template-columns: minmax(0, 1fr); padding-block: 40px 18px; }
+  .chip-head { display: none; }
+  .chip-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 16px; }
+  .chip-row .c-name { grid-column: 1 / -1; }
+  .chip-row .c-tdp { grid-column: 1 / 2; }
+  .chip-row .c-used { grid-column: 2 / -1; }
+  .cl { display: block; }
+  .tblock { grid-template-columns: repeat(4, auto); border-left: 0; border-top: 1px solid var(--rule); width: 100%; }
+  .tblock > div { padding-inline: 10px; }
+}
+@media (max-width: 480px) {
+  .tblock { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tblock > div:nth-child(3) { border-left: 0; }
+  .tblock > div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .sec-head h2 { font-size: 24px; }
+  .dcell .v { max-width: 130px; }
+  .zoom input[type="range"] { width: 110px; }
+  .kv { grid-template-columns: minmax(96px, 38%) minmax(0, 1fr); }
+  .dr-head, .dr-body { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+}
+</style>
+
+<div class="page">
+  <header class="mast">
+    <h1>Handheld Atlas</h1>
+    <div class="mast-r">
+      <p class="lede">The x86 handheld gaming PCs from 2022 on. Each one is drawn at true scale, and each spec links to its source.</p>
+      <p class="counts" id="counts">Loading data</p>
+    </div>
+  </header>
+  <div class="ruler" aria-hidden="true"><svg id="ruler-svg" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"></svg></div>
+  <nav class="nav" aria-label="Sections">
+    <a href="#overlay" data-sec="overlay">Overlay</a>
+    <a href="#devices" data-sec="devices">Devices</a>
+    <a href="#chips" data-sec="chips">Chips</a>
+    <a href="#notes" data-sec="notes">Notes</a>
+  </nav>
+
+  <main>
+    <section class="sec" id="overlay" aria-labelledby="h-overlay">
+      <div class="sec-head">
+        <h2 id="h-overlay">Size overlay</h2>
+        <p class="sec-note">Drawn as held: controllers attached, battery pack on, lid open.</p>
+      </div>
+      <div class="ov">
+        <div class="ov-main">
+          <div class="ov-ctrls">
+            <div class="tabs" role="radiogroup" aria-label="View">
+              <input type="radio" name="ov-view" id="ov-view-top" value="top"><label for="ov-view-top">Top</label>
+              <input type="radio" name="ov-view" id="ov-view-bottom" value="bottom"><label for="ov-view-bottom">Back</label>
+              <input type="radio" name="ov-view" id="ov-view-side" value="side"><label for="ov-view-side">Side</label>
+            </div>
+            <div class="tabs" role="radiogroup" aria-labelledby="lbl-align">
+              <span class="lbl" id="lbl-align">Align</span>
+              <input type="radio" name="ov-align" id="ov-align-center" value="center"><label for="ov-align-center">Center</label>
+              <input type="radio" name="ov-align" id="ov-align-bottom" value="bottom"><label for="ov-align-bottom">Bottom edge</label>
+              <input type="radio" name="ov-align" id="ov-align-left" value="left"><label for="ov-align-left">Left edge</label>
+            </div>
+            <div class="zoom">
+              <label for="ov-zoom">Zoom</label>
+              <input type="range" id="ov-zoom" min="0.4" max="10" step="0.05" value="2">
+              <output id="ov-zoom-val" for="ov-zoom">2.00 px/mm</output>
+              <button type="button" class="tbtn" id="ov-fit" aria-pressed="true">Fit</button>
+              <button type="button" class="tbtn" id="ov-actual" aria-pressed="false" title="1 mm = 1 CSS millimetre (96 px per inch). Your screen can show it at a different size.">1:1</button>
+            </div>
+          </div>
+          <figure class="sheet">
+            <div class="ov-canvas" id="ov-canvas">
+              <svg id="ov-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ov-title"><title id="ov-title">Size overlay</title></svg>
+            </div>
+            <figcaption class="strip">
+              <p class="axes" id="ov-axes"></p>
+              <dl class="tblock" aria-label="Drawing title block">
+                <div><dt>View</dt><dd id="tb-view">Top</dd></div>
+                <div><dt>Scale</dt><dd id="tb-scale">1 : 1</dd></div>
+                <div><dt>Grid</dt><dd>10 mm</dd></div>
+                <div><dt>Devices</dt><dd id="tb-count">0 / 6</dd></div>
+              </dl>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="rail">
+          <div>
+            <h3>On the sheet <span class="m" id="ov-count"></span></h3>
+            <ol class="legend" id="ov-legend"></ol>
+            <div class="gripkey" id="ov-grip-key" hidden>
+              <svg width="30" height="14" aria-hidden="true"><rect x="1" y="1" width="28" height="12"></rect></svg>
+              <span>grip: the thickest point (d<sub>max</sub>), at the grips, sticks or pack</span>
+            </div>
+            <div class="rail-act">
+              <button type="button" class="tbtn" id="ov-clear">Clear the sheet</button>
+              <button type="button" class="tbtn" id="ov-default">Default three</button>
+            </div>
+          </div>
+          <div class="picker">
+            <h3><label for="ov-q">Add a device</label></h3>
+            <input id="ov-q" type="search" placeholder="Name or chip" autocomplete="off" spellcheck="false">
+            <p class="pick-hint" id="ov-hint">Type a name or a chip. Each card below also has an Add to overlay button.</p>
+            <p class="msg" id="ov-msg" role="status" aria-live="polite"></p>
+            <ul class="pick-list" id="ov-list" aria-label="Matching devices"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="devices" aria-labelledby="h-devices">
+      <div class="sec-head">
+        <h2 id="h-devices">Devices</h2>
+        <p class="sec-note m" id="dev-count" aria-live="polite"></p>
+        <div class="tabs end" role="radiogroup" aria-label="Layout">
+          <input type="radio" name="layout" id="layout-cards" value="cards"><label for="layout-cards">Cards</label>
+          <input type="radio" name="layout" id="layout-table" value="table"><label for="layout-table">Table</label>
+        </div>
+      </div>
+      <form class="toolbar" id="dev-tools" role="search">
+        <div class="fld search"><label for="q">Search</label><input id="q" type="search" placeholder="Brand, model or chip" autocomplete="off" spellcheck="false"></div>
+        <div class="fld"><label for="f-brand">Brand</label><select id="f-brand"></select></div>
+        <div class="tabs" role="radiogroup" aria-labelledby="lbl-stick">
+          <span class="lbl" id="lbl-stick">Sticks</span>
+          <input type="radio" name="f-stick" id="f-stick-all" value=""><label for="f-stick-all">All</label>
+          <input type="radio" name="f-stick" id="f-stick-potentiometer" value="potentiometer"><label for="f-stick-potentiometer">Potentiometer</label>
+          <input type="radio" name="f-stick" id="f-stick-hall" value="hall"><label for="f-stick-hall">Hall</label>
+          <input type="radio" name="f-stick" id="f-stick-tmr" value="tmr"><label for="f-stick-tmr">TMR</label>
+          <input type="radio" name="f-stick" id="f-stick-capacitive" value="capacitive"><label for="f-stick-capacitive">Capacitive</label>
+        </div>
+        <div class="fld"><label for="sort">Sort</label><select id="sort"></select></div>
+        <button type="button" class="tbtn" id="more-btn" aria-expanded="false" aria-controls="more">More filters</button>
+      </form>
+      <div class="more" id="more" hidden></div>
+      <div class="tokens" id="tokens" hidden></div>
+      <p class="msg" id="dev-msg" role="status" aria-live="polite"></p>
+      <p class="scale-note" id="scale-note"></p>
+      <div class="cards" id="cards"></div>
+      <div class="more-cards" id="cards-more" hidden><button type="button" class="tbtn" id="cards-all"></button><span class="na" id="cards-left"></span></div>
+      <div id="table-view" hidden>
+        <div class="tbl-tools">
+          <details class="colpick" id="colpick">
+            <summary class="tbtn" id="colpick-btn">Columns</summary>
+            <div class="col-panel">
+              <div class="col-list" id="col-list"></div>
+              <div><button type="button" class="tbtn" id="col-reset">Default columns</button></div>
+            </div>
+          </details>
+          <span class="hint">Click a header to sort. Click a row to open the device.</span>
+        </div>
+        <div class="tbl-wrap" id="tbl-wrap">
+          <table id="tbl">
+            <caption class="sr">Devices. Sortable columns.</caption>
+            <thead id="thead"></thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <p class="empty" id="dev-empty" hidden>No device matches. <button type="button" class="tbtn" id="dev-clear">Clear the search and filters</button></p>
+    </section>
+
+    <section class="sec" id="chips" aria-labelledby="h-chips">
+      <div class="sec-head">
+        <h2 id="h-chips">Chips</h2>
+        <p class="sec-note" id="chip-note"></p>
+      </div>
+      <div>
+        <div class="chip-head" id="chip-head"></div>
+        <ol class="chips" id="chip-list"></ol>
+        <p class="fns-h" id="fns-h"></p>
+        <ol class="fns" id="chip-fns"></ol>
+      </div>
+    </section>
+
+    <section class="sec" id="notes" aria-labelledby="h-notes">
+      <div class="sec-head"><h2 id="h-notes">Notes</h2></div>
+      <div class="notes">
+        <div>
+          <h3>PassMark scores</h3>
+          <p>A PassMark score is the average of many user uploads. The uploads mix power limits and host devices. A handheld at 15 W can score below its listing. Use the scores as a rough guide only.</p>
+          <p id="note-standin"></p>
+        </div>
+        <div>
+          <h3>Stated and measured weight</h3>
+          <p>The cards and the table show the maker's stated weight. When a reviewer weighed a unit, the device sheet also shows that measured weight and its source. A row with no stated weight uses the measured weight.</p>
+        </div>
+        <div>
+          <h3>As held</h3>
+          <p>Every size and weight describes the device as you hold it to play. The controllers are attached. The battery pack is on. The lid of a clamshell is open. The overlay and the cards draw the same configuration.</p>
+        </div>
+        <div>
+          <h3>Derived values</h3>
+          <p>d<sub>max</sub> is the thickest point. For a clip-on battery pack, it is the body thickness plus the pack thickness. The GPD Win 5 is 24.2 mm plus 18.1 mm, so d<sub>max</sub> is 42.3 mm. When a pack is on, its weight is added to the body weight.</p>
+        </div>
+        <div>
+          <h3>Capacitive sticks</h3>
+          <p>GPD and OneXPlayer call some sticks capacitive. Some reviews call the same sticks Hall effect. The atlas keeps the maker's word. The device sheet lists the other claim under Conflicts. TMR (tunnel magnetoresistance) is a separate class from Hall.</p>
+        </div>
+        <div>
+          <h3>Unshipped rows</h3>
+          <p>A card that says Pre-order or Announced is for a device that has not shipped. Its specs can change before release.</p>
+        </div>
+        <div>
+          <h3>Outlines</h3>
+          <p id="note-outlines">Top views come from official renders where possible. A traced outline is fitted to the stated width and height. A spec box is a rounded rectangle from the stated sizes.</p>
+          <p>Makers rarely publish a clean side render. Every side view is therefore a spec box from the stated height and thickness. The dashed rectangle marks d<sub>max</sub>.</p>
+        </div>
+        <div>
+          <h3>Data and sources</h3>
+          <p id="note-date"></p>
+          <p>The idea comes from <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>. This atlas adds the size overlay, separates TMR from Hall sticks, and adds port and SSD detail.</p>
+          <p>To rebuild the page, follow the Re-run steps in the project README. The last step is <code>uv run build_site.py</code> in <code>scripts/</code>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="pop" role="dialog" aria-label="Source" hidden></div>
+<div id="scrim" hidden></div>
+<aside id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" hidden>
+  <div class="dr-head">
+    <div>
+      <p class="dr-brand" id="dr-brand"></p>
+      <h2 id="dr-title"></h2>
+      <p class="dr-variant" id="dr-variant"></p>
+    </div>
+    <button type="button" class="tbtn" id="dr-close">Close</button>
+  </div>
+  <div class="dr-body" id="dr-body"></div>
+</aside>
+
+<!--ATLAS_DATA-->
+<script>
+(() => {
+  "use strict";
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+  try {
+    if (location.protocol === "file:") {
+      const th = new URLSearchParams(location.search).get("theme");
+      if (th === "dark" || th === "light") document.documentElement.setAttribute("data-theme", th);
+    }
+  } catch (e) { /* ignore */ }
+
+  let DATA;
+  try { DATA = JSON.parse($("#atlas-data").textContent); }
+  catch (e) { $("#counts").textContent = "No data found. Run build_site.py."; return; }
+
+  const DEV = DATA.devices || [], SOCS = DATA.socs || [], OUT = DATA.outlines || {};
+  const SOC = {}; SOCS.forEach((s) => { SOC[s.id] = s; });
+  const BY_ID = {}; DEV.forEach((d) => { BY_ID[d.id] = d; });
+  const DEFAULT_SEL = ["steam-deck-oled", "legion-go-2", "gpd-win-5-395"].filter((id) => BY_ID[id]);
+  const MAX_SEL = 6;
+  const TRUE_PXMM = 96 / 25.4;
+  const REDUCED = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- helpers ---------- */
+  const ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ESC[c]);
+  const NF = new Intl.NumberFormat("en-US");
+  const n0 = (v) => (v == null ? null : NF.format(Math.round(v)));
+  const mm = (v) => (v == null ? "?" : String(Math.round(v * 10) / 10));
+  const r2 = (v) => Math.round(v * 100) / 100;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return String(u || ""); } };
+  const link = (url, text) => '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(text || host(url)) + "</a>";
+  const yn = (v) => (v === true ? "Yes" : v === false ? "No" : null);
+  const nameOf = (d) => [d.brand, d.model, d.variant].filter(Boolean).join(" ");
+  const socOf = (d) => SOC[d.soc_id] || null;
+  const socName = (id) => (SOC[id] ? SOC[id].name : id);
+  const ctl = (d) => d.controls || {};
+  const dimsH = (d) => (d.dims_mm && d.dims_mm.handheld) || { w: 0, h: 0, d: 0 };
+  const wH = (d) => (d.weight_g && d.weight_g.handheld) || {};
+  const ext = (d) => !!(d.battery && d.battery.external);
+  const weightVal = (d) => { const w = wH(d); return w.stated != null ? w.stated : (w.measured != null ? w.measured : null); };
+  const sizeText = (h) => mm(h.w) + " × " + mm(h.h) + " × " + (h.d_max != null ? mm(h.d) + "/" + mm(h.d_max) : mm(h.d));
+  const ucf = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);
+  const NS = '<span class="na">Not stated</span>';
+
+  DEV.forEach((d) => {
+    const ks = (d.ports || []).map((p) => p.kind);
+    d._tb = ks.includes("TB4") || ks.includes("TB5");
+    d._g40 = d._tb || ks.includes("USB4") || ks.includes("USB4v2");
+    d._ocu = ks.includes("OCuLink");
+    d._name = nameOf(d);
+    // Drop the brand when the model already carries it ("OneXPlayer 3", "OneXFly Apex", "AYANEO 3").
+    const stem = d.brand.toLowerCase().slice(0, 4);
+    d._short = d.model.toLowerCase().startsWith(stem) ? d.model : d.brand + " " + d.model;
+    d._search = (d._name + " " + socName(d.soc_id) + " " + d.soc_id).toLowerCase();
+  });
+
+  /* ---------- words for ports, storage and sensors ---------- */
+  const FAST = ["TB5", "TB4", "USB4v2", "USB4", "OCuLink", "XG Mobile"];
+  const C_ORDER = ["USB-C 3.2 Gen2", "USB-C 3.2 Gen1", "USB-C unspecified", "USB-C 2.0"];
+  const A_ORDER = ["USB-A 3.2 Gen2", "USB-A 3.2 Gen1", "USB-A unspecified", "USB-A 2.0"];
+  function portName(p) {
+    if (p.kind === "USB4") return "USB4 " + (p.speed_gbps || 40) + " G";
+    if (p.kind === "USB4v2") return "USB4v2 " + (p.speed_gbps || 80) + " G";
+    if (p.kind === "USB-C unspecified") return "USB-C";
+    if (p.kind === "USB-A unspecified") return "USB-A";
+    if (p.kind === "DC") return "DC in";
+    if (p.kind === "other") return "Other port";
+    return p.kind;
+  }
+  const portLab = (p) => (p.count > 1 ? p.count + "× " : "") + portName(p);
+  const PORT_WORD = { "3.5mm": "3.5 mm jack", "mini-ssd-1517": "Mini SSD slot", microSD: "microSD slot", SD: "SD slot", pogo: "Pogo pins", HDMI: "HDMI", DP: "DisplayPort" };
+  const portLab2 = (p) => (p.count > 1 ? p.count + "× " : "") + (PORT_WORD[p.kind] || portName(p));
+  const byOrder = (o) => (a, b) => o.indexOf(a.kind) - o.indexOf(b.kind);
+  function portWords(d) {
+    const ps = d.ports || [];
+    const fast = ps.filter((p) => FAST.includes(p.kind)).sort(byOrder(FAST));
+    if (fast.length) return fast.map(portLab).join(" · ");
+    const c = ps.filter((p) => C_ORDER.includes(p.kind)).sort(byOrder(C_ORDER));
+    if (c.length) return portLab(c[0]);
+    const a = ps.filter((p) => A_ORDER.includes(p.kind)).sort(byOrder(A_ORDER));
+    return a.length ? portLab(a[0]) : null;
+  }
+  function portScore(d) {
+    let s = 0;
+    (d.ports || []).forEach((p) => {
+      const c = p.count || 1;
+      if (p.kind === "TB5" || p.kind === "USB4v2") s += 120 * c;
+      else if (p.kind === "TB4" || p.kind === "USB4") s += 100 * c;
+      else if (p.kind === "OCuLink") s += 60;
+      else if (/^USB-[AC]/.test(p.kind)) s += (p.speed_gbps || 5) * c;
+      else if (p.kind === "HDMI" || p.kind === "DP") s += 4;
+    });
+    return s || null;
+  }
+  const SSD_LABEL = { "2230": "2230", "2242": "2242", "2280": "2280", "mini-ssd-1517": "Mini SSD", emmc: "eMMC", other: "Other" };
+  const SSD_RANK = { "2280": 5, "2242": 4, "2230": 3, "mini-ssd-1517": 2, emmc: 1, other: 0 };
+  const slots = (d) => (d.storage && d.storage.slots) || [];
+  const ssdText = (d) => { const s = slots(d); return s.length ? s.map((x) => (x.form_factor === "other" ? "not stated" : SSD_LABEL[x.form_factor] || x.form_factor)).join(" + ") : null; };
+  /* HTML for cards and the table: a slot of form factor "other" reads as a muted "not stated". */
+  function ssdHtml(d) {
+    const s = slots(d);
+    if (!s.length) return null;
+    if (s.every((x) => x.form_factor === "other")) return '<span class="u">Not stated</span>';
+    return s.map((x) => (x.form_factor === "other" ? '<span class="u">not stated</span>' : esc(SSD_LABEL[x.form_factor] || x.form_factor))).join(" + ");
+  }
+  const KLABEL = { tmr: "TMR", hall: "Hall", capacitive: "Capacitive", potentiometer: "Potentiometer", optical: "Optical", digital: "Digital", unknown: "Not stated" };
+  const KORDER = { tmr: 1, hall: 2, capacitive: 3, optical: 4, potentiometer: 5, digital: 6 };
+  const FORM = { classic: "Classic", clamshell: "Clamshell", "3-in-1": "3-in-1, detachable", slider: "Slider", other: "Other" };
+  const STATUS = { shipped: "Shipped", "pre-order": "Pre-order", announced: "Announced" };
+  const scoreOf = (d, k) => { const s = socOf(d); return s && s.passmark ? s.passmark[k] : null; };
+  function screenText(d) {
+    const s = d.screen || {};
+    const a = [s.size_in != null ? s.size_in + "″" : null, s.panel, s.res_w && s.res_h ? s.res_w + "×" + s.res_h : null, s.refresh_hz ? s.refresh_hz + " Hz" : null, s.vrr ? "VRR" : null].filter(Boolean);
+    return a.length ? a.join(" ") : null;
+  }
+  const capText = (c) => (c >= 1024 ? c / 1024 + " TB" : c + " GB");
+
+  /* ---------- table columns ---------- */
+  const COLS = [
+    { key: "device", label: "Device", fixed: true, sort: (d) => d._name.toLowerCase() },
+    { key: "weight", label: "Weight", unit: "g", num: true, mono: true, def: true, sort: weightVal,
+      cell: (d) => { const v = weightVal(d); return v == null ? null : esc(n0(v)) + (ext(d) ? '<span class="u"> with pack</span>' : ""); } },
+    { key: "size", label: "Size", unit: "mm", mono: true, def: true, sort: (d) => { const h = dimsH(d); return h.w && h.h ? h.w * h.h : null; }, cell: (d) => esc(sizeText(dimsH(d))) },
+    { key: "ports", label: "Ports", def: true, desc: true, sort: portScore, cell: (d) => esc(portWords(d)) },
+    { key: "ssd", label: "SSD", mono: true, def: true, desc: true,
+      sort: (d) => { const s = slots(d); return s.length ? s.reduce((a, x) => a + (SSD_RANK[x.form_factor] || 0), 0) * 10 + s.length : null; }, cell: ssdHtml },
+    { key: "sticks", label: "Sticks", def: true, sort: (d) => KORDER[ctl(d).stick_type] || null, cell: (d) => (ctl(d).stick_type ? esc(KLABEL[ctl(d).stick_type]) : null) },
+    { key: "soc", label: "Chip", def: true, sort: (d) => socName(d.soc_id).toLowerCase(), cell: (d) => esc(socName(d.soc_id)) },
+    { key: "screen", label: "Screen", def: true, desc: true, sort: (d) => (d.screen ? d.screen.size_in : null), cell: (d) => esc(screenText(d)) },
+    { key: "battery", label: "Battery", unit: "Wh", num: true, mono: true, def: true, desc: true, sort: (d) => (d.battery ? d.battery.wh : null),
+      cell: (d) => { const b = d.battery || {}; return b.wh == null ? (b.external ? '<span class="u">pack</span>' : null) : esc(b.wh) + (b.external ? '<span class="u"> pack</span>' : ""); } },
+    { key: "price", label: "Price", unit: "USD", num: true, mono: true, def: true, sort: (d) => d.msrp_usd, cell: (d) => (d.msrp_usd != null ? "$" + esc(n0(d.msrp_usd)) : null) },
+    { key: "released", label: "Released", mono: true, desc: true, sort: (d) => d.release_date || null, cell: (d) => esc(d.release_date) || null },
+    { key: "announced", label: "Announced", mono: true, desc: true, sort: (d) => d.announce_date || null, cell: (d) => esc(d.announce_date) || null },
+    { key: "status", label: "Status", sort: (d) => d.status, cell: (d) => esc(STATUS[d.status] || d.status) },
+    { key: "form", label: "Form factor", sort: (d) => d.form_factor, cell: (d) => esc(FORM[d.form_factor] || d.form_factor) },
+    { key: "triggers", label: "Triggers", sort: (d) => KORDER[ctl(d).trigger_type] || null, cell: (d) => (ctl(d).trigger_type ? esc(KLABEL[ctl(d).trigger_type]) : null) },
+    { key: "tlock", label: "Trigger lock", sort: (d) => yn(ctl(d).trigger_lock), cell: (d) => yn(ctl(d).trigger_lock) },
+    { key: "ram", label: "RAM", unit: "GB", mono: true, desc: true, sort: (d) => { const s = (d.ram && d.ram.sizes_gb) || []; return s.length ? Math.max(...s) : null; },
+      cell: (d) => { const r = d.ram || {}, s = r.sizes_gb || []; return s.length ? esc(s.join(" / ")) + (r.type ? '<span class="u"> ' + esc(r.type) + "</span>" : "") : null; } },
+    { key: "cpu", label: "CPU Mark", num: true, mono: true, desc: true, sort: (d) => scoreOf(d, "cpu_mark"), cell: (d) => n0(scoreOf(d, "cpu_mark")) },
+    { key: "st", label: "Single Thread", num: true, mono: true, desc: true, sort: (d) => scoreOf(d, "single_thread"), cell: (d) => n0(scoreOf(d, "single_thread")) },
+    { key: "g3d", label: "G3D Mark", num: true, mono: true, desc: true, sort: (d) => scoreOf(d, "g3d_mark"), cell: (d) => n0(scoreOf(d, "g3d_mark")) },
+    { key: "tdp", label: "TDP", unit: "W", num: true, mono: true, desc: true, sort: (d) => { const s = socOf(d); return s && s.tdp_w ? s.tdp_w.max : null; },
+      cell: (d) => { const t = (socOf(d) || {}).tdp_w; return t && (t.min != null || t.max != null) ? esc((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?")) : null; } },
+    { key: "npu", label: "NPU", unit: "TOPS", num: true, mono: true, desc: true, sort: (d) => (socOf(d) || {}).npu_tops, cell: (d) => { const s = socOf(d); return !s || s.npu_tops == null ? null : s.npu_tops === 0 ? "none" : esc(s.npu_tops); } },
+    { key: "os", label: "OS", sort: (d) => (d.os || []).join(", ") || null, cell: (d) => esc((d.os || []).join(", ")) || null },
+    { key: "wireless", label: "Wireless", sort: (d) => (d.wireless || {}).wifi || null, cell: (d) => { const w = d.wireless || {}; return esc([w.wifi, w.bt ? "BT " + w.bt : null].filter(Boolean).join(" · ")) || null; } },
+    { key: "trackpads", label: "Trackpads", num: true, mono: true, sort: (d) => ctl(d).trackpads, cell: (d) => (ctl(d).trackpads != null ? esc(ctl(d).trackpads) : null) },
+    { key: "rear", label: "Rear buttons", num: true, mono: true, sort: (d) => ctl(d).rear_buttons, cell: (d) => (ctl(d).rear_buttons != null ? esc(ctl(d).rear_buttons) : null) },
+    { key: "gyro", label: "Gyro", sort: (d) => yn(ctl(d).gyro), cell: (d) => yn(ctl(d).gyro) },
+    { key: "keyboard", label: "Keyboard", sort: (d) => yn(ctl(d).keyboard), cell: (d) => yn(ctl(d).keyboard) },
+    { key: "haptics", label: "Haptics", sort: (d) => ctl(d).haptics || null, cell: (d) => esc(ctl(d).haptics) || null },
+    { key: "expansion", label: "Card slot", sort: (d) => ((d.storage && d.storage.expansion) || []).join(", ") || null,
+      cell: (d) => esc(((d.storage && d.storage.expansion) || []).map((x) => (x === "mini-ssd-1517" ? "Mini SSD" : x)).join(", ")) || null },
+    { key: "charge", label: "Charge", unit: "W", num: true, mono: true, desc: true, sort: (d) => (d.battery ? d.battery.charge_w : null), cell: (d) => (d.battery && d.battery.charge_w != null ? esc(d.battery.charge_w) : null) },
+    { key: "cooling", label: "Cooling", sort: (d) => d.cooling || null, cell: (d) => esc(d.cooling) || null },
+    { key: "fingerprint", label: "Fingerprint", sort: (d) => yn(d.fingerprint), cell: (d) => yn(d.fingerprint) }
+  ];
+  const COL = {}; COLS.forEach((c) => { COL[c.key] = c; });
+  const defaultCols = () => COLS.filter((c) => c.def).map((c) => c.key);
+  const SORT_FN = { width: (d) => dimsH(d).w || null };
+  COLS.forEach((c) => { SORT_FN[c.key] = c.sort; });
+  const SORTS = [
+    ["released", -1, "Release (newest)"], ["device", 1, "Name"], ["weight", 1, "Weight, light first"], ["width", 1, "Width, narrow first"],
+    ["price", 1, "Price, low first"], ["cpu", -1, "CPU Mark, high first"], ["g3d", -1, "G3D Mark, high first"]
+  ];
+  const DEFAULT_SORT = { key: "released", dir: -1 };
+
+  /* ---------- filters ---------- */
+  const FILTERS = [
+    { key: "brand", label: "Brand", get: (d) => [d.brand] },
+    { key: "stick", label: "Sticks", get: (d) => [ctl(d).stick_type || "unknown"], name: (v) => KLABEL[v] || v },
+    { key: "status", label: "Status", panel: true, get: (d) => [d.status], order: ["shipped", "pre-order", "announced"], name: (v) => STATUS[v] || v },
+    { key: "form", label: "Form factor", panel: true, get: (d) => [d.form_factor], order: ["classic", "clamshell", "3-in-1", "slider", "other"], name: (v) => FORM[v] || v },
+    { key: "soc", label: "Chip", panel: true, select: true, get: (d) => [d.soc_id], name: socName },
+    { key: "trig", label: "Trigger sensor", panel: true, get: (d) => [ctl(d).trigger_type || "unknown"], order: ["tmr", "hall", "capacitive", "potentiometer", "digital", "unknown"], name: (v) => KLABEL[v] || v },
+    { key: "ssd", label: "SSD slot", panel: true, get: (d) => { const s = slots(d); return s.length ? s.map((x) => x.form_factor) : ["none"]; }, order: ["2230", "2242", "2280", "mini-ssd-1517", "emmc", "other", "none"], name: (v) => (v === "none" ? "None listed" : v === "other" ? "Not stated" : SSD_LABEL[v] || v) },
+    { key: "panel", label: "Screen panel", panel: true, get: (d) => [(d.screen && d.screen.panel) || "unknown"], order: ["IPS", "LTPS", "OLED", "AMOLED", "VA", "TN", "unknown"], name: (v) => (v === "unknown" ? "Not stated" : v) },
+    { key: "ext", label: "Battery", panel: true, get: (d) => (ext(d) ? ["external"] : []), order: ["external"], name: () => "External pack" },
+    { key: "ports", label: "Ports", panel: true, all: true, get: (d) => { const v = []; if (d._g40) v.push("g40"); if (d._tb) v.push("tb"); if (d._ocu) v.push("oculink"); return v; },
+      order: ["g40", "tb", "oculink"], name: (v) => ({ g40: "Any 40 Gbps", tb: "TB4 or TB5", oculink: "OCuLink" })[v] }
+  ];
+  const FILTER = {};
+  FILTERS.forEach((f) => {
+    const counts = {};
+    DEV.forEach((d) => f.get(d).forEach((v) => { counts[v] = (counts[v] || 0) + 1; }));
+    const vals = Object.keys(counts);
+    const order = f.order || vals.slice().sort((a, b) => String(f.name ? f.name(a) : a).localeCompare(String(f.name ? f.name(b) : b)));
+    f.values = order.filter((v) => counts[v]).concat(vals.filter((v) => !order.includes(v)));
+    f.counts = counts;
+    FILTER[f.key] = f;
+  });
+  const fname = (f, v) => (f.name ? f.name(v) : v);
+
+  /* ---------- state ---------- */
+  const KEY = "handheld-atlas:v2";
+  const state = { sel: [], view: "top", align: "center", zoom: null, cols: defaultCols(), filters: {}, sort: { key: DEFAULT_SORT.key, dir: DEFAULT_SORT.dir }, layout: "cards", q: "" };
+  function readStore(k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } }
+  function loadState() {
+    let s = readStore(KEY);
+    if (!s || typeof s !== "object" || s.v !== 2) {
+      const old = readStore("handheld-atlas:v1");
+      s = old && typeof old === "object" ? { sel: old.sel, view: old.view, align: old.align } : {};
+    }
+    if (["top", "bottom", "side"].includes(s.view)) state.view = s.view;
+    if (["center", "bottom", "left"].includes(s.align)) state.align = s.align;
+    if (typeof s.zoom === "number" && isFinite(s.zoom)) state.zoom = clamp(s.zoom, 0.4, 10);
+    if (["cards", "table"].includes(s.layout)) state.layout = s.layout;
+    if (Array.isArray(s.cols)) { const c = s.cols.filter((k) => COL[k] && !COL[k].fixed); if (c.length) state.cols = c; }
+    if (s.filters && typeof s.filters === "object") {
+      FILTERS.forEach((f) => {
+        const a = s.filters[f.key];
+        if (Array.isArray(a)) { const b = a.filter((v) => f.values.includes(v)); if (b.length) state.filters[f.key] = b; }
+      });
+    }
+    /* Before sortMig 1 the stored default was name. Ignore that one stored value once so viewers get the release order. */
+    const oldNameDefault = s.sortMig !== 1 && s.sort && s.sort.key === "device" && s.sort.dir === 1;
+    if (s.sort && !oldNameDefault && SORT_FN[s.sort.key] && (s.sort.dir === 1 || s.sort.dir === -1)) state.sort = { key: s.sort.key, dir: s.sort.dir };
+    if (Array.isArray(s.sel)) {
+      const seenId = {}, seenSlot = {};
+      s.sel.forEach((x) => {
+        if (!x || !BY_ID[x.id] || seenId[x.id] || !(x.slot >= 1 && x.slot <= MAX_SEL) || seenSlot[x.slot] || state.sel.length >= MAX_SEL) return;
+        seenId[x.id] = 1; seenSlot[x.slot] = 1; state.sel.push({ id: x.id, slot: x.slot });
+      });
+    }
+    if (!state.sel.length && !(s && Array.isArray(s.sel))) state.sel = DEFAULT_SEL.map((id, i) => ({ id, slot: i + 1 }));
+  }
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify({ v: 2, sortMig: 1, sel: state.sel, view: state.view, align: state.align, zoom: state.zoom, cols: state.cols, filters: state.filters, sort: state.sort, layout: state.layout }));
+    } catch (e) { /* storage unavailable */ }
+  }
+
+  /* ---------- selection ---------- */
+  const selSlot = (id) => { const s = state.sel.find((x) => x.id === id); return s ? s.slot : 0; };
+  function addSel(id) {
+    if (selSlot(id)) return true;
+    if (state.sel.length >= MAX_SEL) return false;
+    const used = state.sel.map((s) => s.slot); let slot = 1;
+    while (used.includes(slot)) slot++;
+    state.sel.push({ id, slot });
+    return true;
+  }
+  function setSel(id, on) {
+    let ok = true;
+    if (on) ok = addSel(id); else state.sel = state.sel.filter((s) => s.id !== id);
+    afterSel();
+    return ok;
+  }
+  function afterSel() {
+    syncCards();
+    if (state.layout === "table") renderTable();
+    renderPicker();
+    renderOverlay();
+    updateDrawerBtn();
+    save();
+  }
+  const FULL_MSG = "The overlay holds 6 devices. Remove one first.";
+  const msgTimers = {};
+  function flashMsg(el, text) {
+    el.textContent = text;
+    clearTimeout(msgTimers[el.id]);
+    msgTimers[el.id] = setTimeout(() => { el.textContent = ""; }, 5000);
+  }
+
+  /* ---------- masthead rule and counts ---------- */
+  function buildRuler() {
+    let s = "";
+    for (let m = 0; m <= 800; m += 10) {
+      const big = m % 50 === 0;
+      s += '<line x1="' + m + 'mm" x2="' + m + 'mm" y1="0" y2="' + (big ? 11 : 5) + '"/>';
+      if (big) s += '<text x="' + m + 'mm" dx="3" y="22">' + m + (m === 0 ? " mm" : "") + "</text>";
+    }
+    $("#ruler-svg").innerHTML = s;
+  }
+  const dataDate = String(DATA.generated || "").slice(0, 10) || "unknown";
+
+  /* ---------- filtering and sorting ---------- */
+  function passes(d, q) {
+    for (const t of q) if (!d._search.includes(t)) return false;
+    for (const f of FILTERS) {
+      const sel = state.filters[f.key];
+      if (!sel || !sel.length) continue;
+      const vals = f.get(d);
+      if (f.all) { if (!sel.every((v) => vals.includes(v))) return false; }
+      else if (!vals.some((v) => sel.includes(v))) return false;
+    }
+    return true;
+  }
+  function cmpVals(a, b) {
+    if (typeof a === "number" && typeof b === "number") return a - b;
+    return String(a).localeCompare(String(b), "en", { numeric: true, sensitivity: "base" });
+  }
+  function sortedRows() {
+    const q = state.q.toLowerCase().split(/\s+/).filter(Boolean);
+    const rows = DEV.filter((d) => passes(d, q));
+    const fn = SORT_FN[state.sort.key] || SORT_FN.device, dir = state.sort.dir;
+    const isNull = (v) => v == null || v === "" || (typeof v === "number" && isNaN(v));
+    rows.sort((x, y) => {
+      const a = fn(x), b = fn(y), an = isNull(a), bn = isNull(b);
+      if (an && bn) return x._name.localeCompare(y._name);
+      if (an) return 1;
+      if (bn) return -1;
+      return cmpVals(a, b) * dir || x._name.localeCompare(y._name);
+    });
+    return rows;
+  }
+
+  /* ---------- cards ---------- */
+  const grid = $("#cards");
+  const cardEl = {};
+  let SPAN_W = 380, SPAN_H = 200;
+  (() => {
+    let mw = 0, mh = 0;
+    DEV.forEach((d) => { const o = (OUT[d.id] || {}).top, h = dimsH(d); mw = Math.max(mw, o ? o.w : h.w); mh = Math.max(mh, o ? o.h : h.h); });
+    if (mw) SPAN_W = Math.ceil((mw + 12) / 10) * 10;
+    if (mh) SPAN_H = Math.ceil((mh + 12) / 10) * 10;
+  })();
+  function topShape(d) {
+    const o = (OUT[d.id] || {}).top, h = dimsH(d);
+    if (o) return { w: o.w, h: o.h, path: o.path, kind: o.kind || "box" };
+    return { w: h.w, h: h.h, path: "M0 0L" + h.w + " 0L" + h.w + " " + h.h + "L0 " + h.h + "Z", kind: "box" };
+  }
+  function silSvg(d) {
+    const t = topShape(d);
+    return '<svg class="sil ' + (t.kind === "traced" ? "traced" : "box") + '" data-w="' + t.w + '" data-h="' + t.h + '" viewBox="0 0 ' + t.w + " " + t.h + '" aria-hidden="true"><path d="' + esc(t.path) + '" vector-effect="non-scaling-stroke"/></svg>';
+  }
+  const kindWord = (d) => (topShape(d).kind === "traced" ? "traced" : "spec box");
+  function weightFact(d) {
+    const w = wH(d), v = weightVal(d);
+    if (v == null) return '<span class="u">Not stated</span>';
+    return esc(n0(v)) + " g" + (ext(d) ? '<span class="u"> with pack</span>' : "") + (w.stated == null ? '<span class="u"> measured</span>' : "");
+  }
+  function cardHtml(d) {
+    const h = dimsH(d), id = esc(d.id), soc = socOf(d), st = ctl(d).stick_type;
+    const facts = [
+      ["Weight", weightFact(d)],
+      ["Size", esc(sizeText(h)) + '<span class="u"> mm</span>'],
+      ["Sticks", st ? esc(KLABEL[st]) : '<span class="u">Not stated</span>'],
+      ["Ports", esc(portWords(d)) || '<span class="u">Not stated</span>'],
+      ["SSD", ssdHtml(d) || '<span class="u">None listed</span>'],
+      ["Chip", esc(soc ? soc.name : d.soc_id)]
+    ];
+    return '<article class="card" id="card-' + id + '" data-id="' + id + '">' +
+      '<div class="plate"><div class="stage">' + silSvg(d) + '</div><div class="plate-foot"><span class="m">' + esc(mm(h.w)) + ' mm wide</span><span class="kind">' + kindWord(d) + "</span></div></div>" +
+      '<div class="cap"><div class="cap-head"><div><h3><button type="button" class="open" id="open-' + id + '" data-id="' + id + '">' + esc(d._short) + "</button></h3>" +
+      '<p class="variant">' + (d.status !== "shipped" ? '<span class="status">' + esc(STATUS[d.status] || d.status) + "</span>" : "") + esc(d.variant || "") + "</p></div>" +
+      '<button type="button" class="add" id="add-' + id + '" data-id="' + id + '" aria-pressed="false">Add to overlay</button></div>' +
+      '<dl class="facts">' + facts.map((f) => "<dt>" + f[0] + "</dt><dd>" + f[1] + "</dd>").join("") + "</dl>" +
+      '<p class="refuse" id="refuse-' + id + '" role="status"></p></div></article>';
+  }
+  function sizeSils(root) {
+    $$(".sil", root).forEach((s) => { s.style.setProperty("--w", s.dataset.w); s.style.setProperty("--h", s.dataset.h); });
+  }
+  function buildCards() {
+    grid.innerHTML = DEV.map(cardHtml).join("");
+    grid.style.setProperty("--span", SPAN_W);
+    grid.style.setProperty("--span-h", SPAN_H);
+    sizeSils(grid);
+    $$(".card", grid).forEach((el) => { cardEl[el.dataset.id] = el; });
+    $$(".refuse:empty", grid).forEach((p) => { p.hidden = true; });
+    syncCards();
+  }
+  function addLabel(slot) { return slot ? '<span class="sw s' + slot + '">' + slot + "</span>On overlay" : "Add to overlay"; }
+  function syncCards() {
+    DEV.forEach((d) => {
+      const b = document.getElementById("add-" + d.id);
+      if (!b) return;
+      const slot = selSlot(d.id), was = b.getAttribute("aria-pressed") === "true";
+      if (was !== !!slot || (slot && !b.querySelector(".s" + slot))) {
+        b.setAttribute("aria-pressed", String(!!slot));
+        b.innerHTML = addLabel(slot);
+        b.setAttribute("aria-label", slot ? "Remove " + d._name + " from the overlay" : "Add " + d._name + " to the overlay");
+      }
+    });
+  }
+  function refuse(id) {
+    const p = document.getElementById("refuse-" + id);
+    flashMsg($("#dev-msg"), FULL_MSG);
+    if (!p) return;
+    p.textContent = "The overlay is full. Remove a device first.";
+    p.hidden = false;
+    setTimeout(() => { p.textContent = ""; p.hidden = true; }, 4000);
+  }
+  grid.addEventListener("click", (e) => {
+    const b = e.target.closest(".add");
+    if (b) {
+      const id = b.dataset.id;
+      if (selSlot(id)) setSel(id, false);
+      else if (!setSel(id, true)) refuse(id);
+      return;
+    }
+    if (e.target.closest("a")) return;
+    const card = e.target.closest(".card");
+    if (card) openDrawer(card.dataset.id, document.getElementById("open-" + card.dataset.id));
+  });
+  let scaleObs = null;
+  function updateScaleNote() {
+    const c = grid.querySelector(".card:not([hidden])");
+    const el = $("#scale-note");
+    if (!c || state.layout !== "cards") { el.hidden = true; return; }
+    const pxmm = c.clientWidth / SPAN_W;
+    if (!(pxmm > 0)) { el.hidden = true; return; }
+    const ratio = TRUE_PXMM / pxmm;
+    el.hidden = false;
+    el.textContent = "Every outline below uses one scale: 1\u00a0mm = " + pxmm.toFixed(2) + "\u00a0px, about 1\u00a0:\u00a0" + ratio.toFixed(1) + ". A wide card shape is a wide device.";
+  }
+
+  /* ---------- toolbar ---------- */
+  function buildToolbar() {
+    const bf = FILTER.brand;
+    $("#f-brand").innerHTML = '<option value="">All brands</option>' + bf.values.map((v) => '<option value="' + esc(v) + '">' + esc(v) + "</option>").join("");
+    renderSortSelect();
+    let h = "";
+    FILTERS.filter((f) => f.panel).forEach((f) => {
+      if (f.select) {
+        const opts = f.values.slice().sort((a, b) => fname(f, a).localeCompare(fname(f, b)));
+        h += '<fieldset class="wide"><legend>' + esc(f.label) + '</legend><label class="sr" for="f-' + f.key + '">' + esc(f.label) + "</label>" +
+          '<select id="f-' + f.key + '" data-f="' + f.key + '"><option value="">Any chip</option>' +
+          opts.map((v) => '<option value="' + esc(v) + '">' + esc(fname(f, v)) + " (" + f.counts[v] + ")</option>").join("") + "</select></fieldset>";
+        return;
+      }
+      h += "<fieldset><legend>" + esc(f.label) + (f.all ? " (all must match)" : "") + "</legend>" + f.values.map((v) => {
+        const id = "f-" + f.key + "-" + slug(v);
+        return '<label for="' + id + '"><input type="checkbox" id="' + id + '" data-f="' + f.key + '" data-v="' + esc(v) + '">' + esc(fname(f, v)) + '<span class="ct">' + f.counts[v] + "</span></label>";
+      }).join("") + "</fieldset>";
+    });
+    h += '<p class="hint">Options in one group match any. Groups combine. The port options must all match.</p>';
+    $("#more").innerHTML = h;
+  }
+  function renderSortSelect() {
+    const cur = state.sort.key + ":" + state.sort.dir;
+    const known = SORTS.some((s) => s[0] + ":" + s[1] === cur);
+    let h = SORTS.map((s) => '<option value="' + s[0] + ":" + s[1] + '">' + esc(s[2]) + "</option>").join("");
+    if (!known) {
+      const c = COL[state.sort.key];
+      h += '<option value="' + esc(cur) + '">' + esc((c ? c.label : state.sort.key) + (state.sort.dir === 1 ? ", ascending" : ", descending")) + "</option>";
+    }
+    const sel = $("#sort");
+    sel.innerHTML = h;
+    sel.value = cur;
+  }
+  function syncFilterUI() {
+    $("#f-brand").value = (state.filters.brand || [])[0] || "";
+    const st = state.filters.stick || [];
+    const r = document.getElementById("f-stick-" + (st.length === 1 ? st[0] : "all"));
+    if (r) r.checked = true; else $$('input[name="f-stick"]').forEach((x) => { x.checked = false; });
+    $$("#more input[type=checkbox]").forEach((cb) => { cb.checked = (state.filters[cb.dataset.f] || []).includes(cb.dataset.v); });
+    $$("#more select").forEach((s) => { s.value = (state.filters[s.dataset.f] || [])[0] || ""; });
+    $("#q").value = state.q;
+    const n = FILTERS.filter((f) => f.panel).reduce((a, f) => a + (state.filters[f.key] || []).length, 0);
+    $("#more-btn").textContent = "More filters" + (n ? " (" + n + ")" : "");
+  }
+  function renderTokens() {
+    const t = [];
+    FILTERS.forEach((f) => (state.filters[f.key] || []).forEach((v) => {
+      t.push('<button type="button" class="tok" id="tok-' + f.key + "-" + slug(v) + '" data-f="' + f.key + '" data-v="' + esc(v) + '" aria-label="Remove filter ' + esc(f.label + ": " + fname(f, v)) + '">' +
+        esc(f.label) + ": <b>" + esc(fname(f, v)) + '</b><span class="x" aria-hidden="true">×</span></button>');
+    }));
+    const el = $("#tokens");
+    el.hidden = !t.length;
+    el.innerHTML = t.length ? t.join("") + '<button type="button" class="tbtn" id="tok-clear">Clear all</button>' : "";
+  }
+  const CARD_LIMIT = 24;
+  let showAll = false;
+  function applyFilters() {
+    const rows = sortedRows();
+    const show = {};
+    const cut = showAll ? rows.length : Math.min(rows.length, CARD_LIMIT);
+    rows.forEach((d, i) => { if (i < cut) show[d.id] = 1; grid.appendChild(cardEl[d.id]); });
+    DEV.forEach((d) => { const el = cardEl[d.id]; if (el) el.hidden = !show[d.id]; });
+    const left = rows.length - cut;
+    $("#cards-more").hidden = state.layout !== "cards" || left <= 0;
+    $("#cards-all").textContent = "Show all " + rows.length + " devices";
+    $("#cards-left").textContent = left > 0 ? left + " more below the first " + cut + "." : "";
+    grid.dataset.empty = rows.length ? "" : "1";
+    if (state.layout === "cards") grid.hidden = !rows.length;
+    $("#dev-count").textContent = rows.length === DEV.length ? DEV.length + " devices" : rows.length + " of " + DEV.length + " devices";
+    $("#dev-empty").hidden = rows.length > 0;
+    renderTokens();
+    syncFilterUI();
+    if (state.layout === "table") renderTable(rows);
+    updateScaleNote();
+  }
+  function setFilter(key, vals) {
+    if (vals && vals.length) state.filters[key] = vals; else delete state.filters[key];
+    applyFilters(); save();
+  }
+  $("#dev-tools").addEventListener("submit", (e) => e.preventDefault());
+  $("#q").addEventListener("input", (e) => { state.q = e.target.value; applyFilters(); });
+  $("#f-brand").addEventListener("change", (e) => setFilter("brand", e.target.value ? [e.target.value] : null));
+  $$('input[name="f-stick"]').forEach((r) => r.addEventListener("change", () => setFilter("stick", r.value ? [r.value] : null)));
+  $("#sort").addEventListener("change", (e) => {
+    const p = e.target.value.split(":");
+    state.sort = { key: p[0], dir: Number(p[1]) === -1 ? -1 : 1 };
+    renderSortSelect(); if (state.layout === "table") renderHead();
+    applyFilters(); save();
+  });
+  $("#more-btn").addEventListener("click", () => {
+    const m = $("#more"), open = m.hidden;
+    m.hidden = !open;
+    $("#more-btn").setAttribute("aria-expanded", String(open));
+  });
+  $("#more").addEventListener("change", (e) => {
+    const t = e.target;
+    if (t.matches("select")) { setFilter(t.dataset.f, t.value ? [t.value] : null); return; }
+    if (!t.dataset.f) return;
+    const a = (state.filters[t.dataset.f] || []).filter((v) => v !== t.dataset.v);
+    if (t.checked) a.push(t.dataset.v);
+    setFilter(t.dataset.f, a);
+    const again = document.getElementById(t.id); if (again) again.focus();
+  });
+  $("#tokens").addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    if (b.id === "tok-clear") { state.filters = {}; applyFilters(); save(); $("#q").focus(); return; }
+    const f = b.dataset.f, v = b.dataset.v;
+    const next = b.nextElementSibling;
+    setFilter(f, (state.filters[f] || []).filter((x) => x !== v));
+    const focusTo = next && next.id ? document.getElementById(next.id) : null;
+    (focusTo || $("#q")).focus();
+  });
+  $("#cards-all").addEventListener("click", () => {
+    const first = grid.querySelectorAll(".card:not([hidden])").length;
+    showAll = true; applyFilters();
+    const next = grid.querySelectorAll(".card:not([hidden])")[first];
+    if (next) { const b = next.querySelector(".open"); if (b) b.focus({ preventScroll: true }); }
+  });
+  $("#dev-clear").addEventListener("click", () => { state.filters = {}; state.q = ""; applyFilters(); save(); $("#q").focus(); });
+
+  /* layout switch */
+  function syncLayout() {
+    const t = state.layout === "table";
+    const r = document.getElementById("layout-" + state.layout); if (r) r.checked = true;
+    grid.hidden = t || grid.dataset.empty === "1";
+    $("#table-view").hidden = !t;
+    $("#cards-more").hidden = t || !$("#cards-left").textContent;
+    if (t) { renderHead(); renderTable(); }
+    updateScaleNote();
+  }
+  $$('input[name="layout"]').forEach((r) => r.addEventListener("change", () => { state.layout = r.value; syncLayout(); save(); }));
+
+  /* ---------- table ---------- */
+  const thead = $("#thead"), tbody = $("#tbody");
+  const visibleCols = () => COLS.filter((c) => c.fixed || state.cols.includes(c.key));
+  function renderHead() {
+    thead.innerHTML = "<tr>" + visibleCols().map((c) => {
+      const on = state.sort.key === c.key;
+      return '<th scope="col" class="' + (c.num ? "num" : "") + '" aria-sort="' + (on ? (state.sort.dir === 1 ? "ascending" : "descending") : "none") + '">' +
+        '<button type="button" class="sort" id="sort-' + c.key + '" data-k="' + c.key + '">' + esc(c.label) + (c.unit ? '<span class="unit">' + esc(c.unit) + "</span>" : "") +
+        '<span class="arr" aria-hidden="true">' + (on ? (state.sort.dir === 1 ? "▲" : "▼") : "") + "</span></button></th>";
+    }).join("") + "</tr>";
+  }
+  function deviceCell(d) {
+    const slot = selSlot(d.id), id = esc(d.id);
+    return '<td><div class="dcell"><input type="checkbox" class="pick" id="pick-' + id + '" data-id="' + id + '"' + (slot ? " checked" : "") + ' aria-label="Show ' + esc(d._name) + ' on the overlay">' +
+      (slot ? '<span class="sw s' + slot + '" aria-hidden="true">' + slot + "</span>" : "") +
+      '<span><span class="b">' + esc(d._short) + "</span>" + (d.variant ? ' <span class="v" title="' + esc(d.variant) + '">' + esc(d.variant) + "</span>" : "") +
+      (d.status !== "shipped" ? ' <span class="status">' + esc(STATUS[d.status] || d.status) + "</span>" : "") + "</span></div></td>";
+  }
+  function renderTable(rows) {
+    rows = rows || sortedRows();
+    const cols = visibleCols();
+    tbody.innerHTML = rows.map((d) => '<tr data-id="' + esc(d.id) + '">' + cols.map((c) => {
+      if (c.key === "device") return deviceCell(d);
+      const v = c.cell(d);
+      return '<td class="' + (c.num ? "num " : "") + (c.mono ? "mono" : "") + '">' + (v == null || v === "" ? '<span class="na">—</span>' : v) + "</td>";
+    }).join("") + "</tr>").join("");
+  }
+  function buildColPicker() {
+    $("#col-list").innerHTML = COLS.filter((c) => !c.fixed).map((c) =>
+      '<label for="col-' + c.key + '"><input type="checkbox" id="col-' + c.key + '" data-k="' + c.key + '"' + (state.cols.includes(c.key) ? " checked" : "") + ">" + esc(c.label) + "</label>").join("");
+  }
+  $("#col-list").addEventListener("change", (e) => {
+    const cb = e.target; if (!cb.dataset.k) return;
+    state.cols = COLS.filter((c) => !c.fixed && (c.key === cb.dataset.k ? cb.checked : state.cols.includes(c.key))).map((c) => c.key);
+    renderHead(); renderTable(); save();
+  });
+  $("#col-reset").addEventListener("click", () => { state.cols = defaultCols(); buildColPicker(); renderHead(); renderTable(); save(); });
+  document.addEventListener("click", (e) => { const cp = $("#colpick"); if (cp.open && !cp.contains(e.target)) cp.open = false; });
+  thead.addEventListener("click", (e) => {
+    const b = e.target.closest(".sort"); if (!b) return;
+    const k = b.dataset.k;
+    if (state.sort.key === k) state.sort.dir = -state.sort.dir; else state.sort = { key: k, dir: COL[k].desc ? -1 : 1 };
+    renderHead(); renderSortSelect(); applyFilters(); save();
+    const nb = document.getElementById("sort-" + k); if (nb) nb.focus();
+  });
+  tbody.addEventListener("change", (e) => {
+    const cb = e.target.closest(".pick"); if (!cb) return;
+    const id = cb.dataset.id;
+    if (cb.checked && !selSlot(id) && state.sel.length >= MAX_SEL) { cb.checked = false; flashMsg($("#dev-msg"), FULL_MSG); return; }
+    setSel(id, cb.checked);
+    const again = document.getElementById("pick-" + id); if (again) again.focus();
+  });
+  tbody.addEventListener("click", (e) => {
+    if (e.target.closest("input, a, label, button")) return;
+    const tr = e.target.closest("tr[data-id]");
+    if (tr) openDrawer(tr.dataset.id, tr.querySelector(".pick"));
+  });
+
+  /* ---------- drawer ---------- */
+  const drawer = $("#drawer"), scrim = $("#scrim");
+  let drawerId = null, drawerReturn = null, drSrc = [];
+  const matchSrc = (list, paths) => (list || []).filter((s) => {
+    const f = String(s.field || "");
+    return f !== "*" && paths.some((p) => f === p || f.startsWith(p + ".") || p.startsWith(f + "."));
+  });
+  const own = (d, paths) => matchSrc(d.sources, paths);
+  function sv(text, list, mono) {
+    if (text == null || text === "") return null;
+    if (!list || !list.length) return mono ? '<span class="m">' + esc(text) + "</span>" : esc(text);
+    drSrc.push(list);
+    return '<button type="button" class="sv' + (mono ? " m" : "") + '" id="sv-' + (drSrc.length - 1) + '" data-si="' + (drSrc.length - 1) + '" aria-expanded="false" aria-haspopup="dialog">' + esc(text) + "</button>";
+  }
+  const sub = (t) => (t ? '<span class="sub">' + esc(t) + "</span>" : "");
+  const mtxt = (t) => '<span class="m">' + esc(t) + "</span>";
+  function kv(rows) {
+    rows = rows.filter((r) => r && r[1] != null && r[1] !== "");
+    return rows.length ? '<dl class="kv">' + rows.map((r) => "<dt>" + esc(r[0]) + "</dt><dd>" + r[1] + "</dd>").join("") + "</dl>" : "";
+  }
+  const gnote = (t) => (t ? '<p class="gnote">' + esc(t) + "</p>" : "");
+  const grp = (title, body) => (body ? '<div class="grp"><h3>' + esc(title) + "</h3>" + body + "</div>" : "");
+  const ynv = (v, d, path) => (v == null ? NS : sv(yn(v), own(d, [path])));
+
+  function grpSize(d) {
+    const dm = d.dims_mm || {}, h = dimsH(d), wg = d.weight_g || {}, w = wH(d);
+    const R = [];
+    R.push(["Size as held", sv(mm(h.w) + " × " + mm(h.h) + " × " + mm(h.d) + " mm", own(d, ["dims_mm.handheld.w", "dims_mm.handheld.h", "dims_mm.handheld.d"]), true)]);
+    if (h.d_max != null) R.push(["Thickest point", sv(mm(h.d_max) + " mm", own(d, ["dims_mm.handheld.d_max"]), true)]);
+    [["tablet_only", "Tablet only"], ["closed", "Closed"], ["with_keyboard", "With keyboard"]].forEach((k) => {
+      const x = dm[k[0]];
+      if (x) R.push([k[1], sv(mm(x.w) + " × " + mm(x.h) + " × " + mm(x.d) + (x.d_max != null ? "/" + mm(x.d_max) : "") + " mm", own(d, ["dims_mm." + k[0]]), true)]);
+    });
+    R.push(["Weight, stated", w.stated != null ? sv(n0(w.stated) + " g" + (ext(d) ? " with pack" : ""), own(d, ["weight_g.handheld.stated"]), true) : NS]);
+    if (w.measured != null) {
+      let l = own(d, ["weight_g.handheld.measured"]);
+      if (w.measured_source && !l.some((s) => s.url === w.measured_source)) l = l.concat([{ field: "weight_g.handheld.measured_source", url: w.measured_source }]);
+      R.push(["Weight, measured", sv(n0(w.measured) + " g", l, true)]);
+    } else R.push(["Weight, measured", '<span class="na">No reviewer figure</span>']);
+    [["without_battery", "Without pack"], ["tablet_only", "Tablet only"], ["closed", "Closed"]].forEach((k) => {
+      const x = wg[k[0]];
+      if (x && (x.stated != null || x.measured != null)) R.push([k[1] + ", weight", sv(n0(x.stated != null ? x.stated : x.measured) + " g" + (x.stated == null ? " measured" : ""), own(d, ["weight_g." + k[0]]), true)]);
+    });
+    R.push(["Form factor", sv(FORM[d.form_factor] || d.form_factor, own(d, ["form_factor"]))]);
+    return kv(R) + gnote(dm.note) + gnote(wg.note);
+  }
+  function grpCompute(d) {
+    const s = socOf(d), R = [];
+    R.push(["Chip", sv(s ? s.name : d.soc_id, own(d, ["soc_id"]))]);
+    let notes = "";
+    if (s) {
+      const so = (paths) => matchSrc(s.sources, paths);
+      const pm = s.passmark || {}, t = s.tdp_w || {}, g = s.igpu || {};
+      R.push(["Maker", esc([s.vendor, s.codename].filter(Boolean).join(" · "))]);
+      R.push(["CPU", [s.cores ? mtxt(s.cores + "C / " + (s.threads || "?") + "T") : null, s.core_mix ? esc(s.core_mix) : null, s.boost_ghz ? "up to " + mtxt(s.boost_ghz + " GHz") : null].filter(Boolean).join(", ") || null]);
+      R.push(["GPU", [g.name ? esc(g.name) : null, g.cu ? mtxt(g.cu + " CU") : null, g.arch ? esc(g.arch) : null].filter(Boolean).join(", ") || null]);
+      if (t.min != null || t.max != null) R.push(["TDP", mtxt((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + " W") + (t.default != null ? ", default " + mtxt(t.default + " W") : "")]);
+      if (s.npu_tops != null) R.push(["NPU", s.npu_tops === 0 ? "None" : mtxt(s.npu_tops + " TOPS")]);
+      if (pm.cpu_mark != null) R.push(["CPU Mark", sv(n0(pm.cpu_mark), so(["passmark.cpu_mark"]), true) + (pm.cpu_samples != null ? sub(n0(pm.cpu_samples) + " samples") : "")]);
+      if (pm.single_thread != null) R.push(["Single Thread", sv(n0(pm.single_thread), so(["passmark.single_thread", "passmark.cpu_mark"]), true)]);
+      if (pm.g3d_mark != null) R.push(["G3D Mark", sv(n0(pm.g3d_mark), so(["passmark.g3d_mark"]), true) + (pm.g3d_samples != null ? sub(n0(pm.g3d_samples) + " samples") : "")]);
+      if (pm.mapping_note) notes += gnote("PassMark: " + pm.mapping_note);
+    }
+    const r = d.ram || {};
+    R.push(["RAM", (r.sizes_gb || []).length ? sv(r.sizes_gb.join(" / ") + " GB", own(d, ["ram.sizes_gb", "ram"]), true) : NS]);
+    if (r.type || r.speed_mts) R.push(["RAM type", sv([r.type, r.speed_mts].filter(Boolean).join("-"), own(d, ["ram.type", "ram.speed_mts"]), true)]);
+    R.push(["Channels", r.channels != null ? mtxt(r.channels) : NS]);
+    R.push(["Soldered", ynv(r.soldered, d, "ram.soldered")]);
+    return kv(R) + notes;
+  }
+  function grpStorage(d) {
+    const st = d.storage || {}, R = [];
+    const ss = slots(d);
+    ss.forEach((x, i) => {
+      if (x.form_factor === "other") {
+        R.push(["SSD slot" + (ss.length > 1 ? " " + (i + 1) : ""), x.note ? sv(x.note, own(d, ["storage.slots." + i, "storage.slots"])) : '<span class="na">Not stated</span>']);
+        return;
+      }
+      const t = (/^\d+$/.test(x.form_factor) ? "M.2 " : "") + (SSD_LABEL[x.form_factor] || x.form_factor) + (x.pcie_gen ? " · PCIe " + x.pcie_gen + ".0" : "") + (x.lanes ? " x" + x.lanes : "");
+      R.push(["SSD slot" + (ss.length > 1 ? " " + (i + 1) : ""), sv(t, own(d, ["storage.slots." + i, "storage.slots"]), true) + sub(x.note)]);
+    });
+    if (!ss.length) R.push(["SSD slot", '<span class="na">None listed</span>']);
+    if ((st.capacities_gb || []).length) R.push(["Factory SSD", sv(st.capacities_gb.map(capText).join(" / "), own(d, ["storage.capacities_gb"]), true)]);
+    if ((st.expansion || []).length) R.push(["Card slot", sv(st.expansion.map((x) => (x === "mini-ssd-1517" ? "Mini SSD" : x)).join(", "), own(d, ["storage.expansion"]))]);
+    (d.ports || []).forEach((p, i) => {
+      const bits = [p.speed_gbps ? p.speed_gbps + " Gbps" : null, p.dp_alt ? "DP Alt" : null, p.pd_in_w ? "PD in " + p.pd_in_w + " W" : null, p.location].filter(Boolean).join(" · ");
+      const ps = own(d, ["ports." + i, "ports"]);
+      if (bits) R.push([portLab2(p), sv(bits, ps, true) + sub(p.note)]);
+      else if (p.kind === "other") R.push([portLab2(p), p.note ? sv(p.note, ps) : "Other port"]);
+      else R.push([portLab2(p), p.note ? sv(p.note, ps) : '<span class="na">No detail</span>']);
+    });
+    return kv(R);
+  }
+  function grpScreen(d) {
+    const s = d.screen || {}, o = (k) => own(d, ["screen." + k]);
+    return kv([
+      ["Size", s.size_in != null ? sv(s.size_in + "″", o("size_in"), true) : NS],
+      ["Panel", s.panel ? sv(s.panel, o("panel")) : NS],
+      ["Resolution", s.res_w && s.res_h ? sv(s.res_w + " × " + s.res_h, o("res_w"), true) : NS],
+      ["Refresh", s.refresh_hz ? sv(s.refresh_hz + " Hz", o("refresh_hz"), true) : NS],
+      ["VRR", ynv(s.vrr, d, "screen.vrr")],
+      ["Touch", ynv(s.touch, d, "screen.touch")],
+      ["Brightness", s.nits_sdr != null || s.nits_peak != null ? sv([s.nits_sdr != null ? s.nits_sdr + " nits SDR" : null, s.nits_peak != null ? s.nits_peak + " nits peak" : null].filter(Boolean).join(", "), o("nits_sdr"), true) : NS],
+      ["HDR", ynv(s.hdr, d, "screen.hdr")]
+    ]) + gnote(s.note);
+  }
+  function grpBattery(d) {
+    const b = d.battery || {};
+    return kv([
+      ["Capacity", b.wh != null ? sv(b.wh + " Wh", own(d, ["battery.wh"]), true) : NS],
+      ["External pack", b.external == null ? NS : sv(b.external ? "Yes, it clips on outside the shell" : "No", own(d, ["battery.external"]))],
+      ["Removable", ynv(b.removable, d, "battery.removable")],
+      ["Charging", b.charge_w != null ? sv(b.charge_w + " W", own(d, ["battery.charge_w"]), true) : NS]
+    ]) + gnote(b.note);
+  }
+  function grpControls(d) {
+    const c = ctl(d), o = (k) => own(d, ["controls." + k]);
+    return kv([
+      ["Sticks", (c.stick_type ? sv(KLABEL[c.stick_type] || c.stick_type, o("stick_type")) : NS) + sub(c.stick_note)],
+      ["Triggers", c.trigger_type ? sv(KLABEL[c.trigger_type] || c.trigger_type, o("trigger_type")) : NS],
+      ["Trigger lock", ynv(c.trigger_lock, d, "controls.trigger_lock")],
+      ["Trackpads", c.trackpads != null ? sv(String(c.trackpads), o("trackpads"), true) : NS],
+      ["Gyro", ynv(c.gyro, d, "controls.gyro")],
+      ["Rear buttons", c.rear_buttons != null ? sv(String(c.rear_buttons), o("rear_buttons"), true) : NS],
+      ["Keyboard", ynv(c.keyboard, d, "controls.keyboard")],
+      ["Detachable", ynv(c.detachable_controllers, d, "controls.detachable_controllers")],
+      ["Haptics", c.haptics ? sv(c.haptics, o("haptics")) : NS]
+    ]) + gnote(c.note);
+  }
+  function grpOther(d) {
+    const w = d.wireless || {};
+    return kv([
+      ["Status", sv(STATUS[d.status] || d.status, own(d, ["status"]))],
+      ["Announced", d.announce_date ? sv(d.announce_date, own(d, ["announce_date"]), true) : NS],
+      ["Released", d.release_date ? sv(d.release_date, own(d, ["release_date"]), true) : NS],
+      ["Launch price", d.msrp_usd != null ? sv("$" + NF.format(d.msrp_usd), own(d, ["msrp_usd"]), true) + sub("Base configuration of this variant") : NS],
+      ["OS", (d.os || []).length ? sv(d.os.join(", "), own(d, ["os"])) : NS],
+      ["Wi-Fi", w.wifi ? sv(w.wifi, own(d, ["wireless.wifi", "wireless"])) : NS],
+      ["Bluetooth", w.bt ? sv(w.bt, own(d, ["wireless.bt", "wireless"]), true) : NS],
+      ["Cooling", d.cooling ? sv(d.cooling, own(d, ["cooling"])) : NS],
+      ["Fingerprint", ynv(d.fingerprint, d, "fingerprint")]
+    ]) + gnote(d.notes);
+  }
+  function drawerHtml(d) {
+    drSrc = [];
+    const h = dimsH(d);
+    let s = '<div class="dr-plate plate"><div class="stage">' + silSvg(d) + '</div><div class="plate-foot"><span class="m">' + esc(sizeText(h)) + ' mm</span><span class="kind">' + kindWord(d) + " outline</span></div></div>";
+    s += '<div class="dr-act"><button type="button" class="tbtn" id="dr-add" aria-pressed="false">Add to overlay</button><a class="tbtn" href="#overlay" id="dr-goto">Show the overlay</a><p class="msg" id="dr-msg" role="status" aria-live="polite"></p></div>';
+    s += grp("Size and weight", grpSize(d));
+    s += grp("Compute", grpCompute(d));
+    s += grp("Storage and ports", grpStorage(d));
+    s += grp("Screen", grpScreen(d));
+    s += grp("Battery", grpBattery(d));
+    s += grp("Controls", grpControls(d));
+    s += grp("Other", grpOther(d));
+    const fmt = (v) => (v !== null && typeof v === "object" ? JSON.stringify(v) : String(v));
+    const cf = d.conflicts || [];
+    if (cf.length) s += grp("Conflicts", '<ul class="dl">' + cf.map((c) => '<li><span class="f">' + esc(c.field) + '</span><div class="cfv">' +
+      (c.values || []).map((v) => "<span><b class=\"m\">" + esc(fmt(v.value)) + "</b> · " + link(v.url) + "</span>").join("") + "</div>" +
+      (c.chosen_reason ? '<span class="why">Chosen: ' + esc(c.chosen_reason) + "</span>" : "") + "</li>").join("") + "</ul>");
+    const un = d.unresolved || [];
+    if (un.length) s += grp("Unresolved", '<ul class="dl">' + un.map((u) => '<li><span class="f">' + esc(u.field) + '</span><span class="why">' + esc(u.reason) + "</span></li>").join("") + "</ul>");
+    const src = d.sources || [];
+    s += grp("Sources", '<ul class="dl">' + src.map((x) => "<li>" + link(x.url, host(x.url)) + ' <span class="f">' + esc(x.field === "*" ? "most fields" : x.field) + "</span>" +
+      (x.note ? '<span class="why">' + esc(x.note) + "</span>" : "") + '<span class="url">' + esc(x.url) + (x.accessed ? " · " + esc(x.accessed) : "") + "</span></li>").join("") + "</ul>");
+    return s;
+  }
+  function updateDrawerBtn() {
+    if (!drawerId) return;
+    const b = document.getElementById("dr-add"); if (!b) return;
+    const slot = selSlot(drawerId);
+    b.setAttribute("aria-pressed", String(!!slot));
+    b.innerHTML = addLabel(slot);
+    b.title = slot ? "Click to remove it from the overlay" : "";
+  }
+  function openDrawer(id, from) {
+    const d = BY_ID[id]; if (!d) return;
+    closePop();
+    drawerId = id; drawerReturn = from || document.activeElement;
+    $("#dr-brand").textContent = d.brand + (d.status !== "shipped" ? " · " + (STATUS[d.status] || d.status) : "");
+    $("#dr-title").textContent = d.model;
+    $("#dr-variant").textContent = d.variant || "";
+    $("#dr-variant").hidden = !d.variant;
+    const body = $("#dr-body");
+    body.innerHTML = drawerHtml(d);
+    body.style.setProperty("--span", SPAN_W); body.style.setProperty("--span-h", SPAN_H);
+    sizeSils(body);
+    body.scrollTop = 0;
+    updateDrawerBtn();
+    drawer.hidden = false; scrim.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    $("#dr-close").focus();
+  }
+  function closeDrawer() {
+    if (drawer.hidden) return;
+    closePop();
+    drawer.hidden = true; scrim.hidden = true; drawerId = null;
+    document.documentElement.style.overflow = "";
+    if (drawerReturn && document.contains(drawerReturn)) drawerReturn.focus({ preventScroll: true });
+  }
+  $("#dr-close").addEventListener("click", closeDrawer);
+  scrim.addEventListener("click", closeDrawer);
+  $("#dr-body").addEventListener("click", (e) => {
+    const t = e.target;
+    const svb = t.closest(".sv");
+    if (svb) { e.stopPropagation(); togglePop(svb); return; }
+    if (t.closest("#dr-add")) {
+      if (!drawerId) return;
+      if (selSlot(drawerId)) setSel(drawerId, false);
+      else if (!setSel(drawerId, true)) flashMsg($("#dr-msg"), FULL_MSG);
+      return;
+    }
+    if (t.closest("#dr-goto")) { e.preventDefault(); closeDrawer(); goSection("overlay", true); }
+  });
+  $("#dr-body").addEventListener("scroll", () => closePop(), { passive: true });
+  drawer.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    const f = $$('button, a[href], input, select, [tabindex]:not([tabindex="-1"])', drawer).filter((x) => x.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* ---------- source popover ---------- */
+  const pop = $("#pop");
+  let popBtn = null;
+  function openPop(btn) {
+    const list = drSrc[Number(btn.dataset.si)] || [];
+    if (popBtn && popBtn !== btn) popBtn.setAttribute("aria-expanded", "false");
+    popBtn = btn; btn.setAttribute("aria-expanded", "true");
+    pop.innerHTML = "<h4>Source" + (list.length > 1 ? "s" : "") + "</h4><ul>" + list.map((s) =>
+      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc([s.field, s.accessed].filter(Boolean).join(" · ")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
+    pop.hidden = false;
+    const r = btn.getBoundingClientRect();
+    pop.style.left = "0px"; pop.style.top = "0px";
+    const pw = pop.offsetWidth, ph = pop.offsetHeight, vw = document.documentElement.clientWidth, vh = window.innerHeight;
+    const x = clamp(r.left, 12, Math.max(12, vw - pw - 12));
+    let y = r.bottom + 6;
+    if (y + ph > vh - 8) y = Math.max(8, r.top - ph - 6);
+    pop.style.left = Math.round(x) + "px"; pop.style.top = Math.round(y) + "px";
+  }
+  function closePop() {
+    if (popBtn) popBtn.setAttribute("aria-expanded", "false");
+    popBtn = null; pop.hidden = true;
+  }
+  function togglePop(btn) { if (popBtn === btn && !pop.hidden) closePop(); else openPop(btn); }
+  document.addEventListener("click", (e) => { if (!pop.hidden && !pop.contains(e.target) && !e.target.closest(".sv")) closePop(); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    if (!pop.hidden) { const b = popBtn; closePop(); if (b) b.focus(); return; }
+    if (!drawer.hidden) closeDrawer();
+  });
+
+  /* ---------- overlay ---------- */
+  const svg = $("#ov-svg"), canvas = $("#ov-canvas");
+  const PX = { L: 46, R: 18, T: 28, B: 40 };
+  const VIEW_NAME = { top: "Top", bottom: "Back", side: "Side" };
+  let curZoom = 2, firstOverlay = true;
+  function ovItems() {
+    return state.sel.map((s) => {
+      const d = BY_ID[s.id]; if (!d) return null;
+      const dims = dimsH(d), o = (OUT[s.id] || {})[state.view], it = { d, slot: s.slot, screen: null, grip: null };
+      if (o) {
+        it.kind = o.kind || "box"; it.w = o.w; it.h = o.h; it.path = o.path;
+        if (state.view === "top" && o.screen) it.screen = o.screen;
+      } else {
+        it.kind = "box";
+        it.w = state.view === "side" ? dims.h : dims.w;
+        it.h = state.view === "side" ? dims.d : dims.h;
+        it.path = "M0 0L" + it.w + " 0L" + it.w + " " + it.h + "L0 " + it.h + "Z";
+      }
+      if (state.view === "side" && dims.d_max != null && dims.d_max > it.h) it.grip = dims.d_max;
+      it.fw = it.w; it.fh = Math.max(it.h, it.grip || 0);
+      return it;
+    }).filter(Boolean);
+  }
+  function extent(items) {
+    const side = state.view === "side";
+    const Wmax = items.length ? Math.max(...items.map((i) => i.fw)) : (side ? 140 : 300);
+    const Hmax = items.length ? Math.max(...items.map((i) => i.fh)) : (side ? 50 : 130);
+    return { EW: Math.ceil(Wmax / 10) * 10 + 10, EH: Math.ceil(Hmax / 10) * 10 + 10 };
+  }
+  function fitZoom(EW, EH) {
+    let cw = canvas.clientWidth;
+    if (!(cw > 0)) cw = Math.max(300, document.documentElement.clientWidth - 40);
+    const zw = (cw - PX.L - PX.R) / EW;
+    const maxH = Math.max(240, Math.min(window.innerHeight * 0.6, 640));
+    const zh = (maxH - PX.T - PX.B) / EH;
+    return clamp(Math.floor(Math.min(zw, zh) * 100) / 100, 0.4, 10);
+  }
+  function ratioText(z) {
+    const r = TRUE_PXMM / z;
+    if (Math.abs(r - 1) < 0.05) return "1\u00a0:\u00a01";
+    return r > 1 ? "1\u00a0:\u00a0" + r.toFixed(1) : (1 / r).toFixed(1) + "\u00a0:\u00a01";
+  }
+  function renderOverlay() {
+    const items = ovItems(), view = state.view, side = view === "side";
+    const { EW, EH } = extent(items);
+    const z = state.zoom != null ? state.zoom : fitZoom(EW, EH);
+    curZoom = z;
+    $("#ov-zoom").value = String(z);
+    $("#ov-zoom-val").textContent = z.toFixed(2) + " px/mm";
+    $("#ov-fit").setAttribute("aria-pressed", String(state.zoom == null));
+    $("#ov-actual").setAttribute("aria-pressed", String(state.zoom != null && Math.abs(state.zoom - TRUE_PXMM) < 0.01));
+    const L = PX.L / z, R = PX.R / z, T = PX.T / z, B = PX.B / z;
+    const vbW = EW + L + R, vbH = EH + T + B;
+    svg.setAttribute("viewBox", [r2(-L), r2(-T), r2(vbW), r2(vbH)].join(" "));
+    svg.setAttribute("width", String(Math.round(vbW * z)));
+    svg.setAttribute("height", String(Math.round(vbH * z)));
+    const fs = r2(11 / z), p = [];
+    p.push('<title id="ov-title">Size overlay, ' + esc(VIEW_NAME[view]) + " view: " + esc(items.map((i) => i.d._name).join(", ") || "no devices") + "</title>");
+    p.push('<rect class="plot" x="0" y="0" width="' + EW + '" height="' + EH + '"/>');
+    let g = "";
+    for (let x = 0; x <= EW; x += 10) g += '<line class="' + (x % 50 === 0 ? "gM" : "gm") + '" x1="' + x + '" y1="0" x2="' + x + '" y2="' + EH + '" vector-effect="non-scaling-stroke"/>';
+    for (let v = 0; v <= EH; v += 10) g += '<line class="' + (v % 50 === 0 ? "gM" : "gm") + '" x1="0" y1="' + (EH - v) + '" x2="' + EW + '" y2="' + (EH - v) + '" vector-effect="non-scaling-stroke"/>';
+    p.push('<g aria-hidden="true">' + g + "</g>");
+    const step = 10 * z >= 30 ? 10 : (50 * z >= 32 ? 50 : 100);
+    let rl = '<line class="rl" x1="0" y1="' + EH + '" x2="' + EW + '" y2="' + EH + '" vector-effect="non-scaling-stroke"/><line class="rl" x1="0" y1="0" x2="0" y2="' + EH + '" vector-effect="non-scaling-stroke"/>';
+    for (let x = 0; x <= EW; x += 10) {
+      const tl = (x % 50 === 0 ? 8 : 4) / z;
+      rl += '<line class="rl" x1="' + x + '" y1="' + EH + '" x2="' + x + '" y2="' + r2(EH + tl) + '" vector-effect="non-scaling-stroke"/>';
+      if (x % step === 0) rl += '<text x="' + x + '" y="' + r2(EH + 20 / z) + '" text-anchor="middle">' + x + "</text>";
+    }
+    for (let v = 0; v <= EH; v += 10) {
+      const tv = (v % 50 === 0 ? 8 : 4) / z;
+      rl += '<line class="rl" x1="0" y1="' + (EH - v) + '" x2="' + r2(-tv) + '" y2="' + (EH - v) + '" vector-effect="non-scaling-stroke"/>';
+      if (v % step === 0) rl += '<text x="' + r2(-11 / z) + '" y="' + r2(EH - v + 4 / z) + '" text-anchor="end">' + v + "</text>";
+    }
+    rl += '<text x="' + EW + '" y="' + r2(EH + 35 / z) + '" text-anchor="end">' + (side ? "height as held, mm" : "width, mm") + "</text>";
+    rl += '<text x="' + r2(-L + 4 / z) + '" y="' + r2(-T + 15 / z) + '" text-anchor="start">' + (side ? "thickness, mm" : "height, mm") + "</text>";
+    p.push('<g font-size="' + fs + '" aria-hidden="true">' + rl + "</g>");
+
+    const pos = (it) => {
+      if (state.align === "left") return { x: 0, y: (EH - it.fh) / 2 };
+      if (state.align === "bottom") return { x: (EW - it.fw) / 2, y: EH - it.fh };
+      return { x: (EW - it.fw) / 2, y: (EH - it.fh) / 2 };
+    };
+    items.slice().sort((a, b) => b.fw * b.fh - a.fw * a.fh).forEach((it) => {
+      const q = pos(it);
+      let s = '<g class="dev s' + it.slot + '" data-id="' + esc(it.d.id) + '" transform="translate(' + r2(q.x) + " " + r2(q.y) + ')"><g class="in">';
+      if (it.grip) s += '<rect class="grip" x="0" y="0" width="' + it.w + '" height="' + it.grip + '" vector-effect="non-scaling-stroke"/>';
+      s += '<path class="shape" d="' + esc(it.path) + '" vector-effect="non-scaling-stroke"/>';
+      if (it.screen) s += '<rect class="screen" x="' + it.screen.x + '" y="' + it.screen.y + '" width="' + it.screen.w + '" height="' + it.screen.h + '" vector-effect="non-scaling-stroke"/>';
+      s += "<title>" + esc(it.d._name) + ", " + esc(sizeText(dimsH(it.d))) + " mm</title></g></g>";
+      p.push(s);
+    });
+    const placed = [], ts = 16 / z, gap = 3 / z;
+    let tg = "";
+    items.slice().sort((a, b) => a.slot - b.slot).forEach((it) => {
+      const q = pos(it);
+      let tx = q.x + it.w - ts - 4 / z, ty = q.y + 4 / z, guard = 0;
+      while (guard++ < 12 && placed.some((o) => Math.abs(o.x - tx) < ts + gap && Math.abs(o.y - ty) < ts + gap)) tx -= ts + gap;
+      placed.push({ x: tx, y: ty });
+      tg += '<g class="tag s' + it.slot + '" data-id="' + esc(it.d.id) + '"><rect x="' + r2(tx) + '" y="' + r2(ty) + '" width="' + r2(ts) + '" height="' + r2(ts) + '" rx="' + r2(2 / z) + '"/>' +
+        '<text x="' + r2(tx + ts / 2) + '" y="' + r2(ty + ts / 2 + 3.8 / z) + '" text-anchor="middle">' + it.slot + "</text></g>";
+    });
+    p.push('<g font-size="' + fs + '" aria-hidden="true">' + tg + "</g>");
+    if (!items.length) p.push('<text class="empty-t" x="' + EW / 2 + '" y="' + EH / 2 + '" text-anchor="middle" font-size="' + r2(14 / z) + '">The sheet is empty. Add a device from the list.</text>');
+    if (firstOverlay && items.length && !REDUCED) {
+      svg.classList.add("settle");
+      setTimeout(() => svg.classList.remove("settle"), 420);
+    }
+    firstOverlay = false;
+    svg.innerHTML = p.join("");
+    $("#ov-axes").textContent = side
+      ? "Side view. The x axis is the height as held. The y axis is the thickness. Each side view is a spec box."
+      : view === "top" ? "Top view, front face. The x axis is the width across the grips. The y axis is the height."
+        : "Back view. The x axis is the width. The y axis is the height.";
+    $("#tb-view").textContent = VIEW_NAME[view];
+    $("#tb-scale").textContent = ratioText(z);
+    $("#tb-count").textContent = items.length + " / " + MAX_SEL;
+    renderLegend(items);
+  }
+  function renderLegend(items) {
+    const side = state.view === "side";
+    $("#ov-count").textContent = state.sel.length + " of " + MAX_SEL;
+    $("#ov-legend").innerHTML = items.length ? items.slice().sort((a, b) => a.slot - b.slot).map((it) => {
+      const d = it.d, w = weightVal(d), id = esc(d.id);
+      return '<li class="lg" data-id="' + id + '"><span class="sw s' + it.slot + '" aria-hidden="true">' + it.slot + "</span>" +
+        '<div><button type="button" class="lg-open" id="lg-open-' + id + '" data-id="' + id + '">' + esc(d._short) + (d.variant ? '<span class="lg-v">' + esc(d.variant) + "</span>" : "") + "</button>" +
+        '<span class="lg-d">' + esc(sizeText(dimsH(d))) + " mm · " + (w != null ? esc(n0(w)) + " g" : "weight ?") + ' · <span class="kind">' + (it.kind === "traced" ? "traced" : "box") + "</span>" +
+        (it.grip ? ' · <span class="kind">grip</span>' : "") + "</span></div>" +
+        '<button type="button" class="lg-x" id="ov-rm-' + id + '" data-id="' + id + '" aria-label="Remove ' + esc(d._name) + ' from the overlay">×</button></li>';
+    }).join("") : '<li class="lg-empty">No devices on the sheet.</li>';
+    $("#ov-grip-key").hidden = !(side && items.some((i) => i.grip));
+  }
+  function highlight(id) {
+    svg.classList.toggle("hl", !!id);
+    $$(".dev, .tag", svg).forEach((g) => g.classList.toggle("on", g.dataset.id === id));
+  }
+  const lgEl = $("#ov-legend");
+  lgEl.addEventListener("mouseover", (e) => { const li = e.target.closest(".lg"); highlight(li ? li.dataset.id : null); });
+  lgEl.addEventListener("mouseleave", () => highlight(null));
+  lgEl.addEventListener("focusin", (e) => { const li = e.target.closest(".lg"); highlight(li ? li.dataset.id : null); });
+  lgEl.addEventListener("focusout", () => highlight(null));
+  lgEl.addEventListener("click", (e) => {
+    const o = e.target.closest(".lg-open");
+    if (o) { openDrawer(o.dataset.id, o); return; }
+    const b = e.target.closest(".lg-x"); if (!b) return;
+    const li = b.closest(".lg"), next = li && (li.nextElementSibling || li.previousElementSibling);
+    const nid = next && next.dataset ? next.dataset.id : null;
+    setSel(b.dataset.id, false);
+    highlight(null);
+    const f = nid && document.getElementById("ov-rm-" + nid);
+    (f || $("#ov-q")).focus();
+  });
+  $("#ov-clear").addEventListener("click", () => { state.sel = []; afterSel(); });
+  $("#ov-default").addEventListener("click", () => { state.sel = DEFAULT_SEL.map((id, i) => ({ id, slot: i + 1 })); afterSel(); });
+  function syncOvControls() {
+    const a = document.getElementById("ov-view-" + state.view); if (a) a.checked = true;
+    const b = document.getElementById("ov-align-" + state.align); if (b) b.checked = true;
+  }
+  $$('input[name="ov-view"]').forEach((r) => r.addEventListener("change", () => { state.view = r.value; renderOverlay(); save(); }));
+  $$('input[name="ov-align"]').forEach((r) => r.addEventListener("change", () => { state.align = r.value; renderOverlay(); save(); }));
+  $("#ov-zoom").addEventListener("input", (e) => { state.zoom = clamp(parseFloat(e.target.value) || 2, 0.4, 10); renderOverlay(); });
+  $("#ov-zoom").addEventListener("change", save);
+  $("#ov-fit").addEventListener("click", () => { state.zoom = null; renderOverlay(); save(); });
+  $("#ov-actual").addEventListener("click", () => { state.zoom = TRUE_PXMM; renderOverlay(); save(); });
+
+  /* picker */
+  const PICK_ORDER = DEV.slice().sort((a, b) => a._name.localeCompare(b._name));
+  function renderPicker() {
+    const q = $("#ov-q").value.toLowerCase().split(/\s+/).filter(Boolean);
+    $("#ov-hint").hidden = q.length > 0;
+    if (!q.length) { $("#ov-list").innerHTML = ""; return; }
+    const list = PICK_ORDER.filter((d) => q.every((t) => d._search.includes(t)));
+    $("#ov-list").innerHTML = list.length ? list.slice(0, 8).map((d) => {
+      const slot = selSlot(d.id);
+      return '<li><button type="button" id="ovp-' + esc(d.id) + '" data-id="' + esc(d.id) + '" aria-pressed="' + !!slot + '"><span>' + esc(d._short) +
+        (d.variant ? ' <span class="v">' + esc(d.variant) + "</span>" : "") + '</span><span class="act">' + (slot ? "Remove" : "Add") + "</span></button></li>";
+    }).join("") + (list.length > 8 ? '<li class="pick-hint">' + (list.length - 8) + " more. Type more of the name.</li>" : "") : '<li class="pick-hint">No device matches.</li>';
+  }
+  $("#ov-q").addEventListener("input", renderPicker);
+  $("#ov-list").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-id]"); if (!b) return;
+    const id = b.dataset.id;
+    if (selSlot(id)) setSel(id, false);
+    else if (!setSel(id, true)) flashMsg($("#ov-msg"), FULL_MSG);
+    const again = document.getElementById("ovp-" + id); if (again) again.focus();
+  });
+
+  /* ---------- chips ---------- */
+  const socDevs = {};
+  DEV.forEach((d) => { (socDevs[d.soc_id] = socDevs[d.soc_id] || []).push(d); });
+  const isStandIn = (s) => !!(s.passmark && /stand-in/i.test(s.passmark.mapping_note || ""));
+  const STANDINS = SOCS.filter(isStandIn).sort((a, b) => a.name.localeCompare(b.name));
+  let FN = {}, fnOrder = STANDINS.slice();
+  const SCORE = [{ k: "cpu_mark", n: "cpu_samples", label: "CPU Mark" }, { k: "single_thread", n: null, label: "Single Thread" }, { k: "g3d_mark", n: "g3d_samples", label: "G3D Mark" }];
+  const SMAX = {};
+  SCORE.forEach((c) => { SMAX[c.k] = Math.max(...SOCS.map((s) => (s.passmark && s.passmark[c.k]) || 0)) || 1; });
+  const CHIP_SORT = {
+    name: (s) => s.name.toLowerCase(), cpu_mark: (s) => (s.passmark || {}).cpu_mark, single_thread: (s) => (s.passmark || {}).single_thread,
+    g3d_mark: (s) => (s.passmark || {}).g3d_mark, tdp: (s) => (s.tdp_w || {}).max, devs: (s) => (socDevs[s.id] || []).length || null
+  };
+  let chipSort = { key: "g3d_mark", dir: -1 };
+  function chipHead() {
+    const b = (k, label, extra) => {
+      const on = chipSort.key === k;
+      return '<div><button type="button" class="sort" id="chip-sort-' + k + '" data-k="' + k + '" aria-pressed="' + on + '">' + esc(label) +
+        '<span class="arr" aria-hidden="true">' + (on ? (chipSort.dir === 1 ? "▲" : "▼") : "") + "</span></button>" + (extra || "") + "</div>";
+    };
+    $("#chip-head").innerHTML = b("name", "Chip and GPU") + SCORE.map((c) => b(c.k, c.label, '<span class="scl">bar: 0 to ' + n0(SMAX[c.k]) + "</span>")).join("") +
+      b("tdp", "TDP", '<span class="scl">W</span>') + b("devs", "Devices");
+  }
+  function scoreCell(s, c) {
+    const pm = s.passmark || {}, v = pm[c.k];
+    if (v == null) return '<div class="sc"><span class="cl">' + c.label + '</span><span class="na">—</span></div>';
+    const pct = v / SMAX[c.k] * 100;
+    return '<div class="sc" title="' + esc(c.label + " " + n0(v) + ", " + Math.round(pct) + " % of the top score") + '"><span class="cl">' + c.label + "</span>" +
+      '<span class="top"><span class="v">' + n0(v) + "</span>" + (c.n && pm[c.n] != null ? '<span class="n">' + n0(pm[c.n]) + " runs</span>" : "") + "</span>" +
+      '<span class="bar" aria-hidden="true"><i data-w="' + r2(pct) + '"></i></span></div>';
+  }
+  function renderChips() {
+    chipHead();
+    const fn = CHIP_SORT[chipSort.key];
+    const rows = SOCS.slice().sort((x, y) => {
+      const a = fn(x), b = fn(y), an = a == null, bn = b == null;
+      if (an && bn) return x.name.localeCompare(y.name);
+      if (an) return 1;
+      if (bn) return -1;
+      return cmpVals(a, b) * chipSort.dir || x.name.localeCompare(y.name);
+    });
+    fnOrder = rows.filter(isStandIn);
+    FN = {}; fnOrder.forEach((s, i) => { FN[s.id] = i + 1; });
+    $("#chip-list").innerHTML = rows.map((s) => {
+      const t = s.tdp_w || {}, g = s.igpu || {}, devs = (socDevs[s.id] || []).slice().sort((a, b) => a._name.localeCompare(b._name));
+      const id = esc(s.id), f = FN[s.id];
+      return '<li class="chip-row" id="chip-' + id + '"><div class="c-name"><span class="nm">' + esc(s.name) + "</span>" +
+        (f ? '<sup><a href="#fn-' + id + '" id="fnref-' + id + '" aria-label="Note ' + f + ': stand-in score">' + f + "</a></sup>" : "") +
+        '<span class="ig">' + esc([g.name, g.cu ? g.cu + " CU" : null].filter(Boolean).join(" · ")) + "</span></div>" +
+        SCORE.map((c) => scoreCell(s, c)).join("") +
+        '<div class="c-tdp"><span class="cl">TDP</span><span class="tdp">' + (t.min != null || t.max != null ? esc((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?")) + " W" : '<span class="na">—</span>') + "</span></div>" +
+        '<div class="c-used">' + (devs.length ? '<details class="used" id="used-' + id + '"><summary>used by ' + devs.length + " device" + (devs.length > 1 ? "s" : "") + "</summary><ul>" +
+          devs.map((d) => '<li><button type="button" id="usedby-' + id + "-" + esc(d.id) + '" data-soc="' + id + '" data-dev="' + esc(d.id) + '">' + esc(d._name) + "</button></li>").join("") + "</ul></details>"
+          : '<span class="na">No device</span>') + "</div></li>";
+    }).join("");
+    $$("#chip-list .bar i").forEach((i) => { i.style.width = i.dataset.w + "%"; });
+    renderChipNotes();
+  }
+  $("#chip-head").addEventListener("click", (e) => {
+    const b = e.target.closest(".sort"); if (!b) return;
+    const k = b.dataset.k;
+    if (chipSort.key === k) chipSort.dir = -chipSort.dir; else chipSort = { key: k, dir: k === "name" ? 1 : -1 };
+    renderChips();
+    const nb = document.getElementById("chip-sort-" + k); if (nb) nb.focus();
+  });
+  $("#chip-list").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-soc]"); if (!b) return;
+    state.filters = { soc: [b.dataset.soc] };
+    state.q = "";
+    showAll = true;
+    applyFilters(); save();
+    goSection("devices", true);
+    const id = b.dataset.dev;
+    const el = state.layout === "table" ? tbody.querySelector('tr[data-id="' + id + '"]') : cardEl[id];
+    if (el) {
+      el.classList.add("flash");
+      setTimeout(() => el.classList.remove("flash"), 1600);
+      const o = document.getElementById(state.layout === "table" ? "pick-" + id : "open-" + id);
+      if (o) setTimeout(() => o.focus({ preventScroll: true }), REDUCED ? 0 : 450);
+    }
+  });
+  function renderChipNotes() {
+    const fetched = SOCS.map((s) => s.passmark && s.passmark.fetched).filter(Boolean).sort();
+    $("#chip-note").textContent = SOCS.length + " chips. PassMark scores" + (fetched.length ? ", fetched " + fetched[fetched.length - 1] : "") + ". A rough guide only.";
+    $("#fns-h").textContent = STANDINS.length ? "Stand-in scores. These chips have no PassMark entry of their own for the CPU or the GPU." : "";
+    $("#chip-fns").innerHTML = fnOrder.map((s) => '<li id="fn-' + esc(s.id) + '"><b>' + esc(s.name) + ".</b> " + esc(s.passmark.mapping_note) +
+      (s.passmark.cpu_url ? " " + link(s.passmark.cpu_url, "CPU entry") : "") + (s.passmark.gpu_url ? " · " + link(s.passmark.gpu_url, "GPU entry") : "") +
+      ' <a href="#fnref-' + esc(s.id) + '" aria-label="Back to ' + esc(s.name) + '">↩</a></li>').join("");
+  }
+
+  /* ---------- notes ---------- */
+  function renderNotes() {
+    $("#note-standin").innerHTML = STANDINS.length
+      ? STANDINS.length + " chips have no PassMark entry of their own. A stand-in entry gives their score. The Chips list marks each one with a note number."
+      : "Every chip uses its own PassMark entries.";
+    let tr = 0, bx = 0;
+    DEV.forEach((d) => { if (topShape(d).kind === "traced") tr++; else bx++; });
+    $("#note-outlines").textContent = "Top views come from official renders where possible. " + tr + " top views are traced and " + bx + " are spec boxes. A traced outline is fitted to the stated width and height. A spec box is a rounded rectangle from the stated sizes.";
+    $("#note-date").textContent = "Data date: " + dataDate + ". Every value has a source. Open a device to see its sources, conflicts and unresolved fields. A value with a dotted underline has its own source; click it to see the link.";
+  }
+
+  /* ---------- sections and hash ---------- */
+  const SECTIONS = ["overlay", "devices", "chips", "notes"];
+  let userMoved = false;
+  ["wheel", "touchstart", "pointerdown", "keydown"].forEach((ev) => window.addEventListener(ev, () => { userMoved = true; }, { passive: true, capture: true }));
+  function setActive(id) {
+    $$(".nav a").forEach((a) => { if (a.dataset.sec === id) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+  }
+  function goSection(id, smooth) {
+    const el = document.getElementById(id); if (!el) return;
+    el.scrollIntoView({ block: "start", behavior: smooth && !REDUCED ? "smooth" : "auto" });
+    setActive(id);
+  }
+  function fromHash(smooth) {
+    const h = (location.hash || "").slice(1);
+    if (SECTIONS.includes(h)) { goSection(h, smooth); return true; }
+    return false;
+  }
+  window.addEventListener("hashchange", () => fromHash(true));
+  let scr = 0;
+  function spy() {
+    const navH = $(".nav").offsetHeight + 40;
+    let cur = null;
+    SECTIONS.forEach((id) => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= navH) cur = id; });
+    const de = document.documentElement;
+    if (window.scrollY + window.innerHeight >= de.scrollHeight - 4) cur = SECTIONS[SECTIONS.length - 1];
+    if (cur) setActive(cur); else setActive("");
+  }
+  window.addEventListener("scroll", () => { cancelAnimationFrame(scr); scr = requestAnimationFrame(spy); }, { passive: true });
+  function measureNav() {
+    const b = $(".nav");
+    if (b && b.offsetHeight) document.documentElement.style.setProperty("--nav-h", b.offsetHeight + "px");
+  }
+  let rsz = 0, lastW = window.innerWidth;
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(rsz);
+    rsz = requestAnimationFrame(() => {
+      measureNav();
+      if (state.zoom == null && window.innerWidth !== lastW) renderOverlay();
+      lastW = window.innerWidth;
+      updateScaleNote();
+      closePop();
+    });
+  });
+
+  /* ---------- init ---------- */
+  loadState();
+  buildRuler();
+  $("#counts").textContent = DEV.length + " devices · " + SOCS.length + " chips · data " + dataDate;
+  buildToolbar();
+  buildColPicker();
+  buildCards();
+  renderSortSelect();
+  applyFilters();
+  syncLayout();
+  syncOvControls();
+  renderPicker();
+  renderOverlay();
+  renderChips();
+  renderNotes();
+  measureNav();
+  if (!fromHash(false)) spy();
+  if (window.ResizeObserver) { scaleObs = new ResizeObserver(() => updateScaleNote()); scaleObs.observe(grid); }
+  /* Web fonts change text metrics after the first render. Refit and re-apply the hash until the user moves. */
+  function settle() {
+    measureNav();
+    if (state.zoom == null) {
+      const { EW, EH } = extent(ovItems());
+      if (Math.abs(fitZoom(EW, EH) - curZoom) > 0.005) renderOverlay();
+    }
+    updateScaleNote();
+    if (!userMoved) fromHash(false);
+  }
+  window.addEventListener("load", settle);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
+})();
+</script>

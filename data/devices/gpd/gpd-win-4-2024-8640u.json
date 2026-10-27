@@ -1,0 +1,220 @@
+{
+  "id": "gpd-win-4-2024-8640u",
+  "brand": "GPD",
+  "model": "Win 4",
+  "variant": "2024 (Ryzen 5 8640U)",
+  "status": "shipped",
+  "announce_date": null,
+  "release_date": null,
+  "msrp_usd": null,
+  "form_factor": "slider",
+  "dims_mm": {
+    "handheld": {
+      "w": 220,
+      "h": 92,
+      "d": 28,
+      "d_max": null
+    },
+    "note": "Slider closed (gaming position). The screen slides up to expose the keyboard; GPD lists one size."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 598,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": null
+  },
+  "soc_id": "r5-8640u",
+  "ram": {
+    "sizes_gb": [
+      16
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": 4,
+    "soldered": true
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      512
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 1,
+      "speed_gbps": 40,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "full-speed USB4; video/data/charging"
+    },
+    {
+      "kind": "USB-C 3.2 Gen2",
+      "count": 1,
+      "speed_gbps": 10,
+      "dp_alt": true,
+      "pd_in_w": null,
+      "location": null,
+      "note": "full-featured; video/data/charging"
+    },
+    {
+      "kind": "OCuLink",
+      "count": 1,
+      "speed_gbps": 63,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "SFF-8612, PCIe 4.0 x4, 63 Gbps"
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "headphone/mic combo"
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "UHS-I, A2, 160 MB/s read"
+    }
+  ],
+  "screen": {
+    "size_in": 6.0,
+    "panel": "IPS",
+    "res_w": 1920,
+    "res_h": 1080,
+    "refresh_hz": 60,
+    "vrr": null,
+    "touch": true,
+    "nits_sdr": null,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "H-IPS, 368 PPI, DC dimming, Gorilla Glass 5; 40 Hz and 60 Hz modes"
+  },
+  "battery": {
+    "wh": 45.62,
+    "removable": false,
+    "external": false,
+    "charge_w": 65,
+    "note": "65 W USB-C PD adapter in the box (20 V 3.25 A)"
+  },
+  "controls": {
+    "stick_type": "potentiometer",
+    "stick_note": "ALPS 3D joysticks (OEM), L3/R3 press",
+    "trigger_type": null,
+    "trigger_lock": null,
+    "trackpads": 0,
+    "gyro": true,
+    "rear_buttons": 2,
+    "keyboard": true,
+    "detachable_controllers": false,
+    "haptics": "dual vibration motors (off / weak / strong)",
+    "note": "Optical finger mouse (OFN) instead of a touchpad; L1/R1 RGB lighting; L2/R2 linear analog triggers"
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11 Home"
+  ],
+  "cooling": "single fan + dual heat pipes",
+  "fingerprint": true,
+  "notes": "Ryzen 5 8640U config of the Win 4 (2024); same chassis, ports, screen and battery as gpd-win-4-2024. GPD sold the 8840U first; NotebookCheck said the 8640U release date was unclear. DroiX lists the 16 GB / 512 GB config. LPDDR5X is soldered by design.",
+  "unresolved": [
+    {
+      "field": "announce_date",
+      "reason": "official pages give a launch month only; no dated announcement sourced"
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "no reviewer scale weight found within the fetch budget"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "single thickness value published"
+    },
+    {
+      "field": "ports",
+      "reason": "spec page does not state port location or per-port PD input; null subfields are unstated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "not stated on the spec page"
+    },
+    {
+      "field": "screen.nits_sdr",
+      "reason": "brightness not stated"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "not stated"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "not stated"
+    },
+    {
+      "field": "controls.trigger_type",
+      "reason": "GPD says 'linear analog' triggers but does not name the sensor"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "not stated"
+    },
+    {
+      "field": "release_date",
+      "reason": "no first-sale date found; the spec page carries the 2023 launch month"
+    },
+    {
+      "field": "msrp_usd",
+      "reason": "no USD launch price found for the 8640U config"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://web.archive.org/web/20240425004609/https://gpd.hk/gpdwin4techspecs",
+      "accessed": "2026-10-27",
+      "note": "Wayback copy of the official tech specs page, 2024-04 (8840U / 8640U); 8640U column: 16 GB, 512 GB"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://www.china-gadgets.de/gpd-win-4-gaming-handheld-test/",
+      "accessed": "2026-10-27",
+      "note": "Review (6800U unit): 'Verbaut sind ALPS Joysticks ... Da es sich nicht um Hall-Sticks handelt'. Later Win 4 spec pages list the same ALPS 3D joysticks."
+    },
+    {
+      "field": "status",
+      "url": "https://www.notebookcheck.net/GPD-Win-4-2024-AMD-Ryzen-7-8840U-refresh-launches-before-Ryzen-5-8640U-release.810169.0.html",
+      "accessed": "2026-10-27",
+      "note": "8840U launched before the 8640U"
+    },
+    {
+      "field": "status",
+      "url": "https://droix.net/product/gpd-win-4-2024",
+      "accessed": "2026-10-27",
+      "note": "retailer lists the 8640U / 16 GB / 512 GB config"
+    }
+  ]
+}

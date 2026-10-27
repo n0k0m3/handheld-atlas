@@ -1,0 +1,86 @@
+{
+  "id": "z2-a",
+  "vendor": "AMD",
+  "name": "Ryzen Z2 A",
+  "codename": "Van Gogh",
+  "cores": 4,
+  "threads": 8,
+  "core_mix": "4x Zen 2",
+  "cpu_arch": "Zen 2",
+  "base_ghz": 2.8,
+  "boost_ghz": 3.8,
+  "tdp_w": {
+    "default": 15,
+    "min": 6,
+    "max": 20
+  },
+  "process_nm": 7,
+  "process_note": "TSMC 7nm (Van Gogh, as the Steam Deck LCD APU)",
+  "npu_tops": 0,
+  "memory": "LPDDR5-6400",
+  "launch_date": "2025-06-08",
+  "igpu": {
+    "name": "Radeon (8 CU RDNA 2)",
+    "cu": 8,
+    "arch": "RDNA 2",
+    "clock_mhz": 1800,
+    "tflops_fp32": 1.84
+  },
+  "passmark": {
+    "cpu_mark": 10008,
+    "single_thread": 2295,
+    "cpu_samples": 22,
+    "cpu_url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z2+A&id=6967",
+    "g3d_mark": 2949,
+    "g3d_samples": 118,
+    "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Custom+GPU+0405&id=4528",
+    "fetched": "2026-10-27",
+    "mapping_note": "CPU: exact entry 'AMD Ryzen Z2 A' (22 samples); the brief expected a Steam Deck stand-in, but Z2 A has its own entry. GPU: no Z2 A iGPU entry; stand-in 'Custom GPU 0405' = Steam Deck LCD iGPU (same Van Gogh 8 CU RDNA 2; Z2 A clocks to 1.8 GHz, Deck to 1.6 GHz)."
+  },
+  "notes": "npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "unresolved": [],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://www.amd.com/en/products/processors/handhelds/ryzen-z-series/z2-series/z2-a.html",
+      "accessed": "2026-10-27",
+      "note": "AMD spec page: cores, clocks, TDP, iGPU CU and clock"
+    },
+    {
+      "field": "passmark.cpu_mark",
+      "url": "https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Z2+A&id=6967",
+      "accessed": "2026-10-27",
+      "note": "CPU Mark, single thread rating and samples"
+    },
+    {
+      "field": "passmark.g3d_mark",
+      "url": "https://www.videocardbenchmark.net/gpu.php?gpu=Custom+GPU+0405&id=4528",
+      "accessed": "2026-10-27",
+      "note": "G3D Mark and samples"
+    },
+    {
+      "field": "launch_date",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z2-a.c4565",
+      "accessed": "2026-10-27",
+      "note": "TPU: release Jun 8th, 2025"
+    },
+    {
+      "field": "process_nm",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z2-a.c4565",
+      "accessed": "2026-10-27",
+      "note": "TPU: TSMC 7 nm, Van Gogh"
+    },
+    {
+      "field": "memory",
+      "url": "https://www.techpowerup.com/cpu-specs/ryzen-z2-a.c4565",
+      "accessed": "2026-10-27",
+      "note": "TPU: LPDDR5-6400"
+    },
+    {
+      "field": "igpu.tflops_fp32",
+      "url": "https://www.techpowerup.com/gpu-specs/ryzen-z2-a-gpu.c4306",
+      "accessed": "2026-10-27",
+      "note": "cross-check only; TPU lists 1.843 TFLOPS"
+    }
+  ]
+}

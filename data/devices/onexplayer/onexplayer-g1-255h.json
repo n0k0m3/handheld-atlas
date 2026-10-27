@@ -1,0 +1,323 @@
+{
+  "id": "onexplayer-g1-255h",
+  "brand": "OneXPlayer",
+  "model": "G1",
+  "variant": "Core Ultra 7 255H (Indiegogo only)",
+  "status": "shipped",
+  "announce_date": "2025-01-09",
+  "release_date": null,
+  "msrp_usd": null,
+  "form_factor": "clamshell",
+  "dims_mm": {
+    "handheld": {
+      "w": 208,
+      "h": 146.5,
+      "d": 32,
+      "d_max": null
+    },
+    "closed": {
+      "w": 208,
+      "h": 146.5,
+      "d": 32,
+      "d_max": null
+    },
+    "note": "Clamshell mini laptop. Vendor gives one size (208 x 146.5 x 32 mm). Handheld uses the closed footprint, as for the GPD rows; the lid opens upward."
+  },
+  "weight_g": {
+    "handheld": {
+      "stated": 880,
+      "measured": null,
+      "measured_source": null
+    },
+    "closed": {
+      "stated": 1020,
+      "measured": null,
+      "measured_source": null
+    },
+    "note": "Handheld = body without the removable keyboard (vendor: about 880 g). Closed = with the keyboard in place (about 140 g more)."
+  },
+  "soc_id": "cu7-255h",
+  "ram": {
+    "sizes_gb": [
+      32,
+      64
+    ],
+    "type": "LPDDR5X",
+    "speed_mts": 7500,
+    "channels": null,
+    "soldered": null
+  },
+  "storage": {
+    "slots": [
+      {
+        "form_factor": "2280",
+        "pcie_gen": 4,
+        "lanes": 4,
+        "note": null
+      }
+    ],
+    "capacities_gb": [
+      1024,
+      2048
+    ],
+    "expansion": [
+      "microSD"
+    ]
+  },
+  "ports": [
+    {
+      "kind": "USB4",
+      "count": 2,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "other",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": "USB 3.2 port; connector type and generation not stated"
+    },
+    {
+      "kind": "OCuLink",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "3.5mm",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    },
+    {
+      "kind": "microSD",
+      "count": 1,
+      "speed_gbps": null,
+      "dp_alt": null,
+      "pd_in_w": null,
+      "location": null,
+      "note": null
+    }
+  ],
+  "screen": {
+    "size_in": 8.8,
+    "panel": "LTPS",
+    "res_w": 2560,
+    "res_h": 1600,
+    "refresh_hz": 144,
+    "vrr": null,
+    "touch": null,
+    "nits_sdr": 500,
+    "nits_peak": null,
+    "hdr": null,
+    "note": "MIPI 8-lane panel; DCI-P3 97% typ; contrast 1500:1"
+  },
+  "battery": {
+    "wh": 51.975,
+    "removable": false,
+    "external": false,
+    "charge_w": 100,
+    "note": "13,500 mAh; store page: 100 W GaN charger"
+  },
+  "controls": {
+    "stick_type": "hall",
+    "stick_note": "Hall joysticks",
+    "trigger_type": "hall",
+    "trigger_lock": null,
+    "trackpads": 1,
+    "gyro": true,
+    "rear_buttons": null,
+    "keyboard": true,
+    "detachable_controllers": false,
+    "haptics": "Linear motor",
+    "note": "Removable magnetic/Bluetooth keyboard covers the built-in controllers. Below the controllers is a capacitive touch keyboard; the lower panel also works as a touchpad. Hall trigger travel 6.35 mm."
+  },
+  "wireless": {
+    "wifi": "Wi-Fi 6E",
+    "bt": "5.2"
+  },
+  "os": [
+    "Windows 11"
+  ],
+  "cooling": "Dual fans (up to 6000 RPM), 2 copper heat pipes, aluminium heatsink",
+  "fingerprint": true,
+  "notes": "Intel Core Ultra 7 255H version of the G1, offered only on Indiegogo (Jan 2025). Chassis fields are copied from onexplayer-g1. form_factor is clamshell for the same reason as onexplayer-g1.",
+  "unresolved": [
+    {
+      "field": "weight_g.closed.measured",
+      "reason": "No review measurement found"
+    },
+    {
+      "field": "ports",
+      "reason": "Port speeds, DP alt mode, PD input and locations not stated"
+    },
+    {
+      "field": "screen.vrr",
+      "reason": "Not stated"
+    },
+    {
+      "field": "screen.touch",
+      "reason": "Vendor mentions a capacitive touch keyboard on the base but not a touch screen"
+    },
+    {
+      "field": "controls.trigger_lock",
+      "reason": "Not stated"
+    },
+    {
+      "field": "controls.rear_buttons",
+      "reason": "Not stated"
+    },
+    {
+      "field": "dims_mm.handheld.d_max",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "dims_mm.closed.d_max",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "screen.nits_peak",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "screen.hdr",
+      "reason": "Not stated in the official spec image or the sources used"
+    },
+    {
+      "field": "msrp_usd",
+      "reason": "Sold only through Indiegogo ($1,099 for 32 GB/1 TB early bird; $1,319 for 64 GB); never sold at retail"
+    },
+    {
+      "field": "release_date",
+      "reason": "No retail release. Indiegogo shipping was planned for March 2025."
+    },
+    {
+      "field": "weight_g.handheld.measured",
+      "reason": "No review of this SKU; measurements in onexplayer-g1 are from a different SKU"
+    },
+    {
+      "field": "ram.channels",
+      "reason": "Not stated for this SKU"
+    },
+    {
+      "field": "ram.soldered",
+      "reason": "Not stated for this SKU"
+    }
+  ],
+  "conflicts": [
+    {
+      "field": "battery.charge_w",
+      "values": [
+        {
+          "value": 100,
+          "url": "https://onexplayerstore.com/products/onexplayer-g1-amd-ryzen-ai-9-hx-370-ultimate-gaming-handheld-console-versatile-laptop"
+        },
+        {
+          "value": 65,
+          "url": "https://liliputing.com/onexplayer-g1-handheld-gaming-pc-hits-indiegogo-for-899-and-up/"
+        }
+      ],
+      "chosen_reason": "Official store page says 100 W GaN charger"
+    },
+    {
+      "field": "weight_g.handheld.stated",
+      "values": [
+        {
+          "value": 880,
+          "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/G1_2400.jpg?v=1749787351"
+        },
+        {
+          "value": 900,
+          "url": "https://liliputing.com/onexplayer-g1-is-an-8-8-inch-mini-laptop-for-gaming-amd-strix-point-and-a-detachable-keyboard/"
+        }
+      ],
+      "chosen_reason": "Official spec image; 900 g was a pre-launch figure"
+    }
+  ],
+  "sources": [
+    {
+      "field": "*",
+      "url": "https://onexplayerstore.com/products/onexplayer-g1-amd-ryzen-ai-9-hx-370-ultimate-gaming-handheld-console-versatile-laptop",
+      "accessed": "2026-10-27",
+      "note": "Official store page; spec table is the image https://cdn.shopify.com/s/files/1/0557/8535/7492/files/G1_2400.jpg?v=1749787351"
+    },
+    {
+      "field": "ports",
+      "url": "https://liliputing.com/onexplayer-g1-handheld-gaming-pc-hits-indiegogo-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": "2x USB4, 1x USB 3.2, 1x OCuLink, 3.5 mm, microSD"
+    },
+    {
+      "field": "weight_g.closed.stated",
+      "url": "https://liliputing.com/onexplayer-g1-handheld-gaming-pc-hits-indiegogo-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": "880 g without the keyboard, 1,020 g with the keyboard"
+    },
+    {
+      "field": "controls.stick_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/G1_2400.jpg?v=1749787351",
+      "accessed": "2026-10-27",
+      "note": "Official spec image: 'Joystick: Hall Joystick'"
+    },
+    {
+      "field": "controls.trigger_type",
+      "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/G1_2400.jpg?v=1749787351",
+      "accessed": "2026-10-27",
+      "note": "Official spec image: 'Hall Trigger, key travel 6.35 mm'"
+    },
+    {
+      "field": "controls.trackpads",
+      "url": "https://liliputing.com/onexplayer-g1-handheld-gaming-pc-hits-indiegogo-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Touchpad between the split capacitive keyboard; whole lower panel can act as a touchpad"
+    },
+    {
+      "field": "form_factor",
+      "url": "https://liliputing.com/onexplayer-g1-is-an-8-8-inch-mini-laptop-for-gaming-amd-strix-point-and-a-detachable-keyboard/",
+      "accessed": "2026-10-27",
+      "note": "Mini laptop with a detachable keyboard over built-in controllers"
+    },
+    {
+      "field": "soc_id",
+      "url": "https://liliputing.com/onexplayer-g1-handheld-gaming-pc-hits-indiegogo-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Indiegogo option: Intel Core Ultra 7 255H/32GB/1TB for $1,099 early bird"
+    },
+    {
+      "field": "ram.sizes_gb",
+      "url": "https://www.notebookcheck.net/OneXPlayer-G1-price-dropped-by-up-to-220-for-64-GB-RAM-variants.949058.0.html",
+      "accessed": "2026-10-27",
+      "note": "255H with 64 GB RAM for $1,319 (Indiegogo); shipping planned for March 2025"
+    },
+    {
+      "field": "ram.speed_mts",
+      "url": "https://liliputing.com/onexplayer-g1-handheld-gaming-pc-hits-indiegogo-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": "One Netbook says all models have LPDDR5x-7500"
+    },
+    {
+      "field": "status",
+      "url": "https://www.notebookcheck.net/OneXPlayer-G1-now-available-directly-featuring-AMD-Ryzen-AI-9-HX-370-and-64-GB-of-RAM-with-early-launch-discounts.1015993.0.html",
+      "accessed": "2026-10-27",
+      "note": "The 255H variant was sold via Indiegogo; the store launch (May 2025) did not offer it"
+    },
+    {
+      "field": "announce_date",
+      "url": "https://liliputing.com/onexplayer-g1-handheld-gaming-pc-hits-indiegogo-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": "255H option listed when the campaign launched on 2025-01-09"
+    }
+  ]
+}
