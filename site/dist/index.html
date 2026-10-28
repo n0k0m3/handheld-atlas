@@ -8,7 +8,7 @@
 :root {
   --bg: #ffffff; --bg-page: #f7f7f8; --bg-subtle: #f1f3f6; --bg-hover: #f4f5f8; --bg-selected: #e8f2fd;
   --bg-brand: #0768cf; --bg-brand-hover: #0659b3; --accent: #0768cf;
-  --fg: #111827; --fg-2: #5f6a7d; --fg-3: #8e98a8; --fg-brand: #0768cf; --fg-onbrand: #ffffff;
+  --fg: #111827; --fg-2: #5f6a7d; --fg-3: #8e98a8; --fg-brand: #0768cf; --fg-onbrand: #ffffff; --fg-onaccent: #ffffff;
   --border: #e5e8ee; --border-strong: #d5dae3;
   --good: #00733c; --good-bg: #e3f6e9; --bad: #c4320a; --bad-bg: #fdece8;
   --dev-1: #0d99ff; --dev-2: #9747ff; --dev-3: #e8890c; --dev-4: #111827;
@@ -22,7 +22,7 @@
   :root:not([data-theme="light"]) {
     --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250;
     --bg-brand: #1f6fc0; --bg-brand-hover: #1a62ab; --accent: #499fff;
-    --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff;
+    --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
     --border: #303641; --border-strong: #424b59;
     --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
     --dev-1: #499fff; --dev-2: #b384ff; --dev-3: #ffb547; --dev-4: #edf0f5;
@@ -34,7 +34,7 @@
 :root[data-theme="dark"] {
   --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250;
   --bg-brand: #1f6fc0; --bg-brand-hover: #1a62ab; --accent: #499fff;
-  --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff;
+  --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
   --border: #303641; --border-strong: #424b59;
   --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
   --dev-1: #499fff; --dev-2: #b384ff; --dev-3: #ffb547; --dev-4: #edf0f5;
@@ -165,7 +165,8 @@ svg { display: block; }
 .sw-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; width: 100%; }
 .sw { width: 28px; height: 16px; border-radius: 10px; background: var(--border-strong); position: relative; flex: none; transition: background .15s; }
 .sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 6px; background: #fff; transition: left .15s; }
-[aria-pressed="true"] > .sw { background: var(--bg-brand); }
+[aria-pressed="true"] > .sw::after { background: var(--fg-onaccent); }
+[aria-pressed="true"] > .sw { background: var(--accent); }
 [aria-pressed="true"] > .sw::after { left: 14px; }
 .topf { display: none; }
 .topf-h { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 10px 12px; font-weight: 700; }
@@ -196,6 +197,7 @@ svg { display: block; }
 .tbl th.stk { z-index: 3; }
 .tbl .stk.c0 { left: 0; }
 .tbl .stk.c1 { left: 36px; box-shadow: 1px 0 0 var(--border); }
+.tbl .stk.c1 + th, .tbl .stk.c1 + td { padding-left: 8px; }
 .tbl tbody tr:hover > .stk { background: var(--bg-hover); }
 .tbl tbody tr.ref > .stk { background: var(--bg-selected); }
 .tbl th { text-align: left; padding: 8px 12px 8px 0; font-size: 11px; font-weight: 600; color: var(--fg-2); white-space: nowrap; border-bottom: 1px solid var(--border); }
@@ -225,8 +227,8 @@ svg { display: block; }
 .dpill.dn { color: var(--bad); background: var(--bad-bg); }
 .dpill.refp { color: var(--fg-brand); background: var(--bg-selected); }
 input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border-strong); background: transparent; cursor: pointer; display: grid; place-items: center; }
-.qbox:checked { background: var(--bg-brand); border-color: var(--bg-brand); }
-.qbox:checked::after { content: ""; width: 9px; height: 5px; border-left: 2.5px solid var(--fg-onbrand); border-bottom: 2.5px solid var(--fg-onbrand); transform: translateY(-1px) rotate(-45deg); }
+.qbox:checked { background: var(--accent); border-color: var(--accent); }
+.qbox:checked::after { content: ""; width: 9px; height: 5px; border-left: 2.5px solid var(--fg-onaccent); border-bottom: 2.5px solid var(--fg-onaccent); transform: translateY(-1px) rotate(-45deg); }
 .qbox:disabled { opacity: .35; cursor: default; }
 .refb { display: grid; place-items: center; padding: 4px; min-width: 24px; min-height: 24px; border-radius: 4px; color: var(--fg-2); }
 .refb .ic { width: 16px; height: 16px; }
@@ -991,7 +993,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   function listNote(filt) {
     const ref = refDev(), parts = [];
-    if (ref && !filt.some((d) => d.id === ref.id)) parts.push("plus the pinned reference");
+    if (ref && filt.length && !filt.some((d) => d.id === ref.id)) parts.push("plus the pinned reference");
     const hu = hiddenUnknown();
     if (hu) parts.push(hu);
     return parts.join(" · ");
@@ -1024,12 +1026,26 @@ button.tag:hover { filter: brightness(.95); }
     h += "</div>";
     $("#lbar").innerHTML = h;
   }
+  /* The sticky columns cover the left of the scrollport. Scroll padding keeps a focused header or cell clear of them. */
+  function stickyRight() { const th = $("#thead th.stk.c1"), w = $("#tblw"); return th && w ? th.getBoundingClientRect().right - w.getBoundingClientRect().left : 0; }
+  function syncStickyPad() { const w = $("#tblw"); if (w) w.style.scrollPaddingLeft = Math.round(stickyRight() + 8) + "px"; }
+  /* Focus moved into a scrolled cell: keep it clear of the sticky columns (the browser's own scroll stops at the scrollport edge). */
+  function revealInTable(el) {
+    const w = el.closest("#tblw");
+    if (!w || el.closest(".stk")) return;
+    requestAnimationFrame(() => {
+      const wr = w.getBoundingClientRect(), r = el.getBoundingClientRect(), left = wr.left + stickyRight() + 8;
+      if (r.left < left) w.scrollLeft -= left - r.left;
+      else if (r.right > wr.right - 8) w.scrollLeft += r.right - (wr.right - 8);
+    });
+  }
   function renderHead() {
     const cols = visCols();
     $("#thead").innerHTML = '<tr><th class="stk c0"><span class="sr">Compare</span></th><th class="stk c1">Device</th>' + cols.map((c) => {
       const on = state.sortK === c.k;
       return '<th class="' + (on ? "on" : "") + '" aria-sort="' + (on ? (state.sortDir === 1 ? "ascending" : "descending") : "none") + '"><button type="button" class="thb" id="th-' + c.k + '" data-act="sort" data-v="' + c.k + '">' + esc(c.label) + (on ? (state.sortDir < 0 ? " ↓" : " ↑") : "") + "</button></th>";
     }).join("") + "</tr>";
+    syncStickyPad();
   }
   function cellHtml(c, d, ref, isRef) {
     const val = c.v(d);
@@ -1052,6 +1068,7 @@ button.tag:hover { filter: brightness(.95); }
     const cols = visCols(), ref = refDev();
     tbody.innerHTML = DEV.map((d) => rowHtml(d, cols, ref)).join("");
     $$("tr", tbody).forEach((tr) => { rowEl[tr.dataset.id] = tr; });
+    syncStickyPad();
   }
   function cardHtml(d, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
@@ -1135,7 +1152,10 @@ button.tag:hover { filter: brightness(.95); }
       el.innerHTML = h + '<div class="panel cmp-empty">Nothing to compare yet. Use the search in the header, or tick devices in the <button type="button" class="btn-t" data-act="go" data-route="browse">list</button>.</div>';
       return;
     }
+    const prevWrap = $(".cmpw.scroll", el), prevSL = prevWrap ? prevWrap.scrollLeft : 0;
     el.innerHTML = h + sizePanelHtml(cols, cref, hasRef) + gridHtml(cols, cref, hasRef, ref);
+    const wrap = $(".cmpw.scroll", el);
+    if (wrap && prevSL) wrap.scrollLeft = prevSL;
     layoutStage();
   }
   const presetOn = (k) => state.rx === PRESET[k][0] && state.ry === PRESET[k][1];
@@ -1219,8 +1239,8 @@ button.tag:hover { filter: brightness(.95); }
   function syncGridHead() {
     const hd = $("#scr-compare .cmpw.scroll .cgrid.hd");
     if (!hd) return;
-    const wr = hd.closest(".cmpw").getBoundingClientRect(), top = $("#hdr").getBoundingClientRect().bottom;
-    const y = clamp(top - wr.top, 0, Math.max(0, wr.height - hd.offsetHeight));
+    const wrap = hd.closest(".cmpw"), wr = wrap.getBoundingClientRect(), bt = wrap.clientTop, top = $("#hdr").getBoundingClientRect().bottom;
+    const y = clamp(top - wr.top - bt, 0, Math.max(0, wr.height - 2 * bt - hd.offsetHeight));
     hd.style.transform = y > 0 ? "translateY(" + Math.round(y) + "px)" : "";
   }
   function onScroll() {
@@ -1268,7 +1288,7 @@ button.tag:hover { filter: brightness(.95); }
         h += "</div>";
       });
     });
-    if (state.hideSame && hidden > 0) h += '<div class="hid-note">' + hidden + ' identical rows hidden. <button type="button" class="btn-t" data-act="hide-same">Show all rows</button></div>';
+    if (state.hideSame && hidden > 0) h += '<div class="hid-note">' + plural(hidden, "identical row") + ' hidden. <button type="button" class="btn-t" data-act="hide-same">Show all rows</button></div>';
     return h + "</div></section>";
   }
 
@@ -1466,13 +1486,13 @@ button.tag:hover { filter: brightness(.95); }
   let popBtn = null;
   function placePop() {
     if (!popBtn) return;
-    const r = popBtn.getBoundingClientRect();
-    if (r.bottom < 0 || r.top > window.innerHeight) { closePop(); return; }
+    const r = popBtn.getBoundingClientRect(), hb = $("#hdr").getBoundingClientRect().bottom;
+    if (r.bottom < hb || r.top > window.innerHeight) { closePop(); return; }
     pop.style.left = "0px"; pop.style.top = "0px";
     const pw = pop.offsetWidth, ph = pop.offsetHeight, vw = root.clientWidth, vh = window.innerHeight;
     const x = clamp(r.left, 12, Math.max(12, vw - pw - 12));
     let y = r.bottom + 6;
-    if (y + ph > vh - 8) y = Math.max(8, r.top - ph - 6);
+    if (y + ph > vh - 8) y = Math.max(hb + 8, r.top - ph - 6);
     pop.style.left = Math.round(x) + "px"; pop.style.top = Math.round(y) + "px";
   }
   /* The popover takes focus so its links come next in the Tab order. It follows the page scroll and closes when its value leaves the viewport. */
@@ -1487,9 +1507,12 @@ button.tag:hover { filter: brightness(.95); }
     placePop();
     pop.focus({ preventScroll: true });
   }
+  /* When the popover closes while it holds focus (scroll, resize, route change), focus goes back to its value. */
   function closePop() {
-    if (popBtn) popBtn.setAttribute("aria-expanded", "false");
+    const b = popBtn, had = pop.contains(document.activeElement);
+    if (b) b.setAttribute("aria-expanded", "false");
     popBtn = null; pop.hidden = true;
+    if (had && b && b.isConnected) b.focus({ preventScroll: true });
   }
   function togglePop(btn) { if (popBtn === btn && !pop.hidden) closePop(); else openPop(btn); }
   function closeFloating() { closePop(); toggleQpop(false); hideDD(); }
@@ -1516,6 +1539,7 @@ button.tag:hover { filter: brightness(.95); }
     $("#nav-compare").setAttribute("aria-pressed", String(route === "compare"));
     if (route === "compare") renderCompare();
     else if (route === "detail") renderDetail();
+    else syncStickyPad();
     const tok = route === "detail" ? state.detailId : route;
     try { if ((location.hash || "").slice(1) !== tok) history.replaceState(null, "", "#" + tok); } catch (e) { /* the viewer may refuse */ }
     if (!same) window.scrollTo(0, route === "browse" ? browseY : 0);
@@ -1524,7 +1548,11 @@ button.tag:hover { filter: brightness(.95); }
     else if (userNav && !same) {
       let tgt = route === "compare" ? $("#cmp-h1") : null;
       if (route === "browse") { const back = lastOpener && document.getElementById(lastOpener); tgt = back && back.offsetParent !== null ? back : $("#lbar"); }
-      if (tgt) tgt.focus({ preventScroll: true });
+      if (tgt) {
+        tgt.focus({ preventScroll: true });
+        const tr = tgt.getBoundingClientRect(), hb = $("#hdr").getBoundingClientRect().bottom;
+        if (tr.top < hb || tr.bottom > window.innerHeight) tgt.scrollIntoView({ block: "center" });
+      }
     }
     userNav = false;
     save();
@@ -1543,16 +1571,19 @@ button.tag:hover { filter: brightness(.95); }
     const el = fid && document.getElementById(fid);
     if (!el || el.disabled || el.offsetParent === null) return false;
     el.focus({ preventScroll: true });
+    const sc = el.closest(".cmpw.scroll");
+    if (sc) { const er = el.getBoundingClientRect(), cr = sc.getBoundingClientRect(); if (er.right > cr.right) sc.scrollLeft += er.right - cr.right + 12; else if (er.left < cr.left) sc.scrollLeft -= cr.left - er.left + 12; }
     return document.activeElement === el;
   }
   /* Re-rendered controls come back with the same id. Removed controls hand focus to a neighbour. */
-  function restoreFocus(fid, act, id, prevVisible) {
+  function restoreFocus(fid, act, id, prevVisible, prevQueue) {
     if (focusId(fid)) return;
     switch (act) {
       case "show-all": { const d = visibleList[prevVisible]; if (d && (focusId("open-" + d.id) || focusId("copen-" + d.id))) return; break; }
       case "rm": {
-        if (fid && fid.startsWith("qrm-")) { const nx = $("#qpop [id^=qrm-]"); if (nx) { nx.focus(); return; } if (focusId("qpop-clear")) return; }
-        else { const c = $("#scr-compare .ccol .xbtn"); if (c) { c.focus(); return; } if (focusId("sq")) return; }
+        const i = prevQueue.indexOf(id), nx = state.queue[i] || state.queue[i - 1];
+        if (fid && fid.startsWith("qrm-")) { if (nx && focusId("qrm-" + nx)) return; if (focusId("qpop-clear")) return; }
+        else { if (nx && focusId("crm-" + nx)) return; if (focusId("sq")) return; }
         break;
       }
       case "add": if (focusId("cref2-" + id)) return; break;
@@ -1573,7 +1604,7 @@ button.tag:hover { filter: brightness(.95); }
       return;
     }
     if (t.disabled) return;
-    const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length;
+    const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length, prevQueue = state.queue.slice();
     if (act !== "sv" && !pop.hidden) closePop();
     if (act !== "badge" && act !== "rm" && act !== "clear-queue" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
     if (act === "go" || act === "open") userNav = true;
@@ -1608,7 +1639,9 @@ button.tag:hover { filter: brightness(.95); }
       case "sv": togglePop(t); break;
       default: break;
     }
-    if (act !== "go" && act !== "open" && act !== "sv" && document.activeElement === document.body) restoreFocus(fid, act, id, prevVisible);
+    /* Focus counts as lost when it sits on body or on a control that is now hidden (Chromium drops it only after this handler). */
+    const a = document.activeElement, lost = !a || a === document.body || a.offsetParent === null || !!a.closest("[hidden]");
+    if (act !== "go" && act !== "open" && act !== "sv" && lost) restoreFocus(fid, act, id, prevVisible, prevQueue);
   });
   function toggleQBtn(id) { if (inQ(id)) removeQ(id); else addQ(id); }
   document.addEventListener("keydown", (e) => {
@@ -1637,7 +1670,10 @@ button.tag:hover { filter: brightness(.95); }
     if (t.classList.contains("frange")) { state.f[t.dataset.f] = +t.value; syncRanges(); scheduleApply(); }
   });
   /* One floating layer at a time, for the keyboard too. */
-  document.addEventListener("focusin", (e) => { if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); renderDD(e.target.id); } });
+  document.addEventListener("focusin", (e) => {
+    if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); renderDD(e.target.id); }
+    if (e.target instanceof Element) revealInTable(e.target);
+  });
   document.addEventListener("focusout", (e) => {
     const t = e.target;
     if (!(t instanceof Element)) return;
@@ -1681,7 +1717,7 @@ button.tag:hover { filter: brightness(.95); }
   window.addEventListener("resize", () => {
     clearTimeout(rsz);
     rsz = setTimeout(() => {
-      measureHdr();
+      measureHdr(); syncStickyPad();
       const nw = isNarrow();
       if (nw !== wasNarrow) { wasNarrow = nw; syncLayout(); if (state.route === "compare") renderCompare(); }
       else if (state.route === "compare") { if (gridScrollWanted() !== lastScroll) renderCompare(); else layoutStage(); }
@@ -1717,7 +1753,7 @@ button.tag:hover { filter: brightness(.95); }
     if (state.route === "detail") renderDetail();
   }
   window.addEventListener("storage", (e) => { if (e.key === null || e.key === KEY) syncFromStorage(); });
-  function settle() { measureHdr(); if (state.route === "compare") layoutStage(); }
+  function settle() { measureHdr(); syncStickyPad(); if (state.route === "compare") layoutStage(); }
   window.addEventListener("load", settle);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
 })();
