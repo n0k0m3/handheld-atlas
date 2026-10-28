@@ -1,6 +1,6 @@
 <title>Handheld Atlas</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="x86 handheld gaming PCs. Browse the specs, compare up to four at true scale, and open any device to see every source.">
+<meta name="description" content="x86 handheld gaming PCs. Browse the specs, compare up to eight at true scale, and open any device to see every source.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap">
 <style>
 /* Handheld Atlas v3. An app shell with three screens: Browse, Compare, Detail.
@@ -11,7 +11,9 @@
   --fg: #111827; --fg-2: #5f6a7d; --fg-3: #8e98a8; --fg-brand: #0768cf; --fg-onbrand: #ffffff; --fg-onaccent: #ffffff;
   --border: #e5e8ee; --border-strong: #d5dae3;
   --good: #00733c; --good-bg: #e3f6e9; --bad: #c4320a; --bad-bg: #fdece8;
-  --dev-1: #0d99ff; --dev-2: #9747ff; --dev-3: #e8890c; --dev-4: #111827;
+  /* Eight compare hues, checked with the dataviz validator against the stage (#f7f7f8 light, #191d24 dark): lightness band, chroma floor,
+     adjacent colour-blind and normal-vision separation pass in both modes. Green and red stay reserved for better and worse. */
+  --dev-1: #2a78d6; --dev-2: #eb6834; --dev-3: #1baf7a; --dev-4: #eda100; --dev-5: #e87ba4; --dev-6: #808824; --dev-7: #6250d6; --dev-8: #bc5f6d;
   --slice: #d5dae3; --slice-back: #738095;
   --shadow: 0 1px 3px rgba(17, 24, 39, .06), 0 8px 24px rgba(17, 24, 39, .10);
   --f-ui: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -25,7 +27,7 @@
     --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
     --border: #303641; --border-strong: #424b59;
     --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
-    --dev-1: #499fff; --dev-2: #b384ff; --dev-3: #ffb547; --dev-4: #edf0f5;
+    --dev-1: #3987e5; --dev-2: #d95926; --dev-3: #199e70; --dev-4: #c98500; --dev-5: #d55181; --dev-6: #808811; --dev-7: #9085e9; --dev-8: #c05b6b;
     --slice: #424b59; --slice-back: #111318;
     --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5);
     color-scheme: dark;
@@ -37,7 +39,7 @@
   --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
   --border: #303641; --border-strong: #424b59;
   --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
-  --dev-1: #499fff; --dev-2: #b384ff; --dev-3: #ffb547; --dev-4: #edf0f5;
+  --dev-1: #3987e5; --dev-2: #d95926; --dev-3: #199e70; --dev-4: #c98500; --dev-5: #d55181; --dev-6: #808811; --dev-7: #9085e9; --dev-8: #c05b6b;
   --slice: #424b59; --slice-back: #111318;
   --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5);
   color-scheme: dark;
@@ -77,6 +79,7 @@ svg { display: block; }
 .lbl { font-size: 11px; font-weight: 600; color: var(--fg-2); }
 .ic { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 .s1 { --c: var(--dev-1); } .s2 { --c: var(--dev-2); } .s3 { --c: var(--dev-3); } .s4 { --c: var(--dev-4); }
+.s5 { --c: var(--dev-5); } .s6 { --c: var(--dev-6); } .s7 { --c: var(--dev-7); } .s8 { --c: var(--dev-8); }
 .panel { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; min-width: 0; }
 
 /* ---------- header ---------- */
@@ -347,6 +350,9 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .grp-c { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .grp-c .lbl { margin-right: 4px; }
 .size-b { display: grid; grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr); gap: 16px; padding: 4px 12px 12px; align-items: stretch; }
+.size-b.many { grid-template-columns: minmax(0, 1fr); }
+.size-b.many .stage { height: 380px; }
+.size-b.many .legend { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
 .stage { background: var(--bg-page); border-radius: 6px; height: 320px; display: flex; align-items: center; justify-content: center; min-width: 0; position: relative; }
 .stage.dots { background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 20px; }
 .stage2d svg { width: 100%; height: 100%; overflow: visible; }
@@ -368,7 +374,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .sbar i::after { right: 0; }
 .stage3d { perspective: 1800px; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; overflow: hidden; }
 .stage3d:active { cursor: grabbing; }
-.rot { display: flex; align-items: flex-end; transform-style: preserve-3d; transition: transform .25s ease-out; }
+.rot { display: flex; align-items: flex-end; justify-content: center; transform-style: preserve-3d; transition: transform .25s ease-out; }
 .rot.drag { transition: none; }
 .dev3 { position: relative; transform-style: preserve-3d; }
 .dev3 svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
@@ -552,13 +558,13 @@ button.tag:hover { filter: brightness(.95); }
   <section class="hhero">
     <p class="eyebrow" id="home-eyebrow">x86 handhelds · 2022 onward</p>
     <h1 class="hero" id="home-h1" tabindex="-1">Find your next handheld</h1>
-    <p class="lede">Every x86 handheld gaming PC since 2022. Every value has a source. True-scale outlines, PassMark scores per chip, and a side-by-side diff for up to four devices.</p>
+    <p class="lede">Every x86 handheld gaming PC since 2022. Every value has a source. True-scale outlines, PassMark scores per chip, and a side-by-side diff for up to eight devices.</p>
     <div class="hcta"><button type="button" class="btn-p" data-act="go" data-route="browse">Browse the devices <span>→</span></button><button type="button" class="btn-o" data-act="go" data-route="compare">Open the comparison</button></div>
     <div class="hstats"><div class="hstat"><b id="home-n">–</b><span>devices</span></div><div class="hstat"><b id="home-socs">–</b><span>chips</span></div><div class="hstat"><b id="home-traced">–</b><span>traced outlines</span></div><div class="hstat"><b id="home-date">–</b><span>data date</span></div></div>
   </section>
   <section class="hgrid">
     <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip, and sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Go to Browse →</button></article>
-    <article class="panel hcard"><h2>Compare</h2><p>Up to four devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Go to Compare →</button></article>
+    <article class="panel hcard"><h2>Compare</h2><p>Up to eight devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Go to Compare →</button></article>
     <article class="panel hcard"><h2>Sourced</h2><p>Every figure links to where it came from. Each device sheet lists its sources, conflicts and gaps.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device →</button></article>
   </section>
 </main>
@@ -636,9 +642,9 @@ button.tag:hover { filter: brightness(.95); }
   const DEV = DATA.devices || [], SOCS = DATA.socs || [], OUT = DATA.outlines || {};
   const SOC = Object.create(null); SOCS.forEach((s) => { SOC[s.id] = s; });
   const BY_ID = Object.create(null); DEV.forEach((d) => { BY_ID[d.id] = d; });
-  const MAX_Q = 4;
-  const COLORS = ["var(--dev-1)", "var(--dev-2)", "var(--dev-3)", "var(--dev-4)"];
-  const DASH = ["none", "none", "6 4", "2 3"];
+  const MAX_Q = 8;
+  /* Eight hues cannot all stay apart where outlines overlap, so every slot also has its own dash pattern. */
+  const DASH = ["none", "7 4", "2 3", "9 3 2 3", "14 4", "2 3 2 3 7 3", "4 2", "1 4"];
   const DEFAULT_Q = ["steam-deck-oled", "rog-xbox-ally-x", "legion-go-2", "msi-claw-8-ai-plus"].filter((id) => BY_ID[id]);
   const REDUCED = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -1504,7 +1510,7 @@ button.tag:hover { filter: brightness(.95); }
   let cmpHelpOpen = false;
   function cmpHelpHtml() {
     return '<details class="panel help" id="help-cmp"' + (cmpHelpOpen ? " open" : "") + '><summary>How to compare</summary><ol class="steps">' +
-      '<li><span class="step-n">1</span><div><b>Queue up to four devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">Add to compare <span>+</span></span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
+      '<li><span class="step-n">1</span><div><b>Queue up to eight devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">Add to compare <span>+</span></span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
       '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at 1 unit = 1 mm, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Clamshells are drawn open.</div></li>' +
       '<li><span class="step-n">3</span><div><b>Pick a reference, or none.</b> Press <span class="demo"><span class="tag">Set as ref</span></span> on a column to compare the others against it. Press <span class="demo"><span class="tag ref">Reference</span></span> again to turn the deltas off.</div></li>' +
       '<li><span class="step-n">4</span><div><b>Read the grid.</b> "Differences only" hides identical rows, and <span class="demo"><span class="best">Best</span></span> marks the best value in a row. Remove a device with the × on its column or in the size legend.</div></li>' +
@@ -1521,7 +1527,9 @@ button.tag:hover { filter: brightness(.95); }
     if (!is3) h += '<div class="grp-c"><span class="lbl">Layout</span>' + chip("size-mode", "overlay", "Overlay", s.sizeMode === "overlay", "mode-overlay") + chip("size-mode", "side", "Side by side", s.sizeMode === "side", "mode-side") + "</div>";
     else h += '<span class="mute sm">Drag to rotate</span>';
     h += "</div>";
-    h += '<div class="size-b">' + (is3 ? '<div class="stage stage3d" id="stage3d" role="img" aria-label="3D view. Drag to rotate."><div class="rot" id="rot"></div></div>' : svg2d(cols)) + legendHtml(cols, cref, hasRef) + "</div>";
+    const many = cols.length > 4;
+    if (many && !is3 && s.sizeMode === "overlay") h += '<p class="dnote">With ' + cols.length + ' devices the overlay gets crowded. <button type="button" class="btn-t" data-act="size-mode" data-v="side">Show side by side</button></p>';
+    h += '<div class="size-b' + (many ? " many" : "") + '">' + (is3 ? '<div class="stage stage3d" id="stage3d" role="img" aria-label="3D view. Drag to rotate."><div class="rot" id="rot"></div></div>' : svg2d(cols)) + legendHtml(cols, cref, hasRef) + "</div>";
     if (cols.some(isClam)) h += '<p class="dnote">Clamshells are drawn open: deck below, lid above, in the front and back views and in 3D, where each half takes half the closed thickness. Their sizes are the closed footprint.</p>';
     return h + "</section>";
   }
@@ -1529,19 +1537,26 @@ button.tag:hover { filter: brightness(.95); }
     const shapes = cols.map((d) => shapeFor(d, state.sizeView));
     const fw = (sh) => (sh.grip ? Math.max(sh.w, sh.grip.w) : sh.w), fh = (sh) => (sh.grip ? Math.max(sh.h, sh.grip.h) : sh.h);
     const MW = Math.max(1, ...shapes.map(fw)), MH = Math.max(1, ...shapes.map(fh));
-    const gap = MW * 0.08;
-    let xo = 0;
+    const gap = MW * 0.08, side = state.sizeMode !== "overlay";
+    /* Side by side: one row up to four devices, two rows above that. Each row sits on its own baseline. */
+    const per = side && shapes.length > 4 ? Math.ceil(shapes.length / 2) : shapes.length;
+    const rows = [];
+    shapes.forEach((sh, i) => { const r = Math.floor(i / per); (rows[r] = rows[r] || []).push(i); });
+    const rowH = rows.map((ix) => Math.max(...ix.map((i) => fh(shapes[i])))), rowW = rows.map((ix) => ix.reduce((a, i) => a + fw(shapes[i]), 0) + (ix.length - 1) * gap);
+    const pos = [];
+    let yo = 0;
+    rows.forEach((ix, r) => { let xo = 0; ix.forEach((i) => { pos[i] = [xo, yo + rowH[r] - fh(shapes[i])]; xo += fw(shapes[i]) + gap; }); yo += rowH[r] + gap; });
     const parts = shapes.map((sh, i) => {
       const W = fw(sh), H = fh(sh);
       let tx, ty;
-      if (state.sizeMode === "overlay") { tx = (MW - W) / 2; ty = (MH - H) / 2; } else { tx = xo; ty = MH - H; xo += W + gap; }
+      if (!side) { tx = (MW - W) / 2; ty = (MH - H) / 2; } else { tx = pos[i][0]; ty = pos[i][1]; }
       let g = '<g class="s' + (i + 1) + '" transform="translate(' + r2(tx) + " " + r2(ty) + ')">';
       if (sh.grip) g += '<rect class="grip" x="0" y="0" width="' + r2(sh.grip.w) + '" height="' + r2(sh.grip.h) + '" rx="2"/>';
       g += partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + scrRect(sh.screen, "scr");
       return g + "<title>" + esc(cols[i]._name) + "</title></g>";
     });
-    const totW = state.sizeMode === "overlay" ? MW : Math.max(1, xo - gap);
-    const vb = [-4, -4, r2(totW + 8), r2(MH + 8)];
+    const totW = side ? Math.max(1, ...rowW) : MW, totH = side ? Math.max(1, yo - gap) : MH;
+    const vb = [-4, -4, r2(totW + 8), r2(totH + 8)];
     return '<div class="stage dots stage2d" id="stage2d"><svg viewBox="' + vb.join(" ") + '" data-w="' + vb[2] + '" data-h="' + vb[3] + '" role="img" aria-label="Size overlay, ' + VIEW_NAME[state.sizeView] + ' view">' + parts.join("") + '</svg><div class="sbar" id="sbar" aria-hidden="true"><i></i><span></span></div></div>';
   }
   function legendHtml(cols, cref, hasRef) {
@@ -1574,9 +1589,14 @@ button.tag:hover { filter: brightness(.95); }
     const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length;
     const stageW = st.clientWidth || 600, stageH = st.clientHeight || 320;
     const shapes = cols.map((d) => openParts(d, outline(d, "top"), "front"));
-    const sumW = shapes.reduce((a, s) => a + s.w, 0) + Math.max(0, n - 1) * 40;
-    const sc = Math.min(stageW * 0.78 / Math.max(1, sumW), (stageH - 100) / Math.max(1, ...shapes.map((s) => s.h)));
+    const per = n > 4 ? Math.ceil(n / 2) : n, nrows = Math.ceil(n / Math.max(1, per));
+    const rowsW = [], rowsH = [];
+    shapes.forEach((s, i) => { const r = Math.floor(i / per); rowsW[r] = (rowsW[r] || -40) + s.w + 40; rowsH[r] = Math.max(rowsH[r] || 0, s.h); });
+    const sumW = Math.max(1, ...rowsW), sumH = rowsH.reduce((a, x) => a + x, 0) + (nrows - 1) * 40;
+    const sc = Math.min(stageW * 0.78 / sumW, (stageH - 100) / Math.max(1, sumH));
     rot.style.gap = (40 * sc).toFixed(0) + "px";
+    rot.style.flexWrap = nrows > 1 ? "wrap" : "";
+    rot.style.width = nrows > 1 ? Math.ceil(sumW * sc + 2) + "px" : "";
     rot.style.transform = "rotateX(" + state.rx + "deg) rotateY(" + state.ry + "deg)";
     rot.innerHTML = cols.map((d, i) => {
       /* An open clamshell lies flat: lid above deck, each about half the closed thickness. */
