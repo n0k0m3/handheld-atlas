@@ -348,9 +348,9 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage.dots { background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 20px; }
 .stage2d svg { width: 100%; height: 100%; overflow: visible; }
 .stage2d .shp { fill: var(--c); fill-opacity: .08; stroke: var(--c); stroke-width: 1.75; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
-.stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1; stroke-opacity: .5; vector-effect: non-scaling-stroke; }
+.stage2d .scr { fill: var(--c); fill-opacity: .22; stroke: var(--c); stroke-width: 1; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
 .stage2d .grip { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 4 3; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
-.stage2d .shp.lid { fill-opacity: .03; }
+.stage2d .shp.lid { fill-opacity: .06; }
 .stage2d .shp.mod { fill-opacity: .22; }
 .sil .o.mod, .dstage .o.mod { fill: var(--slice); }
 .stage2d .hinge, .sil .hinge, .dstage .hinge { stroke: var(--fg-2); stroke-width: 1; stroke-dasharray: 3 2; stroke-opacity: .8; vector-effect: non-scaling-stroke; }
@@ -373,6 +373,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .dev3 .sl.f { fill: var(--bg); stroke: var(--c); }
 .dev3 .sl.k { fill: var(--slice-back); }
 .dev3 .scr { fill: var(--slice-back); }
+.dev3 .sl.f.mod { fill: var(--slice); }
 .legend { display: grid; gap: 6px; align-content: start; }
 .lg { display: grid; gap: 6px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; }
 .lg-t { display: flex; align-items: center; gap: 8px; }
@@ -782,9 +783,10 @@ button.tag:hover { filter: brightness(.95); }
     const screen = view !== "front" ? null : mod > 0 ? lidScreen(d, o.w, body) : (o.screen || lidScreen(d, o.w, o.h));
     return { w: o.w, h: body + o.h, parts, screen, hinge: body, deckY: body, mod };
   }
-  const partsSvg = (sh, cls, extra) => sh.parts.map((pt) => '<path class="' + cls + (pt.lid ? " lid" : "") + (pt.mod ? " mod" : "") + '"' + (pt.ty ? ' transform="translate(0 ' + r2(pt.ty) + ')"' : "") + ' d="' + esc(pt.path) + '"' + (extra || "") + "/>").join("") +
-    (sh.hinge != null ? '<line class="hinge" x1="0" y1="' + r2(sh.hinge) + '" x2="' + r2(sh.w) + '" y2="' + r2(sh.hinge) + '"/>' +
+  const partsPaths = (sh, cls, extra) => sh.parts.map((pt) => '<path class="' + cls + (pt.lid ? " lid" : "") + (pt.mod ? " mod" : "") + '"' + (pt.ty ? ' transform="translate(0 ' + r2(pt.ty) + ')"' : "") + ' d="' + esc(pt.path) + '"' + (extra || "") + "/>").join("");
+  const hingeSvg = (sh) => (sh.hinge != null ? '<line class="hinge" x1="0" y1="' + r2(sh.hinge) + '" x2="' + r2(sh.w) + '" y2="' + r2(sh.hinge) + '"/>' +
       [0.16, 0.84].map((f) => { const kw = Math.max(8, sh.w * 0.1); return '<rect class="knuckle" x="' + r2(sh.w * f - kw / 2) + '" y="' + r2(sh.hinge - 2.5) + '" width="' + r2(kw) + '" height="5" rx="2"/>'; }).join("") : "");
+  const partsSvg = (sh, cls, extra) => partsPaths(sh, cls, extra) + hingeSvg(sh);
   const VIEW_NAME = { front: "Front", back: "Back", top: "Top", side: "Side" };
   /* A shape for the size panel. Front and back use the outlines. Top and side are boxes from the stated size. */
   function shapeFor(d, view) {
@@ -1526,7 +1528,7 @@ button.tag:hover { filter: brightness(.95); }
     else h += '<span class="mute sm">Drag to rotate</span>';
     h += "</div>";
     h += '<div class="size-b">' + (is3 ? '<div class="stage stage3d" id="stage3d" role="img" aria-label="3D view. Drag to rotate."><div class="rot" id="rot"></div></div>' : svg2d(cols)) + legendHtml(cols, cref, hasRef) + "</div>";
-    if (cols.some(isClam)) h += '<p class="dnote">Clamshells are drawn open in the 2D front and back views (deck below, lid above) and closed in 3D. Their sizes are the closed footprint.</p>';
+    if (cols.some(isClam)) h += '<p class="dnote">Clamshells are drawn open: deck below, lid above, in the front and back views and in 3D, where each half takes half the closed thickness. Their sizes are the closed footprint.</p>';
     return h + "</section>";
   }
   function svg2d(cols) {
@@ -1576,17 +1578,18 @@ button.tag:hover { filter: brightness(.95); }
     if (!st || !rot) return;
     const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length;
     const stageW = st.clientWidth || 600, stageH = st.clientHeight || 320;
-    const shapes = cols.map((d) => outline(d, "top"));
+    const shapes = cols.map((d) => openParts(d, outline(d, "top"), "front"));
     const sumW = shapes.reduce((a, s) => a + s.w, 0) + Math.max(0, n - 1) * 40;
     const sc = Math.min(stageW * 0.78 / Math.max(1, sumW), (stageH - 100) / Math.max(1, ...shapes.map((s) => s.h)));
     rot.style.gap = (40 * sc).toFixed(0) + "px";
     rot.style.transform = "rotateX(" + state.rx + "deg) rotateY(" + state.ry + "deg)";
     rot.innerHTML = cols.map((d, i) => {
-      const sh = shapes[i], T = (dimsH(d).d || 20) * sc, k = Math.min(24, Math.max(6, Math.ceil(T / 1.5)));
+      /* An open clamshell lies flat: lid above deck, each about half the closed thickness. */
+      const sh = shapes[i], T = (dimsH(d).d || 20) * sc * (isClam(d) ? 0.5 : 1), k = Math.min(24, Math.max(6, Math.ceil(T / 1.5)));
       let s = '<div class="dev3 s' + (i + 1) + '" style="width:' + (sh.w * sc).toFixed(1) + "px;height:" + (sh.h * sc).toFixed(1) + 'px">';
       for (let j = 0; j < k; j++) {
         const z = (T / 2 - j * T / (k - 1)).toFixed(1), cls = j === 0 ? "sl f" : j === k - 1 ? "sl k" : "sl";
-        s += '<svg viewBox="0 0 ' + sh.w + " " + sh.h + '" style="transform:translateZ(' + z + 'px)" aria-hidden="true"><path class="' + cls + '" d="' + esc(sh.path) + '"/>' + (j === 0 && !isClam(d) ? scrRect(sh.screen, "scr") : "") + "</svg>";
+        s += '<svg viewBox="0 0 ' + r2(sh.w) + " " + r2(sh.h) + '" style="transform:translateZ(' + z + 'px)" aria-hidden="true">' + partsPaths(sh, cls) + (j === 0 ? scrRect(sh.screen, "scr") + hingeSvg(sh) : "") + "</svg>";
       }
       return s + "</div>";
     }).join("");
