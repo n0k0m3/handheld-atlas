@@ -166,7 +166,8 @@ svg { display: block; }
 .hgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 .hcard { padding: 16px; display: grid; gap: 8px; align-content: start; }
 .hcard h2 { font-size: 16px; letter-spacing: -0.01em; }
-.hcard p, .steps, .help > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-weight: 700; font-size: 13px; border-radius: 10px; }
+.hcard p, .steps { color: var(--fg-2); font-size: 13px; line-height: 1.5; }
+.help > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-weight: 700; font-size: 13px; border-radius: 10px; }
 .help > summary::-webkit-details-marker { display: none; }
 .help > summary::before { content: "?"; width: 18px; height: 18px; border-radius: 9px; display: grid; place-items: center; font: 700 11px var(--f-mono); color: var(--fg-onbrand); background: var(--bg-brand); flex: none; }
 .help > summary::after { content: ""; width: 6px; height: 6px; margin: -3px 2px 0 auto; border-right: 1.5px solid var(--fg-2); border-bottom: 1.5px solid var(--fg-2); transform: rotate(45deg); flex: none; }
