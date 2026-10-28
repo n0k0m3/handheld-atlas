@@ -152,6 +152,8 @@ svg { display: block; }
 
 /* ---------- home ---------- */
 .home { gap: 20px; }
+#home-h1:focus { outline: none; }
+#home-h1:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .hhero { display: grid; gap: 12px; padding: 24px 0 4px; max-width: 760px; }
 .hhero .lede { max-width: 600px; }
 .hcta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
@@ -162,7 +164,7 @@ svg { display: block; }
 .hcard { padding: 16px; display: grid; gap: 8px; align-content: start; }
 .hcard h2, .hguide h2 { font-size: 16px; letter-spacing: -0.01em; }
 .hcard p, .steps, .hnotes { color: var(--fg-2); font-size: 13px; line-height: 1.5; }
-.hguide { padding: 16px 20px 18px; }
+.hguide { padding: 16px 20px 18px; scroll-margin-top: calc(var(--hdr-h) + env(safe-area-inset-top, 0px) + 12px); }
 .hguide h2 { font-size: 18px; margin-bottom: 12px; }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .steps li { display: flex; gap: 12px; align-items: flex-start; min-width: 0; }
@@ -171,7 +173,7 @@ svg { display: block; }
 .step-n { flex: none; width: 24px; height: 24px; border-radius: 12px; background: var(--bg-brand); color: var(--fg-onbrand); font: 700 12px var(--f-mono); display: grid; place-items: center; margin-top: 1px; }
 .demo { display: inline-flex; align-items: center; vertical-align: middle; margin: 0 2px; }
 .demo .refb { color: var(--fg-2); border: 1px solid var(--border-strong); background: var(--bg); }
-.demo .btn-o.sm, .demo .addb.sm { padding: 3px 8px; font-size: 12px; margin: 0; }
+.demo .btn-o.sm, .demo .addb.sm { padding: 3px 8px; font-size: 12px; margin: 0; color: var(--fg); gap: 8px; }
 .hnotes { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
 
 /* ---------- browse ---------- */
@@ -197,12 +199,12 @@ svg { display: block; }
 .topf-h span { font-weight: 500; color: var(--fg-2); }
 .topf-b { border-top: 1px solid var(--border); }
 .topf .fp-t { visibility: hidden; }
-.fbar { display: grid; gap: 8px; min-width: 0; }
+.fbar { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; min-width: 0; }
 .fq-box { height: 38px; background: var(--bg); border: 1px solid var(--border-strong); }
 .fq-box input { font-size: 14px; }
-.fchips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.fchips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; }
 .fchips:empty { display: none; }
-.fchip { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; max-width: 100%; padding: 2px 4px 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; background: var(--bg-selected); color: var(--fg-brand); }
+.fchip { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; max-width: 100%; min-width: 0; padding: 2px 4px 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; background: var(--bg-selected); color: var(--fg-brand); }
 .fchip span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fchip .ic { width: 12px; height: 12px; }
 .fchip:hover { background: var(--bad-bg); color: var(--bad); }
@@ -214,13 +216,16 @@ svg { display: block; }
 .fsec > summary::after { content: ""; width: 6px; height: 6px; margin: -3px 2px 0 auto; border-right: 1.5px solid var(--fg-2); border-bottom: 1.5px solid var(--fg-2); transform: rotate(45deg); flex: none; }
 .fsec[open] > summary::after { transform: rotate(-135deg); margin-top: 3px; }
 .fsec > summary:hover { background: var(--bg-hover); }
+.fsec > summary:focus-visible { outline-offset: -2px; }
 .fsec-n { font: 600 10.5px var(--f-mono); color: var(--fg-onbrand); background: var(--bg-brand); border-radius: 8px; padding: 0 6px; }
 .fsec-n:empty { display: none; }
 .fct { padding: 2px 12px 12px; min-width: 0; }
 .fct + .fct { border-top: 1px dashed var(--border); padding-top: 10px; }
 .st .hint { font-weight: 500; color: var(--fg-2); }
+.fct .st { flex-wrap: wrap; }
+.fct .st .m { white-space: nowrap; margin-left: auto; }
 .chk.zero > span:not(.n) { color: var(--fg-2); }
-.fct:not(.open) .fo-x:not(.on) { display: none; }
+.fct:not(.open) .fo-x:not(.on):not(.keep) { display: none; }
 .fmore { margin-top: 4px; }
 .rng { position: relative; height: 22px; }
 .rng .trk, .rng .fill { position: absolute; top: 9px; height: 4px; border-radius: 2px; }
@@ -348,6 +353,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage2d .shp.lid { fill-opacity: .03; }
 .stage2d .hinge, .sil .hinge, .dstage .hinge { stroke: var(--fg-2); stroke-width: 1; stroke-dasharray: 3 2; stroke-opacity: .8; vector-effect: non-scaling-stroke; }
 .stage2d .hinge { stroke: var(--c); }
+.knuckle { fill: var(--fg-2); stroke: none; }
+.stage2d .knuckle { fill: var(--c); fill-opacity: .55; }
 .dnote { font-size: 11.5px; color: var(--fg-2); padding: 0 12px 10px; }
 .sbar { position: absolute; left: 12px; bottom: 8px; display: flex; align-items: center; gap: 6px; font: 11px var(--f-mono); color: var(--fg-2); font-variant-numeric: tabular-nums; }
 .sbar i { display: block; height: 0; border-top: 2px solid var(--fg-2); position: relative; }
@@ -586,8 +593,8 @@ button.tag:hover { filter: brightness(.95); }
     <aside class="side panel" id="side" aria-label="Filters"></aside>
     <section class="bsec">
       <div class="fbar">
-        <div class="srch-box fq-box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"></path></svg><label class="sr" for="fq">Filter the list</label><input id="fq" type="search" placeholder="Filter the list by name, chip or GPU…" autocomplete="off" spellcheck="false"></div>
-        <div class="fchips" id="fchips" aria-label="Active filters"></div>
+        <div class="srch-box fq-box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"></path></svg><label class="sr" for="fq">Filter the list</label><input id="fq" type="search" maxlength="80" placeholder="Filter the list by name, chip or GPU…" autocomplete="off" spellcheck="false"></div>
+        <div class="fchips" id="fchips" role="group" aria-label="Active filters"></div>
       </div>
       <div class="topf panel" id="topf"></div>
       <div class="panel" id="lpanel">
@@ -767,7 +774,8 @@ button.tag:hover { filter: brightness(.95); }
     return { w: o.w, h: o.h * 2, parts: [{ path: lid, ty: 0, lid: true }, { path: o.path, ty: o.h }], screen: view === "front" ? (o.screen || lidScreen(d, o.w, o.h)) : null, hinge: o.h, deckY: o.h };
   }
   const partsSvg = (sh, cls, extra) => sh.parts.map((pt) => '<path class="' + cls + (pt.lid ? " lid" : "") + '"' + (pt.ty ? ' transform="translate(0 ' + r2(pt.ty) + ')"' : "") + ' d="' + esc(pt.path) + '"' + (extra || "") + "/>").join("") +
-    (sh.hinge != null ? '<line class="hinge" x1="0" y1="' + r2(sh.hinge) + '" x2="' + r2(sh.w) + '" y2="' + r2(sh.hinge) + '"/>' : "");
+    (sh.hinge != null ? '<line class="hinge" x1="0" y1="' + r2(sh.hinge) + '" x2="' + r2(sh.w) + '" y2="' + r2(sh.hinge) + '"/>' +
+      [0.16, 0.84].map((f) => { const kw = Math.max(8, sh.w * 0.1); return '<rect class="knuckle" x="' + r2(sh.w * f - kw / 2) + '" y="' + r2(sh.hinge - 2.5) + '" width="' + r2(kw) + '" height="5" rx="2"/>'; }).join("") : "");
   const VIEW_NAME = { front: "Front", back: "Back", top: "Top", side: "Side" };
   /* A shape for the size panel. Front and back use the outlines. Top and side are boxes from the stated size. */
   function shapeFor(d, view) {
@@ -940,7 +948,7 @@ button.tag:hover { filter: brightness(.95); }
   const optLab = (fc, o) => (o === "unknown" ? "Not stated" : typeof fc.lab === "function" ? fc.lab(o) : fc.lab && hasKey(fc.lab, o) ? fc.lab[o] : o);
   DEV.forEach((d) => {
     d._fv = Object.create(null);
-    FACETS.forEach((fc) => { const x = fc.v(d); d._fv[fc.k] = fc.type === "range" ? (typeof x === "number" && isFinite(x) ? x : null) : (Array.isArray(x) ? x.map(String) : []); });
+    FACETS.forEach((fc) => { const x = fc.v(d); d._fv[fc.k] = fc.type === "range" ? (typeof x === "number" && isFinite(x) ? x : null) : (Array.isArray(x) ? Array.from(new Set(x.map(String))) : []); });
     const s = socOf(d) || {};
     d._qs = [d._search, d.brand, d.variant, (s.igpu || {}).name, s.codename].filter(Boolean).join(" ").toLowerCase();
   });
@@ -1207,7 +1215,18 @@ button.tag:hover { filter: brightness(.95); }
     });
     placeFilterPanel();
   }
-  function placeFilterPanel() { const fp = $("#fpanel"), host = isNarrow() ? $("#topf-b") : $("#side"); if (fp && host && fp.parentElement !== host) host.appendChild(fp); }
+  /* The breakpoint hides the old host at once, so the browser drops focus before this runs. The last focused control in the panel comes back. */
+  let lastFp = null;
+  function placeFilterPanel() {
+    const fp = $("#fpanel"), host = isNarrow() ? $("#topf-b") : $("#side");
+    if (!fp || !host || fp.parentElement === host) return;
+    let a = document.activeElement;
+    if ((!a || a === document.body) && lastFp && fp.contains(lastFp)) a = lastFp;
+    const had = !!a && fp.contains(a);
+    if (had && isNarrow() && !topOpen) { topOpen = true; $("#tf-toggle").setAttribute("aria-expanded", "true"); $("#topf-b").hidden = false; }
+    host.appendChild(fp);
+    if (had && a.isConnected) a.focus({ preventScroll: true });
+  }
   let topOpen = false;
   function syncFilters() {
     const f = state.f;
@@ -1230,12 +1249,17 @@ button.tag:hover { filter: brightness(.95); }
     /* Both thumbs at the top end: lift the minimum thumb so it stays reachable. */
     lo.style.zIndex = r[0] > fc.min + span / 2 ? 4 : 2;
   }
+  let rngPtr = false, rngFirst = false, rngDrag = null;
   function rangeInput(t) {
     const fc = hasKey(FK, t.dataset.f) ? FK[t.dataset.f] : null;
     if (!fc) return;
-    const lo = document.getElementById("f-" + fc.k + "-lo"), hi = document.getElementById("f-" + fc.k + "-hi");
+    const lo = document.getElementById("f-" + fc.k + "-lo"), hi = document.getElementById("f-" + fc.k + "-hi"), prev = state.f.rng[fc.k] || [fc.min, fc.max];
     let a = rnd(+lo.value), b = rnd(+hi.value);
-    if (a > b) { if (t === lo) a = b; else b = a; }
+    /* Both thumbs on one value: the top thumb takes the drag, so the range opens toward the pointer from that value. */
+    if (rngPtr && rngFirst && prev[0] === prev[1]) rngDrag = { el: t, anchor: prev[0] };
+    rngFirst = false;
+    if (rngDrag && rngDrag.el === t) { const v = rnd(+t.value); a = Math.min(rngDrag.anchor, v); b = Math.max(rngDrag.anchor, v); }
+    else if (a > b) { if (t === lo) a = b; else b = a; }
     if (a <= fc.min && b >= fc.max) delete state.f.rng[fc.k]; else state.f.rng[fc.k] = [a, b];
     syncRange(fc); scheduleApply();
   }
@@ -1290,6 +1314,14 @@ button.tag:hover { filter: brightness(.95); }
   }
   const fxChip = (k, v, text) => '<button type="button" class="fchip" id="fx-' + k + (v ? "-" + oslug(v) : "") + '" data-act="fx" data-k="' + k + '" data-v="' + esc(v) + '" aria-label="Remove filter ' + esc(text) + '"><span>' + esc(text) + "</span>" + I.x + "</button>";
   let lastChips = null;
+  function syncMore(fc) {
+    const b = document.getElementById("fmore-" + fc.k);
+    if (!b) return;
+    const box = b.closest(".fct");
+    if (box.classList.contains("open")) { b.textContent = "Show fewer"; return; }
+    const n = $$(".fo-x", box).filter((x) => !x.classList.contains("on") && !x.classList.contains("keep")).length;
+    b.hidden = !n; b.textContent = "Show " + n + " more";
+  }
   /* Counts per option, active-group badges, the active-filter chips and the narrow summary. */
   function syncFacetUI(an) {
     FACETS.forEach((fc) => {
@@ -1298,6 +1330,7 @@ button.tag:hover { filter: brightness(.95); }
       if (fc.type === "all") fc.opts.forEach((o) => { const need = sel.includes(o) ? sel : sel.concat([o]); let c = 0; pool.forEach((d) => { if (need.every((v) => d._fv[fc.k].includes(v))) c++; }); cnt[o] = c; });
       else pool.forEach((d) => d._fv[fc.k].forEach((v) => { cnt[v] = (cnt[v] || 0) + 1; }));
       fc.opts.forEach((o) => { const el = fc.nodes[o]; if (!el) return; const c = String(cnt[o] || 0); if (el.n.textContent !== c) el.n.textContent = c; el.lab.classList.toggle("zero", c === "0"); el.lab.classList.toggle("on", sel.includes(o)); });
+      if (fc.more) syncMore(fc);
     });
     FGROUPS.forEach((g) => { const n = g.items.filter(isActive).length, el = document.getElementById("fsn-" + slug(g.name)); if (el) el.textContent = n ? String(n) : ""; });
     const chips = [];
@@ -1484,7 +1517,7 @@ button.tag:hover { filter: brightness(.95); }
     else h += '<span class="mute sm">Drag to rotate</span>';
     h += "</div>";
     h += '<div class="size-b">' + (is3 ? '<div class="stage stage3d" id="stage3d" role="img" aria-label="3D view. Drag to rotate."><div class="rot" id="rot"></div></div>' : svg2d(cols)) + legendHtml(cols, cref, hasRef) + "</div>";
-    if (cols.some(isClam)) h += '<p class="dnote">Clamshells are drawn open in the front and back views: deck below, lid above. Their sizes are the closed footprint.</p>';
+    if (cols.some(isClam)) h += '<p class="dnote">Clamshells are drawn open in the 2D front and back views (deck below, lid above) and closed in 3D. Their sizes are the closed footprint.</p>';
     return h + "</section>";
   }
   function svg2d(cols) {
@@ -1544,7 +1577,7 @@ button.tag:hover { filter: brightness(.95); }
       let s = '<div class="dev3 s' + (i + 1) + '" style="width:' + (sh.w * sc).toFixed(1) + "px;height:" + (sh.h * sc).toFixed(1) + 'px">';
       for (let j = 0; j < k; j++) {
         const z = (T / 2 - j * T / (k - 1)).toFixed(1), cls = j === 0 ? "sl f" : j === k - 1 ? "sl k" : "sl";
-        s += '<svg viewBox="0 0 ' + sh.w + " " + sh.h + '" style="transform:translateZ(' + z + 'px)" aria-hidden="true"><path class="' + cls + '" d="' + esc(sh.path) + '"/>' + (j === 0 ? scrRect(sh.screen, "scr") : "") + "</svg>";
+        s += '<svg viewBox="0 0 ' + sh.w + " " + sh.h + '" style="transform:translateZ(' + z + 'px)" aria-hidden="true"><path class="' + cls + '" d="' + esc(sh.path) + '"/>' + (j === 0 && !isClam(d) ? scrRect(sh.screen, "scr") : "") + "</svg>";
       }
       return s + "</div>";
     }).join("");
@@ -1912,7 +1945,7 @@ button.tag:hover { filter: brightness(.95); }
       case "add": if (focusId("cref2-" + id)) return; break;
       case "clear-queue": if (focusId("qpop-clear") || focusId("badge")) return; break;
       case "reset-f": if (focusId("f-reset") || focusId("fq")) return; break;
-      case "fx": { const cs = $$("#fchips .fchip"), c = cs[Math.min(prevChip, cs.length - 1)]; if (c) { c.focus(); return; } if (focusId("fq")) return; break; }
+      case "fx": { const c = $$("#fchips .fchip")[prevChip]; if (c) { c.focus(); return; } if (focusId("fq")) return; break; }
       case "hide-same": if (focusId("hide-same")) return; break;
       default: break;
     }
@@ -1953,7 +1986,7 @@ button.tag:hover { filter: brightness(.95); }
       case "tf-toggle": topOpen = !topOpen; syncFilters(); applyList(); break;
       case "fx": clearFacet(t.dataset.k, v); break;
       case "fmore": { const box = t.closest(".fct"), open = !box.classList.contains("open"), fc = hasKey(FK, t.dataset.k) ? FK[t.dataset.k] : null;
-        box.classList.toggle("open", open); t.setAttribute("aria-expanded", String(open)); if (fc) t.textContent = open ? "Show fewer" : "Show " + (fc.opts.length - fc.more) + " more"; break; }
+        box.classList.toggle("open", open); t.setAttribute("aria-expanded", String(open)); $$(".keep", box).forEach((x) => x.classList.remove("keep")); if (fc) syncMore(fc); break; }
       case "show-all": state.rowLimit = 9999; applyList(); break;
       case "hide-same": state.hideSame = !state.hideSame; renderCompare(); save(); break;
       case "size-open": state.sizeOpen = !state.sizeOpen; renderCompare(); save(); break;
@@ -1987,7 +2020,7 @@ button.tag:hover { filter: brightness(.95); }
   document.addEventListener("change", (e) => {
     const t = e.target;
     if (t.classList.contains("qbox")) { if (t.checked) { if (!addQ(t.dataset.id)) t.checked = false; } else removeQ(t.dataset.id); focusId(t.id); return; }
-    if (t.classList.contains("fchk")) { toggleFilterVal(t.dataset.f, t.dataset.v); focusId(t.id); }
+    if (t.classList.contains("fchk")) { const lab = t.closest(".fo-x"); if (lab && !t.checked) lab.classList.add("keep"); toggleFilterVal(t.dataset.f, t.dataset.v); focusId(t.id); }
   });
   document.addEventListener("input", (e) => {
     const t = e.target;
@@ -1998,6 +2031,7 @@ button.tag:hover { filter: brightness(.95); }
   /* One floating layer at a time, for the keyboard too. */
   document.addEventListener("focusin", (e) => {
     if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); renderDD(e.target.id); }
+    const fp = $("#fpanel"); lastFp = fp && e.target instanceof Element && fp.contains(e.target) ? e.target : null;
     if (e.target instanceof Element) revealInTable(e.target);
   });
   document.addEventListener("focusout", (e) => {
@@ -2015,6 +2049,9 @@ button.tag:hover { filter: brightness(.95); }
     }, 0);
   });
   document.addEventListener("mousedown", (e) => { if (e.target.closest(".dd")) e.preventDefault(); });
+  document.addEventListener("pointerdown", (e) => { if (e.target.classList && e.target.classList.contains("frng")) { rngPtr = true; rngFirst = true; rngDrag = null; } }, true);
+  window.addEventListener("pointerup", () => { rngPtr = false; rngDrag = null; }, true);
+  window.addEventListener("pointercancel", () => { rngPtr = false; rngDrag = null; }, true);
   /* 3D drag writes the transform directly. State updates and saves once on release. */
   document.addEventListener("pointerdown", (e) => {
     const st = e.target.closest("#stage3d"), rot = $("#rot");
