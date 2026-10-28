@@ -101,7 +101,7 @@ svg { display: block; }
 .seg { padding: 5px 12px; border-radius: 5px; font-weight: 600; color: var(--fg-2); white-space: nowrap; }
 .segs.sm .seg { padding: 4px 10px; font-size: 12px; }
 .seg[aria-pressed="true"] { background: var(--bg); color: var(--fg); box-shadow: 0 1px 2px rgba(0, 0, 0, .12); }
-.srch { flex: 1 1 260px; max-width: 420px; position: relative; min-width: 0; }
+.srch { flex: 1 1 220px; max-width: 420px; position: relative; min-width: 0; }
 .srch-box { display: flex; align-items: center; gap: 8px; background: var(--bg-subtle); border: 1px solid transparent; border-radius: 6px; padding: 0 10px; height: 32px; color: var(--fg-2); }
 .srch-box:focus-within { border-color: var(--accent); background: var(--bg); }
 .srch-box input { all: unset; flex: 1; min-width: 0; height: 100%; font-size: 13px; color: var(--fg); }
@@ -118,6 +118,8 @@ svg { display: block; }
 .ibtn { width: 32px; height: 32px; border-radius: 6px; display: grid; place-items: center; color: var(--fg-2); }
 .ibtn:hover { background: var(--bg-subtle); color: var(--fg); }
 .ibtn .ic { width: 16px; height: 16px; }
+a.ibtn { text-decoration: none; }
+.ic-fill { fill: currentColor; stroke: none; }
 .badge { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 6px 0 12px; border-radius: 6px; background: var(--bg-subtle); color: var(--fg-2); font-weight: 600; }
 .badge.on { background: var(--bg-brand); color: var(--fg-onbrand); }
 .badge:hover { filter: brightness(.95); }
@@ -166,6 +168,7 @@ svg { display: block; }
 .hgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 .hcard { padding: 16px; display: grid; gap: 8px; align-content: start; }
 .hcard h2 { font-size: 16px; letter-spacing: -0.01em; }
+.hcredit { max-width: 760px; font-size: 13px; color: var(--fg-2); }
 .hcard p, .steps { color: var(--fg-2); font-size: 13px; line-height: 1.5; }
 .help > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-weight: 700; font-size: 13px; border-radius: 10px; }
 .help > summary::-webkit-details-marker { display: none; }
@@ -522,7 +525,8 @@ button.tag:hover { filter: brightness(.95); }
 }
 @media (max-width: 759px) {
   .hdr-in, .main, .site-foot { padding-inline: 0; }
-  .hdr-in { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "logo segs" "srch right"; align-items: center; gap: 8px 12px; }
+  /* Three columns, so the wider right group on row 2 does not squeeze the logo on row 1. */
+  .hdr-in { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; grid-template-areas: "logo logo segs" "srch right right"; align-items: center; gap: 8px 12px; }
   .hdr-in > .logo { grid-area: logo; min-width: 0; }
   .hdr-in > .segs { grid-area: segs; justify-self: end; }
   .hdr-in > .srch { grid-area: srch; max-width: none; }
@@ -568,6 +572,7 @@ button.tag:hover { filter: brightness(.95); }
       <div class="dd" id="hq-dd" hidden></div>
     </div>
     <div class="hdr-r">
+      <a class="ibtn" id="gh-link" href="https://github.com/n0k0m3/handheld-atlas" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub (opens in a new tab)"><svg class="ic ic-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg></a>
       <button type="button" class="ibtn" id="theme-btn" data-act="theme" title="Switch to dark" aria-label="Switch to dark">
         <svg class="ic" id="ic-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
         <svg class="ic" id="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
@@ -591,6 +596,7 @@ button.tag:hover { filter: brightness(.95); }
     <article class="panel hcard"><h2>Compare</h2><p>Up to eight devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Go to Compare →</button></article>
     <article class="panel hcard"><h2>Sourced</h2><p>Every figure links to where it came from. Each device sheet lists its sources, conflicts and gaps.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device →</button></article>
   </section>
+  <p class="hcredit" id="home-credit">Inspired by <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>.<span id="home-rc"></span></p>
 </main>
 
 <main class="main" id="scr-browse" aria-label="Browse" hidden>
@@ -2269,9 +2275,14 @@ button.tag:hover { filter: brightness(.95); }
   $("#home-n").textContent = DEV.length; $("#home-socs").textContent = SOCS.length;
   $("#home-traced").textContent = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced").length;
   $("#home-date").textContent = dataDate;
-  $("#site-foot").innerHTML = "<p>" + DEV.length + " devices · " + SOCS.length + " chips · data " + esc(dataDate) + ". Every value has a source. Open a device to see its sources, conflicts and unresolved fields. A value with a dotted underline has its own source; click it to see the link.</p>" +
-    "<p>Sizes and weights describe the device as held: controllers on, battery pack on. A clamshell uses its closed footprint and is drawn open. Top outlines are traced from official renders where possible. Other views are boxes from the stated sizes.</p>" +
-    '<p>To rebuild the page, run <code>uv run build_site.py</code> in <code>scripts/</code>.</p>';
+  /* Credit line on Home: count the traced top outlines that come from retrocatalog.com front images. */
+  {
+    const traced = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced"), rc = traced.filter((d) => host(OUT[d.id].top.source) === "retrocatalog.com").length;
+    $("#home-rc").textContent = rc ? " " + rc + " of the " + traced.length + " traced outlines come from its front images." : "";
+  }
+  $("#site-foot").innerHTML = "<p>" + DEV.length + " devices · " + SOCS.length + " chips · data " + esc(dataDate) + ". Every value links to its source. On a device sheet, click a value with a dotted underline to see where it came from. The sheet also lists conflicts and gaps.</p>" +
+    "<p>Sizes and weights describe the device as held, with controllers and battery pack on. A clamshell uses its closed footprint and is drawn open. Top outlines are traced from product images. Other views are boxes from the stated sizes.</p>" +
+    '<p>Code and data are on <a href="https://github.com/n0k0m3/handheld-atlas" target="_blank" rel="noopener">GitHub</a>. To report a wrong value, <a href="https://github.com/n0k0m3/handheld-atlas/issues" target="_blank" rel="noopener">open an issue</a>.</p>';
   buildFilters();
   syncFilters();
   /* A group that holds saved filters opens on load, so the active values are visible. */
