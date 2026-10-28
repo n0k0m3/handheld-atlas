@@ -246,6 +246,14 @@ svg { display: block; }
 .rng input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
 .rng input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
 .rng-e { display: flex; justify-content: space-between; font: 10.5px var(--f-mono); color: var(--fg-2); margin-top: 2px; }
+/* Distribution above a slider: bar height = devices that pass the other filters; bars inside the range take the accent. */
+.hist { position: relative; height: 34px; margin: 4px 8px 0; }
+.hist::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--border); }
+.hist i { position: absolute; bottom: 0; box-sizing: border-box; border-left: 1px solid transparent; border-right: 1px solid transparent; background-clip: padding-box; background-color: var(--fg-3); opacity: .45; border-radius: 3px 3px 0 0; transition: height .15s; }
+.hist i.on { background-color: var(--accent); opacity: 1; }
+.chk.unk { margin-top: 6px; }
+.fnote { font-size: 11px; color: var(--fg-2); margin-top: 4px; }
+@media (prefers-reduced-motion: reduce) { .hist i { transition: none; } }
 .chips { display: flex; flex-wrap: wrap; gap: 4px; }
 .chip { padding: 3px 8px; font-size: 12px; font-weight: 600; border-radius: 4px; border: 1px solid var(--border-strong); background: var(--bg); color: var(--fg); white-space: nowrap; }
 .chip[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
@@ -887,7 +895,6 @@ button.tag:hover { filter: brightness(.95); }
   const unk = (v) => (v == null || v === "" ? "unknown" : String(v));
   const rnd = (x) => Math.round(x * 1000) / 1000;
   const makerOf = (d) => { const v = String((socOf(d) || {}).vendor || ""); return /intel/i.test(v) ? "Intel" : /amd/i.test(v) ? "AMD" : "unknown"; };
-  const archOf = (d) => { const a = (socOf(d) || {}).cpu_arch; return a ? a.replace(/\s*\/\s*Zen \d+c$/, "") : "unknown"; };
   const osOf = (d) => { const out = []; (d.os || []).forEach((o) => { const k = /windows/i.test(o) ? "Windows" : /steamos/i.test(o) ? "SteamOS" : /linux|manjaro|bazzite/i.test(o) ? "Linux" : "Other"; if (!out.includes(k)) out.push(k); }); return out.length ? out : ["unknown"]; };
   const USBC = ["TB5", "TB4", "USB4v2", "USB4", "USB-C 3.2 Gen2", "USB-C 3.2 Gen1", "USB-C unspecified", "USB-C 2.0"];
   const portFlags = (d) => {
@@ -903,13 +910,11 @@ button.tag:hover { filter: brightness(.95); }
     { k: "brands", g: "General", label: "Brand", type: "multi", v: (d) => [d.brand], order: "alpha", more: 8 },
     { k: "status", g: "General", label: "Status", type: "multi", v: (d) => [d.status], lab: STATUS, order: ["shipped", "pre-order", "announced"] },
     { k: "form", g: "General", label: "Form factor", type: "multi", v: (d) => [unk(d.form_factor)], lab: { classic: "Classic", clamshell: "Clamshell", slider: "Slider", "3-in-1": "3-in-1, detachable", other: "Other" }, order: ["classic", "clamshell", "slider", "3-in-1", "other"] },
-    { k: "year", g: "General", label: "Release year", type: "multi", v: (d) => [d.release_date ? d.release_date.slice(0, 4) : "unknown"], order: "desc" },
-    { k: "price", g: "General", label: "Price", type: "range", v: (d) => d.msrp_usd, step: 50, fmt: (x) => "$" + n0(x), none: "a price" },
+    { k: "year", g: "General", label: "Release year", type: "range", v: (d) => (d.release_date ? +d.release_date.slice(0, 4) : null), step: 1, edge: true, hist: 1, unk: "Include devices with no release date", fmt: (x) => String(x), none: "a release date" },
+    { k: "price", g: "General", label: "Price", type: "range", v: (d) => d.msrp_usd, step: 50, hist: 150, fmt: (x) => "$" + n0(x), none: "a price" },
     { k: "os", g: "General", label: "Operating system", type: "multi", v: osOf, order: ["Windows", "SteamOS", "Linux", "Other"] },
     { k: "maker", g: "Performance", label: "Chip maker", type: "multi", v: (d) => [makerOf(d)], order: ["AMD", "Intel"] },
     { k: "soc", g: "Performance", label: "Chip", type: "multi", v: (d) => [d.soc_id], lab: (id) => socName(id), order: "lab", more: 8 },
-    { k: "platform", g: "Performance", label: "Platform", type: "multi", v: (d) => [unk((socOf(d) || {}).codename)], order: "alpha", more: 8 },
-    { k: "cpuarch", g: "Performance", label: "CPU architecture", type: "multi", v: (d) => [archOf(d)], order: "alpha", more: 8 },
     { k: "gpuarch", g: "Performance", label: "GPU architecture", type: "multi", v: (d) => [unk(((socOf(d) || {}).igpu || {}).arch)], order: "alpha", more: 8 },
     { k: "gpu", g: "Performance", label: "Graphics", type: "multi", v: (d) => [unk(((socOf(d) || {}).igpu || {}).name)], order: "alpha", more: 8 },
     { k: "cpu", g: "Performance", label: "PassMark CPU Mark", type: "range", v: (d) => scoreOf(d, "cpu_mark"), step: 500, fmt: n0, none: "a CPU Mark" },
@@ -918,7 +923,7 @@ button.tag:hover { filter: brightness(.95); }
     { k: "cores", g: "Performance", label: "CPU cores", type: "range", v: (d) => (socOf(d) || {}).cores, step: 1, fmt: (x) => x + " cores", none: "a core count" },
     { k: "tdp", g: "Performance", label: "Max TDP", type: "range", v: (d) => ((socOf(d) || {}).tdp_w || {}).max, step: 5, fmt: (x) => x + " W", none: "a TDP" },
     { k: "npu", g: "Performance", label: "NPU", type: "range", v: (d) => (socOf(d) || {}).npu_tops, step: 1, fmt: (x) => x + " TOPS", none: "an NPU figure" },
-    { k: "ram", g: "Memory & storage", label: "RAM options", type: "multi", v: (d) => ((d.ram || {}).sizes_gb || []).map(String), lab: (x) => x + " GB", order: "num" },
+    { k: "ram", g: "Memory & storage", label: "RAM", type: "range", multi: true, discrete: true, v: (d) => (d.ram || {}).sizes_gb || [], step: 1, fmt: (x) => x + " GB", none: "a RAM size", note: "A device matches when any of its RAM options is in the range." },
     { k: "ramtype", g: "Memory & storage", label: "RAM type", type: "multi", v: (d) => [unk((d.ram || {}).type)], order: "alpha" },
     { k: "ramspeed", g: "Memory & storage", label: "RAM speed", type: "range", v: (d) => (d.ram || {}).speed_mts, step: 100, fmt: (x) => n0(x) + " MT/s", none: "a RAM speed" },
     { k: "ssd", g: "Memory & storage", label: "SSD slot", type: "multi", v: (d) => { const s = slots(d); return s.length ? s.map((x) => x.form_factor || "other") : ["none"]; }, lab: SSD_F, order: ["2230", "2242", "2280", "mini-ssd-1517", "emmc", "other", "none"] },
@@ -956,17 +961,32 @@ button.tag:hover { filter: brightness(.95); }
   const optLab = (fc, o) => (o === "unknown" ? "Not stated" : typeof fc.lab === "function" ? fc.lab(o) : fc.lab && hasKey(fc.lab, o) ? fc.lab[o] : o);
   DEV.forEach((d) => {
     d._fv = Object.create(null);
-    FACETS.forEach((fc) => { const x = fc.v(d); d._fv[fc.k] = fc.type === "range" ? (typeof x === "number" && isFinite(x) ? x : null) : (Array.isArray(x) ? Array.from(new Set(x.map(String))) : []); });
+    FACETS.forEach((fc) => {
+      const x = fc.v(d), num = (y) => typeof y === "number" && isFinite(y);
+      d._fv[fc.k] = fc.type === "range" ? (fc.multi ? (Array.isArray(x) ? x.filter(num) : []) : (num(x) ? x : null)) : (Array.isArray(x) ? Array.from(new Set(x.map(String))) : []);
+    });
     const s = socOf(d) || {};
     d._qs = [d._search, d.brand, d.variant, (s.igpu || {}).name, s.codename].filter(Boolean).join(" ").toLowerCase();
   });
   /* Ranges and option lists come from the data, never from constants. */
   FACETS.forEach((fc) => {
     if (fc.type === "range") {
-      const vals = DEV.map((d) => d._fv[fc.k]).filter((x) => x != null), st = fc.step;
-      fc.min = vals.length ? rnd(Math.floor(Math.min(...vals) / st) * st) : 0;
-      fc.max = vals.length ? rnd(Math.ceil(Math.max(...vals) / st) * st) : st;
-      if (fc.max <= fc.min) fc.max = rnd(fc.min + st);
+      const vals = DEV.flatMap((d) => { const x = d._fv[fc.k]; return Array.isArray(x) ? x : x == null ? [] : [x]; }), st = fc.step;
+      if (fc.discrete) {
+        /* Uneven sizes (8, 16, 24 … 128 GB): the slider steps through the values that exist. */
+        fc.vals = Array.from(new Set(vals)).sort((a, b) => a - b);
+        fc.min = fc.vals[0]; fc.max = fc.vals[fc.vals.length - 1];
+        return;
+      }
+      if (fc.edge) {
+        /* Whole-number values (years): the thumbs stop between the values, so each histogram bar sits between two stops. */
+        fc.min = Math.min(...vals) - 0.5; fc.max = Math.max(...vals) + 0.5;
+      } else {
+        fc.min = vals.length ? rnd(Math.floor(Math.min(...vals) / st) * st) : 0;
+        fc.max = vals.length ? rnd(Math.ceil(Math.max(...vals) / st) * st) : st;
+        if (fc.max <= fc.min) fc.max = rnd(fc.min + st);
+      }
+      if (fc.hist) { fc.bins = []; for (let b = fc.min; b < fc.max - 1e-9; b = rnd(b + fc.hist)) fc.bins.push([b, Math.min(fc.max, rnd(b + fc.hist))]); }
       return;
     }
     const seen = Object.create(null);
@@ -980,7 +1000,13 @@ button.tag:hover { filter: brightness(.95); }
     else if (typeof o === "function") cmp = o;
     fc.opts = keys.filter((x) => x !== "unknown").sort(cmp).concat(keys.includes("unknown") ? ["unknown"] : []);
   });
-  const DEF_F = () => ({ q: "", sel: Object.create(null), rng: Object.create(null) });
+  const DEF_F = () => ({ q: "", sel: Object.create(null), rng: Object.create(null), xu: Object.create(null) });
+  /* Slider units: an index for facets with a fixed value list, the value itself for the rest. */
+  const nearest = (arr, v) => arr.reduce((b, x) => (Math.abs(x - v) < Math.abs(b - v) ? x : b), arr[0]);
+  const toU = (fc, v) => (fc.vals ? fc.vals.indexOf(nearest(fc.vals, v)) : v);
+  const fromU = (fc, u) => (fc.vals ? fc.vals[clamp(Math.round(u), 0, fc.vals.length - 1)] : u);
+  const fLo = (fc, v) => (fc.edge ? String(Math.ceil(v)) : fc.fmt(v));
+  const fHi = (fc, v) => (fc.edge ? String(Math.floor(v)) : fc.fmt(v));
 
   /* ---------- state ---------- */
   const KEY = "handheld-atlas:v4";
@@ -1047,8 +1073,11 @@ button.tag:hover { filter: brightness(.95); }
       if (!Array.isArray(r) || typeof r[0] !== "number" || typeof r[1] !== "number" || !isFinite(r[0]) || !isFinite(r[1])) return;
       let a = clamp(r[0], fc.min, fc.max), b = clamp(r[1], fc.min, fc.max);
       if (a > b) { const x = a; a = b; b = x; }
+      if (fc.vals) { a = nearest(fc.vals, a); b = nearest(fc.vals, b); }
+      if (fc.edge) { a = fc.min + Math.round(a - fc.min); b = fc.min + Math.round(b - fc.min); if (b - a < 1) return; }
       if (a > fc.min || b < fc.max) f.rng[k] = [a, b];
     });
+    if (src.xu && typeof src.xu === "object") Object.keys(src.xu).forEach((k) => { if (hasKey(FK, k) && FK[k].unk && src.xu[k] === true) f.xu[k] = true; });
     return f;
   }
   function migrateF3(o) {
@@ -1195,10 +1224,13 @@ button.tag:hover { filter: brightness(.95); }
   function fctHtml(fc) {
     const lab = esc(fc.label);
     if (fc.type === "range") {
-      const at = (end) => ' data-f="' + fc.k + '" min="' + fc.min + '" max="' + fc.max + '" step="' + fc.step + '" value="' + (end === "lo" ? fc.min : fc.max) + '" aria-label="' + lab + ", " + (end === "lo" ? "minimum" : "maximum") + '"';
-      return '<div class="fct" data-k="' + fc.k + '"><div class="st"><span>' + lab + '</span><span class="m" id="f-' + fc.k + '-l">Any</span></div>' +
+      const umin = toU(fc, fc.min), umax = toU(fc, fc.max), span = fc.max - fc.min;
+      const at = (end) => ' data-f="' + fc.k + '" min="' + umin + '" max="' + umax + '" step="' + fc.step + '" value="' + (end === "lo" ? umin : umax) + '" aria-label="' + lab + ", " + (end === "lo" ? "minimum" : "maximum") + '"';
+      const hist = fc.bins ? '<div class="hist" id="f-' + fc.k + '-hist" aria-hidden="true">' + fc.bins.map((b, i) => '<i id="f-' + fc.k + "-b" + i + '" style="left:' + ((b[0] - fc.min) / span * 100).toFixed(3) + "%;width:" + ((b[1] - b[0]) / span * 100).toFixed(3) + '%"></i>').join("") + "</div>" : "";
+      const unkBox = fc.unk ? '<label class="chk unk" for="f-' + fc.k + '-unk"><input type="checkbox" class="funk" id="f-' + fc.k + '-unk" data-f="' + fc.k + '" checked><span>' + esc(fc.unk) + '</span><span class="n" id="fn-' + fc.k + '-unk"></span></label>' : "";
+      return '<div class="fct" data-k="' + fc.k + '"><div class="st"><span>' + lab + '</span><span class="m" id="f-' + fc.k + '-l">Any</span></div>' + hist +
         '<div class="rng"><span class="trk"></span><span class="fill" id="f-' + fc.k + '-fill"></span><input type="range" class="frng" id="f-' + fc.k + '-lo"' + at("lo") + '><input type="range" class="frng" id="f-' + fc.k + '-hi"' + at("hi") + "></div>" +
-        '<div class="rng-e"><span>' + esc(fc.fmt(fc.min)) + "</span><span>" + esc(fc.fmt(fc.max)) + "</span></div></div>";
+        '<div class="rng-e"><span>' + esc(fLo(fc, fc.min)) + "</span><span>" + esc(fHi(fc, fc.max)) + "</span></div>" + unkBox + (fc.note ? '<p class="fnote">' + esc(fc.note) + "</p>" : "") + "</div>";
     }
     const n = fc.opts.length, more = fc.more && n > fc.more + 2 ? fc.more : 0;
     return '<div class="fct" data-k="' + fc.k + '"><div class="st"><span>' + lab + "</span>" + (fc.type === "all" ? '<span class="hint">must have all</span>' : "") + "</div>" +
@@ -1238,36 +1270,45 @@ button.tag:hover { filter: brightness(.95); }
   function syncFilters() {
     const f = state.f;
     $$(".fchk").forEach((cb) => { cb.checked = (f.sel[cb.dataset.f] || []).includes(cb.dataset.v); });
+    $$(".funk").forEach((cb) => { cb.checked = !f.xu[cb.dataset.f]; });
     FACETS.forEach((fc) => { if (fc.type === "range") syncRange(fc); });
     const q = $("#fq"); if (q && q.value !== f.q) q.value = f.q;
     $("#tf-toggle").setAttribute("aria-expanded", String(topOpen));
     $("#topf-b").hidden = !topOpen;
   }
-  function rangeText(fc, r) { const a = r[0] > fc.min, b = r[1] < fc.max; return a && b ? fc.fmt(r[0]) + " – " + fc.fmt(r[1]) : a ? "≥ " + fc.fmt(r[0]) : "≤ " + fc.fmt(r[1]); }
+  function rangeText(fc, r) {
+    const a = r[0] > fc.min, b = r[1] < fc.max, lo = fLo(fc, r[0]), hi = fHi(fc, r[1]);
+    return lo === hi ? lo : a && b ? lo + " – " + hi : a ? "≥ " + lo : "≤ " + hi;
+  }
   function syncRange(fc) {
     const on = state.f.rng[fc.k], r = on || [fc.min, fc.max], lo = document.getElementById("f-" + fc.k + "-lo"), hi = document.getElementById("f-" + fc.k + "-hi");
     if (!lo || !hi) return;
-    if (+lo.value !== r[0]) lo.value = r[0];
-    if (+hi.value !== r[1]) hi.value = r[1];
-    lo.setAttribute("aria-valuetext", fc.fmt(r[0])); hi.setAttribute("aria-valuetext", fc.fmt(r[1]));
+    const u0 = toU(fc, r[0]), u1 = toU(fc, r[1]), umin = toU(fc, fc.min), umax = toU(fc, fc.max), span = umax - umin;
+    if (+lo.value !== u0) lo.value = u0;
+    if (+hi.value !== u1) hi.value = u1;
+    lo.setAttribute("aria-valuetext", fLo(fc, r[0])); hi.setAttribute("aria-valuetext", fHi(fc, r[1]));
     document.getElementById("f-" + fc.k + "-l").textContent = on ? rangeText(fc, r) : "Any";
-    const span = fc.max - fc.min, fill = document.getElementById("f-" + fc.k + "-fill");
-    fill.style.left = ((r[0] - fc.min) / span * 100).toFixed(2) + "%"; fill.style.right = ((fc.max - r[1]) / span * 100).toFixed(2) + "%";
+    const fill = document.getElementById("f-" + fc.k + "-fill");
+    fill.style.left = ((u0 - umin) / span * 100).toFixed(2) + "%"; fill.style.right = ((umax - u1) / span * 100).toFixed(2) + "%";
     /* Both thumbs at the top end: lift the minimum thumb so it stays reachable. */
-    lo.style.zIndex = r[0] > fc.min + span / 2 ? 4 : 2;
+    lo.style.zIndex = u0 > umin + span / 2 ? 4 : 2;
+    if (fc.bins) fc.bins.forEach((b, i) => { const el = document.getElementById("f-" + fc.k + "-b" + i); if (el) el.classList.toggle("on", b[1] > r[0] + 1e-9 && b[0] < r[1] - 1e-9); });
   }
   let rngPtr = false, rngFirst = false, rngDrag = null;
   function rangeInput(t) {
     const fc = hasKey(FK, t.dataset.f) ? FK[t.dataset.f] : null;
     if (!fc) return;
-    const lo = document.getElementById("f-" + fc.k + "-lo"), hi = document.getElementById("f-" + fc.k + "-hi"), prev = state.f.rng[fc.k] || [fc.min, fc.max];
+    const lo = document.getElementById("f-" + fc.k + "-lo"), hi = document.getElementById("f-" + fc.k + "-hi"), pv = state.f.rng[fc.k] || [fc.min, fc.max];
+    const prev = [toU(fc, pv[0]), toU(fc, pv[1])], umin = toU(fc, fc.min), umax = toU(fc, fc.max);
     let a = rnd(+lo.value), b = rnd(+hi.value);
     /* Both thumbs on one value: the top thumb takes the drag, so the range opens toward the pointer from that value. */
     if (rngPtr && rngFirst && prev[0] === prev[1]) rngDrag = { el: t, anchor: prev[0] };
     rngFirst = false;
     if (rngDrag && rngDrag.el === t) { const v = rnd(+t.value); a = Math.min(rngDrag.anchor, v); b = Math.max(rngDrag.anchor, v); }
     else if (a > b) { if (t === lo) a = b; else b = a; }
-    if (a <= fc.min && b >= fc.max) delete state.f.rng[fc.k]; else state.f.rng[fc.k] = [a, b];
+    /* Between-value stops (years) keep at least one value inside the range. */
+    if (fc.edge && b - a < 1) { if (t === lo) a = b - 1; else b = a + 1; if (a < umin) { a = umin; b = a + 1; } if (b > umax) { b = umax; a = b - 1; } }
+    if (a <= umin && b >= umax) delete state.f.rng[fc.k]; else state.f.rng[fc.k] = [fromU(fc, a), fromU(fc, b)];
     syncRange(fc); scheduleApply();
   }
   function toggleFilterVal(key, v) {
@@ -1279,16 +1320,24 @@ button.tag:hover { filter: brightness(.95); }
   function clearFacet(k, v) {
     if (k === "q") state.f.q = "";
     else if (hasKey(FK, k)) {
-      if (FK[k].type === "range") delete state.f.rng[k];
+      if (FK[k].type === "range") { if (v === "unk") delete state.f.xu[k]; else delete state.f.rng[k]; }
       else { const n = (state.f.sel[k] || []).filter((x) => x !== v); if (n.length) state.f.sel[k] = n; else delete state.f.sel[k]; }
     }
     syncFilters(); applyList(); save();
   }
-  const isActive = (fc) => (fc.type === "range" ? !!state.f.rng[fc.k] : !!(state.f.sel[fc.k] && state.f.sel[fc.k].length));
+  const isActive = (fc) => (fc.type === "range" ? !!state.f.rng[fc.k] || !!(fc.unk && state.f.xu[fc.k]) : !!(state.f.sel[fc.k] && state.f.sel[fc.k].length));
+  const noVal = (fv) => fv == null || (Array.isArray(fv) && !fv.length);
   const qTokens = () => state.f.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
   function passFacet(fc, d) {
     const fv = d._fv[fc.k];
-    if (fc.type === "range") { const r = state.f.rng[fc.k]; return !r || (fv != null && fv >= r[0] - 1e-9 && fv <= r[1] + 1e-9); }
+    if (fc.type === "range") {
+      const r = state.f.rng[fc.k];
+      /* No value: a facet with an "include" box follows the box; the others drop out once a range is set. */
+      if (noVal(fv)) return fc.unk ? !state.f.xu[fc.k] : !r;
+      if (!r) return true;
+      const lo = r[0] - 1e-9, hi = r[1] + 1e-9;
+      return Array.isArray(fv) ? fv.some((x) => x >= lo && x <= hi) : fv >= lo && fv <= hi;
+    }
     const sel = state.f.sel[fc.k];
     if (!sel || !sel.length) return true;
     return fc.type === "all" ? sel.every((v) => fv.includes(v)) : fv.some((v) => sel.includes(v));
@@ -1309,7 +1358,7 @@ button.tag:hover { filter: brightness(.95); }
   /* A range filter hides devices with no value. The list bar says how many. */
   function hiddenUnknown(an) {
     const out = [];
-    an.act.forEach((fc) => { if (fc.type !== "range") return; const n = an.base[fc.k].filter((d) => d._fv[fc.k] == null).length; if (n) out.push(n + " without " + fc.none); });
+    an.act.forEach((fc) => { if (fc.type !== "range" || fc.unk) return; const n = an.base[fc.k].filter((d) => noVal(d._fv[fc.k])).length; if (n) out.push(n + " without " + fc.none); });
     return out.length ? out.join(", ") + " hidden" : "";
   }
   function listNote(filt, an) {
@@ -1332,7 +1381,23 @@ button.tag:hover { filter: brightness(.95); }
   /* Counts per option, active-group badges, the active-filter chips and the narrow summary. */
   function syncFacetUI(an) {
     FACETS.forEach((fc) => {
-      if (fc.type === "range" || !fc.nodes) return;
+      if (fc.type === "range") {
+        if (!fc.bins && !fc.unk) return;
+        const pool = an.base[fc.k].length ? an.all.concat(an.base[fc.k]) : an.all;
+        if (fc.unk) { const el = document.getElementById("fn-" + fc.k + "-unk"); if (el) el.textContent = pool.filter((d) => noVal(d._fv[fc.k])).length; }
+        if (fc.bins) {
+          const cnt = fc.bins.map(() => 0), last = fc.bins.length - 1;
+          pool.forEach((d) => { const v = d._fv[fc.k]; if (v == null) return; cnt[clamp(Math.floor((v - fc.min) / fc.hist), 0, last)]++; });
+          const top = Math.max(1, ...cnt);
+          fc.bins.forEach((b, i) => {
+            const el = document.getElementById("f-" + fc.k + "-b" + i); if (!el) return;
+            el.style.height = (cnt[i] ? Math.max(6, cnt[i] / top * 100) : 0).toFixed(1) + "%";
+            el.title = (fc.edge ? String(Math.round(b[0] + 0.5)) : fc.fmt(b[0]) + "–" + fc.fmt(b[1])) + ": " + plural(cnt[i], "device");
+          });
+        }
+        return;
+      }
+      if (!fc.nodes) return;
       const pool = an.base[fc.k].length ? an.all.concat(an.base[fc.k]) : an.all, sel = state.f.sel[fc.k] || [], cnt = Object.create(null);
       if (fc.type === "all") fc.opts.forEach((o) => { const need = sel.includes(o) ? sel : sel.concat([o]); let c = 0; pool.forEach((d) => { if (need.every((v) => d._fv[fc.k].includes(v))) c++; }); cnt[o] = c; });
       else pool.forEach((d) => d._fv[fc.k].forEach((v) => { cnt[v] = (cnt[v] || 0) + 1; }));
@@ -1343,7 +1408,12 @@ button.tag:hover { filter: brightness(.95); }
     const chips = [];
     if (an.qt.length) chips.push(fxChip("q", "", "Search: " + state.f.q.trim()));
     FACETS.forEach((fc) => {
-      if (fc.type === "range") { const r = state.f.rng[fc.k]; if (r) chips.push(fxChip(fc.k, "", fc.label + ": " + rangeText(fc, r))); return; }
+      if (fc.type === "range") {
+        const r = state.f.rng[fc.k];
+        if (r) chips.push(fxChip(fc.k, "", fc.label + ": " + rangeText(fc, r)));
+        if (fc.unk && state.f.xu[fc.k]) chips.push(fxChip(fc.k, "unk", fc.label + ": known only"));
+        return;
+      }
       (state.f.sel[fc.k] || []).forEach((v) => chips.push(fxChip(fc.k, v, fc.label + ": " + optLab(fc, v))));
     });
     const html = chips.length ? chips.join("") + '<button type="button" class="btn-t" id="fx-clear" data-act="reset-f">Clear all</button>' : "";
@@ -2059,6 +2129,7 @@ button.tag:hover { filter: brightness(.95); }
   document.addEventListener("change", (e) => {
     const t = e.target;
     if (t.classList.contains("qbox")) { if (t.checked) { if (!addQ(t.dataset.id)) t.checked = false; } else removeQ(t.dataset.id); focusId(t.id); return; }
+    if (t.classList.contains("funk")) { const k = t.dataset.f; if (hasKey(FK, k)) { if (t.checked) delete state.f.xu[k]; else state.f.xu[k] = true; syncFilters(); applyList(); save(); focusId(t.id); } return; }
     if (t.classList.contains("fchk")) { const lab = t.closest(".fo-x"); if (lab && !t.checked) lab.classList.add("keep"); toggleFilterVal(t.dataset.f, t.dataset.v); focusId(t.id); }
   });
   document.addEventListener("input", (e) => {
