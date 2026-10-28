@@ -150,6 +150,30 @@ svg { display: block; }
 .hero { font-size: 52px; letter-spacing: -0.035em; line-height: 1; margin-top: 4px; }
 .lede { max-width: 380px; color: var(--fg-2); font-size: 14px; }
 
+/* ---------- home ---------- */
+.home { gap: 20px; }
+.hhero { display: grid; gap: 12px; padding: 24px 0 4px; max-width: 760px; }
+.hhero .lede { max-width: 600px; }
+.hcta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.hstats { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 8px; }
+.hstat b { display: block; font: 700 22px var(--f-mono); letter-spacing: -0.02em; }
+.hstat span { font-size: 12px; color: var(--fg-2); }
+.hgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.hcard { padding: 16px; display: grid; gap: 8px; align-content: start; }
+.hcard h2, .hguide h2 { font-size: 16px; letter-spacing: -0.01em; }
+.hcard p, .steps, .hnotes { color: var(--fg-2); font-size: 13px; line-height: 1.5; }
+.hguide { padding: 16px 20px 18px; }
+.hguide h2 { font-size: 18px; margin-bottom: 12px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.steps li { display: flex; gap: 12px; align-items: flex-start; min-width: 0; }
+.steps li > div { min-width: 0; }
+.steps b { color: var(--fg); }
+.step-n { flex: none; width: 24px; height: 24px; border-radius: 12px; background: var(--bg-brand); color: var(--fg-onbrand); font: 700 12px var(--f-mono); display: grid; place-items: center; margin-top: 1px; }
+.demo { display: inline-flex; align-items: center; vertical-align: middle; margin: 0 2px; }
+.demo .refb { color: var(--fg-2); border: 1px solid var(--border-strong); background: var(--bg); }
+.demo .btn-o.sm, .demo .addb.sm { padding: 3px 8px; font-size: 12px; margin: 0; }
+.hnotes { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+
 /* ---------- browse ---------- */
 .bgrid { display: grid; grid-template-columns: 232px minmax(0, 1fr); gap: 16px; align-items: start; }
 .bsec { display: grid; gap: 12px; min-width: 0; }
@@ -283,6 +307,10 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage2d .shp { fill: var(--c); fill-opacity: .08; stroke: var(--c); stroke-width: 1.75; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 .stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1; stroke-opacity: .5; vector-effect: non-scaling-stroke; }
 .stage2d .grip { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 4 3; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
+.stage2d .shp.lid { fill-opacity: .03; }
+.stage2d .hinge, .sil .hinge, .dstage .hinge { stroke: var(--fg-2); stroke-width: 1; stroke-dasharray: 3 2; stroke-opacity: .8; vector-effect: non-scaling-stroke; }
+.stage2d .hinge { stroke: var(--c); }
+.dnote { font-size: 11.5px; color: var(--fg-2); padding: 0 12px 10px; }
 .sbar { position: absolute; left: 12px; bottom: 8px; display: flex; align-items: center; gap: 6px; font: 11px var(--f-mono); color: var(--fg-2); font-variant-numeric: tabular-nums; }
 .sbar i { display: block; height: 0; border-top: 2px solid var(--fg-2); position: relative; }
 .sbar i::before, .sbar i::after { content: ""; position: absolute; top: -5px; width: 2px; height: 8px; background: var(--fg-2); }
@@ -438,7 +466,7 @@ button.tag:hover { filter: brightness(.95); }
 </style></head><body><div class="app" id="app">
 <header class="hdr" id="hdr">
   <div class="hdr-in">
-    <button type="button" class="logo" id="logo" data-act="go" data-route="browse" aria-label="Handheld Atlas. Go to the device list.">
+    <button type="button" class="logo" id="logo" data-act="go" data-route="home" aria-label="Handheld Atlas. Go to the home page.">
       <span class="logo-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="4"></rect><path d="M6 12h4M8 10v4"></path><circle cx="16" cy="11" r=".6" fill="currentColor"></circle><circle cx="18" cy="13" r=".6" fill="currentColor"></circle></svg></span>
       <span class="brand">Handheld Atlas</span>
       <span class="cnt" id="cnt"></span>
@@ -466,10 +494,53 @@ button.tag:hover { filter: brightness(.95); }
   </div>
 </header>
 
-<main class="main" id="scr-browse" aria-label="Browse">
+<main class="main home" id="scr-home" aria-label="Home" hidden>
+  <section class="hhero">
+    <p class="eyebrow" id="home-eyebrow">x86 handhelds · 2022 onward</p>
+    <h1 class="hero" id="home-h1" tabindex="-1">Find your next handheld</h1>
+    <p class="lede">Every x86 handheld gaming PC since 2022. Every value has a source. True-scale outlines, PassMark scores per chip, and a side-by-side diff for up to four devices.</p>
+    <div class="hcta"><button type="button" class="btn-p" data-act="go" data-route="browse">Browse the devices <span>→</span></button><button type="button" class="btn-o" data-act="go" data-route="compare">Open the comparison</button></div>
+    <div class="hstats"><div class="hstat"><b id="home-n">–</b><span>devices</span></div><div class="hstat"><b id="home-socs">–</b><span>chips</span></div><div class="hstat"><b id="home-traced">–</b><span>traced outlines</span></div><div class="hstat"><b id="home-date">–</b><span>data date</span></div></div>
+  </section>
+  <section class="hgrid">
+    <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip. Sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Go to Browse →</button></article>
+    <article class="panel hcard"><h2>Compare</h2><p>Up to four devices side by side: outlines at 1 unit = 1 mm, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Go to Compare →</button></article>
+    <article class="panel hcard"><h2>Reference</h2><p>Pick one device as the reference. Every other device then shows how it differs, in green and red.</p><a class="btn-t" href="#guide-ref">How to set one ↓</a></article>
+  </section>
+  <section class="panel hguide" id="guide-ref">
+    <h2>Set a reference device</h2>
+    <ol class="steps">
+      <li><span class="step-n">1</span><div><b>Pick the device you know.</b> On Browse, press the target button on a card or table row <span class="demo"><span class="refb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg></span></span>. On a device sheet, press <span class="demo"><span class="btn-o sm">Set as reference</span></span>.</div></li>
+      <li><span class="step-n">2</span><div><b>The list pins it on top</b> and the list bar shows the pill <span class="demo"><span class="refpill"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference: <strong>Valve Steam Deck OLED</strong></span></span>. The pill stays while you filter, sort, or switch to cards.</div></li>
+      <li><span class="step-n">3</span><div><b>Read the deltas.</b> Every other device gets a pill per value: <span class="demo"><span class="dpill up">▲ 42%</span></span> better than the reference, <span class="demo"><span class="dpill dn">▼ 18%</span></span> worse, <span class="demo"><span class="dpill eq">= 0%</span></span> the same. Lower is better for price, weight and thickness. Higher is better for scores, screen, RAM and battery.</div></li>
+      <li><span class="step-n">4</span><div><b>In Compare</b>, the reference column carries <span class="demo"><span class="tag ref">Reference</span></span>. Press <span class="demo"><span class="tag">Set as ref</span></span> on another column to switch. When the reference is not in the compare list, the first column acts as <span class="demo"><span class="tag ref">Baseline</span></span>.</div></li>
+      <li><span class="step-n">5</span><div><b>Clear it</b> with the × on the pill, or press the target again. The reference is separate from the compare list. Clearing the list keeps it.</div></li>
+    </ol>
+  </section>
+  <section class="panel hguide">
+    <h2>Compare sizes at true scale</h2>
+    <ol class="steps">
+      <li><span class="step-n">1</span><div><b>Queue up to four devices.</b> Tick the checkbox in the table, press <span class="demo"><span class="addb sm">Add to compare <span>+</span></span></span> on a card, or type a name in the header search.</div></li>
+      <li><span class="step-n">2</span><div><b>Open Compare.</b> The size panel draws the outlines at 1 unit = 1 mm, overlaid or side by side. Views: front, back, top for thickness, and side. Clamshells are drawn open.</div></li>
+      <li><span class="step-n">3</span><div><b>Try the 3D tab.</b> It stacks the outline to the stated thickness. Drag to rotate, or use the view presets.</div></li>
+      <li><span class="step-n">4</span><div><b>Read the grid.</b> Every spec in one table. "Differences only" hides identical rows. The best value in each row is marked <span class="demo"><span class="best">Best</span></span>.</div></li>
+    </ol>
+  </section>
+  <section class="panel hguide">
+    <h2>About the data</h2>
+    <ul class="hnotes">
+      <li>Every value has a source. On a device sheet, a dotted underline opens the link. Conflicts and unresolved fields are listed.</li>
+      <li>Weight is the measured figure where a reviewer weighed a unit, else the stated one. The sheet shows both.</li>
+      <li>Sizes describe the device as held: controllers on, battery pack on. A clamshell uses its closed footprint and is drawn open.</li>
+      <li>PassMark scores are per chip and mix TDPs and host devices. Treat them as a rough guide.</li>
+    </ul>
+  </section>
+</main>
+
+<main class="main" id="scr-browse" aria-label="Browse" hidden>
   <div class="phead">
-    <div><p class="eyebrow" id="eyebrow">Loading data</p><h1 class="hero">Find your next handheld</h1></div>
-    <p class="lede">True-scale outlines, PassMark scores per SoC, and a side-by-side diff for up to four devices.</p>
+    <div><p class="eyebrow" id="eyebrow">Loading data</p><h1 id="browse-h1">Browse handhelds</h1></div>
+    <p class="lede">Filter, search and sort. Pick a reference to see how every device differs from it.</p>
   </div>
   <div class="bgrid">
     <aside class="side panel" id="side" aria-label="Filters"></aside>
@@ -638,14 +709,29 @@ button.tag:hover { filter: brightness(.95); }
     return { w, h, path: rr(w, h, Math.min(18, h * 0.18)), kind: "box", screen: view === "top" ? screenBox(d, w, h) : null };
   }
   const scrRect = (s, cls) => (s ? '<rect class="' + cls + '" x="' + r2(s.x) + '" y="' + r2(s.y) + '" width="' + r2(s.w) + '" height="' + r2(s.h) + '"/>' : "");
+  /* A clamshell stores its closed footprint as the size. The face-on views draw it open: deck below, a lid of the same footprint above, screen in the lid. */
+  const isClam = (d) => d.form_factor === "clamshell";
+  function lidScreen(d, w, h) {
+    const s = d.screen || {};
+    if (!(s.size_in && s.res_w && s.res_h && w && h)) return null;
+    const ar = s.res_w / s.res_h, D = s.size_in * 25.4, sw = Math.min(w * 0.98, D * ar / Math.sqrt(1 + ar * ar)), sh = Math.min(h * 0.98, D / Math.sqrt(1 + ar * ar));
+    return { x: (w - sw) / 2, y: (h - sh) / 2, w: sw, h: sh };
+  }
+  function openParts(d, o, view) {
+    if (!isClam(d)) return { w: o.w, h: o.h, parts: [{ path: o.path, ty: 0 }], screen: o.screen, hinge: null, deckY: 0 };
+    const lid = rr(o.w, o.h, Math.min(10, o.h * 0.1));
+    return { w: o.w, h: o.h * 2, parts: [{ path: lid, ty: 0, lid: true }, { path: o.path, ty: o.h }], screen: view === "front" ? (o.screen || lidScreen(d, o.w, o.h)) : null, hinge: o.h, deckY: o.h };
+  }
+  const partsSvg = (sh, cls, extra) => sh.parts.map((pt) => '<path class="' + cls + (pt.lid ? " lid" : "") + '"' + (pt.ty ? ' transform="translate(0 ' + r2(pt.ty) + ')"' : "") + ' d="' + esc(pt.path) + '"' + (extra || "") + "/>").join("") +
+    (sh.hinge != null ? '<line class="hinge" x1="0" y1="' + r2(sh.hinge) + '" x2="' + r2(sh.w) + '" y2="' + r2(sh.hinge) + '"/>' : "");
   const VIEW_NAME = { front: "Front", back: "Back", top: "Top", side: "Side" };
   /* A shape for the size panel. Front and back use the outlines. Top and side are boxes from the stated size. */
   function shapeFor(d, view) {
     const dm = dimsH(d);
-    if (view === "front" || view === "back") { const o = outline(d, view === "front" ? "top" : "bottom"); return { w: o.w, h: o.h, path: o.path, screen: o.screen, grip: null }; }
-    if (view === "top") { const w = dm.w || 280, h = dm.d || 20; return { w, h, path: rr(w, h, Math.min(10, Math.min(w, h) * .3)), screen: null, grip: dm.d_max > h ? { w, h: dm.d_max } : null }; }
+    if (view === "front" || view === "back") { const p = openParts(d, outline(d, view === "front" ? "top" : "bottom"), view); return { w: p.w, h: p.h, parts: p.parts, hinge: p.hinge, screen: p.screen, grip: null }; }
+    if (view === "top") { const w = dm.w || 280, h = dm.d || 20; return { w, h, parts: [{ path: rr(w, h, Math.min(10, Math.min(w, h) * .3)), ty: 0 }], hinge: null, screen: null, grip: dm.d_max > h ? { w, h: dm.d_max } : null }; }
     const w = dm.d || 20, h = dm.h || 115;
-    return { w, h, path: rr(w, h, Math.min(10, Math.min(w, h) * .3)), screen: null, grip: dm.d_max > w ? { w: dm.d_max, h } : null };
+    return { w, h, parts: [{ path: rr(w, h, Math.min(10, Math.min(w, h) * .3)), ty: 0 }], hinge: null, screen: null, grip: dm.d_max > w ? { w: dm.d_max, h } : null };
   }
 
   /* ---------- deltas ---------- */
@@ -753,14 +839,14 @@ button.tag:hover { filter: brightness(.95); }
   const KEY = "handheld-atlas:v3";
   const PRESET = { iso: [-14, -30], front: [0, 0], top: [-80, 0], side: [0, -88] };
   const state = {
-    route: "browse", detailId: null, queue: [], refId: null, sortK: "g3d", sortDir: -1, f: DEF_F(), groups: DEF_GROUPS.slice(),
-    layout: "table", hideSame: true, sizeOpen: true, sizeTab: "2d", sizeView: "front", sizeMode: "overlay", rx: -14, ry: -30, theme: null, rowLimit: 30
+    route: "home", detailId: null, queue: [], refId: null, sortK: "g3d", sortDir: -1, f: DEF_F(), groups: DEF_GROUPS.slice(),
+    layout: "cards", hideSame: true, sizeOpen: true, sizeTab: "2d", sizeView: "front", sizeMode: "overlay", rx: -14, ry: -30, theme: null, rowLimit: 30
   };
   function readStore(k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } }
   let storedTheme = null;
   function defaults(keepRoute) {
-    const keep = keepRoute ? { route: state.route, detailId: state.detailId, rowLimit: state.rowLimit } : { route: "browse", detailId: null, rowLimit: 30 };
-    Object.assign(state, { queue: [], refId: null, sortK: "g3d", sortDir: -1, f: DEF_F(), groups: DEF_GROUPS.slice(), layout: "table", hideSame: true, sizeOpen: true,
+    const keep = keepRoute ? { route: state.route, detailId: state.detailId, rowLimit: state.rowLimit } : { route: "home", detailId: null, rowLimit: 30 };
+    Object.assign(state, { queue: [], refId: null, sortK: "g3d", sortDir: -1, f: DEF_F(), groups: DEF_GROUPS.slice(), layout: "cards", hideSame: true, sizeOpen: true,
       sizeTab: "2d", sizeView: "front", sizeMode: "overlay", rx: PRESET.iso[0], ry: PRESET.iso[1], theme: null }, keep);
     storedTheme = null;
   }
@@ -797,7 +883,7 @@ button.tag:hover { filter: brightness(.95); }
     if (typeof s.rx === "number" && typeof s.ry === "number") { state.rx = clamp(s.rx, -89, 89); state.ry = s.ry; }
     if (s.theme === "light" || s.theme === "dark") { storedTheme = s.theme; state.theme = s.theme; }
     if (!sync) {
-      if (s.route === "compare" || s.route === "detail" || s.route === "browse") state.route = s.route;
+      if (s.route === "compare" || s.route === "detail" || s.route === "browse" || s.route === "home") state.route = s.route;
       if (typeof s.detailId === "string" && hasKey(BY_ID, s.detailId)) state.detailId = s.detailId;
     }
     if (forcedTheme) state.theme = forcedTheme;
@@ -1072,13 +1158,13 @@ button.tag:hover { filter: brightness(.95); }
   }
   function cardHtml(d, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
-    const sh = outline(d, "top"), silH = Math.round(84 * Math.min(1, sh.w / 360));
+    const sh = openParts(d, outline(d, "top"), "front"), silH = Math.round(84 * Math.min(1, sh.w / 360));
     const stat = (label, v, text, low) => { const dl = ref && !isRef ? delta(v, low === "nd" ? null : ref._stat[label], low === true) : null; return '<div class="stat"><div class="stat-l">' + label + '</div><div class="stat-v"><span>' + esc(text) + "</span>" + dpill(dl) + "</div></div>"; };
     d._stat = { Weight: d._w, "G3D Mark": scoreOf(d, "g3d_mark"), Screen: (d.screen || {}).size_in, Battery: (d.battery || {}).wh };
     if (ref && !ref._stat) ref._stat = { Weight: ref._w, "G3D Mark": scoreOf(ref, "g3d_mark"), Screen: (ref.screen || {}).size_in, Battery: (ref.battery || {}).wh };
     const s = d.screen || {};
     return '<article class="card' + (isRef ? " ref" : "") + '" data-id="' + id + '">' +
-      '<div class="plate"><svg class="sil" viewBox="0 0 ' + sh.w + " " + sh.h + '" style="height:' + silH + 'px" aria-hidden="true"><path class="o" d="' + esc(sh.path) + '"/>' + scrRect(sh.screen, "scr") + "</svg>" +
+      '<div class="plate"><svg class="sil" viewBox="0 0 ' + r2(sh.w) + " " + r2(sh.h) + '" style="height:' + silH + 'px" aria-hidden="true">' + partsSvg(sh, "o") + scrRect(sh.screen, "scr") + "</svg>" +
       refBtn(d, isRef, "cref-") + "</div>" +
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + (d.variant ? '<div class="dev-v">' + esc(d.variant) + "</div>" : "") + '</div><div class="price">' + priceTxt(d) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
@@ -1169,8 +1255,9 @@ button.tag:hover { filter: brightness(.95); }
     if (!is3) h += '<div class="grp-c"><span class="lbl">Layout</span>' + chip("size-mode", "overlay", "Overlay", s.sizeMode === "overlay", "mode-overlay") + chip("size-mode", "side", "Side by side", s.sizeMode === "side", "mode-side") + "</div>";
     else h += '<span class="mute sm">Drag to rotate</span>';
     h += "</div>";
-    h += '<div class="size-b">' + (is3 ? '<div class="stage stage3d" id="stage3d" role="img" aria-label="3D view. Drag to rotate."><div class="rot" id="rot"></div></div>' : svg2d(cols)) + legendHtml(cols, cref, hasRef) + "</div></section>";
-    return h;
+    h += '<div class="size-b">' + (is3 ? '<div class="stage stage3d" id="stage3d" role="img" aria-label="3D view. Drag to rotate."><div class="rot" id="rot"></div></div>' : svg2d(cols)) + legendHtml(cols, cref, hasRef) + "</div>";
+    if (cols.some(isClam)) h += '<p class="dnote">Clamshells are drawn open in the front and back views: deck below, lid above. Their sizes are the closed footprint.</p>';
+    return h + "</section>";
   }
   function svg2d(cols) {
     const shapes = cols.map((d) => shapeFor(d, state.sizeView));
@@ -1184,7 +1271,7 @@ button.tag:hover { filter: brightness(.95); }
       if (state.sizeMode === "overlay") { tx = (MW - W) / 2; ty = (MH - H) / 2; } else { tx = xo; ty = MH - H; xo += W + gap; }
       let g = '<g class="s' + (i + 1) + '" transform="translate(' + r2(tx) + " " + r2(ty) + ')">';
       if (sh.grip) g += '<rect class="grip" x="0" y="0" width="' + r2(sh.grip.w) + '" height="' + r2(sh.grip.h) + '" rx="2"/>';
-      g += '<path class="shp" d="' + esc(sh.path) + '" style="stroke-dasharray:' + DASH[i] + '"/>' + scrRect(sh.screen, "scr");
+      g += partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + scrRect(sh.screen, "scr");
       return g + "<title>" + esc(cols[i]._name) + "</title></g>";
     });
     const totW = state.sizeMode === "overlay" ? MW : Math.max(1, xo - gap);
@@ -1452,15 +1539,17 @@ button.tag:hover { filter: brightness(.95); }
     closePop();
     drSrc = [];
     const ref = refDev(), isR = !!ref && ref.id === d.id, q = inQ(d.id), dis = !q && qFull(), id = esc(d.id);
-    const sh = outline(d, "top"), dm = dimsH(d), W = sh.w, H = sh.h, pad = W * 0.06;
+    const o = outline(d, "top"), sh = openParts(d, o, "front"), dm = dimsH(d), W = o.w, H = o.h, DY = sh.deckY, pad = W * 0.06;
     const soc = socOf(d), pm = (soc && soc.passmark) || {};
     const rank = (k) => { const vals = [...new Set(DEV.map((x) => scoreOf(x, k)).filter((x) => x != null))].sort((a, b) => b - a); const r = vals.indexOf(scoreOf(d, k)); return r < 0 ? "" : "#" + (r + 1) + "/" + vals.length; };
     const tile = (l, v) => '<div class="tile"><div class="stat-l">' + l + '</div><div class="v">' + esc(v) + "</div></div>";
     let h = '<div><button type="button" class="btn-t" data-act="go" data-route="browse">← Back to list</button></div><div class="dgrid"><div class="dcol">';
-    h += '<div class="panel"><div class="dstage"><svg viewBox="' + [r2(-pad), r2(-pad), r2(W + pad * 2), r2(H + pad * 2.4)].join(" ") + '" role="img" aria-label="Outline of ' + esc(d._name) + ", " + (sh.kind === "traced" ? "traced" : "spec box") + '">' +
-      '<path class="o" d="' + esc(sh.path) + '"/>' + scrRect(sh.screen, "scr") +
-      '<path class="dim" d="M0 ' + r2(H + pad * 1.4) + "H" + W + "M0 " + r2(H + pad * 1.1) + "V" + r2(H + pad * 1.7) + "M" + W + " " + r2(H + pad * 1.1) + "V" + r2(H + pad * 1.7) + '"/>' +
-      '<path class="dim" d="M' + r2(-pad * .6) + " 0V" + H + "M" + r2(-pad * .9) + " 0H" + r2(-pad * .3) + "M" + r2(-pad * .9) + " " + H + "H" + r2(-pad * .3) + '"/></svg></div>';
+    const TH = sh.h, B = TH + pad * 1.4;
+    h += '<div class="panel"><div class="dstage"><svg viewBox="' + [r2(-pad), r2(-pad), r2(W + pad * 2), r2(TH + pad * 2.4)].join(" ") + '" role="img" aria-label="Outline of ' + esc(d._name) + ", " + (o.kind === "traced" ? "traced" : "spec box") + (isClam(d) ? ", drawn open" : "") + '">' +
+      partsSvg(sh, "o") + scrRect(sh.screen, "scr") +
+      '<path class="dim" d="M0 ' + r2(B) + "H" + W + "M0 " + r2(B - pad * .3) + "V" + r2(B + pad * .3) + "M" + W + " " + r2(B - pad * .3) + "V" + r2(B + pad * .3) + '"/>' +
+      '<path class="dim" d="M' + r2(-pad * .6) + " " + r2(DY) + "V" + r2(DY + H) + "M" + r2(-pad * .9) + " " + r2(DY) + "H" + r2(-pad * .3) + "M" + r2(-pad * .9) + " " + r2(DY + H) + "H" + r2(-pad * .3) + '"/></svg></div>' +
+      (isClam(d) ? '<p class="dnote">Drawn open: deck below, lid above. The size is the closed footprint; the height line marks the deck.</p>' : "");
     h += '<div class="tiles">' + tile("Width", dm.w ? mm(dm.w) + " mm" : "—") + tile("Height", dm.h ? mm(dm.h) + " mm" : "—") +
       tile("Thickness", dm.d ? mm(dm.d) + (dm.d_max != null ? " / " + mm(dm.d_max) : "") + " mm" : "—") + tile("Weight", d._w != null ? n0(d._w) + " g" : "—") + "</div></div>";
     h += '<div class="panel pm"><div class="pm-h"><b>PassMark</b><span>' + esc([soc && soc.name, soc && soc.igpu && soc.igpu.name, tdpText(soc)].filter(Boolean).join(" · ")) + "</span></div><div>" +
@@ -1532,10 +1621,11 @@ button.tag:hover { filter: brightness(.95); }
     closeFloating();
     state.route = route;
     if (route === "detail") state.detailId = id;
+    $("#scr-home").hidden = route !== "home";
     $("#scr-browse").hidden = route !== "browse";
     $("#scr-compare").hidden = route !== "compare";
     $("#scr-detail").hidden = route !== "detail";
-    $("#nav-browse").setAttribute("aria-pressed", String(route !== "compare"));
+    $("#nav-browse").setAttribute("aria-pressed", String(route === "browse" || route === "detail"));
     $("#nav-compare").setAttribute("aria-pressed", String(route === "compare"));
     if (route === "compare") renderCompare();
     else if (route === "detail") renderDetail();
@@ -1546,7 +1636,7 @@ button.tag:hover { filter: brightness(.95); }
     /* A hidden screen drops focus to body. After a user action, focus moves into the new screen: the sheet title, the compare title, or the row that opened the sheet. */
     if (route === "detail") { const h1 = $("#dt-h1"); if (h1) h1.focus({ preventScroll: true }); }
     else if (userNav && !same) {
-      let tgt = route === "compare" ? $("#cmp-h1") : null;
+      let tgt = route === "compare" ? $("#cmp-h1") : route === "home" ? $("#home-h1") : null;
       if (route === "browse") { const back = lastOpener && document.getElementById(lastOpener); tgt = back && back.offsetParent !== null ? back : $("#lbar"); }
       if (tgt) {
         tgt.focus({ preventScroll: true });
@@ -1559,12 +1649,17 @@ button.tag:hover { filter: brightness(.95); }
   }
   function routeFromHash() {
     const h = (location.hash || "").slice(1);
-    if (h === "compare" || h === "browse") { go(h); return true; }
+    if (h === "compare" || h === "browse" || h === "home") { go(h); return true; }
     if (hasKey(BY_ID, h)) { go("detail", h); return true; }
     return false;
   }
   /* An unknown hash keeps the current screen and puts its token back in the address. */
-  window.addEventListener("hashchange", () => { if (!routeFromHash()) go(state.route, state.detailId); });
+  window.addEventListener("hashchange", () => {
+    if (routeFromHash()) return;
+    const h = (location.hash || "").slice(1), el = h && document.getElementById(h);
+    if (el && state.route === "home" && el.closest("#scr-home")) { el.scrollIntoView({ block: "start" }); try { history.replaceState(null, "", "#home"); } catch (e) { /* ignore */ } return; }
+    go(state.route, state.detailId);
+  });
 
   /* ---------- events ---------- */
   function focusId(fid) {
@@ -1592,7 +1687,7 @@ button.tag:hover { filter: brightness(.95); }
       case "hide-same": if (focusId("hide-same")) return; break;
       default: break;
     }
-    const tgt = state.route === "browse" ? $("#lbar") : state.route === "compare" ? $("#cmp-h1") : $("#dt-h1");
+    const tgt = state.route === "browse" ? $("#lbar") : state.route === "compare" ? $("#cmp-h1") : state.route === "home" ? $("#home-h1") : $("#dt-h1");
     if (tgt) tgt.focus({ preventScroll: true });
   }
   document.addEventListener("click", (e) => {
@@ -1731,6 +1826,10 @@ button.tag:hover { filter: brightness(.95); }
   applyTheme();
   $("#cnt").textContent = DEV.length;
   $("#eyebrow").textContent = DEV.length + " x86 handhelds · 2022 onward";
+  $("#home-eyebrow").textContent = DEV.length + " x86 handhelds · 2022 onward";
+  $("#home-n").textContent = DEV.length; $("#home-socs").textContent = SOCS.length;
+  $("#home-traced").textContent = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced").length;
+  $("#home-date").textContent = dataDate;
   $("#site-foot").innerHTML = "<p>" + DEV.length + " devices · " + SOCS.length + " chips · data " + esc(dataDate) + ". Every value has a source. Open a device to see its sources, conflicts and unresolved fields. A value with a dotted underline has its own source; click it to see the link.</p>" +
     "<p>Sizes and weights describe the device as held: controllers on, battery pack on, lid open. Top outlines are traced from official renders where possible. Other views are boxes from the stated sizes.</p>" +
     '<p>The idea comes from <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>. To rebuild the page, run <code>uv run build_site.py</code> in <code>scripts/</code>.</p>';
