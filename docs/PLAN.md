@@ -66,7 +66,7 @@ handheld-atlas/
 
 | Group | Fields |
 |---|---|
-| Identity | `id`, `brand`, `model`, `variant`, `status` (shipped / pre-order / announced), `announce_date`, `release_date`, `msrp_usd` |
+| Identity | `id`, `brand`, `model`, `variant`, `status` (shipped / pre-order / announced), `announce_date`, `release_date`, `msrp_usd`, `msrp_type`, `msrp_note` |
 | Size | `dims_mm {handheld: {w, h, d}, tablet_only?, closed?, with_keyboard?}` and `weight_g {handheld: {stated, measured, measured_source}, tablet_only?, without_battery?, closed?}`. `handheld` is required: controllers attached, battery attached, lid open for clamshells. The overlay and the default table column use `handheld`. Alternates are optional and shown as a tooltip. |
 | Compute | `soc_id` (FK to socs), `ram {sizes_gb[], type, speed_mts, channels}` |
 | Storage | `storage {slots[{form_factor: 2230|2242|2280, pcie_gen, lanes}], expansion[] (microSD, SD, mini SSD 1517)}` |

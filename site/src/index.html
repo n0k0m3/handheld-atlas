@@ -495,6 +495,15 @@ button.tag:hover { filter: brightness(.95); }
 .dl .why { display: block; color: var(--fg-2); font-size: 12px; overflow-wrap: anywhere; }
 .dl .url { display: block; font: 11px var(--f-mono); color: var(--fg-2); overflow-wrap: anywhere; }
 .cfv { display: grid; gap: 2px; margin-top: 2px; }
+/* Price mark: * after a price that is not a retail MSRP. The ::after box gives a 24 px target. */
+.pmark { position: relative; display: inline-block; margin: 0 0 0 2px; padding: 0 2px; border: 0; border-radius: 4px; background: none; color: var(--fg-brand); font: 700 1.05em/1 var(--f-mono); cursor: help; }
+.pmark::after { content: ""; position: absolute; inset: -6px -7px; }
+.pmark:hover { background: var(--bg-hover); }
+.pmark-demo { color: var(--fg-brand); font: 700 1.05em/1 var(--f-mono); }
+#tip { position: fixed; z-index: 70; width: max-content; max-width: min(280px, calc(100vw - 32px)); padding: 6px 10px; border-radius: 8px; background: var(--fg); color: var(--bg); font: 500 12px/1.45 var(--f-ui); box-shadow: var(--shadow); }
+#tip::before { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 8px; }
+#tip.below::before { top: auto; bottom: 100%; }
+@media (forced-colors: active) { #tip { border: 1px solid CanvasText; } }
 #pop { position: fixed; z-index: 60; width: max-content; max-width: min(360px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); padding: 10px 14px 12px; font-size: 13px; }
 #pop h4 { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); font-weight: 700; margin: 0 0 6px; }
 #pop ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
@@ -618,7 +627,7 @@ button.tag:hover { filter: brightness(.95); }
         <button type="button" class="more" id="more-btn" data-act="show-all" hidden></button>
         <div class="empty" id="empty" hidden>No devices match these filters. <button type="button" class="btn-t" data-act="reset-f">Reset filters</button></div>
       </div>
-      <p class="foot">PassMark scores are per SoC and mix TDPs and host devices. Treat them as a rough guide. Weight is the measured figure where available, otherwise the stated one.</p>
+      <p class="foot">PassMark scores are per SoC and mix TDPs and host devices. Treat them as a rough guide. Weight is the measured figure where available, otherwise the stated one. A price with a <span class="pmark-demo">*</span> is not a retail MSRP, for example a crowdfunding or pre-order price. Point at the * or focus it to see the kind.</p>
     </section>
   </div>
 </main>
@@ -629,6 +638,7 @@ button.tag:hover { filter: brightness(.95); }
 <footer class="site-foot" id="site-foot"></footer>
 </div>
 <div id="pop" role="dialog" aria-label="Source" tabindex="-1" hidden></div>
+<div id="tip" aria-hidden="true" hidden></div>
 
 <!--ATLAS_DATA-->
 <script>
@@ -685,6 +695,15 @@ button.tag:hover { filter: brightness(.95); }
   const weightVal = (d) => { const w = wH(d); return w.measured != null ? w.measured : (w.stated != null ? w.stated : null); };
   const scoreOf = (d, k) => { const s = socOf(d); return s && s.passmark && s.passmark[k] != null ? s.passmark[k] : null; };
   const priceTxt = (d) => (d.msrp_usd != null ? "$" + n0(d.msrp_usd) : "—");
+  /* msrp_type says what kind of price msrp_usd is. Every kind except "msrp" gets a * mark with a tooltip. */
+  const PTYPE = {
+    crowdfunding: "Crowdfunding price. It is not a retail MSRP.",
+    preorder: "Pre-order price. It is not a retail MSRP.",
+    sale: "Launch discount price. It is lower than the list price.",
+    store: "Store price read after launch. It can differ from the launch price.",
+  };
+  const priceTip = (d) => (d.msrp_usd != null && hasKey(PTYPE, d.msrp_type) ? PTYPE[d.msrp_type] + (d.msrp_note ? " " + d.msrp_note : "") : "");
+  const pmark = (d) => { const t = priceTip(d); return t ? '<button type="button" class="pmark" data-act="tip" data-tip="' + esc(t) + '" aria-label="Price note: ' + esc(t) + '">*</button>' : ""; };
   const NS = '<span class="na">Not stated</span>';
   const KLABEL = { tmr: "TMR", hall: "Hall", capacitive: "Capacitive", potentiometer: "Potentiometer", optical: "Optical", digital: "Digital", unknown: "Not stated" };
   const FORM = { classic: "Classic", clamshell: "Clamshell", "3-in-1": "3-in-1, detachable", slider: "Slider", other: "Other" };
@@ -816,7 +835,7 @@ button.tag:hover { filter: brightness(.95); }
 
   /* ---------- table columns, grouped ---------- */
   const COLS = [
-    { k: "price", g: "Price", label: "MSRP", v: (d) => d.msrp_usd, t: priceTxt, low: true, num: true },
+    { k: "price", g: "Price", label: "MSRP", v: (d) => d.msrp_usd, t: priceTxt, mark: pmark, low: true, num: true },
     { k: "weight", g: "Size", label: "Weight", v: (d) => d._w, t: (d) => (d._w != null ? n0(d._w) + " g" : "—"), low: true, num: true,
       sub: (d) => { const w = wH(d); return [w.measured == null && w.stated != null ? "stated" : "", ext(d) ? "with pack" : ""].filter(Boolean).join(", "); } },
     { k: "dims", g: "Size", label: "W × H × D", v: (d) => { const h = dimsH(d); return h.w && h.h && h.d ? h.w * h.h * h.d : null; },
@@ -843,7 +862,7 @@ button.tag:hover { filter: brightness(.95); }
   const scr = (d) => d.screen || {};
   const CROWS = [
     ["Overview", [
-      ["MSRP", priceTxt, (d) => d.msrp_usd, "low"],
+      ["MSRP", priceTxt, (d) => d.msrp_usd, "low", pmark],
       ["Status", (d) => STATUS[d.status] || d.status || "—"],
       ["Released", (d) => d.release_date || "—"],
       ["Form factor", (d) => FORM[d.form_factor] || d.form_factor || "—"]]],
@@ -1476,7 +1495,7 @@ button.tag:hover { filter: brightness(.95); }
     const val = c.v(d);
     const dl = ref && !isRef && !c.nodelta && !c.text ? delta(val, c.v(ref), c.low) : null;
     const sub = c.sub ? c.sub(d) : "";
-    return '<td><div class="ct' + (c.num ? " m" : "") + (c.strong ? " b" : "") + (c.wrap ? " wrap" : "") + '">' + esc(c.t(d)) + "</div>" + (sub ? '<div class="cs">' + esc(sub) + "</div>" : "") + dpill(dl) + "</td>";
+    return '<td><div class="ct' + (c.num ? " m" : "") + (c.strong ? " b" : "") + (c.wrap ? " wrap" : "") + '">' + esc(c.t(d)) + (c.mark ? c.mark(d) : "") + "</div>" + (sub ? '<div class="cs">' + esc(sub) + "</div>" : "") + dpill(dl) + "</td>";
   }
   function refBtn(d, isRef, prefix) {
     const id = esc(d.id);
@@ -1505,7 +1524,7 @@ button.tag:hover { filter: brightness(.95); }
     return '<article class="card' + (isRef ? " ref" : "") + '" data-id="' + id + '">' +
       '<div class="plate"><svg class="sil" viewBox="0 0 ' + r2(sh.w) + " " + r2(sh.h) + '" style="height:' + silH + 'px" aria-hidden="true">' + partsSvg(sh, "o") + scrRect(sh.screen, "scr") + "</svg>" +
       refBtn(d, isRef, "cref-") + "</div>" +
-      '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + (d.variant ? '<div class="dev-v">' + esc(d.variant) + "</div>" : "") + '</div><div class="price">' + priceTxt(d) + "</div></div>" +
+      '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + (d.variant ? '<div class="dev-v">' + esc(d.variant) + "</div>" : "") + '</div><div class="price">' + priceTxt(d) + pmark(d) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
       stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" + (s.refresh_hz ? " " + s.refresh_hz + " Hz" : "") : "—", false) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
       '<button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare" : dis ? "List full" : "Add to compare") + " <span>" + (q ? "✓" : "+") + "</span></button></article>";
@@ -1707,14 +1726,14 @@ button.tag:hover { filter: brightness(.95); }
     const scroll = gridScrollWanted(), minW = scroll ? (lblW + ncol * colW) + "px" : "0";
     lastScroll = scroll;
     let hidden = 0;
-    const secs = CROWS.map(([name, rows]) => ({ name, rows: rows.map(([label, t, num, better]) => {
-      const texts = cols.map(t), diff = new Set(texts).size > 1;
+    const secs = CROWS.map(([name, rows]) => ({ name, rows: rows.map(([label, t, num, better, mark]) => {
+      const texts = cols.map(t), marks = cols.map((d) => (mark ? mark(d) : "")), diff = new Set(texts.map((x, i) => x + marks[i])).size > 1;
       if (state.hideSame && n > 1 && !diff) { hidden++; return null; }
       const nums = num ? cols.map(num) : [], valid = nums.filter((x) => typeof x === "number");
       const best = better && better !== "n" && new Set(valid).size > 1 ? (better === "low" ? Math.min(...valid) : Math.max(...valid)) : null;
       return { label, diff, cells: cols.map((d, i) => {
         const isR = d === cref, dl = num && !isR && cref ? delta(nums[i], num(cref), better === "low" ? true : better === "n" ? "n" : false) : null;
-        return { text: texts[i], dl, best: best != null && nums[i] === best, mono: !!num, isR };
+        return { text: texts[i], mark: marks[i], dl, best: best != null && nums[i] === best, mono: !!num, isR };
       }) };
     }).filter(Boolean) })).filter((x) => x.rows.length);
     const hint = hasRef ? "Deltas compare against the reference column. Press “Reference” again to turn them off."
@@ -1727,7 +1746,7 @@ button.tag:hover { filter: brightness(.95); }
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
         '<div class="ccol-t"><span class="dev-b">' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<button type="button" class="ccol-n" id="copen2-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + (d.variant ? '<div class="dev-v">' + esc(d.variant) + "</div>" : "") +
-        '<div class="ccol-f"><span class="price">' + priceTxt(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? "Reference" : "Baseline") : "Set as ref") + "</button></div></div>";
+        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? "Reference" : "Baseline") : "Set as ref") + "</button></div></div>";
     }).join("");
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false"></div><div class="dd" id="sq-dd" hidden></div></div>';
     h += "</div>";
@@ -1736,7 +1755,7 @@ button.tag:hover { filter: brightness(.95); }
       sec.rows.forEach((row) => {
         h += '<div class="cgrid' + (!state.hideSame && row.diff && n > 1 ? " diff" : "") + '" style="grid-template-columns:' + gcols + '"><div class="clbl">' + esc(row.label) + "</div>";
         row.cells.forEach((c) => {
-          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + esc(c.text) + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">Best</span>' : "") + "</div></div>";
+          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + esc(c.text) + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">Best</span>' : "") + "</div></div>";
         });
         if (slot) h += '<div class="ccell"></div>';
         h += "</div>";
@@ -1874,7 +1893,7 @@ button.tag:hover { filter: brightness(.95); }
       ["Status", sv(STATUS[d.status] || d.status, own(d, ["status"]))],
       ["Announced", d.announce_date ? sv(d.announce_date, own(d, ["announce_date"]), true) : NS],
       ["Released", d.release_date ? sv(d.release_date, own(d, ["release_date"]), true) : NS],
-      ["Launch price", d.msrp_usd != null ? sv("$" + NF.format(d.msrp_usd), own(d, ["msrp_usd"]), true) + sub("Base configuration of this variant") : NS],
+      ["Launch price", d.msrp_usd != null ? sv("$" + NF.format(d.msrp_usd), own(d, ["msrp_usd"]), true) + pmark(d) + sub(priceTip(d)) + sub("Base configuration of this variant") : NS],
       ["OS", (d.os || []).length ? sv(d.os.join(", "), own(d, ["os"])) : NS],
       ["Wi-Fi", w.wifi ? sv(w.wifi, own(d, ["wireless.wifi", "wireless"])) : NS],
       ["Bluetooth", w.bt ? sv(w.bt, own(d, ["wireless.bt", "wireless"]), true) : NS],
@@ -1927,7 +1946,7 @@ button.tag:hover { filter: brightness(.95); }
       }).join("") + "</div>" +
       '<div class="pm-n">' + esc((ref && !isR ? "Tick mark = " + ref._short + " (reference). " : "") + "Bars scale to the fastest handheld in the list." + (pm.mapping_note ? " " + pm.mapping_note : "")) + "</div></div>";
     h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + esc(d.brand) + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + (d.variant ? '<div class="mute">' + esc(d.variant) + "</div>" : "") + "</div>" +
-      '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released ' + esc(d.release_date) + "</span>" : "") + "</div>" +
+      '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released ' + esc(d.release_date) + "</span>" : "") + "</div>" +
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare list" : dis ? "Compare list full" : "Add to compare") + " <span>" + (q ? "✓" : "+") + "</span></button>" +
       '<button type="button" class="btn-o" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '">' + (isR ? "Reference device" : "Set as reference") + "</button>" +
       '<button type="button" class="btn-t" data-act="go" data-route="compare">Open comparison (' + state.queue.length + ") →</button></div></div>";
@@ -1971,7 +1990,36 @@ button.tag:hover { filter: brightness(.95); }
     if (had && b && b.isConnected) b.focus({ preventScroll: true });
   }
   function togglePop(btn) { if (popBtn === btn && !pop.hidden) closePop(); else openPop(btn); }
-  function closeFloating() { closePop(); toggleQpop(false); hideDD(); }
+
+  /* ---------- price tooltip ---------- */
+  /* Shows on hover, focus or tap of a .pmark. It sits above the mark (below when the header is in the way),
+     follows scroll and re-renders frame by frame, can be hovered, and Escape hides it. */
+  const tip = $("#tip");
+  let tipBtn = null;
+  function placeTip() {
+    if (!tipBtn || !tipBtn.isConnected) return false;
+    const r = tipBtn.getBoundingClientRect(), hb = $("#hdr").getBoundingClientRect().bottom;
+    if (!r.width || r.bottom < hb || r.top > window.innerHeight) return false;
+    const tw = tip.offsetWidth, th = tip.offsetHeight, vw = root.clientWidth;
+    const x = clamp(r.left + r.width / 2 - tw / 2, 8, Math.max(8, vw - tw - 8));
+    let y = r.top - th - 6;
+    const below = y < hb + 4;
+    if (below) y = r.bottom + 6;
+    tip.classList.toggle("below", below);
+    tip.style.left = Math.round(x) + "px"; tip.style.top = Math.round(y) + "px";
+    return true;
+  }
+  function tipLoop() { if (tip.hidden) return; if (!placeTip()) { hideTip(); return; } requestAnimationFrame(tipLoop); }
+  function showTip(btn) {
+    if (tipBtn === btn && !tip.hidden) return;
+    const running = !tip.hidden;
+    tipBtn = btn; tip.textContent = btn.dataset.tip || ""; tip.hidden = false;
+    tip.style.left = "0px"; tip.style.top = "0px";
+    if (!placeTip()) { hideTip(); return; }
+    if (!running) requestAnimationFrame(tipLoop);
+  }
+  function hideTip() { tipBtn = null; tip.hidden = true; }
+  function closeFloating() { closePop(); toggleQpop(false); hideDD(); hideTip(); }
   function focusNextAfter(el, dir) {
     if (!el) return;
     const all = $$(FOCUSABLE).filter((x) => x === el || (x.offsetParent !== null && !pop.contains(x)));
@@ -2064,6 +2112,7 @@ button.tag:hover { filter: brightness(.95); }
   document.addEventListener("click", (e) => {
     const t = e.target.closest("[data-act]");
     if (!t) {
+      if (!tip.hidden && !tip.contains(e.target)) hideTip();
       if (!pop.hidden && !pop.contains(e.target)) closePop();
       if (!$("#qpop").hidden && !e.target.closest("#qpop")) toggleQpop(false);
       if (!e.target.closest(".srch, .cslot")) hideDD();
@@ -2072,6 +2121,7 @@ button.tag:hover { filter: brightness(.95); }
     if (t.disabled) return;
     const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length, prevQueue = state.queue.slice(), prevChip = $$("#fchips .fchip").indexOf(t);
     if (act !== "sv" && !pop.hidden) closePop();
+    if (act !== "tip") hideTip();
     if (act !== "badge" && act !== "rm" && act !== "clear-queue" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
     if (act === "go" || act === "open") userNav = true;
     if (act === "open") lastOpener = fid || null;
@@ -2104,15 +2154,17 @@ button.tag:hover { filter: brightness(.95); }
       case "size-mode": state.sizeMode = v; renderCompare(); save(); break;
       case "preset": { const p = hasKey(PRESET, v) ? PRESET[v] : null; if (!p) break; state.rx = p[0]; state.ry = p[1]; const rot = $("#rot"); if (rot) rot.style.transform = "rotateX(" + p[0] + "deg) rotateY(" + p[1] + "deg)"; syncPresetChips(); save(); break; }
       case "sv": togglePop(t); break;
+      case "tip": showTip(t); break;
       default: break;
     }
     /* Focus counts as lost when it sits on body or on a control that is now hidden (Chromium drops it only after this handler). */
     const a = document.activeElement, lost = !a || a === document.body || a.offsetParent === null || !!a.closest("[hidden]");
-    if (act !== "go" && act !== "open" && act !== "sv" && lost) restoreFocus(fid, act, id, prevVisible, prevQueue, prevChip);
+    if (act !== "go" && act !== "open" && act !== "sv" && act !== "tip" && lost) restoreFocus(fid, act, id, prevVisible, prevQueue, prevChip);
   });
   function toggleQBtn(id) { if (inQ(id)) removeQ(id); else addQ(id); }
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
+      if (!tip.hidden) { hideTip(); return; }
       if (!pop.hidden) { const b = popBtn; closePop(); if (b) b.focus(); return; }
       if (!$("#qpop").hidden) { toggleQpop(false); $("#badge").focus(); return; }
       const dd = e.target.closest ? e.target.closest(".dd") : null;
@@ -2140,6 +2192,7 @@ button.tag:hover { filter: brightness(.95); }
   });
   /* One floating layer at a time, for the keyboard too. */
   document.addEventListener("focusin", (e) => {
+    if (e.target instanceof Element && e.target.classList.contains("pmark")) showTip(e.target);
     if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); renderDD(e.target.id); }
     const fp = $("#fpanel"); lastFp = fp && e.target instanceof Element && fp.contains(e.target) ? e.target : null;
     if (e.target instanceof Element) revealInTable(e.target);
@@ -2147,6 +2200,7 @@ button.tag:hover { filter: brightness(.95); }
   document.addEventListener("focusout", (e) => {
     const t = e.target;
     if (!(t instanceof Element)) return;
+    if (t === tipBtn) hideTip();
     const box = t.closest(".dd") || ((t.id === "hq" || t.id === "sq") ? document.getElementById(t.id + "-dd") : null);
     const inQpop = !!t.closest("#qpop"), inPop = pop.contains(t);
     if (!box && !inQpop && !inPop) return;
@@ -2159,6 +2213,11 @@ button.tag:hover { filter: brightness(.95); }
     }, 0);
   });
   document.addEventListener("mousedown", (e) => { if (e.target.closest(".dd")) e.preventDefault(); });
+  document.addEventListener("mouseover", (e) => {
+    const b = e.target instanceof Element ? e.target.closest(".pmark") : null;
+    if (b) showTip(b);
+    else if (!tip.hidden && !tip.contains(e.target) && tipBtn !== document.activeElement) hideTip();
+  });
   document.addEventListener("toggle", (e) => { if (e.target.id === "help-cmp") cmpHelpOpen = e.target.open; }, true);
   document.addEventListener("pointerdown", (e) => { if (e.target.classList && e.target.classList.contains("frng")) { rngPtr = true; rngFirst = true; rngDrag = null; } }, true);
   window.addEventListener("pointerup", () => { rngPtr = false; rngDrag = null; }, true);
