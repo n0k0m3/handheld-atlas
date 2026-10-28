@@ -351,6 +351,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1; stroke-opacity: .5; vector-effect: non-scaling-stroke; }
 .stage2d .grip { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 4 3; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
 .stage2d .shp.lid { fill-opacity: .03; }
+.stage2d .shp.mod { fill-opacity: .22; }
+.sil .o.mod, .dstage .o.mod { fill: var(--slice); }
 .stage2d .hinge, .sil .hinge, .dstage .hinge { stroke: var(--fg-2); stroke-width: 1; stroke-dasharray: 3 2; stroke-opacity: .8; vector-effect: non-scaling-stroke; }
 .stage2d .hinge { stroke: var(--c); }
 .knuckle { fill: var(--fg-2); stroke: none; }
@@ -766,12 +768,19 @@ button.tag:hover { filter: brightness(.95); }
     const ar = s.res_w / s.res_h, D = s.size_in * 25.4, sw = Math.min(w * 0.98, D * ar / Math.sqrt(1 + ar * ar)), sh = Math.min(h * 0.98, D / Math.sqrt(1 + ar * ar));
     return { x: (w - sw) / 2, y: (h - sh) / 2, w: sw, h: sh };
   }
+  /* A battery module on the front edge adds to the closed footprint (GPD Win Max 3). The lid then has the body size without it,
+     and the module draws as its own strip at the front of the deck. */
+  const modDepth = (d, oh) => { const wb = (d.dims_mm || {}).without_battery, dh = dimsH(d); return wb && wb.h && dh.h && wb.h < dh.h ? oh * (dh.h - wb.h) / dh.h : 0; };
   function openParts(d, o, view) {
-    if (!isClam(d)) return { w: o.w, h: o.h, parts: [{ path: o.path, ty: 0 }], screen: o.screen, hinge: null, deckY: 0 };
-    const lid = rr(o.w, o.h, Math.min(10, o.h * 0.1));
-    return { w: o.w, h: o.h * 2, parts: [{ path: lid, ty: 0, lid: true }, { path: o.path, ty: o.h }], screen: view === "front" ? (o.screen || lidScreen(d, o.w, o.h)) : null, hinge: o.h, deckY: o.h };
+    if (!isClam(d)) return { w: o.w, h: o.h, parts: [{ path: o.path, ty: 0 }], screen: o.screen, hinge: null, deckY: 0, mod: 0 };
+    const mod = modDepth(d, o.h), body = o.h - mod, r = Math.min(10, body * 0.1);
+    const parts = [{ path: rr(o.w, body, r), ty: 0, lid: true }];
+    if (mod > 0) parts.push({ path: rr(o.w, body, r), ty: body }, { path: rr(o.w, mod, Math.min(6, mod * 0.3)), ty: body * 2, mod: true });
+    else parts.push({ path: o.path, ty: o.h });
+    const screen = view !== "front" ? null : mod > 0 ? lidScreen(d, o.w, body) : (o.screen || lidScreen(d, o.w, o.h));
+    return { w: o.w, h: body + o.h, parts, screen, hinge: body, deckY: body, mod };
   }
-  const partsSvg = (sh, cls, extra) => sh.parts.map((pt) => '<path class="' + cls + (pt.lid ? " lid" : "") + '"' + (pt.ty ? ' transform="translate(0 ' + r2(pt.ty) + ')"' : "") + ' d="' + esc(pt.path) + '"' + (extra || "") + "/>").join("") +
+  const partsSvg = (sh, cls, extra) => sh.parts.map((pt) => '<path class="' + cls + (pt.lid ? " lid" : "") + (pt.mod ? " mod" : "") + '"' + (pt.ty ? ' transform="translate(0 ' + r2(pt.ty) + ')"' : "") + ' d="' + esc(pt.path) + '"' + (extra || "") + "/>").join("") +
     (sh.hinge != null ? '<line class="hinge" x1="0" y1="' + r2(sh.hinge) + '" x2="' + r2(sh.w) + '" y2="' + r2(sh.hinge) + '"/>' +
       [0.16, 0.84].map((f) => { const kw = Math.max(8, sh.w * 0.1); return '<rect class="knuckle" x="' + r2(sh.w * f - kw / 2) + '" y="' + r2(sh.hinge - 2.5) + '" width="' + r2(kw) + '" height="5" rx="2"/>'; }).join("") : "");
   const VIEW_NAME = { front: "Front", back: "Back", top: "Top", side: "Side" };
@@ -1664,7 +1673,7 @@ button.tag:hover { filter: brightness(.95); }
     const dm = d.dims_mm || {}, h = dimsH(d), wg = d.weight_g || {}, w = wH(d), R = [];
     R.push(["Size as held", sv(mm(h.w) + " × " + mm(h.h) + " × " + mm(h.d) + " mm", own(d, ["dims_mm.handheld.w", "dims_mm.handheld.h", "dims_mm.handheld.d"]), true)]);
     if (h.d_max != null) R.push(["Thickest point", sv(mm(h.d_max) + " mm", own(d, ["dims_mm.handheld.d_max"]), true)]);
-    [["tablet_only", "Tablet only"], ["closed", "Closed"], ["with_keyboard", "With keyboard"]].forEach((k) => {
+    [["tablet_only", "Tablet only"], ["closed", "Closed"], ["with_keyboard", "With keyboard"], ["without_battery", "Without battery module"]].forEach((k) => {
       const x = dm[k[0]];
       if (x) R.push([k[1], sv(mm(x.w) + " × " + mm(x.h) + " × " + mm(x.d) + (x.d_max != null ? " / " + mm(x.d_max) : "") + " mm", own(d, ["dims_mm." + k[0]]), true)]);
     });
@@ -1808,7 +1817,7 @@ button.tag:hover { filter: brightness(.95); }
       partsSvg(sh, "o") + scrRect(sh.screen, "scr") +
       '<path class="dim" d="M0 ' + r2(B) + "H" + W + "M0 " + r2(B - pad * .3) + "V" + r2(B + pad * .3) + "M" + W + " " + r2(B - pad * .3) + "V" + r2(B + pad * .3) + '"/>' +
       '<path class="dim" d="M' + r2(-pad * .6) + " " + r2(DY) + "V" + r2(DY + H) + "M" + r2(-pad * .9) + " " + r2(DY) + "H" + r2(-pad * .3) + "M" + r2(-pad * .9) + " " + r2(DY + H) + "H" + r2(-pad * .3) + '"/></svg></div>' +
-      (isClam(d) ? '<p class="dnote">Drawn open: deck below, lid above. The size is the closed footprint; the height line marks the deck.</p>' : "");
+      (isClam(d) ? '<p class="dnote">Drawn open: deck below, lid above. The size is the closed footprint; the height line marks the deck' + (sh.mod ? ", including the battery module on its front edge (shaded). The lid is the body without the module" : "") + ".</p>" : "");
     h += '<div class="tiles">' + tile("Width", dm.w ? mm(dm.w) + " mm" : "—") + tile("Height", dm.h ? mm(dm.h) + " mm" : "—") +
       tile("Thickness", dm.d ? mm(dm.d) + (dm.d_max != null ? " / " + mm(dm.d_max) : "") + " mm" : "—") + tile("Weight", d._w != null ? n0(d._w) + " g" : "—") + "</div></div>";
     h += '<div class="panel pm"><div class="pm-h"><b>PassMark</b><span>' + esc([soc && soc.name, soc && soc.igpu && soc.igpu.name, tdpText(soc)].filter(Boolean).join(" · ")) + "</span></div><div>" +

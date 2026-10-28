@@ -43,7 +43,7 @@ Parallel outline workers: run `build_outlines.py --brand <x> --index-name <n>` p
 
 - Every fact carries a source URL in `sources[]`. A missing value stays `null` with an `unresolved[]` entry.
 - One row per hardware variant. Same hardware with a different OS is one row.
-- `dims_mm.handheld` and `weight_g.handheld` describe the device as held: controllers on, battery on. A clamshell stores its closed footprint; the site draws it open (deck below, lid above).
+- `dims_mm.handheld` and `weight_g.handheld` describe the device as held: controllers on, battery on. A clamshell stores its closed footprint; the site draws it open (deck below, lid above). When a removable battery module adds to that footprint, `dims_mm.without_battery` holds the body size: the lid takes that size and the module draws on the front edge of the deck (GPD Win Max 3).
 - `stick_type` separates `potentiometer`, `hall`, and `tmr`.
 - The site list and compare grid show the measured weight where a reviewer weighed a unit, else the stated weight. The device sheet shows both.
 - PassMark scores mix TDPs and host devices. Treat them as a rough guide only.
