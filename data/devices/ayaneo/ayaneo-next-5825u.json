@@ -114,6 +114,7 @@
   "id": "ayaneo-next-5825u",
   "variant": "Ryzen 7 5825U (NEXT, NEXT Pro)",
   "msrp_usd": 1335,
+  "msrp_type": "msrp",
   "soc_id": "r7-5825u",
   "notes": "NEXT (16GB, 1TB or 2TB) and NEXT Pro (32GB/2TB) share this row: same chassis and SoC, they differ only by RAM and SSD. Launch prices (DroiX, updated 2022-02-25): NEXT 1TB $1,335 retail ($1,285 early bird), NEXT 2TB $1,435 ($1,385), NEXT Pro $1,535 ($1,485). The 2022-01-05 reveal prices were lower (NEXT $1,315, Pro $1,565 retail per Liliputing). The NEXT Pro first batch was limited to 500 units. Early review units used a 5800U; DroiX says retail units use the 5825U. Release month is the May 2022 start reported by Wikipedia and DroiX.",
   "unresolved": [

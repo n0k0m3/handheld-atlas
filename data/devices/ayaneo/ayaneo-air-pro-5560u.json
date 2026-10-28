@@ -98,6 +98,7 @@
   "variant": "Ryzen 5 5560U",
   "release_date": "2022-09",
   "msrp_usd": 699,
+  "msrp_type": "msrp",
   "dims_mm": {
     "handheld": {
       "w": 224,

@@ -6,7 +6,8 @@
   "status": "announced",
   "announce_date": "2022-06-07",
   "release_date": null,
-  "msrp_usd": null,
+  "msrp_usd": 699,
+  "msrp_type": "msrp",
   "form_factor": "classic",
   "dims_mm": {
     "handheld": {
@@ -204,10 +205,6 @@
     {
       "field": "release_date",
       "reason": "no source confirms that the 6600U version shipped"
-    },
-    {
-      "field": "msrp_usd",
-      "reason": "only an announced US price ($699, June 2022) exists; the 6600U was not offered at the Indiegogo launch"
     }
   ],
   "conflicts": [
@@ -268,6 +265,12 @@
       "url": "https://www.notebookcheck.net/AMD-Ryzen-7-6800U-powered-GEEK-AYANEO-2-handheld-gaming-consoles-by-AYANEO-to-ship-starting-in-December.657642.0.html",
       "accessed": "2026-10-27",
       "note": "Indiegogo launch (Nov 2022): both GEEK and AYANEO 2 use the Ryzen 7 6800U"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://www.notebookcheck.net/AYA-NEO-2-GEEK-AYA-NEO-announces-another-gaming-handheld-powered-by-AMD-Ryzen-6800U-and-Radeon-680M-silicon.624341.0.html",
+      "accessed": "2026-10-27",
+      "note": "Announced price US$699 retail (US$619 early bird) for the Ryzen 5 6600U model"
     }
   ]
 }

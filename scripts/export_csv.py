@@ -28,7 +28,7 @@ SCHEMA_DIR = ROOT / "schema"
 EXPORT_DIR = ROOT / "data" / "export"
 
 DEVICE_COLUMNS = [
-    "id", "brand", "model", "variant", "status", "release_date", "msrp_usd", "form_factor",
+    "id", "brand", "model", "variant", "status", "release_date", "msrp_usd", "msrp_type", "msrp_note", "form_factor",
     "w", "h", "d", "weight_stated", "weight_measured",
     "soc_id", "soc_name", "ram_sizes", "ram_type", "ram_speed",
     "ssd_slots", "expansion", "ports_summary",
@@ -145,6 +145,8 @@ def device_row(d, soc_names):
         "status": d.get("status"),
         "release_date": d.get("release_date"),
         "msrp_usd": d.get("msrp_usd"),
+        "msrp_type": d.get("msrp_type"),
+        "msrp_note": d.get("msrp_note"),
         "form_factor": d.get("form_factor"),
         "w": g(d, "dims_mm.handheld.w"),
         "h": g(d, "dims_mm.handheld.h"),

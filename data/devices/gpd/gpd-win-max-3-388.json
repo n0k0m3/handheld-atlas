@@ -7,6 +7,8 @@
   "announce_date": null,
   "release_date": null,
   "msrp_usd": 1750,
+  "msrp_type": "crowdfunding",
+  "msrp_note": "The list price is $1,999.",
   "form_factor": "clamshell",
   "dims_mm": {
     "handheld": {
@@ -21,7 +23,13 @@
       "d": 34,
       "d_max": null
     },
-    "note": "Clamshell. handheld = closed footprint W x H x D with the battery module on the front edge (it doubles as a palm rest); the lid opens upward. Without modules: 207 x 147 x 34 mm."
+    "without_battery": {
+      "w": 207,
+      "h": 147,
+      "d": 34,
+      "d_max": null
+    },
+    "note": "Clamshell. handheld = closed footprint W x H x D with the battery module on the front edge (it doubles as a palm rest); the lid opens upward. without_battery = the body without modules, 207 x 147 x 34 mm; the lid has this footprint."
   },
   "weight_g": {
     "handheld": {
@@ -312,6 +320,12 @@
       "url": "https://www.gpd.hk/",
       "accessed": "2026-10-27",
       "note": "home page price table: 388 + 32GB + 1TB US$1,750 (was US$1,999); 388 + 64GB + 2TB US$2,246"
+    },
+    {
+      "field": "dims_mm.without_battery",
+      "url": "https://www.gpd.hk/gpdwinmax3techspecs",
+      "accessed": "2026-10-27",
+      "note": "'207mm × 147mm × 34mm (without modules); 207mm × 180mm × 34mm (with modules)'"
     }
   ]
 }

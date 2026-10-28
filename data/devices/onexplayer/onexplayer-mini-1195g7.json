@@ -7,6 +7,7 @@
   "announce_date": "2021-11",
   "release_date": "2022-01-13",
   "msrp_usd": 1259,
+  "msrp_type": "msrp",
   "form_factor": "classic",
   "dims_mm": {
     "handheld": {

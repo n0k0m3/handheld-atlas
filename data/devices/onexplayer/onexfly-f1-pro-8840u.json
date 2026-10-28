@@ -7,6 +7,8 @@
   "announce_date": "2024-10-30",
   "release_date": null,
   "msrp_usd": 1099,
+  "msrp_type": "store",
+  "msrp_note": "Store list price on 2026-10-27.",
   "form_factor": "classic",
   "dims_mm": {
     "handheld": {

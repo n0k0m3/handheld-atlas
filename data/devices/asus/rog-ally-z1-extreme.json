@@ -7,6 +7,7 @@
   "announce_date": "2023-04-01",
   "release_date": "2023-06-13",
   "msrp_usd": 699.99,
+  "msrp_type": "msrp",
   "form_factor": "classic",
   "dims_mm": {
     "handheld": { "w": 280, "h": 111, "d": 21.2, "d_max": 32.4 },

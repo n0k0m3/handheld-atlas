@@ -6,7 +6,8 @@
   "status": "shipped",
   "announce_date": null,
   "release_date": "2023-05",
-  "msrp_usd": null,
+  "msrp_usd": 779,
+  "msrp_type": "preorder",
   "form_factor": "classic",
   "dims_mm": {
     "handheld": { "w": 237, "h": 91.4, "d": 23.1, "d_max": null },
@@ -50,7 +51,6 @@
   "notes": "Air Plus SoC options on the official page: Ryzen 7 6800U, Ryzen 3 7320U, Ryzen 5 7520U, Intel Core i3-1215U, Intel Pentium 8505 (NotebookCheck says the 8505 edition was cancelled). Only the 6800U has a file in data/socs/. Pre-order price for the 6800U 16GB/512GB was $779 (official page and NotebookCheck); the Advance 32GB/2TB was $1,179. NotebookCheck (2023-02-28) gave early May 2023 as the 6800U shipping start; release month is that planned date, not a confirmed shipment.",
   "unresolved": [
     { "field": "announce_date", "reason": "exact announcement date not sourced within the fetch budget" },
-    { "field": "msrp_usd", "reason": "only the $779 pre-order price was found; a separate launch retail price was not found" },
     { "field": "dims_mm.handheld.d_max", "reason": "single thickness value published" },
     { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found; no NotebookCheck review exists" },
     { "field": "ram.channels", "reason": "not stated by the vendor" },
@@ -79,6 +79,7 @@
     { "field": "storage.slots", "url": "https://www.notebookcheck.net/AYA-NEO-Air-Plus-New-gaming-handheld-revealed-at-higher-than-expected-prices.698162.0.html", "accessed": "2026-10-27", "note": "M.2 2280 SSD" },
     { "field": "ports", "url": "https://www.notebookcheck.net/AYA-NEO-Air-Plus-New-gaming-handheld-revealed-at-higher-than-expected-prices.698162.0.html", "accessed": "2026-10-27", "note": "2x USB Type-C, 3.5 mm audio jack, microSD card reader" },
     { "field": "release_date", "url": "https://www.notebookcheck.net/AYA-NEO-Air-Plus-New-gaming-handheld-revealed-at-higher-than-expected-prices.698162.0.html", "accessed": "2026-10-27", "note": "2023-02-28: Ryzen 7 6800U ships early May; other SoCs end of May" },
-    { "field": "notes", "url": "https://www.notebookcheck.net/AYA-NEO-AIR-Plus-launches-as-new-affordable-gaming-handheld-with-AMD-and-Intel-processor-options.705177.0.html", "accessed": "2026-10-27", "note": "2023-04-03: sales started; Advance units hoped to ship in April, regular Early Bird orders in May" }
+    { "field": "notes", "url": "https://www.notebookcheck.net/AYA-NEO-AIR-Plus-launches-as-new-affordable-gaming-handheld-with-AMD-and-Intel-processor-options.705177.0.html", "accessed": "2026-10-27", "note": "2023-04-03: sales started; Advance units hoped to ship in April, regular Early Bird orders in May" },
+    { "field": "msrp_usd", "url": "https://www.notebookcheck.net/AYA-NEO-Air-Plus-New-gaming-handheld-revealed-at-higher-than-expected-prices.698162.0.html", "accessed": "2026-10-27", "note": "Pre-order price US$779 for the Ryzen 7 6800U with 16 GB / 512 GB" }
   ]
 }

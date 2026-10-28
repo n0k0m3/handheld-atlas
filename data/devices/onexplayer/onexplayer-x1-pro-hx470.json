@@ -7,6 +7,8 @@
   "announce_date": "2026-05",
   "release_date": "2026-05",
   "msrp_usd": 1999,
+  "msrp_type": "store",
+  "msrp_note": "Store list price on 2026-10-27.",
   "form_factor": "3-in-1",
   "dims_mm": {
     "handheld": {

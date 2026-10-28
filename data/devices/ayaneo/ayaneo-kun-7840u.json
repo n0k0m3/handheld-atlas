@@ -7,6 +7,7 @@
   "announce_date": null,
   "release_date": "2023-10",
   "msrp_usd": 1209,
+  "msrp_type": "msrp",
   "form_factor": "classic",
   "dims_mm": {
     "handheld": { "w": 312.4, "h": 132.5, "d": 21.9, "d_max": 37.6 },

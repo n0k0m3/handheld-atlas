@@ -7,6 +7,7 @@
   "announce_date": null,
   "release_date": "2023-07",
   "msrp_usd": 799,
+  "msrp_type": "crowdfunding",
   "form_factor": "clamshell",
   "dims_mm": {
     "handheld": {

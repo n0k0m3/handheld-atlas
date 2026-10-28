@@ -6,7 +6,9 @@
   "status": "shipped",
   "announce_date": "2025-07",
   "release_date": "2025-09",
-  "msrp_usd": null,
+  "msrp_usd": 1099,
+  "msrp_type": "preorder",
+  "msrp_note": "It includes a $200 pre-order discount.",
   "form_factor": "3-in-1",
   "dims_mm": {
     "handheld": {
@@ -191,10 +193,6 @@
       "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
     },
     {
-      "field": "msrp_usd",
-      "reason": "Only the global pre-order price is known ($1,099, with a $200 pre-order discount); no retail list price found"
-    },
-    {
       "field": "weight_g.handheld.measured",
       "reason": "No review of this SKU; measurements in onexplayer-x1-air are from a different SKU"
     },
@@ -324,6 +322,12 @@
       "url": "https://liliputing.com/onexplayer-x1-air-is-an-intel-lunar-lake-handheld-gaming-pc-with-a-big-screen-and-detachable-controllers-and-keyboard/",
       "accessed": "2026-10-27",
       "note": null
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-x1-air-lunar-lake-handheld-gaming-pc-is-now-available-for-pre-order-11-inch-screen-and-detachable-controllers/",
+      "accessed": "2026-10-27",
+      "note": "Global pre-order from $1,099 for Core Ultra 5 228V / 32 GB / 512 GB, with a $200 pre-order discount"
     }
   ]
 }

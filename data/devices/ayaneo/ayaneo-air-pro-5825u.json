@@ -99,6 +99,7 @@
   "variant": "Ryzen 7 5825U",
   "release_date": "2022-09",
   "msrp_usd": 1099,
+  "msrp_type": "msrp",
   "dims_mm": {
     "handheld": {
       "w": 224,

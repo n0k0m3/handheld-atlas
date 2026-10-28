@@ -7,6 +7,7 @@
   "announce_date": "2023-09-01",
   "release_date": "2023-10-31",
   "msrp_usd": 699.99,
+  "msrp_type": "msrp",
   "form_factor": "3-in-1",
   "dims_mm": {
     "handheld": {

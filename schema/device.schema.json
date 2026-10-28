@@ -18,7 +18,9 @@
     "status": { "enum": ["shipped", "pre-order", "announced"] },
     "announce_date": { "$ref": "#/$defs/dateOrNull" },
     "release_date": { "$ref": "#/$defs/dateOrNull", "description": "First retail availability. Pre-order start does not count." },
-    "msrp_usd": { "type": ["number", "null"], "description": "Launch price of the base configuration of this variant." },
+    "msrp_usd": { "type": ["number", "null"], "description": "Launch price of the base configuration of this variant. msrp_type says what kind of price it is." },
+    "msrp_type": { "enum": ["msrp", "crowdfunding", "preorder", "sale", "store"], "description": "Required when msrp_usd is a number; leave it out when msrp_usd is null. msrp = official retail list price, at launch or as announced. crowdfunding = Indiegogo or Kickstarter price. preorder = pre-order or pre-sale price. sale = launch sale price below the list price. store = store price read after launch, because the launch price was not found. The site marks every type except msrp." },
+    "msrp_note": { "type": ["string", "null"], "description": "Short sentence for the price tooltip, for example the list price behind a crowdfunding price." },
     "form_factor": { "enum": ["classic", "clamshell", "3-in-1", "slider", "other"], "description": "classic = Deck-like one piece. clamshell = GPD Win Max. 3-in-1 = tablet with detachable controllers. slider = AYANEO Slide." },
 
     "dims_mm": {
@@ -31,6 +33,7 @@
         "tablet_only": { "$ref": "#/$defs/dimsOrNull" },
         "closed": { "$ref": "#/$defs/dimsOrNull" },
         "with_keyboard": { "$ref": "#/$defs/dimsOrNull" },
+        "without_battery": { "$ref": "#/$defs/dimsOrNull", "description": "Body size with a removable battery module taken off, when the module adds to the footprint. The site draws a clamshell's lid from it." },
         "note": { "type": ["string", "null"] }
       }
     },
@@ -201,6 +204,13 @@
       }
     }
   },
+  "allOf": [
+    {
+      "if": { "properties": { "msrp_usd": { "type": "number" } }, "required": ["msrp_usd"] },
+      "then": { "required": ["msrp_type"] },
+      "else": { "not": { "anyOf": [{ "required": ["msrp_type"] }, { "required": ["msrp_note"] }] } }
+    }
+  ],
   "$defs": {
     "dateOrNull": { "type": ["string", "null"], "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$" },
     "dims": {

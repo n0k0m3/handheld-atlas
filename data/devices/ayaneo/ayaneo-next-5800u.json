@@ -112,6 +112,7 @@
   "id": "ayaneo-next-5800u",
   "variant": "Ryzen 7 5800U (NEXT Advance)",
   "msrp_usd": 1465,
+  "msrp_type": "msrp",
   "soc_id": "r7-5800u",
   "notes": "NEXT Advance: the only NEXT trim with the Ryzen 7 5800U; 16GB/2TB, grey. It was a limited trim (Liliputing: Signature Edition of 300 units; DroiX: 500 units). Launch prices (Liliputing, 2022-01-05): $1,465 retail, $1,365 crowdfunding, $1,345 Signature Edition during crowdfunding. Release month is the May 2022 start reported by Wikipedia and DroiX.",
   "unresolved": [

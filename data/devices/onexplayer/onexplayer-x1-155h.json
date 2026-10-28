@@ -7,6 +7,7 @@
   "announce_date": "2024-01",
   "release_date": "2024-03",
   "msrp_usd": 1189,
+  "msrp_type": "crowdfunding",
   "form_factor": "3-in-1",
   "dims_mm": {
     "handheld": {

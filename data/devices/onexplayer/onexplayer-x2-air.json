@@ -6,7 +6,9 @@
   "status": "shipped",
   "announce_date": null,
   "release_date": null,
-  "msrp_usd": null,
+  "msrp_usd": 1899,
+  "msrp_type": "store",
+  "msrp_note": "Store list price on 2026-10-27. The sale price was $1,499.",
   "form_factor": "3-in-1",
   "dims_mm": {
     "handheld": {
@@ -164,10 +166,6 @@
       "reason": "Renamed listing appeared around 2026-08-31 (spec image upload time); no retail date found"
     },
     {
-      "field": "msrp_usd",
-      "reason": "Only an Oct 2026 sale listing seen ($1499, compare-at $1899); launch price not found"
-    },
-    {
       "field": "weight_g.handheld.stated",
       "reason": "Official sheet lists the tablet and controllers separately; no combined weight"
     },
@@ -272,6 +270,12 @@
       "url": "https://www.reddit.com/r/OneXPlayer/comments/1w4fjpz/x2_air/",
       "accessed": "2026-10-27",
       "note": "User report that X2 Air looks the same as X1 Air"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://onexplayerstore.com/products/onexplayer-x2-air-portable-3-in-1-gaming-creator-pc-with-expandable-mini-ssd.json",
+      "accessed": "2026-10-27",
+      "note": "Store list (compare-at) price $1,899 for 258V / 32 GB / 1 TB; sale price $1,499 on 2026-10-27"
     }
   ]
 }

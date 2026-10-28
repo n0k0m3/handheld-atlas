@@ -7,6 +7,8 @@
   "announce_date": "2023-06",
   "release_date": "2023-10",
   "msrp_usd": 999,
+  "msrp_type": "preorder",
+  "msrp_note": "The store did not show a separate list price.",
   "form_factor": "classic",
   "dims_mm": {
     "handheld": {

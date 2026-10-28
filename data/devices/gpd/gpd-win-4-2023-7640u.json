@@ -7,6 +7,7 @@
   "announce_date": null,
   "release_date": "2023-08",
   "msrp_usd": 699,
+  "msrp_type": "crowdfunding",
   "form_factor": "slider",
   "dims_mm": {
     "handheld": {

@@ -6,7 +6,9 @@
   "status": "shipped",
   "announce_date": "2025-01-09",
   "release_date": null,
-  "msrp_usd": null,
+  "msrp_usd": 1099,
+  "msrp_type": "crowdfunding",
+  "msrp_note": "Indiegogo early-bird price. This version was not sold at retail.",
   "form_factor": "clamshell",
   "dims_mm": {
     "handheld": {
@@ -196,10 +198,6 @@
       "reason": "Not stated in the official spec image or the sources used"
     },
     {
-      "field": "msrp_usd",
-      "reason": "Sold only through Indiegogo ($1,099 for 32 GB/1 TB early bird; $1,319 for 64 GB); never sold at retail"
-    },
-    {
       "field": "release_date",
       "reason": "No retail release. Indiegogo shipping was planned for March 2025."
     },
@@ -318,6 +316,12 @@
       "url": "https://liliputing.com/onexplayer-g1-handheld-gaming-pc-hits-indiegogo-for-899-and-up/",
       "accessed": "2026-10-27",
       "note": "255H option listed when the campaign launched on 2025-01-09"
+    },
+    {
+      "field": "msrp_usd",
+      "url": "https://liliputing.com/onexplayer-g1-handheld-gaming-pc-hits-indiegogo-for-899-and-up/",
+      "accessed": "2026-10-27",
+      "note": "Indiegogo option: Intel Core Ultra 7 255H / 32 GB / 1 TB for $1,099 early bird"
     }
   ]
 }
