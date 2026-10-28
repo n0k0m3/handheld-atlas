@@ -195,8 +195,46 @@ svg { display: block; }
 .topf { display: none; }
 .topf-h { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 10px 12px; font-weight: 700; }
 .topf-h span { font-weight: 500; color: var(--fg-2); }
-.topf-b { display: grid; gap: 10px; padding: 10px 12px 12px; border-top: 1px solid var(--border); }
-.tf-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px 16px; }
+.topf-b { border-top: 1px solid var(--border); }
+.topf .fp-t { visibility: hidden; }
+.fbar { display: grid; gap: 8px; min-width: 0; }
+.fq-box { height: 38px; background: var(--bg); border: 1px solid var(--border-strong); }
+.fq-box input { font-size: 14px; }
+.fchips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.fchips:empty { display: none; }
+.fchip { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; max-width: 100%; padding: 2px 4px 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; background: var(--bg-selected); color: var(--fg-brand); }
+.fchip span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fchip .ic { width: 12px; height: 12px; }
+.fchip:hover { background: var(--bad-bg); color: var(--bad); }
+.fp-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--border); font-weight: 700; }
+.fsec { border-bottom: 1px solid var(--border); }
+.fsec:last-child { border-bottom: 0; }
+.fsec > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 10px 12px; font-weight: 700; font-size: 12.5px; }
+.fsec > summary::-webkit-details-marker { display: none; }
+.fsec > summary::after { content: ""; width: 6px; height: 6px; margin: -3px 2px 0 auto; border-right: 1.5px solid var(--fg-2); border-bottom: 1.5px solid var(--fg-2); transform: rotate(45deg); flex: none; }
+.fsec[open] > summary::after { transform: rotate(-135deg); margin-top: 3px; }
+.fsec > summary:hover { background: var(--bg-hover); }
+.fsec-n { font: 600 10.5px var(--f-mono); color: var(--fg-onbrand); background: var(--bg-brand); border-radius: 8px; padding: 0 6px; }
+.fsec-n:empty { display: none; }
+.fct { padding: 2px 12px 12px; min-width: 0; }
+.fct + .fct { border-top: 1px dashed var(--border); padding-top: 10px; }
+.st .hint { font-weight: 500; color: var(--fg-2); }
+.chk.zero > span:not(.n) { color: var(--fg-2); }
+.fct:not(.open) .fo-x:not(.on) { display: none; }
+.fmore { margin-top: 4px; }
+.rng { position: relative; height: 22px; }
+.rng .trk, .rng .fill { position: absolute; top: 9px; height: 4px; border-radius: 2px; }
+.rng .trk { left: 0; right: 0; background: var(--border-strong); }
+.rng .fill { left: 0; right: 0; background: var(--accent); }
+.rng input[type="range"] { position: absolute; left: 0; top: 0; width: 100%; height: 22px; margin: 0; background: transparent; pointer-events: none; -webkit-appearance: none; appearance: none; z-index: 2; }
+.rng input[type="range"]::-webkit-slider-runnable-track { height: 22px; background: transparent; border: 0; }
+.rng input[type="range"]::-moz-range-track { background: transparent; border: 0; }
+.rng input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; pointer-events: auto; width: 16px; height: 16px; margin-top: 3px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); cursor: pointer; }
+.rng input[type="range"]::-moz-range-thumb { pointer-events: auto; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); cursor: pointer; }
+.rng input[type="range"]:focus-visible { outline: none; }
+.rng input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
+.rng input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
+.rng-e { display: flex; justify-content: space-between; font: 10.5px var(--f-mono); color: var(--fg-2); margin-top: 2px; }
 .chips { display: flex; flex-wrap: wrap; gap: 4px; }
 .chip { padding: 3px 8px; font-size: 12px; font-weight: 600; border-radius: 4px; border: 1px solid var(--border-strong); background: var(--bg); color: var(--fg); white-space: nowrap; }
 .chip[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
@@ -547,6 +585,10 @@ button.tag:hover { filter: brightness(.95); }
   <div class="bgrid">
     <aside class="side panel" id="side" aria-label="Filters"></aside>
     <section class="bsec">
+      <div class="fbar">
+        <div class="srch-box fq-box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"></path></svg><label class="sr" for="fq">Filter the list</label><input id="fq" type="search" placeholder="Filter the list by name, chip or GPU…" autocomplete="off" spellcheck="false"></div>
+        <div class="fchips" id="fchips" aria-label="Active filters"></div>
+      </div>
       <div class="topf panel" id="topf"></div>
       <div class="panel" id="lpanel">
         <div class="lbar" id="lbar" tabindex="-1"></div>
@@ -825,20 +867,107 @@ button.tag:hover { filter: brightness(.95); }
     ["Software", [["OS", (d) => (d.os || []).join(", ") || "—"]]]
   ];
 
-  /* ---------- filters ---------- */
-  const count = (fn) => DEV.reduce((m, d) => { const k = fn(d); if (k) m[k] = (m[k] || 0) + 1; return m; }, Object.create(null));
-  const CNT = { brand: count((d) => d.brand), status: count((d) => d.status), stick: count((d) => ctl(d).stick_type || "unknown") };
-  const BRANDS = Object.keys(CNT.brand).sort((a, b) => a.localeCompare(b));
-  const STATUSES = ["shipped", "pre-order", "announced"].filter((s) => CNT.status[s]);
-  const STICKS = ["potentiometer", "hall", "tmr", "capacitive", "optical", "digital", "unknown"].filter((s) => CNT.stick[s]);
-  const PSTEP = 50, WSTEP = 10;
-  const prices = DEV.map((d) => d.msrp_usd).filter((v) => v != null), weights = DEV.map((d) => d._w).filter((v) => v != null);
-  const PMIN = prices.length ? Math.floor(Math.min(...prices) / PSTEP) * PSTEP : 0, PMAX = prices.length ? Math.ceil(Math.max(...prices) / PSTEP) * PSTEP : 100;
-  const WMIN = weights.length ? Math.floor(Math.min(...weights) / WSTEP) * WSTEP : 0, WMAX = weights.length ? Math.ceil(Math.max(...weights) / WSTEP) * WSTEP : 100;
-  const DEF_F = () => ({ brands: [], status: [], sticks: [], maxPrice: PMAX, maxWeight: WMAX, usb4: false });
+  /* ---------- filters: facets ---------- */
+  const unk = (v) => (v == null || v === "" ? "unknown" : String(v));
+  const rnd = (x) => Math.round(x * 1000) / 1000;
+  const makerOf = (d) => { const v = String((socOf(d) || {}).vendor || ""); return /intel/i.test(v) ? "Intel" : /amd/i.test(v) ? "AMD" : "unknown"; };
+  const archOf = (d) => { const a = (socOf(d) || {}).cpu_arch; return a ? a.replace(/\s*\/\s*Zen \d+c$/, "") : "unknown"; };
+  const osOf = (d) => { const out = []; (d.os || []).forEach((o) => { const k = /windows/i.test(o) ? "Windows" : /steamos/i.test(o) ? "SteamOS" : /linux|manjaro|bazzite/i.test(o) ? "Linux" : "Other"; if (!out.includes(k)) out.push(k); }); return out.length ? out : ["unknown"]; };
+  const USBC = ["TB5", "TB4", "USB4v2", "USB4", "USB-C 3.2 Gen2", "USB-C 3.2 Gen1", "USB-C unspecified", "USB-C 2.0"];
+  const portFlags = (d) => {
+    const ks = (d.ports || []).map((p) => p.kind), f = [];
+    if (d._g40) f.push("usb4"); if (d._ocu) f.push("ocu"); if (ks.includes("HDMI") || ks.includes("DP")) f.push("video");
+    if (ks.some((k) => /^USB-A/.test(k))) f.push("usba"); if (ks.includes("3.5mm")) f.push("jack"); if (ks.includes("DC")) f.push("dc"); if (ks.includes("XG Mobile")) f.push("xg");
+    return f;
+  };
+  const SSD_F = { "2230": "M.2 2230", "2242": "M.2 2242", "2280": "M.2 2280", "mini-ssd-1517": "Mini SSD", emmc: "eMMC", other: "Not stated", none: "None" };
+  const CARD_F = { microSD: "microSD", SD: "SD", "mini-ssd-1517": "Mini SSD", none: "None" };
+  /* One definition per facet. multi: a device matches when it has any selected value. all: every selected flag is required. range: a minimum and a maximum. */
+  const FACETS = [
+    { k: "brands", g: "General", label: "Brand", type: "multi", v: (d) => [d.brand], order: "alpha", more: 8 },
+    { k: "status", g: "General", label: "Status", type: "multi", v: (d) => [d.status], lab: STATUS, order: ["shipped", "pre-order", "announced"] },
+    { k: "form", g: "General", label: "Form factor", type: "multi", v: (d) => [unk(d.form_factor)], lab: { classic: "Classic", clamshell: "Clamshell", slider: "Slider", "3-in-1": "3-in-1, detachable", other: "Other" }, order: ["classic", "clamshell", "slider", "3-in-1", "other"] },
+    { k: "year", g: "General", label: "Release year", type: "multi", v: (d) => [d.release_date ? d.release_date.slice(0, 4) : "unknown"], order: "desc" },
+    { k: "price", g: "General", label: "Price", type: "range", v: (d) => d.msrp_usd, step: 50, fmt: (x) => "$" + n0(x), none: "a price" },
+    { k: "os", g: "General", label: "Operating system", type: "multi", v: osOf, order: ["Windows", "SteamOS", "Linux", "Other"] },
+    { k: "maker", g: "Performance", label: "Chip maker", type: "multi", v: (d) => [makerOf(d)], order: ["AMD", "Intel"] },
+    { k: "soc", g: "Performance", label: "Chip", type: "multi", v: (d) => [d.soc_id], lab: (id) => socName(id), order: "lab", more: 8 },
+    { k: "platform", g: "Performance", label: "Platform", type: "multi", v: (d) => [unk((socOf(d) || {}).codename)], order: "alpha", more: 8 },
+    { k: "cpuarch", g: "Performance", label: "CPU architecture", type: "multi", v: (d) => [archOf(d)], order: "alpha", more: 8 },
+    { k: "gpuarch", g: "Performance", label: "GPU architecture", type: "multi", v: (d) => [unk(((socOf(d) || {}).igpu || {}).arch)], order: "alpha", more: 8 },
+    { k: "gpu", g: "Performance", label: "Graphics", type: "multi", v: (d) => [unk(((socOf(d) || {}).igpu || {}).name)], order: "alpha", more: 8 },
+    { k: "cpu", g: "Performance", label: "PassMark CPU Mark", type: "range", v: (d) => scoreOf(d, "cpu_mark"), step: 500, fmt: n0, none: "a CPU Mark" },
+    { k: "st", g: "Performance", label: "PassMark single thread", type: "range", v: (d) => scoreOf(d, "single_thread"), step: 50, fmt: n0, none: "a single-thread score" },
+    { k: "g3d", g: "Performance", label: "PassMark G3D Mark", type: "range", v: (d) => scoreOf(d, "g3d_mark"), step: 250, fmt: n0, none: "a G3D Mark" },
+    { k: "cores", g: "Performance", label: "CPU cores", type: "range", v: (d) => (socOf(d) || {}).cores, step: 1, fmt: (x) => x + " cores", none: "a core count" },
+    { k: "tdp", g: "Performance", label: "Max TDP", type: "range", v: (d) => ((socOf(d) || {}).tdp_w || {}).max, step: 5, fmt: (x) => x + " W", none: "a TDP" },
+    { k: "npu", g: "Performance", label: "NPU", type: "range", v: (d) => (socOf(d) || {}).npu_tops, step: 1, fmt: (x) => x + " TOPS", none: "an NPU figure" },
+    { k: "ram", g: "Memory & storage", label: "RAM options", type: "multi", v: (d) => ((d.ram || {}).sizes_gb || []).map(String), lab: (x) => x + " GB", order: "num" },
+    { k: "ramtype", g: "Memory & storage", label: "RAM type", type: "multi", v: (d) => [unk((d.ram || {}).type)], order: "alpha" },
+    { k: "ramspeed", g: "Memory & storage", label: "RAM speed", type: "range", v: (d) => (d.ram || {}).speed_mts, step: 100, fmt: (x) => n0(x) + " MT/s", none: "a RAM speed" },
+    { k: "ssd", g: "Memory & storage", label: "SSD slot", type: "multi", v: (d) => { const s = slots(d); return s.length ? s.map((x) => x.form_factor || "other") : ["none"]; }, lab: SSD_F, order: ["2230", "2242", "2280", "mini-ssd-1517", "emmc", "other", "none"] },
+    { k: "pcie", g: "Memory & storage", label: "SSD interface", type: "multi", v: (d) => { const s = slots(d).map((x) => (x.pcie_gen ? "PCIe " + x.pcie_gen + ".0" : "unknown")); return s.length ? s : ["unknown"]; }, order: "alpha" },
+    { k: "cap", g: "Memory & storage", label: "Factory storage", type: "multi", v: (d) => ((d.storage || {}).capacities_gb || []).map(String), lab: (x) => capText(+x), order: "num" },
+    { k: "card", g: "Memory & storage", label: "Card slot", type: "multi", v: (d) => { const e = (d.storage || {}).expansion || []; return e.length ? e.map((x) => (hasKey(CARD_F, x) ? x : "none")) : ["none"]; }, lab: CARD_F, order: ["microSD", "SD", "mini-ssd-1517", "none"] },
+    { k: "size", g: "Display", label: "Screen size", type: "range", v: (d) => (d.screen || {}).size_in, step: 0.1, fmt: (x) => x + "″", none: "a screen size" },
+    { k: "res", g: "Display", label: "Resolution", type: "multi", v: (d) => { const s = d.screen || {}; return [s.res_w && s.res_h ? s.res_w + "×" + s.res_h : "unknown"]; }, order: (a, b) => a.split("×").reduce((m, x) => m * x, 1) - b.split("×").reduce((m, x) => m * x, 1) },
+    { k: "panel", g: "Display", label: "Panel", type: "multi", v: (d) => [unk((d.screen || {}).panel)], order: "alpha" },
+    { k: "hz", g: "Display", label: "Refresh rate", type: "range", v: (d) => (d.screen || {}).refresh_hz, step: 5, fmt: (x) => x + " Hz", none: "a refresh rate" },
+    { k: "disp", g: "Display", label: "Display features", type: "all", v: (d) => { const s = d.screen || {}; return [s.vrr && "vrr", s.hdr && "hdr", s.touch && "touch"].filter(Boolean); }, lab: { vrr: "VRR", hdr: "HDR", touch: "Touchscreen" }, order: ["vrr", "hdr", "touch"] },
+    { k: "weight", g: "Size & weight", label: "Weight", type: "range", v: (d) => d._w, step: 10, fmt: (x) => n0(x) + " g", none: "a weight" },
+    { k: "width", g: "Size & weight", label: "Width", type: "range", v: (d) => dimsH(d).w || null, step: 5, fmt: (x) => x + " mm", none: "a width" },
+    { k: "height", g: "Size & weight", label: "Height", type: "range", v: (d) => dimsH(d).h || null, step: 5, fmt: (x) => x + " mm", none: "a height" },
+    { k: "thick", g: "Size & weight", label: "Thickness", type: "range", v: (d) => dimsH(d).d || null, step: 1, fmt: (x) => x + " mm", none: "a thickness" },
+    { k: "wh", g: "Battery", label: "Battery capacity", type: "range", v: (d) => (d.battery || {}).wh, step: 1, fmt: (x) => x + " Wh", none: "a capacity" },
+    { k: "charge", g: "Battery", label: "Charging", type: "range", v: (d) => (d.battery || {}).charge_w, step: 5, fmt: (x) => x + " W", none: "a charging figure" },
+    { k: "pack", g: "Battery", label: "Battery type", type: "multi", v: (d) => { const b = d.battery || {}; return [b.external === true ? "external" : b.external === false ? "internal" : "unknown"]; }, lab: { internal: "Built in", external: "External pack" }, order: ["internal", "external"] },
+    { k: "sticks", g: "Controls", label: "Stick type", type: "multi", v: (d) => [ctl(d).stick_type || "unknown"], lab: KLABEL, order: ["tmr", "hall", "capacitive", "potentiometer", "optical", "digital"] },
+    { k: "trig", g: "Controls", label: "Trigger type", type: "multi", v: (d) => [ctl(d).trigger_type || "unknown"], lab: KLABEL, order: ["hall", "potentiometer", "capacitive", "optical", "digital"] },
+    { k: "pads", g: "Controls", label: "Trackpads", type: "multi", v: (d) => [unk(ctl(d).trackpads)], lab: { 0: "None" }, order: "num" },
+    { k: "rear", g: "Controls", label: "Rear buttons", type: "multi", v: (d) => [unk(ctl(d).rear_buttons)], lab: { 0: "None" }, order: "num" },
+    { k: "ctlf", g: "Controls", label: "Control features", type: "all", v: (d) => { const c = ctl(d); return [c.gyro && "gyro", c.haptics && "haptics", c.trigger_lock && "tlock", c.keyboard && "keyboard", c.detachable_controllers && "detach"].filter(Boolean); },
+      lab: { gyro: "Gyro", haptics: "Haptics", tlock: "Trigger lock", keyboard: "Keyboard", detach: "Detachable controllers" }, order: ["gyro", "haptics", "tlock", "keyboard", "detach"] },
+    { k: "ports", g: "Connectivity", label: "Ports", type: "all", v: portFlags, lab: { usb4: "USB4 / Thunderbolt", ocu: "OCuLink", video: "HDMI or DisplayPort", usba: "USB-A", jack: "3.5 mm jack", dc: "DC barrel input", xg: "ASUS XG Mobile" }, order: ["usb4", "ocu", "video", "usba", "jack", "dc", "xg"] },
+    { k: "usbc", g: "Connectivity", label: "USB-C ports", type: "range", v: (d) => (d.ports || []).filter((p) => USBC.includes(p.kind)).reduce((m, p) => m + (p.count || 1), 0), step: 1, fmt: (x) => x + " USB-C", none: "a port count" },
+    { k: "wifi", g: "Connectivity", label: "Wi-Fi", type: "multi", v: (d) => [unk((d.wireless || {}).wifi)], order: ["Wi-Fi 7", "Wi-Fi 6E", "Wi-Fi 6", "Wi-Fi 5"] },
+    { k: "bt", g: "Connectivity", label: "Bluetooth", type: "multi", v: (d) => [unk((d.wireless || {}).bt)], lab: (x) => "Bluetooth " + x, order: "desc" },
+    { k: "extra", g: "Connectivity", label: "Other features", type: "all", v: (d) => [d.fingerprint && "fp", (d.battery || {}).removable && "rmbat"].filter(Boolean), lab: { fp: "Fingerprint reader", rmbat: "Removable battery" }, order: ["fp", "rmbat"] }
+  ];
+  const FK = Object.create(null);
+  FACETS.forEach((fc) => { FK[fc.k] = fc; });
+  /* Option ids keep a "+" apart, so "Zen 3" and "Zen 3+" never share an id. */
+  const oslug = (o) => slug(String(o).replace(/\+/g, " plus "));
+  const optLab = (fc, o) => (o === "unknown" ? "Not stated" : typeof fc.lab === "function" ? fc.lab(o) : fc.lab && hasKey(fc.lab, o) ? fc.lab[o] : o);
+  DEV.forEach((d) => {
+    d._fv = Object.create(null);
+    FACETS.forEach((fc) => { const x = fc.v(d); d._fv[fc.k] = fc.type === "range" ? (typeof x === "number" && isFinite(x) ? x : null) : (Array.isArray(x) ? x.map(String) : []); });
+    const s = socOf(d) || {};
+    d._qs = [d._search, d.brand, d.variant, (s.igpu || {}).name, s.codename].filter(Boolean).join(" ").toLowerCase();
+  });
+  /* Ranges and option lists come from the data, never from constants. */
+  FACETS.forEach((fc) => {
+    if (fc.type === "range") {
+      const vals = DEV.map((d) => d._fv[fc.k]).filter((x) => x != null), st = fc.step;
+      fc.min = vals.length ? rnd(Math.floor(Math.min(...vals) / st) * st) : 0;
+      fc.max = vals.length ? rnd(Math.ceil(Math.max(...vals) / st) * st) : st;
+      if (fc.max <= fc.min) fc.max = rnd(fc.min + st);
+      return;
+    }
+    const seen = Object.create(null);
+    DEV.forEach((d) => d._fv[fc.k].forEach((v) => { seen[v] = (seen[v] || 0) + 1; }));
+    fc.valid = seen;
+    const o = fc.order, keys = Object.keys(seen), byLab = (a, b) => optLab(fc, a).localeCompare(optLab(fc, b), "en", { numeric: true });
+    let cmp = byLab;
+    if (Array.isArray(o)) cmp = (a, b) => { const ia = o.indexOf(a), ib = o.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || byLab(a, b); };
+    else if (o === "num") cmp = (a, b) => parseFloat(a) - parseFloat(b);
+    else if (o === "desc") cmp = (a, b) => parseFloat(b) - parseFloat(a) || byLab(a, b);
+    else if (typeof o === "function") cmp = o;
+    fc.opts = keys.filter((x) => x !== "unknown").sort(cmp).concat(keys.includes("unknown") ? ["unknown"] : []);
+  });
+  const DEF_F = () => ({ q: "", sel: Object.create(null), rng: Object.create(null) });
 
   /* ---------- state ---------- */
-  const KEY = "handheld-atlas:v3";
+  const KEY = "handheld-atlas:v4";
   const PRESET = { iso: [-14, -30], front: [0, 0], top: [-80, 0], side: [0, -88] };
   const state = {
     route: "home", detailId: null, queue: [], refId: null, sortK: "g3d", sortDir: -1, f: DEF_F(), groups: DEF_GROUPS.slice(),
@@ -856,24 +985,21 @@ button.tag:hover { filter: brightness(.95); }
   function loadState(sync) {
     defaults(sync);
     let s = readStore(KEY);
-    if (!s || typeof s !== "object" || Array.isArray(s) || s.v !== 3) {
-      const old = readStore("handheld-atlas:v2") || readStore("handheld-atlas:v1");
-      s = { fresh: true };
-      if (old && Array.isArray(old.sel)) s.queue = old.sel.map((x) => x && x.id).filter(Boolean);
+    if (!s || typeof s !== "object" || Array.isArray(s) || s.v !== 4) {
+      const v3 = readStore("handheld-atlas:v3");
+      /* v3 kept five fixed filters and defaulted to the table. Move the filters over; the layout returns to the new default, cards. */
+      if (v3 && typeof v3 === "object" && !Array.isArray(v3) && v3.v === 3) s = Object.assign({}, v3, { v: 4, f: migrateF3(v3.f), layout: null });
+      else {
+        const old = readStore("handheld-atlas:v2") || readStore("handheld-atlas:v1");
+        s = { fresh: true };
+        if (old && Array.isArray(old.sel)) s.queue = old.sel.map((x) => x && x.id).filter(Boolean);
+      }
     }
     if (Array.isArray(s.queue)) state.queue = s.queue.filter((id, i, a) => typeof id === "string" && hasKey(BY_ID, id) && a.indexOf(id) === i).slice(0, MAX_Q);
     else if (s.fresh) state.queue = DEFAULT_Q.slice();
     if (typeof s.refId === "string" && hasKey(BY_ID, s.refId)) state.refId = s.refId; else if (s.fresh) state.refId = state.queue[0] || null;
     if (typeof s.sortK === "string" && hasKey(COL, s.sortK)) { state.sortK = s.sortK; state.sortDir = s.sortDir === 1 ? 1 : -1; }
-    if (s.f && typeof s.f === "object") {
-      const f = state.f;
-      if (Array.isArray(s.f.brands)) f.brands = s.f.brands.filter((v) => typeof v === "string" && hasKey(CNT.brand, v));
-      if (Array.isArray(s.f.status)) f.status = s.f.status.filter((v) => STATUSES.includes(v));
-      if (Array.isArray(s.f.sticks)) f.sticks = s.f.sticks.filter((v) => STICKS.includes(v));
-      if (typeof s.f.maxPrice === "number") f.maxPrice = clamp(s.f.maxPrice, PMIN, PMAX);
-      if (typeof s.f.maxWeight === "number") f.maxWeight = clamp(s.f.maxWeight, WMIN, WMAX);
-      f.usb4 = s.f.usb4 === true;
-    }
+    if (s.f && typeof s.f === "object" && !Array.isArray(s.f)) state.f = cleanF(s.f);
     if (Array.isArray(s.groups)) { const g = s.groups.filter((x) => GROUPS.includes(x)); if (g.length) state.groups = g; }
     ensureSortVisible();
     if (s.layout === "cards" || s.layout === "table") state.layout = s.layout;
@@ -890,10 +1016,38 @@ button.tag:hover { filter: brightness(.95); }
     }
     if (forcedTheme) state.theme = forcedTheme;
   }
+  /* Keep only known facets and known values. A range that spans all the data is no filter. */
+  function cleanF(src) {
+    const f = DEF_F();
+    if (typeof src.q === "string") f.q = src.q.slice(0, 80);
+    if (src.sel && typeof src.sel === "object") Object.keys(src.sel).forEach((k) => {
+      if (!hasKey(FK, k) || FK[k].type === "range" || !Array.isArray(src.sel[k])) return;
+      const fc = FK[k], ok = src.sel[k].filter((v, i, a) => typeof v === "string" && hasKey(fc.valid, v) && a.indexOf(v) === i);
+      if (ok.length) f.sel[k] = ok;
+    });
+    if (src.rng && typeof src.rng === "object") Object.keys(src.rng).forEach((k) => {
+      if (!hasKey(FK, k) || FK[k].type !== "range") return;
+      const fc = FK[k], r = src.rng[k];
+      if (!Array.isArray(r) || typeof r[0] !== "number" || typeof r[1] !== "number" || !isFinite(r[0]) || !isFinite(r[1])) return;
+      let a = clamp(r[0], fc.min, fc.max), b = clamp(r[1], fc.min, fc.max);
+      if (a > b) { const x = a; a = b; b = x; }
+      if (a > fc.min || b < fc.max) f.rng[k] = [a, b];
+    });
+    return f;
+  }
+  function migrateF3(o) {
+    const f = { q: "", sel: {}, rng: {} };
+    if (!o || typeof o !== "object") return f;
+    ["brands", "status", "sticks"].forEach((k) => { if (Array.isArray(o[k])) f.sel[k] = o[k]; });
+    if (o.usb4 === true) f.sel.ports = ["usb4"];
+    if (typeof o.maxPrice === "number") f.rng.price = [FK.price.min, o.maxPrice];
+    if (typeof o.maxWeight === "number") f.rng.weight = [FK.weight.min, o.maxWeight];
+    return f;
+  }
   function save() {
     try {
       localStorage.setItem(KEY, JSON.stringify({
-        v: 3, queue: state.queue, refId: state.refId, sortK: state.sortK, sortDir: state.sortDir, f: state.f, groups: state.groups, layout: state.layout,
+        v: 4, queue: state.queue, refId: state.refId, sortK: state.sortK, sortDir: state.sortDir, f: state.f, groups: state.groups, layout: state.layout,
         hideSame: state.hideSame, sizeOpen: state.sizeOpen, sizeTab: state.sizeTab, sizeView: state.sizeView, sizeMode: state.sizeMode, rx: state.rx, ry: state.ry,
         theme: forcedTheme ? storedTheme : state.theme, route: state.route, detailId: state.detailId
       }));
@@ -967,8 +1121,8 @@ button.tag:hover { filter: brightness(.95); }
   }
   function syncQueueUI() {
     const full = qFull(), n = state.queue.length;
-    $$(".qbox").forEach((cb) => { const q = inQ(cb.dataset.id); cb.checked = q; cb.disabled = !q && full; });
-    $$(".addb").forEach((b) => {
+    $$(".qbox[data-id]").forEach((cb) => { const q = inQ(cb.dataset.id); cb.checked = q; cb.disabled = !q && full; });
+    $$(".addb[data-id]").forEach((b) => {
       const q = inQ(b.dataset.id), dis = !q && full;
       b.setAttribute("aria-pressed", String(q)); b.disabled = dis;
       b.innerHTML = (q ? "In compare" : dis ? "List full" : "Add to compare") + " <span>" + (q ? "✓" : "+") + "</span>";
@@ -1023,68 +1177,139 @@ button.tag:hover { filter: brightness(.95); }
   }
 
   /* ---------- browse: filters ---------- */
-  function buildFilters() {
-    const chk = (f, v, label, n) => { const id = "f-" + f + "-" + slug(v); return '<label class="chk" for="' + id + '"><input type="checkbox" class="fchk" id="' + id + '" data-f="' + f + '" data-v="' + esc(v) + '"><span>' + esc(label) + '</span><span class="n">' + n + "</span></label>"; };
-    const range = (id, f, label, min, max, step) => '<div class="st"><span>' + label + '</span><span class="m" id="' + id + '-l"></span></div><input type="range" class="frange" id="' + id + '" data-f="' + f + '" min="' + min + '" max="' + max + '" step="' + step + '" aria-label="' + label + '">';
-    $("#side").innerHTML = '<div class="side-h">Filters <button type="button" class="btn-t" id="f-reset" data-act="reset-f">Reset</button></div>' +
-      '<div class="ssec"><div class="st">Brand</div>' + BRANDS.map((b) => chk("brands", b, b, CNT.brand[b])).join("") + "</div>" +
-      '<div class="ssec"><div class="st">Status</div>' + STATUSES.map((s) => chk("status", s, STATUS[s], CNT.status[s])).join("") + "</div>" +
-      '<div class="ssec">' + range("f-price", "maxPrice", "Max price", PMIN, PMAX, PSTEP) + "</div>" +
-      '<div class="ssec">' + range("f-weight", "maxWeight", "Max weight", WMIN, WMAX, WSTEP) + "</div>" +
-      '<div class="ssec"><div class="st">Stick type</div>' + STICKS.map((s) => chk("sticks", s, KLABEL[s], CNT.stick[s])).join("") + "</div>" +
-      '<button type="button" class="sw-row" id="f-usb4" data-act="usb4" aria-pressed="false"><span>USB4 / Thunderbolt only</span><span class="sw"></span></button>';
-    const tchip = (f, v, label, n) => chip("chip", v, esc(label) + (n != null ? '<span class="n">' + n + "</span>" : ""), false, "tf-" + f + "-" + slug(v), ' data-f="' + f + '"');
-    $("#topf").innerHTML = '<button type="button" class="topf-h" id="tf-toggle" data-act="tf-toggle" aria-expanded="false" aria-controls="topf-b">Filters <span id="tf-sum"></span></button>' +
-      '<div class="topf-b" id="topf-b" hidden>' +
-      '<div><div class="lbl">Brand</div><div class="chips">' + BRANDS.map((b) => tchip("brands", b, b, CNT.brand[b])).join("") + "</div></div>" +
-      '<div class="tf-2"><div>' + range("tf-price", "maxPrice", "Max price", PMIN, PMAX, PSTEP) + "</div><div>" + range("tf-weight", "maxWeight", "Max weight", WMIN, WMAX, WSTEP) + "</div></div>" +
-      '<div><div class="lbl">Sticks · Status · Ports</div><div class="chips">' + STICKS.map((s) => tchip("sticks", s, KLABEL[s], null)).join("") + STATUSES.map((s) => tchip("status", s, STATUS[s], null)).join("") +
-      '<button type="button" class="chip" id="tf-usb4" data-act="usb4" aria-pressed="false">USB4 / TB</button></div></div>' +
-      '<div><button type="button" class="btn-t" id="tf-reset" data-act="reset-f">Reset filters</button></div></div>';
+  function fctHtml(fc) {
+    const lab = esc(fc.label);
+    if (fc.type === "range") {
+      const at = (end) => ' data-f="' + fc.k + '" min="' + fc.min + '" max="' + fc.max + '" step="' + fc.step + '" value="' + (end === "lo" ? fc.min : fc.max) + '" aria-label="' + lab + ", " + (end === "lo" ? "minimum" : "maximum") + '"';
+      return '<div class="fct" data-k="' + fc.k + '"><div class="st"><span>' + lab + '</span><span class="m" id="f-' + fc.k + '-l">Any</span></div>' +
+        '<div class="rng"><span class="trk"></span><span class="fill" id="f-' + fc.k + '-fill"></span><input type="range" class="frng" id="f-' + fc.k + '-lo"' + at("lo") + '><input type="range" class="frng" id="f-' + fc.k + '-hi"' + at("hi") + "></div>" +
+        '<div class="rng-e"><span>' + esc(fc.fmt(fc.min)) + "</span><span>" + esc(fc.fmt(fc.max)) + "</span></div></div>";
+    }
+    const n = fc.opts.length, more = fc.more && n > fc.more + 2 ? fc.more : 0;
+    return '<div class="fct" data-k="' + fc.k + '"><div class="st"><span>' + lab + "</span>" + (fc.type === "all" ? '<span class="hint">must have all</span>' : "") + "</div>" +
+      fc.opts.map((o, i) => { const id = "f-" + fc.k + "-" + oslug(o); return '<label class="chk' + (more && i >= more ? " fo-x" : "") + '" for="' + id + '"><input type="checkbox" class="fchk" id="' + id + '" data-f="' + fc.k + '" data-v="' + esc(o) + '"><span>' + esc(optLab(fc, o)) + '</span><span class="n" id="fn-' + fc.k + "-" + oslug(o) + '"></span></label>'; }).join("") +
+      (more ? '<button type="button" class="btn-t fmore" id="fmore-' + fc.k + '" data-act="fmore" data-k="' + fc.k + '" aria-expanded="false">Show ' + (n - more) + " more</button>" : "") + "</div>";
   }
+  const FGROUPS = [];
+  FACETS.forEach((fc) => { let g = FGROUPS.find((x) => x.name === fc.g); if (!g) FGROUPS.push(g = { name: fc.g, items: [] }); g.items.push(fc); });
+  /* One filter panel. It sits in the sidebar from 760 px and moves into the collapsible top panel below that, so open groups and values survive a resize. */
+  function buildFilters() {
+    $("#topf").innerHTML = '<button type="button" class="topf-h" id="tf-toggle" data-act="tf-toggle" aria-expanded="false" aria-controls="topf-b">Filters <span id="tf-sum"></span></button><div class="topf-b" id="topf-b" hidden></div>';
+    const fp = document.createElement("div");
+    fp.className = "fpanel"; fp.id = "fpanel";
+    fp.innerHTML = '<div class="fp-h"><span class="fp-t">Filters</span><button type="button" class="btn-t" id="f-reset" data-act="reset-f">Reset all</button></div>' +
+      FGROUPS.map((g, i) => '<details class="fsec" id="fs-' + slug(g.name) + '"' + (i < 2 ? " open" : "") + '><summary><span>' + esc(g.name) + '</span><span class="fsec-n" id="fsn-' + slug(g.name) + '"></span></summary>' + g.items.map(fctHtml).join("") + "</details>").join("");
+    $("#side").appendChild(fp);
+    FACETS.forEach((fc) => {
+      if (fc.type === "range") return;
+      fc.nodes = Object.create(null);
+      fc.opts.forEach((o) => { const n = document.getElementById("fn-" + fc.k + "-" + oslug(o)); if (n) fc.nodes[o] = { n, lab: n.parentElement }; });
+    });
+    placeFilterPanel();
+  }
+  function placeFilterPanel() { const fp = $("#fpanel"), host = isNarrow() ? $("#topf-b") : $("#side"); if (fp && host && fp.parentElement !== host) host.appendChild(fp); }
   let topOpen = false;
   function syncFilters() {
     const f = state.f;
-    $$(".fchk").forEach((cb) => { cb.checked = (f[cb.dataset.f] || []).includes(cb.dataset.v); });
-    $$('.chip[data-act="chip"]').forEach((b) => { b.setAttribute("aria-pressed", String((f[b.dataset.f] || []).includes(b.dataset.v))); });
-    $$("#f-usb4, #tf-usb4").forEach((b) => b.setAttribute("aria-pressed", String(f.usb4)));
-    syncRanges();
+    $$(".fchk").forEach((cb) => { cb.checked = (f.sel[cb.dataset.f] || []).includes(cb.dataset.v); });
+    FACETS.forEach((fc) => { if (fc.type === "range") syncRange(fc); });
+    const q = $("#fq"); if (q && q.value !== f.q) q.value = f.q;
     $("#tf-toggle").setAttribute("aria-expanded", String(topOpen));
     $("#topf-b").hidden = !topOpen;
   }
-  function syncRanges() {
-    const f = state.f;
-    const pl = f.maxPrice >= PMAX ? "Any" : "$" + n0(f.maxPrice), wl = f.maxWeight >= WMAX ? "Any" : f.maxWeight + " g";
-    $$(".frange").forEach((r) => { r.value = String(f[r.dataset.f]); r.setAttribute("aria-valuetext", r.dataset.f === "maxPrice" ? pl : wl); });
-    $$("#f-price-l, #tf-price-l").forEach((e) => { e.textContent = pl; });
-    $$("#f-weight-l, #tf-weight-l").forEach((e) => { e.textContent = wl; });
+  function rangeText(fc, r) { const a = r[0] > fc.min, b = r[1] < fc.max; return a && b ? fc.fmt(r[0]) + " – " + fc.fmt(r[1]) : a ? "≥ " + fc.fmt(r[0]) : "≤ " + fc.fmt(r[1]); }
+  function syncRange(fc) {
+    const on = state.f.rng[fc.k], r = on || [fc.min, fc.max], lo = document.getElementById("f-" + fc.k + "-lo"), hi = document.getElementById("f-" + fc.k + "-hi");
+    if (!lo || !hi) return;
+    if (+lo.value !== r[0]) lo.value = r[0];
+    if (+hi.value !== r[1]) hi.value = r[1];
+    lo.setAttribute("aria-valuetext", fc.fmt(r[0])); hi.setAttribute("aria-valuetext", fc.fmt(r[1]));
+    document.getElementById("f-" + fc.k + "-l").textContent = on ? rangeText(fc, r) : "Any";
+    const span = fc.max - fc.min, fill = document.getElementById("f-" + fc.k + "-fill");
+    fill.style.left = ((r[0] - fc.min) / span * 100).toFixed(2) + "%"; fill.style.right = ((fc.max - r[1]) / span * 100).toFixed(2) + "%";
+    /* Both thumbs at the top end: lift the minimum thumb so it stays reachable. */
+    lo.style.zIndex = r[0] > fc.min + span / 2 ? 4 : 2;
+  }
+  function rangeInput(t) {
+    const fc = hasKey(FK, t.dataset.f) ? FK[t.dataset.f] : null;
+    if (!fc) return;
+    const lo = document.getElementById("f-" + fc.k + "-lo"), hi = document.getElementById("f-" + fc.k + "-hi");
+    let a = rnd(+lo.value), b = rnd(+hi.value);
+    if (a > b) { if (t === lo) a = b; else b = a; }
+    if (a <= fc.min && b >= fc.max) delete state.f.rng[fc.k]; else state.f.rng[fc.k] = [a, b];
+    syncRange(fc); scheduleApply();
   }
   function toggleFilterVal(key, v) {
-    const a = state.f[key] || [];
-    state.f[key] = a.includes(v) ? a.filter((x) => x !== v) : a.concat([v]);
+    if (!hasKey(FK, key)) return;
+    const a = state.f.sel[key] || [], n = a.includes(v) ? a.filter((x) => x !== v) : a.concat([v]);
+    if (n.length) state.f.sel[key] = n; else delete state.f.sel[key];
     syncFilters(); applyList(); save();
   }
-  function passes(d, relax) {
-    const f = state.f;
-    return (!f.brands.length || f.brands.includes(d.brand)) && (!f.status.length || f.status.includes(d.status)) &&
-      (!f.sticks.length || f.sticks.includes(ctl(d).stick_type || "unknown")) &&
-      (relax === "price" || f.maxPrice >= PMAX || (d.msrp_usd != null && d.msrp_usd <= f.maxPrice)) &&
-      (relax === "weight" || f.maxWeight >= WMAX || (d._w != null && d._w <= f.maxWeight)) && (!f.usb4 || d._g40);
+  function clearFacet(k, v) {
+    if (k === "q") state.f.q = "";
+    else if (hasKey(FK, k)) {
+      if (FK[k].type === "range") delete state.f.rng[k];
+      else { const n = (state.f.sel[k] || []).filter((x) => x !== v); if (n.length) state.f.sel[k] = n; else delete state.f.sel[k]; }
+    }
+    syncFilters(); applyList(); save();
   }
-  function filtered() { return DEV.filter((d) => passes(d)); }
-  /* A max slider below "Any" hides devices with no value. The list bar says how many. */
-  function hiddenUnknown() {
-    const f = state.f, out = [];
-    if (f.maxPrice < PMAX) { const n = DEV.filter((d) => d.msrp_usd == null && passes(d, "price")).length; if (n) out.push(n + " without a price"); }
-    if (f.maxWeight < WMAX) { const n = DEV.filter((d) => d._w == null && passes(d, "weight")).length; if (n) out.push(n + " without a weight"); }
-    return out.length ? out.join(" and ") + " hidden" : "";
+  const isActive = (fc) => (fc.type === "range" ? !!state.f.rng[fc.k] : !!(state.f.sel[fc.k] && state.f.sel[fc.k].length));
+  const qTokens = () => state.f.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  function passFacet(fc, d) {
+    const fv = d._fv[fc.k];
+    if (fc.type === "range") { const r = state.f.rng[fc.k]; return !r || (fv != null && fv >= r[0] - 1e-9 && fv <= r[1] + 1e-9); }
+    const sel = state.f.sel[fc.k];
+    if (!sel || !sel.length) return true;
+    return fc.type === "all" ? sel.every((v) => fv.includes(v)) : fv.some((v) => sel.includes(v));
   }
-  function listNote(filt) {
+  /* One pass over the devices: which active filters each device fails. A device that fails only filter k still counts toward k's options, as in a parts picker. */
+  function analyse() {
+    const act = FACETS.filter(isActive), qt = qTokens(), base = Object.create(null), all = [];
+    base.q = []; FACETS.forEach((fc) => { base[fc.k] = []; });
+    DEV.forEach((d) => {
+      let miss = null, n = 0;
+      if (qt.length && !qt.every((x) => d._qs.includes(x))) { miss = "q"; n = 1; }
+      for (let i = 0; i < act.length && n < 2; i++) if (!passFacet(act[i], d)) { miss = act[i].k; n++; }
+      if (!n) all.push(d); else if (n === 1) base[miss].push(d);
+    });
+    return { all, base, act, qt };
+  }
+  function filtered() { return analyse().all; }
+  /* A range filter hides devices with no value. The list bar says how many. */
+  function hiddenUnknown(an) {
+    const out = [];
+    an.act.forEach((fc) => { if (fc.type !== "range") return; const n = an.base[fc.k].filter((d) => d._fv[fc.k] == null).length; if (n) out.push(n + " without " + fc.none); });
+    return out.length ? out.join(", ") + " hidden" : "";
+  }
+  function listNote(filt, an) {
     const ref = refDev(), parts = [];
     if (ref && filt.length && !filt.some((d) => d.id === ref.id)) parts.push("plus the pinned reference");
-    const hu = hiddenUnknown();
+    const hu = hiddenUnknown(an || analyse());
     if (hu) parts.push(hu);
     return parts.join(" · ");
+  }
+  const fxChip = (k, v, text) => '<button type="button" class="fchip" id="fx-' + k + (v ? "-" + oslug(v) : "") + '" data-act="fx" data-k="' + k + '" data-v="' + esc(v) + '" aria-label="Remove filter ' + esc(text) + '"><span>' + esc(text) + "</span>" + I.x + "</button>";
+  let lastChips = null;
+  /* Counts per option, active-group badges, the active-filter chips and the narrow summary. */
+  function syncFacetUI(an) {
+    FACETS.forEach((fc) => {
+      if (fc.type === "range" || !fc.nodes) return;
+      const pool = an.base[fc.k].length ? an.all.concat(an.base[fc.k]) : an.all, sel = state.f.sel[fc.k] || [], cnt = Object.create(null);
+      if (fc.type === "all") fc.opts.forEach((o) => { const need = sel.includes(o) ? sel : sel.concat([o]); let c = 0; pool.forEach((d) => { if (need.every((v) => d._fv[fc.k].includes(v))) c++; }); cnt[o] = c; });
+      else pool.forEach((d) => d._fv[fc.k].forEach((v) => { cnt[v] = (cnt[v] || 0) + 1; }));
+      fc.opts.forEach((o) => { const el = fc.nodes[o]; if (!el) return; const c = String(cnt[o] || 0); if (el.n.textContent !== c) el.n.textContent = c; el.lab.classList.toggle("zero", c === "0"); el.lab.classList.toggle("on", sel.includes(o)); });
+    });
+    FGROUPS.forEach((g) => { const n = g.items.filter(isActive).length, el = document.getElementById("fsn-" + slug(g.name)); if (el) el.textContent = n ? String(n) : ""; });
+    const chips = [];
+    if (an.qt.length) chips.push(fxChip("q", "", "Search: " + state.f.q.trim()));
+    FACETS.forEach((fc) => {
+      if (fc.type === "range") { const r = state.f.rng[fc.k]; if (r) chips.push(fxChip(fc.k, "", fc.label + ": " + rangeText(fc, r))); return; }
+      (state.f.sel[fc.k] || []).forEach((v) => chips.push(fxChip(fc.k, v, fc.label + ": " + optLab(fc, v))));
+    });
+    const html = chips.length ? chips.join("") + '<button type="button" class="btn-t" id="fx-clear" data-act="reset-f">Clear all</button>' : "";
+    if (html !== lastChips) { $("#fchips").innerHTML = html; lastChips = html; }
+    const ts = $("#tf-sum"), nAct = an.act.length + (an.qt.length ? 1 : 0);
+    if (ts) ts.textContent = plural(an.all.length, "result") + (nAct ? " · " + plural(nAct, "filter") : "") + " " + (topOpen ? "−" : "+");
   }
   function sorted(list) {
     const c = COL[state.sortK] || COL.g3d, dir = state.sortDir;
@@ -1104,8 +1329,8 @@ button.tag:hover { filter: brightness(.95); }
   let visibleList = [];
   function renderListBar() {
     const ref = refDev(), cards = effLayout() === "cards";
-    const filt = filtered();
-    let h = '<span class="lbar-n" id="lbar-n" aria-live="polite">' + plural(filt.length, "device") + '</span><span class="lbar-x" id="lbar-x">' + esc(listNote(filt)) + "</span>";
+    const an = analyse(), filt = an.all;
+    let h = '<span class="lbar-n" id="lbar-n" aria-live="polite">' + plural(filt.length, "device") + '</span><span class="lbar-x" id="lbar-x">' + esc(listNote(filt, an)) + "</span>";
     if (ref) h += '<span class="refpill">' + I.targetS + "Reference: <strong>" + esc(ref._short) + '</strong><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear reference" aria-label="Clear reference">' + I.x + "</button></span>";
     h += '<div class="lbar-r">';
     if (!cards) h += '<span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("");
@@ -1160,7 +1385,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   function cardHtml(d, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
-    const sh = openParts(d, outline(d, "top"), "front"), silH = Math.round(84 * Math.min(1, sh.w / 360));
+    const o = outline(d, "top"), sh = openParts(d, o, "front"), silH = Math.round(Math.min(96, 84 * Math.min(1, o.w / 360) * sh.h / o.h));
     const stat = (label, v, text, low) => { const dl = ref && !isRef ? delta(v, low === "nd" ? null : ref._stat[label], low === true) : null; return '<div class="stat"><div class="stat-l">' + label + '</div><div class="stat-v"><span>' + esc(text) + "</span>" + dpill(dl) + "</div></div>"; };
     d._stat = { Weight: d._w, "G3D Mark": scoreOf(d, "g3d_mark"), Screen: (d.screen || {}).size_in, Battery: (d.battery || {}).wh };
     if (ref && !ref._stat) ref._stat = { Weight: ref._w, "G3D Mark": scoreOf(ref, "g3d_mark"), Screen: (ref.screen || {}).size_in, Battery: (ref.battery || {}).wh };
@@ -1184,7 +1409,7 @@ button.tag:hover { filter: brightness(.95); }
      The reference row stays pinned on top. Counts, the empty state and the row limit follow the filtered set. */
   function applyList() {
     const ref = refDev(), cards = effLayout() === "cards";
-    const filt = filtered();
+    const an = analyse(), filt = an.all;
     let list = sorted(filt);
     const refOut = !!ref && !filt.some((d) => d.id === ref.id);
     if (ref) { list = list.filter((d) => d.id !== ref.id); list.unshift(ref); }
@@ -1200,8 +1425,8 @@ button.tag:hover { filter: brightness(.95); }
     $("#tblw").hidden = cards || !filt.length;
     grid.hidden = !cards || !filt.length;
     const n = $("#lbar-n"); if (n) n.textContent = plural(filt.length, "device");
-    const x = $("#lbar-x"); if (x) x.textContent = listNote(filt);
-    const ts = $("#tf-sum"); if (ts) ts.textContent = filt.length + " results " + (topOpen ? "−" : "+");
+    const x = $("#lbar-x"); if (x) x.textContent = listNote(filt, an);
+    syncFacetUI(an);
   }
   function defaultSortK() { const v = visCols(); return (v.find((c) => c.k === "g3d") || v.find((c) => c.num) || v[0] || COL.g3d).k; }
   /* When the sort column leaves the table, sort by a visible column instead. */
@@ -1214,6 +1439,7 @@ button.tag:hover { filter: brightness(.95); }
     renderHead(); applyList(); if (effLayout() === "cards") renderListBar(); save();
   }
   function syncLayout() {
+    placeFilterPanel();
     $("#lpanel").classList.toggle("flat", effLayout() === "cards");
     $("#hq").placeholder = isNarrow() ? "Search devices" : "Type a device name to add to comparison";
     renderListBar(); applyList();
@@ -1673,7 +1899,7 @@ button.tag:hover { filter: brightness(.95); }
     return document.activeElement === el;
   }
   /* Re-rendered controls come back with the same id. Removed controls hand focus to a neighbour. */
-  function restoreFocus(fid, act, id, prevVisible, prevQueue) {
+  function restoreFocus(fid, act, id, prevVisible, prevQueue, prevChip) {
     if (focusId(fid)) return;
     switch (act) {
       case "show-all": { const d = visibleList[prevVisible]; if (d && (focusId("open-" + d.id) || focusId("copen-" + d.id))) return; break; }
@@ -1685,7 +1911,8 @@ button.tag:hover { filter: brightness(.95); }
       }
       case "add": if (focusId("cref2-" + id)) return; break;
       case "clear-queue": if (focusId("qpop-clear") || focusId("badge")) return; break;
-      case "reset-f": if (focusId("f-reset") || focusId("tf-reset")) return; break;
+      case "reset-f": if (focusId("f-reset") || focusId("fq")) return; break;
+      case "fx": { const cs = $$("#fchips .fchip"), c = cs[Math.min(prevChip, cs.length - 1)]; if (c) { c.focus(); return; } if (focusId("fq")) return; break; }
       case "hide-same": if (focusId("hide-same")) return; break;
       default: break;
     }
@@ -1701,7 +1928,7 @@ button.tag:hover { filter: brightness(.95); }
       return;
     }
     if (t.disabled) return;
-    const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length, prevQueue = state.queue.slice();
+    const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length, prevQueue = state.queue.slice(), prevChip = $$("#fchips .fchip").indexOf(t);
     if (act !== "sv" && !pop.hidden) closePop();
     if (act !== "badge" && act !== "rm" && act !== "clear-queue" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
     if (act === "go" || act === "open") userNav = true;
@@ -1724,8 +1951,9 @@ button.tag:hover { filter: brightness(.95); }
       case "layout": state.layout = v; syncLayout(); save(); break;
       case "reset-f": state.f = DEF_F(); syncFilters(); applyList(); save(); break;
       case "tf-toggle": topOpen = !topOpen; syncFilters(); applyList(); break;
-      case "chip": toggleFilterVal(t.dataset.f, v); break;
-      case "usb4": state.f.usb4 = !state.f.usb4; syncFilters(); applyList(); save(); break;
+      case "fx": clearFacet(t.dataset.k, v); break;
+      case "fmore": { const box = t.closest(".fct"), open = !box.classList.contains("open"), fc = hasKey(FK, t.dataset.k) ? FK[t.dataset.k] : null;
+        box.classList.toggle("open", open); t.setAttribute("aria-expanded", String(open)); if (fc) t.textContent = open ? "Show fewer" : "Show " + (fc.opts.length - fc.more) + " more"; break; }
       case "show-all": state.rowLimit = 9999; applyList(); break;
       case "hide-same": state.hideSame = !state.hideSame; renderCompare(); save(); break;
       case "size-open": state.sizeOpen = !state.sizeOpen; renderCompare(); save(); break;
@@ -1738,7 +1966,7 @@ button.tag:hover { filter: brightness(.95); }
     }
     /* Focus counts as lost when it sits on body or on a control that is now hidden (Chromium drops it only after this handler). */
     const a = document.activeElement, lost = !a || a === document.body || a.offsetParent === null || !!a.closest("[hidden]");
-    if (act !== "go" && act !== "open" && act !== "sv" && lost) restoreFocus(fid, act, id, prevVisible, prevQueue);
+    if (act !== "go" && act !== "open" && act !== "sv" && lost) restoreFocus(fid, act, id, prevVisible, prevQueue, prevChip);
   });
   function toggleQBtn(id) { if (inQ(id)) removeQ(id); else addQ(id); }
   document.addEventListener("keydown", (e) => {
@@ -1764,7 +1992,8 @@ button.tag:hover { filter: brightness(.95); }
   document.addEventListener("input", (e) => {
     const t = e.target;
     if (t.id === "hq" || t.id === "sq") { renderDD(t.id); return; }
-    if (t.classList.contains("frange")) { state.f[t.dataset.f] = +t.value; syncRanges(); scheduleApply(); }
+    if (t.classList.contains("frng")) { rangeInput(t); return; }
+    if (t.id === "fq") { state.f.q = t.value.slice(0, 80); scheduleApply(); }
   });
   /* One floating layer at a time, for the keyboard too. */
   document.addEventListener("focusin", (e) => {
@@ -1833,10 +2062,12 @@ button.tag:hover { filter: brightness(.95); }
   $("#home-traced").textContent = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced").length;
   $("#home-date").textContent = dataDate;
   $("#site-foot").innerHTML = "<p>" + DEV.length + " devices · " + SOCS.length + " chips · data " + esc(dataDate) + ". Every value has a source. Open a device to see its sources, conflicts and unresolved fields. A value with a dotted underline has its own source; click it to see the link.</p>" +
-    "<p>Sizes and weights describe the device as held: controllers on, battery pack on, lid open. Top outlines are traced from official renders where possible. Other views are boxes from the stated sizes.</p>" +
+    "<p>Sizes and weights describe the device as held: controllers on, battery pack on. A clamshell uses its closed footprint and is drawn open. Top outlines are traced from official renders where possible. Other views are boxes from the stated sizes.</p>" +
     '<p>The idea comes from <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>. To rebuild the page, run <code>uv run build_site.py</code> in <code>scripts/</code>.</p>';
   buildFilters();
   syncFilters();
+  /* A group that holds saved filters opens on load, so the active values are visible. */
+  FGROUPS.forEach((g) => { if (g.items.some(isActive)) { const el = document.getElementById("fs-" + slug(g.name)); if (el) el.open = true; } });
   renderHead();
   buildRows();
   buildCards();

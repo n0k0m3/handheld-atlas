@@ -18,7 +18,7 @@ Reference site that inspired the project: https://retrocatalog.com. It lacks a l
 | `outlines/index.json` | Which outlines are traced and which are spec boxes |
 | `scripts/` | uv project with every script |
 | `scripts/discover/<brand>.md` | Crawler notes: variant list and source URLs |
-| `site/src/index.html` | Page template: Browse, Compare, Detail (v3 design) |
+| `site/src/index.html` | Page template: Home (with the reference guide), Browse (facet filters and quick search), Compare, Detail |
 | `site/dist/index.html` | Local website (full document) |
 | `site/dist/artifact.html` | Same page as a fragment for the claude.ai Artifact |
 | `site/CONTRACT.md` | Page rules the artifact viewer enforces |
@@ -43,7 +43,7 @@ Parallel outline workers: run `build_outlines.py --brand <x> --index-name <n>` p
 
 - Every fact carries a source URL in `sources[]`. A missing value stays `null` with an `unresolved[]` entry.
 - One row per hardware variant. Same hardware with a different OS is one row.
-- `dims_mm.handheld` and `weight_g.handheld` describe the device as held: controllers on, battery on, lid open.
+- `dims_mm.handheld` and `weight_g.handheld` describe the device as held: controllers on, battery on. A clamshell stores its closed footprint; the site draws it open (deck below, lid above).
 - `stick_type` separates `potentiometer`, `hall`, and `tmr`.
 - The site list and compare grid show the measured weight where a reviewer weighed a unit, else the stated weight. The device sheet shows both.
 - PassMark scores mix TDPs and host devices. Treat them as a rough guide only.

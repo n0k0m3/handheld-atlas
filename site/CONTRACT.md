@@ -32,7 +32,7 @@ The claude.ai Artifact viewer enforces these rules on `site/dist/artifact.html`.
 - `fetch()` works only for files published alongside the page. This page inlines its data so it needs no fetch.
 - Links to `https://` sites open in a new tab. Use real `<a href target="_blank" rel="noopener">`.
 - Only a plain `#anchor` reaches `location.hash`. Hash tokens for views are fine (`#compare`, `#overlay`, `#socs`); never `#/path` or `#key=value`. The address bar does not follow hash changes.
-- `localStorage` works per viewer but may throw or be empty. Wrap every read and write in try/catch. Use it only for conveniences (chosen columns, selected devices, view).
+- `localStorage` works per viewer but may throw or be empty. Wrap every read and write in try/catch. Use it only for conveniences (chosen columns, selected devices, view, filters). The key is `handheld-atlas:v4`; v3 filters migrate on first load.
 - Sound, camera, device APIs: not needed.
 
 ## Size
@@ -74,10 +74,12 @@ body { background: var(--bg); color: var(--fg) }
 
 ## Design notes for this page
 
-- The page is an app shell with three screens: Browse, Compare, Detail. One sticky header holds the screen switch, the device search, the theme toggle, and the compare badge. Hash tokens: `#browse`, `#compare`, and `#<device-id>` for a device sheet.
+- The page is an app shell with four screens: Home, Browse, Compare, Detail. One sticky header holds the logo (the Home link), the Browse/Compare switch, the device search, the theme toggle, and the compare badge. Hash tokens: `#home`, `#browse`, `#compare`, and `#<device-id>` for a device sheet. A fresh visitor lands on Home; a stored route restores.
+- Home holds the reference guide. Its examples are the live components (`.refb`, `.refpill`, `.dpill`, `.tag`), so the guide cannot drift from the UI. Scripts that sync live controls select them with `[data-id]`, which the examples do not carry.
 - Tokens follow the v3 design from the Claude Design project: cool slate greys, one blue accent (`#0768cf` light; in dark `#499fff` for outlines, text accents and focus rings and `#1f6fc0` behind white text, which keeps 4.5:1; checked marks sit on `--accent` with a dark `--fg-onaccent`, so the fill keeps 3:1 against the panel), green and red only for better and worse. Text uses `--fg` or `--fg-2`; `--fg-3` is for decoration only, since it is below 4.5:1 on both grounds. Panels use 10 px corners, controls 6 px, chips 4 px.
 - Typography: Manrope for text, JetBrains Mono for every number, `font-feature-settings: "tnum"` on the body.
-- Browse: a filter sidebar at 760 px and above, a collapsible filter panel and cards below. The table groups its columns (Price, Size, Performance, Display, Memory, Battery, Controls, Ports). A reference device pins to the top and drives the delta pills.
+- Browse: cards by default, table on request. One facet panel (about 47 facets in 8 collapsible groups: multi-select lists with live counts, dual-range sliders, and must-have flag lists) sits in the sidebar from 760 px and moves into the collapsible top panel below that. A quick-search box filters by name, chip, GPU or platform. Active filters show as removable chips. Facet lists and slider bounds come from the data. The table groups its columns (Price, Size, Performance, Display, Memory, Battery, Controls, Ports). A reference device pins to the top and drives the delta pills.
+- Clamshells store their closed footprint. The front and back views, the card silhouette and the sheet outline draw them open: deck below, a lid of the same footprint above, the screen in the lid. Dimension lines and tiles stay on the closed size.
 - Compare holds up to 4 devices with the `--dev-1` to `--dev-4` colours. The size panel draws 1 user unit = 1 mm inside a dot-grid stage with a scale bar. Views: Front and Back use the outlines, Top and Side are boxes from the stated size with a dashed `d_max` rect. The 3D view extrudes the front outline as stacked slices and rotates with pointer drag.
 - Detail keeps the source linkage: every sourced value has a dotted underline that opens the source popover, and the Conflicts, Unresolved, and Sources groups stay.
 - The list and the compare grid show the measured weight where a reviewer weighed a unit, else the stated weight. The device sheet shows both.
