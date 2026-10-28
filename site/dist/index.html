@@ -162,10 +162,14 @@ svg { display: block; }
 .hstat span { font-size: 12px; color: var(--fg-2); }
 .hgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 .hcard { padding: 16px; display: grid; gap: 8px; align-content: start; }
-.hcard h2, .hguide h2 { font-size: 16px; letter-spacing: -0.01em; }
-.hcard p, .steps, .hnotes { color: var(--fg-2); font-size: 13px; line-height: 1.5; }
-.hguide { padding: 16px 20px 18px; scroll-margin-top: calc(var(--hdr-h) + env(safe-area-inset-top, 0px) + 12px); }
-.hguide h2 { font-size: 18px; margin-bottom: 12px; }
+.hcard h2 { font-size: 16px; letter-spacing: -0.01em; }
+.hcard p, .steps, .help > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-weight: 700; font-size: 13px; border-radius: 10px; }
+.help > summary::-webkit-details-marker { display: none; }
+.help > summary::before { content: "?"; width: 18px; height: 18px; border-radius: 9px; display: grid; place-items: center; font: 700 11px var(--f-mono); color: var(--fg-onbrand); background: var(--bg-brand); flex: none; }
+.help > summary::after { content: ""; width: 6px; height: 6px; margin: -3px 2px 0 auto; border-right: 1.5px solid var(--fg-2); border-bottom: 1.5px solid var(--fg-2); transform: rotate(45deg); flex: none; }
+.help[open] > summary::after { transform: rotate(-135deg); margin-top: 3px; }
+.help > summary:hover { background: var(--bg-hover); }
+.help .steps { padding: 4px 16px 16px; }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .steps li { display: flex; gap: 12px; align-items: flex-start; min-width: 0; }
 .steps li > div { min-width: 0; }
@@ -174,7 +178,6 @@ svg { display: block; }
 .demo { display: inline-flex; align-items: center; vertical-align: middle; margin: 0 2px; }
 .demo .refb { color: var(--fg-2); border: 1px solid var(--border-strong); background: var(--bg); }
 .demo .btn-o.sm, .demo .addb.sm { padding: 3px 8px; font-size: 12px; margin: 0; color: var(--fg); gap: 8px; }
-.hnotes { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
 
 /* ---------- browse ---------- */
 .bgrid { display: grid; grid-template-columns: 232px minmax(0, 1fr); gap: 16px; align-items: start; }
@@ -378,6 +381,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .lg { display: grid; gap: 6px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; }
 .lg-t { display: flex; align-items: center; gap: 8px; }
 .lg-t b { flex: 1; min-width: 0; }
+.lg-t .xbtn { margin: -4px -6px -4px 0; }
 .lg-t .m { font-size: 11px; color: var(--fg-2); }
 .lg-w { display: flex; align-items: center; gap: 8px; }
 .lg-w .ic { color: var(--fg-2); }
@@ -551,37 +555,9 @@ button.tag:hover { filter: brightness(.95); }
     <div class="hstats"><div class="hstat"><b id="home-n">–</b><span>devices</span></div><div class="hstat"><b id="home-socs">–</b><span>chips</span></div><div class="hstat"><b id="home-traced">–</b><span>traced outlines</span></div><div class="hstat"><b id="home-date">–</b><span>data date</span></div></div>
   </section>
   <section class="hgrid">
-    <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip. Sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Go to Browse →</button></article>
-    <article class="panel hcard"><h2>Compare</h2><p>Up to four devices side by side: outlines at 1 unit = 1 mm, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Go to Compare →</button></article>
-    <article class="panel hcard"><h2>Reference</h2><p>Pick one device as the reference. Every other device then shows how it differs, in green and red.</p><a class="btn-t" href="#guide-ref">How to set one ↓</a></article>
-  </section>
-  <section class="panel hguide" id="guide-ref">
-    <h2>Set a reference device</h2>
-    <ol class="steps">
-      <li><span class="step-n">1</span><div><b>Pick the device you know.</b> On Browse, press the target button on a card or table row <span class="demo"><span class="refb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg></span></span>. On a device sheet, press <span class="demo"><span class="btn-o sm">Set as reference</span></span>.</div></li>
-      <li><span class="step-n">2</span><div><b>The list pins it on top</b> and the list bar shows the pill <span class="demo"><span class="refpill"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference: <strong>Valve Steam Deck OLED</strong></span></span>. The pill stays while you filter, sort, or switch to cards.</div></li>
-      <li><span class="step-n">3</span><div><b>Read the deltas.</b> Every other device gets a pill per value: <span class="demo"><span class="dpill up">▲ 42%</span></span> better than the reference, <span class="demo"><span class="dpill dn">▼ 18%</span></span> worse, <span class="demo"><span class="dpill eq">= 0%</span></span> the same. Lower is better for price, weight and thickness. Higher is better for scores, screen, RAM and battery.</div></li>
-      <li><span class="step-n">4</span><div><b>In Compare</b>, the reference column carries <span class="demo"><span class="tag ref">Reference</span></span>. Press <span class="demo"><span class="tag">Set as ref</span></span> on another column to switch. When the reference is not in the compare list, the first column acts as <span class="demo"><span class="tag ref">Baseline</span></span>.</div></li>
-      <li><span class="step-n">5</span><div><b>Clear it</b> with the × on the pill, or press the target again. The reference is separate from the compare list. Clearing the list keeps it.</div></li>
-    </ol>
-  </section>
-  <section class="panel hguide">
-    <h2>Compare sizes at true scale</h2>
-    <ol class="steps">
-      <li><span class="step-n">1</span><div><b>Queue up to four devices.</b> Tick the checkbox in the table, press <span class="demo"><span class="addb sm">Add to compare <span>+</span></span></span> on a card, or type a name in the header search.</div></li>
-      <li><span class="step-n">2</span><div><b>Open Compare.</b> The size panel draws the outlines at 1 unit = 1 mm, overlaid or side by side. Views: front, back, top for thickness, and side. Clamshells are drawn open.</div></li>
-      <li><span class="step-n">3</span><div><b>Try the 3D tab.</b> It stacks the outline to the stated thickness. Drag to rotate, or use the view presets.</div></li>
-      <li><span class="step-n">4</span><div><b>Read the grid.</b> Every spec in one table. "Differences only" hides identical rows. The best value in each row is marked <span class="demo"><span class="best">Best</span></span>.</div></li>
-    </ol>
-  </section>
-  <section class="panel hguide">
-    <h2>About the data</h2>
-    <ul class="hnotes">
-      <li>Every value has a source. On a device sheet, a dotted underline opens the link. Conflicts and unresolved fields are listed.</li>
-      <li>Weight is the measured figure where a reviewer weighed a unit, else the stated one. The sheet shows both.</li>
-      <li>Sizes describe the device as held: controllers on, battery pack on. A clamshell uses its closed footprint and is drawn open.</li>
-      <li>PassMark scores are per chip and mix TDPs and host devices. Treat them as a rough guide.</li>
-    </ul>
+    <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip, and sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Go to Browse →</button></article>
+    <article class="panel hcard"><h2>Compare</h2><p>Up to four devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Go to Compare →</button></article>
+    <article class="panel hcard"><h2>Sourced</h2><p>Every figure links to where it came from. Each device sheet lists its sources, conflicts and gaps.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device →</button></article>
   </section>
 </main>
 
@@ -590,6 +566,15 @@ button.tag:hover { filter: brightness(.95); }
     <div><p class="eyebrow" id="eyebrow">Loading data</p><h1 id="browse-h1">Browse handhelds</h1></div>
     <p class="lede">Filter, search and sort. Pick a reference to see how every device differs from it.</p>
   </div>
+  <details class="panel help" id="help-ref">
+    <summary>How the reference works</summary>
+    <ol class="steps">
+      <li><span class="step-n">1</span><div><b>Pick a device you know.</b> Press the target button on its card or table row <span class="demo"><span class="refb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg></span></span>, or <span class="demo"><span class="btn-o sm">Set as reference</span></span> on its sheet.</div></li>
+      <li><span class="step-n">2</span><div><b>It pins to the top</b> and the list bar shows <span class="demo"><span class="refpill"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference: <strong>Valve Steam Deck OLED</strong></span></span>. It stays while you filter, sort or switch layout.</div></li>
+      <li><span class="step-n">3</span><div><b>Read the deltas.</b> <span class="demo"><span class="dpill up">▲ 42%</span></span> is better than the reference, <span class="demo"><span class="dpill dn">▼ 18%</span></span> worse, <span class="demo"><span class="dpill eq">= 0%</span></span> the same. Lower is better for price, weight and thickness; higher for scores, screen, RAM and battery.</div></li>
+      <li><span class="step-n">4</span><div><b>Turn it off</b> with the × on the pill, or press the target again. The reference is separate from the compare list.</div></li>
+    </ol>
+  </details>
   <div class="bgrid">
     <aside class="side panel" id="side" aria-label="Filters"></aside>
     <section class="bsec">
@@ -1112,11 +1097,10 @@ button.tag:hover { filter: brightness(.95); }
     if (state.route === "detail") renderDetail();
     save();
   }
-  /* The first queued device becomes the reference when none is set, and the list rebuilds so the change shows at once. */
+  /* Adding a device never sets the reference: no reference is a valid choice. */
   function addQ(id) {
     if (inQ(id) || qFull() || !hasKey(BY_ID, id)) return false;
     state.queue.push(id);
-    if (!state.refId) { state.refId = id; rebuildList(); }
     afterQ();
     return true;
   }
@@ -1501,7 +1485,8 @@ button.tag:hover { filter: brightness(.95); }
   function renderCompare() {
     const el = $("#scr-compare");
     const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length;
-    const ref = refDev(), hasRef = !!ref && inQ(ref.id), cref = hasRef ? ref : (cols[0] || null);
+    /* No reference: no deltas. A reference outside the list: the first column stands in as the baseline. */
+    const ref = refDev(), hasRef = !!ref && inQ(ref.id), cref = hasRef ? ref : (ref ? cols[0] || null : null);
     let h = '<div class="phead"><div><button type="button" class="btn-t" data-act="go" data-route="browse">← Back to list</button><h1 id="cmp-h1" tabindex="-1">' + (n ? "Compare " + plural(n, "handheld") : "Nothing to compare yet") + "</h1></div>" +
       '<button type="button" class="tog" id="hide-same" data-act="hide-same" aria-pressed="' + state.hideSame + '"><span class="sw"></span>Differences only</button></div>';
     if (!n) {
@@ -1509,10 +1494,19 @@ button.tag:hover { filter: brightness(.95); }
       return;
     }
     const prevWrap = $(".cmpw.scroll", el), prevSL = prevWrap ? prevWrap.scrollLeft : 0;
-    el.innerHTML = h + sizePanelHtml(cols, cref, hasRef) + gridHtml(cols, cref, hasRef, ref);
+    el.innerHTML = h + cmpHelpHtml() + sizePanelHtml(cols, cref, hasRef) + gridHtml(cols, cref, hasRef, ref);
     const wrap = $(".cmpw.scroll", el);
     if (wrap && prevSL) wrap.scrollLeft = prevSL;
     layoutStage();
+  }
+  let cmpHelpOpen = false;
+  function cmpHelpHtml() {
+    return '<details class="panel help" id="help-cmp"' + (cmpHelpOpen ? " open" : "") + '><summary>How to compare</summary><ol class="steps">' +
+      '<li><span class="step-n">1</span><div><b>Queue up to four devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">Add to compare <span>+</span></span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
+      '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at 1 unit = 1 mm, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Clamshells are drawn open.</div></li>' +
+      '<li><span class="step-n">3</span><div><b>Pick a reference, or none.</b> Press <span class="demo"><span class="tag">Set as ref</span></span> on a column to compare the others against it. Press <span class="demo"><span class="tag ref">Reference</span></span> again to turn the deltas off.</div></li>' +
+      '<li><span class="step-n">4</span><div><b>Read the grid.</b> "Differences only" hides identical rows, and <span class="demo"><span class="best">Best</span></span> marks the best value in a row. Remove a device with the × on its column or in the size legend.</div></li>' +
+      "</ol></details>";
   }
   const presetOn = (k) => state.rx === PRESET[k][0] && state.ry === PRESET[k][1];
   function sizePanelHtml(cols, cref, hasRef) {
@@ -1552,8 +1546,9 @@ button.tag:hover { filter: brightness(.95); }
     const maxW = Math.max(1, ...cols.map((d) => d._w || 0));
     return '<div class="legend">' + cols.map((d, i) => {
       const isR = cref && d.id === cref.id, dl = !isR && cref ? delta(d._w, cref._w, true) : null, dm = dimsH(d);
-      return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d)) + "</span></div>" +
-        '<div class="lg-w">' + I.weight + '<div class="wbar"><i style="width:' + ((d._w || 0) / maxW * 100).toFixed(1) + '%"></i></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="dpill refp">' + (hasRef ? "REF" : "BASE") + "</span>" : '<span class="dpill">—</span>')) + "</div></div>";
+      return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d)) + "</span>" +
+        '<button type="button" class="xbtn" id="lrm-' + esc(d.id) + '" data-act="rm" data-id="' + esc(d.id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + ' from the comparison">' + I.x + "</button></div>" +
+        '<div class="lg-w">' + I.weight + '<div class="wbar"><i style="width:' + ((d._w || 0) / maxW * 100).toFixed(1) + '%"></i></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="dpill refp">' + (hasRef ? "REF" : "BASE") + "</span>" : cref ? '<span class="dpill">—</span>' : "")) + "</div></div>";
     }).join("") + "</div>";
   }
   /* Fit the scale bar to the rendered 2D stage, lay out the 3D slices, and place the grid header. */
@@ -1622,8 +1617,9 @@ button.tag:hover { filter: brightness(.95); }
         return { text: texts[i], dl, best: best != null && nums[i] === best, mono: !!num, isR };
       }) };
     }).filter(Boolean) })).filter((x) => x.rows.length);
-    const hint = hasRef || !ref ? "Click a column to make it the reference. Deltas compare against it."
-      : "The reference (" + esc(ref._short) + ") is not in this list, so deltas compare against the first column. Click a column to make it the reference.";
+    const hint = hasRef ? "Deltas compare against the reference column. Press “Reference” again to turn them off."
+      : ref ? "The reference (" + esc(ref._short) + ") is not in this list, so deltas compare against the first column. Click a column to make it the reference."
+      : "No reference, so no deltas. Press “Set as ref” on a column to compare the others against it.";
     let h = '<section class="panel cmpw' + (scroll ? " scroll" : "") + '"><div style="min-width:' + minW + '">';
     h += '<div class="cgrid hd" style="grid-template-columns:' + gcols + '"><div class="cmp-hint">' + hint + "</div>";
     h += cols.map((d, i) => {
@@ -1631,7 +1627,7 @@ button.tag:hover { filter: brightness(.95); }
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
         '<div class="ccol-t"><span class="dev-b">' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<button type="button" class="ccol-n" id="copen2-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + (d.variant ? '<div class="dev-v">' + esc(d.variant) + "</div>" : "") +
-        '<div class="ccol-f"><span class="price">' + priceTxt(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + isR + '" aria-label="Use ' + esc(d._name) + ' as reference">' + (isR ? (hasRef ? "Reference" : "Baseline") : "Set as ref") + "</button></div></div>";
+        '<div class="ccol-f"><span class="price">' + priceTxt(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? "Reference" : "Baseline") : "Set as ref") + "</button></div></div>";
     }).join("");
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false"></div><div class="dd" id="sq-dd" hidden></div></div>';
     h += "</div>";
@@ -1947,9 +1943,9 @@ button.tag:hover { filter: brightness(.95); }
     switch (act) {
       case "show-all": { const d = visibleList[prevVisible]; if (d && (focusId("open-" + d.id) || focusId("copen-" + d.id))) return; break; }
       case "rm": {
-        const i = prevQueue.indexOf(id), nx = state.queue[i] || state.queue[i - 1];
-        if (fid && fid.startsWith("qrm-")) { if (nx && focusId("qrm-" + nx)) return; if (focusId("qpop-clear")) return; }
-        else { if (nx && focusId("crm-" + nx)) return; if (focusId("sq")) return; }
+        const i = prevQueue.indexOf(id), nx = state.queue[i] || state.queue[i - 1], pre = fid ? fid.slice(0, 4) : "crm-";
+        if (pre === "qrm-") { if (nx && focusId("qrm-" + nx)) return; if (focusId("qpop-clear")) return; }
+        else { if (nx && (focusId(pre + nx) || focusId("crm-" + nx))) return; if (focusId("sq")) return; }
         break;
       }
       case "add": if (focusId("cref2-" + id)) return; break;
@@ -1984,7 +1980,7 @@ button.tag:hover { filter: brightness(.95); }
       case "rm": removeQ(id); break;
       case "clear-queue": state.queue = []; afterQ(); break;
       case "ref": setRef(refDev() && refDev().id === id ? null : id); break;
-      case "setref": setRef(id); break;
+      case "setref": setRef(state.refId === id ? null : id); break;
       case "clear-ref": setRef(null); break;
       case "theme": state.theme = isDark() ? "light" : "dark"; applyTheme(); save(); break;
       case "badge": toggleQpop(); break;
@@ -2059,6 +2055,7 @@ button.tag:hover { filter: brightness(.95); }
     }, 0);
   });
   document.addEventListener("mousedown", (e) => { if (e.target.closest(".dd")) e.preventDefault(); });
+  document.addEventListener("toggle", (e) => { if (e.target.id === "help-cmp") cmpHelpOpen = e.target.open; }, true);
   document.addEventListener("pointerdown", (e) => { if (e.target.classList && e.target.classList.contains("frng")) { rngPtr = true; rngFirst = true; rngDrag = null; } }, true);
   window.addEventListener("pointerup", () => { rngPtr = false; rngDrag = null; }, true);
   window.addEventListener("pointercancel", () => { rngPtr = false; rngDrag = null; }, true);
@@ -2110,7 +2107,7 @@ button.tag:hover { filter: brightness(.95); }
   $("#home-date").textContent = dataDate;
   $("#site-foot").innerHTML = "<p>" + DEV.length + " devices · " + SOCS.length + " chips · data " + esc(dataDate) + ". Every value has a source. Open a device to see its sources, conflicts and unresolved fields. A value with a dotted underline has its own source; click it to see the link.</p>" +
     "<p>Sizes and weights describe the device as held: controllers on, battery pack on. A clamshell uses its closed footprint and is drawn open. Top outlines are traced from official renders where possible. Other views are boxes from the stated sizes.</p>" +
-    '<p>The idea comes from <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>. To rebuild the page, run <code>uv run build_site.py</code> in <code>scripts/</code>.</p>';
+    '<p>To rebuild the page, run <code>uv run build_site.py</code> in <code>scripts/</code>.</p>';
   buildFilters();
   syncFilters();
   /* A group that holds saved filters opens on load, so the active values are visible. */

@@ -18,7 +18,7 @@ Reference site that inspired the project: https://retrocatalog.com. It lacks a l
 | `outlines/index.json` | Which outlines are traced and which are spec boxes |
 | `scripts/` | uv project with every script |
 | `scripts/discover/<brand>.md` | Crawler notes: variant list and source URLs |
-| `site/src/index.html` | Page template: Home (with the reference guide), Browse (facet filters and quick search), Compare, Detail |
+| `site/src/index.html` | Page template: Home, Browse (facet filters, quick search, reference help), Compare (help, optional reference), Detail |
 | `site/dist/index.html` | Local website (full document) |
 | `site/dist/artifact.html` | Same page as a fragment for the claude.ai Artifact |
 | `site/CONTRACT.md` | Page rules the artifact viewer enforces |
