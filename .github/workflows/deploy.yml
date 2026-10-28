@@ -1,0 +1,48 @@
+name: Deploy
+
+# Build the site from the committed data and publish it to surge.sh.
+# Needs the repository secret SURGE_TOKEN. Get one with `npx surge token`.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      DOMAIN: handheld-atlas.surge.sh
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # validate.py needs jsonschema. build_site.py needs only the standard library.
+      - name: Validate data
+        run: |
+          pip install "jsonschema>=4.23"
+          python scripts/validate.py
+
+      - name: Build site
+        run: python scripts/build_site.py
+
+      # artifact.html is a fragment for claude.ai, not a page. Publish index.html only.
+      - name: Publish to surge.sh
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: |
+          if [ -z "$SURGE_TOKEN" ]; then
+            echo "::error::Set the SURGE_TOKEN repository secret."
+            exit 1
+          fi
+          npx --yes surge@0.52.0 site/dist/index.html "$DOMAIN"

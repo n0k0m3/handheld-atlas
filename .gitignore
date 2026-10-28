@@ -9,3 +9,7 @@ images/raw/
 # Editor and OS files
 .DS_Store
 *.swp
+
+# Local Claude Code config
+.claude/settings.local.json
+CLAUDE.local.md
