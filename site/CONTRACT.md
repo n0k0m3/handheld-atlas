@@ -48,7 +48,7 @@ The claude.ai Artifact viewer enforces these rules on `site/dist/artifact.html`.
 - Flex/grid rows wrap or stack to one column when narrow. Any flex/grid child that holds text, code or a table gets `min-width: 0`.
 - `max-width: 100%` on images and `aspect-ratio` boxes. No `min-width` wider than the screen.
 - Wide tables and the SVG overlay may exceed the width only inside their own `overflow-x: auto` container.
-- `position: sticky` cannot reach the viewport from inside an `overflow-x: auto` container (the container becomes the sticky root and never scrolls vertically). The compare grid header emulates it with a passive scroll listener and a `translateY` transform while the grid scrolls.
+- `position: sticky` cannot reach the viewport from inside an `overflow-x: auto` container (the container becomes the sticky root and never scrolls vertically). The compare grid header emulates it with a passive scroll listener and a `translateY` transform while the grid scrolls. Horizontal `position: sticky; left: 0` does work inside that container, so the grid's label column (and the header's hint cell, section titles and the hidden-rows note) stays frozen while the device columns scroll sideways; focus that lands under it scrolls clear.
 - A sticky header uses `top: env(safe-area-inset-top, 0px)` and paints the band above with `body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background: var(--bg) }`.
 - `font-variant-numeric: tabular-nums` wherever digits line up.
 

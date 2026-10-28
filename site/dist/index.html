@@ -400,7 +400,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .cmpw.scroll .cgrid.hd { position: relative; top: auto; will-change: transform; }
 .cgrid { display: grid; border-bottom: 1px solid var(--border); }
 .cgrid.hd { position: sticky; top: calc(var(--hdr-h) + env(safe-area-inset-top, 0px)); z-index: 6; background: var(--bg); border-radius: 10px 10px 0 0; }
-.cmp-hint { padding: 12px; font-size: 11.5px; color: var(--fg-2); align-self: end; }
+.cmp-hint { padding: 12px; font-size: 11.5px; color: var(--fg-2); align-self: stretch; display: flex; align-items: flex-end; }
 .ccol { padding: 12px; border-left: 1px solid var(--border); cursor: pointer; box-shadow: inset 0 3px 0 var(--c); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .ccol:hover { background: var(--bg-hover); }
 .ccol.ref { background: var(--bg-selected); }
@@ -426,6 +426,12 @@ button.tag:hover { filter: brightness(.95); }
 .ccell .dpill { margin: 0; }
 .best { font-size: 10px; font-weight: 700; color: var(--good); border: 1px solid var(--good); padding: 0 4px; border-radius: 3px; }
 .hid-note { padding: 12px; font-size: 12px; color: var(--fg-2); }
+/* Frozen first column: labels stay put while the device columns scroll sideways, like the frozen header row. */
+.cmpw .clbl, .cmpw .cmp-hint { position: sticky; left: 0; z-index: 2; background: var(--bg); }
+.cmpw .cgrid.diff > .clbl { background: var(--bg-selected); }
+.cmpw.scroll .clbl, .cmpw.scroll .cmp-hint { box-shadow: 1px 0 0 var(--border), 6px 0 8px -6px rgba(0, 0, 0, .18); }
+.csec > span { position: sticky; left: 12px; }
+.cmpw.scroll .hid-note { position: sticky; left: 0; width: max-content; max-width: 100vw; }
 
 /* ---------- detail ---------- */
 .dgrid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
@@ -1375,11 +1381,13 @@ button.tag:hover { filter: brightness(.95); }
   function stickyRight() { const th = $("#thead th.stk.c1"), w = $("#tblw"); return th && w ? th.getBoundingClientRect().right - w.getBoundingClientRect().left : 0; }
   function syncStickyPad() { const w = $("#tblw"); if (w) w.style.scrollPaddingLeft = Math.round(stickyRight() + 8) + "px"; }
   /* Focus moved into a scrolled cell: keep it clear of the sticky columns (the browser's own scroll stops at the scrollport edge). */
+  /* Focus moved into a horizontally scrolled grid: keep it clear of the frozen columns (the browser's own scroll stops at the scrollport edge). */
   function revealInTable(el) {
-    const w = el.closest("#tblw");
-    if (!w || el.closest(".stk")) return;
+    const w = el.closest("#tblw, .cmpw.scroll");
+    if (!w || el.closest(".stk, .clbl, .cmp-hint")) return;
+    const frozen = () => { if (w.id === "tblw") return stickyRight(); const c = $(".clbl, .cmp-hint", w); return c ? c.getBoundingClientRect().right - w.getBoundingClientRect().left : 0; };
     requestAnimationFrame(() => {
-      const wr = w.getBoundingClientRect(), r = el.getBoundingClientRect(), left = wr.left + stickyRight() + 8;
+      const wr = w.getBoundingClientRect(), r = el.getBoundingClientRect(), left = wr.left + frozen() + 8;
       if (r.left < left) w.scrollLeft -= left - r.left;
       else if (r.right > wr.right - 8) w.scrollLeft += r.right - (wr.right - 8);
     });
@@ -1652,7 +1660,7 @@ button.tag:hover { filter: brightness(.95); }
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false"></div><div class="dd" id="sq-dd" hidden></div></div>';
     h += "</div>";
     secs.forEach((sec) => {
-      h += '<div class="csec">' + esc(sec.name) + "</div>";
+      h += '<div class="csec"><span>' + esc(sec.name) + "</span></div>";
       sec.rows.forEach((row) => {
         h += '<div class="cgrid' + (!state.hideSame && row.diff && n > 1 ? " diff" : "") + '" style="grid-template-columns:' + gcols + '"><div class="clbl">' + esc(row.label) + "</div>";
         row.cells.forEach((c) => {
@@ -1954,7 +1962,10 @@ button.tag:hover { filter: brightness(.95); }
     if (!el || el.disabled || el.offsetParent === null) return false;
     el.focus({ preventScroll: true });
     const sc = el.closest(".cmpw.scroll");
-    if (sc) { const er = el.getBoundingClientRect(), cr = sc.getBoundingClientRect(); if (er.right > cr.right) sc.scrollLeft += er.right - cr.right + 12; else if (er.left < cr.left) sc.scrollLeft -= cr.left - er.left + 12; }
+    if (sc && !el.closest(".clbl, .cmp-hint")) {
+      const er = el.getBoundingClientRect(), cr = sc.getBoundingClientRect(), fz = $(".clbl, .cmp-hint", sc), left = cr.left + (fz ? fz.offsetWidth : 0);
+      if (er.right > cr.right) sc.scrollLeft += er.right - cr.right + 12; else if (er.left < left) sc.scrollLeft -= left - er.left + 12;
+    }
     return document.activeElement === el;
   }
   /* Re-rendered controls come back with the same id. Removed controls hand focus to a neighbour. */
