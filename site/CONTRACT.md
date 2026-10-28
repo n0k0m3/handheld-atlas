@@ -5,7 +5,7 @@ The claude.ai Artifact viewer enforces these rules on `site/dist/artifact.html`.
 ## Skeleton
 
 - The artifact file is a **fragment**. The viewer wraps it in `<!doctype html><html><head>…</head><body>` at publish time. Do not write `<!DOCTYPE>`, `<html>`, `<head>`, or `<body>` in the fragment.
-- The viewer's head carries a charset and viewport meta (`viewport-fit=cover`), a light `color-scheme`, `:root` padded top and bottom by the phone safe-area insets, zero body margin, a 14px system font, `img{max-width:100%}`, and `[hidden]{display:none!important}`. Toggle visibility with `el.hidden`, not `style.display`.
+- The viewer's head carries a charset and viewport meta (`viewport-fit=cover`), a light `color-scheme`, `:root` padded top and bottom by the phone safe-area insets, zero body margin, a 14px system font, `img{max-width:100%}`, and `[hidden]{display:none!important}`. Toggle visibility with `el.hidden`, not `style.display`. For an `<svg>` element use `el.toggleAttribute("hidden", on)`: `SVGElement` has no `hidden` property, so the assignment only adds a JS property.
 - Put `<title>` and `<style>` at the top of the fragment. Only the first 8 KB is scanned for the title.
 - Put `<meta name="claude:viewport-fit-sides" content="cover">` beside the title. It is only valid together with the two `max()` side paddings described under Responsive.
 - Keep the `:root` padding the viewer adds.
@@ -48,6 +48,7 @@ The claude.ai Artifact viewer enforces these rules on `site/dist/artifact.html`.
 - Flex/grid rows wrap or stack to one column when narrow. Any flex/grid child that holds text, code or a table gets `min-width: 0`.
 - `max-width: 100%` on images and `aspect-ratio` boxes. No `min-width` wider than the screen.
 - Wide tables and the SVG overlay may exceed the width only inside their own `overflow-x: auto` container.
+- `position: sticky` cannot reach the viewport from inside an `overflow-x: auto` container (the container becomes the sticky root and never scrolls vertically). The compare grid header emulates it with a passive scroll listener and a `translateY` transform while the grid scrolls.
 - A sticky header uses `top: env(safe-area-inset-top, 0px)` and paints the band above with `body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background: var(--bg) }`.
 - `font-variant-numeric: tabular-nums` wherever digits line up.
 
@@ -74,7 +75,7 @@ body { background: var(--bg); color: var(--fg) }
 ## Design notes for this page
 
 - The page is an app shell with three screens: Browse, Compare, Detail. One sticky header holds the screen switch, the device search, the theme toggle, and the compare badge. Hash tokens: `#browse`, `#compare`, and `#<device-id>` for a device sheet.
-- Tokens follow the v3 design from the Claude Design project: cool slate greys, one blue accent (`#0768cf` light, `#247bd2` dark), green and red only for better and worse. Panels use 10 px corners, controls 6 px, chips 4 px.
+- Tokens follow the v3 design from the Claude Design project: cool slate greys, one blue accent (`#0768cf` light; in dark `#499fff` for outlines, text accents and focus rings and `#1f6fc0` behind white text, which keeps 4.5:1), green and red only for better and worse. Text uses `--fg` or `--fg-2`; `--fg-3` is for decoration only, since it is below 4.5:1 on both grounds. Panels use 10 px corners, controls 6 px, chips 4 px.
 - Typography: Manrope for text, JetBrains Mono for every number, `font-feature-settings: "tnum"` on the body.
 - Browse: a filter sidebar at 760 px and above, a collapsible filter panel and cards below. The table groups its columns (Price, Size, Performance, Display, Memory, Battery, Controls, Ports). A reference device pins to the top and drives the delta pills.
 - Compare holds up to 4 devices with the `--dev-1` to `--dev-4` colours. The size panel draws 1 user unit = 1 mm inside a dot-grid stage with a scale bar. Views: Front and Back use the outlines, Top and Side are boxes from the stated size with a dashed `d_max` rect. The 3D view extrudes the front outline as stacked slices and rotates with pointer drag.

@@ -8,9 +8,9 @@
 :root {
   --bg: #ffffff; --bg-page: #f7f7f8; --bg-subtle: #f1f3f6; --bg-hover: #f4f5f8; --bg-selected: #e8f2fd;
   --bg-brand: #0768cf; --bg-brand-hover: #0659b3; --accent: #0768cf;
-  --fg: #111827; --fg-2: #657184; --fg-3: #8e98a8; --fg-brand: #0768cf; --fg-onbrand: #ffffff;
+  --fg: #111827; --fg-2: #5f6a7d; --fg-3: #8e98a8; --fg-brand: #0768cf; --fg-onbrand: #ffffff;
   --border: #e5e8ee; --border-strong: #d5dae3;
-  --good: #008043; --good-bg: #e3f6e9; --bad: #c4320a; --bad-bg: #fdece8;
+  --good: #00733c; --good-bg: #e3f6e9; --bad: #c4320a; --bad-bg: #fdece8;
   --dev-1: #0d99ff; --dev-2: #9747ff; --dev-3: #e8890c; --dev-4: #111827;
   --slice: #d5dae3; --slice-back: #738095;
   --shadow: 0 1px 3px rgba(17, 24, 39, .06), 0 8px 24px rgba(17, 24, 39, .10);
@@ -21,7 +21,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250;
-    --bg-brand: #247bd2; --bg-brand-hover: #2d89e6; --accent: #499fff;
+    --bg-brand: #1f6fc0; --bg-brand-hover: #1a62ab; --accent: #499fff;
     --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff;
     --border: #303641; --border-strong: #424b59;
     --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
@@ -33,7 +33,7 @@
 }
 :root[data-theme="dark"] {
   --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250;
-  --bg-brand: #247bd2; --bg-brand-hover: #2d89e6; --accent: #499fff;
+  --bg-brand: #1f6fc0; --bg-brand-hover: #1a62ab; --accent: #499fff;
   --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff;
   --border: #303641; --border-strong: #424b59;
   --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
@@ -66,7 +66,7 @@ button:disabled { cursor: default; }
 h1, h2, h3, h4, p, dl, dd, figure { margin: 0; }
 h1 { font-weight: 800; font-size: 32px; letter-spacing: -0.03em; line-height: 1.05; text-wrap: balance; }
 code { font-family: var(--f-mono); font-size: .92em; }
-input::placeholder { color: var(--fg-3); opacity: 1; }
+input::placeholder { color: var(--fg-2); opacity: 1; }
 input[type="range"] { accent-color: var(--accent); width: 100%; margin: 0; }
 input[type="checkbox"] { accent-color: var(--accent); margin: 0; width: 14px; height: 14px; }
 svg { display: block; }
@@ -102,8 +102,8 @@ svg { display: block; }
 .srch-box { display: flex; align-items: center; gap: 8px; background: var(--bg-subtle); border: 1px solid transparent; border-radius: 6px; padding: 0 10px; height: 32px; color: var(--fg-2); }
 .srch-box:focus-within { border-color: var(--accent); background: var(--bg); }
 .srch-box input { all: unset; flex: 1; min-width: 0; height: 100%; font-size: 13px; color: var(--fg); }
-.dd { position: absolute; left: 0; right: 0; top: calc(100% + 4px); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); z-index: 40; padding: 4px; display: grid; }
-.dd-item { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: 5px; width: 100%; color: var(--fg); }
+.dd { position: absolute; left: 0; right: 0; top: calc(100% + 4px); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); z-index: 40; padding: 4px; display: grid; grid-template-columns: minmax(0, 1fr); }
+.dd-item { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: 5px; width: 100%; min-width: 0; color: var(--fg); }
 .dd-item:hover, .dd-item:focus-visible { background: var(--bg-selected); }
 .dd-item:disabled { opacity: .5; }
 .dd-item > div { flex: 1; min-width: 0; }
@@ -119,7 +119,7 @@ svg { display: block; }
 .badge.on { background: var(--bg-brand); color: var(--fg-onbrand); }
 .badge:hover { filter: brightness(.95); }
 .badge-n { background: var(--bg); min-width: 22px; height: 20px; border-radius: 4px; display: grid; place-items: center; font: 600 11px var(--f-mono); padding: 0 4px; }
-.badge.on .badge-n { background: rgba(255, 255, 255, .22); }
+.badge.on .badge-n { background: rgba(0, 0, 0, .22); }
 .qpop { position: absolute; right: 0; top: 40px; width: min(320px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); z-index: 40; }
 .qpop-h { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 12px; border-bottom: 1px solid var(--border); font-weight: 700; }
 .qpop-h span { font-size: 12px; color: var(--fg-2); font-weight: 400; }
@@ -128,7 +128,7 @@ svg { display: block; }
 .qitem:hover { background: var(--bg-hover); }
 .qitem > div { flex: 1; min-width: 0; }
 .dot { width: 10px; height: 10px; border-radius: 3px; flex: none; background: var(--c); }
-.xbtn { padding: 4px; border-radius: 4px; color: var(--fg-2); display: grid; place-items: center; }
+.xbtn { padding: 4px; min-width: 24px; min-height: 24px; border-radius: 4px; color: var(--fg-2); display: grid; place-items: center; }
 .xbtn:hover { color: var(--bad); background: var(--bad-bg); }
 .qpop-f { display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--border); }
 .qpop-f .btn-p { flex: 1; }
@@ -144,6 +144,8 @@ svg { display: block; }
 .main > * { min-width: 0; }
 .phead { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; }
 .phead > div { min-width: 0; }
+.phead h1:focus { outline: none; }
+.phead h1:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .eyebrow { font-size: 12px; font-weight: 600; color: var(--fg-brand); }
 .hero { font-size: 52px; letter-spacing: -0.035em; line-height: 1; margin-top: 4px; }
 .lede { max-width: 380px; color: var(--fg-2); font-size: 14px; }
@@ -159,11 +161,11 @@ svg { display: block; }
 .chk { display: flex; align-items: center; gap: 8px; padding: 3px 4px; margin: 0 -4px; border-radius: 4px; cursor: pointer; }
 .chk:hover { background: var(--bg-hover); }
 .chk span { flex: 1; min-width: 0; }
-.chk .n { font: 11px var(--f-mono); color: var(--fg-3); flex: none; }
+.chk .n { font: 11px var(--f-mono); color: var(--fg-2); flex: none; }
 .sw-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; width: 100%; }
 .sw { width: 28px; height: 16px; border-radius: 10px; background: var(--border-strong); position: relative; flex: none; transition: background .15s; }
 .sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 6px; background: #fff; transition: left .15s; }
-[aria-pressed="true"] > .sw { background: var(--accent); }
+[aria-pressed="true"] > .sw { background: var(--bg-brand); }
 [aria-pressed="true"] > .sw::after { left: 14px; }
 .topf { display: none; }
 .topf-h { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 10px 12px; font-weight: 700; }
@@ -173,12 +175,14 @@ svg { display: block; }
 .chips { display: flex; flex-wrap: wrap; gap: 4px; }
 .chip { padding: 3px 8px; font-size: 12px; font-weight: 600; border-radius: 4px; border: 1px solid var(--border-strong); background: var(--bg); color: var(--fg); white-space: nowrap; }
 .chip[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
-.chip .n { font: 10.5px var(--f-mono); opacity: .6; margin-left: 3px; }
+.chip .n { font: 10.5px var(--f-mono); opacity: .8; margin-left: 3px; }
 
 .lbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 12px; border-bottom: 1px solid var(--border); }
 .flat { background: transparent; border-color: transparent; }
 .flat .lbar { padding-inline: 0; border-bottom: 0; }
 .lbar-n { font-weight: 700; font-size: 14px; }
+.lbar-x { font-size: 12px; color: var(--fg-2); }
+.lbar-x:empty { display: none; }
 .refpill { display: flex; align-items: center; gap: 6px; font-size: 12px; background: var(--bg-selected); color: var(--fg-brand); padding: 3px 4px 3px 8px; border-radius: 4px; }
 .refpill .ic { width: 12px; height: 12px; stroke-width: 2.4; }
 .refpill .xbtn { padding: 2px; color: inherit; }
@@ -187,7 +191,13 @@ svg { display: block; }
 .lbar-r .lbl { margin-right: 4px; }
 .lbar-r .segs { margin-left: 8px; }
 .tblw { overflow-x: auto; }
-.tbl { width: 100%; border-collapse: collapse; }
+.tbl { width: 100%; border-collapse: separate; border-spacing: 0; }
+.tbl .stk { position: sticky; z-index: 2; background: var(--bg); }
+.tbl th.stk { z-index: 3; }
+.tbl .stk.c0 { left: 0; }
+.tbl .stk.c1 { left: 36px; box-shadow: 1px 0 0 var(--border); }
+.tbl tbody tr:hover > .stk { background: var(--bg-hover); }
+.tbl tbody tr.ref > .stk { background: var(--bg-selected); }
 .tbl th { text-align: left; padding: 8px 12px 8px 0; font-size: 11px; font-weight: 600; color: var(--fg-2); white-space: nowrap; border-bottom: 1px solid var(--border); }
 .tbl th:first-child { padding-left: 12px; width: 36px; }
 .tbl th.on { color: var(--fg); }
@@ -198,6 +208,9 @@ svg { display: block; }
 .tbl tbody tr:hover { background: var(--bg-hover); }
 .tbl tbody tr.ref { background: var(--bg-selected); }
 .dcell { min-width: 200px; white-space: normal; }
+.dwrap { display: flex; align-items: flex-start; gap: 6px; }
+.dwrap > div { flex: 1; min-width: 0; }
+.dwrap .refb { margin: -3px -4px 0 0; }
 .dev-b { font-size: 11px; color: var(--fg-2); font-weight: 500; }
 .dev-n { font-weight: 700; font-size: 13px; line-height: 1.3; }
 .dev-n:hover { color: var(--fg-brand); }
@@ -211,11 +224,11 @@ svg { display: block; }
 .dpill.up { color: var(--good); background: var(--good-bg); }
 .dpill.dn { color: var(--bad); background: var(--bad-bg); }
 .dpill.refp { color: var(--fg-brand); background: var(--bg-selected); }
-.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border-strong); background: transparent; cursor: pointer; display: grid; place-items: center; }
-.qbox:checked { background: var(--accent); border-color: var(--accent); }
-.qbox:checked::after { content: ""; width: 9px; height: 5px; border-left: 2.5px solid #fff; border-bottom: 2.5px solid #fff; transform: translateY(-1px) rotate(-45deg); }
+input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border-strong); background: transparent; cursor: pointer; display: grid; place-items: center; }
+.qbox:checked { background: var(--bg-brand); border-color: var(--bg-brand); }
+.qbox:checked::after { content: ""; width: 9px; height: 5px; border-left: 2.5px solid var(--fg-onbrand); border-bottom: 2.5px solid var(--fg-onbrand); transform: translateY(-1px) rotate(-45deg); }
 .qbox:disabled { opacity: .35; cursor: default; }
-.refb { display: grid; place-items: center; padding: 3px; border-radius: 4px; color: var(--fg-3); }
+.refb { display: grid; place-items: center; padding: 4px; min-width: 24px; min-height: 24px; border-radius: 4px; color: var(--fg-2); }
 .refb .ic { width: 16px; height: 16px; }
 .refb:hover { color: var(--fg-brand); background: var(--bg-selected); }
 .refb[aria-pressed="true"] { color: var(--fg-brand); background: var(--bg); }
@@ -296,6 +309,7 @@ svg { display: block; }
 .lg-w .dpill { margin: 0; min-width: 44px; text-align: center; }
 .cmpw { border-radius: 10px; }
 .cmpw.scroll { overflow-x: auto; }
+.cmpw.scroll .cgrid.hd { position: relative; top: auto; will-change: transform; }
 .cgrid { display: grid; border-bottom: 1px solid var(--border); }
 .cgrid.hd { position: sticky; top: calc(var(--hdr-h) + env(safe-area-inset-top, 0px)); z-index: 6; background: var(--bg); border-radius: 10px 10px 0 0; }
 .cmp-hint { padding: 12px; font-size: 11.5px; color: var(--fg-2); align-self: end; }
@@ -307,12 +321,13 @@ svg { display: block; }
 .ccol-n:hover { color: var(--fg-brand); }
 .ccol-f { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; gap: 6px; }
 .tag { font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--bg-subtle); color: var(--fg-2); white-space: nowrap; }
-.tag.ref { background: var(--accent); color: #fff; }
+.tag.ref { background: var(--bg-brand); color: var(--fg-onbrand); }
+button.tag:hover { filter: brightness(.95); }
 .tag.good { background: var(--good-bg); color: var(--good); }
 .tag.info { background: var(--bg-selected); color: var(--fg-brand); }
 .cslot { padding: 12px; border-left: 1px solid var(--border); position: relative; display: flex; flex-direction: column; gap: 6px; justify-content: flex-end; min-width: 0; }
 .cslot .srch-box { background: var(--bg-page); border: 1px dashed var(--border-strong); }
-.cslot .dd { left: 12px; right: auto; width: min(320px, calc(100vw - 48px)); }
+.cslot .dd { left: auto; right: 12px; width: min(320px, calc(100vw - 48px)); }
 .csec { padding: 14px 12px 6px; font-weight: 700; font-size: 12px; color: var(--fg-2); background: var(--bg-page); border-bottom: 1px solid var(--border); }
 .cgrid.diff { background: var(--bg-selected); }
 .clbl { padding: 9px 12px; color: var(--fg-2); font-weight: 500; }
@@ -372,15 +387,19 @@ svg { display: block; }
 .gnote { font-size: 12px; color: var(--fg-2); padding: 8px 12px; border-top: 1px solid var(--border); }
 .sv { text-decoration: underline dotted; text-decoration-color: var(--fg-3); text-underline-offset: 3px; color: inherit; font-weight: inherit; }
 .sv:hover, .sv[aria-expanded="true"] { text-decoration-color: var(--accent); color: var(--fg-brand); }
-.dl { list-style: none; margin: 0; padding: 8px 12px; display: grid; gap: 10px; font-size: 12.5px; }
+.dl { list-style: none; margin: 0; padding: 8px 12px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; font-size: 12.5px; }
+.dl > li { min-width: 0; overflow-wrap: anywhere; }
 .dl .f { font: 12px var(--f-mono); color: var(--fg-2); }
-.dl .why { display: block; color: var(--fg-2); font-size: 12px; }
-.dl .url { display: block; font: 11px var(--f-mono); color: var(--fg-3); overflow-wrap: anywhere; }
+.dl .why { display: block; color: var(--fg-2); font-size: 12px; overflow-wrap: anywhere; }
+.dl .url { display: block; font: 11px var(--f-mono); color: var(--fg-2); overflow-wrap: anywhere; }
 .cfv { display: grid; gap: 2px; margin-top: 2px; }
 #pop { position: fixed; z-index: 60; width: max-content; max-width: min(360px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); padding: 10px 14px 12px; font-size: 13px; }
 #pop h4 { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); font-weight: 700; margin: 0 0 6px; }
-#pop ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-#pop .why { display: block; color: var(--fg-2); font-size: 12px; }
+#pop ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+#pop li { min-width: 0; overflow-wrap: anywhere; }
+#pop:focus { outline: none; }
+#pop:focus-visible { outline: 2px solid var(--accent); }
+#pop .why { display: block; color: var(--fg-2); font-size: 12px; overflow-wrap: anywhere; }
 .site-foot { max-width: 1440px; margin: 0 auto; padding: 0 8px; font-size: 11.5px; color: var(--fg-2); display: grid; gap: 4px; }
 
 /* ---------- narrow screens ---------- */
@@ -391,7 +410,11 @@ svg { display: block; }
 }
 @media (max-width: 759px) {
   .hdr-in, .main, .site-foot { padding-inline: 0; }
-  .srch { order: 5; flex-basis: 100%; max-width: none; }
+  .hdr-in { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "logo segs" "srch right"; align-items: center; gap: 8px 12px; }
+  .hdr-in > .logo { grid-area: logo; min-width: 0; }
+  .hdr-in > .segs { grid-area: segs; justify-self: end; }
+  .hdr-in > .srch { grid-area: srch; max-width: none; }
+  .hdr-in > .hdr-r { grid-area: right; margin-left: 0; justify-self: end; }
   .bgrid { grid-template-columns: minmax(0, 1fr); }
   .side { display: none; }
   .topf { display: block; }
@@ -453,7 +476,7 @@ svg { display: block; }
     <section class="bsec">
       <div class="topf panel" id="topf"></div>
       <div class="panel" id="lpanel">
-        <div class="lbar" id="lbar"></div>
+        <div class="lbar" id="lbar" tabindex="-1"></div>
         <div class="tblw" id="tblw">
           <table class="tbl" id="tbl">
             <caption class="sr">Devices. Click a header to sort.</caption>
@@ -475,7 +498,7 @@ svg { display: block; }
 
 <footer class="site-foot" id="site-foot"></footer>
 </div>
-<div id="pop" role="dialog" aria-label="Source" hidden></div>
+<div id="pop" role="dialog" aria-label="Source" tabindex="-1" hidden></div>
 
 <!--ATLAS_DATA-->
 <script>
@@ -484,6 +507,8 @@ svg { display: block; }
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const root = document.documentElement;
+  const hasKey = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+  const plural = (n, w) => n + " " + w + (n === 1 ? "" : "s");
 
   /* A ?theme= query forces a theme for local screenshots. */
   let forcedTheme = null;
@@ -499,8 +524,8 @@ svg { display: block; }
   catch (e) { $("#cnt").textContent = "0"; $("#eyebrow").textContent = "No data found. Run build_site.py."; return; }
 
   const DEV = DATA.devices || [], SOCS = DATA.socs || [], OUT = DATA.outlines || {};
-  const SOC = {}; SOCS.forEach((s) => { SOC[s.id] = s; });
-  const BY_ID = {}; DEV.forEach((d) => { BY_ID[d.id] = d; });
+  const SOC = Object.create(null); SOCS.forEach((s) => { SOC[s.id] = s; });
+  const BY_ID = Object.create(null); DEV.forEach((d) => { BY_ID[d.id] = d; });
   const MAX_Q = 4;
   const COLORS = ["var(--dev-1)", "var(--dev-2)", "var(--dev-3)", "var(--dev-4)"];
   const DASH = ["none", "none", "6 4", "2 3"];
@@ -547,8 +572,12 @@ svg { display: block; }
     const stem = d.brand.toLowerCase().slice(0, 4);
     d._short = d.model.toLowerCase().startsWith(stem) ? d.model : d.brand + " " + d.model;
     d._search = (d._name + " " + socName(d.soc_id) + " " + d.soc_id).toLowerCase();
+    d._lname = d._name.toLowerCase();
+    d._lmodel = (d.brand + " " + d.model).toLowerCase();
+    d._nwords = d._lname.split(/[^a-z0-9+.]+/).filter(Boolean);
     d._w = weightVal(d);
-    d._sub = [d.variant, socName(d.soc_id)].filter(Boolean).join(" · ") || d.brand;
+    const sn = socName(d.soc_id);
+    d._sub = [d.variant, d.variant === sn ? null : sn].filter(Boolean).join(" · ") || d.brand;
   });
 
   /* ---------- words for ports and storage ---------- */
@@ -590,7 +619,7 @@ svg { display: block; }
     return s || null;
   }
   const slots = (d) => (d.storage && d.storage.slots) || [];
-  const ssdText = (d) => { const s = slots(d); return s.length ? s.map((x) => (x.form_factor === "other" ? "not stated" : SSD_LABEL[x.form_factor] || x.form_factor)).join(" + ") : null; };
+  const ssdText = (d) => { const s = slots(d); return s.length ? s.map((x) => (x.form_factor === "other" ? "Not stated" : SSD_LABEL[x.form_factor] || x.form_factor)).join(" + ") : null; };
 
   /* ---------- outlines ---------- */
   const rr = (w, h, r) => { r = Math.min(r, w / 2, h / 2); return "M" + r2(r) + " 0H" + r2(w - r) + "Q" + w + " 0 " + w + " " + r2(r) + "V" + r2(h - r) + "Q" + w + " " + h + " " + r2(w - r) + " " + h + "H" + r2(r) + "Q0 " + h + " 0 " + r2(h - r) + "V" + r2(r) + "Q0 0 " + r2(r) + " 0Z"; };
@@ -621,11 +650,12 @@ svg { display: block; }
 
   /* ---------- deltas ---------- */
   function delta(v, r, low) {
-    if (typeof v !== "number" || typeof r !== "number" || !r) return null;
+    if (typeof v !== "number" || typeof r !== "number") return null;
+    if (!r) return v === r ? { txt: "= 0%", cls: "eq" } : null;
     const p = (v - r) / r * 100;
     if (Math.abs(p) < 0.5) return { txt: "= 0%", cls: "eq" };
     const better = low === "n" ? null : (low ? p < 0 : p > 0);
-    const txt = (p > 0 ? "▲ " : "▼ ") + Math.abs(Math.round(p)) + "%";
+    const txt = (p > 0 ? "▲ " : "▼ ") + Math.round(Math.abs(p)) + "%";
     return { txt, cls: better == null ? "eq" : (better ? "up" : "dn") };
   }
   const dpill = (dl) => (dl ? '<span class="dpill ' + dl.cls + '">' + dl.txt + "</span>" : "");
@@ -651,7 +681,7 @@ svg { display: block; }
     { k: "trig", g: "Controls", label: "Triggers", v: (d) => KLABEL[ctl(d).trigger_type] || null, t: (d) => KLABEL[ctl(d).trigger_type] || "—", text: true },
     { k: "ports", g: "Ports", label: "Ports", v: (d) => portScore(d), t: (d) => portWords(d) || "—", text: true, wrap: true }
   ];
-  const COL = {}; COLS.forEach((c) => { COL[c.k] = c; });
+  const COL = Object.create(null); COLS.forEach((c) => { COL[c.k] = c; });
   const GROUPS = ["Price", "Size", "Performance", "Display", "Memory", "Battery", "Controls", "Ports"];
   const DEF_GROUPS = ["Price", "Size", "Performance", "Display", "Memory", "Battery"];
 
@@ -708,7 +738,7 @@ svg { display: block; }
   ];
 
   /* ---------- filters ---------- */
-  const count = (fn) => DEV.reduce((m, d) => { const k = fn(d); if (k) m[k] = (m[k] || 0) + 1; return m; }, {});
+  const count = (fn) => DEV.reduce((m, d) => { const k = fn(d); if (k) m[k] = (m[k] || 0) + 1; return m; }, Object.create(null));
   const CNT = { brand: count((d) => d.brand), status: count((d) => d.status), stick: count((d) => ctl(d).stick_type || "unknown") };
   const BRANDS = Object.keys(CNT.brand).sort((a, b) => a.localeCompare(b));
   const STATUSES = ["shipped", "pre-order", "announced"].filter((s) => CNT.status[s]);
@@ -727,44 +757,57 @@ svg { display: block; }
     layout: "table", hideSame: true, sizeOpen: true, sizeTab: "2d", sizeView: "front", sizeMode: "overlay", rx: -14, ry: -30, theme: null, rowLimit: 30
   };
   function readStore(k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } }
-  function loadState() {
+  let storedTheme = null;
+  function defaults(keepRoute) {
+    const keep = keepRoute ? { route: state.route, detailId: state.detailId, rowLimit: state.rowLimit } : { route: "browse", detailId: null, rowLimit: 30 };
+    Object.assign(state, { queue: [], refId: null, sortK: "g3d", sortDir: -1, f: DEF_F(), groups: DEF_GROUPS.slice(), layout: "table", hideSame: true, sizeOpen: true,
+      sizeTab: "2d", sizeView: "front", sizeMode: "overlay", rx: PRESET.iso[0], ry: PRESET.iso[1], theme: null }, keep);
+    storedTheme = null;
+  }
+  /* Every lookup keyed by a stored or URL value goes through hasKey, so Object.prototype names never pass. */
+  function loadState(sync) {
+    defaults(sync);
     let s = readStore(KEY);
-    if (!s || typeof s !== "object" || s.v !== 3) {
+    if (!s || typeof s !== "object" || Array.isArray(s) || s.v !== 3) {
       const old = readStore("handheld-atlas:v2") || readStore("handheld-atlas:v1");
       s = { fresh: true };
       if (old && Array.isArray(old.sel)) s.queue = old.sel.map((x) => x && x.id).filter(Boolean);
     }
-    if (Array.isArray(s.queue)) state.queue = s.queue.filter((id, i, a) => BY_ID[id] && a.indexOf(id) === i).slice(0, MAX_Q);
+    if (Array.isArray(s.queue)) state.queue = s.queue.filter((id, i, a) => typeof id === "string" && hasKey(BY_ID, id) && a.indexOf(id) === i).slice(0, MAX_Q);
     else if (s.fresh) state.queue = DEFAULT_Q.slice();
-    if (s.refId && BY_ID[s.refId]) state.refId = s.refId; else if (s.fresh) state.refId = state.queue[0] || null;
-    if (COL[s.sortK]) { state.sortK = s.sortK; state.sortDir = s.sortDir === 1 ? 1 : -1; }
+    if (typeof s.refId === "string" && hasKey(BY_ID, s.refId)) state.refId = s.refId; else if (s.fresh) state.refId = state.queue[0] || null;
+    if (typeof s.sortK === "string" && hasKey(COL, s.sortK)) { state.sortK = s.sortK; state.sortDir = s.sortDir === 1 ? 1 : -1; }
     if (s.f && typeof s.f === "object") {
       const f = state.f;
-      if (Array.isArray(s.f.brands)) f.brands = s.f.brands.filter((v) => CNT.brand[v]);
+      if (Array.isArray(s.f.brands)) f.brands = s.f.brands.filter((v) => typeof v === "string" && hasKey(CNT.brand, v));
       if (Array.isArray(s.f.status)) f.status = s.f.status.filter((v) => STATUSES.includes(v));
       if (Array.isArray(s.f.sticks)) f.sticks = s.f.sticks.filter((v) => STICKS.includes(v));
       if (typeof s.f.maxPrice === "number") f.maxPrice = clamp(s.f.maxPrice, PMIN, PMAX);
       if (typeof s.f.maxWeight === "number") f.maxWeight = clamp(s.f.maxWeight, WMIN, WMAX);
-      f.usb4 = !!s.f.usb4;
+      f.usb4 = s.f.usb4 === true;
     }
     if (Array.isArray(s.groups)) { const g = s.groups.filter((x) => GROUPS.includes(x)); if (g.length) state.groups = g; }
+    ensureSortVisible();
     if (s.layout === "cards" || s.layout === "table") state.layout = s.layout;
     if (typeof s.hideSame === "boolean") state.hideSame = s.hideSame;
     if (typeof s.sizeOpen === "boolean") state.sizeOpen = s.sizeOpen;
     if (s.sizeTab === "2d" || s.sizeTab === "3d") state.sizeTab = s.sizeTab;
-    if (VIEW_NAME[s.sizeView]) state.sizeView = s.sizeView;
+    if (typeof s.sizeView === "string" && hasKey(VIEW_NAME, s.sizeView)) state.sizeView = s.sizeView;
     if (s.sizeMode === "overlay" || s.sizeMode === "side") state.sizeMode = s.sizeMode;
-    if (s.theme === "light" || s.theme === "dark") state.theme = s.theme;
-    if (s.route === "compare" || s.route === "detail" || s.route === "browse") state.route = s.route;
-    if (s.detailId && BY_ID[s.detailId]) state.detailId = s.detailId;
+    if (typeof s.rx === "number" && typeof s.ry === "number") { state.rx = clamp(s.rx, -89, 89); state.ry = s.ry; }
+    if (s.theme === "light" || s.theme === "dark") { storedTheme = s.theme; state.theme = s.theme; }
+    if (!sync) {
+      if (s.route === "compare" || s.route === "detail" || s.route === "browse") state.route = s.route;
+      if (typeof s.detailId === "string" && hasKey(BY_ID, s.detailId)) state.detailId = s.detailId;
+    }
     if (forcedTheme) state.theme = forcedTheme;
   }
   function save() {
     try {
       localStorage.setItem(KEY, JSON.stringify({
         v: 3, queue: state.queue, refId: state.refId, sortK: state.sortK, sortDir: state.sortDir, f: state.f, groups: state.groups, layout: state.layout,
-        hideSame: state.hideSame, sizeOpen: state.sizeOpen, sizeTab: state.sizeTab, sizeView: state.sizeView, sizeMode: state.sizeMode,
-        theme: forcedTheme ? null : state.theme, route: state.route, detailId: state.detailId
+        hideSame: state.hideSame, sizeOpen: state.sizeOpen, sizeTab: state.sizeTab, sizeView: state.sizeView, sizeMode: state.sizeMode, rx: state.rx, ry: state.ry,
+        theme: forcedTheme ? storedTheme : state.theme, route: state.route, detailId: state.detailId
       }));
     } catch (e) { /* storage unavailable */ }
   }
@@ -779,7 +822,7 @@ svg { display: block; }
   const isDark = () => root.getAttribute("data-theme") === "dark" || (!root.getAttribute("data-theme") && !!(mq && mq.matches));
   function syncThemeBtn() {
     const dk = isDark(), b = $("#theme-btn"), t = dk ? "Switch to light" : "Switch to dark";
-    $("#ic-sun").hidden = !dk; $("#ic-moon").hidden = dk;
+    $("#ic-sun").toggleAttribute("hidden", !dk); $("#ic-moon").toggleAttribute("hidden", dk);
     b.title = t; b.setAttribute("aria-label", t);
   }
   function applyTheme() {
@@ -803,32 +846,34 @@ svg { display: block; }
   const statusTag = (d) => '<span class="tag ' + (d.status === "shipped" ? "good" : d.status === "announced" ? "info" : "") + '">' + esc(STATUS[d.status] || d.status) + "</span>";
 
   /* ---------- queue and reference ---------- */
+  function rebuildList() { buildRows(); buildCards(); applyList(); renderListBar(); }
   function afterQ() {
     syncQueueUI();
     if (state.route === "compare") renderCompare();
     if (state.route === "detail") renderDetail();
     save();
   }
+  /* The first queued device becomes the reference when none is set, and the list rebuilds so the change shows at once. */
   function addQ(id) {
-    if (inQ(id) || qFull() || !BY_ID[id]) return false;
+    if (inQ(id) || qFull() || !hasKey(BY_ID, id)) return false;
     state.queue.push(id);
-    if (!state.refId) state.refId = id;
+    if (!state.refId) { state.refId = id; rebuildList(); }
     afterQ();
     return true;
   }
+  /* The reference is a Browse setting. Removing or clearing queue entries leaves it alone. */
   function removeQ(id) {
     if (!inQ(id)) return;
     state.queue = state.queue.filter((x) => x !== id);
-    if (state.refId === id) { state.refId = state.queue[0] || null; afterRef(); }
     afterQ();
   }
   function setRef(id) {
-    state.refId = id && BY_ID[id] ? id : null;
+    state.refId = id && hasKey(BY_ID, id) ? id : null;
     afterRef();
     save();
   }
   function afterRef() {
-    buildRows(); buildCards(); applyList(); renderListBar();
+    rebuildList();
     if (state.route === "compare") renderCompare();
     if (state.route === "detail") renderDetail();
   }
@@ -847,11 +892,20 @@ svg { display: block; }
   }
 
   /* ---------- header: search and the compare list ---------- */
+  /* Every token must match the name or the SoC. Phrase and word-start matches in the name rank first. */
   function searchDevs(q) {
-    q = q.trim().toLowerCase();
+    q = q.trim().toLowerCase().replace(/\s+/g, " ");
     if (!q) return [];
-    const t = q.split(/\s+/);
-    return DEV.filter((d) => t.every((x) => d._search.includes(x))).slice(0, 8);
+    const t = q.split(" ");
+    const score = (d) => {
+      let s = 0;
+      if (d._lname.includes(q)) s += 8;
+      if (d._lname.startsWith(q) || d._lmodel.startsWith(q)) s += 4;
+      t.forEach((x) => { if (d._nwords.some((w) => w.startsWith(x))) s += 2; else if (d._lname.includes(x)) s += 1; });
+      return s;
+    };
+    return DEV.filter((d) => t.every((x) => d._search.includes(x))).map((d) => [score(d), d])
+      .sort((a, b) => b[0] - a[0] || a[1]._name.localeCompare(b[1]._name)).slice(0, 8).map((x) => x[1]);
   }
   function renderDD(which) {
     const inp = document.getElementById(which), dd = document.getElementById(which + "-dd");
@@ -869,9 +923,9 @@ svg { display: block; }
   function renderQpop() {
     const n = state.queue.length;
     $("#qpop").innerHTML = '<div class="qpop-h">Compare list <span>' + n + " of " + MAX_Q + '</span></div><div class="qpop-l">' +
-      (n ? state.queue.map((id, i) => { const d = BY_ID[id]; return '<div class="qitem s' + (i + 1) + '"><span class="dot"></span><div><div class="dd-n">' + esc(d._short) + '</div><div class="dd-s">' + esc(d.variant || d.brand) + '</div></div><button type="button" class="xbtn" data-act="rm" data-id="' + esc(id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>"; }).join("")
+      (n ? state.queue.map((id, i) => { const d = BY_ID[id]; return '<div class="qitem s' + (i + 1) + '"><span class="dot"></span><div><div class="dd-n">' + esc(d._short) + '</div><div class="dd-s">' + esc(d.variant || d.brand) + '</div></div><button type="button" class="xbtn" id="qrm-' + esc(id) + '" data-act="rm" data-id="' + esc(id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>"; }).join("")
         : '<div class="dd-none">Nothing queued yet. Tick devices in the list, or search above.</div>') +
-      '</div><div class="qpop-f"><button type="button" class="btn-p" data-act="go" data-route="compare">Open comparison ' + I.arrow + '</button><button type="button" class="btn-o" data-act="clear-queue">Clear</button></div>';
+      '</div><div class="qpop-f"><button type="button" class="btn-p" id="qpop-open" data-act="go" data-route="compare">Open comparison ' + I.arrow + '</button><button type="button" class="btn-o" id="qpop-clear" data-act="clear-queue">Clear</button></div>';
   }
   function toggleQpop(open) {
     const p = $("#qpop"), o = open == null ? p.hidden : open;
@@ -913,7 +967,7 @@ svg { display: block; }
   function syncRanges() {
     const f = state.f;
     const pl = f.maxPrice >= PMAX ? "Any" : "$" + n0(f.maxPrice), wl = f.maxWeight >= WMAX ? "Any" : f.maxWeight + " g";
-    $$(".frange").forEach((r) => { r.value = String(f[r.dataset.f]); });
+    $$(".frange").forEach((r) => { r.value = String(f[r.dataset.f]); r.setAttribute("aria-valuetext", r.dataset.f === "maxPrice" ? pl : wl); });
     $$("#f-price-l, #tf-price-l").forEach((e) => { e.textContent = pl; });
     $$("#f-weight-l, #tf-weight-l").forEach((e) => { e.textContent = wl; });
   }
@@ -922,12 +976,27 @@ svg { display: block; }
     state.f[key] = a.includes(v) ? a.filter((x) => x !== v) : a.concat([v]);
     syncFilters(); applyList(); save();
   }
-  function filtered() {
+  function passes(d, relax) {
     const f = state.f;
-    return DEV.filter((d) => (!f.brands.length || f.brands.includes(d.brand)) && (!f.status.length || f.status.includes(d.status)) &&
+    return (!f.brands.length || f.brands.includes(d.brand)) && (!f.status.length || f.status.includes(d.status)) &&
       (!f.sticks.length || f.sticks.includes(ctl(d).stick_type || "unknown")) &&
-      (f.maxPrice >= PMAX || (d.msrp_usd != null && d.msrp_usd <= f.maxPrice)) &&
-      (f.maxWeight >= WMAX || (d._w != null && d._w <= f.maxWeight)) && (!f.usb4 || d._g40));
+      (relax === "price" || f.maxPrice >= PMAX || (d.msrp_usd != null && d.msrp_usd <= f.maxPrice)) &&
+      (relax === "weight" || f.maxWeight >= WMAX || (d._w != null && d._w <= f.maxWeight)) && (!f.usb4 || d._g40);
+  }
+  function filtered() { return DEV.filter((d) => passes(d)); }
+  /* A max slider below "Any" hides devices with no value. The list bar says how many. */
+  function hiddenUnknown() {
+    const f = state.f, out = [];
+    if (f.maxPrice < PMAX) { const n = DEV.filter((d) => d.msrp_usd == null && passes(d, "price")).length; if (n) out.push(n + " without a price"); }
+    if (f.maxWeight < WMAX) { const n = DEV.filter((d) => d._w == null && passes(d, "weight")).length; if (n) out.push(n + " without a weight"); }
+    return out.length ? out.join(" and ") + " hidden" : "";
+  }
+  function listNote(filt) {
+    const ref = refDev(), parts = [];
+    if (ref && !filt.some((d) => d.id === ref.id)) parts.push("plus the pinned reference");
+    const hu = hiddenUnknown();
+    if (hu) parts.push(hu);
+    return parts.join(" · ");
   }
   function sorted(list) {
     const c = COL[state.sortK] || COL.g3d, dir = state.sortDir;
@@ -943,10 +1012,12 @@ svg { display: block; }
 
   /* ---------- browse: list bar, table and cards ---------- */
   const visCols = () => COLS.filter((c) => state.groups.includes(c.g));
-  const tbody = $("#tbody"), grid = $("#cards"), rowEl = {}, cardEl = {};
+  const tbody = $("#tbody"), grid = $("#cards"), rowEl = Object.create(null), cardEl = Object.create(null);
+  let visibleList = [];
   function renderListBar() {
     const ref = refDev(), cards = effLayout() === "cards";
-    let h = '<span class="lbar-n" id="lbar-n" aria-live="polite">' + filtered().length + " devices</span>";
+    const filt = filtered();
+    let h = '<span class="lbar-n" id="lbar-n" aria-live="polite">' + plural(filt.length, "device") + '</span><span class="lbar-x" id="lbar-x">' + esc(listNote(filt)) + "</span>";
     if (ref) h += '<span class="refpill">' + I.targetS + "Reference: <strong>" + esc(ref._short) + '</strong><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear reference" aria-label="Clear reference">' + I.x + "</button></span>";
     h += '<div class="lbar-r">';
     if (!cards) h += '<span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("");
@@ -957,10 +1028,10 @@ svg { display: block; }
   }
   function renderHead() {
     const cols = visCols();
-    $("#thead").innerHTML = '<tr><th><span class="sr">Compare</span></th><th>Device</th>' + cols.map((c) => {
+    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="sr">Compare</span></th><th class="stk c1">Device</th>' + cols.map((c) => {
       const on = state.sortK === c.k;
       return '<th class="' + (on ? "on" : "") + '" aria-sort="' + (on ? (state.sortDir === 1 ? "ascending" : "descending") : "none") + '"><button type="button" class="thb" id="th-' + c.k + '" data-act="sort" data-v="' + c.k + '">' + esc(c.label) + (on ? (state.sortDir < 0 ? " ↓" : " ↑") : "") + "</button></th>";
-    }).join("") + "<th>Ref</th></tr>";
+    }).join("") + "</tr>";
   }
   function cellHtml(c, d, ref, isRef) {
     const val = c.v(d);
@@ -968,13 +1039,16 @@ svg { display: block; }
     const sub = c.sub ? c.sub(d) : "";
     return '<td><div class="ct' + (c.num ? " m" : "") + (c.strong ? " b" : "") + (c.wrap ? " wrap" : "") + '">' + esc(c.t(d)) + "</div>" + (sub ? '<div class="cs">' + esc(sub) + "</div>" : "") + dpill(dl) + "</td>";
   }
+  function refBtn(d, isRef, prefix) {
+    const id = esc(d.id);
+    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Use as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + I.target + "</button>";
+  }
   function rowHtml(d, cols, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
-      '<td><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell"><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + (d.variant ? '<div class="dev-v">' + esc(d.variant) + "</div>" : "") + "</td>" +
-      cols.map((c) => cellHtml(c, d, ref, isRef)).join("") +
-      '<td><button type="button" class="refb" id="ref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Use as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + I.target + "</button></td></tr>";
+      '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + (d.variant ? '<div class="dev-v">' + esc(d.variant) + "</div>" : "") + "</div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
     const cols = visCols(), ref = refDev();
@@ -990,7 +1064,7 @@ svg { display: block; }
     const s = d.screen || {};
     return '<article class="card' + (isRef ? " ref" : "") + '" data-id="' + id + '">' +
       '<div class="plate"><svg class="sil" viewBox="0 0 ' + sh.w + " " + sh.h + '" style="height:' + silH + 'px" aria-hidden="true"><path class="o" d="' + esc(sh.path) + '"/>' + scrRect(sh.screen, "scr") + "</svg>" +
-      '<button type="button" class="refb" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Use as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + I.target + "</button></div>" +
+      refBtn(d, isRef, "cref-") + "</div>" +
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + (d.variant ? '<div class="dev-v">' + esc(d.variant) + "</div>" : "") + '</div><div class="price">' + priceTxt(d) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
       stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" + (s.refresh_hz ? " " + s.refresh_hz + " Hz" : "") : "—", false) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
@@ -1003,52 +1077,71 @@ svg { display: block; }
     $$(".card", grid).forEach((el) => { cardEl[el.dataset.id] = el; });
   }
   /* Order and show the rows that pass the filters. Rows are built once and moved, not rebuilt. */
+  /* Order and show the rows that pass the filters. Rows are built once and moved, not rebuilt.
+     The reference row stays pinned on top. Counts, the empty state and the row limit follow the filtered set. */
   function applyList() {
     const ref = refDev(), cards = effLayout() === "cards";
     const filt = filtered();
     let list = sorted(filt);
+    const refOut = !!ref && !filt.some((d) => d.id === ref.id);
     if (ref) { list = list.filter((d) => d.id !== ref.id); list.unshift(ref); }
-    const cut = Math.min(list.length, state.rowLimit), show = {};
+    const cut = filt.length ? Math.min(list.length, state.rowLimit + (refOut ? 1 : 0)) : 0, show = {};
     const cont = cards ? grid : tbody, map = cards ? cardEl : rowEl;
     list.forEach((d, i) => { if (i < cut) show[d.id] = 1; if (map[d.id]) cont.appendChild(map[d.id]); });
     DEV.forEach((d) => { const el = map[d.id]; if (el) el.hidden = !show[d.id]; });
+    visibleList = list.slice(0, cut);
     const more = $("#more-btn");
-    more.hidden = list.length <= cut;
-    more.textContent = "Show all " + list.length + " devices";
-    $("#empty").hidden = list.length > 0;
-    $("#tblw").hidden = cards || !list.length;
-    grid.hidden = !cards || !list.length;
-    const n = $("#lbar-n"); if (n) n.textContent = filt.length + " devices";
+    more.hidden = filt.length <= state.rowLimit;
+    more.textContent = "Show all " + plural(filt.length, "device");
+    $("#empty").hidden = filt.length > 0;
+    $("#tblw").hidden = cards || !filt.length;
+    grid.hidden = !cards || !filt.length;
+    const n = $("#lbar-n"); if (n) n.textContent = plural(filt.length, "device");
+    const x = $("#lbar-x"); if (x) x.textContent = listNote(filt);
     const ts = $("#tf-sum"); if (ts) ts.textContent = filt.length + " results " + (topOpen ? "−" : "+");
   }
+  function defaultSortK() { const v = visCols(); return (v.find((c) => c.k === "g3d") || v.find((c) => c.num) || v[0] || COL.g3d).k; }
+  /* When the sort column leaves the table, sort by a visible column instead. */
+  function ensureSortVisible() {
+    if (visCols().length && !visCols().some((c) => c.k === state.sortK)) { state.sortK = defaultSortK(); state.sortDir = COL[state.sortK].low || COL[state.sortK].text ? 1 : -1; }
+  }
   function sortBy(k) {
-    const c = COL[k]; if (!c) return;
+    const c = hasKey(COL, k) ? COL[k] : null; if (!c) return;
     if (state.sortK === k) state.sortDir = -state.sortDir; else { state.sortK = k; state.sortDir = c.low || c.text ? 1 : -1; }
     renderHead(); applyList(); if (effLayout() === "cards") renderListBar(); save();
   }
   function syncLayout() {
     $("#lpanel").classList.toggle("flat", effLayout() === "cards");
+    $("#hq").placeholder = isNarrow() ? "Search devices" : "Type a device name to add to comparison";
     renderListBar(); applyList();
   }
   let applyRaf = 0;
   function scheduleApply() { if (!applyRaf) applyRaf = requestAnimationFrame(() => { applyRaf = 0; applyList(); save(); }); }
 
   /* ---------- compare ---------- */
+  let lastScroll = false, scrollRaf = 0;
+  /* The grid scrolls inside its panel when it needs more width than the panel has, at any window width. */
+  function gridScrollWanted() {
+    const n = state.queue.filter((id) => BY_ID[id]).length;
+    if (!n) return false;
+    const ncol = n + (n < MAX_Q ? 1 : 0);
+    return isNarrow() || (180 + ncol * 170) > $("#scr-compare").clientWidth - 18;
+  }
   function renderCompare() {
     const el = $("#scr-compare");
     const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length;
-    const ref = refDev(), cref = ref && inQ(ref.id) ? ref : (cols[0] || null);
-    let h = '<div class="phead"><div><button type="button" class="btn-t" data-act="go" data-route="browse">← Back to list</button><h1>Compare ' + n + " handheld" + (n === 1 ? "" : "s") + "</h1></div>" +
+    const ref = refDev(), hasRef = !!ref && inQ(ref.id), cref = hasRef ? ref : (cols[0] || null);
+    let h = '<div class="phead"><div><button type="button" class="btn-t" data-act="go" data-route="browse">← Back to list</button><h1 id="cmp-h1" tabindex="-1">' + (n ? "Compare " + plural(n, "handheld") : "Nothing to compare yet") + "</h1></div>" +
       '<button type="button" class="tog" id="hide-same" data-act="hide-same" aria-pressed="' + state.hideSame + '"><span class="sw"></span>Differences only</button></div>';
     if (!n) {
       el.innerHTML = h + '<div class="panel cmp-empty">Nothing to compare yet. Use the search in the header, or tick devices in the <button type="button" class="btn-t" data-act="go" data-route="browse">list</button>.</div>';
       return;
     }
-    el.innerHTML = h + sizePanelHtml(cols, cref) + gridHtml(cols, cref);
+    el.innerHTML = h + sizePanelHtml(cols, cref, hasRef) + gridHtml(cols, cref, hasRef, ref);
     layoutStage();
   }
   const presetOn = (k) => state.rx === PRESET[k][0] && state.ry === PRESET[k][1];
-  function sizePanelHtml(cols, cref) {
+  function sizePanelHtml(cols, cref, hasRef) {
     const s = state, is3 = s.sizeTab === "3d";
     let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale · 1 unit = 1 mm</span></span>' + I.chev + "</button>";
     if (!s.sizeOpen) return h + "</section>";
@@ -1058,7 +1151,7 @@ svg { display: block; }
     if (!is3) h += '<div class="grp-c"><span class="lbl">Layout</span>' + chip("size-mode", "overlay", "Overlay", s.sizeMode === "overlay", "mode-overlay") + chip("size-mode", "side", "Side by side", s.sizeMode === "side", "mode-side") + "</div>";
     else h += '<span class="mute sm">Drag to rotate</span>';
     h += "</div>";
-    h += '<div class="size-b">' + (is3 ? '<div class="stage stage3d" id="stage3d" aria-label="3D view. Drag to rotate."><div class="rot" id="rot"></div></div>' : svg2d(cols)) + legendHtml(cols, cref) + "</div></section>";
+    h += '<div class="size-b">' + (is3 ? '<div class="stage stage3d" id="stage3d" role="img" aria-label="3D view. Drag to rotate."><div class="rot" id="rot"></div></div>' : svg2d(cols)) + legendHtml(cols, cref, hasRef) + "</div></section>";
     return h;
   }
   function svg2d(cols) {
@@ -1080,15 +1173,15 @@ svg { display: block; }
     const vb = [-4, -4, r2(totW + 8), r2(MH + 8)];
     return '<div class="stage dots stage2d" id="stage2d"><svg viewBox="' + vb.join(" ") + '" data-w="' + vb[2] + '" data-h="' + vb[3] + '" role="img" aria-label="Size overlay, ' + VIEW_NAME[state.sizeView] + ' view">' + parts.join("") + '</svg><div class="sbar" id="sbar" aria-hidden="true"><i></i><span></span></div></div>';
   }
-  function legendHtml(cols, cref) {
+  function legendHtml(cols, cref, hasRef) {
     const maxW = Math.max(1, ...cols.map((d) => d._w || 0));
     return '<div class="legend">' + cols.map((d, i) => {
       const isR = cref && d.id === cref.id, dl = !isR && cref ? delta(d._w, cref._w, true) : null, dm = dimsH(d);
       return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d)) + "</span></div>" +
-        '<div class="lg-w">' + I.weight + '<div class="wbar"><i style="width:' + ((d._w || 0) / maxW * 100).toFixed(1) + '%"></i></div><span class="m">' + (d._w != null ? n0(d._w) + " g" : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="dpill refp">REF</span>' : '<span class="dpill">—</span>')) + "</div></div>";
+        '<div class="lg-w">' + I.weight + '<div class="wbar"><i style="width:' + ((d._w || 0) / maxW * 100).toFixed(1) + '%"></i></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="dpill refp">' + (hasRef ? "REF" : "BASE") + "</span>" : '<span class="dpill">—</span>')) + "</div></div>";
     }).join("") + "</div>";
   }
-  /* Fit the scale bar to the rendered 2D stage, and lay out the 3D slices. */
+  /* Fit the scale bar to the rendered 2D stage, lay out the 3D slices, and place the grid header. */
   function layoutStage() {
     const st = $("#stage2d");
     if (st) {
@@ -1101,6 +1194,7 @@ svg { display: block; }
       $("span", sb).textContent = bar + " mm";
     }
     layout3d();
+    syncGridHead();
   }
   function layout3d() {
     const st = $("#stage3d"), rot = $("#rot");
@@ -1123,10 +1217,24 @@ svg { display: block; }
     }).join("");
   }
   function syncPresetChips() { $$('.chip[data-act="preset"]').forEach((b) => b.setAttribute("aria-pressed", String(presetOn(b.dataset.v)))); }
-  function gridHtml(cols, cref) {
+  /* position: sticky cannot reach the viewport from inside the overflow-x wrapper, so the header row follows the page scroll with a transform. */
+  function syncGridHead() {
+    const hd = $("#scr-compare .cmpw.scroll .cgrid.hd");
+    if (!hd) return;
+    const wr = hd.closest(".cmpw").getBoundingClientRect(), top = $("#hdr").getBoundingClientRect().bottom;
+    const y = clamp(top - wr.top, 0, Math.max(0, wr.height - hd.offsetHeight));
+    hd.style.transform = y > 0 ? "translateY(" + Math.round(y) + "px)" : "";
+  }
+  function onScroll() {
+    if (scrollRaf) return;
+    scrollRaf = requestAnimationFrame(() => { scrollRaf = 0; syncGridHead(); if (popBtn) placePop(); });
+  }
+  function gridHtml(cols, cref, hasRef, ref) {
     const n = cols.length, slot = n < MAX_Q, narrow = isNarrow(), ncol = n + (slot ? 1 : 0);
-    const gcols = (narrow ? "104px" : "180px") + " repeat(" + ncol + ", minmax(" + (narrow ? "150px" : "170px") + ", 1fr))";
-    const minW = narrow ? (104 + ncol * 150) + "px" : "0";
+    const lblW = narrow ? 104 : 180, colW = narrow ? 150 : 170;
+    const gcols = lblW + "px repeat(" + ncol + ", minmax(" + colW + "px, 1fr))";
+    const scroll = gridScrollWanted(), minW = scroll ? (lblW + ncol * colW) + "px" : "0";
+    lastScroll = scroll;
     let hidden = 0;
     const secs = CROWS.map(([name, rows]) => ({ name, rows: rows.map(([label, t, num, better]) => {
       const texts = cols.map(t), diff = new Set(texts).size > 1;
@@ -1138,14 +1246,16 @@ svg { display: block; }
         return { text: texts[i], dl, best: best != null && nums[i] === best, mono: !!num, isR };
       }) };
     }).filter(Boolean) })).filter((x) => x.rows.length);
-    let h = '<section class="panel cmpw' + (narrow ? " scroll" : "") + '"><div style="min-width:' + minW + '">';
-    h += '<div class="cgrid hd" style="grid-template-columns:' + gcols + '"><div class="cmp-hint">Click a column to make it the reference. Deltas compare against it.</div>';
+    const hint = hasRef || !ref ? "Click a column to make it the reference. Deltas compare against it."
+      : "The reference (" + esc(ref._short) + ") is not in this list, so deltas compare against the first column. Click a column to make it the reference.";
+    let h = '<section class="panel cmpw' + (scroll ? " scroll" : "") + '"><div style="min-width:' + minW + '">';
+    h += '<div class="cgrid hd" style="grid-template-columns:' + gcols + '"><div class="cmp-hint">' + hint + "</div>";
     h += cols.map((d, i) => {
       const isR = d === cref, id = esc(d.id);
-      return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" data-act="setref" data-id="' + id + '" role="button" tabindex="0" aria-pressed="' + isR + '" aria-label="Use ' + esc(d._name) + ' as reference">' +
+      return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
         '<div class="ccol-t"><span class="dev-b">' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<button type="button" class="ccol-n" id="copen2-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + (d.variant ? '<div class="dev-v">' + esc(d.variant) + "</div>" : "") +
-        '<div class="ccol-f"><span class="price">' + priceTxt(d) + '</span><span class="tag' + (isR ? " ref" : "") + '">' + (isR ? "Reference" : "Set as ref") + "</span></div></div>";
+        '<div class="ccol-f"><span class="price">' + priceTxt(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + isR + '" aria-label="Use ' + esc(d._name) + ' as reference">' + (isR ? (hasRef ? "Reference" : "Baseline") : "Set as ref") + "</button></div></div>";
     }).join("");
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false"></div><div class="dd" id="sq-dd" hidden></div></div>';
     h += "</div>";
@@ -1192,7 +1302,7 @@ svg { display: block; }
     if (h.d_max != null) R.push(["Thickest point", sv(mm(h.d_max) + " mm", own(d, ["dims_mm.handheld.d_max"]), true)]);
     [["tablet_only", "Tablet only"], ["closed", "Closed"], ["with_keyboard", "With keyboard"]].forEach((k) => {
       const x = dm[k[0]];
-      if (x) R.push([k[1], sv(mm(x.w) + " × " + mm(x.h) + " × " + mm(x.d) + (x.d_max != null ? "/" + mm(x.d_max) : "") + " mm", own(d, ["dims_mm." + k[0]]), true)]);
+      if (x) R.push([k[1], sv(mm(x.w) + " × " + mm(x.h) + " × " + mm(x.d) + (x.d_max != null ? " / " + mm(x.d_max) : "") + " mm", own(d, ["dims_mm." + k[0]]), true)]);
     });
     R.push(["Weight, stated", w.stated != null ? sv(n0(w.stated) + " g" + (ext(d) ? " with pack" : ""), own(d, ["weight_g.handheld.stated"]), true) : NS]);
     if (w.measured != null) {
@@ -1354,15 +1464,12 @@ svg { display: block; }
 
   /* ---------- source popover ---------- */
   const pop = $("#pop");
+  const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
   let popBtn = null;
-  function openPop(btn) {
-    const list = drSrc[Number(btn.dataset.si)] || [];
-    if (popBtn && popBtn !== btn) popBtn.setAttribute("aria-expanded", "false");
-    popBtn = btn; btn.setAttribute("aria-expanded", "true");
-    pop.innerHTML = "<h4>Source" + (list.length > 1 ? "s" : "") + "</h4><ul>" + list.map((s) =>
-      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc([s.field, s.accessed].filter(Boolean).join(" · ")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
-    pop.hidden = false;
-    const r = btn.getBoundingClientRect();
+  function placePop() {
+    if (!popBtn) return;
+    const r = popBtn.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) { closePop(); return; }
     pop.style.left = "0px"; pop.style.top = "0px";
     const pw = pop.offsetWidth, ph = pop.offsetHeight, vw = root.clientWidth, vh = window.innerHeight;
     const x = clamp(r.left, 12, Math.max(12, vw - pw - 12));
@@ -1370,17 +1477,35 @@ svg { display: block; }
     if (y + ph > vh - 8) y = Math.max(8, r.top - ph - 6);
     pop.style.left = Math.round(x) + "px"; pop.style.top = Math.round(y) + "px";
   }
+  /* The popover takes focus so its links come next in the Tab order. It follows the page scroll and closes when its value leaves the viewport. */
+  function openPop(btn) {
+    const list = drSrc[Number(btn.dataset.si)] || [];
+    if (popBtn && popBtn !== btn) popBtn.setAttribute("aria-expanded", "false");
+    popBtn = btn; btn.setAttribute("aria-expanded", "true");
+    pop.setAttribute("aria-label", "Source for " + btn.textContent.trim());
+    pop.innerHTML = "<h4>Source" + (list.length > 1 ? "s" : "") + "</h4><ul>" + list.map((s) =>
+      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc([s.field, s.accessed].filter(Boolean).join(" · ")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
+    pop.hidden = false;
+    placePop();
+    pop.focus({ preventScroll: true });
+  }
   function closePop() {
     if (popBtn) popBtn.setAttribute("aria-expanded", "false");
     popBtn = null; pop.hidden = true;
   }
   function togglePop(btn) { if (popBtn === btn && !pop.hidden) closePop(); else openPop(btn); }
   function closeFloating() { closePop(); toggleQpop(false); hideDD(); }
+  function focusNextAfter(el, dir) {
+    if (!el) return;
+    const all = $$(FOCUSABLE).filter((x) => x === el || (x.offsetParent !== null && !pop.contains(x)));
+    const nx = all[all.indexOf(el) + dir];
+    if (nx) nx.focus();
+  }
 
   /* ---------- routing ---------- */
-  let browseY = 0;
+  let browseY = 0, userNav = false, lastOpener = null;
   function go(route, id) {
-    if (route === "detail" && !(id && BY_ID[id])) route = "browse";
+    if (route === "detail" && !(id && hasKey(BY_ID, id))) route = "browse";
     const same = state.route === route && (route !== "detail" || state.detailId === id);
     if (state.route === "browse" && route !== "browse") browseY = window.scrollY;
     closeFloating();
@@ -1395,19 +1520,52 @@ svg { display: block; }
     else if (route === "detail") renderDetail();
     const tok = route === "detail" ? state.detailId : route;
     try { if ((location.hash || "").slice(1) !== tok) history.replaceState(null, "", "#" + tok); } catch (e) { /* the viewer may refuse */ }
-    window.scrollTo(0, route === "browse" && !same ? browseY : 0);
+    if (!same) window.scrollTo(0, route === "browse" ? browseY : 0);
+    /* A hidden screen drops focus to body. After a user action, focus moves into the new screen: the sheet title, the compare title, or the row that opened the sheet. */
     if (route === "detail") { const h1 = $("#dt-h1"); if (h1) h1.focus({ preventScroll: true }); }
+    else if (userNav && !same) {
+      let tgt = route === "compare" ? $("#cmp-h1") : null;
+      if (route === "browse") { const back = lastOpener && document.getElementById(lastOpener); tgt = back && back.offsetParent !== null ? back : $("#lbar"); }
+      if (tgt) tgt.focus({ preventScroll: true });
+    }
+    userNav = false;
     save();
   }
   function routeFromHash() {
     const h = (location.hash || "").slice(1);
     if (h === "compare" || h === "browse") { go(h); return true; }
-    if (BY_ID[h]) { go("detail", h); return true; }
+    if (hasKey(BY_ID, h)) { go("detail", h); return true; }
     return false;
   }
-  window.addEventListener("hashchange", routeFromHash);
+  /* An unknown hash keeps the current screen and puts its token back in the address. */
+  window.addEventListener("hashchange", () => { if (!routeFromHash()) go(state.route, state.detailId); });
 
   /* ---------- events ---------- */
+  function focusId(fid) {
+    const el = fid && document.getElementById(fid);
+    if (!el || el.disabled || el.offsetParent === null) return false;
+    el.focus({ preventScroll: true });
+    return document.activeElement === el;
+  }
+  /* Re-rendered controls come back with the same id. Removed controls hand focus to a neighbour. */
+  function restoreFocus(fid, act, id, prevVisible) {
+    if (focusId(fid)) return;
+    switch (act) {
+      case "show-all": { const d = visibleList[prevVisible]; if (d && (focusId("open-" + d.id) || focusId("copen-" + d.id))) return; break; }
+      case "rm": {
+        if (fid && fid.startsWith("qrm-")) { const nx = $("#qpop [id^=qrm-]"); if (nx) { nx.focus(); return; } if (focusId("qpop-clear")) return; }
+        else { const c = $("#scr-compare .ccol .xbtn"); if (c) { c.focus(); return; } if (focusId("sq")) return; }
+        break;
+      }
+      case "add": if (focusId("cref2-" + id)) return; break;
+      case "clear-queue": if (focusId("qpop-clear") || focusId("badge")) return; break;
+      case "reset-f": if (focusId("f-reset") || focusId("tf-reset")) return; break;
+      case "hide-same": if (focusId("hide-same")) return; break;
+      default: break;
+    }
+    const tgt = state.route === "browse" ? $("#lbar") : state.route === "compare" ? $("#cmp-h1") : $("#dt-h1");
+    if (tgt) tgt.focus({ preventScroll: true });
+  }
   document.addEventListener("click", (e) => {
     const t = e.target.closest("[data-act]");
     if (!t) {
@@ -1417,28 +1575,30 @@ svg { display: block; }
       return;
     }
     if (t.disabled) return;
-    const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v;
+    const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length;
     if (act !== "sv" && !pop.hidden) closePop();
     if (act !== "badge" && act !== "rm" && act !== "clear-queue" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
+    if (act === "go" || act === "open") userNav = true;
+    if (act === "open") lastOpener = fid || null;
     switch (act) {
       case "go": go(t.dataset.route); break;
       case "open": go("detail", id); break;
       case "q": toggleQBtn(id); break;
       case "add": { addQ(id); const inp = document.getElementById(t.dataset.from); if (inp) { inp.value = ""; renderDD(t.dataset.from); inp.focus(); } break; }
       case "rm": removeQ(id); break;
-      case "clear-queue": state.queue = []; state.refId = null; afterRef(); afterQ(); break;
+      case "clear-queue": state.queue = []; afterQ(); break;
       case "ref": setRef(refDev() && refDev().id === id ? null : id); break;
       case "setref": setRef(id); break;
       case "clear-ref": setRef(null); break;
       case "theme": state.theme = isDark() ? "light" : "dark"; applyTheme(); save(); break;
       case "badge": toggleQpop(); break;
-      case "sort": sortBy(v); { const b = document.getElementById(t.id); if (b) b.focus(); } break;
+      case "sort": sortBy(v); break;
       case "grp": state.groups = state.groups.includes(v) ? state.groups.filter((g) => g !== v) : GROUPS.filter((g) => g === v || state.groups.includes(g));
-        renderHead(); buildRows(); applyList(); renderListBar(); save(); { const b = document.getElementById(t.id); if (b) b.focus(); } break;
+        ensureSortVisible(); renderHead(); buildRows(); applyList(); renderListBar(); save(); break;
       case "layout": state.layout = v; syncLayout(); save(); break;
       case "reset-f": state.f = DEF_F(); syncFilters(); applyList(); save(); break;
       case "tf-toggle": topOpen = !topOpen; syncFilters(); applyList(); break;
-      case "chip": toggleFilterVal(t.dataset.f, v); { const b = document.getElementById(t.id); if (b) b.focus(); } break;
+      case "chip": toggleFilterVal(t.dataset.f, v); break;
       case "usb4": state.f.usb4 = !state.f.usb4; syncFilters(); applyList(); save(); break;
       case "show-all": state.rowLimit = 9999; applyList(); break;
       case "hide-same": state.hideSame = !state.hideSame; renderCompare(); save(); break;
@@ -1446,40 +1606,56 @@ svg { display: block; }
       case "size-tab": state.sizeTab = v; renderCompare(); save(); break;
       case "size-view": state.sizeView = v; renderCompare(); save(); break;
       case "size-mode": state.sizeMode = v; renderCompare(); save(); break;
-      case "preset": { const p = PRESET[v]; state.rx = p[0]; state.ry = p[1]; const rot = $("#rot"); if (rot) rot.style.transform = "rotateX(" + p[0] + "deg) rotateY(" + p[1] + "deg)"; syncPresetChips(); break; }
-      case "sv": e.stopPropagation(); togglePop(t); break;
+      case "preset": { const p = hasKey(PRESET, v) ? PRESET[v] : null; if (!p) break; state.rx = p[0]; state.ry = p[1]; const rot = $("#rot"); if (rot) rot.style.transform = "rotateX(" + p[0] + "deg) rotateY(" + p[1] + "deg)"; syncPresetChips(); save(); break; }
+      case "sv": togglePop(t); break;
       default: break;
     }
+    if (act !== "go" && act !== "open" && act !== "sv" && document.activeElement === document.body) restoreFocus(fid, act, id, prevVisible);
   });
   function toggleQBtn(id) { if (inQ(id)) removeQ(id); else addQ(id); }
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       if (!pop.hidden) { const b = popBtn; closePop(); if (b) b.focus(); return; }
       if (!$("#qpop").hidden) { toggleQpop(false); $("#badge").focus(); return; }
+      const dd = e.target.closest ? e.target.closest(".dd") : null;
+      if (dd) { const inp = document.getElementById(dd.id.slice(0, -3)); if (inp) inp.focus(); }
       hideDD();
       return;
     }
-    if ((e.key === "Enter" || e.key === " ") && e.target.matches && e.target.matches('.ccol[role="button"]')) { e.preventDefault(); setRef(e.target.dataset.id); }
+    if (e.key === "Tab" && !pop.hidden && pop.contains(e.target)) {
+      const links = $$("a", pop), first = links[0], last = links[links.length - 1];
+      if (!e.shiftKey && (e.target === last || (e.target === pop && !links.length))) { e.preventDefault(); const b = popBtn; closePop(); focusNextAfter(b, 1); }
+      else if (e.shiftKey && (e.target === first || e.target === pop)) { e.preventDefault(); const b = popBtn; closePop(); if (b) b.focus(); }
+    }
   });
   document.addEventListener("change", (e) => {
     const t = e.target;
-    if (t.classList.contains("qbox")) { if (t.checked) { if (!addQ(t.dataset.id)) t.checked = false; } else removeQ(t.dataset.id); return; }
-    if (t.classList.contains("fchk")) { toggleFilterVal(t.dataset.f, t.dataset.v); const again = document.getElementById(t.id); if (again) again.focus(); }
+    if (t.classList.contains("qbox")) { if (t.checked) { if (!addQ(t.dataset.id)) t.checked = false; } else removeQ(t.dataset.id); focusId(t.id); return; }
+    if (t.classList.contains("fchk")) { toggleFilterVal(t.dataset.f, t.dataset.v); focusId(t.id); }
   });
   document.addEventListener("input", (e) => {
     const t = e.target;
     if (t.id === "hq" || t.id === "sq") { renderDD(t.id); return; }
     if (t.classList.contains("frange")) { state.f[t.dataset.f] = +t.value; syncRanges(); scheduleApply(); }
   });
-  document.addEventListener("focusin", (e) => { if (e.target.id === "hq" || e.target.id === "sq") renderDD(e.target.id); });
+  /* One floating layer at a time, for the keyboard too. */
+  document.addEventListener("focusin", (e) => { if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); renderDD(e.target.id); } });
   document.addEventListener("focusout", (e) => {
-    const t = e.target; if (t.id !== "hq" && t.id !== "sq") return;
-    const dd = document.getElementById(t.id + "-dd");
-    if (dd && e.relatedTarget && dd.contains(e.relatedTarget)) return;
-    if (dd) dd.hidden = true;
+    const t = e.target;
+    if (!(t instanceof Element)) return;
+    const box = t.closest(".dd") || ((t.id === "hq" || t.id === "sq") ? document.getElementById(t.id + "-dd") : null);
+    const inQpop = !!t.closest("#qpop"), inPop = pop.contains(t);
+    if (!box && !inQpop && !inPop) return;
+    /* Decide on the next tick. A re-render also fires focusout, and the restored focus lands after it. */
+    setTimeout(() => {
+      const a = document.activeElement;
+      if (box) { const inp = document.getElementById(box.id.slice(0, -3)); if (!(a && (box.contains(a) || a === inp))) box.hidden = true; }
+      if (inQpop && !(a && a.closest("#qpop, #badge"))) toggleQpop(false);
+      if (inPop && !pop.hidden && !(a && (pop.contains(a) || a === popBtn))) closePop();
+    }, 0);
   });
   document.addEventListener("mousedown", (e) => { if (e.target.closest(".dd")) e.preventDefault(); });
-  /* 3D drag writes the transform directly. State updates once on release. */
+  /* 3D drag writes the transform directly. State updates and saves once on release. */
   document.addEventListener("pointerdown", (e) => {
     const st = e.target.closest("#stage3d"), rot = $("#rot");
     if (!st || !rot || e.button) return;
@@ -1496,6 +1672,7 @@ svg { display: block; }
       rot.classList.remove("drag");
       state.rx = Math.round(rx * 10) / 10; state.ry = Math.round(ry * 10) / 10;
       syncPresetChips();
+      save();
     };
     window.addEventListener("pointermove", mv); window.addEventListener("pointerup", up); window.addEventListener("pointercancel", up);
   });
@@ -1509,7 +1686,7 @@ svg { display: block; }
       measureHdr();
       const nw = isNarrow();
       if (nw !== wasNarrow) { wasNarrow = nw; syncLayout(); if (state.route === "compare") renderCompare(); }
-      else if (state.route === "compare") layoutStage();
+      else if (state.route === "compare") { if (gridScrollWanted() !== lastScroll) renderCompare(); else layoutStage(); }
       closePop();
     }, 120);
   });
@@ -1532,6 +1709,16 @@ svg { display: block; }
   syncQueueUI();
   measureHdr();
   if (!routeFromHash()) go(state.route, state.detailId);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  /* Another tab wrote the shared state: adopt it without writing back, so two tabs never ping-pong. */
+  function syncFromStorage() {
+    closeFloating();
+    loadState(true);
+    applyTheme(); syncFilters(); renderHead(); buildRows(); buildCards(); syncLayout(); syncQueueUI();
+    if (state.route === "compare") renderCompare();
+    if (state.route === "detail") renderDetail();
+  }
+  window.addEventListener("storage", (e) => { if (e.key === null || e.key === KEY) syncFromStorage(); });
   function settle() { measureHdr(); if (state.route === "compare") layoutStage(); }
   window.addEventListener("load", settle);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
