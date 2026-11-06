@@ -241,7 +241,7 @@
     },
     {
       "field": "ports.4.speed_gbps",
-      "reason": "Does not apply to a microSD slot"
+      "reason": "Link speed does not apply to a microSD slot; the port note gives the card speed"
     },
     {
       "field": "ports.4.dp_alt",
@@ -257,7 +257,7 @@
     },
     {
       "field": "ports.5.speed_gbps",
-      "reason": "Does not apply to a Mini SSD slot"
+      "reason": "No speed in Gbps is stated; the port note gives the PCIe generation"
     },
     {
       "field": "ports.5.dp_alt",

@@ -245,7 +245,7 @@
     },
     {
       "field": "ports.3.speed_gbps",
-      "reason": "Does not apply to a Mini SSD slot"
+      "reason": "Not stated in the official spec image or the sources used"
     },
     {
       "field": "ports.3.dp_alt",
@@ -261,7 +261,7 @@
     },
     {
       "field": "ports.4.speed_gbps",
-      "reason": "Does not apply to a microSD slot"
+      "reason": "Link speed does not apply to a microSD slot"
     },
     {
       "field": "ports.4.dp_alt",

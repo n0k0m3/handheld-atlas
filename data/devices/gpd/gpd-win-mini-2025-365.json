@@ -164,7 +164,7 @@
     },
     {
       "field": "ports",
-      "reason": "spec page does not state port location or per-port PD input, so the sheet leaves each unstated detail blank"
+      "reason": "spec page does not state every port's location or PD input, so the sheet leaves each unstated detail blank"
     },
     {
       "field": "screen.nits_peak",

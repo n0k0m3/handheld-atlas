@@ -201,7 +201,7 @@
     },
     {
       "field": "ports.3.speed_gbps",
-      "reason": "Does not apply to a microSD slot"
+      "reason": "Link speed does not apply to a microSD slot; the port note gives the card standard"
     },
     {
       "field": "ports.3.dp_alt",
