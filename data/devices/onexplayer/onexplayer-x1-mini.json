@@ -207,7 +207,7 @@
     },
     {
       "field": "ports",
-      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+      "reason": "Per-port speed, DisplayPort Alt Mode, PD input or location is not stated where no source states it"
     }
   ],
   "conflicts": [],

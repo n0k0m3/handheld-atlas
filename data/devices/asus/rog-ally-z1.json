@@ -27,7 +27,7 @@
     "expansion": ["microSD"]
   },
   "ports": [
-    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "Combo port with the XG Mobile interface. DisplayPort 1.4. pd_in_w is the bundled 65 W USB-C adapter rating." },
+    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "Combo port with the XG Mobile interface. DisplayPort 1.4. The USB-PD input figure is the bundled 65 W USB-C adapter rating." },
     { "kind": "XG Mobile", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "ROG XG Mobile eGPU interface; shares one combo housing with the USB-C port" },
     { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Combo audio jack" },
     { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "UHS-II; supports SD, SDXC and SDHC" }

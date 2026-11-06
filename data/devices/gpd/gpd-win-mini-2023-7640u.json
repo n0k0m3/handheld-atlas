@@ -163,7 +163,7 @@
     },
     {
       "field": "ports",
-      "reason": "spec page does not state port location or per-port PD input; null subfields are unstated"
+      "reason": "spec page does not state port location or per-port PD input, so those details are not stated"
     },
     {
       "field": "screen.vrr",

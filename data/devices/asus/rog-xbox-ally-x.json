@@ -27,8 +27,8 @@
     "expansion": ["microSD"]
   },
   "ports": [
-    { "kind": "USB4", "count": 1, "speed_gbps": 40, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 65 W adapter rating." },
-    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "DisplayPort and power delivery. pd_in_w is the bundled 65 W adapter rating." },
+    { "kind": "USB4", "count": 1, "speed_gbps": 40, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. The USB-PD input figure is the bundled 65 W adapter rating." },
+    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 65, "location": "top", "note": "DisplayPort and power delivery. The USB-PD input figure is the bundled 65 W adapter rating." },
     { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Combo audio jack" },
     { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "UHS-II; supports SD, SDXC and SDHC" }
   ],

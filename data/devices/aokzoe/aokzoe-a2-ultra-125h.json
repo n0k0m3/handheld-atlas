@@ -183,7 +183,7 @@
     },
     {
       "field": "weight_g.handheld.measured",
-      "reason": "No review of this SKU; the measurements come from the A2 Ultra (Core Ultra 7 155H) row"
+      "reason": "No review of this SKU; the measurements in the A2 Ultra (Core Ultra 7 155H) row are from a different SKU"
     },
     {
       "field": "ram.channels",

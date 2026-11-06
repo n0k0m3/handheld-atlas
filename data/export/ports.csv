@@ -55,27 +55,27 @@ aokzoe-a2-ultra-125h,USB-C unspecified,2,,,,,Speed not announced; no Thunderbolt
 aokzoe-a2-ultra-125h,USB-A unspecified,1,,,,,
 aokzoe-a2-ultra-125h,3.5mm,1,,,,,
 aokzoe-a2-ultra-125h,microSD,1,,,,,
-rog-ally-x,USB4,1,40,true,65,top,"ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 65 W adapter rating."
-rog-ally-x,USB-C 3.2 Gen2,1,10,true,65,top,DisplayPort 1.4 and power delivery. pd_in_w is the bundled 65 W adapter rating.
+rog-ally-x,USB4,1,40,true,65,top,"ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. The USB-PD input figure is the bundled 65 W adapter rating."
+rog-ally-x,USB-C 3.2 Gen2,1,10,true,65,top,DisplayPort 1.4 and power delivery. The USB-PD input figure is the bundled 65 W adapter rating.
 rog-ally-x,3.5mm,1,,,,top,Combo audio jack
 rog-ally-x,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
-rog-ally-z1,USB-C 3.2 Gen2,1,10,true,65,top,Combo port with the XG Mobile interface. DisplayPort 1.4. pd_in_w is the bundled 65 W USB-C adapter rating.
+rog-ally-z1,USB-C 3.2 Gen2,1,10,true,65,top,Combo port with the XG Mobile interface. DisplayPort 1.4. The USB-PD input figure is the bundled 65 W USB-C adapter rating.
 rog-ally-z1,XG Mobile,1,,,,top,ROG XG Mobile eGPU interface; shares one combo housing with the USB-C port
 rog-ally-z1,3.5mm,1,,,,top,Combo audio jack
 rog-ally-z1,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
-rog-ally-z1-extreme,USB-C 3.2 Gen2,1,10,true,65,top,Combo port with the XG Mobile interface. DisplayPort 1.4. pd_in_w is the bundled 65 W USB-C adapter rating.
+rog-ally-z1-extreme,USB-C 3.2 Gen2,1,10,true,65,top,Combo port with the XG Mobile interface. DisplayPort 1.4. The USB-PD input figure is the bundled 65 W USB-C adapter rating.
 rog-ally-z1-extreme,XG Mobile,1,,,,top,ROG XG Mobile eGPU interface; shares one combo housing with the USB-C port
 rog-ally-z1-extreme,3.5mm,1,,,,top,Combo audio jack
 rog-ally-z1-extreme,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
-rog-xbox-ally,USB-C 3.2 Gen2,2,10,true,65,top,Both ports support DisplayPort and power delivery. pd_in_w is the bundled 65 W adapter rating. No USB4.
+rog-xbox-ally,USB-C 3.2 Gen2,2,10,true,65,top,Both ports support DisplayPort and power delivery. The USB-PD input figure is the bundled 65 W adapter rating. No USB4.
 rog-xbox-ally,3.5mm,1,,,,top,Combo audio jack
 rog-xbox-ally,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
-rog-xbox-ally-x,USB4,1,40,true,65,top,"ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 65 W adapter rating."
-rog-xbox-ally-x,USB-C 3.2 Gen2,1,10,true,65,top,DisplayPort and power delivery. pd_in_w is the bundled 65 W adapter rating.
+rog-xbox-ally-x,USB4,1,40,true,65,top,"ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 1.4 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. The USB-PD input figure is the bundled 65 W adapter rating."
+rog-xbox-ally-x,USB-C 3.2 Gen2,1,10,true,65,top,DisplayPort and power delivery. The USB-PD input figure is the bundled 65 W adapter rating.
 rog-xbox-ally-x,3.5mm,1,,,,top,Combo audio jack
 rog-xbox-ally-x,microSD,1,,,,top,"UHS-II; supports SD, SDXC and SDHC"
-rog-xbox-ally-x20,USB4,1,40,true,68,top,"ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 2.1 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. pd_in_w is the bundled 68 W adapter rating."
-rog-xbox-ally-x20,USB-C 3.2 Gen2,1,10,true,68,top,DisplayPort and power delivery. pd_in_w is the bundled 68 W adapter rating.
+rog-xbox-ally-x20,USB4,1,40,true,68,top,"ASUS: 'Type C support USB 4 (Thunderbolt 4 compliance, DisplayPort 2.1 with Freesync support, Power Delivery 3.0)'. Not sold as a Thunderbolt port. The USB-PD input figure is the bundled 68 W adapter rating."
+rog-xbox-ally-x20,USB-C 3.2 Gen2,1,10,true,68,top,DisplayPort and power delivery. The USB-PD input figure is the bundled 68 W adapter rating.
 rog-xbox-ally-x20,3.5mm,1,,,,top,Combo audio jack
 rog-xbox-ally-x20,microSD,1,,,,top,"microSD Express (SD 8.0, PCIe Gen4 x1); UHS-I with DDR200 mode. NotebookCheck measured about 800 MB/s."
 ayaneo-2,USB4,2,40,true,,,Fully functional USB 4.0 Type-C; charging and DP 1.4 4K60 output
@@ -573,10 +573,10 @@ orange-pi-neo-7840u,microSD,1,,,,,TF card slot
 orange-pi-neo-8840u,USB4,2,,,,,USB 4.0 Type-C
 orange-pi-neo-8840u,3.5mm,1,,,,,
 orange-pi-neo-8840u,microSD,1,,,,,TF card slot
-steam-deck-lcd,USB-C 3.2 Gen2,1,10,true,45,top,"DisplayPort 1.4 alt mode, up to 8K@60Hz or 4K@120Hz. pd_in_w is the Valve PD 3.0 power supply rating."
+steam-deck-lcd,USB-C 3.2 Gen2,1,10,true,45,top,"DisplayPort 1.4 alt mode, up to 8K@60Hz or 4K@120Hz. The USB-PD input figure is the Valve PD 3.0 power supply rating."
 steam-deck-lcd,3.5mm,1,,,,top,Stereo headphone / headset jack
 steam-deck-lcd,microSD,1,,,,bottom,"UHS-I; supports SD, SDXC and SDHC"
-steam-deck-oled,USB-C 3.2 Gen2,1,10,true,45,top,"DisplayPort over USB-C, up to 8K@60Hz or 4K@120Hz. pd_in_w is the Valve PD 3.0 power supply rating."
+steam-deck-oled,USB-C 3.2 Gen2,1,10,true,45,top,"DisplayPort over USB-C, up to 8K@60Hz or 4K@120Hz. The USB-PD input figure is the Valve PD 3.0 power supply rating."
 steam-deck-oled,3.5mm,1,,,,top,Stereo headphone / headset jack
 steam-deck-oled,microSD,1,,,,bottom,"UHS-I; supports SD, SDXC and SDHC"
 zotac-zone,USB4,2,40,true,,"top, bottom","One port on the top edge, one on the bottom edge (NotebookCheck). DisplayPort output over USB4 (ZOTAC store spec)."

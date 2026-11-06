@@ -27,7 +27,7 @@
     "expansion": ["microSD"]
   },
   "ports": [
-    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 45, "location": "top", "note": "DisplayPort 1.4 alt mode, up to 8K@60Hz or 4K@120Hz. pd_in_w is the Valve PD 3.0 power supply rating." },
+    { "kind": "USB-C 3.2 Gen2", "count": 1, "speed_gbps": 10, "dp_alt": true, "pd_in_w": 45, "location": "top", "note": "DisplayPort 1.4 alt mode, up to 8K@60Hz or 4K@120Hz. The USB-PD input figure is the Valve PD 3.0 power supply rating." },
     { "kind": "3.5mm", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "top", "note": "Stereo headphone / headset jack" },
     { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "bottom", "note": "UHS-I; supports SD, SDXC and SDHC" }
   ],

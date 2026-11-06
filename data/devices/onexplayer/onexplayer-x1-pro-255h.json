@@ -192,15 +192,15 @@
     },
     {
       "field": "ports",
-      "reason": "Per-port speed, DP alt mode, PD input, or location left null where no source states it"
+      "reason": "Per-port speed, DisplayPort Alt Mode, PD input or location is not stated where no source states it"
     },
     {
       "field": "weight_g.handheld.measured",
-      "reason": "No review of this SKU; the measurements come from the OneXPlayer X1 Pro (Ryzen AI 9 HX 370) row"
+      "reason": "No review of this SKU; the measurements in the OneXPlayer X1 Pro (Ryzen AI 9 HX 370) row are from a different SKU"
     },
     {
       "field": "weight_g.tablet_only.measured",
-      "reason": "No review of this SKU; the measurements come from the OneXPlayer X1 Pro (Ryzen AI 9 HX 370) row"
+      "reason": "No review of this SKU; the measurements in the OneXPlayer X1 Pro (Ryzen AI 9 HX 370) row are from a different SKU"
     },
     {
       "field": "ram.speed_mts",
