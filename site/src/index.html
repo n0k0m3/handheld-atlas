@@ -2204,17 +2204,25 @@ button.tag:hover { filter: brightness(.95); }
     ]) + gnote(d.notes);
   }
   function grpLists(d) {
-    const fmt = (v) => (v !== null && typeof v === "object" ? JSON.stringify(v) : String(v));
+    /* A conflicting value in words: Yes/No, a list joined with " / ", a number with its field's unit, a stick or trigger kind by name. */
+    const fmt = (v, f) => {
+      const path = String(f).split("."), last = path[path.length - 1];
+      if (typeof v === "boolean") return v ? "Yes" : "No";
+      if (typeof v === "string") return /^(stick|trigger)_type$/.test(last) ? v.replace(/^[a-z]+/, (k) => (hasKey(KLABEL, k) ? KLABEL[k] : k)) : v;
+      if (last === "msrp_usd" && typeof v === "number") return "$" + NF.format(v);
+      const unit = path[0] === "weight_g" ? " g" : path[0] === "dims_mm" ? " mm" : ({ wh: " Wh", charge_w: " W", size_in: "″", refresh_hz: " Hz", nits_peak: " nits", nits_sdr: " nits", speed_mts: " MT/s", sizes_gb: " GB" })[last] || "";
+      return (Array.isArray(v) ? v.join(" / ") : String(v)) + unit;
+    };
     const out = [];
     const cf = d.conflicts || [];
     if (cf.length) out.push(grp("Conflicts", '<ul class="dl">' + cf.map((c, ci) => '<li><span class="f">' + esc(fieldLabel(c.field, d)) + '</span><div class="cfv">' +
-      (c.values || []).map((v, vi) => '<span><b class="m">' + esc(fmt(v.value)) + "</b> · " + link(v.url, null, "dcf-" + ci + "-" + vi) + "</span>").join("") + "</div>" +
+      (c.values || []).map((v, vi) => '<span><b class="m">' + esc(fmt(v.value, c.field)) + "</b> · " + link(v.url, null, "dcf-" + ci + "-" + vi) + "</span>").join("") + "</div>" +
       (c.chosen_reason ? '<span class="why">Chosen: ' + esc(c.chosen_reason) + "</span>" : "") + "</li>").join("") + "</ul>"));
     const un = d.unresolved || [];
     if (un.length) out.push(grp("Unresolved", '<ul class="dl">' + un.map((u) => '<li><span class="f">' + esc(fieldLabel(u.field, d)) + '</span><span class="why">' + esc(u.reason) + "</span></li>").join("") + "</ul>"));
     const src = d.sources || [];
     out.push(grp("Sources", '<ul class="dl">' + src.map((x, i) => "<li>" + link(x.url, host(x.url), "dsrc-" + i) + ' <span class="f">' + esc(fieldLabel(x.field, d)) + "</span>" +
-      (x.note ? '<span class="why">' + esc(x.note) + "</span>" : "") + '<span class="url">' + esc(x.url) + (x.accessed ? " · " + esc(x.accessed) : "") + "</span></li>").join("") + "</ul>"));
+      (x.note ? '<span class="why">' + esc(x.note) + "</span>" : "") + '<span class="url">' + esc(x.url) + (x.accessed ? " · accessed " + esc(x.accessed) : "") + "</span></li>").join("") + "</ul>"));
     return out;
   }
 
@@ -2294,7 +2302,7 @@ button.tag:hover { filter: brightness(.95); }
     popBtn = btn; btn.setAttribute("aria-expanded", "true");
     pop.setAttribute("aria-label", "Source for " + btn.textContent.trim());
     pop.innerHTML = "<h4>Source" + (list.length > 1 ? "s" : "") + "</h4><ul>" + list.map((s) =>
-      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc([fieldLabel(s.field, BY_ID[state.detailId]), s.accessed].filter(Boolean).join(" · ")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
+      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc([fieldLabel(s.field, BY_ID[state.detailId]), s.accessed && "accessed " + s.accessed].filter(Boolean).join(" · ")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
     pop.hidden = false;
     placePop();
     pop.focus({ preventScroll: true });
