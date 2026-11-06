@@ -887,17 +887,22 @@ button.tag:hover { filter: brightness(.95); }
   const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return String(u || ""); } };
   /* Source field paths in plain words: "passmark.g3d_mark" reads "PassMark · G3D Mark". */
   const FLAB = { dims_mm: "Size", handheld: "as held", without_battery: "without battery", weight_g: "Weight", passmark: "PassMark", cpu_mark: "CPU Mark", single_thread: "Single thread",
-    g3d_mark: "G3D Mark", msrp_usd: "Launch price", soc_id: "Chip", ram: "RAM", sizes_gb: "sizes", speed_mts: "speed", screen: "Screen", size_in: "size", refresh_hz: "refresh rate",
-    battery: "Battery", wh: "capacity", release_date: "Release date", announce_date: "Announced", d_max: "thickest point", w: "width", h: "height", d: "thickness", stated: "stated", measured: "measured",
+    g3d_mark: "G3D Mark", msrp_usd: "Launch price", soc_id: "Chip", ram: "RAM", sizes_gb: "sizes", speed_mts: "speed", screen: "Screen", size_in: "size", refresh_hz: "refresh",
+    battery: "Battery", wh: "capacity", release_date: "Released", announce_date: "Announced", d_max: "thickest point", w: "width", h: "height", d: "thickness", stated: "stated", measured: "measured",
     charge_w: "charging", dp_alt: "DisplayPort Alt Mode", pd_in_w: "PD input", speed_gbps: "speed", os: "OS", hdr: "HDR", nits_peak: "peak brightness", nits_sdr: "SDR brightness",
     vrr: "VRR", pcie_gen: "PCIe generation", bt: "Bluetooth", wifi: "Wi-Fi", lanes: "PCIe lanes", kind: "type",
     /* Words the sheet's own rows use for these fields. */
     capacities_gb: "factory SSD", expansion: "card slot", slots: "SSD slot", stick_type: "sticks", trigger_type: "triggers", external: "external pack" };
   /* A data path in words. A list index names the device's port when the device is known ("ports.2" -> "Ports · microSD slot"), else its place ("#3"). */
   const fieldLabel = (f, d) => f === "*" ? "Most fields" : String(f || "").split(".").map((p, i, a) => {
-    if (/^\d+$/.test(p)) { const port = a[i - 1] === "ports" && d && (d.ports || [])[+p]; return port ? PORT_WORD[port.kind] || portName(port) : "#" + (+p + 1); }
+    if (p === "slots" && /^\d+$/.test(a[i + 1] || "")) return "";
+    if (/^\d+$/.test(p)) {
+      /* An SSD slot reads as the sheet row does: "SSD slot", or "SSD slot 2" when there are several. */
+      if (a[i - 1] === "slots") return d && ((d.storage || {}).slots || []).length === 1 ? "SSD slot" : "SSD slot " + (+p + 1);
+      const port = a[i - 1] === "ports" && d && (d.ports || [])[+p]; return port ? PORT_WORD[port.kind] || portName(port) : "#" + (+p + 1);
+    }
     return hasKey(FLAB, p) ? FLAB[p] : p.replace(/_/g, " ");
-  }).join(" · ").replace(/^./, (c) => c.toUpperCase());
+  }).filter(Boolean).join(" · ").replace(/^./, (c) => c.toUpperCase());
   const link = (url, text, id) => "<a" + (id ? ' id="' + id + '"' : "") + ' href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(text || host(url)) + "</a>";
   const yn = (v) => (v === true ? "Yes" : v === false ? "No" : null);
   const nameOf = (d) => [d.brand, d.model, d.variant].filter(Boolean).join(" ");
@@ -950,7 +955,7 @@ button.tag:hover { filter: brightness(.95); }
   const C_ORDER = ["USB-C 3.2 Gen2", "USB-C 3.2 Gen1", "USB-C unspecified", "USB-C 2.0"];
   const A_ORDER = ["USB-A 3.2 Gen2", "USB-A 3.2 Gen1", "USB-A unspecified", "USB-A 2.0"];
   function portName(p) {
-    /* A USB4 speed shows only when a source states it. */
+    /* A USB4 speed shows only when the data stores one. */
     if (p.kind === "USB4" || p.kind === "USB4v2") return p.kind + (p.speed_gbps ? " " + p.speed_gbps + " G" : "");
     if (p.kind === "USB-C unspecified") return "USB-C";
     if (p.kind === "USB-A unspecified") return "USB-A";
