@@ -519,6 +519,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 /* Hover or keyboard focus on a legend entry or a column head picks out that device: data-hl on #scr-compare holds its slot.
    In 3D the other stacks turn grey; opacity on a preserve-3d stack would flatten it. */
 #scr-compare .stage2d > svg > g { transition: opacity .12s ease-out; }
+/* Overlaid outlines: the native name tooltip follows the line itself, not the transparent fill that the last-drawn device spreads over all. */
+#scr-compare .stage2d.ov .shp { pointer-events: visibleStroke; }
 #scr-compare[data-hl="1"] .stage2d > svg > g:not(.s1), #scr-compare[data-hl="2"] .stage2d > svg > g:not(.s2), #scr-compare[data-hl="3"] .stage2d > svg > g:not(.s3), #scr-compare[data-hl="4"] .stage2d > svg > g:not(.s4), #scr-compare[data-hl="5"] .stage2d > svg > g:not(.s5), #scr-compare[data-hl="6"] .stage2d > svg > g:not(.s6), #scr-compare[data-hl="7"] .stage2d > svg > g:not(.s7), #scr-compare[data-hl="8"] .stage2d > svg > g:not(.s8) { opacity: .2; }
 #scr-compare[data-hl="1"] .stage2d > svg > g.s1 .shp:not(.mod), #scr-compare[data-hl="2"] .stage2d > svg > g.s2 .shp:not(.mod), #scr-compare[data-hl="3"] .stage2d > svg > g.s3 .shp:not(.mod), #scr-compare[data-hl="4"] .stage2d > svg > g.s4 .shp:not(.mod), #scr-compare[data-hl="5"] .stage2d > svg > g.s5 .shp:not(.mod), #scr-compare[data-hl="6"] .stage2d > svg > g.s6 .shp:not(.mod), #scr-compare[data-hl="7"] .stage2d > svg > g.s7 .shp:not(.mod), #scr-compare[data-hl="8"] .stage2d > svg > g.s8 .shp:not(.mod) { stroke-width: 3.25; fill-opacity: .1; }
 #scr-compare[data-hl="1"] .dev3:not(.s1), #scr-compare[data-hl="2"] .dev3:not(.s2), #scr-compare[data-hl="3"] .dev3:not(.s3), #scr-compare[data-hl="4"] .dev3:not(.s4), #scr-compare[data-hl="5"] .dev3:not(.s5), #scr-compare[data-hl="6"] .dev3:not(.s6), #scr-compare[data-hl="7"] .dev3:not(.s7), #scr-compare[data-hl="8"] .dev3:not(.s8) { --c: var(--fg-3); }
@@ -1933,7 +1935,7 @@ button.tag:hover { filter: brightness(.95); }
   function cmpHelpHtml() {
     return '<details class="panel help" id="help-cmp"' + (cmpHelpOpen ? " open" : "") + '><summary id="help-cmp-s">How to compare</summary><ol class="steps">' +
       '<li><span class="step-n">1</span><div><b>Queue up to eight devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">' + I.plus + 'Add to compare</span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
-      '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at true scale, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Point at a legend entry or a column head to pick out one device. Clamshells are drawn open.</div></li>' +
+      '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at true scale, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Point at a device, its legend entry or its column head to pick it out. Clamshells are drawn open.</div></li>' +
       '<li><span class="step-n">3</span><div><b>Pick a reference, or none.</b> Press <span class="demo"><span class="tag">Set as reference</span></span> on a column to compare the others against it. Press <span class="demo"><span class="tag ref">Reference</span></span> again to turn the deltas off.</div></li>' +
       '<li><span class="step-n">4</span><div><b>Read the grid.</b> "Differences only" hides identical rows, and <span class="demo"><span class="best">Best</span></span> marks the best value in a row. Remove a device with the × on its column or in the size legend.</div></li>' +
       "</ol></details>";
@@ -2012,13 +2014,35 @@ button.tag:hover { filter: brightness(.95); }
      Only keyboard focus counts, so a mouse click on "Set as reference" does not leave the drawing faded. */
   const scrCmp = $("#scr-compare");
   let hlHover = "", hlKey = "";
-  const hlSlot = (el) => { const x = el instanceof Element ? el.closest(".lg, .ccol") : null, m = x && /(?:^| )s([1-8])(?: |$)/.exec(x.className); return m ? m[1] : ""; };
+  const slotOf = (cls) => { const m = /(?:^| )s([1-8])(?: |$)/.exec(cls || ""); return m ? m[1] : ""; };
+  const hlSlot = (el) => { const x = el instanceof Element ? el.closest(".lg, .ccol, .dev3") : null; return x ? slotOf(x.getAttribute("class")) : ""; };
   function syncHl() { const n = hlHover || hlKey; if (n) scrCmp.dataset.hl = n; else delete scrCmp.dataset.hl; }
   scrCmp.addEventListener("pointerover", (e) => {
-    /* The gap between two legend entries keeps the highlight, so it does not flicker. */
-    if (e.target instanceof Element && e.target.closest(".legend") && !e.target.closest(".lg")) return;
+    /* The gap between two legend entries keeps the highlight, so it does not flicker. The 2D stage has its own test below. */
+    if (e.target instanceof Element && (e.target.closest("#stage2d") || (e.target.closest(".legend") && !e.target.closest(".lg")))) return;
     hlHover = hlSlot(e.target); syncHl();
   });
+  /* On the 2D stage the device under the pointer is the smallest outline that contains it. Overlaid outlines nest,
+     so each device owns the band between its outline and the next smaller one; the browser's own hit test would always pick the last-drawn device. */
+  function stageSlot(x, y) {
+    const svg = $("#stage2d svg");
+    let best = "", area = Infinity;
+    if (svg) $$(":scope > g", svg).forEach((g) => {
+      const hit = $$(".shp", g).some((p) => { const m = p.getScreenCTM(); return !!m && typeof p.isPointInFill === "function" && p.isPointInFill(new DOMPoint(x, y).matrixTransform(m.inverse())); });
+      if (!hit) return;
+      const b = g.getBBox();
+      if (b.width * b.height < area) { area = b.width * b.height; best = slotOf(g.getAttribute("class")); }
+    });
+    return best;
+  }
+  let stRaf = 0, stX = 0, stY = 0;
+  function stageHover(e) {
+    if (!(e.target instanceof Element) || !e.target.closest("#stage2d")) return;
+    stX = e.clientX; stY = e.clientY;
+    if (!stRaf) stRaf = requestAnimationFrame(() => { stRaf = 0; const s = stageSlot(stX, stY); if (s !== hlHover) { hlHover = s; syncHl(); } });
+  }
+  scrCmp.addEventListener("pointermove", stageHover);
+  scrCmp.addEventListener("pointerdown", stageHover);
   scrCmp.addEventListener("pointerout", (e) => { if (!scrCmp.contains(e.relatedTarget)) { hlHover = ""; syncHl(); } });
   scrCmp.addEventListener("focusin", (e) => { hlKey = e.target instanceof Element && e.target.matches(":focus-visible") ? hlSlot(e.target) : ""; syncHl(); });
   scrCmp.addEventListener("focusout", () => { hlKey = ""; syncHl(); });
