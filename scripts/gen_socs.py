@@ -225,8 +225,8 @@ ROWS["z2-a"] = row(
     "z2-a", "AMD", "Ryzen Z2 A", "Van Gogh", 4, 8, "4x Zen 2", "Zen 2", 2.8, 3.8, (15, 6, 20),
     7, "TSMC 7nm (Van Gogh, as the Steam Deck LCD APU)", 0, "LPDDR5-6400", "2025-06-08",
     ("Radeon (8 CU RDNA 2)", 8, "RDNA 2", 1800, None), "z2a", "0405",
-    "CPU: exact entry 'AMD Ryzen Z2 A' (22 samples); the brief expected a Steam Deck stand-in, but Z2 A has its "
-    "own entry. GPU: no Z2 A iGPU entry; stand-in 'Custom GPU 0405' = Steam Deck LCD iGPU (same Van Gogh "
+    "CPU: exact entry 'AMD Ryzen Z2 A' (22 samples), so no Steam Deck stand-in is needed. "
+    "GPU: no Z2 A iGPU entry; stand-in 'Custom GPU 0405' = Steam Deck LCD iGPU (same Van Gogh "
     "8 CU RDNA 2; Z2 A clocks to 1.8 GHz, Deck to 1.6 GHz).",
     NPU0,
     [src("*", Z + "z2-series/z2-a.html", "AMD spec page: cores, clocks, TDP, iGPU CU and clock")]
@@ -259,7 +259,7 @@ ROWS["steam-deck-apu-oled"] = row(
     "16 GB LPDDR5-6400 on-board, quad 32-bit channels", "2023-11-09",
     ("AMD Custom GPU 0932", 8, "RDNA 2", 1600, 1.6), "0932", "0932",
     "CPU and GPU: exact entries 'AMD Custom APU 0932' (27 samples) and 'Custom GPU 0932' (19 samples). "
-    "The brief assumed the OLED shares the LCD '0405' entry; the OLED APU is part 100-000000932 and has its own entries.",
+    "The OLED APU is part 100-000000932 and has its own entries; it does not use the LCD '0405' entries.",
     "igpu.name changed from the stub's 'AMD Custom GPU 0405' to 'AMD Custom GPU 0932' (OLED part 100-000000932 per TPU). "
     "Valve gives 4-15 W APU power; default set to the 15 W maximum. tflops_fp32 is Valve's stated 1.6 TFLOPS. " + NPU0,
     [src("*", "https://www.steamdeck.com/en/tech/oled", "Valve tech specs (OLED): 6 nm APU, clocks, 1.6 TFLOPS, 4-15 W, RAM")]

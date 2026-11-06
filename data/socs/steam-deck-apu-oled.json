@@ -35,7 +35,7 @@
     "g3d_samples": 19,
     "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Custom+GPU+0932&id=5164",
     "fetched": "2026-10-27",
-    "mapping_note": "CPU and GPU: exact entries 'AMD Custom APU 0932' (27 samples) and 'Custom GPU 0932' (19 samples). The brief assumed the OLED shares the LCD '0405' entry; the OLED APU is part 100-000000932 and has its own entries."
+    "mapping_note": "CPU and GPU: exact entries 'AMD Custom APU 0932' (27 samples) and 'Custom GPU 0932' (19 samples). The OLED APU is part 100-000000932 and has its own entries; it does not use the LCD '0405' entries."
   },
   "notes": "igpu.name changed from the stub's 'AMD Custom GPU 0405' to 'AMD Custom GPU 0932' (OLED part 100-000000932 per TPU). Valve gives 4-15 W APU power; default set to the 15 W maximum. tflops_fp32 is Valve's stated 1.6 TFLOPS. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
   "unresolved": [],
