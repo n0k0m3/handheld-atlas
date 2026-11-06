@@ -6,7 +6,7 @@
 /* Handheld Atlas v3. An app shell with three screens: Browse, Compare, Detail.
    Tokens follow the v3 design: cool slate greys, one blue accent, green and red only for better and worse. */
 :root {
-  --bg: #ffffff; --bg-page: #f4f6f9; --bg-subtle: #eef1f5; --bg-hover: #f2f4f8; --bg-selected: #e8f2fd; --bg-ref: #eef5fe;
+  --bg: #ffffff; --bg-page: #f4f6f9; --bg-subtle: #eef1f5; --bg-hover: #f2f4f8; --bg-selected: #e8f2fd; --bg-ref: #eef1f5;
   --bg-brand: #0768cf; --bg-brand-hover: #0659b3; --accent: #0768cf;
   --fg: #111827; --fg-2: #5f6a7d; --fg-3: #8e98a8; --fg-brand: #0768cf; --fg-onbrand: #ffffff; --fg-onaccent: #ffffff;
   --border: #e5e8ee; --border-strong: #d5dae3;
@@ -23,7 +23,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250; --bg-ref: #1f2a3a;
+    --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250; --bg-ref: #272d38;
     --bg-brand: #1f6fc0; --bg-brand-hover: #1a62ab; --accent: #499fff;
     --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
     --border: #303641; --border-strong: #424b59;
@@ -35,7 +35,7 @@
   }
 }
 :root[data-theme="dark"] {
-  --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250; --bg-ref: #1f2a3a;
+  --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250; --bg-ref: #272d38;
   --bg-brand: #1f6fc0; --bg-brand-hover: #1a62ab; --accent: #499fff;
   --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
   --border: #303641; --border-strong: #424b59;
@@ -110,7 +110,8 @@ svg { display: block; }
 .dd { position: absolute; left: 0; right: 0; top: calc(100% + 4px); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); z-index: 40; padding: 4px; display: grid; grid-template-columns: minmax(0, 1fr); }
 .dd-item { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: 5px; width: 100%; min-width: 0; color: var(--fg); }
 .dd-item:hover, .dd-item:focus-visible { background: var(--bg-selected); }
-.dd-item:disabled { opacity: .6; }
+.dd-item:disabled { cursor: default; }
+.dd-item:disabled:hover { background: none; }
 .dd-item > div { flex: 1; min-width: 0; }
 .dd-n { font-weight: 600; }
 .dd-s { font-size: 12px; color: var(--fg-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -158,7 +159,7 @@ a.ibtn { text-decoration: none; }
 .phead > div { min-width: 0; }
 .phead h1:focus { outline: none; }
 .phead h1:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.eyebrow { font-size: 12px; font-weight: 600; color: var(--fg-brand); }
+.eyebrow { font-size: 12px; font-weight: 600; color: var(--fg-2); }
 .hero { font-size: 52px; letter-spacing: -0.035em; line-height: 1; margin-top: 4px; }
 .lede { max-width: 60ch; color: var(--fg-2); font-size: 14px; }
 
@@ -318,6 +319,8 @@ a.ibtn { text-decoration: none; }
 .tbl tbody tr.ref > .stk { background: var(--bg-ref); }
 .tbl th { text-align: left; padding: 8px 12px 8px 0; font-size: 11px; font-weight: 600; color: var(--fg-2); white-space: nowrap; border-bottom: 1px solid var(--border); }
 .tbl th:first-child { padding-left: 12px; width: 36px; }
+.thi { display: grid; place-items: center; width: 16px; color: var(--fg-2); }
+.thi .ic { width: 12px; height: 12px; }
 .tbl th.on { color: var(--fg); }
 .tbl th.num, .tbl td.num { text-align: right; padding-left: 16px; }
 .tbl .dpill.eq { display: none; }
@@ -348,6 +351,8 @@ a.ibtn { text-decoration: none; }
 .cs { font-size: 11.5px; color: var(--fg-2); white-space: normal; max-width: 180px; }
 .dpill { display: inline-block; margin-top: 3px; font: 600 11px var(--f-mono); padding: 0 4px; border-radius: 3px; color: var(--fg-2); background: var(--bg-subtle); white-space: nowrap; }
 .dpill.up { color: var(--good); background: var(--good-bg); }
+.dpill .tri { display: inline-block; width: 8px; height: 8px; margin-right: 3px; vertical-align: 0; fill: currentColor; }
+.dpill .tri.o { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .dpill.dn { color: var(--bad); background: var(--bad-bg); }
 .dpill.refp { color: var(--fg-brand); background: var(--bg-selected); }
 input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border-strong); background: transparent; cursor: pointer; display: grid; place-items: center; }
@@ -366,7 +371,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .empty p { max-width: 46ch; }
 .empty .btn-p { margin-top: 10px; }
 .empty-ic { width: 32px; height: 32px; stroke-width: 1.5; color: var(--fg-2); margin-bottom: 4px; }
-.bsec.is-empty .lbar-r, .bsec.is-empty .foot { display: none; }
+.bsec.is-empty .lbar-r, .bsec.is-empty .foot, .bsec.is-empty #fx-clear { display: none; }
 .foot { font-size: 11.5px; color: var(--fg-2); max-width: 72ch; }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; padding: 12px; }
@@ -420,7 +425,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .size-b.many { grid-template-columns: minmax(0, 1fr); }
 .size-b.many .stage { height: 380px; }
 .size-b.many .legend { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
-.stage { background: var(--bg-page); border-radius: 6px; height: 320px; display: flex; align-items: center; justify-content: center; min-width: 0; position: relative; }
+.stage { background: var(--bg-page); border-radius: 6px; height: 280px; display: flex; align-items: center; justify-content: center; min-width: 0; position: relative; }
 .stage.dots { background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 20px; }
 .stage2d svg { width: 100%; height: 100%; overflow: visible; }
 .stage2d .shp { fill: var(--c); fill-opacity: .04; stroke: var(--c); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
@@ -475,7 +480,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .cmp-cap { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; padding: 10px 12px; font-size: 12px; color: var(--fg-2); border-bottom: 1px solid var(--border); position: sticky; left: 0; max-width: 100vw; }
 .ckey { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
 .lkey { font-size: 11.5px; color: var(--fg-2); }
-.ckey > span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.ckey > span { display: inline-flex; align-items: center; white-space: nowrap; margin: 0; }
 .ckey i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
 .ckey .kg { background: var(--good); } .ckey .kb { background: var(--bad); } .ckey .kn { background: var(--fg-2); }
 .ccol { padding: 12px; border-left: 1px solid var(--border); cursor: pointer; box-shadow: inset 0 3px 0 var(--c); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -506,7 +511,7 @@ button.tag:hover { filter: brightness(.95); }
 .ccell .v { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .ccell .ct { white-space: normal; }
 .ccell .dpill { margin: 0; }
-.best { font-size: 11px; font-weight: 700; color: var(--fg-brand); border: 1px solid var(--accent); padding: 0 4px; border-radius: 3px; }
+.best { font-size: 11px; font-weight: 700; color: var(--fg); background: var(--bg-subtle); border: 1px solid var(--border-strong); padding: 0 4px; border-radius: 3px; }
 .hid-note { padding: 12px; font-size: 12px; color: var(--fg-2); }
 /* Frozen first column: labels stay put while the device columns scroll sideways, like the frozen header row. */
 .cmpw .clbl, .cmpw .cmp-hint { position: sticky; left: 0; z-index: 2; background: var(--bg); }
@@ -553,6 +558,9 @@ button.tag:hover { filter: brightness(.95); }
 .dact .btn-p { min-width: 200px; gap: 20px; }
 .dact .btn-p[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .dact .btn-p:disabled { opacity: .4; }
+.dact .btn-o { display: inline-flex; align-items: center; gap: 6px; }
+.dact .btn-o .ic { width: 14px; height: 14px; }
+.dact .btn-o[aria-pressed="true"] { background: var(--bg-brand); color: var(--fg-onbrand); border-color: var(--bg-brand); }
 .sgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
 .scol { display: grid; gap: 16px; min-width: 0; }
 .grp { overflow: hidden; }
@@ -593,7 +601,7 @@ button.tag:hover { filter: brightness(.95); }
 #pop:focus-visible { outline: 2px solid var(--accent); }
 #pop .why { display: block; color: var(--fg-2); font-size: 12px; overflow-wrap: anywhere; }
 .site-foot { width: calc(100% - 16px); max-width: 1424px; margin: 0 auto; padding: 16px 0 0; font-size: 12px; color: var(--fg-2); display: grid; gap: 4px; border-top: 1px solid var(--border); }
-.site-foot p { max-width: 100ch; text-wrap: pretty; }
+.site-foot p { max-width: 76ch; text-wrap: pretty; }
 
 /* ---------- narrow screens ---------- */
 @media (max-width: 1100px) { .sgrid { grid-template-columns: minmax(0, 1fr); } .scol { display: contents; } }
@@ -675,16 +683,16 @@ button.tag:hover { filter: brightness(.95); }
    <div class="htxt">
     <p class="eyebrow" id="home-eyebrow">x86 handhelds · 2022 onward</p>
     <h1 class="hero" id="home-h1" tabindex="-1">Find your next handheld</h1>
-    <p class="lede">Every x86 handheld gaming PC since 2022. Every value has a source. True-scale outlines, PassMark scores per chip, and a side-by-side diff for up to eight devices.</p>
+    <p class="lede">Every x86 handheld gaming PC since 2022. Every device lists its sources. True-scale outlines, PassMark scores per chip, and a side-by-side diff for up to eight devices.</p>
     <div class="hcta"><button type="button" class="btn-p" data-act="go" data-route="browse">Browse the devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button><button type="button" class="btn-o" data-act="go" data-route="compare">Open the comparison</button></div>
-    <div class="hstats"><div class="hstat"><b id="home-n">–</b><span>devices</span></div><div class="hstat"><b id="home-socs">–</b><span>chips</span></div><div class="hstat"><b id="home-traced">–</b><span>traced outlines</span></div><div class="hstat dt"><b id="home-date">–</b><span>data date</span></div></div>
+    <div class="hstats"><div class="hstat"><b id="home-n">–</b><span>devices</span></div><div class="hstat"><b id="home-socs">–</b><span>chips</span></div><div class="hstat"><b id="home-traced">–</b><span>traced outlines</span></div></div>
    </div>
    <figure class="panel hart" id="home-art" hidden></figure>
   </section>
   <section class="hgrid">
     <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip, and sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Filter all devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
     <article class="panel hcard"><h2>Compare</h2><p>Up to eight devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Compare up to eight <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
-    <article class="panel hcard"><h2>Sourced</h2><p>Every figure links to where it came from. Each device sheet lists its sources, conflicts and gaps.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device sheet <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
+    <article class="panel hcard"><h2>Sourced</h2><p>Each device sheet lists its sources, conflicts and gaps. A value with a dotted underline opens its own source.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device sheet <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
   </section>
   <p class="hcredit" id="home-credit">Inspired by <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>.<span id="home-rc"></span></p>
 </main>
@@ -699,7 +707,7 @@ button.tag:hover { filter: brightness(.95); }
     <ol class="steps">
       <li><span class="step-n">1</span><div><b>Pick a device you know.</b> Press <span class="demo"><span class="addb refc sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference</span></span> on its card, or the target button on its table row <span class="demo"><span class="refb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg></span></span>, or <span class="demo"><span class="btn-o sm">Set as reference</span></span> on its sheet.</div></li>
       <li><span class="step-n">2</span><div><b>It pins to the top</b> and the list bar shows <span class="demo"><span class="refpill"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference: <strong>Valve Steam Deck OLED</strong></span></span>. It stays while you filter, sort or switch layout.</div></li>
-      <li><span class="step-n">3</span><div><b>Read the deltas.</b> <span class="demo"><span class="dpill up">▲ 42%</span></span> is better than the reference, <span class="demo"><span class="dpill dn">▽ 18%</span></span> worse, <span class="demo"><span class="dpill eq">= 0%</span></span> the same. Lower is better for price, weight and thickness; higher for scores, screen, RAM and battery.</div></li>
+      <li><span class="step-n">3</span><div><b>Read the deltas.</b> <span class="demo"><span class="dpill up"><svg class="tri" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 1 7.5 7h-7z"/></svg>42%</span></span> (filled) is better than the reference, <span class="demo"><span class="dpill dn"><svg class="tri o" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 6.7 1 1.3h6z"/></svg>18%</span></span> (outline) worse, <span class="demo"><span class="dpill eq">= 0%</span></span> the same. The triangle points the way the number moves. Lower is better for price, weight and thickness; higher for scores, screen, RAM and battery.</div></li>
       <li><span class="step-n">4</span><div><b>Turn it off</b> with the × on the pill, or press the target again. The reference is separate from the compare list.</div></li>
     </ol>
   </details>
@@ -932,12 +940,15 @@ button.tag:hover { filter: brightness(.95); }
     const p = (v - r) / r * 100;
     if (Math.abs(p) < 0.5) return { txt: "= 0%", cls: "eq" };
     const better = low === "n" ? null : (low ? p < 0 : p > 0);
-    const up = p > 0, txt = (better == null ? (up ? "↑ " : "↓ ") : better ? (up ? "▲ " : "▼ ") : (up ? "△ " : "▽ ")) + Math.round(Math.abs(p)) + "%";
-    return { txt, cls: better == null ? "eq" : (better ? "up" : "dn") };
+    const up = p > 0, g = (better == null ? "n" : better ? "b" : "w") + (up ? "u" : "d");
+    return { txt: Math.round(Math.abs(p)) + "%", g, cls: better == null ? "eq" : (better ? "up" : "dn") };
   }
   /* Text that is a number, date or measure (not words) takes the mono face. */
   const isNumText = (t) => /^[$\d]/.test(t) && !/[A-Za-z]{3,}/.test(String(t).replace(/\b(TOPS|GHz|MHz|mAh)\b/g, ""));
-  const dpill = (dl) => (dl ? '<span class="dpill ' + dl.cls + '">' + dl.txt + "</span>" : "");
+  const TRI = {"bu": "<svg class=\"tri\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 1 7.5 7h-7z\"/></svg>", "bd": "<svg class=\"tri\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 7 .5 1h7z\"/></svg>", "wu": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 1.3 7 6.7H1z\"/></svg>", "wd": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 6.7 1 1.3h6z\"/></svg>", "nu": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 7.5V1M1.5 3.5 4 1l2.5 2.5\"/></svg>", "nd": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 .5V7M1.5 4.5 4 7l2.5-2.5\"/></svg>"};
+  const dpill = (dl) => (dl ? '<span class="dpill ' + dl.cls + '">' + (dl.g ? TRI[dl.g] : "") + dl.txt + "</span>" : "");
+  /* One key for the verdict glyphs, used in the list bar and above the compare grid. */
+  const VKEY = '<span class="ckey"><span class="dpill up">' + TRI.bu + 'better</span><span class="dpill dn">' + TRI.wu + 'worse</span><span class="dpill eq">' + TRI.nu + "neither</span></span>";
 
   /* ---------- table columns, grouped ---------- */
   const COLS = [
@@ -981,9 +992,9 @@ button.tag:hover { filter: brightness(.95); }
     ["Performance", [
       ["SoC", (d) => socName(d.soc_id)],
       ["iGPU", (d) => ((socOf(d) || {}).igpu || {}).name || "—"],
-      ["PassMark CPU", (d) => n0(scoreOf(d, "cpu_mark")) || "—", (d) => scoreOf(d, "cpu_mark"), "high"],
+      ["CPU Mark", (d) => n0(scoreOf(d, "cpu_mark")) || "—", (d) => scoreOf(d, "cpu_mark"), "high"],
       ["Single thread", (d) => n0(scoreOf(d, "single_thread")) || "—", (d) => scoreOf(d, "single_thread"), "high"],
-      ["PassMark G3D", (d) => n0(scoreOf(d, "g3d_mark")) || "—", (d) => scoreOf(d, "g3d_mark"), "high"],
+      ["G3D Mark", (d) => n0(scoreOf(d, "g3d_mark")) || "—", (d) => scoreOf(d, "g3d_mark"), "high"],
       ["TDP range", (d) => tdpText(socOf(d)) || "—"],
       ["NPU", (d) => { const s = socOf(d); return !s || s.npu_tops == null ? "—" : s.npu_tops === 0 ? "None" : s.npu_tops + " TOPS"; }, (d) => { const s = socOf(d); return s && s.npu_tops != null ? s.npu_tops : null; }, "high"]]],
     ["Display", [
@@ -1331,7 +1342,7 @@ button.tag:hover { filter: brightness(.95); }
     const hl = (t) => { const i = t.toLowerCase().indexOf(q.toLowerCase()); return i < 0 ? esc(t) : esc(t.slice(0, i)) + '<mark class="hl">' + esc(t.slice(i, i + q.length)) + "</mark>" + esc(t.slice(i + q.length)); };
     dd.innerHTML = res.length ? res.map((d) => {
       const q2 = inQ(d.id), dis = q2 || full;
-      return '<button type="button" class="dd-item" data-act="add" data-id="' + esc(d.id) + '" data-from="' + which + '"' + (dis ? " disabled" : "") + '><div><div class="dd-n">' + hl(d._short) + '</div><div class="dd-s">' + esc(d._sub) + '</div></div><span class="dd-a">' + (q2 ? "In compare" : full ? "List full" : I.plus + "Add to compare") + "</span></button>";
+      return '<button type="button" class="dd-item" data-act="add" data-id="' + esc(d.id) + '" data-from="' + which + '"' + (dis ? " disabled" : "") + '><div><div class="dd-n">' + hl(d._short) + '</div><div class="dd-s">' + esc(d._sub) + '</div></div><span class="dd-a">' + (q2 ? "In compare" + I.check : full ? "List full" : I.plus + "Add to compare") + "</span></button>";
     }).join("") : '<div class="dd-none">No device matches “' + esc(q) + "”.</div>";
     dd.hidden = false;
   }
@@ -1573,7 +1584,7 @@ button.tag:hover { filter: brightness(.95); }
     const an = analyse(), filt = an.all;
     let h = '<span class="lbar-n" id="lbar-n" aria-live="polite">' + plural(filt.length, "device") + '</span><span class="lbar-x" id="lbar-x">' + esc(listNote(filt, an)) + "</span>";
     if (ref) h += '<span class="refpill">' + I.targetS + "Reference: <strong>" + esc(ref._short) + '</strong><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear reference" aria-label="Clear reference">' + I.x + "</button></span>" +
-      '<span class="ckey lkey"><span><i class="kg"></i>better</span><span><i class="kb"></i>worse</span></span>';
+      VKEY.replace('class="ckey"', 'class="ckey lkey"');
     h += '<div class="lbar-r">';
     if (!cards) h += '<span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("") +
       '<button type="button" class="tmore" id="tmore" data-act="tbl-more" hidden>More columns' + I.arrow + "</button>";
@@ -1600,7 +1611,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   function renderHead() {
     const cols = visCols();
-    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="sr">Compare</span></th><th class="stk c1">Device</th>' + cols.map((c) => {
+    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="thi" title="Add to compare" aria-hidden="true">' + I.plus + '</span><span class="sr">Compare</span></th><th class="stk c1">Device</th>' + cols.map((c) => {
       const on = state.sortK === c.k;
       return '<th class="' + (on ? "on" : "") + (c.num ? " num" : "") + '" aria-sort="' + (on ? (state.sortDir === 1 ? "ascending" : "descending") : "none") + '"><button type="button" class="thb" id="th-' + c.k + '" data-act="sort" data-v="' + c.k + '">' + esc(c.label) + (on ? (state.sortDir < 0 ? " ↓" : " ↑") : "") + "</button></th>";
     }).join("") + "</tr>";
@@ -1787,7 +1798,7 @@ button.tag:hover { filter: brightness(.95); }
       const isR = cref && d.id === cref.id, dl = !isR && cref ? delta(d._w, cref._w, true) : null, dm = dimsH(d);
       return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d)) + "</span>" +
         '<button type="button" class="xbtn" id="lrm-' + esc(d.id) + '" data-act="rm" data-id="' + esc(d.id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + ' from the comparison">' + I.x + "</button></div>" +
-        '<div class="lg-w">' + I.weight + '<div class="wbar"><i style="width:' + ((d._w || 0) / maxW * 100).toFixed(1) + '%"></i></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "")) + "</div></div>";
+        '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><i style="width:' + ((d._w || 0) / maxW * 100).toFixed(1) + '%"></i></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "")) + "</div></div>";
     }).join("") + "</div>";
   }
   /* Fit the scale bar to the rendered 2D stage, lay out the 3D slices, and place the grid header. */
@@ -1865,14 +1876,14 @@ button.tag:hover { filter: brightness(.95); }
       : ref ? "The reference (" + esc(ref._short) + ") is not in this list, so deltas compare against the first column. Click a column to make it the reference."
       : "No reference, so no deltas. Press “Set as reference” on a column to compare the others against it.";
     let h = '<section class="panel cmpw' + (scroll ? " scroll" : "") + '"><div style="min-width:' + minW + '"><p class="cmp-cap"><span>' + hint + "</span>" +
-      (cref ? '<span class="ckey"><span><i class="kg"></i>better</span><span><i class="kb"></i>worse</span><span><i class="kn"></i>neither</span></span>' : "") + "</p>";
+      (cref ? VKEY : "") + "</p>";
     h += '<div class="cgrid hd" style="grid-template-columns:' + gcols + '"><div class="cmp-hint"><button type="button" class="tog" id="hide-same" data-act="hide-same" aria-pressed="' + state.hideSame + '"><span class="sw"></span>Differences only</button></div>';
     h += cols.map((d, i) => {
       const isR = d === cref, id = esc(d.id);
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
         '<div class="ccol-t"><span class="dev-b"><svg class="csw" viewBox="0 0 20 10" width="18" height="9" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<button type="button" class="ccol-n" id="copen2-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
-        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? "Reference" + I.x : "Baseline") : "Set as reference") + "</button></div></div>";
+        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? "Reference" + I.check : "Baseline") : "Set as reference") + "</button></div></div>";
     }).join("");
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false"></div><div class="dd" id="sq-dd" hidden></div></div>';
     h += "</div>";
@@ -1881,7 +1892,7 @@ button.tag:hover { filter: brightness(.95); }
       sec.rows.forEach((row) => {
         h += '<div class="cgrid' + (!state.hideSame && row.diff && n > 1 ? " diff" : "") + '" style="grid-template-columns:' + gcols + '"><div class="clbl">' + esc(row.label) + "</div>";
         row.cells.forEach((c) => {
-          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + esc(c.text) + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">Best</span>' : "") + "</div></div>";
+          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + esc(c.text) + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">★ Best</span>' : "") + "</div></div>";
         });
         if (slot) h += '<div class="ccell"></div>';
         h += "</div>";
@@ -1900,6 +1911,7 @@ button.tag:hover { filter: brightness(.95); }
   const own = (d, paths) => matchSrc(d.sources, paths);
   function sv(text, list, mono) {
     if (text == null || text === "") return null;
+    mono = mono && isNumText(text);
     if (!list || !list.length) return mono ? '<span class="m">' + esc(text) + "</span>" : esc(text);
     drSrc.push(list);
     return '<button type="button" class="sv' + (mono ? " m" : "") + '" id="sv-' + (drSrc.length - 1) + '" data-act="sv" data-si="' + (drSrc.length - 1) + '" aria-expanded="false" aria-haspopup="dialog">' + esc(text) + "</button>";
@@ -1947,7 +1959,7 @@ button.tag:hover { filter: brightness(.95); }
       if (t.min != null || t.max != null) R.push(["TDP", t.default != null ? esc((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + "\u00a0W, default " + t.default + "\u00a0W") : mtxt((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + " W")]);
       if (s.npu_tops != null) R.push(["NPU", s.npu_tops === 0 ? "None" : mtxt(s.npu_tops + " TOPS")]);
       if (pm.cpu_mark != null) R.push(["CPU Mark", sv(n0(pm.cpu_mark), so(["passmark.cpu_mark"]), true) + (pm.cpu_samples != null ? sub(n0(pm.cpu_samples) + " samples") : "")]);
-      if (pm.single_thread != null) R.push(["Single Thread", sv(n0(pm.single_thread), so(["passmark.single_thread", "passmark.cpu_mark"]), true)]);
+      if (pm.single_thread != null) R.push(["Single thread", sv(n0(pm.single_thread), so(["passmark.single_thread", "passmark.cpu_mark"]), true)]);
       if (pm.g3d_mark != null) R.push(["G3D Mark", sv(n0(pm.g3d_mark), so(["passmark.g3d_mark"]), true) + (pm.g3d_samples != null ? sub(n0(pm.g3d_samples) + " samples") : "")]);
     }
     const r = d.ram || {};
@@ -2074,7 +2086,7 @@ button.tag:hover { filter: brightness(.95); }
     h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + esc(d.brand) + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released ' + esc(d.release_date) + "</span>" : "") + "</div>" +
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare" + I.check : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
-      '<button type="button" class="btn-o" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '">' + (isR ? "Reference device" : "Set as reference") + "</button>" +
+      '<button type="button" class="btn-o" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear the reference" : "Compare every device against this one") + '">' + (isR ? "Reference" + I.check : "Set as reference") + "</button>" +
       '<button type="button" class="btn-t" data-act="go" data-route="compare">Open comparison (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
     /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order;
        on one column, "order" puts them back in that order. */
@@ -2403,11 +2415,10 @@ button.tag:hover { filter: brightness(.95); }
   $("#cnt").textContent = DEV.length;
   $("#cnt").title = DEV.length + " devices";
   $("#cnt").innerHTML = DEV.length + '<span class="cnt-w"> devices</span>';
-  $("#eyebrow").textContent = DEV.length + " x86 handhelds · 2022 onward";
-  $("#home-eyebrow").textContent = DEV.length + " x86 handhelds · 2022 onward";
+  $("#eyebrow").hidden = true;
+  $("#home-eyebrow").textContent = "x86 handhelds · 2022 onward · data from " + dataDate;
   $("#home-n").textContent = DEV.length; $("#home-socs").textContent = SOCS.length;
   $("#home-traced").textContent = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced").length;
-  $("#home-date").textContent = dataDate;
   /* Credit line on Home: count the traced top outlines that come from retrocatalog.com front images. */
   {
     const traced = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced"), rc = traced.filter((d) => host(OUT[d.id].top.source) === "retrocatalog.com").length;
@@ -2425,7 +2436,7 @@ button.tag:hover { filter: brightness(.95); }
       art.hidden = false;
     }
   }
-  $("#site-foot").innerHTML = "<p>Every value links to its source. On a device sheet, click a value with a dotted underline to see where it came from. The sheet also lists conflicts and gaps.</p>" +
+  $("#site-foot").innerHTML = "<p>Every device lists its sources. On a device sheet, a value with a dotted underline opens its own source. The sheet also lists conflicts and gaps.</p>" +
     "<p>Sizes and weights describe the device as held, with controllers and battery pack on. A clamshell uses its closed footprint and is drawn open. Top outlines are traced from product images. Other views are boxes from the stated sizes.</p>" +
     '<p>Code and data are on <a href="https://github.com/n0k0m3/handheld-atlas" target="_blank" rel="noopener">GitHub</a>. To report a wrong value, <a href="https://github.com/n0k0m3/handheld-atlas/issues" target="_blank" rel="noopener">open an issue</a>.</p>';
   buildFilters();
