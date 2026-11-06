@@ -32,6 +32,10 @@ RANGES = {
     "battery.wh": (30, 130),
 }
 
+# The site serves /home, /browse and /compare as screens before it looks up
+# a device id, so a device with one of these ids could never open its sheet.
+RESERVED_IDS = {"home", "browse", "compare"}
+
 # Every device needs a source entry for each of these groups,
 # or one "*" source (the official spec page) that covers all of them.
 SOURCE_GROUPS = ["dims_mm", "weight_g", "soc_id", "storage", "ports", "screen", "battery", "controls"]
@@ -66,6 +70,8 @@ def null_leaves(obj, prefix=""):
 def check_device(path, data, soc_ids, want_outlines, errors, warns):
     if data.get("id") != path.stem:
         errors.append(f"{path}: id '{data.get('id')}' does not match file name '{path.stem}'")
+    if data.get("id") in RESERVED_IDS:
+        errors.append(f"{path}: id '{data.get('id')}' is a site screen name ({', '.join(sorted(RESERVED_IDS))}); pick another id")
     if data.get("soc_id") not in soc_ids:
         errors.append(f"{path}: soc_id '{data.get('soc_id')}' has no file in data/socs/")
 
