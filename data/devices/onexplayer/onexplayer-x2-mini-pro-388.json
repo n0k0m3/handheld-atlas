@@ -232,11 +232,11 @@
     },
     {
       "field": "ports.2.dp_alt",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a USB-A port"
     },
     {
       "field": "ports.2.pd_in_w",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a USB-A port"
     },
     {
       "field": "ports.2.location",
@@ -244,15 +244,15 @@
     },
     {
       "field": "ports.3.speed_gbps",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a Mini SSD slot"
     },
     {
       "field": "ports.3.dp_alt",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a Mini SSD slot"
     },
     {
       "field": "ports.3.pd_in_w",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a Mini SSD slot"
     },
     {
       "field": "ports.3.location",
@@ -260,15 +260,15 @@
     },
     {
       "field": "ports.4.speed_gbps",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a microSD slot"
     },
     {
       "field": "ports.4.dp_alt",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a microSD slot"
     },
     {
       "field": "ports.4.pd_in_w",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a microSD slot"
     },
     {
       "field": "ports.4.location",
@@ -276,15 +276,15 @@
     },
     {
       "field": "ports.5.speed_gbps",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a 3.5 mm jack"
     },
     {
       "field": "ports.5.dp_alt",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a 3.5 mm jack"
     },
     {
       "field": "ports.5.pd_in_w",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a 3.5 mm jack"
     },
     {
       "field": "ports.5.location",
@@ -292,11 +292,11 @@
     },
     {
       "field": "ports.6.speed_gbps",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a DC jack"
     },
     {
       "field": "ports.6.dp_alt",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a DC jack"
     },
     {
       "field": "ports.6.pd_in_w",

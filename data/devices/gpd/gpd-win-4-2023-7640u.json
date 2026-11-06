@@ -157,7 +157,7 @@
     },
     {
       "field": "ports",
-      "reason": "spec page does not state port location or per-port PD input, so the sheet leaves those details blank"
+      "reason": "spec page does not state port location or per-port PD input, so the sheet leaves each unstated detail blank"
     },
     {
       "field": "screen.vrr",

@@ -207,11 +207,11 @@
     },
     {
       "field": "ports.1.dp_alt",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a USB-A port"
     },
     {
       "field": "ports.1.pd_in_w",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a USB-A port"
     },
     {
       "field": "ports.1.location",
@@ -219,15 +219,15 @@
     },
     {
       "field": "ports.2.speed_gbps",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a 3.5 mm jack"
     },
     {
       "field": "ports.2.dp_alt",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a 3.5 mm jack"
     },
     {
       "field": "ports.2.pd_in_w",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a 3.5 mm jack"
     },
     {
       "field": "ports.2.location",
@@ -235,15 +235,15 @@
     },
     {
       "field": "ports.3.speed_gbps",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a microSD slot"
     },
     {
       "field": "ports.3.dp_alt",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a microSD slot"
     },
     {
       "field": "ports.3.pd_in_w",
-      "reason": "Not stated in the official spec image or the sources used"
+      "reason": "Does not apply to a microSD slot"
     },
     {
       "field": "ports.3.location",

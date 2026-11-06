@@ -167,11 +167,11 @@
     },
     {
       "field": "ports.1.dp_alt",
-      "reason": "Not stated in the launch articles; the official page is gone"
+      "reason": "Does not apply to a USB-A port"
     },
     {
       "field": "ports.1.pd_in_w",
-      "reason": "Not stated in the launch articles; the official page is gone"
+      "reason": "Does not apply to a USB-A port"
     },
     {
       "field": "ports.1.location",
@@ -179,15 +179,15 @@
     },
     {
       "field": "ports.2.speed_gbps",
-      "reason": "Not stated in the launch articles; the official page is gone"
+      "reason": "Does not apply to a 3.5 mm jack"
     },
     {
       "field": "ports.2.dp_alt",
-      "reason": "Not stated in the launch articles; the official page is gone"
+      "reason": "Does not apply to a 3.5 mm jack"
     },
     {
       "field": "ports.2.pd_in_w",
-      "reason": "Not stated in the launch articles; the official page is gone"
+      "reason": "Does not apply to a 3.5 mm jack"
     },
     {
       "field": "ports.2.location",

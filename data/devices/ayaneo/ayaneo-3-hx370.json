@@ -200,11 +200,11 @@
     },
     {
       "field": "ports.1.dp_alt",
-      "reason": "Not applicable to OCuLink"
+      "reason": "Does not apply to OCuLink"
     },
     {
       "field": "ports.1.pd_in_w",
-      "reason": "Not applicable to OCuLink"
+      "reason": "Does not apply to OCuLink"
     },
     {
       "field": "ports.1.location",

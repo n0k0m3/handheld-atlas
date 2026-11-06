@@ -182,11 +182,11 @@
     },
     {
       "field": "ports.2.dp_alt",
-      "reason": "Not applicable (OCuLink)"
+      "reason": "Does not apply to OCuLink"
     },
     {
       "field": "ports.2.pd_in_w",
-      "reason": "Not applicable (OCuLink)"
+      "reason": "Does not apply to OCuLink"
     },
     {
       "field": "ports.2.location",
