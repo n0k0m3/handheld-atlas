@@ -2229,7 +2229,7 @@ button.tag:hover { filter: brightness(.95); }
     const out = [];
     const cf = d.conflicts || [];
     if (cf.length) out.push(grp("Conflicts", '<ul class="dl">' + cf.map((c, ci) => { const shown = JSON.stringify(at(c.field)); return '<li><span class="f">' + esc(fieldLabel(c.field, d)) + '</span><div class="cfv">' +
-      (c.values || []).map((v, vi) => '<span><b class="m">' + esc(fmt(v.value, c.field)) + "</b>" + (JSON.stringify(v.value) === shown ? " (shown)" : "") + " · " + link(v.url, null, "dcf-" + ci + "-" + vi) + "</span>").join("") + "</div>" +
+      (c.values || []).map((v, vi) => '<span><b class="m">' + esc(fmt(v.value, c.field)) + "</b>" + (JSON.stringify(v.value) === shown ? " (on this sheet)" : "") + " · " + link(v.url, null, "dcf-" + ci + "-" + vi) + "</span>").join("") + "</div>" +
       (c.chosen_reason ? '<span class="why">Chosen: ' + esc(c.chosen_reason) + "</span>" : "") + "</li>"; }).join("") + "</ul>"));
     const un = d.unresolved || [];
     if (un.length) out.push(grp("Unresolved", '<ul class="dl">' + un.map((u) => '<li><span class="f">' + esc(fieldLabel(u.field, d)) + '</span><span class="why">' + esc(u.reason) + "</span></li>").join("") + "</ul>"));
