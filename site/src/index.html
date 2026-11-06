@@ -304,8 +304,8 @@ a.ibtn { text-decoration: none; }
 .lbar-r .segs[aria-label="Layout"] .ic { width: 13px; height: 13px; }
 .tblw { overflow-x: auto; }
 .tblbox { position: relative; }
-.tmore { display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; margin-left: 4px; border-radius: 4px; font-size: 12px; font-weight: 600; color: var(--fg-brand); border: 1px solid var(--accent); background: var(--bg); white-space: nowrap; }
-.tmore:hover { background: var(--bg-selected); }
+.tmore { display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px; margin-left: 8px; font-size: 12px; font-weight: 600; color: var(--fg-brand); white-space: nowrap; }
+.tmore:hover { text-decoration: underline; text-underline-offset: 3px; }
 .tmore .ic { width: 12px; height: 12px; }
 .tbl th:not(.num):not(.stk), .tbl td:not(.num):not(.stk) { padding-left: 16px; }
 .tbl { width: 100%; border-collapse: separate; border-spacing: 0; }
@@ -398,11 +398,11 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .card-f .addb:first-child { flex: 1; min-width: 0; }
 .addb { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 10px; border-radius: 6px; font-weight: 700; border: 1px solid var(--border-strong); background: var(--bg); white-space: nowrap; }
 .addb .ic { width: 14px; height: 14px; }
-.addb.refc { justify-content: center; gap: 6px; font-weight: 600; color: var(--fg-2); }
+.addb.refc { justify-content: center; gap: 6px; font-weight: 600; color: var(--fg); }
 .addb.refc .ic { width: 12px; height: 12px; }
 .addb.refc:hover { color: var(--fg-brand); }
 .addb[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
-.addb.refc[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
+.addb.refc[aria-pressed="true"] { background: var(--bg-brand); color: var(--fg-onbrand); border-color: var(--bg-brand); }
 .addb:disabled { opacity: .35; }
 
 /* ---------- compare ---------- */
@@ -472,6 +472,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .cgrid.hd { position: sticky; top: calc(var(--hdr-h) + env(safe-area-inset-top, 0px)); z-index: 6; background: var(--bg); border-radius: 10px 10px 0 0; }
 .cmp-hint { padding: 12px; font-size: 11.5px; color: var(--fg-2); align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 8px; }
 .cmp-hint .tog { font-size: 12px; padding: 5px 8px 5px 6px; }
+.cmp-cap { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; padding: 10px 12px; font-size: 12px; color: var(--fg-2); border-bottom: 1px solid var(--border); position: sticky; left: 0; max-width: 100vw; }
 .ckey { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
 .lkey { font-size: 11.5px; color: var(--fg-2); }
 .ckey > span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
@@ -505,7 +506,7 @@ button.tag:hover { filter: brightness(.95); }
 .ccell .v { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .ccell .ct { white-space: normal; }
 .ccell .dpill { margin: 0; }
-.best { font-size: 11px; font-weight: 700; color: var(--good); border: 1px solid var(--good); padding: 0 4px; border-radius: 3px; }
+.best { font-size: 11px; font-weight: 700; color: var(--fg-brand); border: 1px solid var(--accent); padding: 0 4px; border-radius: 3px; }
 .hid-note { padding: 12px; font-size: 12px; color: var(--fg-2); }
 /* Frozen first column: labels stay put while the device columns scroll sideways, like the frozen header row. */
 .cmpw .clbl, .cmpw .cmp-hint { position: sticky; left: 0; z-index: 2; background: var(--bg); }
@@ -616,7 +617,7 @@ button.tag:hover { filter: brightness(.95); }
   .segs.sm .seg, .chip { min-height: 32px; }
   .xbtn { min-width: 32px; min-height: 32px; }
   .lbar-r { margin-left: 0; width: 100%; }
-  .cnt-w { display: none; }
+  .cnt-w, .badge-w, .lkey { display: none; }
   .bgrid { grid-template-columns: minmax(0, 1fr); }
   .side { display: none; }
   .topf { display: block; }
@@ -663,7 +664,7 @@ button.tag:hover { filter: brightness(.95); }
         <svg class="ic" id="ic-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
         <svg class="ic" id="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
       </button>
-      <button type="button" class="badge" id="badge" data-act="badge" aria-expanded="false" aria-controls="qpop"><span>Compare list</span><span class="badge-n" id="badge-n">0/4</span></button>
+      <button type="button" class="badge" id="badge" data-act="badge" aria-expanded="false" aria-controls="qpop"><span>Compare<span class="badge-w"> list</span></span><span class="badge-n" id="badge-n">0/4</span></button>
       <div class="qpop" id="qpop" hidden></div>
     </div>
   </div>
@@ -698,7 +699,7 @@ button.tag:hover { filter: brightness(.95); }
     <ol class="steps">
       <li><span class="step-n">1</span><div><b>Pick a device you know.</b> Press <span class="demo"><span class="addb refc sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference</span></span> on its card, or the target button on its table row <span class="demo"><span class="refb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg></span></span>, or <span class="demo"><span class="btn-o sm">Set as reference</span></span> on its sheet.</div></li>
       <li><span class="step-n">2</span><div><b>It pins to the top</b> and the list bar shows <span class="demo"><span class="refpill"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference: <strong>Valve Steam Deck OLED</strong></span></span>. It stays while you filter, sort or switch layout.</div></li>
-      <li><span class="step-n">3</span><div><b>Read the deltas.</b> <span class="demo"><span class="dpill up">▲ 42%</span></span> is better than the reference, <span class="demo"><span class="dpill dn">▼ 18%</span></span> worse, <span class="demo"><span class="dpill eq">= 0%</span></span> the same. Lower is better for price, weight and thickness; higher for scores, screen, RAM and battery.</div></li>
+      <li><span class="step-n">3</span><div><b>Read the deltas.</b> <span class="demo"><span class="dpill up">▲ 42%</span></span> is better than the reference, <span class="demo"><span class="dpill dn">▽ 18%</span></span> worse, <span class="demo"><span class="dpill eq">= 0%</span></span> the same. Lower is better for price, weight and thickness; higher for scores, screen, RAM and battery.</div></li>
       <li><span class="step-n">4</span><div><b>Turn it off</b> with the × on the pill, or press the target again. The reference is separate from the compare list.</div></li>
     </ol>
   </details>
@@ -931,7 +932,7 @@ button.tag:hover { filter: brightness(.95); }
     const p = (v - r) / r * 100;
     if (Math.abs(p) < 0.5) return { txt: "= 0%", cls: "eq" };
     const better = low === "n" ? null : (low ? p < 0 : p > 0);
-    const txt = (p > 0 ? "▲ " : "▼ ") + Math.round(Math.abs(p)) + "%";
+    const up = p > 0, txt = (better == null ? (up ? "↑ " : "↓ ") : better ? (up ? "▲ " : "▼ ") : (up ? "△ " : "▽ ")) + Math.round(Math.abs(p)) + "%";
     return { txt, cls: better == null ? "eq" : (better ? "up" : "dn") };
   }
   /* Text that is a number, date or measure (not words) takes the mono face. */
@@ -1640,7 +1641,7 @@ button.tag:hover { filter: brightness(.95); }
       "</div>" +
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
-      stat(s.refresh_hz ? "Screen · " + s.refresh_hz + " Hz" : "Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen") + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
+      stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" + (s.refresh_hz ? " · " + s.refresh_hz + " Hz" : "") : "—", false) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
       '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare" + I.check : dis ? "List full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Compare every device against this one") + '" aria-label="' + (isRef ? "Reference: " + esc(d._name) + ". Press to clear." : "Use " + esc(d._name) + " as reference") + '">' + (isRef ? "Reference" + I.check : I.target + "Reference") + "</button></div></article>";
   }
@@ -1697,7 +1698,7 @@ button.tag:hover { filter: brightness(.95); }
   function syncLayout() {
     placeFilterPanel();
     $("#lpanel").classList.toggle("flat", effLayout() === "cards");
-    $("#hq").placeholder = isNarrow() ? "Add to compare" : "Add to compare: type a device name";
+    $("#hq").placeholder = isNarrow() ? "Add a device" : "Add to compare: type a device name";
     renderListBar(); applyList();
   }
   let applyRaf = 0;
@@ -1863,9 +1864,9 @@ button.tag:hover { filter: brightness(.95); }
     const hint = hasRef ? "Deltas compare against the reference column. Press “Reference” again to turn them off."
       : ref ? "The reference (" + esc(ref._short) + ") is not in this list, so deltas compare against the first column. Click a column to make it the reference."
       : "No reference, so no deltas. Press “Set as reference” on a column to compare the others against it.";
-    let h = '<section class="panel cmpw' + (scroll ? " scroll" : "") + '"><div style="min-width:' + minW + '">';
-    h += '<div class="cgrid hd" style="grid-template-columns:' + gcols + '"><div class="cmp-hint"><button type="button" class="tog" id="hide-same" data-act="hide-same" aria-pressed="' + state.hideSame + '"><span class="sw"></span>Differences only</button><span>' + hint + "</span>" +
-      (cref ? '<span class="ckey"><span><i class="kg"></i>better</span><span><i class="kb"></i>worse</span><span><i class="kn"></i>neither</span></span>' : "") + "</div>";
+    let h = '<section class="panel cmpw' + (scroll ? " scroll" : "") + '"><div style="min-width:' + minW + '"><p class="cmp-cap"><span>' + hint + "</span>" +
+      (cref ? '<span class="ckey"><span><i class="kg"></i>better</span><span><i class="kb"></i>worse</span><span><i class="kn"></i>neither</span></span>' : "") + "</p>";
+    h += '<div class="cgrid hd" style="grid-template-columns:' + gcols + '"><div class="cmp-hint"><button type="button" class="tog" id="hide-same" data-act="hide-same" aria-pressed="' + state.hideSame + '"><span class="sw"></span>Differences only</button></div>';
     h += cols.map((d, i) => {
       const isR = d === cref, id = esc(d.id);
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
@@ -2072,12 +2073,12 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="pm-n">' + esc((ref && !isR ? "Tick mark = " + ref._short + " (reference). " : "") + "Bars scale to the fastest handheld in the list." + (pm.mapping_note ? " " + pm.mapping_note : "")) + "</div></div>";
     h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + esc(d.brand) + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released ' + esc(d.release_date) + "</span>" : "") + "</div>" +
-      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare list" + I.check : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
+      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare" + I.check : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="btn-o" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '">' + (isR ? "Reference device" : "Set as reference") + "</button>" +
       '<button type="button" class="btn-t" data-act="go" data-route="compare">Open comparison (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
     /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order;
        on one column, "order" puts them back in that order. */
-    const G = [grp("Size and weight", grpSize(d)), grp("Compute", grpCompute(d)), grp("Storage and ports", grpStorage(d)), grp("Screen", grpScreen(d)),
+    const G = [grp("Size & weight", grpSize(d)), grp("Compute", grpCompute(d)), grp("Storage & ports", grpStorage(d)), grp("Screen", grpScreen(d)),
       grp("Battery", grpBattery(d)), grp("Controls", grpControls(d)), grp("Other", grpOther(d))].concat(grpLists(d)).filter(Boolean)
       .map((g, i) => g.replace('<div class="panel grp"', '<div class="panel grp" style="order:' + i + '"'));
     h += '<div class="sgrid"><div class="scol">' + G.filter((g, i) => i % 2 === 0).join("") + '</div><div class="scol">' + G.filter((g, i) => i % 2 === 1).join("") + "</div></div></div></div>";
