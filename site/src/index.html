@@ -125,6 +125,7 @@ svg { display: block; }
 .ibtn:hover { background: var(--bg-subtle); color: var(--fg); }
 .ibtn .ic { width: 16px; height: 16px; }
 a.ibtn { text-decoration: none; }
+#gh-link .ic { width: 17px; height: 17px; }
 .ic-fill { fill: currentColor; stroke: none; }
 .badge { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 6px 0 12px; border-radius: 6px; background: var(--bg-subtle); color: var(--fg-2); font-weight: 600; }
 .badge-p { display: none; }
@@ -171,13 +172,13 @@ a.ibtn { text-decoration: none; }
 .home { gap: 20px; }
 #home-h1:focus { outline: none; }
 #home-h1:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.hhero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 560px); gap: 24px 48px; align-items: start; padding: 24px 0 4px; }
+.hhero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 560px); gap: 24px 48px; align-items: center; padding: 24px 0 4px; }
 .htxt { display: grid; gap: 12px; min-width: 0; }
 .hhero .lede { max-width: 600px; }
 .hart { margin: 0; padding: 12px; display: grid; gap: 10px; min-width: 0; }
 .hart-st { position: relative; border-radius: 6px; background: var(--bg-page); background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 20px 20px 36px; }
 .hart-st svg { width: 100%; height: auto; overflow: visible; }
-.hart-sb { position: absolute; left: 20px; bottom: 10px; display: flex; align-items: center; gap: 6px; font: 11px var(--f-mono); color: var(--fg-2); width: calc(100% - 40px); }
+.hart-sb { position: absolute; left: 20px; bottom: 10px; display: flex; align-items: center; gap: 6px; font: 12px var(--f-mono); color: var(--fg-2); width: calc(100% - 40px); }
 .hart-sb i { display: block; height: 0; border-top: 2px solid var(--fg-2); position: relative; flex: none; }
 .hart-sb i::before, .hart-sb i::after { content: ""; position: absolute; top: -5px; width: 2px; height: 8px; background: var(--fg-2); }
 .hart-sb i::before { left: 0; }
@@ -324,7 +325,7 @@ a.ibtn { text-decoration: none; }
 .tmore { display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px; margin-left: 8px; font-size: 12px; font-weight: 600; color: var(--fg-brand); white-space: nowrap; }
 .tmore:hover { text-decoration: underline; text-underline-offset: 3px; }
 .tmore .ic { width: 12px; height: 12px; }
-.tbl th:not(.num):not(.stk), .tbl td:not(.num):not(.stk) { padding-left: 16px; }
+.tbl th:not(.num):not(.stk), .tbl td:not(.num):not(.stk) { padding-left: 10px; }
 .tbl { width: 100%; border-collapse: separate; border-spacing: 0; }
 .tbl .stk { position: sticky; z-index: 2; background: var(--bg); }
 .tbl th.stk { z-index: 3; }
@@ -333,7 +334,7 @@ a.ibtn { text-decoration: none; }
 .tbl .stk.c1 + th, .tbl .stk.c1 + td { padding-left: 8px; }
 .tbl tbody tr:hover > .stk { background: var(--bg-hover); }
 .tbl tbody tr.ref > .stk { background: var(--bg-ref); }
-.tbl th { text-align: left; padding: 8px 12px 8px 0; font-size: 11px; font-weight: 600; color: var(--fg-2); white-space: nowrap; border-bottom: 1px solid var(--border); }
+.tbl th { text-align: left; padding: 8px 8px 8px 0; font-size: 11px; font-weight: 600; color: var(--fg-2); white-space: nowrap; border-bottom: 1px solid var(--border); }
 .tbl th:first-child { padding-left: 12px; width: 36px; }
 .thi { display: grid; place-items: center; width: 16px; color: var(--fg-2); }
 .thi .ic { width: 12px; height: 12px; }
@@ -347,9 +348,10 @@ a.ibtn { text-decoration: none; }
 .tblw.can-r { -webkit-mask-image: linear-gradient(to left, transparent 0, #000 48px); mask-image: linear-gradient(to left, transparent 0, #000 48px); }
 .thb { padding: 2px 4px; margin: -2px -4px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
 .thb:hover { background: var(--bg-subtle); color: var(--fg); }
-.srt { opacity: .45; }
+.srt { opacity: 0; }
+.tbl th:hover .srt, .thb:focus-visible .srt { opacity: .6; }
 .thb:hover .srt { opacity: 1; }
-.tbl td { padding: 8px 12px 8px 0; vertical-align: top; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.tbl td { padding: 8px 8px 8px 0; vertical-align: top; border-bottom: 1px solid var(--border); white-space: nowrap; }
 .tbl td:first-child { padding: 10px 8px 10px 12px; }
 .tbl tbody tr:hover { background: var(--bg-hover); }
 .tbl tbody tr.ref { background: var(--bg-ref); }
@@ -391,14 +393,14 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .empty p { max-width: 46ch; }
 .empty .btn-p { margin-top: 10px; }
 .empty-ic { width: 64px; height: 64px; padding: 16px; border-radius: 50%; background: var(--bg-subtle); stroke-width: 1.5; color: var(--fg-2); margin-bottom: 6px; }
-#scr-browse.is-empty .lbar-r, #scr-browse.is-empty .lbar-k, #scr-browse.is-empty .foot, #scr-browse.is-empty #fx-clear, #scr-browse.is-empty #f-reset { display: none; }
+#scr-browse.is-empty .lbar-r, #scr-browse.is-empty .lbar-k, #scr-browse.is-empty .foot, #scr-browse.is-empty #fx-clear { display: none; }
 .foot { font-size: 11.5px; color: var(--fg-2); max-width: 72ch; }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; padding: 12px; }
 .flat .cards { padding: 12px 0 0; }
 .card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .card:hover { border-color: var(--border-strong); }
-.card.ref { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.card.ref { border-color: var(--border-strong); background: var(--bg-ref); }
 .plate { height: 104px; display: flex; align-items: center; justify-content: center; background: var(--bg-subtle); border-radius: 6px; position: relative; }
 .plate .refb { position: absolute; top: 6px; right: 6px; background: var(--bg); padding: 4px; border: 1px solid var(--border); }
 .plate .tag { position: absolute; top: 8px; left: 8px; }
@@ -453,7 +455,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage.dots { background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 14px 14px 30px; }
 .stage2d svg { width: 100%; height: 100%; overflow: visible; }
 .stage2d .shp { fill: var(--c); fill-opacity: .04; stroke: var(--c); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
-.stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1; stroke-opacity: .5; vector-effect: non-scaling-stroke; }
+.stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1.25; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
 .stage2d .grip { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 4 3; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
 .stage2d .shp.lid { fill-opacity: .03; }
 /* Overlay: outlines only, so the fills never mix. The reference keeps a light fill. */
@@ -467,7 +469,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .knuckle { fill: var(--fg-2); stroke: none; }
 .stage2d .knuckle { fill: var(--c); fill-opacity: .55; }
 .dnote { font-size: 11.5px; color: var(--fg-2); padding: 0 12px 10px; }
-.sbar { position: absolute; left: 12px; bottom: 8px; display: flex; align-items: center; gap: 6px; font: 11px var(--f-mono); color: var(--fg-2); font-variant-numeric: tabular-nums; }
+.sbar { position: absolute; left: 12px; bottom: 8px; display: flex; align-items: center; gap: 6px; font: 12px var(--f-mono); color: var(--fg-2); font-variant-numeric: tabular-nums; }
 .sbar i { display: block; height: 0; border-top: 2px solid var(--fg-2); position: relative; }
 .sbar i::before, .sbar i::after { content: ""; position: absolute; top: -5px; width: 2px; height: 8px; background: var(--fg-2); }
 .sbar i::before { left: 0; }
@@ -494,7 +496,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .lg-w .ic { color: var(--fg-2); }
 .wbar { flex: 1; height: 6px; background: var(--bg-subtle); border-radius: 3px; overflow: hidden; }
 .wbar svg { display: block; overflow: hidden; }
-.lg-cap { font: 11px var(--f-mono); color: var(--fg-2); padding: 2px 2px 0; }
+.lg-cap { font-size: 11.5px; color: var(--fg-2); padding: 2px 2px 0; }
 .wbar i { display: block; height: 100%; border-radius: 3px; background: var(--c); }
 .lg-w .m { font-weight: 600; font-size: 12px; text-align: right; white-space: nowrap; }
 .lg-w .dpill { margin: 0; min-width: 52px; text-align: center; }
@@ -504,7 +506,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .cgrid { display: grid; border-bottom: 1px solid var(--border); }
 .cgrid.hd { position: sticky; top: calc(var(--hdr-h) + env(safe-area-inset-top, 0px)); z-index: 6; background: var(--bg); border-radius: 10px 10px 0 0; }
 .cmp-hint { padding: 12px; font-size: 11.5px; color: var(--fg-2); align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 8px; }
-.cmp-hint .tog { font-size: 12px; padding: 5px 8px 5px 6px; flex-wrap: wrap; }
+.cmp-hint .tog { font-size: 12px; padding: 0; border: 0; background: none; flex-wrap: wrap; }
 .tog-n { font-weight: 500; color: var(--fg-2); font-size: 11px; }
 .cmp-cap { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; padding: 10px 12px; font-size: 12px; color: var(--fg-2); border-bottom: 1px solid var(--border); position: sticky; left: 0; max-width: 100vw; }
 .ckey { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
@@ -512,6 +514,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .ckl { color: var(--fg-2); font-size: 11.5px; }
 .ckey .dpill .tri + .tri { margin-left: -1px; }
 .ckey > span { display: inline-flex; align-items: center; white-space: nowrap; margin: 0; }
+.ckey .dpill { font-family: var(--f-ui); font-weight: 600; }
 .ckey i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
 .ckey .kg { background: var(--good); } .ckey .kb { background: var(--bad); } .ckey .kn { background: var(--fg-2); }
 .ccol { padding: 12px; border-left: 1px solid var(--border); cursor: pointer; box-shadow: inset 0 3px 0 var(--c); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -711,7 +714,7 @@ button.tag:hover { filter: brightness(.95); }
       <div class="dd" id="hq-dd" hidden></div>
     </div>
     <div class="hdr-r">
-      <a class="ibtn" id="gh-link" href="https://github.com/n0k0m3/handheld-atlas" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub (opens in a new tab)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
+      <a class="ibtn" id="gh-link" href="https://github.com/n0k0m3/handheld-atlas" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub (opens in a new tab)"><svg class="ic ic-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg></a>
       <button type="button" class="ibtn" id="theme-btn" data-act="theme" title="Switch to dark" aria-label="Switch to dark">
         <svg class="ic" id="ic-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
         <svg class="ic" id="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
@@ -736,7 +739,7 @@ button.tag:hover { filter: brightness(.95); }
   <section class="hgrid">
     <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip, and sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Filter all devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
     <article class="panel hcard"><h2>Compare</h2><p>Up to eight devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Compare up to eight <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
-    <article class="panel hcard"><h2>Sourced</h2><p>Each device sheet lists its sources, conflicts and gaps. A value with a dotted underline opens its own source.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device sheet <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
+    <article class="panel hcard"><h2>Sources</h2><p>Each device sheet lists its sources, conflicts and gaps. A value with a dotted underline opens its own source.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device sheet <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
   </section>
   <p class="hcredit" id="home-credit">Inspired by <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>.<span id="home-rc"></span></p>
 </main>
@@ -1654,7 +1657,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   function renderHead() {
     const cols = visCols();
-    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="thi" title="Add to compare" aria-hidden="true">' + I.plus + '</span><span class="sr">Compare</span></th><th class="stk c1">Device</th>' + cols.map((c) => {
+    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="sr">Compare</span></th><th class="stk c1">Device</th>' + cols.map((c) => {
       const on = state.sortK === c.k;
       return '<th class="' + (on ? "on" : "") + (c.num ? " num" : "") + '" aria-sort="' + (on ? (state.sortDir === 1 ? "ascending" : "descending") : "none") + '"><button type="button" class="thb" id="th-' + c.k + '" data-act="sort" data-v="' + c.k + '">' + esc(c.label) + (on ? (state.sortDir < 0 ? " ↓" : " ↑") : '<span class="srt" aria-hidden="true"> ↕</span>') + "</button></th>";
     }).join("") + "</tr>";
@@ -1686,7 +1689,7 @@ button.tag:hover { filter: brightness(.95); }
   function cardHtml(d, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     const o = outline(d, "top"), sh = openParts(d, o, "front"), silH = Math.round(Math.min(96, 84 * Math.min(1, o.w / 360) * sh.h / o.h));
-    const stat = (label, v, text, low, x, key) => { const dl = ref && !isRef ? delta(v, low === "nd" ? null : ref._stat[key || label], low === true) : null; return '<div class="stat"><div class="stat-l">' + label + '</div><div class="stat-v">' + esc(text) + (x ? ' <span class="stat-x">' + esc(x) + "</span>" : "") + "</div>" + (ref ? '<div class="stat-d">' + dpill(dl) + (dl && key === "Screen" && dl.cls !== "eq" ? '<span class="stat-dk">' + (/u$/.test(dl.g || "") ? "larger" : "smaller") + "</span>" : "") + "</div>" : "") + "</div>"; };
+    const stat = (label, v, text, low, x, key) => { const dl = ref && !isRef ? delta(v, low === "nd" ? null : ref._stat[key || label], low === true) : null; return '<div class="stat"><div class="stat-l">' + label + '</div><div class="stat-v">' + esc(text) + (x ? ' <span class="stat-x">' + esc(x) + "</span>" : "") + "</div>" + (ref ? '<div class="stat-d">' + dpill(dl) + "" + "</div>" : "") + "</div>"; };
     d._stat = { Weight: d._w, "G3D Mark": scoreOf(d, "g3d_mark"), Screen: (d.screen || {}).size_in, Battery: (d.battery || {}).wh };
     if (ref && !ref._stat) ref._stat = { Weight: ref._w, "G3D Mark": scoreOf(ref, "g3d_mark"), Screen: (ref.screen || {}).size_in, Battery: (ref.battery || {}).wh };
     const s = d.screen || {};
@@ -1730,7 +1733,7 @@ button.tag:hover { filter: brightness(.95); }
     const n = $("#lbar-n"); if (n) n.textContent = plural(filt.length, "device");
     const x = $("#lbar-x"); if (x) x.textContent = listNote(filt, an);
     syncFacetUI(an);
-    if (!filt.length) { const names = $$("#fchips .fchip span").map((s) => "“" + s.textContent + "”"); $("#empty-why").textContent = (names.length ? names.join(" and ") + (names.length > 1 ? " leave" : " leaves") + " no device. " : "") + "Remove a chip above, or reset the filters."; }
+    if (!filt.length) { const names = $$("#fchips .fchip span").map((s) => "“" + s.textContent + "”"); $("#empty-why").textContent = (names.length ? names.join(" and ") + (names.length > 1 ? " leave" : " leaves") + " no device. " : "") + "Remove a filter above, or reset the filters."; }
     syncTblFade();
   }
   function syncTblFade() {
@@ -1798,7 +1801,7 @@ button.tag:hover { filter: brightness(.95); }
     const s = state, is3 = s.sizeTab === "3d";
     let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale · 1 unit = 1 mm<span class="scr-k"> · inner box = screen</span></span></span>' + I.chev + "</button>";
     if (!s.sizeOpen) return h + "</section>";
-    h += '<div class="size-c"><div class="segs sm" role="group" aria-label="Mode">' + seg("size-tab", "2d", "2D outline", !is3, "tab-2d") + seg("size-tab", "3d", "3D", is3, "tab-3d") + "</div>";
+    h += '<div class="size-c"><div class="grp-c"><span class="lbl">Mode</span><div class="segs sm" role="group" aria-label="Mode">' + seg("size-tab", "2d", "2D outline", !is3, "tab-2d") + seg("size-tab", "3d", "3D", is3, "tab-3d") + "</div></div>";
     const views = is3 ? [["iso", "3/4"], ["front", "Front"], ["top", "Top"], ["side", "Side"]] : [["front", "Front"], ["back", "Back"], ["top", "Top · thickness"], ["side", "Side"]];
     h += '<div class="grp-c"><span class="lbl">View</span><div class="segs sm" role="group" aria-label="View">' + views.map(([k, l]) => seg(is3 ? "preset" : "size-view", k, l, is3 ? presetOn(k) : s.sizeView === k, (is3 ? "pre-" : "view-") + k)).join("") + "</div></div>";
     if (!is3) h += '<div class="grp-c"><span class="lbl">Layout</span><div class="segs sm" role="group" aria-label="Layout">' + seg("size-mode", "overlay", "Overlay", s.sizeMode === "overlay", "mode-overlay") + seg("size-mode", "side", "Side by side", s.sizeMode === "side", "mode-side") + "</div></div>";
@@ -1829,7 +1832,7 @@ button.tag:hover { filter: brightness(.95); }
       if (!side) { tx = (MW - W) / 2; ty = (MH - H) / 2; } else { tx = pos[i][0]; ty = pos[i][1]; }
       let g = '<g class="s' + (i + 1) + (cref && cols[i].id === cref.id ? " rf" : "") + '" transform="translate(' + r2(tx) + " " + r2(ty) + ')">';
       if (sh.grip) g += '<rect class="grip" x="0" y="0" width="' + r2(sh.grip.w) + '" height="' + r2(sh.grip.h) + '" rx="2"/>';
-      g += partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + scrRect(sh.screen, "scr");
+      g += partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + scrRect(sh.screen, "scr").replace("<rect ", '<rect style="stroke-dasharray:' + DASH[i] + '" ');
       return g + "<title>" + esc(cols[i]._name) + "</title></g>";
     });
     const totW = side ? Math.max(1, ...rowW) : MW, totH = side ? Math.max(1, yo - gap) : MH;
@@ -1843,8 +1846,8 @@ button.tag:hover { filter: brightness(.95); }
       const isR = cref && d.id === cref.id, dl = !isR && cref ? delta(d._w, cref._w, true) : null, dm = dimsH(d);
       return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d)) + "</span>" +
         '<button type="button" class="xbtn" id="lrm-' + esc(d.id) + '" data-act="rm" data-id="' + esc(d.id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + ' from the comparison">' + I.x + "</button></div>" +
-        '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><svg width="100%" height="6" aria-hidden="true"><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6;stroke-opacity:.35"/><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6;stroke-dasharray:' + (DASH[i] === "none" ? "none" : DASH[i].split(" ").map((x) => x * 2).join(" ")) + '"/></svg></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
-    }).join("") + (heavy ? '<p class="lg-cap">Bar = weight; longest = ' + esc(n0(heavy._w)) + " g</p>" : "") + "</div>";
+        '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><svg width="100%" height="6" aria-hidden="true"><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6"/></svg></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
+    }).join("") + (heavy ? '<p class="lg-cap">Bar length = weight. Full bar = ' + mtxt(n0(heavy._w) + " g") + ".</p>" : "") + "</div>";
   }
   /* Fit the scale bar to the rendered 2D stage, lay out the 3D slices, and place the grid header. */
   function layoutStage() {
@@ -1955,7 +1958,7 @@ button.tag:hover { filter: brightness(.95); }
   });
   const own = (d, paths) => matchSrc(d.sources, paths);
   /* Mixed text keeps the text face; each run of digits takes the number face. */
-  const numSpans = (t) => esc(t).replace(/\d+(?:[.,:×–\/-]\d+)*/g, (m) => '<span class="m">' + m + "</span>");
+  const numSpans = (t) => esc(t).replace(/(^|[\s(\/,])(\d+(?:[.,–-]\d+)*)(?=[\s\u00a0]?(?:W|Wh|GB|TB|GHz|MHz|CU|mm|g|Hz|TOPS|Gbps|nits|%)\b)/g, (m, pre, num) => pre + '<span class="m">' + num + "</span>");
   function sv(text, list, mono) {
     if (text == null || text === "") return null;
     mono = mono && isNumText(text);
@@ -2133,7 +2136,6 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="pm-n">' + esc((ref && !isR ? "Tick mark = " + ref._short + " (reference). " : "") + "Bars scale to the fastest handheld in the list." + (pm.mapping_note ? " " + pm.mapping_note : "")) + "</div></div>";
     h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + esc(d.brand) + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
-      '<p class="skey"><span class="skey-d">dotted underline</span> = opens its source</p>' +
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="btn-o" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear the reference" : "Compare every device against this one") + '">' + (isR ? I.check + "Reference" : I.target + "Set as reference") + "</button>" +
       '<button type="button" class="btn-t" data-act="go" data-route="compare">Open Compare (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
@@ -2142,7 +2144,7 @@ button.tag:hover { filter: brightness(.95); }
     const G = [grp("Size & weight", grpSize(d)), grp("Compute", grpCompute(d)), grp("Storage & ports", grpStorage(d)), grp("Screen", grpScreen(d)),
       grp("Battery", grpBattery(d)), grp("Controls", grpControls(d)), grp("Other", grpOther(d))].concat(grpLists(d)).filter(Boolean)
       .map((g, i) => g.replace('<div class="panel grp"', '<div class="panel grp" style="order:' + i + '"'));
-    h += '<div class="sgrid"><div class="scol">' + G.filter((g, i) => i % 2 === 0).join("") + '</div><div class="scol">' + G.filter((g, i) => i % 2 === 1).join("") + "</div></div></div></div>";
+    h += '<p class="skey"><span class="skey-d">Dotted underline</span> = the value opens its own source.</p><div class="sgrid"><div class="scol">' + G.filter((g, i) => i % 2 === 0).join("") + '</div><div class="scol">' + G.filter((g, i) => i % 2 === 1).join("") + "</div></div></div></div>";
     el.innerHTML = h;
   }
 
