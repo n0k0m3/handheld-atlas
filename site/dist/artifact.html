@@ -889,7 +889,7 @@ button.tag:hover { filter: brightness(.95); }
   const FLAB = { dims_mm: "Size", handheld: "as held", without_battery: "without battery", weight_g: "Weight", passmark: "PassMark", cpu_mark: "CPU Mark", single_thread: "Single thread",
     g3d_mark: "G3D Mark", msrp_usd: "Launch price", soc_id: "Chip", ram: "RAM", sizes_gb: "sizes", speed_mts: "speed", screen: "Screen", size_in: "size", refresh_hz: "refresh rate",
     battery: "Battery", wh: "capacity", release_date: "Release date", announce_date: "Announced", d_max: "thickest point", w: "width", h: "height", d: "thickness", stated: "stated", measured: "measured",
-    charge_w: "charging", dp_alt: "DisplayPort Alt Mode", pd_in_w: "USB-PD input", speed_gbps: "speed", os: "OS", hdr: "HDR", nits_peak: "peak brightness", nits_sdr: "SDR brightness",
+    charge_w: "charging", dp_alt: "DisplayPort Alt Mode", pd_in_w: "PD input", speed_gbps: "speed", os: "OS", hdr: "HDR", nits_peak: "peak brightness", nits_sdr: "SDR brightness",
     vrr: "VRR", capacities_gb: "capacities", pcie_gen: "PCIe generation", bt: "Bluetooth", wifi: "Wi-Fi", slots: "SSD slots", lanes: "PCIe lanes", kind: "type" };
   /* A data path in words. A list index names the device's port when the device is known ("ports.2" -> "Ports · microSD slot"), else its place ("#3"). */
   const fieldLabel = (f, d) => f === "*" ? "Most fields" : String(f || "").split(".").map((p, i, a) => {
@@ -2204,20 +2204,26 @@ button.tag:hover { filter: brightness(.95); }
     ]) + gnote(d.notes);
   }
   function grpLists(d) {
-    /* A conflicting value in words: Yes/No, a list joined with " / ", a number with its field's unit, a stick or trigger kind by name. */
+    /* A conflicting value in words: Yes/No, numbers with thousands and the field's unit (also in a list or an "N x N x N" text),
+       a stick or trigger kind by name. */
     const fmt = (v, f) => {
       const path = String(f).split("."), last = path[path.length - 1];
+      if (v === null) return "Not stated";
       if (typeof v === "boolean") return v ? "Yes" : "No";
-      if (typeof v === "string") return /^(stick|trigger)_type$/.test(last) ? v.replace(/^[a-z]+/, (k) => (hasKey(KLABEL, k) ? KLABEL[k] : k)) : v;
       if (last === "msrp_usd" && typeof v === "number") return "$" + NF.format(v);
-      const unit = path[0] === "weight_g" ? " g" : path[0] === "dims_mm" ? " mm" : ({ wh: " Wh", charge_w: " W", size_in: "″", refresh_hz: " Hz", nits_peak: " nits", nits_sdr: " nits", speed_mts: " MT/s", sizes_gb: " GB" })[last] || "";
-      return (Array.isArray(v) ? v.join(" / ") : String(v)) + unit;
+      const unit = path[0] === "weight_g" ? " g" : path[0] === "dims_mm" ? " mm" : ({ wh: " Wh", charge_w: " W", pd_in_w: " W", speed_gbps: " Gbps", size_in: "″", refresh_hz: " Hz",
+        nits_peak: " nits", nits_sdr: " nits", speed_mts: " MT/s", sizes_gb: " GB", capacities_gb: " GB" })[last] || "";
+      if (typeof v === "string") return /^(stick|trigger)_type$/.test(last) ? v.replace(/^[a-z]+/, (k) => (hasKey(KLABEL, k) ? KLABEL[k] : k)) : /^[\d.]+( x [\d.]+)*$/.test(v) ? v + unit : v;
+      if (Array.isArray(v)) return v.map((x) => (typeof x === "number" ? NF.format(x) : String(x))).join(" / ") + unit;
+      return typeof v === "number" ? NF.format(v) + unit : JSON.stringify(v);
     };
+    /* The value at a data path, to mark the conflicting value that the sheet shows. */
+    const at = (f) => String(f).split(".").reduce((x, k) => (x == null ? x : x[k]), d);
     const out = [];
     const cf = d.conflicts || [];
-    if (cf.length) out.push(grp("Conflicts", '<ul class="dl">' + cf.map((c, ci) => '<li><span class="f">' + esc(fieldLabel(c.field, d)) + '</span><div class="cfv">' +
-      (c.values || []).map((v, vi) => '<span><b class="m">' + esc(fmt(v.value, c.field)) + "</b> · " + link(v.url, null, "dcf-" + ci + "-" + vi) + "</span>").join("") + "</div>" +
-      (c.chosen_reason ? '<span class="why">Chosen: ' + esc(c.chosen_reason) + "</span>" : "") + "</li>").join("") + "</ul>"));
+    if (cf.length) out.push(grp("Conflicts", '<ul class="dl">' + cf.map((c, ci) => { const shown = JSON.stringify(at(c.field)); return '<li><span class="f">' + esc(fieldLabel(c.field, d)) + '</span><div class="cfv">' +
+      (c.values || []).map((v, vi) => '<span><b class="m">' + esc(fmt(v.value, c.field)) + "</b>" + (JSON.stringify(v.value) === shown ? " (shown)" : "") + " · " + link(v.url, null, "dcf-" + ci + "-" + vi) + "</span>").join("") + "</div>" +
+      (c.chosen_reason ? '<span class="why">Chosen: ' + esc(c.chosen_reason) + "</span>" : "") + "</li>"; }).join("") + "</ul>"));
     const un = d.unresolved || [];
     if (un.length) out.push(grp("Unresolved", '<ul class="dl">' + un.map((u) => '<li><span class="f">' + esc(fieldLabel(u.field, d)) + '</span><span class="why">' + esc(u.reason) + "</span></li>").join("") + "</ul>"));
     const src = d.sources || [];
