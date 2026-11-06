@@ -42,6 +42,7 @@ Parallel outline workers: run `build_outlines.py --brand <x> --index-name <n>` p
 ## Rules
 
 - Every fact carries a source URL in `sources[]`. A missing value stays `null` with an `unresolved[]` entry.
+- The device sheet shows `notes`, every `*.note`, `sources[].note`, `unresolved[].reason`, `conflicts[].chosen_reason` and the chip's `passmark.mapping_note`. Write these texts for readers. Use words and device names, not field names or device ids.
 - One row per hardware variant. Same hardware with a different OS is one row.
 - `dims_mm.handheld` and `weight_g.handheld` describe the device as held: controllers on, battery on. A clamshell stores its closed footprint; the site draws it open (deck below, lid above). When a removable battery module adds to that footprint, `dims_mm.without_battery` holds the body size: the lid takes that size and the module draws on the front edge of the deck (GPD Win Max 3).
 - `msrp_usd` is the launch price of the base configuration. `msrp_type` says what kind of price it is:
