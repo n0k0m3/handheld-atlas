@@ -37,7 +37,7 @@
     "fetched": "2026-10-27",
     "mapping_note": "CPU: exact entry 'Intel Arc G3 Extreme' (only 9 samples; PassMark's description says 'Intel Arc B380', but ARK names the iGPU Arc B390). GPU: 'Intel Arc B390 GPU' entry; most of its samples come from Panther Lake-H laptops (Core Ultra X7/X9) at higher power."
   },
-  "notes": "Real SKU name of the stub 'Core Ultra / Arc G3 Extreme (handheld SKU)'; Intel brands it 'Intel Arc G3 Extreme Processor' (Arc G3 Processor Series). Used by the Acer Predator Atlas 8 and the MSI Claw 8 EX AI+. base_ghz is the P-core base (E-core and LP E-core 1.5 GHz). No Hyper-Threading. NPU 46 TOPS. launch_date from TPU; ARK says Q2'26. Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "notes": "Intel brands it 'Intel Arc G3 Extreme Processor' (Arc G3 Processor Series). Used by the Acer Predator Atlas 8 and the MSI Claw 8 EX AI+. base_ghz is the P-core base (E-core and LP E-core 1.5 GHz). No Hyper-Threading. NPU 46 TOPS. launch_date from TPU; ARK says Q2'26. Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
   "unresolved": [],
   "sources": [
     {

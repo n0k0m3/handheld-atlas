@@ -37,7 +37,7 @@
     "fetched": "2026-10-27",
     "mapping_note": "CPU: exact entry 'AMD Ryzen Z1' (65 samples). GPU: no Z1 iGPU entry; stand-in 'Radeon 740M' (laptop twin with 4 CU RDNA 3)."
   },
-  "notes": "Zen 4 cores: 3.7 GHz base; Zen 4c cores: 3.0 GHz base, up to 3.5 GHz. Codename set to Phoenix 2 (the 2+4 core die); the stub said Phoenix. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "notes": "Zen 4 cores: 3.7 GHz base; Zen 4c cores: 3.0 GHz base, up to 3.5 GHz. Codename set to Phoenix 2 (the 2+4 core die), not Phoenix. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
   "unresolved": [],
   "sources": [
     {

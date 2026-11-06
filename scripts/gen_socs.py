@@ -155,7 +155,7 @@ ROWS["z1"] = row(
     "CPU: exact entry 'AMD Ryzen Z1' (65 samples). GPU: no Z1 iGPU entry; stand-in 'Radeon 740M' "
     "(laptop twin with 4 CU RDNA 3).",
     "Zen 4 cores: 3.7 GHz base; Zen 4c cores: 3.0 GHz base, up to 3.5 GHz. Codename set to Phoenix 2 "
-    "(the 2+4 core die); the stub said Phoenix. " + NPU0,
+    "(the 2+4 core die), not Phoenix. " + NPU0,
     [src("*", Z + "z1-series/z1.html", "AMD spec page: cores, clocks, TDP, iGPU CU and clock")]
     + pm_sources("z1", "740m")
     + [src("codename", TC + "ryzen-z1.c3287", "TPU lists the Z1 under Phoenix2"),
@@ -260,7 +260,7 @@ ROWS["steam-deck-apu-oled"] = row(
     ("AMD Custom GPU 0932", 8, "RDNA 2", 1600, 1.6), "0932", "0932",
     "CPU and GPU: exact entries 'AMD Custom APU 0932' (27 samples) and 'Custom GPU 0932' (19 samples). "
     "The OLED APU is part 100-000000932 and has its own entries; it does not use the LCD '0405' entries.",
-    "igpu.name changed from the stub's 'AMD Custom GPU 0405' to 'AMD Custom GPU 0932' (OLED part 100-000000932 per TPU). "
+    "igpu.name is 'AMD Custom GPU 0932', not the LCD's 'AMD Custom GPU 0405' (OLED part 100-000000932 per TPU). "
     "Valve gives 4-15 W APU power; default set to the 15 W maximum. tflops_fp32 is Valve's stated 1.6 TFLOPS. " + NPU0,
     [src("*", "https://www.steamdeck.com/en/tech/oled", "Valve tech specs (OLED): 6 nm APU, clocks, 1.6 TFLOPS, 4-15 W, RAM")]
     + pm_sources("0932", "0932")
@@ -395,7 +395,7 @@ ROWS["cu5-135h"] = row(
     "LPDDR5/X-7467, DDR5-5600, dual-channel, up to 96 GB", "2023-12-14",
     ("Intel Arc Graphics (8 Xe)", 8, "Xe-LPG", 2200, None), "135h", "arc",
     "CPU: exact entry. " + MTL_GPU,
-    "base_ghz is the P-core base (E-core 1.2 GHz, LP E-core 0.7 GHz). igpu.name changed from the stub's '7 Xe': "
+    "base_ghz is the P-core base (E-core 1.2 GHz, LP E-core 0.7 GHz). igpu.name says 8 Xe, not 7: "
     "ARK lists 8 Xe-cores for the 135H (TPU's CPU page says 96 EU, its GPU page lists it under 128 EU). "
     "NPU 11 TOPS (33 TOPS overall). " + INTEL_TDP,
     [src("*", ARK + "236850/intel-core-ultra-5-processor-135h-18m-cache-up-to-4-60-ghz/specifications.html",
@@ -444,7 +444,7 @@ ROWS["arc-g3-extreme"] = row(
     "CPU: exact entry 'Intel Arc G3 Extreme' (only 9 samples; PassMark's description says 'Intel Arc B380', "
     "but ARK names the iGPU Arc B390). GPU: 'Intel Arc B390 GPU' entry; most of its samples come from "
     "Panther Lake-H laptops (Core Ultra X7/X9) at higher power.",
-    "Real SKU name of the stub 'Core Ultra / Arc G3 Extreme (handheld SKU)'; Intel brands it 'Intel Arc G3 Extreme "
+    "Intel brands it 'Intel Arc G3 Extreme "
     "Processor' (Arc G3 Processor Series). Used by the Acer Predator Atlas 8 and the MSI Claw 8 EX AI+. "
     "base_ghz is the P-core base (E-core and LP E-core 1.5 GHz). No Hyper-Threading. NPU 46 TOPS. "
     "launch_date from TPU; ARK says Q2'26. " + INTEL_TDP,
