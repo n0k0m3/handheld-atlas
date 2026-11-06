@@ -197,7 +197,7 @@
     },
     {
       "field": "ports",
-      "reason": "spec page does not state port location or per-port PD input, so those details are not stated"
+      "reason": "spec page does not state port location or per-port PD input, so the sheet leaves those details blank"
     },
     {
       "field": "storage.slots.1.lanes",

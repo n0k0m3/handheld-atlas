@@ -194,7 +194,7 @@
     },
     {
       "field": "ports",
-      "reason": "Per-port speed, DisplayPort Alt Mode, PD input or location is not stated where no source states it"
+      "reason": "Per-port speed, DisplayPort Alt Mode, PD input or location is left blank where no source states it"
     },
     {
       "field": "weight_g.handheld.measured",
