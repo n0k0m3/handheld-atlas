@@ -58,7 +58,7 @@
     { "field": "ports.0.location", "reason": "port location not stated" },
     { "field": "ports.1", "reason": "speed, DP, and PD do not apply to the card slot; location not stated" },
     { "field": "screen.vrr", "reason": "not stated" },
-    { "field": "screen.touch", "reason": "touch support not stated on the official sheet or in the listed articles" },
+    { "field": "screen.touch", "reason": "touch support not stated on the official sheet or in the articles that were read" },
     { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (400 nits)" },
     { "field": "screen.hdr", "reason": "not stated" },
     { "field": "battery.charge_w", "reason": "charger wattage not stated" },

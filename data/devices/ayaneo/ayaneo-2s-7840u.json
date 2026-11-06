@@ -141,7 +141,7 @@
   "unresolved": [
     {
       "field": "announce_date",
-      "reason": "exact announcement date not found in the listed sources"
+      "reason": "exact announcement date not found in the sources that were read"
     },
     {
       "field": "weight_g.handheld.measured",
@@ -185,7 +185,7 @@
     },
     {
       "field": "screen.refresh_hz",
-      "reason": "refresh rate not stated by the vendor or the listed reviews"
+      "reason": "refresh rate not stated by the vendor or in the reviews that were read"
     },
     {
       "field": "screen.vrr",
@@ -209,7 +209,7 @@
     },
     {
       "field": "controls.rear_buttons",
-      "reason": "not stated by the vendor or the listed reviews"
+      "reason": "not stated by the vendor or in the reviews that were read"
     }
   ],
   "conflicts": [],
