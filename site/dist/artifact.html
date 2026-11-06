@@ -1494,19 +1494,19 @@ button.tag:hover { filter: brightness(.95); }
     });
     placeFilterPanel();
   }
-  /* The breakpoint hides the old host at once, so the browser drops focus before this runs. The last focused control in the panel comes back. */
-  /* The last focused filter control, and if it had keyboard focus. CSS hides the panel's old host at the breakpoint before the
-     resize handler runs, so focus is already on the body when the panel moves. */
+  /* The breakpoint hides the old host (and the narrow "Filters" toggle) at once, so the browser drops focus before this runs.
+     The last focused filter control comes back; the toggle hands focus to the panel's first control. Keyboard focus stays in view. */
   let lastFp = null, lastFpKb = false;
   function placeFilterPanel() {
     const fp = $("#fpanel"), host = isNarrow() ? $("#topf-b") : $("#side");
     if (!fp || !host || fp.parentElement === host) return;
     let a = document.activeElement;
-    if ((!a || a === document.body) && lastFp && fp.contains(lastFp)) a = lastFp;
-    const had = !!a && fp.contains(a);
+    if ((!a || a === document.body) && lastFp && lastFp.isConnected) a = lastFp;
+    const kb = lastFpKb, tog = !!a && a.id === "tf-toggle" && !isNarrow(), had = !!a && fp.contains(a);
     if (had && isNarrow() && !topOpen) { topOpen = true; $("#tf-toggle").setAttribute("aria-expanded", "true"); $("#topf-b").hidden = false; }
     host.appendChild(fp);
-    if (had && a.isConnected) { a.focus({ preventScroll: true }); if (lastFpKb) keepInView(a); }
+    const t = tog ? $("#f-reset") : had ? a : null;
+    if (t && t.isConnected) { t.focus({ preventScroll: true }); if (kb) keepInView(t); }
   }
   let topOpen = false;
   function syncFilters() {
@@ -1908,7 +1908,7 @@ button.tag:hover { filter: brightness(.95); }
     else h += '<span class="mute sm">Drag to rotate</span>';
     h += "</div>";
     const many = cols.length > 4;
-    if (many && !is3 && s.sizeMode === "overlay") h += '<p class="dnote">With ' + cols.length + ' devices the overlay gets crowded. <button type="button" class="btn-t" data-act="size-mode" data-v="side">Show side by side</button></p>';
+    if (many && !is3 && s.sizeMode === "overlay") h += '<p class="dnote">With ' + cols.length + ' devices the overlay gets crowded. <button type="button" class="btn-t" id="size-side" data-act="size-mode" data-v="side">Show side by side</button></p>';
     h += '<div class="size-b' + (many ? " many" : "") + '">' + (is3 ? '<div class="stage stage3d" id="stage3d" role="img" aria-label="3D view. Drag to rotate."><div class="rot" id="rot"></div></div>' : svg2d(cols, cref)) + legendHtml(cols, cref, hasRef) + "</div>";
     if (cols.some(isClam)) h += '<p class="dnote">Clamshells are drawn open: deck below, lid above, in the front and back views and in 3D, where each half takes half the closed thickness. Their sizes are the closed footprint.</p>';
     return h + "</section>";
@@ -2508,7 +2508,7 @@ button.tag:hover { filter: brightness(.95); }
   document.addEventListener("focusin", (e) => {
     if (e.target instanceof Element && e.target.classList.contains("pmark")) showTip(e.target);
     if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); renderDD(e.target.id); }
-    const fp = $("#fpanel"); lastFp = fp && e.target instanceof Element && fp.contains(e.target) ? e.target : null;
+    const fp = $("#fpanel"); lastFp = fp && e.target instanceof Element && (fp.contains(e.target) || e.target.id === "tf-toggle") ? e.target : null;
     lastFpKb = !!lastFp && lastFp.matches(":focus-visible");
     if (e.target instanceof Element) revealInTable(e.target);
   });
@@ -2564,18 +2564,19 @@ button.tag:hover { filter: brightness(.95); }
   /* A re-render on resize gives focus back to the same id, with the typed text of an input. The source popover sits outside
      the screen; when it holds focus, focus goes back to its value (sv-N ids are the same in every layout). A control that the
      new layout does not have (table and cards differ) hands focus to its device's name, else to the screen.
-     Keyboard focus (:focus-visible) is scrolled back into view; a mouse user's page does not jump. */
+     Restored keyboard focus (:focus-visible) is scrolled back into view; a mouse user's page does not jump. */
   function rerender(scr, render) {
     const a = document.activeElement, own = a && a !== document.body && a.closest(scr) ? a : popBtn && pop.contains(a) && popBtn.closest(scr) ? popBtn : null;
     if (!own) { render(); return; }
     const id = own.id, row = own.closest("[data-id]"), did = row && row.dataset.id, kb = a.matches(":focus-visible"), val = a.tagName === "INPUT" ? a.value : null;
     render();
     /* A control the render hid still holds focus until Chrome drops it later, so a hidden control counts as lost. */
-    if (document.activeElement !== a || !a.isConnected || a.offsetParent === null || a.closest("[hidden]")) {
-      if (id && focusId(id)) { if (val != null) document.getElementById(id).value = val; }
-      else if (!(did && (focusId("copen-" + did) || focusId("open-" + did)))) focusScreen();
-    }
-    if (kb) keepInView(document.activeElement);
+    if (document.activeElement === a && a.offsetParent !== null) return;
+    /* The text goes back before the focus, so the focus handler opens the search results for it. */
+    const el = id && document.getElementById(id);
+    if (el && val != null) el.value = val;
+    if (!(id && focusId(id)) && !(did && (focusId("copen-" + did) || focusId("open-" + did)))) focusScreen();
+    if (kb && document.activeElement !== document.body) keepInView(document.activeElement);
   }
   function keepInView(el) {
     const r = el.getBoundingClientRect(), hb = $("#hdr").getBoundingClientRect().bottom;
