@@ -108,16 +108,26 @@ svg { display: block; }
 .srch-box:focus-within { border-color: var(--accent); background: var(--bg); }
 .srch-box input { all: unset; flex: 1; min-width: 0; height: 100%; font-size: 13px; color: var(--fg); }
 .dd { position: absolute; left: 0; right: 0; top: calc(100% + 4px); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); z-index: 40; padding: 4px; display: grid; grid-template-columns: minmax(0, 1fr); }
-.dd-item { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: 5px; width: 100%; min-width: 0; color: var(--fg); }
-.dd-item:hover, .dd-item:focus-visible { background: var(--bg-selected); }
-.dd-item:disabled { cursor: default; }
-.dd-item:disabled:hover { background: none; }
+/* Search results: .on is the active result (keyboard or pointer); focus stays in the search box. */
+.dd-item { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: 5px; width: 100%; min-width: 0; color: var(--fg); cursor: pointer; }
+.dd-item.on { background: var(--bg-selected); }
+.dd-item[aria-disabled="true"] { cursor: default; }
 .dd-item > div { flex: 1; min-width: 0; }
 .dd-n { font-weight: 600; }
 .dd-s { font-size: 12px; color: var(--fg-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dd-a { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: var(--fg-brand); white-space: nowrap; padding: 3px 8px; border: 1px solid transparent; border-radius: 6px; }
-.dd-item:hover .dd-a, .dd-item:focus-visible .dd-a { border-color: var(--accent); background: var(--bg); }
-.dd-item:disabled .dd-a { border-color: transparent; background: none; color: var(--fg-2); }
+.dd-item.on span.dd-a { border-color: var(--accent); background: var(--bg); }
+.dd-item[aria-disabled="true"] .dd-a { border-color: transparent; background: none; color: var(--fg-2); }
+/* Header search: the row opens the sheet, so its add button reads as a button of its own. */
+button.dd-a { border-color: var(--border); background: var(--bg); }
+button.dd-a:hover { border-color: var(--accent); }
+button.dd-a[aria-disabled="true"] { border-color: transparent; background: none; color: var(--fg-2); cursor: default; }
+.dd-all { margin-top: 2px; border-top: 1px solid var(--border); border-radius: 0 0 5px 5px; color: var(--fg-2); font-size: 13px; }
+.dd-all .ic { margin: 0 2px; }
+.dd-hint { padding: 6px 8px 3px; font-size: 11px; color: var(--fg-2); border-top: 1px solid var(--border); margin-top: 2px; }
+.dd-all + .dd-hint { margin-top: 0; }
+.dd-hint kbd { font: 10.5px var(--f-mono); padding: 0 4px; border: 1px solid var(--border); border-radius: 3px; background: var(--bg-subtle); color: var(--fg); }
+@media (hover: none) { .dd-hint { display: none; } }
 .dd-n .hl { background: var(--bg-selected); color: var(--fg-brand); border-radius: 2px; }
 .dd-none { padding: 10px 8px; color: var(--fg-2); }
 .hdr-r { margin-left: auto; display: flex; align-items: center; gap: 8px; position: relative; }
@@ -772,12 +782,12 @@ button.tag:hover { filter: brightness(.95); }
       <button type="button" class="seg" id="nav-compare" data-act="go" data-route="compare" aria-pressed="false">Compare</button>
     </nav>
     <div class="srch" id="hsrch">
-      <label class="sr" for="hq">Add a device to compare</label>
+      <label class="sr" for="hq">Search devices</label>
       <div class="srch-box">
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg>
-        <input id="hq" type="search" placeholder="Type a device name to add to comparison" autocomplete="off" spellcheck="false">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m20 20-4.4-4.4"></path></svg>
+        <input id="hq" type="search" placeholder="Search handhelds by name or chip" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="hq-dd">
       </div>
-      <div class="dd" id="hq-dd" hidden></div>
+      <div class="dd" id="hq-dd" role="listbox" aria-label="Search results" hidden></div>
     </div>
     <div class="hdr-r">
       <a class="ibtn" id="gh-link" href="https://github.com/n0k0m3/handheld-atlas" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub (opens in a new tab)"><svg class="ic ic-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path></svg></a>
@@ -1476,20 +1486,48 @@ button.tag:hover { filter: brightness(.95); }
     return DEV.filter((d) => t.every((x) => d._search.includes(x))).map((d) => [score(d), d])
       .sort((a, b) => b[0] - a[0] || a[1]._name.localeCompare(b[1]._name)).slice(0, 8).map((x) => x[1]);
   }
+  /* Both search boxes are comboboxes: focus stays in the box, aria-activedescendant names the active result.
+     Header box (hq) finds: a result opens its sheet, its own button adds it to compare, and the last row searches Browse.
+     Compare slot (sq) adds: a result adds the device. */
+  const ddActive = { hq: null, sq: null };
   function renderDD(which) {
     const inp = document.getElementById(which), dd = document.getElementById(which + "-dd");
     if (!inp || !dd) return;
     const q = inp.value.trim();
-    if (!q) { dd.hidden = true; dd.innerHTML = ""; return; }
-    const res = searchDevs(q), full = qFull();
+    if (!q) { dd.hidden = true; dd.innerHTML = ""; syncCombo(inp, dd); return; }
+    const res = searchDevs(q), full = qFull(), find = which === "hq";
     const hl = (t) => { const i = t.toLowerCase().indexOf(q.toLowerCase()); return i < 0 ? esc(t) : esc(t.slice(0, i)) + '<mark class="hl">' + esc(t.slice(i, i + q.length)) + "</mark>" + esc(t.slice(i + q.length)); };
-    dd.innerHTML = res.length ? res.map((d) => {
-      const q2 = inQ(d.id), dis = q2 || full;
-      return '<button type="button" class="dd-item" data-act="add" data-id="' + esc(d.id) + '" data-from="' + which + '"' + (dis ? " disabled" : "") + '><div><div class="dd-n">' + hl(d._short) + '</div><div class="dd-s">' + esc(d._sub) + '</div></div><span class="dd-a">' + (q2 ? I.check + "In compare" : full ? "List full" : I.plus + "Add to compare") + "</span></button>";
-    }).join("") : '<div class="dd-none">No device matches “' + esc(q) + "”.</div>";
+    const addTxt = (q2) => (q2 ? I.check + "In compare" : full ? "List full" : I.plus + "Add to compare");
+    let h = res.map((d) => {
+      const q2 = inQ(d.id), dis = q2 || full, id = esc(d.id), txt = '<div><div class="dd-n">' + hl(d._short) + '</div><div class="dd-s">' + esc(d._sub) + "</div></div>";
+      /* The add button is for the pointer (tabindex -1); the keyboard adds with Shift+Enter, so the option holds no tab stop. */
+      if (find) return '<div class="dd-item" role="option" aria-selected="false" id="hq-o-' + id + '" data-act="open" data-id="' + id + '">' + txt +
+        '<button type="button" class="dd-a" tabindex="-1" data-act="add" data-id="' + id + '" data-from="hq"' + (dis ? ' aria-disabled="true"' : "") + ">" + addTxt(q2) + "</button></div>";
+      return '<div class="dd-item" role="option" aria-selected="false" id="sq-o-' + id + '" data-act="add" data-id="' + id + '" data-from="sq"' + (dis ? ' aria-disabled="true"' : "") + ">" + txt + '<span class="dd-a">' + addTxt(q2) + "</span></div>";
+    }).join("");
+    if (!res.length) h = '<div class="dd-none">No device matches “' + esc(q) + "”.</div>";
+    if (find) h += '<div class="dd-item dd-all" role="option" aria-selected="false" id="hq-o-all" data-act="find-all"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m20 20-4.4-4.4"></path></svg><div>Search Browse for “' + esc(q) + "”</div></div>" +
+      '<div class="dd-hint" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd> move · <kbd>Enter</kbd> open · <kbd>Shift</kbd>+<kbd>Enter</kbd> add to compare</div>';
+    else if (res.length) h += '<div class="dd-hint" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd> move · <kbd>Enter</kbd> add</div>';
+    dd.innerHTML = h;
     dd.hidden = false;
+    const opts = ddOpts(dd), keep = opts.find((o) => o.dataset.key === ddActive[which]);
+    setActive(inp, keep || opts[0] || null);
+    syncCombo(inp, dd);
   }
-  function hideDD() { $$(".dd").forEach((d) => { d.hidden = true; }); }
+  /* The results the keyboard can reach: the Compare slot skips devices it cannot add. */
+  const ddOpts = (dd) => $$('[role="option"]:not([aria-disabled="true"])', dd).map((o) => { o.dataset.key = o.dataset.id || "all"; return o; });
+  function setActive(inp, o) {
+    const dd = document.getElementById(inp.id + "-dd");
+    $$('[role="option"]', dd).forEach((x) => { const on = x === o; x.classList.toggle("on", on); x.setAttribute("aria-selected", String(on)); });
+    if (o) { inp.setAttribute("aria-activedescendant", o.id); ddActive[inp.id] = o.dataset.key; }
+    else inp.removeAttribute("aria-activedescendant");
+  }
+  function syncCombo(inp, dd) {
+    inp.setAttribute("aria-expanded", String(!dd.hidden));
+    if (dd.hidden) inp.removeAttribute("aria-activedescendant");
+  }
+  function hideDD() { $$(".dd").forEach((d) => { d.hidden = true; const inp = document.getElementById(d.id.slice(0, -3)); if (inp) syncCombo(inp, d); }); }
   function renderQpop() {
     const n = state.queue.length;
     $("#qpop").innerHTML = '<div class="qpop-h">Compare list <span>' + n + " of " + MAX_Q + '</span></div><div class="qpop-l">' +
@@ -1901,7 +1939,7 @@ button.tag:hover { filter: brightness(.95); }
   function syncLayout() {
     placeFilterPanel();
     $("#lpanel").classList.toggle("flat", effLayout() === "cards");
-    $("#hq").placeholder = isNarrow() ? "Add a device" : "Add a device to compare";
+    $("#hq").placeholder = isNarrow() ? "Search" : "Search handhelds by name or chip";
     renderListBar(); applyList();
   }
   let applyRaf = 0;
@@ -2121,7 +2159,7 @@ button.tag:hover { filter: brightness(.95); }
         '<a class="ccol-n" id="copen2-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
         '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d, "cpm-" + id) + '</span><button type="button" class="tag' + (isR ? " ref" : " off") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? I.check + "Reference" : "Baseline") : I.target + "Set as reference") + "</button></div></div>";
     }).join("");
-    if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false"></div><div class="dd" id="sq-dd" hidden></div></div>';
+    if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sq-dd"></div><div class="dd" id="sq-dd" role="listbox" aria-label="Devices to add" hidden></div></div>';
     h += "</div>";
     secs.forEach((sec) => {
       h += '<div class="csec"><span>' + esc(sec.name) + "</span></div>";
@@ -2656,7 +2694,10 @@ button.tag:hover { filter: brightness(.95); }
         go(t.dataset.route); break;
       case "open": go("detail", id); break;
       case "q": toggleQBtn(id); break;
-      case "add": { addQ(id); const inp = document.getElementById(t.dataset.from); if (inp) { inp.value = ""; renderDD(t.dataset.from); inp.focus(); } break; }
+      /* The header search keeps its query and results after an add, so several matches can go in; the Compare slot clears for the next name. */
+      case "add": { addQ(id); const inp = document.getElementById(t.dataset.from); if (inp) { if (t.dataset.from !== "hq") inp.value = ""; renderDD(t.dataset.from); inp.focus(); } break; }
+      /* A new search starts at the top of the list, with focus on the list bar rather than on a card opened earlier. */
+      case "find-all": { const q = $("#hq").value.trim().slice(0, 80); hideDD(); state.f.q = q; syncFilters(); applyList(); save(); userNav = true; lastOpener = null; browseY = 0; go("browse"); window.scrollTo(0, 0); break; }
       case "rm": removeQ(id); break;
       case "clear-queue": state.queue = []; afterQ(); break;
       case "restore-q": if (restoreQ) { const r = restoreQ; restoreQ = null; state.queue = r.queue; setRef(r.refId); afterQ(); } break;
@@ -2726,6 +2767,31 @@ button.tag:hover { filter: brightness(.95); }
       else if (e.shiftKey && (e.target === first || e.target === pop)) { e.preventDefault(); const b = popBtn; closePop(); if (b) b.focus(); }
     }
   });
+  /* Search box keys: the arrows move the active result, Enter acts on it (header: open the sheet, or Shift+Enter to add it; Compare slot: add).
+     Escape is handled above. A press on the results keeps focus in the box, so the list does not close before the click lands. */
+  document.addEventListener("keydown", (e) => {
+    const inp = e.target;
+    if (!(inp instanceof HTMLInputElement) || (inp.id !== "hq" && inp.id !== "sq") || e.altKey || e.ctrlKey || e.metaKey || e.isComposing) return;
+    const dd = document.getElementById(inp.id + "-dd");
+    if (!dd) return;
+    if (dd.hidden) { if (e.key === "ArrowDown" && inp.value.trim()) { e.preventDefault(); renderDD(inp.id); } return; }
+    const opts = ddOpts(dd), i = opts.findIndex((o) => o.classList.contains("on"));
+    if (!opts.length) return;
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+      setActive(inp, opts[(i + (e.key === "ArrowDown" ? 1 : -1) + opts.length) % opts.length]);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      const o = opts[i] || opts[0], add = e.shiftKey && o.dataset.act === "open" ? $('[data-act="add"]', o) : null;
+      if (e.shiftKey && !add) return;
+      (add || o).click();
+    }
+  });
+  document.addEventListener("mousedown", (e) => { if (e.target instanceof Element && e.target.closest(".dd")) e.preventDefault(); });
+  document.addEventListener("pointerover", (e) => {
+    const o = e.target instanceof Element ? e.target.closest('.dd [role="option"]:not([aria-disabled="true"])') : null, inp = o && document.getElementById(o.closest(".dd").id.slice(0, -3));
+    if (inp && !o.classList.contains("on")) { ddOpts(o.closest(".dd")); setActive(inp, o); }
+  });
   document.addEventListener("change", (e) => {
     const t = e.target;
     if (t.classList.contains("qbox")) { if (t.checked) { if (!addQ(t.dataset.id)) t.checked = false; } else removeQ(t.dataset.id); focusId(t.id); return; }
@@ -2734,14 +2800,15 @@ button.tag:hover { filter: brightness(.95); }
   });
   document.addEventListener("input", (e) => {
     const t = e.target;
-    if (t.id === "hq" || t.id === "sq") { renderDD(t.id); return; }
+    if (t.id === "hq" || t.id === "sq") { ddActive[t.id] = null; renderDD(t.id); return; }
     if (t.classList.contains("frng")) { rangeInput(t); return; }
     if (t.id === "fq") { state.f.q = t.value.slice(0, 80); scheduleApply(); }
   });
   /* One floating layer at a time, for the keyboard too. */
   document.addEventListener("focusin", (e) => {
     if (e.target instanceof Element && e.target.classList.contains("pmark")) showTip(e.target);
-    if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); renderDD(e.target.id); }
+    /* A new visit to a search box starts on its first result. */
+    if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); ddActive[e.target.id] = null; renderDD(e.target.id); }
     const fp = $("#fpanel"); lastFp = fp && e.target instanceof Element && (fp.contains(e.target) || e.target.id === "tf-toggle") ? e.target : null;
     lastFpKb = !!lastFp && lastFp.matches(":focus-visible");
     if (e.target instanceof Element) revealInTable(e.target);
