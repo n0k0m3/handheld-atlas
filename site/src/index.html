@@ -17,6 +17,7 @@
   --dev-1: #2a78d6; --dev-2: #c97409; --dev-3: #ae49a3; --dev-4: #c79b01; --dev-5: #0b9db3; --dev-6: #904c1b; --dev-7: #a58bff; --dev-8: #db5784;
   --slice: #d5dae3; --slice-back: #738095;
   --shadow: 0 1px 3px rgba(17, 24, 39, .06), 0 8px 24px rgba(17, 24, 39, .10);
+  --edge-sh: rgba(17, 24, 39, .10);
   --f-ui: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --hdr-h: 53px;
@@ -30,7 +31,7 @@
     --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
     --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #c25cb8; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
     --slice: #424b59; --slice-back: #111318;
-    --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5);
+    --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5); --edge-sh: rgba(0, 0, 0, .45);
     color-scheme: dark;
   }
 }
@@ -42,7 +43,7 @@
   --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
   --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #c25cb8; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
   --slice: #424b59; --slice-back: #111318;
-  --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5);
+  --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5); --edge-sh: rgba(0, 0, 0, .45);
   color-scheme: dark;
 }
 
@@ -290,6 +291,7 @@ a.ibtn { text-decoration: none; }
 .hist::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--border); }
 .hist i { position: absolute; bottom: 0; box-sizing: border-box; border-left: 1px solid transparent; border-right: 1px solid transparent; background-clip: padding-box; background-color: var(--fg-3); opacity: .45; border-radius: 3px 3px 0 0; transition: height .15s; }
 .hist i.on { background-color: var(--accent); opacity: .45; }
+.hist i.z { background-color: var(--border-strong); opacity: 1; }
 .chk.unk { margin-top: 6px; }
 .fnote { font-size: 11px; color: var(--fg-2); margin-top: 4px; }
 @media (prefers-reduced-motion: reduce) { .hist i { transition: none; } }
@@ -298,7 +300,7 @@ a.ibtn { text-decoration: none; }
 .chip[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .chip .n { font: 10.5px var(--f-mono); opacity: .8; margin-left: 3px; }
 
-.lbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.lbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 10px 12px; border-bottom: 1px solid var(--border); }
 .flat { background: transparent; border-color: transparent; }
 .flat .lbar { padding-inline: 0; border-bottom: 0; }
 .lbar-n { font-weight: 700; font-size: 14px; }
@@ -345,8 +347,8 @@ a.ibtn { text-decoration: none; }
 .tbl td.num .cs { max-width: none; white-space: nowrap; }
 .tbl td.c-soc .cs { max-width: 140px; }
 .tbl .dpill { background: none; padding: 0; }
-/* A soft right edge says the table scrolls sideways. */
-.tblw.can-r { border-right: 1px solid var(--border-strong); }
+/* A soft right edge says the table scrolls sideways. It covers only the cell padding. */
+.tblbox.can-r::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 12px; pointer-events: none; background: linear-gradient(to left, var(--edge-sh), transparent); }
 .thb { padding: 2px 4px; margin: -2px -4px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
 .thb:hover { background: var(--bg-subtle); color: var(--fg); }
 .thb { position: relative; }
@@ -514,6 +516,10 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .cmp-cap { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; padding: 10px 12px; font-size: 12px; color: var(--fg-2); border-bottom: 1px solid var(--border); position: sticky; left: 0; max-width: 100vw; }
 .ckey { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
 .lkey { font-size: 11.5px; color: var(--fg-2); }
+/* The key is a legend, not data: plain text with colored glyphs, so it does not read as chips. */
+.ckey > .dpill { background: none; padding: 0; margin: 0; color: var(--fg-2); font-weight: 500; }
+.ckey > .dpill.up .tri { color: var(--good); } .ckey > .dpill.dn .tri { color: var(--bad); }
+.ckey { column-gap: 12px; }
 .ckl { color: var(--fg-2); font-size: 11.5px; }
 .ckey .dpill .tri + .tri { margin-left: -1px; }
 .ckey > span { display: inline-flex; align-items: center; white-space: nowrap; margin: 0; }
@@ -551,6 +557,8 @@ button.tag:hover { filter: brightness(.95); }
 .ccell .v { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .ccell .ct { white-space: normal; }
 .ccell .dpill { margin: 0; }
+.ccell .dpill.eq { display: none; }
+.nw { white-space: nowrap; }
 .best { font-size: 11px; font-weight: 700; color: var(--fg); background: var(--bg-subtle); border: 1px solid var(--border-strong); padding: 0 4px; border-radius: 3px; }
 .hid-note { padding: 12px; font-size: 12px; color: var(--fg-2); }
 /* Frozen first column: labels stay put while the device columns scroll sideways, like the frozen header row. */
@@ -672,6 +680,7 @@ button.tag:hover { filter: brightness(.95); }
   #scr-browse .phead .lede { display: none; }
   .lg-t { flex-wrap: wrap; }
   .lg-t .m { order: 3; width: 100%; padding-left: 28px; }
+  .size-c .grp-c .lbl { min-width: 44px; }
   .cnt-w, .badge-w, .lkey, .refpill .pin, .scr-k { display: none; }
   .badge-p { display: inline; }
   #gh-link { display: none; }
@@ -1006,8 +1015,8 @@ button.tag:hover { filter: brightness(.95); }
     { k: "weight", g: "Size", label: "Weight", v: (d) => d._w, t: (d) => (d._w != null ? n0(d._w) + " g" : "—"), low: true, num: true,
       sub: (d) => { const w = wH(d); return [w.measured == null && w.stated != null ? "stated" : "", ext(d) ? "w/ pack" : ""].filter(Boolean).join(", "); } },
     { k: "dims", g: "Size", label: "W × H × D mm", v: (d) => { const h = dimsH(d); return h.w && h.h && h.d ? h.w * h.h * h.d : null; },
-      t: (d) => { const h = dimsH(d); return h.w ? mm(h.w) + "×" + mm(h.h) + "×" + mm(h.d) : "—"; }, sub: (d) => (dimsH(d).d_max != null ? "grip " + mm(dimsH(d).d_max) : ""), nodelta: true, num: true },
-    { k: "soc", g: "Performance", label: "SoC", v: (d) => socName(d.soc_id), t: (d) => socName(d.soc_id), sub: (d) => (((socOf(d) || {}).igpu || {}).name || ""), text: true },
+      t: (d) => { const h = dimsH(d); return h.w ? mm(h.w) + "×" + mm(h.h) + "×" + mm(h.d) : "—"; }, sub: (d) => (dimsH(d).d_max != null ? mm(dimsH(d).d_max) + " at grip" : ""), nodelta: true, num: true },
+    { k: "soc", g: "Performance", label: "SoC", v: (d) => socName(d.soc_id), t: (d) => socName(d.soc_id), sub: (d) => (((socOf(d) || {}).igpu || {}).name || "").replace(/\(([^()\s]+) ([^()\s]+)\)$/, "($1\u00a0$2)"), text: true },
     { k: "cpu", g: "Performance", label: "CPU Mark", v: (d) => scoreOf(d, "cpu_mark"), t: (d) => n0(scoreOf(d, "cpu_mark")) || "—", num: true, strong: true },
     { k: "g3d", g: "Performance", label: "G3D Mark", v: (d) => scoreOf(d, "g3d_mark"), t: (d) => n0(scoreOf(d, "g3d_mark")) || "—", num: true, strong: true },
     { k: "screen", g: "Display", label: "Screen", v: (d) => (d.screen || {}).size_in, t: (d) => (d.screen && d.screen.size_in != null ? d.screen.size_in + "″" : "—"), sub: (d) => (d.screen || {}).panel || "", num: true },
@@ -1582,7 +1591,8 @@ button.tag:hover { filter: brightness(.95); }
           const top = Math.max(1, ...cnt);
           fc.bins.forEach((b, i) => {
             const el = document.getElementById("f-" + fc.k + "-b" + i); if (!el) return;
-            el.style.height = (cnt[i] ? Math.max(6, cnt[i] / top * 100) : 0).toFixed(1) + "%";
+            el.style.height = cnt[i] ? Math.max(6, cnt[i] / top * 100).toFixed(1) + "%" : "2px";
+            el.classList.toggle("z", !cnt[i]);
             el.title = (fc.edge ? String(Math.round(b[0] + 0.5)) : fc.fmt(b[0]) + "–" + fc.fmt(b[1])) + ": " + plural(cnt[i], "device");
           });
         }
@@ -1701,7 +1711,7 @@ button.tag:hover { filter: brightness(.95); }
       "</div>" +
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
-      stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" + (s.refresh_hz ? " · " + s.refresh_hz + " Hz" : "") : "—", false, "", "Screen") + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
+      stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, s.size_in != null && s.refresh_hz ? "· " + s.refresh_hz + " Hz" : "", "Screen") + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
       '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Compare every device against this one") + '" aria-label="' + (isRef ? "Reference: " + esc(d._name) + ". Press to clear." : "Use " + esc(d._name) + " as reference") + '">' + (isRef ? I.check + "Reference" : I.target + "Reference") + "</button></div></article>";
   }
@@ -1742,19 +1752,27 @@ button.tag:hover { filter: brightness(.95); }
   function syncTblFade() {
     const w = $("#tblw"), b = $("#tmore");
     if (!w) return;
-    /* At the start of the scroll, end the visible area on a column edge. A cut column reads as broken data. */
+    /* At the start of the scroll, stretch the whole columns so that the last one ends at the panel edge (table cells honor min-width, not width).
+       A cut column reads as broken data, and an empty strip reads as a missing column. */
     if (!w.hidden && w.scrollLeft === 0) {
-      w.style.maxWidth = "";
+      const ths = $$("#thead th");
+      ths.forEach((th) => { th.style.minWidth = ""; th.style.boxSizing = ""; });
       const avail = w.clientWidth;
       if (w.scrollWidth - avail > 1) {
-        const left = w.getBoundingClientRect().left;
-        let edge = 0;
-        $$("#thead th").forEach((th) => { const rr = th.getBoundingClientRect().right - left; if (rr <= avail + 0.5 && rr > edge) edge = rr; });
-        if (edge > 0 && edge < avail) w.style.maxWidth = Math.ceil(edge) + "px";
+        const left = w.getBoundingClientRect().left, rightOf = (th) => th.getBoundingClientRect().right - left;
+        const vis = ths.filter((th) => rightOf(th) <= avail + 0.5), last = vis[vis.length - 1];
+        const grow = vis.filter((th) => !th.classList.contains("c0"));
+        if (last && grow.length && avail - rightOf(last) > 1) {
+          const add = (avail - rightOf(last)) / grow.length, ws = grow.map((th) => th.getBoundingClientRect().width);
+          grow.forEach((th, i) => { th.style.boxSizing = "border-box"; th.style.minWidth = (ws[i] + add).toFixed(2) + "px"; });
+          const fix = avail - rightOf(last);
+          if (Math.abs(fix) > 0.5) last.style.minWidth = (last.getBoundingClientRect().width + fix).toFixed(2) + "px";
+        }
       }
+      syncStickyPad();
     }
     const more = !w.hidden && w.scrollWidth - w.scrollLeft - w.clientWidth > 1;
-    w.classList.toggle("can-r", more);
+    w.parentNode.classList.toggle("can-r", more);
     if (b) b.hidden = !more;
   }
   function defaultSortK() { const v = visCols(); return (v.find((c) => c.k === "g3d") || v.find((c) => c.num) || v[0] || COL.g3d).k; }
@@ -1805,7 +1823,7 @@ button.tag:hover { filter: brightness(.95); }
   function cmpHelpHtml() {
     return '<details class="panel help" id="help-cmp"' + (cmpHelpOpen ? " open" : "") + '><summary>How to compare</summary><ol class="steps">' +
       '<li><span class="step-n">1</span><div><b>Queue up to eight devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">' + I.plus + 'Add to compare</span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
-      '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at 1 unit = 1 mm, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Clamshells are drawn open.</div></li>' +
+      '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at true scale, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Clamshells are drawn open.</div></li>' +
       '<li><span class="step-n">3</span><div><b>Pick a reference, or none.</b> Press <span class="demo"><span class="tag">Set as reference</span></span> on a column to compare the others against it. Press <span class="demo"><span class="tag ref">Reference</span></span> again to turn the deltas off.</div></li>' +
       '<li><span class="step-n">4</span><div><b>Read the grid.</b> "Differences only" hides identical rows, and <span class="demo"><span class="best">Best</span></span> marks the best value in a row. Remove a device with the × on its column or in the size legend.</div></li>' +
       "</ol></details>";
@@ -1813,7 +1831,7 @@ button.tag:hover { filter: brightness(.95); }
   const presetOn = (k) => state.rx === PRESET[k][0] && state.ry === PRESET[k][1];
   function sizePanelHtml(cols, cref, hasRef) {
     const s = state, is3 = s.sizeTab === "3d";
-    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale · 1 unit = 1 mm<span class="scr-k"> · inner box = screen</span></span></span>' + I.chev + "</button>";
+    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale<span class="scr-k"> · inner box = screen</span></span></span>' + I.chev + "</button>";
     if (!s.sizeOpen) return h + "</section>";
     h += '<div class="size-c"><div class="grp-c"><span class="lbl">Mode</span><div class="segs sm" role="group" aria-label="Mode">' + seg("size-tab", "2d", "2D outline", !is3, "tab-2d") + seg("size-tab", "3d", "3D", is3, "tab-3d") + "</div></div>";
     const views = is3 ? [["iso", "3/4"], ["front", "Front"], ["top", "Top"], ["side", "Side"]] : [["front", "Front"], ["back", "Back"], ["top", "Top · thickness"], ["side", "Side"]];
@@ -1973,6 +1991,8 @@ button.tag:hover { filter: brightness(.95); }
   const own = (d, paths) => matchSrc(d.sources, paths);
   /* Mixed text keeps the text face; each run of digits takes the number face. */
   const numSpans = (t) => esc(t);
+  /* A list value breaks only after a comma, never inside a part such as "Zen 2". */
+  const nwJoin = (a) => a.filter(Boolean).map((x) => '<span class="nw">' + esc(x) + "</span>").join(", ");
   function sv(text, list, mono) {
     if (text == null || text === "") return null;
     mono = mono && isNumText(text);
@@ -2019,8 +2039,8 @@ button.tag:hover { filter: brightness(.95); }
       const so = (paths) => matchSrc(s.sources, paths);
       const pm = s.passmark || {}, t = s.tdp_w || {}, g = s.igpu || {};
       R.push(["Maker", esc([s.vendor, s.codename].filter(Boolean).join(" · "))]);
-      R.push(["CPU", numSpans([s.cores ? s.cores + "C / " + (s.threads || "?") + "T" : null, s.core_mix || null, s.boost_ghz ? "up to " + s.boost_ghz + "\u00a0GHz" : null].filter(Boolean).join(", ")) || null]);
-      R.push(["GPU", numSpans([g.name || null, g.cu ? g.cu + "\u00a0CU" : null, g.arch || null].filter(Boolean).join(", ")) || null]);
+      R.push(["CPU", nwJoin([s.cores ? s.cores + "C / " + (s.threads || "?") + "T" : null, s.core_mix || null, s.boost_ghz ? "up to " + s.boost_ghz + "\u00a0GHz" : null]) || null]);
+      R.push(["GPU", nwJoin([g.name || null, g.cu ? g.cu + "\u00a0CU" : null, g.arch || null]) || null]);
       if (t.min != null || t.max != null) R.push(["TDP", t.default != null ? numSpans((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + "\u00a0W, default " + t.default + "\u00a0W") : mtxt((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + " W")]);
       if (s.npu_tops != null) R.push(["NPU", s.npu_tops === 0 ? "None" : mtxt(s.npu_tops + " TOPS")]);
       if (pm.cpu_mark != null) R.push(["CPU Mark", sv(n0(pm.cpu_mark), so(["passmark.cpu_mark"]), true) + (pm.cpu_samples != null ? sub(n0(pm.cpu_samples) + " samples") : "")]);
@@ -2481,7 +2501,7 @@ button.tag:hover { filter: brightness(.95); }
   $("#cnt").title = DEV.length + " devices";
   $("#cnt").innerHTML = DEV.length + '<span class="cnt-w"> devices</span>';
   $("#eyebrow").hidden = true;
-  $("#home-eyebrow").innerHTML = "x86 handhelds · 2022 onward · data from " + mtxt(dataDate);
+  $("#home-eyebrow").textContent = "x86 handhelds · 2022 onward · data from " + dataDate;
   $("#home-n").textContent = DEV.length; $("#home-socs").textContent = SOCS.length;
   $("#home-traced").textContent = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced").length;
   /* Credit line on Home: count the traced top outlines that come from retrocatalog.com front images. */
