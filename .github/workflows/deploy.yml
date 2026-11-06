@@ -33,13 +33,14 @@ jobs:
           pip install "jsonschema>=4.23"
           python scripts/validate.py
 
-      - name: Build site
-        run: python scripts/build_site.py
-
-      # artifact.html is a fragment for claude.ai, not a page, so it stays out.
       # The site uses real paths (/browse, /compare?d=..., /<device-id>).
-      # surge.sh answers a path with no file with 200.html, so publish a
-      # folder that holds index.html and the same page as 200.html.
+      # --pages writes one small page per screen and device, so link previews
+      # get their own title, description and image. surge.sh serves
+      # <name>.html at /<name> and answers any other path with 200.html.
+      # artifact.html, the fragment for claude.ai, is not published.
+      - name: Build site
+        run: python scripts/build_site.py --pages "$RUNNER_TEMP/pub" --site-url "https://$DOMAIN"
+
       - name: Publish to surge.sh
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
@@ -48,16 +49,22 @@ jobs:
             echo "::error::Set the SURGE_TOKEN repository secret."
             exit 1
           fi
-          pub="$RUNNER_TEMP/pub"
-          mkdir -p "$pub"
-          cp site/dist/index.html "$pub/index.html"
-          cp site/dist/index.html "$pub/200.html"
-          npx --yes surge@0.52.0 "$pub" "$DOMAIN"
+          npx --yes surge@0.52.0 "$RUNNER_TEMP/pub" "$DOMAIN"
 
-      # A deep link must get the page, not a 404.
+      # A deep link must get its page, not a 404, and a device page must carry
+      # its own preview tags.
       - name: Check deep links
+        shell: bash
         run: |
-          for path in / /browse "/compare?d=steam-deck-oled" /steam-deck-oled; do
-            curl -fsS -o /dev/null --retry 5 --retry-delay 5 --retry-all-errors "https://$DOMAIN$path"
+          get() { curl -fsS --retry 5 --retry-delay 5 --retry-all-errors "https://$DOMAIN$1"; }
+          for path in / /browse "/compare?d=steam-deck-oled" /steam-deck-oled /no-such-page /atlas.css /atlas.js /atlas-data.js; do
+            get "$path" > /dev/null
             echo "OK $path"
           done
+          # Read the page first: under pipefail, grep -q can stop curl with SIGPIPE.
+          page=$(get /steam-deck-oled)
+          grep -q '<meta property="og:title" content="Valve Steam Deck OLED">' <<< "$page"
+          echo "OK /steam-deck-oled preview tags"
+          type=$(curl -fsS -o /dev/null -w '%{content_type}' "https://$DOMAIN/og.png")
+          [ "$type" = "image/png" ]
+          echo "OK /og.png ($type)"
