@@ -99,7 +99,6 @@ svg { display: block; }
 .logo-ic .ic { width: 15px; height: 15px; stroke-width: 2.2; }
 .brand { font-weight: 700; font-size: 14px; letter-spacing: -0.01em; }
 .cnt { font: 11px var(--f-mono); color: var(--fg-2); background: var(--bg-subtle); padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
-.cnt-w { display: none; }
 .segs { display: flex; gap: 2px; background: var(--bg-subtle); padding: 2px; border-radius: 6px; }
 .seg { padding: 5px 12px; border-radius: 5px; font-weight: 600; color: var(--fg-2); white-space: nowrap; }
 .segs.sm .seg { padding: 4px 10px; font-size: 12px; }
@@ -156,7 +155,7 @@ a.ibtn { text-decoration: none; }
 .btn-t .ic { width: 12px; height: 12px; }
 .btn-p .ic { width: 15px; height: 15px; }
 .btn-t:hover { text-decoration: underline; text-underline-offset: 3px; }
-.btn-t:disabled { color: var(--fg-2); opacity: .75; text-decoration: none; cursor: default; }
+.btn-t:disabled, .btn-t[aria-disabled="true"] { color: var(--fg-2); opacity: .75; text-decoration: none; cursor: default; }
 
 /* ---------- screens ---------- */
 .main { max-width: 1440px; margin: 0 auto; padding: 20px 8px 32px; display: grid; gap: 16px; min-width: 0; }
@@ -188,7 +187,6 @@ a.ibtn { text-decoration: none; }
 .hart figcaption b { color: var(--fg); font-weight: 700; }
 .hart-l { display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .hart-l > span { display: inline-flex; align-items: center; gap: 6px; }
-.hstat.dt b { font-size: 15px; font-weight: 600; color: var(--fg-2); line-height: 30px; }
 .hcta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .hstats { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 8px; }
 .hstat b { display: block; font: 700 22px/30px var(--f-mono); letter-spacing: -0.02em; }
@@ -204,12 +202,10 @@ a.ibtn { text-decoration: none; }
 .help > summary::after { content: ""; width: 6px; height: 6px; margin: -3px 2px 0 auto; border-right: 1.5px solid var(--fg-2); border-bottom: 1.5px solid var(--fg-2); transform: rotate(45deg); flex: none; }
 .help[open] > summary::after { transform: rotate(-135deg); margin-top: 3px; }
 .help > summary:hover { background: var(--bg-hover); }
-@media (min-width: 0) {
-  .help:not([open]) { background: transparent; border-color: transparent; }
-  .help:not([open]) > summary { padding-left: 0; padding-block: 4px; color: var(--fg-2); font-weight: 600; width: fit-content; }
-  .help:not([open]) > summary::after { margin-left: 4px; }
-  .help:not([open]) > summary:hover { background: none; color: var(--fg); }
-}
+.help:not([open]) { background: transparent; border-color: transparent; }
+.help:not([open]) > summary { padding-left: 0; padding-block: 4px; color: var(--fg-2); font-weight: 600; width: fit-content; }
+.help:not([open]) > summary::after { margin-left: 4px; }
+.help:not([open]) > summary:hover { background: none; color: var(--fg); }
 .help .steps { padding: 4px 16px 16px; }
 @media (min-width: 760px) {
   .phead + .help:not([open]) { justify-self: end; margin-top: -40px; position: relative; z-index: 1; }
@@ -315,7 +311,6 @@ a.ibtn { text-decoration: none; }
 .lbar-x:empty { display: none; }
 .refpill { display: flex; align-items: center; gap: 6px; font-size: 12px; background: var(--bg-selected); color: var(--fg-brand); padding: 3px 4px 3px 8px; border-radius: 4px; }
 .refpill .ic { width: 12px; height: 12px; stroke-width: 2.4; }
-.refpill .pin { color: var(--fg-2); font-size: 11px; }
 .refpill .xbtn { padding: 2px; color: inherit; }
 .refpill .xbtn:hover { background: var(--bg); }
 .lbar-r { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-left: auto; }
@@ -323,11 +318,8 @@ a.ibtn { text-decoration: none; }
 .lbar-r .segs { margin-left: 8px; }
 .lbar-k { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-width: 0; }
 .lbar-k .lbl { margin-right: 4px; }
-.lbar-k .lkey { margin-left: auto; }
 .lbar-k .tmore { margin-left: auto; }
 #scr-browse.is-empty .lbar-r > .lbl, #scr-browse.is-empty .lbar-r > .segs[aria-label="Sort"] { opacity: .45; pointer-events: none; }
-.pkey { font-size: 11.5px; color: var(--fg-2); margin-left: 12px; }
-.lbar-k > .pkey:first-child { margin-left: auto; }
 .lbar-r .segs[aria-label="Layout"] { margin-left: 12px; }
 .lbar-r .segs[aria-label="Layout"] .seg { display: inline-flex; align-items: center; gap: 6px; }
 .lbar-r .segs[aria-label="Layout"] .ic { width: 13px; height: 13px; }
@@ -385,7 +377,6 @@ a.ibtn { text-decoration: none; }
 .tbl tbody tr:hover .dwrap .refb, .dwrap .refb:focus-visible { border-color: var(--border-strong); background: var(--bg); color: var(--fg-brand); }
 .dwrap .refb[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .dev-b { font-size: 11px; color: var(--fg-2); font-weight: 500; }
-.dtag { margin-left: 6px; }
 .dev-n { font-weight: 700; font-size: 13px; line-height: 1.3; }
 .dev-n:hover { color: var(--fg-brand); }
 .dev-l { font-size: 13px; line-height: 1.3; }
@@ -447,10 +438,9 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stat-d { min-height: 16px; line-height: 16px; }
 .stat-g { display: grid; grid-template-columns: auto auto; justify-content: start; column-gap: 14px; }
 .stat-g .stat-d .dpill.eq { display: none; }
-.stat-dk { margin-left: 4px; font-size: 11px; color: var(--fg-2); }
 .stat-x { font-weight: 600; color: var(--fg-2); }
 .stat-d .dpill { margin: 0; background: none; padding: 0; font-weight: 700; }
-.stat-d .dpill.eq, .stat-d .dpill.eq + .stat-dk { visibility: hidden; }
+.stat-d .dpill.eq { visibility: hidden; }
 .card-f { display: flex; gap: 6px; margin-top: auto; }
 .card-f .addb:first-child { flex: 1; min-width: 0; }
 .addb { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 10px; border-radius: 6px; font-weight: 700; border: 1px solid var(--border-strong); background: var(--bg); white-space: nowrap; }
@@ -529,6 +519,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .lg-cap { font-size: 11.5px; color: var(--fg-2); padding: 2px 2px 0; }
 .wbar i { display: block; height: 100%; border-radius: 3px; background: var(--c); }
 .lg-w .m { font-weight: 600; font-size: 12px; text-align: right; white-space: nowrap; }
+.lg-w .dpill.eq, .pm-v .dpill.eq { display: none; }
 .lg-w .dpill { margin: 0; min-width: 52px; text-align: center; padding: 2px 6px; line-height: 16px; }
 .lg-w .tag.ref { display: inline-flex; align-items: center; gap: 3px; padding: 2px 6px; line-height: 16px; }
 .lg-w .tag .ic { width: 11px; height: 11px; }
@@ -564,7 +555,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .csw { flex: none; }
 .ccol-n { font-weight: 800; font-size: 15px; line-height: 1.2; letter-spacing: -0.01em; }
 .ccol-n:hover { color: var(--fg-brand); }
-.ccol-f { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; gap: 6px; }
+.ccol-f { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 6px; gap: 6px; }
 .tag { font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--bg-subtle); color: var(--fg-2); white-space: nowrap; }
 .tag.ref { background: var(--bg-brand); color: var(--fg-onbrand); }
 .ccol-f .tag { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; font-size: 12px; padding: 2px 8px; }
@@ -585,10 +576,12 @@ button.tag:hover { filter: brightness(.95); }
 .ccell.slot { background: var(--bg); border-left-color: transparent; border-bottom-color: transparent; }
 .ccell.ref { background: var(--bg-ref); box-shadow: inset 1px 0 0 var(--border-strong), inset -1px 0 0 var(--border-strong); }
 .ccell .v { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-@media (min-width: 760px) {
-  .ccell .v:has(.dpill, .best) { display: grid; grid-template-columns: minmax(0, 1fr) 56px 52px; column-gap: 6px; }
-  .ccell .v:has(.dpill, .best) .dpill { grid-column: 2; justify-self: end; }
-  .ccell .v:has(.dpill, .best) .best { grid-column: 3; justify-self: end; }
+/* Fixed delta and Best slots line up down a column, but only in cells wide enough for them. */
+.ccell { container-type: inline-size; }
+@container (min-width: 200px) {
+  .v:has(.dpill:not(.eq), .best) { display: grid; grid-template-columns: minmax(0, 1fr) 56px 52px; column-gap: 6px; }
+  .v:has(.dpill:not(.eq), .best) .dpill { grid-column: 2; justify-self: end; }
+  .v:has(.dpill:not(.eq), .best) .best { grid-column: 3; justify-self: end; }
 }
 .ccell .ct { white-space: normal; }
 .ccell .dpill { margin: 0; }
@@ -681,7 +674,7 @@ button.tag:hover { filter: brightness(.95); }
 #tip::before { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 8px; }
 #tip.below::before { top: auto; bottom: 100%; }
 @media (forced-colors: active) { #tip { border: 1px solid CanvasText; } }
-#pop { position: fixed; z-index: 60; width: max-content; max-width: min(320px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--border-strong); border-radius: 10px; box-shadow: 0 2px 4px rgba(17, 24, 39, .08), 0 12px 32px rgba(17, 24, 39, .18); padding: 10px 14px 12px; font-size: 13px; }
+#pop { position: fixed; z-index: 60; width: max-content; max-width: min(320px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--border-strong); border-radius: 10px; box-shadow: var(--shadow); padding: 10px 14px 12px; font-size: 13px; }
 /* The caret points at the value that opened the popover. */
 #pop::before { content: ""; position: absolute; top: -7px; left: var(--cx, 16px); width: 12px; height: 12px; background: var(--bg); border-left: 1px solid var(--border-strong); border-top: 1px solid var(--border-strong); transform: rotate(45deg); }
 #pop.up::before { top: auto; bottom: -7px; transform: rotate(225deg); }
@@ -722,7 +715,7 @@ button.tag:hover { filter: brightness(.95); }
   .lg-t { flex-wrap: wrap; }
   .lg-t .m { order: 3; flex-basis: 100%; padding-left: 28px; }
   .size-c .grp-c .lbl { min-width: 44px; }
-  .cnt-w, .badge-w, .lkey, .refpill .pin, .scr-k { display: none; }
+  .badge-w, .lkey, .scr-k { display: none; }
   .badge-p { display: inline; }
   #gh-link { display: none; }
   .dd-a { min-height: 32px; }
@@ -759,7 +752,7 @@ button.tag:hover { filter: brightness(.95); }
       <button type="button" class="seg" id="nav-compare" data-act="go" data-route="compare" aria-pressed="false">Compare</button>
     </nav>
     <div class="srch" id="hsrch">
-      <label class="sr" for="hq">Search devices</label>
+      <label class="sr" for="hq">Add a device to compare</label>
       <div class="srch-box">
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg>
         <input id="hq" type="search" placeholder="Type a device name to add to comparison" autocomplete="off" spellcheck="false">
@@ -893,7 +886,7 @@ button.tag:hover { filter: brightness(.95); }
   const FLAB = { dims_mm: "Size", handheld: "as held", without_battery: "without battery", weight_g: "Weight", passmark: "PassMark", cpu_mark: "CPU Mark", single_thread: "Single thread",
     g3d_mark: "G3D Mark", msrp_usd: "Launch price", soc_id: "Chip", ram: "RAM", sizes_gb: "sizes", speed_mts: "speed", screen: "Screen", size_in: "size", refresh_hz: "refresh rate",
     battery: "Battery", wh: "capacity", release_date: "Release date", announce_date: "Announced", d_max: "thickest point", w: "width", h: "height", d: "thickness", stated: "stated", measured: "measured" };
-  const fieldLabel = (f) => String(f || "").split(".").map((p) => (hasKey(FLAB, p) ? FLAB[p] : p.replace(/_/g, " "))).join(" · ").replace(/^./, (c) => c.toUpperCase());
+  const fieldLabel = (f) => f === "*" ? "Most fields" : String(f || "").split(".").map((p) => (hasKey(FLAB, p) ? FLAB[p] : p.replace(/_/g, " "))).join(" · ").replace(/^./, (c) => c.toUpperCase());
   const link = (url, text) => '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(text || host(url)) + "</a>";
   const yn = (v) => (v === true ? "Yes" : v === false ? "No" : null);
   const nameOf = (d) => [d.brand, d.model, d.variant].filter(Boolean).join(" ");
@@ -1046,7 +1039,8 @@ button.tag:hover { filter: brightness(.95); }
   /* Text that is a number, date or measure (not words) takes the mono face. */
   const isNumText = (t) => /^[$\d]/.test(t) && !/[A-Za-z]{3,}/.test(String(t).replace(/\b(TOPS|GHz|MHz|mAh)\b/g, ""));
   const TRI = {"bu": "<svg class=\"tri\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 1 7.5 7h-7z\"/></svg>", "bd": "<svg class=\"tri\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 7 .5 1h7z\"/></svg>", "wu": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 1.3 7 6.7H1z\"/></svg>", "wd": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 6.7 1 1.3h6z\"/></svg>", "nu": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 7.5V1M1.5 3.5 4 1l2.5 2.5\"/></svg>", "nd": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 .5V7M1.5 4.5 4 7l2.5-2.5\"/></svg>"};
-  const dpill = (dl) => (dl ? '<span class="dpill ' + dl.cls + '">' + (dl.g ? TRI[dl.g] : "") + dl.txt + "</span>" : "");
+  const VSR = { up: "better", dn: "worse", eq: "same" };
+  const dpill = (dl) => (dl ? '<span class="dpill ' + dl.cls + '">' + (dl.g ? TRI[dl.g] : "") + '<span class="sr">' + (dl.cls === "nt" ? (/u$/.test(dl.g || "") ? "higher" : "lower") : VSR[dl.cls] || "") + " </span>" + dl.txt + "</span>" : "");
   /* One key for the verdict glyphs, used in the list bar and above the compare grid. */
   const VKEY = '<span class="ckey"><span class="ckl">vs reference:</span><span class="dpill up">' + TRI.bu + TRI.bd + 'better</span><span class="dpill dn">' + TRI.wu + TRI.wd + 'worse</span><span class="dpill nt">' + TRI.nu + TRI.nd + "neither</span></span>";
 
@@ -1096,7 +1090,7 @@ button.tag:hover { filter: brightness(.95); }
       ["Single thread", (d) => n0(scoreOf(d, "single_thread")) || "—", (d) => scoreOf(d, "single_thread"), "high"],
       ["G3D Mark", (d) => n0(scoreOf(d, "g3d_mark")) || "—", (d) => scoreOf(d, "g3d_mark"), "high"],
       ["TDP range", (d) => tdpText(socOf(d)) || "—"],
-      ["NPU", (d) => { const s = socOf(d); return !s || s.npu_tops == null ? "—" : s.npu_tops === 0 ? "None" : s.npu_tops + " TOPS"; }, (d) => { const s = socOf(d); return s && s.npu_tops ? s.npu_tops : null; }, "high"]]],
+      ["NPU", (d) => { const s = socOf(d); return !s || s.npu_tops == null ? "—" : s.npu_tops === 0 ? "None" : s.npu_tops + " TOPS"; }, (d) => { const s = socOf(d); return s && s.npu_tops != null ? s.npu_tops : null; }, "high"]]],
     ["Display", [
       ["Size", (d) => (scr(d).size_in != null ? scr(d).size_in + "″" : "—"), (d) => (scr(d).size_in != null ? scr(d).size_in : null), "high"],
       ["Panel", (d) => scr(d).panel || "—"],
@@ -1663,7 +1657,7 @@ button.tag:hover { filter: brightness(.95); }
     if (html !== lastChips) { $("#fchips").innerHTML = html; lastChips = html; }
     const ts = $("#tf-sum"), nAct = an.act.length + (an.qt.length ? 1 : 0);
     if (ts) ts.textContent = nAct ? plural(nAct, "filter") + " on" : "";
-    const fr = $("#f-reset"); if (fr) fr.disabled = !nAct;
+    const fr = $("#f-reset"); if (fr) fr.setAttribute("aria-disabled", nAct ? "false" : "true");
   }
   function sorted(list) {
     const c = COL[state.sortK] || COL.g3d, dir = state.sortDir;
@@ -1694,11 +1688,12 @@ button.tag:hover { filter: brightness(.95); }
     else h += key + '<div class="lbar-r">' + lay + '</div><div class="lbar-k"><span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("") +
       '<button type="button" class="tmore" id="tmore-l" data-act="tbl-more" hidden></button></div>';
     $("#lbar").innerHTML = h;
+    if (!filt.length) $$('#lbar .segs[aria-label="Sort"] .seg').forEach((b) => { b.disabled = true; });
     syncTblFade();
   }
   /* The sticky columns cover the left of the scrollport. Scroll padding keeps a focused header or cell clear of them. */
   function stickyRight() { const th = $("#thead th.stk.c1"), w = $("#tblw"); return th && w ? th.getBoundingClientRect().right - w.getBoundingClientRect().left : 0; }
-  function syncStickyPad() { const w = $("#tblw"); if (w) w.style.scrollPaddingLeft = Math.round(stickyRight() + 8) + "px"; }
+  function syncStickyPad() { const w = $("#tblw"); if (w) { w.style.scrollPaddingLeft = Math.round(stickyRight() + 8) + "px"; w.style.scrollPaddingRight = "24px"; } }
   /* Focus moved into a scrolled cell: keep it clear of the sticky columns (the browser's own scroll stops at the scrollport edge). */
   /* Focus moved into a horizontally scrolled grid: keep it clear of the frozen columns (the browser's own scroll stops at the scrollport edge). */
   function revealInTable(el) {
@@ -1708,7 +1703,10 @@ button.tag:hover { filter: brightness(.95); }
     requestAnimationFrame(() => {
       const wr = w.getBoundingClientRect(), r = el.getBoundingClientRect(), left = wr.left + frozen() + 8;
       if (r.left < left) w.scrollLeft -= left - r.left;
-      else if (r.right > wr.right - 8) w.scrollLeft += r.right - (wr.right - 8);
+      else {
+        const rm = w.id === "tblw" && w.parentNode.classList.contains("can-r") ? RAIL + 8 : 8;
+        if (r.right > wr.right - rm) w.scrollLeft += r.right - (wr.right - rm);
+      }
     });
   }
   function renderHead() {
@@ -1784,7 +1782,7 @@ button.tag:hover { filter: brightness(.95); }
     more.textContent = "Show all " + plural(filt.length, "device");
     $("#empty").hidden = filt.length > 0;
     $("#scr-browse").classList.toggle("is-empty", !filt.length);
-    if (!filt.length) { const nf = an.act.length + (an.qt.length ? 1 : 0); $("#empty-why").textContent = nf > 2 ? "No device matches all " + nf + " filters. Remove one of them above, or reset them all." : nf === 2 ? "No device matches both filters. Remove one of them above, or reset them both." : "No device passes this filter. Remove it above, or reset the filters."; }
+    $$('#lbar .segs[aria-label="Sort"] .seg').forEach((b) => { b.disabled = !filt.length; });
     $("#tblw").hidden = cards || !filt.length;
     grid.hidden = !cards || !filt.length;
     const n = $("#lbar-n"); if (n) n.textContent = plural(filt.length, "device");
@@ -1796,13 +1794,16 @@ button.tag:hover { filter: brightness(.95); }
   function syncTblFade() {
     const w = $("#tblw");
     if (!w) return;
-    /* At the start of the scroll, stretch the whole columns so that the last one ends where the rail starts (table cells honor min-width, not width).
-       A cut column reads as broken data, and an empty strip reads as a missing column. */
-    if (!w.hidden && w.scrollLeft === 0) {
+    /* Stretch the whole columns so that the last one at the start of the scroll ends where the soft edge starts (table cells honor min-width, not width).
+       A cut column reads as broken data, and an empty strip reads as a missing column. Measure at scroll 0, then put the scroll back.
+       The table width, not scrollWidth, decides the overflow: absolute marks (sort arrow, price mark) poke past the table. */
+    if (!w.hidden) {
+      const sl = w.scrollLeft, tbl = $("#tbl");
+      if (sl) w.scrollLeft = 0;
       const ths = $$("#thead th");
       ths.forEach((th) => { th.style.minWidth = ""; th.style.boxSizing = ""; });
       const avail = w.clientWidth - RAIL;
-      if (w.scrollWidth - w.clientWidth > 1) {
+      if (tbl.offsetWidth - w.clientWidth > 1) {
         const left = w.getBoundingClientRect().left, rightOf = (th) => th.getBoundingClientRect().right - left;
         const vis = ths.filter((th) => rightOf(th) <= avail + 0.5), last = vis[vis.length - 1];
         const grow = vis.filter((th) => !th.classList.contains("c0"));
@@ -1814,18 +1815,26 @@ button.tag:hover { filter: brightness(.95); }
         }
       }
       syncStickyPad();
+      if (sl) w.scrollLeft = sl;
     }
-    const more = !w.hidden && w.scrollWidth - w.scrollLeft - w.clientWidth > 1;
+    syncTblEdge();
+  }
+  /* The soft edge and the scroll link follow the scroll position. */
+  function syncTblEdge() {
+    const w = $("#tblw");
+    if (!w) return;
+    const more = !w.hidden && $("#tbl").offsetWidth - w.scrollLeft - w.clientWidth > 1;
     w.parentNode.classList.toggle("can-r", more);
     const lk = $("#tmore-l");
-    if (lk) {
-      lk.hidden = !more;
-      if (more) {
-        /* Name the columns that wait to the right, so the link does not read as more column groups. */
-        const names = $$("#thead th .thb").filter((x) => x.getBoundingClientRect().right > railLeft(w) + 0.5).map((x) => (COL[x.dataset.v] || {}).label).filter(Boolean);
-        lk.innerHTML = esc("Scroll for " + (names.length <= 2 ? names.join(" and ") : names.slice(0, 2).join(", ") + " and " + (names.length - 2) + " more")) + I.arrow;
-      }
-    }
+    if (!lk) return;
+    /* The link hides at the end of the scroll: keep keyboard focus in the list bar. */
+    if (!more && !lk.hidden && document.activeElement === lk) $("#lbar").focus();
+    lk.hidden = !more;
+    if (!more) return;
+    /* Name the columns that wait to the right, so the link does not read as more column groups. */
+    const names = $$("#thead th").filter((th) => th.getBoundingClientRect().right > railLeft(w) + 0.5).map((th) => { const b = $(".thb", th); return b ? (COL[b.dataset.v] || {}).label : ""; }).filter(Boolean);
+    const t = "Scroll for " + (names.length <= 2 ? names.join(" and ") : names.slice(0, 2).join(", ") + " and " + (names.length - 2) + " more");
+    if (lk.dataset.t !== t) { lk.dataset.t = t; lk.innerHTML = esc(t) + I.arrow; }
   }
   const RAIL = 16; /* width of the soft edge */
   const railLeft = (w) => w.getBoundingClientRect().left + w.clientWidth - RAIL;
@@ -1885,7 +1894,7 @@ button.tag:hover { filter: brightness(.95); }
   const presetOn = (k) => state.rx === PRESET[k][0] && state.ry === PRESET[k][1];
   function sizePanelHtml(cols, cref, hasRef) {
     const s = state, is3 = s.sizeTab === "3d";
-    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale<span class="scr-k"> · inner box = screen</span>' + (cref && state.sizeTab === "2d" && state.sizeMode === "overlay" ? '<span class="scr-k"> · filled = reference</span>' : "") + '</span></span>' + I.chev + "</button>";
+    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale<span class="scr-k"> · inner box = screen</span>' + (hasRef && state.sizeTab === "2d" && state.sizeMode === "overlay" ? '<span class="scr-k"> · filled = reference</span>' : "") + '</span></span>' + I.chev + "</button>";
     if (!s.sizeOpen) return h + "</section>";
     h += '<div class="size-c"><div class="grp-c"><span class="lbl">Mode</span><div class="segs sm" role="group" aria-label="Mode">' + seg("size-tab", "2d", "2D outline", !is3, "tab-2d") + seg("size-tab", "3d", "3D", is3, "tab-3d") + "</div></div>";
     const views = is3 ? [["iso", "3/4"], ["front", "Front"], ["top", "Top"], ["side", "Side"]] : [["front", "Front"], ["back", "Back"], ["top", "Top · thickness"], ["side", "Side"]];
@@ -1941,8 +1950,10 @@ button.tag:hover { filter: brightness(.95); }
     if (st) {
       const svg = $("svg", st), sb = $("#sbar");
       const vw = +svg.dataset.w, vh = +svg.dataset.h;
-      const cw = Math.max(1, st.clientWidth - 40), ch = Math.max(1, st.clientHeight - 40);
-      const pxmm = Math.min(cw / vw, ch / vh);
+      /* Read the drawn scale, so the bar stays true whatever the stage padding. */
+      const m = svg.getScreenCTM(), cs = getComputedStyle(st);
+      const cw = Math.max(1, st.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)), ch = Math.max(1, st.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom));
+      const pxmm = m && m.a ? m.a : Math.min(cw / vw, ch / vh);
       const bar = vw >= 220 ? 100 : vw >= 110 ? 50 : vw >= 40 ? 20 : 10;
       $("i", sb).style.width = (bar * pxmm).toFixed(1) + "px";
       $("span", sb).textContent = bar + " mm";
@@ -1982,7 +1993,10 @@ button.tag:hover { filter: brightness(.95); }
     const hd = $("#scr-compare .cmpw.scroll .cgrid.hd");
     if (!hd) return;
     const wrap = hd.closest(".cmpw"), wr = wrap.getBoundingClientRect(), bt = wrap.clientTop, top = $("#hdr").getBoundingClientRect().bottom;
-    const y = clamp(top - wr.top - bt, 0, Math.max(0, wr.height - 2 * bt - hd.offsetHeight));
+    /* The header's own top without the current shift: the key caption sits above it inside the wrapper. */
+    const nat = hd.getBoundingClientRect().top - (+hd.dataset.ty || 0);
+    const y = clamp(top - nat, 0, Math.max(0, wr.bottom - bt - nat - hd.offsetHeight));
+    hd.dataset.ty = Math.round(y);
     hd.style.transform = y > 0 ? "translateY(" + Math.round(y) + "px)" : "";
   }
   function onScroll() {
@@ -2002,7 +2016,7 @@ button.tag:hover { filter: brightness(.95); }
       const rd = (x) => Math.round(x * 10) / 10, nums = num ? cols.map(num) : [], valid = nums.filter((x) => typeof x === "number").map(rd);
       const best = better && better !== "n" && new Set(valid).size > 1 ? (better === "low" ? Math.min(...valid) : Math.max(...valid)) : null;
       return { label, diff, cells: cols.map((d, i) => {
-        const isR = d === cref, dl = num && !isR && cref ? delta(nums[i], num(cref), better === "low" ? true : better === "n" ? "n" : false) : null;
+        const isR = d === cref, dl = num && !isR && cref && !(better === "high" && nums[i] === 0) ? delta(nums[i], num(cref), better === "low" ? true : better === "n" ? "n" : false) : null;
         return { text: texts[i], mark: marks[i], dl, best: best != null && typeof nums[i] === "number" && rd(nums[i]) === best, mono: (!!num && /\d/.test(texts[i])) || isNumText(texts[i]), isR };
       }) };
     }).filter(Boolean) })).filter((x) => x.rows.length);
@@ -2026,7 +2040,7 @@ button.tag:hover { filter: brightness(.95); }
       sec.rows.forEach((row) => {
         h += '<div class="cgrid' + (!state.hideSame && row.diff && n > 1 ? " diff" : "") + '" style="grid-template-columns:' + gcols + '"><div class="clbl">' + esc(row.label) + "</div>";
         row.cells.forEach((c) => {
-          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + (c.mono ? esc(c.text) : numSpans(c.text)) + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">★ Best</span>' : "") + "</div></div>";
+          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + (c.mono ? esc(c.text) : esc(c.text)) + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">★ Best</span>' : "") + "</div></div>";
         });
         if (slot) h += '<div class="ccell slot"></div>';
         h += "</div>";
@@ -2043,17 +2057,15 @@ button.tag:hover { filter: brightness(.95); }
     return f !== "*" && paths.some((p) => f === p || f.startsWith(p + ".") || p.startsWith(f + "."));
   });
   const own = (d, paths) => matchSrc(d.sources, paths);
-  /* Mixed text keeps the text face; each run of digits takes the number face. */
-  const numSpans = (t) => esc(t);
   /* A list value breaks only after a comma, never inside a part such as "Zen 2". */
   const nwJoin = (a) => a.filter(Boolean).map((x) => '<span class="nw">' + esc(x) + "</span>").join(", ");
   function sv(text, list, mono) {
     if (text == null || text === "") return null;
     mono = mono && isNumText(text);
     text = String(text).replace(/(\d) (W|Wh|GB|TB|Gbps|mm|g|Hz|GHz|MHz|CU|TOPS|nits)\b/g, "$1\u00a0$2");
-    if (!list || !list.length) return mono ? '<span class="m">' + esc(text) + "</span>" : numSpans(text);
+    if (!list || !list.length) return mono ? '<span class="m">' + esc(text) + "</span>" : esc(text);
     drSrc.push(list);
-    return '<button type="button" class="sv' + (mono ? " m" : "") + '" id="sv-' + (drSrc.length - 1) + '" data-act="sv" data-si="' + (drSrc.length - 1) + '" aria-expanded="false" aria-haspopup="dialog">' + (mono ? esc(text) : numSpans(text)) + "</button>";
+    return '<button type="button" class="sv' + (mono ? " m" : "") + '" id="sv-' + (drSrc.length - 1) + '" data-act="sv" data-si="' + (drSrc.length - 1) + '" aria-expanded="false" aria-haspopup="dialog">' + (mono ? esc(text) : esc(text)) + "</button>";
   }
   const sub = (t) => (t ? '<span class="sub">' + esc(t) + "</span>" : "");
   const mtxt = (t) => '<span class="m">' + esc(t) + "</span>";
@@ -2088,14 +2100,13 @@ button.tag:hover { filter: brightness(.95); }
   function grpCompute(d) {
     const s = socOf(d), R = [];
     R.push(["Chip", sv(s ? s.name : d.soc_id, own(d, ["soc_id"]))]);
-    let notes = "";
     if (s) {
       const so = (paths) => matchSrc(s.sources, paths);
       const pm = s.passmark || {}, t = s.tdp_w || {}, g = s.igpu || {};
       R.push(["Maker", esc([s.vendor, s.codename].filter(Boolean).join(" · "))]);
       R.push(["CPU", nwJoin([s.cores ? s.cores + "C / " + (s.threads || "?") + "T" : null, s.core_mix || null, s.boost_ghz ? "up to " + s.boost_ghz + "\u00a0GHz" : null]) || null]);
       R.push(["GPU", nwJoin([g.name || null, g.cu ? g.cu + "\u00a0CU" : null, g.arch || null]) || null]);
-      if (t.min != null || t.max != null) R.push(["TDP", t.default != null ? numSpans((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + "\u00a0W, default " + t.default + "\u00a0W") : mtxt((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + " W")]);
+      if (t.min != null || t.max != null) R.push(["TDP", t.default != null ? esc((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + "\u00a0W, default " + t.default + "\u00a0W") : mtxt((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + " W")]);
       if (s.npu_tops != null) R.push(["NPU", s.npu_tops === 0 ? "None" : mtxt(s.npu_tops + " TOPS")]);
       if (pm.cpu_mark != null) R.push(["CPU Mark", sv(n0(pm.cpu_mark), so(["passmark.cpu_mark"]), true) + (pm.cpu_samples != null ? sub(n0(pm.cpu_samples) + " samples") : "")]);
       if (pm.single_thread != null) R.push(["Single thread", sv(n0(pm.single_thread), so(["passmark.single_thread", "passmark.cpu_mark"]), true)]);
@@ -2106,7 +2117,7 @@ button.tag:hover { filter: brightness(.95); }
     if (r.type || r.speed_mts) R.push(["RAM type", sv([r.type, r.speed_mts].filter(Boolean).join("-"), own(d, ["ram.type", "ram.speed_mts"]), true)]);
     R.push(["Channels", r.channels != null ? mtxt(r.channels) : NS]);
     R.push(["Soldered", ynv(r.soldered, d, "ram.soldered")]);
-    return kv(R) + notes;
+    return kv(R);
   }
   function grpStorage(d) {
     const st = d.storage || {}, R = [], ss = slots(d);
@@ -2234,8 +2245,9 @@ button.tag:hover { filter: brightness(.95); }
     const G = [grp("Size & weight", grpSize(d)), grp("Compute", grpCompute(d)), grp("Storage & ports", grpStorage(d)), grp("Screen", grpScreen(d)),
       grp("Battery", grpBattery(d)), grp("Controls", grpControls(d)), grp("Other", grpOther(d))].concat(grpLists(d)).filter(Boolean)
       .map((g, i) => g.replace('<div class="panel grp"', '<div class="panel grp" style="order:' + i + '"'));
-    h += '<p class="skey"><span class="skey-d">Dotted underline</span> = the value opens its own source.</p><div class="sgrid"><div class="scol">' + G.filter((g, i) => i % 2 === 0).join("") + '</div><div class="scol">' + G.filter((g, i) => i % 2 === 1).join("") + "</div></div></div></div>";
+    h += '<p class="skey"><span class="skey-d">Dotted underline</span> = the value opens its own source.</p><div class="sgrid">' + (sheetOne() ? G.join("") : '<div class="scol">' + G.filter((g, i) => i % 2 === 0).join("") + '</div><div class="scol">' + G.filter((g, i) => i % 2 === 1).join("") + "</div>") + "</div></div></div>";
     el.innerHTML = h;
+    el.dataset.one = sheetOne() ? "1" : "";
     fitDimText();
   }
 
@@ -2543,6 +2555,7 @@ button.tag:hover { filter: brightness(.95); }
     clearTimeout(rsz);
     rsz = setTimeout(() => {
       measureHdr(); syncStickyPad(); syncTblFade();
+      if (state.route === "detail") { if ($("#scr-detail").dataset.one !== (sheetOne() ? "1" : "")) renderDetail(); else fitDimText(); }
       const nw = isNarrow();
       if (nw !== wasNarrow) { wasNarrow = nw; syncLayout(); if (state.route === "compare") renderCompare(); }
       else if (state.route === "compare") { if (gridScrollWanted() !== lastScroll) renderCompare(); else layoutStage(); }
@@ -2554,9 +2567,8 @@ button.tag:hover { filter: brightness(.95); }
   const dataDate = String(DATA.generated || "").slice(0, 10) || "unknown";
   loadState();
   applyTheme();
-  $("#cnt").textContent = DEV.length;
   $("#cnt").title = DEV.length + " devices";
-  $("#cnt").innerHTML = DEV.length + '<span class="cnt-w"> devices</span>';
+  $("#cnt").textContent = DEV.length;
   $("#eyebrow").hidden = true;
   $("#home-eyebrow").textContent = "x86 handhelds · 2022 onward · data from " + dataDate;
   $("#home-n").textContent = DEV.length; $("#home-socs").textContent = SOCS.length;
@@ -2578,7 +2590,7 @@ button.tag:hover { filter: brightness(.95); }
       art.hidden = false;
     }
   }
-  $("#site-foot").innerHTML = "<p>Sizes and weights describe the device as held, with controllers and battery pack on. A clamshell uses its closed footprint and is drawn open. Top outlines are traced from product images. Other views are boxes from the stated sizes.</p>" +
+  $("#site-foot").innerHTML = "<p>" + DEV.length + " devices · " + SOCS.length + " chips · data " + esc(dataDate) + ".</p><p>Sizes and weights describe the device as held, with controllers and battery pack on. A clamshell uses its closed footprint and is drawn open. Top outlines are traced from product images. Other views are boxes from the stated sizes.</p>" +
     '<p>Code and data are on <a href="https://github.com/n0k0m3/handheld-atlas" target="_blank" rel="noopener">GitHub</a>. To report a wrong value, <a href="https://github.com/n0k0m3/handheld-atlas/issues" target="_blank" rel="noopener">open an issue</a>.</p>';
   buildFilters();
   syncFilters();
@@ -2592,7 +2604,7 @@ button.tag:hover { filter: brightness(.95); }
   measureHdr();
   if (!routeFromHash()) go(state.route, state.detailId);
   window.addEventListener("scroll", onScroll, { passive: true });
-  $("#tblw").addEventListener("scroll", syncTblFade, { passive: true });
+  $("#tblw").addEventListener("scroll", syncTblEdge, { passive: true });
   /* Web fonts change column widths, so the column-edge stop is measured again once they load. */
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncTblFade);
   /* Another tab wrote the shared state: adopt it without writing back, so two tabs never ping-pong. */
@@ -2605,6 +2617,8 @@ button.tag:hover { filter: brightness(.95); }
   }
   window.addEventListener("storage", (e) => { if (e.key === null || e.key === KEY) syncFromStorage(); });
   function settle() { measureHdr(); syncStickyPad(); if (state.route === "compare") layoutStage(); if (state.route === "detail") fitDimText(); }
+  /* The sheet shows one column of cards at this width; the cards then keep their reading order. */
+  function sheetOne() { return !!(window.matchMedia && matchMedia("(max-width: 1100px)").matches); }
   /* Ruler labels: keep 11.5 px on screen whatever the drawing scale. */
   function fitDimText() {
     const svg = $(".dstage svg"), m = svg && svg.getScreenCTM();
