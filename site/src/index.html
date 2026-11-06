@@ -495,6 +495,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .knuckle { fill: var(--fg-2); stroke: none; }
 .stage2d .knuckle { fill: var(--c); fill-opacity: .55; }
 .dnote { font-size: 11.5px; color: var(--fg-2); padding: 0 12px 10px; }
+.snote { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; padding: 10px 12px; border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 6px; background: var(--bg); font-size: 13px; }
+.snote span { flex: 1 1 260px; min-width: 0; }
 .sbar { position: absolute; left: 12px; bottom: 8px; display: flex; align-items: center; gap: 6px; font: 12px var(--f-mono); color: var(--fg-2); font-variant-numeric: tabular-nums; }
 .sbar i { display: block; height: 0; border-top: 2px solid var(--fg-2); position: relative; }
 .sbar i::before, .sbar i::after { content: ""; position: absolute; top: -5px; width: 2px; height: 8px; background: var(--fg-2); }
@@ -872,6 +874,11 @@ button.tag:hover { filter: brightness(.95); }
       if (th === "dark" || th === "light") forcedTheme = th;
     }
   } catch (e) { /* ignore */ }
+  /* index.html (the surge site) carries data-routing="path" from build_site.py, so screens get real paths: /browse, /compare?d=…, /<device-id>.
+     The Artifact fragment and a file:// copy keep hash tokens, because the viewer allows only a plain #anchor. */
+  const PATHS = root.getAttribute("data-routing") === "path" && /^https?:$/.test(location.protocol);
+  /* save() writes the address only after the first route is read, so start-up never overwrites a shared link. */
+  let urlReady = false, freshVisit = false;
 
   let DATA;
   try { DATA = JSON.parse($("#atlas-data").textContent); }
@@ -1314,6 +1321,7 @@ button.tag:hover { filter: brightness(.95); }
     if (typeof s.rx === "number" && typeof s.ry === "number") { state.rx = clamp(s.rx, -89, 89); state.ry = s.ry; }
     if (s.theme === "light" || s.theme === "dark") { storedTheme = s.theme; state.theme = s.theme; }
     if (!sync) {
+      freshVisit = !!s.fresh;
       if (s.route === "compare" || s.route === "detail" || s.route === "browse" || s.route === "home") state.route = s.route;
       if (typeof s.detailId === "string" && hasKey(BY_ID, s.detailId)) state.detailId = s.detailId;
     }
@@ -1358,6 +1366,8 @@ button.tag:hover { filter: brightness(.95); }
         theme: forcedTheme ? storedTheme : state.theme, route: state.route, detailId: state.detailId
       }));
     } catch (e) { /* storage unavailable */ }
+    /* Every queue and reference change ends here, so the /compare address stays a share link. */
+    if (PATHS && urlReady) writeUrl(false);
   }
   const refDev = () => (state.refId && BY_ID[state.refId]) || null;
   const inQ = (id) => state.queue.includes(id);
@@ -1906,13 +1916,13 @@ button.tag:hover { filter: brightness(.95); }
     const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length;
     /* No reference: no deltas. A reference outside the list: the first column stands in as the baseline. */
     const ref = refDev(), hasRef = !!ref && inQ(ref.id), cref = hasRef ? ref : (ref ? cols[0] || null : null);
-    let h = '<div class="phead"><div><button type="button" class="btn-t" id="cmp-back" data-act="go" data-route="browse">' + I.back + 'Back to list</button><h1 id="cmp-h1" tabindex="-1">' + (n ? "Compare " + plural(n, "handheld") : "Nothing to compare yet") + "</h1></div></div>";
+    let h = '<div class="phead"><div><button type="button" class="btn-t" id="cmp-back" data-act="go" data-route="browse" data-back="1">' + I.back + 'Back to list</button><h1 id="cmp-h1" tabindex="-1">' + (n ? "Compare " + plural(n, "handheld") : "Nothing to compare yet") + "</h1></div></div>";
     if (!n) {
       el.innerHTML = h + '<div class="panel cmp-empty">Nothing to compare yet. Use the search in the header, or tick devices in the <button type="button" class="btn-t" id="cmp-list" data-act="go" data-route="browse">list</button>.</div>';
       return;
     }
     const prevWrap = $(".cmpw.scroll", el), prevSL = prevWrap ? prevWrap.scrollLeft : 0;
-    el.innerHTML = h + cmpHelpHtml() + sizePanelHtml(cols, cref, hasRef) + gridHtml(cols, cref, hasRef, ref);
+    el.innerHTML = h + restoreHtml() + cmpHelpHtml() + sizePanelHtml(cols, cref, hasRef) + gridHtml(cols, cref, hasRef, ref);
     const wrap = $(".cmpw.scroll", el);
     if (wrap && prevSL) wrap.scrollLeft = prevSL;
     layoutStage();
@@ -2279,7 +2289,7 @@ button.tag:hover { filter: brightness(.95); }
     const soc = socOf(d), pm = (soc && soc.passmark) || {};
     const rank = (k) => { const vals = [...new Set(DEV.map((x) => scoreOf(x, k)).filter((x) => x != null))].sort((a, b) => b - a); const r = vals.indexOf(scoreOf(d, k)); return r < 0 ? "" : "rank " + (r + 1) + " of " + vals.length; };
     const tile = (l, v) => '<div class="tile"><div class="stat-l">' + l + '</div><div class="v">' + esc(v) + "</div></div>";
-    let h = '<div><button type="button" class="btn-t" id="dt-back" data-act="go" data-route="browse">' + I.back + 'Back to list</button></div><div class="dgrid"><div class="dcol">';
+    let h = '<div><button type="button" class="btn-t" id="dt-back" data-act="go" data-route="browse" data-back="1">' + I.back + 'Back to list</button></div><div class="dgrid"><div class="dcol">';
     const TH = sh.h, B = TH + pad * 1.4;
     h += '<div class="panel"><div class="dstage"><svg viewBox="' + [r2(-pad), r2(-pad), r2(W + pad * 2), r2(TH + pad * 2.4)].join(" ") + '" role="img" aria-label="Outline of ' + esc(d._name) + ", " + (o.kind === "traced" ? "traced" : "spec box") + (isClam(d) ? ", drawn open" : "") + '">' +
       partsSvg(sh, "o") + scrRect(sh.screen, "scr") +
@@ -2393,10 +2403,28 @@ button.tag:hover { filter: brightness(.95); }
   }
 
   /* ---------- routing ---------- */
-  let browseY = 0, userNav = false, lastOpener = null;
+  let browseY = 0, userNav = false, lastOpener = null, popNav = false;
+  /* Hash mode: #home, #browse, #compare, #<device-id>. Path mode: /, /browse, /<device-id>, and /compare with the list and its reference
+     in the query (/compare?d=a,b&ref=a), so the address bar is the share link. Ids match [a-z0-9-] and need no escapes. */
+  function urlFor(route, id) {
+    if (!PATHS) return "#" + (route === "detail" ? id : route);
+    const q = [];
+    if (route === "compare" && state.queue.length) { q.push("d=" + state.queue.join(",")); if (state.refId && inQ(state.refId)) q.push("ref=" + state.refId); }
+    if (forcedTheme) q.push("theme=" + forcedTheme);
+    return (route === "home" ? "/" : "/" + (route === "detail" ? id : route)) + (q.length ? "?" + q.join("&") : "");
+  }
+  /* A push records the screen it came from, so "Back to list" can step back instead of adding an entry. */
+  function writeUrl(push, from) {
+    const u = urlFor(state.route, state.detailId);
+    try {
+      if (!PATHS) { if (location.hash !== u) history.replaceState(null, "", u); }
+      else if (push) history.pushState({ from: from }, "", u);
+      else if (location.pathname + location.search + location.hash !== u) history.replaceState(history.state, "", u);
+    } catch (e) { /* the viewer may refuse */ }
+  }
   function go(route, id) {
     if (route === "detail" && !(id && hasKey(BY_ID, id))) route = "browse";
-    const same = state.route === route && (route !== "detail" || state.detailId === id);
+    const same = state.route === route && (route !== "detail" || state.detailId === id), from = state.route;
     if (state.route === "browse" && route !== "browse") browseY = window.scrollY;
     closeFloating();
     state.route = route;
@@ -2411,8 +2439,8 @@ button.tag:hover { filter: brightness(.95); }
     else if (route === "detail") renderDetail();
     else syncStickyPad();
     if (route === "browse") syncTblFade();
-    const tok = route === "detail" ? state.detailId : route;
-    try { if ((location.hash || "").slice(1) !== tok) history.replaceState(null, "", "#" + tok); } catch (e) { /* the viewer may refuse */ }
+    /* A user's move to another screen adds a history entry, so the browser's Back button works. Start-up, clean-up and Back itself replace. */
+    writeUrl(PATHS && userNav && !popNav && !same, from);
     if (!same) window.scrollTo(0, route === "browse" ? browseY : 0);
     /* A hidden screen drops focus to body. After a user action, focus moves into the new screen: the sheet title, the compare title, or the row that opened the sheet. */
     if (route === "detail") { const h1 = $("#dt-h1"); if (h1) h1.focus({ preventScroll: true }); }
@@ -2434,13 +2462,48 @@ button.tag:hover { filter: brightness(.95); }
     if (hasKey(BY_ID, h)) { go("detail", h); return true; }
     return false;
   }
-  /* An unknown hash keeps the current screen and puts its token back in the address. */
+  /* Path mode: "/" is always Home. A trailing slash, capitals and /index.html are tidied away. An unknown name shows Browse (go() falls back). */
+  function routeFromPath() {
+    const seg = location.pathname.replace(/\/index\.html$/i, "/").replace(/^\/+|\/+$/g, "").toLowerCase();
+    if (!seg || seg === "home") go("home");
+    else if (seg === "browse" || seg === "compare") go(seg);
+    else go("detail", seg);
+  }
+  /* An unknown hash keeps the current screen and puts its address back. In path mode a typed or old #token moves to its path. */
   window.addEventListener("hashchange", () => {
     if (routeFromHash()) return;
     const h = (location.hash || "").slice(1), el = h && document.getElementById(h);
-    if (el && state.route === "home" && el.closest("#scr-home")) { el.scrollIntoView({ block: "start" }); try { history.replaceState(null, "", "#home"); } catch (e) { /* ignore */ } return; }
+    if (el && state.route === "home" && el.closest("#scr-home")) { el.scrollIntoView({ block: "start" }); try { history.replaceState(history.state, "", urlFor("home")); } catch (e) { /* ignore */ } return; }
     go(state.route, state.detailId);
   });
+  /* Back and Forward show the screen in the address. They never read the ?d= list: the list may have changed since that entry. */
+  if (PATHS) {
+    try { history.scrollRestoration = "manual"; } catch (e) { /* go() sets the scroll */ }
+    window.addEventListener("popstate", () => { popNav = true; userNav = true; try { routeFromPath(); } finally { popNav = false; } });
+  }
+  /* A shared link /compare?d=a,b&ref=a replaces the compare list and the reference on a fresh page load only.
+     When the visitor had a different list, the Compare screen offers it back for this session. */
+  let restoreQ = null;
+  function applyShared() {
+    if (!PATHS || location.pathname.replace(/^\/+|\/+$/g, "").toLowerCase() !== "compare") return;
+    /* Back or Forward into a new page load is not a shared link either. */
+    let nav = "";
+    try { nav = (performance.getEntriesByType("navigation")[0] || {}).type || ""; } catch (e) { /* no navigation timing */ }
+    if (nav === "back_forward") return;
+    const p = new URLSearchParams(location.search), raw = p.get("d");
+    if (raw == null) return;
+    const q = raw.toLowerCase().split(",").filter((id, i, a) => hasKey(BY_ID, id) && a.indexOf(id) === i).slice(0, MAX_Q);
+    if (!q.length) return;
+    const r = (p.get("ref") || "").toLowerCase(), ref = q.includes(r) ? r : null;
+    if (q.join() === state.queue.join() && ref === state.refId) return;
+    if (!freshVisit && state.queue.length) restoreQ = { queue: state.queue.slice(), refId: state.refId };
+    state.queue = q; state.refId = ref;
+  }
+  function restoreHtml() {
+    if (!restoreQ) return "";
+    return '<p class="snote" id="shared-note"><span>This list came from a shared link. Your own list had ' + plural(restoreQ.queue.length, "device") + ".</span>" +
+      '<button type="button" class="btn-t" id="restore-q" data-act="restore-q">Restore my list</button><button type="button" class="btn-t" id="keep-q" data-act="keep-q">Keep this one</button></p>';
+  }
 
   /* ---------- events ---------- */
   function focusId(fid) {
@@ -2498,12 +2561,17 @@ button.tag:hover { filter: brightness(.95); }
     if (act === "go" || act === "open") userNav = true;
     if (act === "open") lastOpener = fid || null;
     switch (act) {
-      case "go": go(t.dataset.route); break;
+      case "go":
+        /* "Back to list" steps back when this screen was opened from the list, so history does not grow. */
+        if (PATHS && t.dataset.back && history.state && history.state.from === t.dataset.route) { history.back(); break; }
+        go(t.dataset.route); break;
       case "open": go("detail", id); break;
       case "q": toggleQBtn(id); break;
       case "add": { addQ(id); const inp = document.getElementById(t.dataset.from); if (inp) { inp.value = ""; renderDD(t.dataset.from); inp.focus(); } break; }
       case "rm": removeQ(id); break;
       case "clear-queue": state.queue = []; afterQ(); break;
+      case "restore-q": if (restoreQ) { const r = restoreQ; restoreQ = null; state.queue = r.queue; setRef(r.refId); afterQ(); } break;
+      case "keep-q": restoreQ = null; renderCompare(); break;
       case "ref": setRef(refDev() && refDev().id === id ? null : id); break;
       case "setref": setRef(state.refId === id ? null : id); break;
       case "clear-ref": setRef(null); break;
@@ -2680,6 +2748,7 @@ button.tag:hover { filter: brightness(.95); }
   /* ---------- init ---------- */
   const dataDate = String(DATA.generated || "").slice(0, 10) || "unknown";
   loadState();
+  applyShared();
   applyTheme();
   $("#cnt").title = DEV.length + " devices";
   $("#cnt").textContent = DEV.length;
@@ -2716,7 +2785,9 @@ button.tag:hover { filter: brightness(.95); }
   syncLayout();
   syncQueueUI();
   measureHdr();
-  if (!routeFromHash()) go(state.route, state.detailId);
+  /* Path mode reads the address, after an old /#token link moves to its path. Hash mode restores the stored screen when the hash names none. */
+  urlReady = true;
+  if (!routeFromHash()) { if (PATHS) routeFromPath(); else go(state.route, state.detailId); }
   window.addEventListener("scroll", onScroll, { passive: true });
   $("#tblw").addEventListener("scroll", syncTblEdge, { passive: true });
   /* Web fonts change column widths, so the column-edge stop is measured again once they load. */
@@ -2728,8 +2799,11 @@ button.tag:hover { filter: brightness(.95); }
     applyTheme(); syncFilters(); renderHead(); buildRows(); buildCards(); syncLayout(); syncQueueUI();
     if (state.route === "compare") renderCompare();
     if (state.route === "detail") renderDetail();
+    if (PATHS) writeUrl(false);
   }
   window.addEventListener("storage", (e) => { if (e.key === null || e.key === KEY) syncFromStorage(); });
+  /* A page that Back restores from the back/forward cache missed the storage events while it slept. */
+  window.addEventListener("pageshow", (e) => { if (e.persisted) syncFromStorage(); });
   function settle() { measureHdr(); syncStickyPad(); if (state.route === "compare") layoutStage(); if (state.route === "detail") fitDimText(); }
   /* The sheet shows one column of cards at this width; the cards then keep their reading order. */
   function sheetOne() { return !!(window.matchMedia && matchMedia("(max-width: 1100px)").matches); }

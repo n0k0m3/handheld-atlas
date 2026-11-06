@@ -18,6 +18,10 @@ Writes:
     site/dist/artifact.html  the fragment for the claude.ai Artifact (no doctype/html/head/body)
     site/dist/index.html     the same fragment wrapped in a full document
 
+The full document carries <html data-routing="path">, so the deployed site
+uses real paths (/browse, /compare?d=..., /<device-id>). The fragment has no
+<html> tag and keeps hash tokens, which the Artifact viewer needs.
+
 The template must start with its head elements (title, meta, link, style).
 The wrapper moves that leading run into <head> and the rest into <body>.
 """
@@ -46,7 +50,7 @@ HEAD_PART = re.compile(
 )
 FORBIDDEN = re.compile(r"<!doctype|<html[\s>]|<head[\s>]|<body[\s>]", re.I)
 DOC_HEAD = (
-    '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+    '<!doctype html><html lang="en" data-routing="path"><head><meta charset="utf-8">'
     '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
 )
 

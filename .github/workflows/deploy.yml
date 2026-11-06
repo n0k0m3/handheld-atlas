@@ -36,7 +36,10 @@ jobs:
       - name: Build site
         run: python scripts/build_site.py
 
-      # artifact.html is a fragment for claude.ai, not a page. Publish index.html only.
+      # artifact.html is a fragment for claude.ai, not a page, so it stays out.
+      # The site uses real paths (/browse, /compare?d=..., /<device-id>).
+      # surge.sh answers a path with no file with 200.html, so publish a
+      # folder that holds index.html and the same page as 200.html.
       - name: Publish to surge.sh
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
@@ -45,4 +48,16 @@ jobs:
             echo "::error::Set the SURGE_TOKEN repository secret."
             exit 1
           fi
-          npx --yes surge@0.52.0 site/dist/index.html "$DOMAIN"
+          pub="$RUNNER_TEMP/pub"
+          mkdir -p "$pub"
+          cp site/dist/index.html "$pub/index.html"
+          cp site/dist/index.html "$pub/200.html"
+          npx --yes surge@0.52.0 "$pub" "$DOMAIN"
+
+      # A deep link must get the page, not a 404.
+      - name: Check deep links
+        run: |
+          for path in / /browse "/compare?d=steam-deck-oled" /steam-deck-oled; do
+            curl -fsS -o /dev/null --retry 5 --retry-delay 5 --retry-all-errors "https://$DOMAIN$path"
+            echo "OK $path"
+          done
