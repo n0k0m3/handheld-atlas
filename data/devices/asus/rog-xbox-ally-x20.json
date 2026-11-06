@@ -51,7 +51,7 @@
   "os": ["Windows 11 Home"],
   "cooling": null,
   "fingerprint": true,
-  "notes": "ROG 20th anniversary 'Edition 20' model with a translucent black and gold chassis. Rows merged: the standalone unit (RC74XA-XB-ALLYX.Z2E.24) and the bundle (RC74XA-XB-ALLYXBUN.Z2E.24, $2,499.99, adds ROG XREAL R1 Edition 20 glasses, a Pelican case and a dbrand Killswitch) share this hardware. Pre-orders opened 2026-08-25.",
+  "notes": "ROG 20th anniversary 'Edition 20' model with a translucent black and gold chassis. The standalone unit (RC74XA-XB-ALLYX.Z2E.24) and the bundle (RC74XA-XB-ALLYXBUN.Z2E.24, $2,499.99, adds ROG XREAL R1 Edition 20 glasses, a Pelican case and a dbrand Killswitch) share this hardware and this sheet. Pre-orders opened 2026-08-25.",
   "unresolved": [
     { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to the 3.5mm jack" },
     { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see the port note), not a Gbps figure" },
@@ -67,7 +67,7 @@
         { "value": "USB4", "url": "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-x20-2026/spec/" },
         { "value": "Thunderbolt 4", "url": "https://www.notebookcheck.net/A-stunning-OLED-screen-Asus-ROG-Xbox-Ally-X20-Gaming-Handheld-Review.1425337.0.html" }
       ],
-      "chosen_reason": "ASUS says 'USB 4 (Thunderbolt 4 compliance)', not a Thunderbolt-branded port; same wording as the Ally X, which the project records as USB4"
+      "chosen_reason": "ASUS says 'USB 4 (Thunderbolt 4 compliance)', not a Thunderbolt-branded port; same wording as the ROG Ally X, whose sheet also lists USB4"
     }
   ],
   "sources": [

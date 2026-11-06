@@ -285,7 +285,7 @@
           "url": "https://cdn.shopify.com/s/files/1/0557/8535/7492/files/pc17_c244f8f3-ba9f-431d-914f-9ac4aeb79fb4.png?v=1786429743"
         }
       ],
-      "chosen_reason": "Vendor gallery says Thunderbolt 4; the project rule records TB4 when the vendor says Thunderbolt"
+      "chosen_reason": "Vendor gallery says Thunderbolt 4, so the port is listed as TB4"
     },
     {
       "field": "screen.nits_peak",

@@ -50,7 +50,7 @@
   "os": ["SteamOS 3"],
   "cooling": "single fan",
   "fingerprint": false,
-  "notes": "Rows merged: 64 GB eMMC, 256 GB NVMe, and 512 GB NVMe share this hardware. Launch prices $399 / $529 / $649; Valve cut them to $349 / $399 / $449 when the OLED launched and phased the LCD models out. Valve opened orders on 2022-02-25; first shipments went out on 2022-02-28.",
+  "notes": "The 64 GB eMMC, 256 GB NVMe, and 512 GB NVMe models share this hardware and this sheet. Launch prices $399 / $529 / $649; Valve cut them to $349 / $399 / $449 when the OLED launched and phased the LCD models out. Valve opened orders on 2022-02-25; first shipments went out on 2022-02-28.",
   "unresolved": [
     { "field": "ports.1", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to the 3.5mm jack" },
     { "field": "ports.2", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see the port note), not a Gbps figure" },

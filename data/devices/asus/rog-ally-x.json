@@ -51,7 +51,7 @@
   "os": ["Windows 11 Home"],
   "cooling": "two fans",
   "fingerprint": true,
-  "notes": "Rows merged: 1 TB (RC72LA-ALLYX.Z1X) and 2 TB (RC72LA-ALLYX.Z1X2TB) share this hardware. No XG Mobile connector. ASUS lists Bluetooth 5.4 and says the version may change with the OS version.",
+  "notes": "The 1 TB (RC72LA-ALLYX.Z1X) and 2 TB (RC72LA-ALLYX.Z1X2TB) models share this hardware and this sheet. No XG Mobile connector. ASUS lists Bluetooth 5.4 and says the version may change with the OS version.",
   "unresolved": [
     { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to the 3.5mm jack" },
     { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see the port note), not a Gbps figure" },
@@ -69,7 +69,7 @@
         { "value": "LPDDR5X-7500", "url": "https://liliputing.com/asus-rog-ally-x-is-now-available-for-800-handheld-gaming-pc-with-bigger-battery-more-ram-and-usb4/" },
         { "value": "LPDDR5x-7467 (measured)", "url": "https://www.notebookcheck.net/Asus-ROG-Ally-X-Review-The-best-gaming-handheld-thanks-to-faster-RAM-and-a-huge-80-Wh-battery.865721.0.html" }
       ],
-      "chosen_reason": "Official ASUS value kept per project rule. Every review says LPDDR5X; the ASUS page likely drops the X."
+      "chosen_reason": "Official ASUS value. Every review says LPDDR5X; the ASUS page likely drops the X."
     }
   ],
   "sources": [

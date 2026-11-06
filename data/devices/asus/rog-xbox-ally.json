@@ -68,7 +68,7 @@
         { "value": "LPDDR5x-6400", "url": "https://www.notebookcheck.net/Slower-than-the-Steam-Deck-OLED-Asus-ROG-Xbox-Ally-handheld-review.1143681.0.html" },
         { "value": "LPDDR5X-6400", "url": "https://liliputing.com/599-asus-rog-xbox-ally-and-999-rog-xbox-ally-x-now-available-for-pre-order/" }
       ],
-      "chosen_reason": "Official ASUS value kept per project rule"
+      "chosen_reason": "Official ASUS value"
     },
     {
       "field": "wireless.bt",

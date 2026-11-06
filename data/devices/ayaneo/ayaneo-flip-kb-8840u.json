@@ -22,7 +22,7 @@
       "d": 29.8,
       "d_max": 37.5
     },
-    "note": "Clamshell. Handheld footprint = closed footprint (project rule). AYANEO size: 180*102*29.8 mm, 37.5 mm at the grip."
+    "note": "Clamshell. The size is the closed footprint. AYANEO size: 180*102*29.8 mm, 37.5 mm at the grip."
   },
   "weight_g": {
     "handheld": {

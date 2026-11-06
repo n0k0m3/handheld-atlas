@@ -50,7 +50,7 @@
   "os": ["SteamOS 3"],
   "cooling": "single fan",
   "fingerprint": false,
-  "notes": "Rows merged: 512 GB, 1 TB, and the 1 TB Limited Edition (translucent shell, $679, US/Canada only) share this hardware. Replaces the hand-written seed row; the seed cited /en/tech/deck, which is the LCD tech page.",
+  "notes": "The 512 GB, 1 TB, and 1 TB Limited Edition (translucent shell, $679, US/Canada only) models share this hardware and this sheet.",
   "unresolved": [
     { "field": "ports.1", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to the 3.5mm jack" },
     { "field": "ports.2", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see the port note), not a Gbps figure" },
