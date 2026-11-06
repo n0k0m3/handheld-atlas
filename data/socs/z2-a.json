@@ -35,7 +35,7 @@
     "g3d_samples": 118,
     "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Custom+GPU+0405&id=4528",
     "fetched": "2026-10-27",
-    "mapping_note": "CPU: exact entry 'AMD Ryzen Z2 A' (22 samples), not a stand-in. GPU: no Z2 A iGPU entry; stand-in 'Custom GPU 0405' = Steam Deck LCD iGPU (same Van Gogh 8 CU RDNA 2; Z2 A clocks to 1.8 GHz, Deck to 1.6 GHz)."
+    "mapping_note": "CPU: exact entry 'AMD Ryzen Z2 A' (22 samples), not a stand-in. GPU: no Z2 A iGPU entry; stand-in 'Custom GPU 0405', the Steam Deck LCD iGPU (same Van Gogh 8 CU RDNA 2; Z2 A clocks to 1.8 GHz, Deck to 1.6 GHz)."
   },
   "notes": "npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
   "unresolved": [],

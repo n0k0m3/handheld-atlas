@@ -35,7 +35,7 @@
     "g3d_samples": 57,
     "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Intel+Arc+B370+GPU&id=7972",
     "fetched": "2026-10-27",
-    "mapping_note": "CPU: PassMark has no 'Intel Arc G3' entry; stand-in = 'Intel Arc G3 Extreme' (same 2P + 8E + 4LPE die and 25 W base power; the G3 boosts to 4.6 GHz instead of 4.7 GHz). GPU: 'Intel Arc B370 GPU' entry (57 samples, mostly Panther Lake-H laptops at higher power)."
+    "mapping_note": "CPU: PassMark has no 'Intel Arc G3' entry; stand-in: 'Intel Arc G3 Extreme' (same 2P + 8E + 4LPE die and 25 W base power; the G3 boosts to 4.6 GHz instead of 4.7 GHz). GPU: 'Intel Arc B370 GPU' entry (57 samples, mostly Panther Lake-H laptops at higher power)."
   },
   "notes": "Intel brands it 'Intel Arc G3 Processor' (processor number G3); no Core Ultra model number. Used by the MSI Claw 8 EX AI+ (CG3M). base_ghz is the P-core base (E-core and LP E-core 1.5 GHz). No Hyper-Threading. NPU 46 TOPS. launch_date from TPU; ARK says Q2'26. Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
   "unresolved": [],

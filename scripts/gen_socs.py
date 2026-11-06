@@ -226,7 +226,7 @@ ROWS["z2-a"] = row(
     7, "TSMC 7nm (Van Gogh, as the Steam Deck LCD APU)", 0, "LPDDR5-6400", "2025-06-08",
     ("Radeon (8 CU RDNA 2)", 8, "RDNA 2", 1800, None), "z2a", "0405",
     "CPU: exact entry 'AMD Ryzen Z2 A' (22 samples), not a stand-in. "
-    "GPU: no Z2 A iGPU entry; stand-in 'Custom GPU 0405' = Steam Deck LCD iGPU (same Van Gogh "
+    "GPU: no Z2 A iGPU entry; stand-in 'Custom GPU 0405', the Steam Deck LCD iGPU (same Van Gogh "
     "8 CU RDNA 2; Z2 A clocks to 1.8 GHz, Deck to 1.6 GHz).",
     NPU0,
     [src("*", Z + "z2-series/z2-a.html", "AMD spec page: cores, clocks, TDP, iGPU CU and clock")]
@@ -242,8 +242,8 @@ ROWS["steam-deck-apu-lcd"] = row(
     (15, 4, 15), 7, "TSMC 7nm (Valve: 7 nm; foundry per TPU)", 0,
     "16 GB LPDDR5-5500 on-board, quad 32-bit channels", "2022-02-25",
     ("AMD Custom GPU 0405", 8, "RDNA 2", 1600, 1.6), "0932", "0405",
-    "CPU: PassMark has no 'AMD Custom APU 0405' entry (cpu.php and cpu_lookup.php return 404; it is absent from "
-    "the full CPU list). Stand-in = 'AMD Custom APU 0932' (Steam Deck OLED APU: same 4C/8T Zen 2 at "
+    "CPU: PassMark has no 'AMD Custom APU 0405' entry (its PassMark CPU pages return 404; it is absent from "
+    "the full CPU list). Stand-in: 'AMD Custom APU 0932' (Steam Deck OLED APU: same 4C/8T Zen 2 at "
     "2.4-3.5 GHz, 6 nm). GPU: exact entry 'Custom GPU 0405'.",
     "Valve gives 4-15 W APU power; default set to the 15 W maximum. AMD part number 100-000000405 (TPU). "
     "tflops_fp32 is Valve's stated 1.6 TFLOPS. " + NPU0,
@@ -564,7 +564,7 @@ ROWS["arc-g3"] = row(
     1.9, 4.6, (25, 15, 80), 1.8, "Intel 18A (per ARK); TPU lists 3 nm", 46,
     "LPDDR5X-8533, dual-channel, up to 96 GB", "2026-05-28",
     ("Intel Arc B370", 10, "Xe3", 2200, None), "g3e", "b370",
-    "CPU: PassMark has no 'Intel Arc G3' entry; stand-in = 'Intel Arc G3 Extreme' (same 2P + 8E + 4LPE die and "
+    "CPU: PassMark has no 'Intel Arc G3' entry; stand-in: 'Intel Arc G3 Extreme' (same 2P + 8E + 4LPE die and "
     "25 W base power; the G3 boosts to 4.6 GHz instead of 4.7 GHz). GPU: 'Intel Arc B370 GPU' entry (57 samples, "
     "mostly Panther Lake-H laptops at higher power).",
     "Intel brands it 'Intel Arc G3 Processor' (processor number G3); no Core Ultra model number. Used by the MSI "
