@@ -315,6 +315,7 @@ a.ibtn { text-decoration: none; }
 .lbar-k { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-width: 0; }
 .lbar-k .lbl { margin-right: 4px; }
 .lbar-k .lkey { margin-left: auto; }
+.lbar > .lkey .ckl { display: none; }
 .pkey { font-size: 11.5px; color: var(--fg-2); margin-left: 12px; }
 .lbar-k > .pkey:first-child { margin-left: auto; }
 .lbar-r .segs[aria-label="Layout"] { margin-left: 12px; }
@@ -345,10 +346,11 @@ a.ibtn { text-decoration: none; }
 .tbl td.c-soc .cs { max-width: 140px; }
 .tbl .dpill { background: none; padding: 0; }
 /* A soft right edge says the table scrolls sideways. */
-.tblw.can-r { -webkit-mask-image: linear-gradient(to left, transparent 0, #000 48px); mask-image: linear-gradient(to left, transparent 0, #000 48px); }
+.tblw.can-r { border-right: 1px solid var(--border-strong); }
 .thb { padding: 2px 4px; margin: -2px -4px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
 .thb:hover { background: var(--bg-subtle); color: var(--fg); }
-.srt { opacity: 0; }
+.thb { position: relative; }
+.srt { opacity: 0; position: absolute; left: 100%; }
 .tbl th:hover .srt, .thb:focus-visible .srt { opacity: .6; }
 .thb:hover .srt { opacity: 1; }
 .tbl td { padding: 8px 8px 8px 0; vertical-align: top; border-bottom: 1px solid var(--border); white-space: nowrap; }
@@ -360,7 +362,7 @@ a.ibtn { text-decoration: none; }
 .dwrap > div { flex: 1; min-width: 0; }
 .dwrap .refb { margin: -3px -4px 0 0; border: 1px solid transparent; background: transparent; min-width: 28px; min-height: 28px; border-radius: 6px; }
 .tbl tbody tr:hover .dwrap .refb, .dwrap .refb:focus-visible { border-color: var(--border-strong); background: var(--bg); }
-.dwrap .refb[aria-pressed="true"] { background: var(--bg); color: var(--fg-brand); border-color: var(--accent); }
+.dwrap .refb[aria-pressed="true"] { background: var(--bg-brand); color: var(--fg-onbrand); border-color: var(--bg-brand); }
 .dev-b { font-size: 11px; color: var(--fg-2); font-weight: 500; }
 .dtag { margin-left: 6px; }
 .dev-n { font-weight: 700; font-size: 13px; line-height: 1.3; }
@@ -393,7 +395,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .empty p { max-width: 46ch; }
 .empty .btn-p { margin-top: 10px; }
 .empty-ic { width: 64px; height: 64px; padding: 16px; border-radius: 50%; background: var(--bg-subtle); stroke-width: 1.5; color: var(--fg-2); margin-bottom: 6px; }
-#scr-browse.is-empty .lbar-r, #scr-browse.is-empty .lbar-k, #scr-browse.is-empty .foot, #scr-browse.is-empty #fx-clear { display: none; }
+#scr-browse.is-empty .lbar-r, #scr-browse.is-empty .lbar-k, #scr-browse.is-empty .lkey, #scr-browse.is-empty .foot, #scr-browse.is-empty #fx-clear { display: none; }
 .foot { font-size: 11.5px; color: var(--fg-2); max-width: 72ch; }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; padding: 12px; }
@@ -455,13 +457,14 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage.dots { background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 14px 14px 30px; }
 .stage2d svg { width: 100%; height: 100%; overflow: visible; }
 .stage2d .shp { fill: var(--c); fill-opacity: .04; stroke: var(--c); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
-.stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1.25; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
+.stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1.25; stroke-opacity: .4; vector-effect: non-scaling-stroke; }
 .stage2d .grip { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 4 3; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
 .stage2d .shp.lid { fill-opacity: .03; }
 /* Overlay: outlines only, so the fills never mix. The reference keeps a light fill. */
 .stage2d.ov .shp { fill-opacity: 0; }
 .stage2d .s3 .shp, .hart .s3 .shp { stroke-width: 2.6; stroke-linecap: round; }
 .stage2d.ov .rf .shp { fill: var(--fg-2); fill-opacity: .08; }
+.stage2d .rf .scr { stroke-opacity: .85; }
 .stage2d .shp.mod { fill-opacity: .22; }
 .sil .o.mod, .dstage .o.mod { fill: var(--slice); }
 .stage2d .hinge, .sil .hinge, .dstage .hinge { stroke: var(--fg-2); stroke-width: 1; stroke-dasharray: 3 2; stroke-opacity: .8; vector-effect: non-scaling-stroke; }
@@ -564,7 +567,7 @@ button.tag:hover { filter: brightness(.95); }
 .dstage svg { width: 100%; max-height: 320px; overflow: visible; }
 .dstage .o { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
 .dstage .scr { fill: var(--slice); }
-.dstage .dim { fill: none; stroke: var(--accent); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
+.dstage .dim { fill: none; stroke: var(--fg-2); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
 .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--border); }
 .tile { padding: 10px 12px; border-left: 1px solid var(--border); min-width: 0; }
 .tile:first-child { border-left: 0; }
@@ -590,7 +593,7 @@ button.tag:hover { filter: brightness(.95); }
 .tcard .dev-b { font-size: 12px; font-weight: 600; }
 .tcard h1 { margin: 2px 0; outline: none; }
 .tmeta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.tmeta .price { font-size: 20px; }
+.tmeta .price { font-size: 20px; font-family: var(--f-mono); }
 .dact { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .skey { font-size: 12px; color: var(--fg-2); }
 .skey-d { text-decoration: underline dotted; text-decoration-color: var(--fg-2); text-decoration-thickness: 1.5px; text-underline-offset: 3px; color: var(--fg); }
@@ -1633,8 +1636,8 @@ button.tag:hover { filter: brightness(.95); }
     if (ref) h += '<span class="refpill">' + I.targetS + "Reference: <strong>" + esc(ref._short) + '</strong><span class="pin">pinned first</span><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear reference" aria-label="Clear reference">' + I.x + "</button></span>";
     /* Row 1: count, reference, sort and the view switch. The verdict key and the column chips take row 2. */
     const lay = isNarrow() ? "" : '<div class="segs sm" role="group" aria-label="Layout">' + seg("layout", "table", I.table + "Table", state.layout === "table", "lay-table") + seg("layout", "cards", I.cards + "Cards", state.layout === "cards", "lay-cards") + "</div>";
-    const key = isNarrow() ? "" : (ref ? VKEY.replace('class="ckey"', 'class="ckey lkey"') : "") + (cards ? '<span class="pkey"><span class="pmark-demo">*</span> not a retail MSRP</span>' : "");
-    if (cards) h += '<div class="lbar-r">' + '<span class="lbl">Sort</span><div class="segs sm" role="group" aria-label="Sort">' + [["g3d", "G3D"], ["cpu", "CPU"], ["price", "Price"], ["weight", "Weight"], ["battery", "Battery"]].map(([k, l]) => seg("sort", k, l + (state.sortK === k ? (state.sortDir < 0 ? " ↓" : " ↑") : ""), state.sortK === k, "sort-c-" + k)).join("") + "</div>" + lay + "</div>" + (key ? '<div class="lbar-k">' + key + "</div>" : "");
+    const key = isNarrow() || !ref ? "" : VKEY.replace('class="ckey"', 'class="ckey lkey"');
+    if (cards) h += key + '<div class="lbar-r">' + '<span class="lbl">Sort</span><div class="segs sm" role="group" aria-label="Sort">' + [["g3d", "G3D"], ["cpu", "CPU"], ["price", "Price"], ["weight", "Weight"], ["battery", "Battery"]].map(([k, l]) => seg("sort", k, l + (state.sortK === k ? (state.sortDir < 0 ? " ↓" : " ↑") : ""), state.sortK === k, "sort-c-" + k)).join("") + "</div>" + lay + "</div>";
     else h += '<div class="lbar-r">' + lay + '</div><div class="lbar-k"><span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("") +
       '<button type="button" class="tmore" id="tmore" data-act="tbl-more" hidden>More columns' + I.arrow + "</button>" + key + "</div>";
     $("#lbar").innerHTML = h;
@@ -1671,13 +1674,13 @@ button.tag:hover { filter: brightness(.95); }
   }
   function refBtn(d, isRef, prefix) {
     const id = esc(d.id);
-    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Set as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + I.target + "</button>";
+    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Set as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + I.targetS + "</button>";
   }
   function rowHtml(d, cols, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
       '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-b">' + esc(d.brand) + (isRef ? '<span class="tag ref dtag">Reference</span>' : "") + '</div><button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-b">' + esc(d.brand) + "" + '</div><button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
       cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
@@ -1739,6 +1742,17 @@ button.tag:hover { filter: brightness(.95); }
   function syncTblFade() {
     const w = $("#tblw"), b = $("#tmore");
     if (!w) return;
+    /* At the start of the scroll, end the visible area on a column edge. A cut column reads as broken data. */
+    if (!w.hidden && w.scrollLeft === 0) {
+      w.style.maxWidth = "";
+      const avail = w.clientWidth;
+      if (w.scrollWidth - avail > 1) {
+        const left = w.getBoundingClientRect().left;
+        let edge = 0;
+        $$("#thead th").forEach((th) => { const rr = th.getBoundingClientRect().right - left; if (rr <= avail + 0.5 && rr > edge) edge = rr; });
+        if (edge > 0 && edge < avail) w.style.maxWidth = Math.ceil(edge) + "px";
+      }
+    }
     const more = !w.hidden && w.scrollWidth - w.scrollLeft - w.clientWidth > 1;
     w.classList.toggle("can-r", more);
     if (b) b.hidden = !more;
@@ -1847,7 +1861,7 @@ button.tag:hover { filter: brightness(.95); }
       return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d)) + "</span>" +
         '<button type="button" class="xbtn" id="lrm-' + esc(d.id) + '" data-act="rm" data-id="' + esc(d.id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + ' from the comparison">' + I.x + "</button></div>" +
         '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><svg width="100%" height="6" aria-hidden="true"><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6"/></svg></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
-    }).join("") + (heavy ? '<p class="lg-cap">Bar length = weight. Full bar = ' + mtxt(n0(heavy._w) + " g") + ".</p>" : "") + "</div>";
+    }).join("") + (heavy ? '<p class="lg-cap">Bar length = weight. Full bar = ' + esc(n0(heavy._w)) + "\u00a0g.</p>" : "") + "</div>";
   }
   /* Fit the scale bar to the rendered 2D stage, lay out the 3D slices, and place the grid header. */
   function layoutStage() {
@@ -1958,7 +1972,7 @@ button.tag:hover { filter: brightness(.95); }
   });
   const own = (d, paths) => matchSrc(d.sources, paths);
   /* Mixed text keeps the text face; each run of digits takes the number face. */
-  const numSpans = (t) => esc(t).replace(/(^|[\s(\/,])(\d+(?:[.,–-]\d+)*)(?=[\s\u00a0]?(?:W|Wh|GB|TB|GHz|MHz|CU|mm|g|Hz|TOPS|Gbps|nits|%)\b)/g, (m, pre, num) => pre + '<span class="m">' + num + "</span>");
+  const numSpans = (t) => esc(t);
   function sv(text, list, mono) {
     if (text == null || text === "") return null;
     mono = mono && isNumText(text);
@@ -2502,6 +2516,8 @@ button.tag:hover { filter: brightness(.95); }
   if (!routeFromHash()) go(state.route, state.detailId);
   window.addEventListener("scroll", onScroll, { passive: true });
   $("#tblw").addEventListener("scroll", syncTblFade, { passive: true });
+  /* Web fonts change column widths, so the column-edge stop is measured again once they load. */
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncTblFade);
   /* Another tab wrote the shared state: adopt it without writing back, so two tabs never ping-pong. */
   function syncFromStorage() {
     closeFloating();
