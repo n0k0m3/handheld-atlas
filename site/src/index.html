@@ -9,7 +9,7 @@
   --bg: #ffffff; --bg-page: #f4f6f9; --bg-subtle: #eef1f5; --bg-hover: #f2f4f8; --bg-selected: #e8f2fd; --bg-ref: #e6ebf2;
   --bg-brand: #0768cf; --bg-brand-hover: #0659b3; --accent: #0768cf;
   --fg: #111827; --fg-2: #5f6a7d; --fg-3: #8e98a8; --fg-brand: #0768cf; --fg-onbrand: #ffffff; --fg-onaccent: #ffffff;
-  --border: #e5e8ee; --border-strong: #d5dae3;
+  --border: #e5e8ee; --border-strong: #d5dae3; --border-control: #7d8799;
   --good: #00733c; --good-bg: #e3f6e9; --bad: #c4320a; --bad-bg: #fdece8;
   /* Eight compare hues: blue, orange, magenta, gold, cyan, brown, violet, pink. No slot reads green or red, which mean better and worse.
      Checked with the dataviz validator against the stage (#f4f6f9 light, #191d24 dark): lightness band, chroma floor,
@@ -27,7 +27,7 @@
     --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250; --bg-ref: #2e3646;
     --bg-brand: #1f6fc0; --bg-brand-hover: #1a62ab; --accent: #499fff;
     --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
-    --border: #303641; --border-strong: #424b59;
+    --border: #303641; --border-strong: #424b59; --border-control: #75808f;
     --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
     --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #c25cb8; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
     --slice: #424b59; --slice-back: #111318;
@@ -39,7 +39,7 @@
   --bg: #222731; --bg-page: #191d24; --bg-subtle: #2b313d; --bg-hover: #272d38; --bg-selected: #1a3250; --bg-ref: #2e3646;
   --bg-brand: #1f6fc0; --bg-brand-hover: #1a62ab; --accent: #499fff;
   --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
-  --border: #303641; --border-strong: #424b59;
+  --border: #303641; --border-strong: #424b59; --border-control: #75808f;
   --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
   --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #c25cb8; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
   --slice: #424b59; --slice-back: #111318;
@@ -381,7 +381,7 @@ a.ibtn { text-decoration: none; }
 .dwrap { display: flex; align-items: flex-start; gap: 6px; }
 .dwrap > div { flex: 1; min-width: 0; }
 .dwrap .refb { margin: -3px -4px 0 0; border: 1px solid transparent; background: transparent; min-width: 28px; min-height: 28px; border-radius: 6px; }
-.dwrap .refb:not([aria-pressed="true"]) { color: var(--fg-3); }
+.dwrap .refb:not([aria-pressed="true"]) { color: var(--border-control); }
 .tbl tbody tr:hover .dwrap .refb, .dwrap .refb:focus-visible { border-color: var(--border-strong); background: var(--bg); color: var(--fg-brand); }
 .dwrap .refb[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .dev-b { font-size: 11px; color: var(--fg-2); font-weight: 500; }
@@ -403,7 +403,7 @@ a.ibtn { text-decoration: none; }
 .dpill .tri.o { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .dpill.dn { color: var(--bad); background: var(--bad-bg); }
 .dpill.refp { color: var(--fg-brand); background: var(--bg-selected); }
-input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border-strong); background: transparent; cursor: pointer; display: grid; place-items: center; }
+input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--border-control); background: transparent; cursor: pointer; display: grid; place-items: center; }
 .qbox:checked { background: var(--accent); border-color: var(--accent); }
 .qbox:checked::after { content: ""; width: 9px; height: 5px; border-left: 2.5px solid var(--fg-onaccent); border-bottom: 2.5px solid var(--fg-onaccent); transform: translateY(-1px) rotate(-45deg); }
 .qbox:disabled { opacity: .35; cursor: default; }
@@ -719,6 +719,8 @@ button.tag:hover { filter: brightness(.95); }
   .lbar-r { margin-left: 0; width: 100%; }
   #scr-browse .phead .lede { display: none; }
   .lg-w { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .lg-t { flex-wrap: wrap; }
+  .lg-t .m { order: 3; flex-basis: 100%; padding-left: 28px; }
   .size-c .grp-c .lbl { min-width: 44px; }
   .cnt-w, .badge-w, .lkey, .refpill .pin, .scr-k { display: none; }
   .badge-p { display: inline; }
@@ -1732,7 +1734,7 @@ button.tag:hover { filter: brightness(.95); }
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
       '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + (isRef ? '<span class="pin-t" title="Stays on top while it is the reference">Reference</span> · ' : "") + esc(cols.some((c) => c.k === "soc") ? [d.release_date ? d.release_date.slice(0, 4) : STATUS[d.status] || "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + (isRef ? '<span class="pin-t" title="Stays on top while it is the reference">Reference</span> · ' : "") + esc(cols.some((c) => c.k === "soc") ? [d.status && d.status !== "shipped" ? STATUS[d.status] || "" : "", d.release_date ? d.release_date.slice(0, 4) : "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
       cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
