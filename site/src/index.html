@@ -2481,7 +2481,8 @@ button.tag:hover { filter: brightness(.95); }
   /* Back and Forward show the screen in the address. They never read the ?d= list: the list may have changed since that entry. */
   if (PATHS) {
     try { history.scrollRestoration = "manual"; } catch (e) { /* go() sets the scroll */ }
-    window.addEventListener("popstate", () => { popNav = true; userNav = true; try { routeFromPath(); } finally { popNav = false; } });
+    /* A #token typed into the address bar fires popstate before hashchange, so read it here before the path rewrite drops it. */
+    window.addEventListener("popstate", () => { popNav = true; userNav = true; try { if (!routeFromHash()) routeFromPath(); } finally { popNav = false; } });
   }
   /* A shared link /compare?d=a,b&ref=a replaces the compare list and the reference on a fresh page load only.
      When the visitor had a different list, the Compare screen offers it back for this session. */
