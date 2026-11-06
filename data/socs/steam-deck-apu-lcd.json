@@ -35,7 +35,7 @@
     "g3d_samples": 118,
     "gpu_url": "https://www.videocardbenchmark.net/gpu.php?gpu=Custom+GPU+0405&id=4528",
     "fetched": "2026-10-27",
-    "mapping_note": "CPU: PassMark has no 'AMD Custom APU 0405' entry (its PassMark CPU pages return 404; it is absent from the full CPU list). Stand-in: 'AMD Custom APU 0932' (Steam Deck OLED APU: same 4C/8T Zen 2 at 2.4-3.5 GHz, 6 nm). GPU: exact entry 'Custom GPU 0405'."
+    "mapping_note": "CPU: PassMark has no 'AMD Custom APU 0405' entry (PassMark's pages for this chip return 404; it is absent from the full CPU list). Stand-in: 'AMD Custom APU 0932' (Steam Deck OLED APU: same 4C/8T Zen 2 at 2.4-3.5 GHz, 6 nm). GPU: exact entry 'Custom GPU 0405'."
   },
   "notes": "Valve gives 4-15 W APU power; default set to the 15 W maximum. AMD part number 100-000000405 (TPU). tflops_fp32 is Valve's stated 1.6 TFLOPS. npu_tops 0: the vendor spec page lists no AI engine (NPU absent or fused off). igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
   "unresolved": [],

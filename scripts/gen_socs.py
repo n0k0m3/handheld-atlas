@@ -242,7 +242,7 @@ ROWS["steam-deck-apu-lcd"] = row(
     (15, 4, 15), 7, "TSMC 7nm (Valve: 7 nm; foundry per TPU)", 0,
     "16 GB LPDDR5-5500 on-board, quad 32-bit channels", "2022-02-25",
     ("AMD Custom GPU 0405", 8, "RDNA 2", 1600, 1.6), "0932", "0405",
-    "CPU: PassMark has no 'AMD Custom APU 0405' entry (its PassMark CPU pages return 404; it is absent from "
+    "CPU: PassMark has no 'AMD Custom APU 0405' entry (PassMark's pages for this chip return 404; it is absent from "
     "the full CPU list). Stand-in: 'AMD Custom APU 0932' (Steam Deck OLED APU: same 4C/8T Zen 2 at "
     "2.4-3.5 GHz, 6 nm). GPU: exact entry 'Custom GPU 0405'.",
     "Valve gives 4-15 W APU power; default set to the 15 W maximum. AMD part number 100-000000405 (TPU). "
