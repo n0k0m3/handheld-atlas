@@ -14,6 +14,7 @@ The claude.ai Artifact viewer enforces these rules on `site/dist/artifact.html`.
 ## Title
 
 - `<title>` is a product name, two to four words: `Handheld Atlas`. No explainer after a dash or colon. Keep it the same across redeploys.
+- Only in path mode (the surge.sh site, see Design notes) does the script set `document.title` per screen: `<device name> · Handheld Atlas`, `Browse handhelds · Handheld Atlas`, `<A> vs <B> · Handheld Atlas` for up to three compared devices or `Compare N handhelds · Handheld Atlas`, and `Handheld Atlas` on Home. The static `<title>` and the Artifact's title do not change.
 
 ## External resources (CSP enforced)
 

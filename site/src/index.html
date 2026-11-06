@@ -2439,6 +2439,14 @@ button.tag:hover { filter: brightness(.95); }
     if (forcedTheme) q.push("theme=" + forcedTheme);
     return (route === "home" ? "/" : "/" + (route === "detail" ? id : route)) + (q.length ? "?" + q.join("&") : "");
   }
+  /* Path mode names each screen in the tab and the history list. The Artifact keeps its one fixed title (CONTRACT.md). */
+  function titleFor() {
+    const T = "Handheld Atlas", d = state.route === "detail" ? BY_ID[state.detailId] : null, q = state.queue.map((id) => BY_ID[id]).filter(Boolean);
+    if (d) return d._name + " · " + T;
+    if (state.route === "browse") return "Browse handhelds · " + T;
+    if (state.route === "compare") return (q.length && q.length <= 3 ? q.map((x) => x._short).join(" vs ") : q.length ? "Compare " + plural(q.length, "handheld") : "Compare") + " · " + T;
+    return T;
+  }
   /* A push records the screen it came from, so "Back to list" can step back instead of adding an entry. */
   function writeUrl(push, from) {
     const u = urlFor(state.route, state.detailId);
@@ -2447,6 +2455,8 @@ button.tag:hover { filter: brightness(.95); }
       else if (push) history.pushState({ from: from }, "", u);
       else if (location.pathname + location.search + location.hash !== u) history.replaceState(history.state, "", u);
     } catch (e) { /* the viewer may refuse */ }
+    /* After the push, so the entry we left keeps its own title. */
+    if (PATHS) document.title = titleFor();
   }
   function go(route, id) {
     if (route === "detail" && !(id && hasKey(BY_ID, id))) route = "browse";
