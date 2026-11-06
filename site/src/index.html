@@ -644,8 +644,8 @@ button.tag:hover { filter: brightness(.95); }
   .xbtn { min-width: 32px; min-height: 32px; }
   .lbar-r { margin-left: 0; width: 100%; }
   .cnt-w, .badge-w, .lkey, .refpill .pin { display: none; }
-  .badge-p { display: inline-grid; place-items: center; }
-  .badge { padding-left: 10px; }
+  .badge-p { display: inline; }
+  #gh-link { display: none; }
   .dd-a { min-height: 32px; }
   .bgrid { grid-template-columns: minmax(0, 1fr); }
   .side { display: none; }
@@ -693,7 +693,7 @@ button.tag:hover { filter: brightness(.95); }
         <svg class="ic" id="ic-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
         <svg class="ic" id="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
       </button>
-      <button type="button" class="badge" id="badge" data-act="badge" aria-expanded="false" aria-controls="qpop"><span class="badge-w">Compare list</span><span class="badge-p" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></span><span class="sr">Compare list</span><span class="badge-n" id="badge-n">0/4</span></button>
+      <button type="button" class="badge" id="badge" data-act="badge" aria-expanded="false" aria-controls="qpop"><span class="badge-w">Compare list</span><span class="badge-p">Compare</span><span class="badge-n" id="badge-n">0/4</span></button>
       <div class="qpop" id="qpop" hidden></div>
     </div>
   </div>
