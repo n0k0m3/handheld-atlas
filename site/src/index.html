@@ -337,9 +337,10 @@ a.ibtn { text-decoration: none; }
 .tbl th.num, .tbl td.num { text-align: right; padding-left: 10px; }
 .tbl .dpill.eq { display: none; }
 .tbl td.num .cs { max-width: none; white-space: nowrap; }
+.tbl td.c-soc .cs { max-width: 140px; }
 .tbl .dpill { background: none; padding: 0; }
 /* A soft right edge says the table scrolls sideways. */
-.tblw.can-r { -webkit-mask-image: linear-gradient(to left, transparent 0, #000 80px); mask-image: linear-gradient(to left, transparent 0, #000 80px); }
+.tblw.can-r { -webkit-mask-image: linear-gradient(to left, transparent 0, #000 48px); mask-image: linear-gradient(to left, transparent 0, #000 48px); }
 .thb { padding: 2px 4px; margin: -2px -4px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
 .thb:hover { background: var(--bg-subtle); color: var(--fg); }
 .srt { opacity: .45; }
@@ -348,11 +349,11 @@ a.ibtn { text-decoration: none; }
 .tbl td:first-child { padding: 10px 8px 10px 12px; }
 .tbl tbody tr:hover { background: var(--bg-hover); }
 .tbl tbody tr.ref { background: var(--bg-ref); }
-.dcell { min-width: 190px; max-width: 236px; white-space: normal; }
+.dcell { min-width: 180px; max-width: 220px; white-space: normal; }
 .dwrap { display: flex; align-items: flex-start; gap: 6px; }
 .dwrap > div { flex: 1; min-width: 0; }
 .dwrap .refb { margin: -3px -4px 0 0; border: 1px solid var(--border-strong); background: var(--bg); min-width: 28px; min-height: 28px; border-radius: 6px; }
-.dwrap .refb[aria-pressed="true"] { background: var(--bg-brand); color: var(--fg-onbrand); border-color: var(--bg-brand); }
+.dwrap .refb[aria-pressed="true"] { background: var(--bg); color: var(--fg-brand); border-color: var(--accent); }
 .dev-b { font-size: 11px; color: var(--fg-2); font-weight: 500; }
 .dtag { margin-left: 6px; }
 .dev-n { font-weight: 700; font-size: 13px; line-height: 1.3; }
@@ -414,11 +415,13 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stat-dk { margin-left: 4px; font-size: 11px; color: var(--fg-2); }
 .stat-x { font-weight: 400; color: var(--fg-2); }
 .stat-d .dpill { margin: 0; background: none; padding: 0; }
+.stat-d .dpill.eq, .stat-d .dpill.eq + .stat-dk { visibility: hidden; }
 .card-f { display: flex; gap: 6px; margin-top: auto; }
 .card-f .addb:first-child { flex: 1; min-width: 0; }
 .addb { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 10px; border-radius: 6px; font-weight: 700; border: 1px solid var(--border-strong); background: var(--bg); white-space: nowrap; }
 .addb .ic { width: 14px; height: 14px; }
-.addb.refc { justify-content: center; gap: 6px; font-weight: 600; color: var(--fg-2); }
+.addb.refc { justify-content: center; gap: 6px; font-weight: 600; color: var(--fg); }
+.addb.refc:not([aria-pressed="true"]) .ic, .tag.off .ic, .dact .btn-o:not([aria-pressed="true"]) .ic { color: var(--fg-brand); }
 .addb.refc:not([aria-pressed="true"]):hover { background: var(--bg-selected); }
 .addb.refc .ic { width: 12px; height: 12px; }
 .addb.refc:hover { color: var(--fg-brand); }
@@ -485,6 +488,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .lg-w > :last-child { justify-self: end; }
 .lg-w .ic { color: var(--fg-2); }
 .wbar { flex: 1; height: 6px; background: var(--bg-subtle); border-radius: 3px; overflow: hidden; }
+.wbar svg { display: block; overflow: hidden; }
+.lg-cap { font: 11px var(--f-mono); color: var(--fg-2); padding: 2px 2px 0; }
 .wbar i { display: block; height: 100%; border-radius: 3px; background: var(--c); }
 .lg-w .m { font-weight: 600; font-size: 12px; text-align: right; white-space: nowrap; }
 .lg-w .dpill { margin: 0; min-width: 52px; text-align: center; }
@@ -516,7 +521,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .tag.ref { background: var(--bg-brand); color: var(--fg-onbrand); }
 .ccol-f .tag { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; font-size: 12px; padding: 2px 8px; }
 .ccol-f .tag .ic { width: 12px; height: 12px; }
-.tag.off { background: var(--bg); border: 1px solid var(--border-strong); color: var(--fg-2); font-weight: 600; }
+.tag.off { background: var(--bg); border: 1px solid var(--border-strong); color: var(--fg); font-weight: 600; }
 .tag.off:hover { color: var(--fg-brand); filter: none; }
 .ccol-f .tag.ref:hover { background: var(--bg-brand-hover); filter: none; }
 button.tag:hover { filter: brightness(.95); }
@@ -529,6 +534,7 @@ button.tag:hover { filter: brightness(.95); }
 .cgrid.diff { background: var(--bg-selected); }
 .clbl { padding: 9px 12px; color: var(--fg-2); font-weight: 500; }
 .ccell { padding: 9px 12px; border-left: 1px solid var(--border); min-width: 0; }
+.ccell.slot { background: var(--bg); border-left-color: transparent; }
 .ccell.ref { background: var(--bg-ref); box-shadow: inset 1px 0 0 var(--border-strong), inset -1px 0 0 var(--border-strong); }
 .ccell .v { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .ccell .ct { white-space: normal; }
@@ -581,7 +587,6 @@ button.tag:hover { filter: brightness(.95); }
 .dact .btn-p[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .dact .btn-p:disabled { opacity: .4; }
 .dact .btn-o { display: inline-flex; align-items: center; gap: 6px; }
-.dact .btn-o:not([aria-pressed="true"]) { color: var(--fg-2); }
 .dact .btn-o .ic { width: 14px; height: 14px; }
 .dact .btn-o[aria-pressed="true"] { background: var(--bg-brand); color: var(--fg-onbrand); border-color: var(--bg-brand); }
 .sgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
@@ -650,6 +655,7 @@ button.tag:hover { filter: brightness(.95); }
   .segs.sm .seg, .chip { min-height: 32px; }
   .xbtn { min-width: 32px; min-height: 32px; }
   .lbar-r { margin-left: 0; width: 100%; }
+  #scr-browse .phead .lede { display: none; }
   .lg-t { flex-wrap: wrap; }
   .lg-t .m { order: 3; width: 100%; padding-left: 28px; }
   .cnt-w, .badge-w, .lkey, .refpill .pin, .scr-k { display: none; }
@@ -714,7 +720,7 @@ button.tag:hover { filter: brightness(.95); }
     <p class="eyebrow" id="home-eyebrow">x86 handhelds · 2022 onward</p>
     <h1 class="hero" id="home-h1" tabindex="-1">Find your next handheld</h1>
     <p class="lede">Every x86 handheld gaming PC since 2022. True-scale outlines, PassMark scores per chip, and a side-by-side diff for up to eight devices.</p>
-    <div class="hcta"><button type="button" class="btn-p" data-act="go" data-route="browse">Browse the devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button><button type="button" class="btn-o" data-act="go" data-route="compare">Open the comparison</button></div>
+    <div class="hcta"><button type="button" class="btn-p" data-act="go" data-route="browse">Browse the devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button><button type="button" class="btn-o" data-act="go" data-route="compare">Open Compare</button></div>
     <div class="hstats"><div class="hstat"><b id="home-n">–</b><span>devices</span></div><div class="hstat"><b id="home-socs">–</b><span>chips</span></div><div class="hstat"><b id="home-traced">–</b><span>traced outlines</span></div></div>
    </div>
    <figure class="panel hart" id="home-art" hidden></figure>
@@ -984,7 +990,7 @@ button.tag:hover { filter: brightness(.95); }
   const COLS = [
     { k: "price", g: "Price", label: "MSRP", v: (d) => d.msrp_usd, t: priceTxt, mark: pmark, low: true, num: true },
     { k: "weight", g: "Size", label: "Weight", v: (d) => d._w, t: (d) => (d._w != null ? n0(d._w) + " g" : "—"), low: true, num: true,
-      sub: (d) => { const w = wH(d); return [w.measured == null && w.stated != null ? "stated" : "", ext(d) ? "with pack" : ""].filter(Boolean).join(", "); } },
+      sub: (d) => { const w = wH(d); return [w.measured == null && w.stated != null ? "stated" : "", ext(d) ? "w/ pack" : ""].filter(Boolean).join(", "); } },
     { k: "dims", g: "Size", label: "W × H × D mm", v: (d) => { const h = dimsH(d); return h.w && h.h && h.d ? h.w * h.h * h.d : null; },
       t: (d) => { const h = dimsH(d); return h.w ? mm(h.w) + "×" + mm(h.h) + "×" + mm(h.d) : "—"; }, sub: (d) => (dimsH(d).d_max != null ? "grip " + mm(dimsH(d).d_max) : ""), nodelta: true, num: true },
     { k: "soc", g: "Performance", label: "SoC", v: (d) => socName(d.soc_id), t: (d) => socName(d.soc_id), sub: (d) => (((socOf(d) || {}).igpu || {}).name || ""), text: true },
@@ -1739,7 +1745,7 @@ button.tag:hover { filter: brightness(.95); }
   function syncLayout() {
     placeFilterPanel();
     $("#lpanel").classList.toggle("flat", effLayout() === "cards");
-    $("#hq").placeholder = isNarrow() ? "Add a device" : "Add to compare: type a device name";
+    $("#hq").placeholder = isNarrow() ? "Add a device" : "Add a device to compare";
     renderListBar(); applyList();
   }
   let applyRaf = 0;
@@ -1824,12 +1830,13 @@ button.tag:hover { filter: brightness(.95); }
   }
   function legendHtml(cols, cref, hasRef) {
     const maxW = Math.max(1, ...cols.map((d) => d._w || 0));
+    const heavy = cols.reduce((a, d) => (d._w != null && (a == null || d._w > a._w) ? d : a), null);
     return '<div class="legend">' + cols.map((d, i) => {
       const isR = cref && d.id === cref.id, dl = !isR && cref ? delta(d._w, cref._w, true) : null, dm = dimsH(d);
       return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d)) + "</span>" +
         '<button type="button" class="xbtn" id="lrm-' + esc(d.id) + '" data-act="rm" data-id="' + esc(d.id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + ' from the comparison">' + I.x + "</button></div>" +
-        '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><i style="width:' + ((d._w || 0) / maxW * 100).toFixed(1) + '%"></i></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
-    }).join("") + "</div>";
+        '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><svg width="100%" height="6" aria-hidden="true"><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6;stroke-dasharray:' + (DASH[i] === "none" ? "none" : DASH[i].split(" ").map((x) => x * 2).join(" ")) + '"/></svg></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
+    }).join("") + (heavy ? '<p class="lg-cap">Bar = weight; longest = ' + esc(n0(heavy._w)) + " g</p>" : "") + "</div>";
   }
   /* Fit the scale bar to the rendered 2D stage, lay out the 3D slices, and place the grid header. */
   function layoutStage() {
@@ -1924,7 +1931,7 @@ button.tag:hover { filter: brightness(.95); }
         row.cells.forEach((c) => {
           h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + esc(c.text) + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">★ Best</span>' : "") + "</div></div>";
         });
-        if (slot) h += '<div class="ccell"></div>';
+        if (slot) h += '<div class="ccell slot"></div>';
         h += "</div>";
       });
     });
@@ -1939,13 +1946,15 @@ button.tag:hover { filter: brightness(.95); }
     return f !== "*" && paths.some((p) => f === p || f.startsWith(p + ".") || p.startsWith(f + "."));
   });
   const own = (d, paths) => matchSrc(d.sources, paths);
+  /* Mixed text keeps the text face; each run of digits takes the number face. */
+  const numSpans = (t) => esc(t).replace(/\d[\d.,–\-\/×:]*/g, (m) => '<span class="m">' + m + "</span>");
   function sv(text, list, mono) {
     if (text == null || text === "") return null;
     mono = mono && isNumText(text);
     text = String(text).replace(/(\d) (W|Wh|GB|TB|Gbps|mm|g|Hz|GHz|MHz|CU|TOPS|nits)\b/g, "$1\u00a0$2");
-    if (!list || !list.length) return mono ? '<span class="m">' + esc(text) + "</span>" : esc(text);
+    if (!list || !list.length) return mono ? '<span class="m">' + esc(text) + "</span>" : numSpans(text);
     drSrc.push(list);
-    return '<button type="button" class="sv' + (mono ? " m" : "") + '" id="sv-' + (drSrc.length - 1) + '" data-act="sv" data-si="' + (drSrc.length - 1) + '" aria-expanded="false" aria-haspopup="dialog">' + esc(text) + "</button>";
+    return '<button type="button" class="sv' + (mono ? " m" : "") + '" id="sv-' + (drSrc.length - 1) + '" data-act="sv" data-si="' + (drSrc.length - 1) + '" aria-expanded="false" aria-haspopup="dialog">' + (mono ? esc(text) : numSpans(text)) + "</button>";
   }
   const sub = (t) => (t ? '<span class="sub">' + esc(t) + "</span>" : "");
   const mtxt = (t) => '<span class="m">' + esc(t) + "</span>";
@@ -1985,9 +1994,9 @@ button.tag:hover { filter: brightness(.95); }
       const so = (paths) => matchSrc(s.sources, paths);
       const pm = s.passmark || {}, t = s.tdp_w || {}, g = s.igpu || {};
       R.push(["Maker", esc([s.vendor, s.codename].filter(Boolean).join(" · "))]);
-      R.push(["CPU", esc([s.cores ? s.cores + "C / " + (s.threads || "?") + "T" : null, s.core_mix || null, s.boost_ghz ? "up to " + s.boost_ghz + "\u00a0GHz" : null].filter(Boolean).join(", ")) || null]);
-      R.push(["GPU", esc([g.name || null, g.cu ? g.cu + "\u00a0CU" : null, g.arch || null].filter(Boolean).join(", ")) || null]);
-      if (t.min != null || t.max != null) R.push(["TDP", t.default != null ? esc((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + "\u00a0W, default " + t.default + "\u00a0W") : mtxt((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + " W")]);
+      R.push(["CPU", numSpans([s.cores ? s.cores + "C / " + (s.threads || "?") + "T" : null, s.core_mix || null, s.boost_ghz ? "up to " + s.boost_ghz + "\u00a0GHz" : null].filter(Boolean).join(", ")) || null]);
+      R.push(["GPU", numSpans([g.name || null, g.cu ? g.cu + "\u00a0CU" : null, g.arch || null].filter(Boolean).join(", ")) || null]);
+      if (t.min != null || t.max != null) R.push(["TDP", t.default != null ? numSpans((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + "\u00a0W, default " + t.default + "\u00a0W") : mtxt((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + " W")]);
       if (s.npu_tops != null) R.push(["NPU", s.npu_tops === 0 ? "None" : mtxt(s.npu_tops + " TOPS")]);
       if (pm.cpu_mark != null) R.push(["CPU Mark", sv(n0(pm.cpu_mark), so(["passmark.cpu_mark"]), true) + (pm.cpu_samples != null ? sub(n0(pm.cpu_samples) + " samples") : "")]);
       if (pm.single_thread != null) R.push(["Single thread", sv(n0(pm.single_thread), so(["passmark.single_thread", "passmark.cpu_mark"]), true)]);
@@ -2118,7 +2127,7 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="btn-o" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear the reference" : "Compare every device against this one") + '">' + (isR ? I.check + "Reference" : I.target + "Set as reference") + "</button>" +
-      '<button type="button" class="btn-t" data-act="go" data-route="compare">Open comparison (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
+      '<button type="button" class="btn-t" data-act="go" data-route="compare">Open Compare (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
     /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order;
        on one column, "order" puts them back in that order. */
     const G = [grp("Size & weight", grpSize(d)), grp("Compute", grpCompute(d)), grp("Storage & ports", grpStorage(d)), grp("Screen", grpScreen(d)),
