@@ -2215,7 +2215,7 @@ button.tag:hover { filter: brightness(.95); }
     const soc = socOf(d), pm = (soc && soc.passmark) || {};
     const rank = (k) => { const vals = [...new Set(DEV.map((x) => scoreOf(x, k)).filter((x) => x != null))].sort((a, b) => b - a); const r = vals.indexOf(scoreOf(d, k)); return r < 0 ? "" : "rank " + (r + 1) + " of " + vals.length; };
     const tile = (l, v) => '<div class="tile"><div class="stat-l">' + l + '</div><div class="v">' + esc(v) + "</div></div>";
-    let h = '<div><button type="button" class="btn-t" data-act="go" data-route="browse">' + I.back + 'Back to list</button></div><div class="dgrid"><div class="dcol">';
+    let h = '<div><button type="button" class="btn-t" id="dt-back" data-act="go" data-route="browse">' + I.back + 'Back to list</button></div><div class="dgrid"><div class="dcol">';
     const TH = sh.h, B = TH + pad * 1.4;
     h += '<div class="panel"><div class="dstage"><svg viewBox="' + [r2(-pad), r2(-pad), r2(W + pad * 2), r2(TH + pad * 2.4)].join(" ") + '" role="img" aria-label="Outline of ' + esc(d._name) + ", " + (o.kind === "traced" ? "traced" : "spec box") + (isClam(d) ? ", drawn open" : "") + '">' +
       partsSvg(sh, "o") + scrRect(sh.screen, "scr") +
@@ -2238,7 +2238,7 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear the reference" : "Compare every device against this one") + '">' + (isR ? I.check + "Reference" : I.target + "Set as reference") + "</button>" +
-      '<button type="button" class="btn-t" data-act="go" data-route="compare">Open Compare (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
+      '<button type="button" class="btn-t" id="dt-cmp" data-act="go" data-route="compare">Open Compare (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
     /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order.
        Where the sheet is one column (sheetOne), the cards go out as one list in reading order. */
     const G = [grp("Size & weight", grpSize(d)), grp("Compute", grpCompute(d)), grp("Storage & ports", grpStorage(d)), grp("Screen", grpScreen(d)),
@@ -2555,7 +2555,11 @@ button.tag:hover { filter: brightness(.95); }
     rsz = setTimeout(() => {
       measureHdr(); syncStickyPad(); syncTblFade();
       if (state.route === "detail") {
-        if ($("#scr-detail").dataset.one !== (sheetOne() ? "1" : "")) { const a = document.activeElement, id = a && a.id && a.closest("#scr-detail") ? a.id : ""; renderDetail(); if (id) focusId(id); }
+        if ($("#scr-detail").dataset.one !== (sheetOne() ? "1" : "")) {
+          /* The popover sits outside #scr-detail. When it holds focus, focus goes back to its value, which keeps its sv-N id. */
+          const a = document.activeElement, id = a && a.id && a.closest("#scr-detail") ? a.id : popBtn && pop.contains(a) ? popBtn.id : "";
+          renderDetail(); if (id) focusId(id);
+        }
         else fitDimText();
       }
       const nw = isNarrow();
