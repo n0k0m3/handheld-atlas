@@ -255,6 +255,8 @@ a.ibtn { text-decoration: none; }
 .fchip .ic { width: 12px; height: 12px; }
 .fchip:hover { background: var(--bad-bg); color: var(--bad); }
 .fp-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--border); font-weight: 700; }
+.fp-t:focus { outline: none; }
+.fp-t:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 .fsec { border-bottom: 1px solid var(--border); }
 .fsec:last-child { border-bottom: 0; }
 .fsec > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 10px 12px; font-weight: 700; font-size: 12.5px; }
@@ -1484,7 +1486,7 @@ button.tag:hover { filter: brightness(.95); }
     $("#topf").innerHTML = '<button type="button" class="topf-h" id="tf-toggle" data-act="tf-toggle" aria-expanded="false" aria-controls="topf-b">Filters <span id="tf-sum"></span></button><div class="topf-b" id="topf-b" hidden></div>';
     const fp = document.createElement("div");
     fp.className = "fpanel"; fp.id = "fpanel";
-    fp.innerHTML = '<div class="fp-h"><span class="fp-t">Filters</span><button type="button" class="btn-t" id="f-reset" data-act="reset-f">Reset filters</button></div>' +
+    fp.innerHTML = '<div class="fp-h"><span class="fp-t" id="fp-t" tabindex="-1">Filters</span><button type="button" class="btn-t" id="f-reset" data-act="reset-f">Reset filters</button></div>' +
       FGROUPS.map((g, i) => '<details class="fsec" id="fs-' + slug(g.name) + '"' + (i < 2 ? " open" : "") + '><summary><span>' + esc(g.name) + '</span><span class="fsec-n" id="fsn-' + slug(g.name) + '"></span></summary>' + g.items.map(fctHtml).join("") + "</details>").join("");
     $("#side").appendChild(fp);
     FACETS.forEach((fc) => {
@@ -1495,7 +1497,7 @@ button.tag:hover { filter: brightness(.95); }
     placeFilterPanel();
   }
   /* The breakpoint hides the old host (and the narrow "Filters" toggle) at once, so the browser drops focus before this runs.
-     The last focused filter control comes back; the toggle hands focus to the panel's first control. Keyboard focus stays in view. */
+     The last focused filter control comes back; the toggle hands focus to the panel's title. Keyboard focus stays in view. */
   let lastFp = null, lastFpKb = false;
   function placeFilterPanel() {
     const fp = $("#fpanel"), host = isNarrow() ? $("#topf-b") : $("#side");
@@ -1505,7 +1507,7 @@ button.tag:hover { filter: brightness(.95); }
     const kb = lastFpKb, tog = !!a && a.id === "tf-toggle" && !isNarrow(), had = !!a && fp.contains(a);
     if (had && isNarrow() && !topOpen) { topOpen = true; $("#tf-toggle").setAttribute("aria-expanded", "true"); $("#topf-b").hidden = false; }
     host.appendChild(fp);
-    const t = tog ? $("#f-reset") : had ? a : null;
+    const t = tog ? $("#fp-t") : had ? a : null;
     if (t && t.isConnected) { t.focus({ preventScroll: true }); if (kb) keepInView(t); }
   }
   let topOpen = false;
@@ -2570,8 +2572,10 @@ button.tag:hover { filter: brightness(.95); }
     if (!own) { render(); return; }
     const id = own.id, row = own.closest("[data-id]"), did = row && row.dataset.id, kb = a.matches(":focus-visible"), val = a.tagName === "INPUT" ? a.value : null;
     render();
-    /* A control the render hid still holds focus until Chrome drops it later, so a hidden control counts as lost. */
-    if (document.activeElement === a && a.offsetParent !== null) return;
+    /* Focus that ends on a visible control stays: the same control, or one the render chose (the filter panel does).
+       A control the render hid can still hold focus until the browser drops it, so a hidden control counts as lost. */
+    const now = document.activeElement;
+    if (now && now !== document.body && now.offsetParent !== null) return;
     /* The text goes back before the focus, so the focus handler opens the search results for it. */
     const el = id && document.getElementById(id);
     if (el && val != null) el.value = val;
