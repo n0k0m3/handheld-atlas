@@ -576,9 +576,10 @@ button.tag:hover { filter: brightness(.95); }
 .ccell.slot { background: var(--bg); border-left-color: transparent; border-bottom-color: transparent; }
 .ccell.ref { background: var(--bg-ref); box-shadow: inset 1px 0 0 var(--border-strong), inset -1px 0 0 var(--border-strong); }
 .ccell .v { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-/* Fixed delta and Best slots line up down a column, but only in cells wide enough for them. */
+/* Fixed delta and Best slots line up down a column, but only in cells wide enough for them.
+   At 212 px the value track (212 - 120 = 92 px) holds the longest compare value, "48/64/128 GB" (90 px). */
 .ccell { container-type: inline-size; }
-@container (min-width: 200px) {
+@container (min-width: 212px) {
   .v:has(.dpill:not(.eq), .best) { display: grid; grid-template-columns: minmax(0, 1fr) 56px 52px; column-gap: 6px; }
   .v:has(.dpill:not(.eq), .best) .dpill { grid-column: 2; justify-self: end; }
   .v:has(.dpill:not(.eq), .best) .best { grid-column: 3; justify-self: end; }
@@ -1100,9 +1101,9 @@ button.tag:hover { filter: brightness(.95); }
       ["VRR", (d) => yn(scr(d).vrr) || "—"],
       ["Touch", (d) => yn(scr(d).touch) || "—"]]],
     ["Memory & storage", [
-      /* "16/32/64 GB" has no break point: no line break at "/" between digits, and a no-break space before GB.
-         The longest value (90 px) can pass the narrowest value track (80 px) beside a delta, but stays clear of the pill. */
-      ["RAM", (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? s.join("/") + "\u00a0GB" : "—"; }, (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? Math.max(...s) : null; }, "high"],
+      /* "16/32/64 GB" fits the value track beside a delta (see the @container rule), so it stays on one line.
+         A longer list wraps after a "/" (zero-width space) and never under the pill; the no-break space keeps GB on its number. */
+      ["RAM", (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? s.join("/\u200b") + "\u00a0GB" : "—"; }, (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? Math.max(...s) : null; }, "high"],
       ["RAM type", (d) => (d.ram || {}).type || "—"],
       ["RAM speed", (d) => ((d.ram || {}).speed_mts ? n0(d.ram.speed_mts) + " MT/s" : "—"), (d) => (d.ram || {}).speed_mts || null, "high"],
       ["SSD slot", (d) => ssdText(d) || "—"],
