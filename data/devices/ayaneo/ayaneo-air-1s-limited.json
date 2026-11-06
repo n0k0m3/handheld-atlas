@@ -59,7 +59,7 @@
     { "field": "ports.0.pd_in_w", "reason": "per-port charge wattage not stated" },
     { "field": "ports.0.location", "reason": "location sourced only for the Standard Edition" },
     { "field": "ports.1", "reason": "speed, DP, and PD do not apply; location not sourced for this edition" },
-    { "field": "ports.2", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see the port note), not a Gbps figure; location not sourced for this edition" },
+    { "field": "ports.2", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see microSD slot in Storage & ports), not a Gbps figure; location not sourced for this edition" },
     { "field": "screen.vrr", "reason": "not stated" },
     { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (350 nits)" },
     { "field": "screen.hdr", "reason": "not stated" },

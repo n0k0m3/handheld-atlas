@@ -55,7 +55,7 @@
   "unresolved": [
     { "field": "ports.1", "reason": "ASUS gives no speed, DP or PD data for the XG Mobile interface itself; video and power run through the USB-C side of the combo port" },
     { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to the 3.5mm jack" },
-    { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see the port note), not a Gbps figure" },
+    { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see microSD slot in Storage & ports), not a Gbps figure" },
     { "field": "storage.slots.0.lanes", "reason": "ASUS and NotebookCheck give PCIe 4.0 but not the lane count" },
     { "field": "screen.nits_peak", "reason": "ASUS gives one brightness value (500 nits); no HDR or peak figure" },
     { "field": "controls.stick_type", "reason": "Sources say only that the sticks are not Hall effect; no source names the sensor" },

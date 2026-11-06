@@ -235,7 +235,7 @@
     },
     {
       "field": "ports.3.speed_gbps",
-      "reason": "The vendor gives the card standard or speed (see the port note), not a Gbps figure"
+      "reason": "The vendor gives the card standard or speed (see microSD slot in Storage & ports), not a Gbps figure"
     },
     {
       "field": "ports.3.dp_alt",

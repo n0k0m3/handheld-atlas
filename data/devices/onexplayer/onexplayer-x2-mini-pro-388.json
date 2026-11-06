@@ -244,7 +244,7 @@
     },
     {
       "field": "ports.3.speed_gbps",
-      "reason": "No speed in Gbps is stated; the port note gives the PCIe generation"
+      "reason": "No speed in Gbps is stated; the PCIe generation is under Mini SSD slot in Storage & ports"
     },
     {
       "field": "ports.3.dp_alt",
@@ -260,7 +260,7 @@
     },
     {
       "field": "ports.4.speed_gbps",
-      "reason": "The vendor gives the card standard or speed (see the port note), not a Gbps figure"
+      "reason": "The vendor gives the card standard or speed (see microSD slot in Storage & ports), not a Gbps figure"
     },
     {
       "field": "ports.4.dp_alt",

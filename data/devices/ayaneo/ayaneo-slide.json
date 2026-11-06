@@ -56,7 +56,7 @@
     { "field": "storage.slots.0.lanes", "reason": "not stated" },
     { "field": "ports.0.pd_in_w", "reason": "per-port charge wattage not stated" },
     { "field": "ports.0.location", "reason": "port location not stated" },
-    { "field": "ports.1", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see the port note), not a Gbps figure; location not stated" },
+    { "field": "ports.1", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see microSD slot in Storage & ports), not a Gbps figure; location not stated" },
     { "field": "screen.vrr", "reason": "not stated" },
     { "field": "screen.touch", "reason": "touch support not stated on the official sheet or in the articles that were read" },
     { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (400 nits)" },

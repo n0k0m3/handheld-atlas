@@ -54,7 +54,7 @@
   "notes": "ROG 20th anniversary 'Edition 20' model with a translucent black and gold chassis. The standalone unit (RC74XA-XB-ALLYX.Z2E.24) and the bundle (RC74XA-XB-ALLYXBUN.Z2E.24, $2,499.99, adds ROG XREAL R1 Edition 20 glasses, a Pelican case and a dbrand Killswitch) share this hardware and this sheet. Pre-orders opened 2026-08-25.",
   "unresolved": [
     { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to the 3.5mm jack" },
-    { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see the port note), not a Gbps figure" },
+    { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see microSD slot in Storage & ports), not a Gbps figure" },
     { "field": "weight_g.handheld.measured", "reason": "NotebookCheck gives 756 g, identical to the ASUS figure, without a scale statement" },
     { "field": "storage.slots.0.lanes", "reason": "ASUS gives PCIe 4.0 but not the lane count" },
     { "field": "controls.trigger_lock", "reason": "Not stated by ASUS or the reviews used" },
