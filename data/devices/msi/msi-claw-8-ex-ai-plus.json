@@ -159,7 +159,7 @@
     },
     {
       "field": "ports.2",
-      "reason": "speed, DP alt and PD do not apply to this port kind; location not stated in the sources checked"
+      "reason": "DP alt and PD do not apply to this port kind; no link speed is stated for the microSD Express reader; location not stated in the sources checked"
     }
   ],
   "sources": [

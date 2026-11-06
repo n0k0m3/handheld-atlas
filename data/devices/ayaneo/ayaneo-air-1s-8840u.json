@@ -59,7 +59,7 @@
     { "field": "ports.0.pd_in_w", "reason": "per-port charge wattage not stated" },
     { "field": "ports.0.location", "reason": "location not sourced for the 8840U model" },
     { "field": "ports.1", "reason": "speed, DP, and PD do not apply; location not sourced" },
-    { "field": "ports.2", "reason": "speed, DP, and PD do not apply; location not sourced" },
+    { "field": "ports.2", "reason": "Link speed, DP, and PD do not apply; location not sourced" },
     { "field": "screen.vrr", "reason": "not stated" },
     { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (350 nits)" },
     { "field": "screen.hdr", "reason": "not stated" },

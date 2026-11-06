@@ -51,7 +51,7 @@
   "notes": "The official spec page lists only the 7840U; the 8840U option was announced with pricing in March 2024 (US$599) and re-priced at US$550 for 32 GB / 512 GB in June 2025. The Manjaro forum says all 8840U units ship with 32 GB. Project on indefinite hold since March 2026; no retail launch as of 2026-10-27. The price shown is the latest announced price.",
   "unresolved": [
     { "field": "ports.1", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port" },
-    { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port" },
+    { "field": "ports.2", "reason": "Link speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port" },
     { "field": "release_date", "reason": "Not released; project on hold since March 2026" },
     { "field": "weight_g.handheld.stated", "reason": "Official spec page gives no weight" },
     { "field": "weight_g.handheld.measured", "reason": "Not released; no reviewer scale reading" },

@@ -193,7 +193,7 @@
     },
     {
       "field": "ports.2",
-      "reason": "speed, DP alt and PD do not apply to this port kind"
+      "reason": "Link speed, DP alt and PD do not apply to this port kind"
     },
     {
       "field": "ports.3",

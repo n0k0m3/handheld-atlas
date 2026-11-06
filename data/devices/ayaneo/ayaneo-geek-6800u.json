@@ -173,7 +173,7 @@
     },
     {
       "field": "ports.3",
-      "reason": "speed, DP, PD, and location do not apply or are not stated"
+      "reason": "Link speed, DP, PD, and location do not apply or are not stated"
     },
     {
       "field": "screen.panel",

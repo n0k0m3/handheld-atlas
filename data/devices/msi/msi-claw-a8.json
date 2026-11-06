@@ -175,7 +175,7 @@
     },
     {
       "field": "ports.2",
-      "reason": "speed, DP alt and PD do not apply to this port kind; location not stated in the sources checked"
+      "reason": "Link speed, DP alt and PD do not apply to this port kind; location not stated in the sources checked"
     }
   ],
   "conflicts": [

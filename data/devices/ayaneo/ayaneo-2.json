@@ -61,7 +61,7 @@
     { "field": "ports.1.pd_in_w", "reason": "data-only port" },
     { "field": "ports.1.location", "reason": "port location not stated on the official page" },
     { "field": "ports.2", "reason": "speed, DP, PD, and location do not apply or are not stated" },
-    { "field": "ports.3", "reason": "speed, DP, PD, and location do not apply or are not stated" },
+    { "field": "ports.3", "reason": "Link speed, DP, PD, and location do not apply or are not stated" },
     { "field": "screen.refresh_hz", "reason": "refresh rate not stated by the vendor" },
     { "field": "screen.vrr", "reason": "not stated" },
     { "field": "screen.touch", "reason": "touch support not stated on the official page" },

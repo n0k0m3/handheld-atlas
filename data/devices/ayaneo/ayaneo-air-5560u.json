@@ -162,7 +162,7 @@
     },
     {
       "field": "ports.2",
-      "reason": "speed, DP, PD, and location do not apply or are not stated"
+      "reason": "Link speed, DP, PD, and location do not apply or are not stated"
     },
     {
       "field": "screen.refresh_hz",
