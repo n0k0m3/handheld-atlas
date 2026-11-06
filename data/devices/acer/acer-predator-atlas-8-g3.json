@@ -127,7 +127,7 @@
   "unresolved": [
     {
       "field": "ports.1",
-      "reason": "Link speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port"
+      "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see the port note), not a Gbps figure"
     },
     {
       "field": "ports.2",

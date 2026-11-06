@@ -49,7 +49,7 @@
   "fingerprint": true,
   "notes": "Sold in Europe and Taiwan (Acer UK store GN771-08HS7 1 TB GBP 699 in stock; Acer Taiwan NT$24,900; EU pre-order price EUR 849 for 512 GB). No US price or US launch was announced. All storage sizes share this row.",
   "unresolved": [
-    { "field": "ports.1", "reason": "Link speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port" },
+    { "field": "ports.1", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see the port note), not a Gbps figure" },
     { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port" },
     { "field": "release_date", "reason": "First retail date not found. Units are in stock at the Acer UK store on 2026-10-27." },
     { "field": "msrp_usd", "reason": "No US launch; Acer never published a US price" },

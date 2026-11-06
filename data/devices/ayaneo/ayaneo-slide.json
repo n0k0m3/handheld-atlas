@@ -56,7 +56,7 @@
     { "field": "storage.slots.0.lanes", "reason": "not stated" },
     { "field": "ports.0.pd_in_w", "reason": "per-port charge wattage not stated" },
     { "field": "ports.0.location", "reason": "port location not stated" },
-    { "field": "ports.1", "reason": "Link speed, DP, and PD do not apply to the card slot; location not stated" },
+    { "field": "ports.1", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; no link speed is stated for the SD 7.0 (SD Express) reader; location not stated" },
     { "field": "screen.vrr", "reason": "not stated" },
     { "field": "screen.touch", "reason": "touch support not stated on the official sheet or in the articles that were read" },
     { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (400 nits)" },

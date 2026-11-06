@@ -174,7 +174,7 @@
     },
     {
       "field": "ports.3",
-      "reason": "Link speed, DP, PD, and location do not apply or are not stated"
+      "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see the port note), not a Gbps figure; location not stated"
     },
     {
       "field": "screen.refresh_hz",

@@ -61,7 +61,7 @@
     { "field": "ports.1.pd_in_w", "reason": "Does not apply to a USB-A port" },
     { "field": "ports.1.location", "reason": "port location not stated" },
     { "field": "ports.2", "reason": "speed, DP, and PD do not apply; location not stated" },
-    { "field": "ports.3", "reason": "Link speed, DP, and PD do not apply to the card slot" },
+    { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see the port note), not a Gbps figure" },
     { "field": "screen.vrr", "reason": "not stated" },
     { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (500 nits)" },
     { "field": "screen.hdr", "reason": "not stated" },

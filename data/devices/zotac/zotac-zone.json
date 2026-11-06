@@ -51,7 +51,7 @@
   "notes": "On 2026-10-27 the zotac.com product page was behind a captcha, so it could not be read. The ZOTAC store page (official ZOTAC property) is the main source. US pre-orders were not offered at first; EU price was EUR 849.",
   "unresolved": [
     { "field": "ports.1", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port" },
-    { "field": "ports.2", "reason": "Link speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port" },
+    { "field": "ports.2", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see the port note), not a Gbps figure" },
     { "field": "weight_g.handheld.measured", "reason": "No reviewer scale reading found. NotebookCheck and TechPowerUp repeat the 692 g spec figure." },
     { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value published" },
     { "field": "ram.channels", "reason": "Not stated by ZOTAC or reviewers" },
