@@ -194,7 +194,7 @@
       "chosen_reason": "AOKZOE launch text, Liliputing, and NotebookCheck all give 21 mm"
     },
     {
-      "field": "ports.USB4.count",
+      "field": "ports.0.count",
       "values": [
         {
           "value": 2,

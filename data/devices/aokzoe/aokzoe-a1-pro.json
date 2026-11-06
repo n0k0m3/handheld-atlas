@@ -199,7 +199,7 @@
   ],
   "conflicts": [
     {
-      "field": "ports.USB4.count",
+      "field": "ports.0.count",
       "values": [
         {
           "value": 1,
