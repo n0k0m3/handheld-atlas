@@ -1108,7 +1108,8 @@ button.tag:hover { filter: brightness(.95); }
       ["Touch", (d) => yn(scr(d).touch) || "—"]]],
     ["Memory & storage", [
       /* "16/32/64 GB" fits the value track beside a delta (see the @container rule), so it stays on one line.
-         A longer list wraps after a "/" (zero-width space) and never under the pill; the no-break space keeps GB on its number. */
+         A longer list wraps after a "/" (a zero-width space, drawn as <wbr> so a copy stays clean) and never under the pill;
+         the no-break space keeps GB on its number. */
       ["RAM", (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? s.join("/\u200b") + "\u00a0GB" : "—"; }, (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? Math.max(...s) : null; }, "high"],
       ["RAM type", (d) => (d.ram || {}).type || "—"],
       ["RAM speed", (d) => ((d.ram || {}).speed_mts ? n0(d.ram.speed_mts) + " MT/s" : "—"), (d) => (d.ram || {}).speed_mts || null, "high"],
@@ -2052,7 +2053,7 @@ button.tag:hover { filter: brightness(.95); }
       sec.rows.forEach((row) => {
         h += '<div class="cgrid' + (!state.hideSame && row.diff && n > 1 ? " diff" : "") + '" style="grid-template-columns:' + gcols + '"><div class="clbl">' + esc(row.label) + "</div>";
         row.cells.forEach((c) => {
-          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + esc(c.text) + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">★ Best</span>' : "") + "</div></div>";
+          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + esc(c.text).replace(/\u200b/g, "<wbr>") + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">★ Best</span>' : "") + "</div></div>";
         });
         if (slot) h += '<div class="ccell slot"></div>';
         h += "</div>";
