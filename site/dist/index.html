@@ -1069,7 +1069,7 @@ button.tag:hover { filter: brightness(.95); }
 
   /* ---------- compare rows ---------- */
   const scr = (d) => d.screen || {};
-  /* Row: [label, text, number, better ("low" | "high" | "n"), mark, options]. Option zeroIsNone: a 0 reads "None" and gets no delta. */
+  /* Row: [label, text, number, better ("low" | "high" | "n"), mark, options]. Option zeroIsNone: a 0 gets no delta (the text function writes "None"). */
   const CROWS = [
     ["Overview", [
       ["MSRP", priceTxt, (d) => d.msrp_usd, "low", pmark],
@@ -1098,7 +1098,8 @@ button.tag:hover { filter: brightness(.95); }
       ["VRR", (d) => yn(scr(d).vrr) || "—"],
       ["Touch", (d) => yn(scr(d).touch) || "—"]]],
     ["Memory & storage", [
-      /* "16/32/64 GB" with a no-break space: short enough for the value track beside a delta, so the value never wraps. */
+      /* "16/32/64 GB" has no break point: no line break at "/" between digits, and a no-break space before GB.
+         The longest value (90 px) can pass the narrowest value track (80 px) beside a delta, but stays clear of the pill. */
       ["RAM", (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? s.join("/") + "\u00a0GB" : "—"; }, (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? Math.max(...s) : null; }, "high"],
       ["RAM type", (d) => (d.ram || {}).type || "—"],
       ["RAM speed", (d) => ((d.ram || {}).speed_mts ? n0(d.ram.speed_mts) + " MT/s" : "—"), (d) => (d.ram || {}).speed_mts || null, "high"],
