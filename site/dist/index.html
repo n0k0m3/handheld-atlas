@@ -1494,18 +1494,19 @@ button.tag:hover { filter: brightness(.95); }
     });
     placeFilterPanel();
   }
-  /* The breakpoint hides the old host (and the narrow "Filters" toggle) at once, so the browser drops focus before this runs.
-     The last focused filter control comes back; the toggle hands focus to the panel's title. Keyboard focus stays in view. */
+  /* The breakpoint hides the old host at once, so the browser drops focus before this runs. The last focused filter control
+     comes back. The two "Filters" controls (the narrow toggle, the wide panel title) hand focus to each other, because CSS
+     hides each one in the other layout. Keyboard focus stays in view. */
   let lastFp = null, lastFpKb = false;
   function placeFilterPanel() {
     const fp = $("#fpanel"), host = isNarrow() ? $("#topf-b") : $("#side");
     if (!fp || !host || fp.parentElement === host) return;
     let a = document.activeElement;
     if ((!a || a === document.body) && lastFp && lastFp.isConnected) a = lastFp;
-    const kb = lastFpKb, tog = !!a && a.id === "tf-toggle" && !isNarrow(), had = !!a && fp.contains(a);
-    if (had && isNarrow() && !topOpen) { topOpen = true; $("#tf-toggle").setAttribute("aria-expanded", "true"); $("#topf-b").hidden = false; }
+    const n = isNarrow(), kb = lastFpKb, swap = !!a && a.id === (n ? "fp-t" : "tf-toggle"), had = !swap && !!a && fp.contains(a);
+    if (had && n && !topOpen) { topOpen = true; $("#tf-toggle").setAttribute("aria-expanded", "true"); $("#topf-b").hidden = false; }
     host.appendChild(fp);
-    const t = tog ? $("#fp-t") : had ? a : null;
+    const t = swap ? $(n ? "#tf-toggle" : "#fp-t") : had ? a : null;
     if (t && t.isConnected) { t.focus({ preventScroll: true }); if (kb) keepInView(t); }
   }
   let topOpen = false;
@@ -2578,7 +2579,7 @@ button.tag:hover { filter: brightness(.95); }
     const el = id && document.getElementById(id);
     if (el && val != null) el.value = val;
     if (!(id && focusId(id)) && !(did && (focusId("copen-" + did) || focusId("open-" + did)))) focusScreen();
-    if (kb && document.activeElement !== document.body) keepInView(document.activeElement);
+    if (kb) keepInView(document.activeElement);
   }
   function keepInView(el) {
     const r = el.getBoundingClientRect(), hb = $("#hdr").getBoundingClientRect().bottom;
