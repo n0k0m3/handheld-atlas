@@ -1071,6 +1071,7 @@ button.tag:hover { filter: brightness(.95); }
 
   /* ---------- compare rows ---------- */
   const scr = (d) => d.screen || {};
+  /* Row: [label, text, number, better ("low" | "high" | "n"), mark, options]. Option zeroIsNone: a 0 reads "None" and gets no delta. */
   const CROWS = [
     ["Overview", [
       ["MSRP", priceTxt, (d) => d.msrp_usd, "low", pmark],
@@ -1090,7 +1091,7 @@ button.tag:hover { filter: brightness(.95); }
       ["Single thread", (d) => n0(scoreOf(d, "single_thread")) || "—", (d) => scoreOf(d, "single_thread"), "high"],
       ["G3D Mark", (d) => n0(scoreOf(d, "g3d_mark")) || "—", (d) => scoreOf(d, "g3d_mark"), "high"],
       ["TDP range", (d) => tdpText(socOf(d)) || "—"],
-      ["NPU", (d) => { const s = socOf(d); return !s || s.npu_tops == null ? "—" : s.npu_tops === 0 ? "None" : s.npu_tops + " TOPS"; }, (d) => { const s = socOf(d); return s && s.npu_tops != null ? s.npu_tops : null; }, "high"]]],
+      ["NPU", (d) => { const s = socOf(d); return !s || s.npu_tops == null ? "—" : s.npu_tops === 0 ? "None" : s.npu_tops + " TOPS"; }, (d) => { const s = socOf(d); return s && s.npu_tops != null ? s.npu_tops : null; }, "high", null, { zeroIsNone: true }]]],
     ["Display", [
       ["Size", (d) => (scr(d).size_in != null ? scr(d).size_in + "″" : "—"), (d) => (scr(d).size_in != null ? scr(d).size_in : null), "high"],
       ["Panel", (d) => scr(d).panel || "—"],
@@ -2009,13 +2010,13 @@ button.tag:hover { filter: brightness(.95); }
     const scroll = gridScrollWanted(), minW = scroll ? (lblW + ncol * colW) + "px" : "0";
     lastScroll = scroll;
     let hidden = 0;
-    const secs = CROWS.map(([name, rows]) => ({ name, rows: rows.map(([label, t, num, better, mark]) => {
+    const secs = CROWS.map(([name, rows]) => ({ name, rows: rows.map(([label, t, num, better, mark, opt = {}]) => {
       const texts = cols.map(t), marks = cols.map((d) => (mark ? mark(d) : "")), diff = new Set(texts.map((x, i) => x + marks[i])).size > 1;
       if (state.hideSame && n > 1 && !diff) { hidden++; return null; }
       const rd = (x) => Math.round(x * 10) / 10, nums = num ? cols.map(num) : [], valid = nums.filter((x) => typeof x === "number").map(rd);
       const best = better && better !== "n" && new Set(valid).size > 1 ? (better === "low" ? Math.min(...valid) : Math.max(...valid)) : null;
       return { label, diff, cells: cols.map((d, i) => {
-        const isR = d === cref, dl = num && !isR && cref && !(label === "NPU" && nums[i] === 0) ? delta(nums[i], num(cref), better === "low" ? true : better === "n" ? "n" : false) : null;
+        const isR = d === cref, dl = num && !isR && cref && !(opt.zeroIsNone && nums[i] === 0) ? delta(nums[i], num(cref), better === "low" ? true : better === "n" ? "n" : false) : null;
         return { text: texts[i], mark: marks[i], dl, best: best != null && typeof nums[i] === "number" && rd(nums[i]) === best, mono: (!!num && /\d/.test(texts[i])) || isNumText(texts[i]), isR };
       }) };
     }).filter(Boolean) })).filter((x) => x.rows.length);
