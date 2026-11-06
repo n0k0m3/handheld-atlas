@@ -50,7 +50,7 @@
   "fingerprint": null,
   "notes": "AYN shipped the first 100 Loki Max units in June 2023. The Loki line is discontinued and the AYN product page is gone, so no official spec page exists. Other Loki models (Loki Zero, Loki MiniPro) are under US$450 and excluded. Price later dropped to US$550.",
   "unresolved": [
-    { "field": "ports.1", "reason": "Link speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port" },
+    { "field": "ports.1", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a microSD port; no link speed is stated" },
     { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port" },
     { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value found" },
     { "field": "weight_g.handheld.measured", "reason": "No reviewer scale reading found" },

@@ -261,7 +261,7 @@
     },
     {
       "field": "ports.4.speed_gbps",
-      "reason": "Link speed does not apply to a microSD slot"
+      "reason": "No link speed is stated"
     },
     {
       "field": "ports.4.dp_alt",

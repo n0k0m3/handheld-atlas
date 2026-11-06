@@ -54,7 +54,7 @@
   "fingerprint": null,
   "notes": "Announced at CES 2025 for Q2 2025 (US$1,099, EUR 1,199). It never reached normal retail: VideoCardz (late 2025) found no retail listings, and TechPowerUp and Guru3D (January 2026) reported the US launch on hold. The price shown is the announced price. Acer's product page uses the model code GN7211U in image names; the spec table says GN7112U.",
   "unresolved": [
-    { "field": "ports.3", "reason": "Link speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port" },
+    { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a microSD port; no link speed is stated" },
     { "field": "ports.4", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port" },
     { "field": "release_date", "reason": "Never released as of 2026-10-27" },
     { "field": "dims_mm.tablet_only", "reason": "Acer does not publish tablet-only dimensions" },
