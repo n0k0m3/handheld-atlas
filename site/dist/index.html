@@ -888,7 +888,9 @@ button.tag:hover { filter: brightness(.95); }
     g3d_mark: "G3D Mark", msrp_usd: "Launch price", soc_id: "Chip", ram: "RAM", sizes_gb: "sizes", speed_mts: "speed", screen: "Screen", size_in: "size", refresh_hz: "refresh rate",
     battery: "Battery", wh: "capacity", release_date: "Release date", announce_date: "Announced", d_max: "thickest point", w: "width", h: "height", d: "thickness", stated: "stated", measured: "measured",
     charge_w: "charging", dp_alt: "DisplayPort Alt Mode", pd_in_w: "PD input", speed_gbps: "speed", os: "OS", hdr: "HDR", nits_peak: "peak brightness", nits_sdr: "SDR brightness",
-    vrr: "VRR", capacities_gb: "capacities", pcie_gen: "PCIe generation", bt: "Bluetooth", wifi: "Wi-Fi", slots: "SSD slots", lanes: "PCIe lanes", kind: "type" };
+    vrr: "VRR", pcie_gen: "PCIe generation", bt: "Bluetooth", wifi: "Wi-Fi", lanes: "PCIe lanes", kind: "type",
+    /* Words the sheet's own rows use for these fields. */
+    capacities_gb: "factory SSD", expansion: "card slot", slots: "SSD slot", stick_type: "sticks", trigger_type: "triggers", external: "external pack" };
   /* A data path in words. A list index names the device's port when the device is known ("ports.2" -> "Ports · microSD slot"), else its place ("#3"). */
   const fieldLabel = (f, d) => f === "*" ? "Most fields" : String(f || "").split(".").map((p, i, a) => {
     if (/^\d+$/.test(p)) { const port = a[i - 1] === "ports" && d && (d.ports || [])[+p]; return port ? PORT_WORD[port.kind] || portName(port) : "#" + (+p + 1); }
