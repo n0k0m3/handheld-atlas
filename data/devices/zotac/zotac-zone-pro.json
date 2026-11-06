@@ -47,7 +47,7 @@
   "os": ["Manjaro Linux"],
   "cooling": null,
   "fingerprint": null,
-  "notes": "First shown as an upgraded Zone at CES 2025, renamed Zone Pro at Computex/Gamescom 2025 with a ZOTAC build of Manjaro Linux. ZOTAC targeted October 2025; VideoCardz reported in late 2025 that no retail launch happened. No 2026 launch news found. zotac.com is behind a WAF captcha, so no official spec page was reachable.",
+  "notes": "First shown as an upgraded Zone at CES 2025, renamed Zone Pro at Computex/Gamescom 2025 with a ZOTAC build of Manjaro Linux. ZOTAC targeted October 2025; VideoCardz reported in late 2025 that no retail launch happened. No 2026 launch news found. On 2026-10-27 zotac.com was behind a captcha, so no official spec page was reachable.",
   "unresolved": [
     { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
     { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },

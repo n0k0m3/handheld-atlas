@@ -186,7 +186,7 @@
     },
     {
       "field": "os",
-      "reason": "no fetched source states the shipped OS"
+      "reason": "no listed source states the shipped OS"
     },
     {
       "field": "fingerprint",

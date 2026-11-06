@@ -57,7 +57,7 @@
     { "field": "dims_mm.handheld.d_max", "reason": "Valve publishes one thickness value" },
     { "field": "weight_g.handheld.measured", "reason": "No reviewer scale weight found; NotebookCheck has no English review of the LCD model" },
     { "field": "screen.nits_peak", "reason": "Valve gives only a typical brightness (400 nits); no peak or HDR figure" },
-    { "field": "controls.stick_type", "reason": "Valve does not state the stick sensor; no fetched review or teardown names it for the LCD model" },
+    { "field": "controls.stick_type", "reason": "Valve does not state the stick sensor; no listed review or teardown names it for the LCD model" },
     { "field": "controls.trigger_type", "reason": "Valve lists 'L & R analog triggers' without the sensor type; no review or teardown found that names it" },
     { "field": "controls.trigger_lock", "reason": "Not stated by Valve or the sources used" }
   ],

@@ -51,7 +51,7 @@
   "fingerprint": true,
   "notes": "Only SoC option is the Ryzen 7 7840U. Retail price $999; Indiegogo early bird from $699 (16GB/512GB, black). Indiegogo campaign started 2023-05-30 with the AYANEO 2S. Release month is the planned early-July 2023 backer shipment; the actual first-shipment date was not confirmed.",
   "unresolved": [
-    { "field": "announce_date", "reason": "exact announcement date not sourced within the fetch budget" },
+    { "field": "announce_date", "reason": "exact announcement date not found in the listed sources" },
     { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found; no NotebookCheck review exists" },
     { "field": "ram.channels", "reason": "not stated by the vendor" },
     { "field": "storage.slots.0.lanes", "reason": "PCIe lane count not stated" },

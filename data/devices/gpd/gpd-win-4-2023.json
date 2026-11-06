@@ -152,7 +152,7 @@
     },
     {
       "field": "weight_g.handheld.measured",
-      "reason": "no reviewer scale weight found within the fetch budget"
+      "reason": "no reviewer scale weight found in the listed sources"
     },
     {
       "field": "dims_mm.handheld.d_max",

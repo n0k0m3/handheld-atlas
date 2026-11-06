@@ -51,7 +51,7 @@
   "fingerprint": true,
   "notes": "TDP 5-54 W. Optional 4G LTE module (sold separately) fits a SIM slot behind the kickstand. Official sheet lists Windows Hello face recognition; NotebookCheck also reports a fingerprint sensor in the power button. Launch prices for 16GB/512GB: super early bird $999, Indiegogo $1,129, retail $1,209. First units shipped to backers on 2023-10-24.",
   "unresolved": [
-    { "field": "announce_date", "reason": "first announcement date not sourced within the fetch budget" },
+    { "field": "announce_date", "reason": "first announcement date not found in the listed sources" },
     { "field": "ram.speed_mts", "reason": "memory speed not stated by the vendor or NotebookCheck" },
     { "field": "ram.channels", "reason": "not stated" },
     { "field": "storage.slots.0.lanes", "reason": "not stated" },

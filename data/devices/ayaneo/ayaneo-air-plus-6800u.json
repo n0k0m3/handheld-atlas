@@ -50,7 +50,7 @@
   "fingerprint": true,
   "notes": "Air Plus SoC options on the official page: Ryzen 7 6800U, Ryzen 3 7320U, Ryzen 5 7520U, Intel Core i3-1215U, Intel Pentium 8505 (NotebookCheck says the 8505 edition was cancelled). Only the 6800U has a file in data/socs/. Pre-order price for the 6800U 16GB/512GB was $779 (official page and NotebookCheck); the Advance 32GB/2TB was $1,179. NotebookCheck (2023-02-28) gave early May 2023 as the 6800U shipping start; release month is that planned date, not a confirmed shipment.",
   "unresolved": [
-    { "field": "announce_date", "reason": "exact announcement date not sourced within the fetch budget" },
+    { "field": "announce_date", "reason": "exact announcement date not found in the listed sources" },
     { "field": "dims_mm.handheld.d_max", "reason": "single thickness value published" },
     { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found; no NotebookCheck review exists" },
     { "field": "ram.channels", "reason": "not stated by the vendor" },

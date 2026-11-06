@@ -137,7 +137,7 @@
   "unresolved": [
     {
       "field": "announce_date",
-      "reason": "exact announcement date not sourced within the fetch budget"
+      "reason": "exact announcement date not found in the listed sources"
     },
     {
       "field": "weight_g.handheld.measured",

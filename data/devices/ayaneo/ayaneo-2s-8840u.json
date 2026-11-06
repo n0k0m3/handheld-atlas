@@ -178,7 +178,7 @@
     },
     {
       "field": "screen.refresh_hz",
-      "reason": "refresh rate not stated by the vendor or the fetched reviews"
+      "reason": "refresh rate not stated by the vendor or the listed reviews"
     },
     {
       "field": "screen.vrr",
@@ -202,7 +202,7 @@
     },
     {
       "field": "controls.rear_buttons",
-      "reason": "not stated by the vendor or the fetched reviews"
+      "reason": "not stated by the vendor or the listed reviews"
     }
   ],
   "conflicts": [

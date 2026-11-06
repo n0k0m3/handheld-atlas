@@ -61,7 +61,7 @@
     { "field": "ports.0.speed_gbps", "reason": "Not stated" },
     { "field": "ports.0.dp_alt", "reason": "Display output confirmed but DP alt mode not named" },
     { "field": "ports.0.pd_in_w", "reason": "Not stated" },
-    { "field": "screen.refresh_hz", "reason": "Not confirmed by a fetched source" },
+    { "field": "screen.refresh_hz", "reason": "Not confirmed by the listed sources" },
     { "field": "screen.vrr", "reason": "Not stated" },
     { "field": "screen.nits_sdr", "reason": "Not stated" },
     { "field": "screen.nits_peak", "reason": "Not stated" },
@@ -91,7 +91,7 @@
         { "value": 750, "url": "https://retrohandhelds.gg/loki-max-reaching-the-summit/" },
         { "value": 775, "url": "https://liliputing.com/?p=160070" }
       ],
-      "chosen_reason": "Review states $750 at release; $775 appears as the earlier pre-order list price (search snippet, not fetched)"
+      "chosen_reason": "Review states $750 at release; $775 appears as the earlier pre-order list price (seen only in a search result snippet)"
     }
   ],
   "sources": [

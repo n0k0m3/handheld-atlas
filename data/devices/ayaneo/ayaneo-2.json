@@ -51,7 +51,7 @@
   "fingerprint": true,
   "notes": "Only SoC option is the Ryzen 7 6800U. Retail start price $1,099 (16GB/512GB); Super Early Bird $949 on Indiegogo. Indiegogo campaign ended 2023-01-03. Release date is the December 2022 shipping start given by Wikipedia (citing Liliputing). The spec table also lists AYANEO OS, which did not ship as an OS option.",
   "unresolved": [
-    { "field": "announce_date", "reason": "exact announcement date not sourced within the fetch budget" },
+    { "field": "announce_date", "reason": "exact announcement date not found in the listed sources" },
     { "field": "weight_g.handheld.measured", "reason": "no reviewer scale weight found; no NotebookCheck review exists" },
     { "field": "ram.channels", "reason": "not stated by the vendor" },
     { "field": "storage.slots.0.lanes", "reason": "PCIe lane count not stated" },

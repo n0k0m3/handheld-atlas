@@ -52,7 +52,7 @@
   "unresolved": [
     { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
     { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
-    { "field": "announce_date", "reason": "First reveal date (early 2024) not confirmed by a fetched source" },
+    { "field": "announce_date", "reason": "First reveal date (early 2024) not confirmed by the listed sources" },
     { "field": "release_date", "reason": "Not released; project on hold since March 2026" },
     { "field": "weight_g.handheld.stated", "reason": "Official spec page gives no weight" },
     { "field": "weight_g.handheld.measured", "reason": "Not released; no reviewer scale reading" },
