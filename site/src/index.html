@@ -270,7 +270,7 @@ a.ibtn { text-decoration: none; }
 .st .hint { font-weight: 500; color: var(--fg-2); }
 .fct .st { flex-wrap: wrap; }
 .fct .st .m { white-space: nowrap; margin-left: auto; }
-.chk.zero > span:not(.n) { color: var(--fg-2); }
+.chk.zero:not(.on) > span:not(.n) { color: var(--fg-2); }
 .fct:not(.open) .fo-x:not(.on):not(.keep) { display: none; }
 .fmore { margin-top: 4px; }
 .rng { position: relative; height: 22px; }
@@ -317,7 +317,7 @@ a.ibtn { text-decoration: none; }
 .lbar-k { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-width: 0; }
 .lbar-k .lbl { margin-right: 4px; }
 .lbar-k .lkey { margin-left: auto; }
-.lbar > .lkey .ckl { display: none; }
+.lbar-k .tmore { margin-left: auto; }
 .pkey { font-size: 11.5px; color: var(--fg-2); margin-left: 12px; }
 .lbar-k > .pkey:first-child { margin-left: auto; }
 .lbar-r .segs[aria-label="Layout"] { margin-left: 12px; }
@@ -347,7 +347,7 @@ a.ibtn { text-decoration: none; }
 .tbl td.num .cs { max-width: none; white-space: nowrap; }
 .cl2 { display: flex; justify-content: flex-end; align-items: baseline; gap: 6px; white-space: nowrap; }
 .cl2 .dpill { margin-top: 0; }
-.tbl td.c-soc .cs { max-width: 140px; }
+.tbl td.c-soc .cs { max-width: none; white-space: nowrap; }
 .tbl .dpill { background: none; padding: 0; }
 /* The rail at the right edge says the table scrolls sideways and how many columns wait there. */
 .trail { position: absolute; top: 0; right: 0; bottom: 0; width: 28px; z-index: 4; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 0; border: 0; border-left: 1px solid var(--border); background: var(--bg); color: var(--fg-brand); box-shadow: -6px 0 10px -6px var(--edge-sh); cursor: pointer; }
@@ -368,6 +368,7 @@ a.ibtn { text-decoration: none; }
 .tbl tbody tr.ref { background: var(--bg-ref); }
 .dcell { min-width: 204px; max-width: 228px; white-space: normal; }
 .tbl td.dcell { white-space: normal; }
+.tbl td.dcell .dev-v { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dwrap { display: flex; align-items: flex-start; gap: 6px; }
 .dwrap > div { flex: 1; min-width: 0; }
 .dwrap .refb { margin: -3px -4px 0 0; border: 1px solid transparent; background: transparent; min-width: 28px; min-height: 28px; border-radius: 6px; }
@@ -422,7 +423,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .plate .refb .ic { width: 14px; height: 14px; }
 .sil { width: auto; max-width: 90%; overflow: visible; }
 .sil .o { fill: var(--bg); stroke: var(--fg-2); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
-.sil .scr { fill: var(--slice); stroke: none; }
+.sil .scr, .dstage .scr { fill: var(--slice); stroke: var(--fg-3); stroke-width: 1; vector-effect: non-scaling-stroke; rx: 1.5px; }
 .card-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
 .card-h > div { min-width: 0; }
 .card-h .dev-v { min-height: 1.45em; }
@@ -435,7 +436,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stat-v { font: 600 12.5px var(--f-mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .stat-d { min-height: 16px; line-height: 16px; }
 .stat-dk { margin-left: 4px; font-size: 11px; color: var(--fg-2); }
-.stat-x { font-weight: 400; color: var(--fg-2); }
+.stat-x { font-weight: 600; color: var(--fg-2); }
 .stat-d .dpill { margin: 0; background: none; padding: 0; }
 .stat-d .dpill.eq, .stat-d .dpill.eq + .stat-dk { visibility: hidden; }
 .card-f { display: flex; gap: 6px; margin-top: auto; }
@@ -470,14 +471,14 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage.dots { background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 14px 14px 30px; }
 .stage2d svg { width: 100%; height: 100%; overflow: visible; }
 .stage2d .shp { fill: var(--c); fill-opacity: .04; stroke: var(--c); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
-.stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1.25; stroke-opacity: .4; vector-effect: non-scaling-stroke; }
+.stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1.25; stroke-opacity: .6; vector-effect: non-scaling-stroke; }
 .stage2d .grip { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 4 3; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
 .stage2d .shp.lid { fill-opacity: .03; }
 /* Overlay: outlines only, so the fills never mix. The reference keeps a light fill. */
 .stage2d.ov .shp { fill-opacity: 0; }
 .stage2d .s3 .shp, .hart .s3 .shp { stroke-width: 2.6; stroke-linecap: round; }
 .stage2d.ov .rf .shp { fill: var(--fg-2); fill-opacity: .08; }
-.stage2d .rf .scr { stroke-opacity: .85; }
+
 .stage2d .shp.mod { fill-opacity: .22; }
 .sil .o.mod, .dstage .o.mod { fill: var(--slice); }
 .stage2d .hinge, .sil .hinge, .dstage .hinge { stroke: var(--fg-2); stroke-width: 1; stroke-dasharray: 3 2; stroke-opacity: .8; vector-effect: non-scaling-stroke; }
@@ -563,7 +564,7 @@ button.tag:hover { filter: brightness(.95); }
 .cgrid.diff { background: var(--bg-selected); }
 .clbl { padding: 9px 12px; color: var(--fg-2); font-weight: 500; }
 .ccell { padding: 9px 12px; border-left: 1px solid var(--border); min-width: 0; }
-.ccell.slot { background: var(--bg); border-left-color: transparent; }
+.ccell.slot { background: var(--bg); border-left-color: transparent; border-bottom-color: transparent; }
 .ccell.ref { background: var(--bg-ref); box-shadow: inset 1px 0 0 var(--border-strong), inset -1px 0 0 var(--border-strong); }
 .ccell .v { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .ccell .ct { white-space: normal; }
@@ -585,7 +586,9 @@ button.tag:hover { filter: brightness(.95); }
 .dstage { background: var(--bg-page); background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 32px 24px; display: flex; align-items: center; justify-content: center; min-height: 280px; border-radius: 10px 10px 0 0; }
 .dstage svg { width: 100%; max-height: 320px; overflow: visible; }
 .dstage .o { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-.dstage .scr { fill: var(--slice); }
+
+.dstage .dimt { font-family: var(--f-mono); fill: var(--fg-2); text-anchor: middle; dominant-baseline: central; }
+.dstage .dimk { fill: var(--bg-page); }
 .dstage .dim { fill: none; stroke: var(--fg-2); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
 .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--border); }
 .tile { padding: 10px 12px; border-left: 1px solid var(--border); min-width: 0; }
@@ -1067,7 +1070,7 @@ button.tag:hover { filter: brightness(.95); }
       ["Single thread", (d) => n0(scoreOf(d, "single_thread")) || "—", (d) => scoreOf(d, "single_thread"), "high"],
       ["G3D Mark", (d) => n0(scoreOf(d, "g3d_mark")) || "—", (d) => scoreOf(d, "g3d_mark"), "high"],
       ["TDP range", (d) => tdpText(socOf(d)) || "—"],
-      ["NPU", (d) => { const s = socOf(d); return !s || s.npu_tops == null ? "—" : s.npu_tops === 0 ? "None" : s.npu_tops + " TOPS"; }, (d) => { const s = socOf(d); return s && s.npu_tops != null ? s.npu_tops : null; }, "high"]]],
+      ["NPU", (d) => { const s = socOf(d); return !s || s.npu_tops == null ? "—" : s.npu_tops === 0 ? "None" : s.npu_tops + " TOPS"; }, (d) => { const s = socOf(d); return s && s.npu_tops ? s.npu_tops : null; }, "high"]]],
     ["Display", [
       ["Size", (d) => (scr(d).size_in != null ? scr(d).size_in + "″" : "—"), (d) => (scr(d).size_in != null ? scr(d).size_in : null), "high"],
       ["Panel", (d) => scr(d).panel || "—"],
@@ -1655,13 +1658,14 @@ button.tag:hover { filter: brightness(.95); }
     const ref = refDev(), cards = effLayout() === "cards";
     const an = analyse(), filt = an.all;
     let h = '<span class="lbar-n" id="lbar-n" aria-live="polite">' + plural(filt.length, "device") + '</span><span class="lbar-x" id="lbar-x">' + esc(listNote(filt, an)) + "</span>";
-    if (ref) h += '<span class="refpill">' + I.targetS + "Reference: <strong>" + esc(ref._short) + '</strong><span class="pin">pinned first</span><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear reference" aria-label="Clear reference">' + I.x + "</button></span>";
+    if (ref) h += '<span class="refpill" title="The reference is pinned first in the list">' + I.targetS + "Reference: <strong>" + esc(ref._short) + '</strong><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear reference" aria-label="Clear reference">' + I.x + "</button></span>";
     /* Row 1: count, reference, sort and the view switch. The verdict key and the column chips take row 2. */
     const lay = isNarrow() ? "" : '<div class="segs sm" role="group" aria-label="Layout">' + seg("layout", "table", I.table + "Table", state.layout === "table", "lay-table") + seg("layout", "cards", I.cards + "Cards", state.layout === "cards", "lay-cards") + "</div>";
-    const key = isNarrow() || !ref ? "" : VKEY.replace('class="ckey"', 'class="ckey lkey"');
+    /* Lists show only better and worse: no list column has a neutral delta. */
+    const key = isNarrow() || !ref ? "" : VKEY.replace('class="ckey"', 'class="ckey lkey"').replace(/<span class="dpill nt">.*?neither<\/span>/, "");
     if (cards) h += key + '<div class="lbar-r">' + '<span class="lbl">Sort</span><div class="segs sm" role="group" aria-label="Sort">' + [["g3d", "G3D"], ["cpu", "CPU"], ["price", "Price"], ["weight", "Weight"], ["battery", "Battery"]].map(([k, l]) => seg("sort", k, l + (state.sortK === k ? (state.sortDir < 0 ? " ↓" : " ↑") : ""), state.sortK === k, "sort-c-" + k)).join("") + "</div>" + lay + "</div>";
-    else h += '<div class="lbar-r">' + lay + '</div><div class="lbar-k"><span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("") +
-      key + "</div>";
+    else h += key + '<div class="lbar-r">' + lay + '</div><div class="lbar-k"><span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("") +
+      '<button type="button" class="tmore" id="tmore-l" data-act="tbl-more" hidden></button></div>';
     $("#lbar").innerHTML = h;
     syncTblFade();
   }
@@ -1696,13 +1700,13 @@ button.tag:hover { filter: brightness(.95); }
   }
   function refBtn(d, isRef, prefix) {
     const id = esc(d.id);
-    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Set as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + I.targetS + "</button>";
+    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Set as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + (isRef ? I.check : I.targetS) + "</button>";
   }
   function rowHtml(d, cols, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
       '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
       cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
@@ -1794,6 +1798,8 @@ button.tag:hover { filter: brightness(.95); }
         b.setAttribute("aria-label", "Scroll right. " + plural(n, "more column") + ".");
       }
     }
+    const lk = $("#tmore-l");
+    if (lk) { lk.hidden = !more; if (more) lk.innerHTML = esc(($("#tmore-n").textContent || "+0").slice(1) === "1" ? "1 more column" : ($("#tmore-n").textContent || "+0").slice(1) + " more columns") + I.arrow; }
   }
   const RAIL = 28;
   const railLeft = (w) => w.getBoundingClientRect().left + w.clientWidth - RAIL;
@@ -1971,7 +1977,7 @@ button.tag:hover { filter: brightness(.95); }
       const best = better && better !== "n" && new Set(valid).size > 1 ? (better === "low" ? Math.min(...valid) : Math.max(...valid)) : null;
       return { label, diff, cells: cols.map((d, i) => {
         const isR = d === cref, dl = num && !isR && cref ? delta(nums[i], num(cref), better === "low" ? true : better === "n" ? "n" : false) : null;
-        return { text: texts[i], mark: marks[i], dl, best: best != null && typeof nums[i] === "number" && rd(nums[i]) === best, mono: !!num || isNumText(texts[i]), isR };
+        return { text: texts[i], mark: marks[i], dl, best: best != null && typeof nums[i] === "number" && rd(nums[i]) === best, mono: (!!num && /\d/.test(texts[i])) || isNumText(texts[i]), isR };
       }) };
     }).filter(Boolean) })).filter((x) => x.rows.length);
     const hint = hasRef ? ""
@@ -2178,7 +2184,9 @@ button.tag:hover { filter: brightness(.95); }
     h += '<div class="panel"><div class="dstage"><svg viewBox="' + [r2(-pad), r2(-pad), r2(W + pad * 2), r2(TH + pad * 2.4)].join(" ") + '" role="img" aria-label="Outline of ' + esc(d._name) + ", " + (o.kind === "traced" ? "traced" : "spec box") + (isClam(d) ? ", drawn open" : "") + '">' +
       partsSvg(sh, "o") + scrRect(sh.screen, "scr") +
       '<path class="dim" d="M0 ' + r2(B) + "H" + W + "M0 " + r2(B - pad * .3) + "V" + r2(B + pad * .3) + "M" + W + " " + r2(B - pad * .3) + "V" + r2(B + pad * .3) + '"/>' +
-      '<path class="dim" d="M' + r2(-pad * .6) + " " + r2(DY) + "V" + r2(DY + H) + "M" + r2(-pad * .9) + " " + r2(DY) + "H" + r2(-pad * .3) + "M" + r2(-pad * .9) + " " + r2(DY + H) + "H" + r2(-pad * .3) + '"/></svg></div>' +
+      '<path class="dim" d="M' + r2(-pad * .6) + " " + r2(DY) + "V" + r2(DY + H) + "M" + r2(-pad * .9) + " " + r2(DY) + "H" + r2(-pad * .3) + "M" + r2(-pad * .9) + " " + r2(DY + H) + "H" + r2(-pad * .3) + '"/>' +
+      (dm.w ? '<text class="dimt" x="' + r2(W / 2) + '" y="' + r2(B) + '">' + esc(mm(dm.w)) + " mm</text>" : "") +
+      (dm.h && !isClam(d) ? '<text class="dimt" x="' + r2(-pad * .6) + '" y="' + r2(DY + H / 2) + '" transform="rotate(-90 ' + r2(-pad * .6) + " " + r2(DY + H / 2) + ')">' + esc(mm(dm.h)) + " mm</text>" : "") + "</svg></div>" +
       (isClam(d) ? '<p class="dnote">Drawn open: deck below, lid above. The size is the closed footprint; the height line marks the deck' + (sh.mod ? ", including the battery module on its front edge (shaded). The lid is the body without the module" : "") + ".</p>" : "");
     h += '<div class="tiles">' + tile("Width", dm.w ? mm(dm.w) + " mm" : "—") + tile("Height", dm.h ? mm(dm.h) + " mm" : "—") +
       tile("Thickness", dm.d ? mm(dm.d) + (dm.d_max != null ? " / " + mm(dm.d_max) : "") + " mm" : "—") + tile("Weight", d._w != null ? n0(d._w) + " g" : "—") + "</div></div>";
@@ -2202,6 +2210,7 @@ button.tag:hover { filter: brightness(.95); }
       .map((g, i) => g.replace('<div class="panel grp"', '<div class="panel grp" style="order:' + i + '"'));
     h += '<p class="skey"><span class="skey-d">Dotted underline</span> = the value opens its own source.</p><div class="sgrid"><div class="scol">' + G.filter((g, i) => i % 2 === 0).join("") + '</div><div class="scol">' + G.filter((g, i) => i % 2 === 1).join("") + "</div></div></div></div>";
     el.innerHTML = h;
+    fitDimText();
   }
 
   /* ---------- source popover ---------- */
@@ -2569,7 +2578,21 @@ button.tag:hover { filter: brightness(.95); }
     if (state.route === "detail") renderDetail();
   }
   window.addEventListener("storage", (e) => { if (e.key === null || e.key === KEY) syncFromStorage(); });
-  function settle() { measureHdr(); syncStickyPad(); if (state.route === "compare") layoutStage(); }
+  function settle() { measureHdr(); syncStickyPad(); if (state.route === "compare") layoutStage(); if (state.route === "detail") fitDimText(); }
+  /* Ruler labels: keep 11.5 px on screen whatever the drawing scale. */
+  function fitDimText() {
+    const svg = $(".dstage svg"), m = svg && svg.getScreenCTM();
+    if (!m || !m.a) return;
+    $$(".dstage .dimk").forEach((k) => k.parentNode.removeChild(k));
+    $$(".dstage .dimt").forEach((t) => {
+      t.style.fontSize = (11.5 / m.a).toFixed(3) + "px";
+      /* A box in the stage color behind the label, so the ruler line does not run through it. */
+      const bb = t.getBBox(), p = 4 / m.a, k = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      k.setAttribute("class", "dimk"); k.setAttribute("x", r2(bb.x - p)); k.setAttribute("y", r2(bb.y)); k.setAttribute("width", r2(bb.width + 2 * p)); k.setAttribute("height", r2(bb.height));
+      if (t.getAttribute("transform")) k.setAttribute("transform", t.getAttribute("transform"));
+      t.parentNode.insertBefore(k, t);
+    });
+  }
   window.addEventListener("load", settle);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
 })();
