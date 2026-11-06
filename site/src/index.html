@@ -99,7 +99,7 @@ svg { display: block; }
 .logo-ic .ic { width: 15px; height: 15px; stroke-width: 2.2; }
 .brand { font-weight: 700; font-size: 14px; letter-spacing: -0.01em; }
 .cnt { font: 11px var(--f-mono); color: var(--fg-2); background: var(--bg-subtle); padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
-.cnt-w { font-family: var(--f-ui); }
+.cnt-w { display: none; }
 .segs { display: flex; gap: 2px; background: var(--bg-subtle); padding: 2px; border-radius: 6px; }
 .seg { padding: 5px 12px; border-radius: 5px; font-weight: 600; color: var(--fg-2); white-space: nowrap; }
 .segs.sm .seg { padding: 4px 10px; font-size: 12px; }
@@ -173,8 +173,8 @@ a.ibtn { text-decoration: none; }
 .home { gap: 20px; }
 #home-h1:focus { outline: none; }
 #home-h1:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.hhero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 560px); gap: 24px 48px; align-items: center; padding: 24px 0 4px; }
-.htxt { display: grid; gap: 12px; min-width: 0; }
+.hhero { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 12px; align-items: center; padding: 24px 0 4px; }
+.htxt { display: grid; gap: 12px; min-width: 0; grid-column: span 2; padding-right: 36px; }
 .hhero .lede { max-width: 600px; }
 .hart { margin: 0; padding: 12px; display: grid; gap: 10px; min-width: 0; }
 .hart-st { position: relative; border-radius: 6px; background: var(--bg-page); background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 20px 20px 36px; }
@@ -304,6 +304,8 @@ a.ibtn { text-decoration: none; }
 .chip { padding: 3px 8px; font-size: 12px; font-weight: 600; border-radius: 4px; border: 1px solid var(--border-strong); background: var(--bg); color: var(--fg); white-space: nowrap; }
 .chip[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .chip .n { font: 10.5px var(--f-mono); opacity: .8; margin-left: 3px; }
+.lbar-k .chip[aria-pressed="true"] { background: var(--bg); color: var(--fg); border-color: var(--border-strong); }
+.lbar-k .chip:not([aria-pressed="true"]) { border-style: dashed; color: var(--fg-2); }
 
 .lbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 10px 12px; border-bottom: 1px solid var(--border); }
 .flat { background: transparent; border-color: transparent; }
@@ -342,6 +344,8 @@ a.ibtn { text-decoration: none; }
 .tbl .stk.c1 + th, .tbl .stk.c1 + td { padding-left: 8px; }
 .tbl tbody tr:hover > .stk { background: var(--bg-hover); }
 .tbl tbody tr.ref > .stk { background: var(--bg-ref); }
+.tbl tbody tr.ref > td { border-bottom: 2px solid var(--border-strong); }
+.pin-t { color: var(--fg-brand); font-weight: 600; }
 .tbl th { text-align: left; padding: 8px 8px 8px 0; font-size: 11px; font-weight: 600; color: var(--fg-2); white-space: nowrap; border-bottom: 1px solid var(--border); }
 .tbl th:first-child { padding-left: 12px; width: 36px; }
 .thi { display: grid; place-items: center; width: 16px; color: var(--fg-2); }
@@ -353,6 +357,7 @@ a.ibtn { text-decoration: none; }
 .cq { font: 500 11.5px var(--f-ui); color: var(--fg-2); margin-right: 6px; }
 .tbl td.c-soc .cs { max-width: none; white-space: nowrap; }
 .tbl th.c-soc, .tbl td.c-soc { padding-left: 20px; }
+.tbl th.c-weight, .tbl td.c-weight { padding-left: 16px; }
 .tbl .dpill, .tbl .dpill.up, .tbl .dpill.dn, .tbl .dpill.nt { background: none; padding: 0; font-weight: 700; }
 /* A soft right edge says the table scrolls sideways. The columns stop before it, so it covers no value. */
 .tblbox.can-r::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 16px; pointer-events: none; background: linear-gradient(to left, var(--edge-sh), transparent); }
@@ -374,7 +379,8 @@ a.ibtn { text-decoration: none; }
 .dwrap { display: flex; align-items: flex-start; gap: 6px; }
 .dwrap > div { flex: 1; min-width: 0; }
 .dwrap .refb { margin: -3px -4px 0 0; border: 1px solid transparent; background: transparent; min-width: 28px; min-height: 28px; border-radius: 6px; }
-.tbl tbody tr:hover .dwrap .refb, .dwrap .refb:focus-visible { border-color: var(--border-strong); background: var(--bg); }
+.dwrap .refb:not([aria-pressed="true"]) { color: var(--fg-3); }
+.tbl tbody tr:hover .dwrap .refb, .dwrap .refb:focus-visible { border-color: var(--border-strong); background: var(--bg); color: var(--fg-brand); }
 .dwrap .refb[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .dev-b { font-size: 11px; color: var(--fg-2); font-weight: 500; }
 .dtag { margin-left: 6px; }
@@ -427,6 +433,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .sil .o { fill: var(--bg); stroke: var(--fg-2); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
 .sil .scr, .dstage .scr { fill: var(--slice); stroke: var(--fg-3); stroke-width: 1; vector-effect: non-scaling-stroke; rx: 1.5px; }
 .card-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.card-h .price { position: relative; }
+.card-h .price .pmark { position: absolute; left: 100%; top: 0; }
 .card-h > div { min-width: 0; }
 .card-h .dev-v { min-height: 1.45em; }
 .card-n { font-weight: 800; font-size: 16px; line-height: 1.2; letter-spacing: -0.015em; }
@@ -511,7 +519,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .lg-t b { flex: 1; min-width: 0; }
 .lg-t .xbtn { margin: -4px -6px -4px 0; }
 .lg-t .m { font-size: 12px; color: var(--fg); }
-.lg-w { display: grid; grid-template-columns: minmax(0, 1fr) 72px 76px; align-items: center; gap: 8px; }
+.lg-w { display: grid; grid-template-columns: minmax(0, 1fr) 72px 92px; align-items: center; gap: 8px; }
 .lg-w > :last-child { justify-self: end; }
 .lg-w .ic { color: var(--fg-2); }
 .wbar { flex: 1; height: 6px; background: var(--bg-subtle); border-radius: 3px; overflow: hidden; }
@@ -519,8 +527,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .lg-cap { font-size: 11.5px; color: var(--fg-2); padding: 2px 2px 0; }
 .wbar i { display: block; height: 100%; border-radius: 3px; background: var(--c); }
 .lg-w .m { font-weight: 600; font-size: 12px; text-align: right; white-space: nowrap; }
-.lg-w .dpill { margin: 0; min-width: 52px; text-align: center; }
-.lg-w .tag.ref { display: inline-flex; align-items: center; gap: 3px; }
+.lg-w .dpill { margin: 0; min-width: 52px; text-align: center; padding: 2px 6px; line-height: 16px; }
+.lg-w .tag.ref { display: inline-flex; align-items: center; gap: 3px; padding: 2px 6px; line-height: 16px; }
 .lg-w .tag .ic { width: 11px; height: 11px; }
 .lg-w .tag.ref .ic { color: inherit; }
 .cmpw { border-radius: 10px; }
@@ -536,6 +544,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .lkey { font-size: 12px; color: var(--fg-2); }
 /* The key is a legend, not data: plain text with colored glyphs, so it does not read as chips. */
 .ckey > .dpill { background: none; padding: 0; margin: 0; color: var(--fg-2); font-weight: 500; }
+.ckey > .dpill .tri { width: 11px; height: 11px; }
+.ckey > .dpill .tri.o { stroke-width: 1.75; }
 .ckey > .dpill.up .tri { color: var(--good); } .ckey > .dpill.dn .tri { color: var(--bad); }
 .ckey { column-gap: 12px; }
 .ckl { color: var(--fg-2); font-size: 12px; }
@@ -609,8 +619,8 @@ button.tag:hover { filter: brightness(.95); }
 .pm-key i { width: 2px; height: 12px; border-radius: 1px; background: var(--fg); }
 .pm-r { display: grid; grid-template-columns: 100px 1fr 210px; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
 .pm-r b { font-weight: 600; }
-.pm-bar { height: 8px; background: var(--bg-subtle); border-radius: 4px; position: relative; }
-.pm-bar i { display: block; height: 8px; border-radius: 4px; background: var(--fg-2); }
+.pm-bar { height: 10px; background: var(--border); border-radius: 4px; position: relative; }
+.pm-bar i { display: block; height: 10px; border-radius: 4px; background: var(--fg-2); }
 .pm-tick { position: absolute; top: -4px; bottom: -4px; width: 2px; border-radius: 1px; background: var(--fg); }
 .pm-v { display: flex; align-items: center; gap: 6px; justify-content: flex-end; flex-wrap: wrap; }
 .pm-v .m { font-weight: 600; }
@@ -682,6 +692,7 @@ button.tag:hover { filter: brightness(.95); }
 @media (max-width: 960px) {
   .dgrid { grid-template-columns: minmax(0, 1fr); }
   .hhero { grid-template-columns: minmax(0, 1fr); }
+  .htxt { grid-column: auto; padding-right: 0; }
   .size-b { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 759px) {
@@ -703,7 +714,7 @@ button.tag:hover { filter: brightness(.95); }
   .lg-t { flex-wrap: wrap; }
   .lg-t .m { order: 3; width: 100%; padding-left: 28px; }
   .size-c .grp-c .lbl { min-width: 44px; }
-  .cnt-w, .badge-w, .lkey .ckl, .refpill .pin, .scr-k { display: none; }
+  .cnt-w, .badge-w, .lkey, .refpill .pin, .scr-k { display: none; }
   .badge-p { display: inline; }
   #gh-link { display: none; }
   .dd-a { min-height: 32px; }
@@ -815,7 +826,7 @@ button.tag:hover { filter: brightness(.95); }
         <button type="button" class="more" id="more-btn" data-act="show-all" hidden></button>
         <div class="empty" id="empty" hidden><svg class="ic empty-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5M8.5 8.5l5 5M13.5 8.5l-5 5"></path></svg><h2>No device matches these filters</h2><p id="empty-why"></p><button type="button" class="btn-p" data-act="reset-f">Reset filters</button></div>
       </div>
-      <p class="foot">PassMark scores are per SoC and mix TDPs and host devices. Treat them as a rough guide. Weight is the measured figure where available, otherwise the stated one. A price with a <span class="pmark-demo">*</span> is not a retail MSRP, for example a crowdfunding or pre-order price. Point at the * or focus it to see the kind.</p>
+      <p class="foot">PassMark scores are per SoC and mix TDPs and host devices. Treat them as a rough guide. Weight is the measured figure where available, otherwise the stated one. In the table, “meas.” marks a measured weight and “pack” a weight with the battery pack on. A price with a <span class="pmark-demo">*</span> is not a retail MSRP, for example a crowdfunding or pre-order price. Point at the * or focus it to see the kind.</p>
     </section>
   </div>
 </main>
@@ -1035,15 +1046,15 @@ button.tag:hover { filter: brightness(.95); }
   const COLS = [
     { k: "price", g: "Price", label: "MSRP", v: (d) => d.msrp_usd, t: priceTxt, mark: pmark, low: true, num: true },
     { k: "weight", g: "Size", label: "Weight", v: (d) => d._w, t: (d) => (d._w != null ? n0(d._w) + " g" : "—"), low: true, num: true,
-      sub: (d) => { const w = wH(d); return [w.measured == null && w.stated != null ? "stated" : "", ext(d) ? "w/ pack" : ""].filter(Boolean).join(", "); } },
+      sub: (d) => { const w = wH(d); return [w.measured != null ? "meas." : "", ext(d) ? "pack" : ""].filter(Boolean).join(" · "); } },
     { k: "dims", g: "Size", label: "W × H × D mm", v: (d) => { const h = dimsH(d); return h.w && h.h && h.d ? h.w * h.h * h.d : null; },
       t: (d) => { const h = dimsH(d); return h.w ? mm(h.w) + "×" + mm(h.h) + "×" + mm(h.d) : "—"; }, sub: (d) => (dimsH(d).d_max != null ? mm(dimsH(d).d_max) + " at grip" : ""), nodelta: true, num: true },
     { k: "soc", g: "Performance", label: "SoC", v: (d) => socName(d.soc_id), t: (d) => socName(d.soc_id), sub: (d) => (((socOf(d) || {}).igpu || {}).name || "").replace(/\(([^()\s]+) ([^()\s]+)\)$/, "($1\u00a0$2)"), text: true },
     { k: "cpu", g: "Performance", label: "CPU Mark", v: (d) => scoreOf(d, "cpu_mark"), t: (d) => n0(scoreOf(d, "cpu_mark")) || "—", num: true, strong: true },
     { k: "g3d", g: "Performance", label: "G3D Mark", v: (d) => scoreOf(d, "g3d_mark"), t: (d) => n0(scoreOf(d, "g3d_mark")) || "—", num: true, strong: true },
     { k: "screen", g: "Display", label: "Screen", v: (d) => (d.screen || {}).size_in, t: (d) => (d.screen && d.screen.size_in != null ? d.screen.size_in + "″" : "—"), sub: (d) => (d.screen || {}).panel || "", num: true },
-    { k: "res", g: "Display", label: "Resolution", v: (d) => { const s = d.screen || {}; return s.res_w && s.res_h ? s.res_w * s.res_h : null; }, t: (d) => { const s = d.screen || {}; return s.res_w && s.res_h ? s.res_w + "×" + s.res_h : "—"; }, nodelta: true, num: true },
     { k: "hz", g: "Display", label: "Refresh", v: (d) => (d.screen || {}).refresh_hz, t: (d) => ((d.screen || {}).refresh_hz ? d.screen.refresh_hz + " Hz" : "—"), sub: (d) => ((d.screen || {}).vrr ? "VRR" : ""), num: true },
+    { k: "res", g: "Display", label: "Resolution", v: (d) => { const s = d.screen || {}; return s.res_w && s.res_h ? s.res_w * s.res_h : null; }, t: (d) => { const s = d.screen || {}; return s.res_w && s.res_h ? s.res_w + "×" + s.res_h : "—"; }, nodelta: true, num: true },
     { k: "ram", g: "Memory", label: "RAM", v: (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? Math.max(...s) : null; }, t: (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? s.join(" / ") + " GB" : "—"; },
       sub: (d) => [(d.ram || {}).type, (d.ram || {}).speed_mts].filter(Boolean).join("-"), num: true },
     { k: "ssd", g: "Memory", label: "SSD", v: (d) => ssdText(d), t: (d) => ssdText(d) || "—", text: true },
@@ -1670,7 +1681,7 @@ button.tag:hover { filter: brightness(.95); }
     /* Row 1: count, reference, sort and the view switch. The verdict key and the column chips take row 2. */
     const lay = isNarrow() ? "" : '<div class="segs sm" role="group" aria-label="Layout">' + seg("layout", "table", I.table + "Table", state.layout === "table", "lay-table") + seg("layout", "cards", I.cards + "Cards", state.layout === "cards", "lay-cards") + "</div>";
     /* Lists show only better and worse: no list column has a neutral delta. */
-    const key = !ref ? "" : VKEY.replace('class="ckey"', 'class="ckey lkey"').replace(/<span class="dpill nt">.*?neither<\/span>/, "");
+    const key = isNarrow() || !ref ? "" : VKEY.replace('class="ckey"', 'class="ckey lkey"').replace(/<span class="dpill nt">.*?neither<\/span>/, "");
     if (cards) h += key + '<div class="lbar-r">' + '<span class="lbl">Sort</span><div class="segs sm" role="group" aria-label="Sort">' + [["g3d", "G3D"], ["cpu", "CPU"], ["price", "Price"], ["weight", "Weight"], ["battery", "Battery"]].map(([k, l]) => seg("sort", k, l + (state.sortK === k ? (state.sortDir < 0 ? " ↓" : " ↑") : ""), state.sortK === k, "sort-c-" + k)).join("") + "</div>" + lay + "</div>";
     else h += key + '<div class="lbar-r">' + lay + '</div><div class="lbar-k"><span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("") +
       '<button type="button" class="tmore" id="tmore-l" data-act="tbl-more" hidden></button></div>';
@@ -1715,7 +1726,7 @@ button.tag:hover { filter: brightness(.95); }
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
       '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + esc(cols.some((c) => c.k === "soc") ? [d.release_date ? d.release_date.slice(0, 4) : STATUS[d.status] || "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + (isRef ? '<span class="pin-t">Pinned</span> · ' : "") + esc(cols.some((c) => c.k === "soc") ? [d.release_date ? d.release_date.slice(0, 4) : STATUS[d.status] || "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
       cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
@@ -2047,11 +2058,11 @@ button.tag:hover { filter: brightness(.95); }
   const ynv = (v, d, path) => (v == null ? NS : sv(yn(v), own(d, [path])));
   function grpSize(d) {
     const dm = d.dims_mm || {}, h = dimsH(d), wg = d.weight_g || {}, w = wH(d), R = [];
-    R.push(["Size as held", sv(mm(h.w) + " × " + mm(h.h) + " × " + mm(h.d) + " mm", own(d, ["dims_mm.handheld.w", "dims_mm.handheld.h", "dims_mm.handheld.d"]), true)]);
+    R.push(["Size as held", sv(mm(h.w) + "×" + mm(h.h) + "×" + mm(h.d) + " mm", own(d, ["dims_mm.handheld.w", "dims_mm.handheld.h", "dims_mm.handheld.d"]), true)]);
     if (h.d_max != null) R.push(["Thickest point", sv(mm(h.d_max) + " mm", own(d, ["dims_mm.handheld.d_max"]), true)]);
     [["tablet_only", "Tablet only"], ["closed", "Closed"], ["with_keyboard", "With keyboard"], ["without_battery", "Without battery module"]].forEach((k) => {
       const x = dm[k[0]];
-      if (x) R.push([k[1], sv(mm(x.w) + " × " + mm(x.h) + " × " + mm(x.d) + (x.d_max != null ? " / " + mm(x.d_max) : "") + " mm", own(d, ["dims_mm." + k[0]]), true)]);
+      if (x) R.push([k[1], sv(mm(x.w) + "×" + mm(x.h) + "×" + mm(x.d) + (x.d_max != null ? " / " + mm(x.d_max) : "") + " mm", own(d, ["dims_mm." + k[0]]), true)]);
     });
     R.push(["Weight, stated", w.stated != null ? sv(n0(w.stated) + " g" + (ext(d) ? " with pack" : ""), own(d, ["weight_g.handheld.stated"]), true) : NS]);
     if (w.measured != null) {
@@ -2113,7 +2124,7 @@ button.tag:hover { filter: brightness(.95); }
     return kv([
       ["Size", s.size_in != null ? sv(s.size_in + "″", o("size_in"), true) : NS],
       ["Panel", s.panel ? sv(s.panel, o("panel")) : NS],
-      ["Resolution", s.res_w && s.res_h ? sv(s.res_w + " × " + s.res_h, o("res_w"), true) : NS],
+      ["Resolution", s.res_w && s.res_h ? sv(s.res_w + "×" + s.res_h, o("res_w"), true) : NS],
       ["Refresh", s.refresh_hz ? sv(s.refresh_hz + " Hz", o("refresh_hz"), true) : NS],
       ["VRR", ynv(s.vrr, d, "screen.vrr")],
       ["Touch", ynv(s.touch, d, "screen.touch")],
