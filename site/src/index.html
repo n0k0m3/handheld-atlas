@@ -28,7 +28,7 @@
     --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
     --border: #303641; --border-strong: #424b59;
     --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
-    --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #a7439d; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
+    --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #c25cb8; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
     --slice: #424b59; --slice-back: #111318;
     --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5);
     color-scheme: dark;
@@ -40,7 +40,7 @@
   --fg: #edf0f5; --fg-2: #a7afbd; --fg-3: #6f7a8c; --fg-brand: #62bcff; --fg-onbrand: #ffffff; --fg-onaccent: #191d24;
   --border: #303641; --border-strong: #424b59;
   --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
-  --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #a7439d; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
+  --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #c25cb8; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
   --slice: #424b59; --slice-back: #111318;
   --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5);
   color-scheme: dark;
@@ -97,7 +97,8 @@ svg { display: block; }
 .logo-ic { width: 24px; height: 24px; border-radius: 6px; background: var(--bg-brand); color: #fff; display: grid; place-items: center; }
 .logo-ic .ic { width: 15px; height: 15px; stroke-width: 2.2; }
 .brand { font-weight: 700; font-size: 14px; letter-spacing: -0.01em; }
-.cnt { font: 11px var(--f-mono); color: var(--fg-2); background: var(--bg-subtle); padding: 1px 6px; border-radius: 4px; }
+.cnt { font: 11px var(--f-mono); color: var(--fg-2); background: var(--bg-subtle); padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+.cnt-w { font-family: var(--f-ui); }
 .segs { display: flex; gap: 2px; background: var(--bg-subtle); padding: 2px; border-radius: 6px; }
 .seg { padding: 5px 12px; border-radius: 5px; font-weight: 600; color: var(--fg-2); white-space: nowrap; }
 .segs.sm .seg { padding: 4px 10px; font-size: 12px; }
@@ -113,7 +114,7 @@ svg { display: block; }
 .dd-item > div { flex: 1; min-width: 0; }
 .dd-n { font-weight: 600; }
 .dd-s { font-size: 12px; color: var(--fg-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.dd-a { font-size: 12px; font-weight: 600; color: var(--fg-brand); white-space: nowrap; padding: 3px 8px; border: 1px solid var(--border-strong); border-radius: 6px; background: var(--bg); }
+.dd-a { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: var(--fg-brand); white-space: nowrap; padding: 3px 8px; border: 1px solid var(--border-strong); border-radius: 6px; background: var(--bg); }
 .dd-item:disabled .dd-a { border-color: transparent; background: none; color: var(--fg-2); }
 .dd-n .hl { background: var(--bg-selected); color: var(--fg-brand); border-radius: 2px; }
 .dd-none { padding: 10px 8px; color: var(--fg-2); }
@@ -148,17 +149,18 @@ a.ibtn { text-decoration: none; }
 .btn-t .ic { width: 12px; height: 12px; }
 .btn-p .ic { width: 15px; height: 15px; }
 .btn-t:hover { text-decoration: underline; text-underline-offset: 3px; }
+.btn-t:disabled { opacity: .45; text-decoration: none; }
 
 /* ---------- screens ---------- */
 .main { max-width: 1440px; margin: 0 auto; padding: 20px 8px 32px; display: grid; gap: 16px; min-width: 0; }
 .main > * { min-width: 0; }
-.phead { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.phead { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .phead > div { min-width: 0; }
 .phead h1:focus { outline: none; }
 .phead h1:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .eyebrow { font-size: 12px; font-weight: 600; color: var(--fg-brand); }
 .hero { font-size: 52px; letter-spacing: -0.035em; line-height: 1; margin-top: 4px; }
-.lede { max-width: 380px; color: var(--fg-2); font-size: 14px; }
+.lede { max-width: 60ch; color: var(--fg-2); font-size: 14px; }
 
 /* ---------- home ---------- */
 .home { gap: 20px; }
@@ -187,7 +189,7 @@ a.ibtn { text-decoration: none; }
 .hgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 .hcard { padding: 16px; display: grid; gap: 8px; align-content: start; }
 .hcard h2 { font-size: 16px; letter-spacing: -0.01em; }
-.hcredit { max-width: 760px; font-size: 13px; color: var(--fg-2); }
+.hcredit { max-width: 760px; font-size: 12px; color: var(--fg-2); text-wrap: pretty; }
 .hcard p, .steps { color: var(--fg-2); font-size: 13px; line-height: 1.5; }
 .help > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-weight: 700; font-size: 13px; border-radius: 10px; }
 .help > summary::-webkit-details-marker { display: none; }
@@ -297,10 +299,15 @@ a.ibtn { text-decoration: none; }
 .lbar-r { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-left: auto; }
 .lbar-r .lbl { margin-right: 4px; }
 .lbar-r .segs { margin-left: 8px; }
+.lbar-r .segs[aria-label="Layout"] { margin-left: 12px; }
+.lbar-r .segs[aria-label="Layout"] .seg { display: inline-flex; align-items: center; gap: 6px; }
+.lbar-r .segs[aria-label="Layout"] .ic { width: 13px; height: 13px; }
 .tblw { overflow-x: auto; }
 .tblbox { position: relative; }
-.tmore { position: absolute; top: 4px; right: 8px; z-index: 4; display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; border-radius: 13px; font-size: 12px; font-weight: 600; color: var(--fg-brand); background: var(--bg); border: 1px solid var(--border-strong); box-shadow: var(--shadow); }
-.tmore:hover { background: var(--bg-hover); }
+.tmore { display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; margin-left: 4px; border-radius: 4px; font-size: 12px; font-weight: 600; color: var(--fg-brand); border: 1px solid var(--accent); background: var(--bg); white-space: nowrap; }
+.tmore:hover { background: var(--bg-selected); }
+.tmore .ic { width: 12px; height: 12px; }
+.tbl th:not(.num):not(.stk), .tbl td:not(.num):not(.stk) { padding-left: 16px; }
 .tbl { width: 100%; border-collapse: separate; border-spacing: 0; }
 .tbl .stk { position: sticky; z-index: 2; background: var(--bg); }
 .tbl th.stk { z-index: 3; }
@@ -327,8 +334,10 @@ a.ibtn { text-decoration: none; }
 .dcell { min-width: 190px; white-space: normal; }
 .dwrap { display: flex; align-items: flex-start; gap: 6px; }
 .dwrap > div { flex: 1; min-width: 0; }
-.dwrap .refb { margin: -3px -4px 0 0; }
+.dwrap .refb { margin: -3px -4px 0 0; border: 1px solid var(--border-strong); background: var(--bg); min-width: 28px; min-height: 28px; border-radius: 6px; }
+.dwrap .refb[aria-pressed="true"] { background: var(--bg-brand); color: var(--fg-onbrand); border-color: var(--bg-brand); }
 .dev-b { font-size: 11px; color: var(--fg-2); font-weight: 500; }
+.dtag { margin-left: 6px; }
 .dev-n { font-weight: 700; font-size: 13px; line-height: 1.3; }
 .dev-n:hover { color: var(--fg-brand); }
 .dev-v { font-size: 11.5px; color: var(--fg-2); max-width: 260px; }
@@ -387,13 +396,13 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stat-d .dpill { margin: 0; background: none; padding: 0; }
 .card-f { display: flex; gap: 6px; margin-top: auto; }
 .card-f .addb:first-child { flex: 1; min-width: 0; }
-.addb { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px 10px; border-radius: 6px; font-weight: 700; border: 1px solid var(--border-strong); background: var(--bg); white-space: nowrap; }
+.addb { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 10px; border-radius: 6px; font-weight: 700; border: 1px solid var(--border-strong); background: var(--bg); white-space: nowrap; }
 .addb .ic { width: 14px; height: 14px; }
 .addb.refc { justify-content: center; gap: 6px; font-weight: 600; color: var(--fg-2); }
 .addb.refc .ic { width: 12px; height: 12px; }
 .addb.refc:hover { color: var(--fg-brand); }
 .addb[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
-.addb.refc[aria-pressed="true"] { background: var(--bg-brand); color: var(--fg-onbrand); border-color: var(--bg-brand); }
+.addb.refc[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .addb:disabled { opacity: .35; }
 
 /* ---------- compare ---------- */
@@ -420,7 +429,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage2d .shp.lid { fill-opacity: .03; }
 /* Overlay: outlines only, so the fills never mix. The reference keeps a light fill. */
 .stage2d.ov .shp { fill-opacity: 0; }
-.stage2d.ov .rf .shp { fill-opacity: .08; }
+.stage2d.ov .rf .shp { fill: var(--fg-2); fill-opacity: .08; }
 .stage2d .shp.mod { fill-opacity: .22; }
 .sil .o.mod, .dstage .o.mod { fill: var(--slice); }
 .stage2d .hinge, .sil .hinge, .dstage .hinge { stroke: var(--fg-2); stroke-width: 1; stroke-dasharray: 3 2; stroke-opacity: .8; vector-effect: non-scaling-stroke; }
@@ -464,6 +473,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .cmp-hint { padding: 12px; font-size: 11.5px; color: var(--fg-2); align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 8px; }
 .cmp-hint .tog { font-size: 12px; padding: 5px 8px 5px 6px; }
 .ckey { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+.lkey { font-size: 11.5px; color: var(--fg-2); }
 .ckey > span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
 .ckey i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
 .ckey .kg { background: var(--good); } .ckey .kb { background: var(--bad); } .ckey .kn { background: var(--fg-2); }
@@ -478,13 +488,16 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .ccol-f { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; gap: 6px; }
 .tag { font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--bg-subtle); color: var(--fg-2); white-space: nowrap; }
 .tag.ref { background: var(--bg-brand); color: var(--fg-onbrand); }
+.ccol-f .tag { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; font-size: 12px; padding: 2px 8px; }
+.ccol-f .tag .ic { width: 12px; height: 12px; }
+.ccol-f .tag.ref:hover { background: var(--bg-brand-hover); filter: none; }
 button.tag:hover { filter: brightness(.95); }
 .tag.good { background: var(--good-bg); color: var(--good); }
 .tag.info { background: var(--bg-selected); color: var(--fg-brand); }
 .cslot { padding: 12px; border-left: 1px solid var(--border); position: relative; display: flex; flex-direction: column; gap: 6px; justify-content: flex-end; min-width: 0; }
 .cslot .srch-box { background: var(--bg-page); border: 1px dashed var(--border-strong); }
 .cslot .dd { left: auto; right: 12px; width: min(320px, calc(100vw - 48px)); }
-.csec { padding: 14px 12px 6px; font-weight: 700; font-size: 12px; color: var(--fg-2); background: var(--bg-page); border-bottom: 1px solid var(--border); }
+.csec { padding: 14px 12px 6px; font-weight: 700; font-size: 12px; color: var(--fg); background: var(--bg-page); border-bottom: 1px solid var(--border); }
 .cgrid.diff { background: var(--bg-selected); }
 .clbl { padding: 9px 12px; color: var(--fg-2); font-weight: 500; }
 .ccell { padding: 9px 12px; border-left: 1px solid var(--border); min-width: 0; }
@@ -518,6 +531,8 @@ button.tag:hover { filter: brightness(.95); }
 .pm-h { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .pm-h b { font-size: 14px; }
 .pm-h span { font-size: 11.5px; color: var(--fg-2); }
+.pm-h .pm-key { flex-basis: 100%; display: flex; align-items: center; gap: 6px; color: var(--fg); }
+.pm-key i { width: 2px; height: 12px; border-radius: 1px; background: var(--fg); }
 .pm-r { display: grid; grid-template-columns: 100px 1fr 150px; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
 .pm-r b { font-weight: 600; }
 .pm-bar { height: 8px; background: var(--bg-subtle); border-radius: 4px; position: relative; }
@@ -538,6 +553,7 @@ button.tag:hover { filter: brightness(.95); }
 .dact .btn-p[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .dact .btn-p:disabled { opacity: .4; }
 .sgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.scol { display: grid; gap: 16px; min-width: 0; }
 .grp { overflow: hidden; }
 .grp-h { font-weight: 700; font-size: 12px; color: var(--fg-2); padding: 8px 12px; background: var(--bg-page); border-bottom: 1px solid var(--border); }
 .kv { display: grid; grid-template-columns: 128px minmax(0, 1fr); }
@@ -546,10 +562,10 @@ button.tag:hover { filter: brightness(.95); }
 .kv dt:last-of-type, .kv dd:last-of-type { border-bottom: 0; }
 .kv .sub { display: block; font-size: 11.5px; color: var(--fg-2); font-weight: 400; margin-top: 1px; }
 .kv .na, .kv .u { font-weight: 400; }
-.kv dd .m { white-space: nowrap; }
 .gnote { font-size: 12px; color: var(--fg-2); padding: 8px 12px; border-top: 1px solid var(--border); }
 .sv { text-decoration: underline dotted; text-decoration-color: var(--fg-2); text-decoration-thickness: 1.5px; text-underline-offset: 3px; color: inherit; font-weight: inherit; }
 .sv:hover, .sv[aria-expanded="true"] { text-decoration-color: var(--accent); color: var(--fg-brand); }
+.sv[aria-expanded="true"] { background: var(--bg-selected); text-decoration-style: solid; border-radius: 3px; box-shadow: 0 0 0 3px var(--bg-selected); }
 .dl { list-style: none; margin: 0; padding: 8px 12px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; font-size: 12.5px; }
 .dl > li { min-width: 0; overflow-wrap: anywhere; }
 .dl .f { font: 12px var(--f-mono); color: var(--fg-2); }
@@ -567,8 +583,8 @@ button.tag:hover { filter: brightness(.95); }
 @media (forced-colors: active) { #tip { border: 1px solid CanvasText; } }
 #pop { position: fixed; z-index: 60; width: max-content; max-width: min(320px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--border-strong); border-radius: 10px; box-shadow: 0 2px 4px rgba(17, 24, 39, .08), 0 12px 32px rgba(17, 24, 39, .18); padding: 10px 14px 12px; font-size: 13px; }
 /* The caret points at the value that opened the popover. */
-#pop::before { content: ""; position: absolute; top: -6px; left: var(--cx, 16px); width: 10px; height: 10px; background: var(--bg); border-left: 1px solid var(--border-strong); border-top: 1px solid var(--border-strong); transform: rotate(45deg); }
-#pop.up::before { top: auto; bottom: -6px; transform: rotate(225deg); }
+#pop::before { content: ""; position: absolute; top: -7px; left: var(--cx, 16px); width: 12px; height: 12px; background: var(--bg); border-left: 1px solid var(--border-strong); border-top: 1px solid var(--border-strong); transform: rotate(45deg); }
+#pop.up::before { top: auto; bottom: -7px; transform: rotate(225deg); }
 #pop h4 { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); font-weight: 700; margin: 0 0 6px; }
 #pop ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
 #pop li { min-width: 0; overflow-wrap: anywhere; }
@@ -576,10 +592,10 @@ button.tag:hover { filter: brightness(.95); }
 #pop:focus-visible { outline: 2px solid var(--accent); }
 #pop .why { display: block; color: var(--fg-2); font-size: 12px; overflow-wrap: anywhere; }
 .site-foot { width: calc(100% - 16px); max-width: 1424px; margin: 0 auto; padding: 16px 0 0; font-size: 12px; color: var(--fg-2); display: grid; gap: 4px; border-top: 1px solid var(--border); }
-.site-foot p { max-width: 100ch; }
+.site-foot p { max-width: 100ch; text-wrap: pretty; }
 
 /* ---------- narrow screens ---------- */
-@media (max-width: 1100px) { .sgrid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1100px) { .sgrid { grid-template-columns: minmax(0, 1fr); } .scol { display: contents; } }
 @media (max-width: 960px) {
   .dgrid { grid-template-columns: minmax(0, 1fr); }
   .hhero { grid-template-columns: minmax(0, 1fr); }
@@ -600,6 +616,7 @@ button.tag:hover { filter: brightness(.95); }
   .segs.sm .seg, .chip { min-height: 32px; }
   .xbtn { min-width: 32px; min-height: 32px; }
   .lbar-r { margin-left: 0; width: 100%; }
+  .cnt-w { display: none; }
   .bgrid { grid-template-columns: minmax(0, 1fr); }
   .side { display: none; }
   .topf { display: block; }
@@ -646,7 +663,7 @@ button.tag:hover { filter: brightness(.95); }
         <svg class="ic" id="ic-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
         <svg class="ic" id="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
       </button>
-      <button type="button" class="badge" id="badge" data-act="badge" aria-expanded="false" aria-controls="qpop"><span>Compare</span><span class="badge-n" id="badge-n">0/4</span></button>
+      <button type="button" class="badge" id="badge" data-act="badge" aria-expanded="false" aria-controls="qpop"><span>Compare list</span><span class="badge-n" id="badge-n">0/4</span></button>
       <div class="qpop" id="qpop" hidden></div>
     </div>
   </div>
@@ -664,9 +681,9 @@ button.tag:hover { filter: brightness(.95); }
    <figure class="panel hart" id="home-art" hidden></figure>
   </section>
   <section class="hgrid">
-    <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip, and sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Go to Browse <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
-    <article class="panel hcard"><h2>Compare</h2><p>Up to eight devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Go to Compare <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
-    <article class="panel hcard"><h2>Sourced</h2><p>Every figure links to where it came from. Each device sheet lists its sources, conflicts and gaps.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
+    <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip, and sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Filter all devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
+    <article class="panel hcard"><h2>Compare</h2><p>Up to eight devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Compare up to eight <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
+    <article class="panel hcard"><h2>Sourced</h2><p>Every figure links to where it came from. Each device sheet lists its sources, conflicts and gaps.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device sheet <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
   </section>
   <p class="hcredit" id="home-credit">Inspired by <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>.<span id="home-rc"></span></p>
 </main>
@@ -703,7 +720,6 @@ button.tag:hover { filter: brightness(.95); }
             <tbody id="tbody"></tbody>
           </table>
         </div>
-        <button type="button" class="tmore" id="tmore" data-act="tbl-more" hidden>More columns <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
         </div>
         <div class="cards" id="cards" hidden></div>
         <button type="button" class="more" id="more-btn" data-act="show-all" hidden></button>
@@ -1234,6 +1250,8 @@ button.tag:hover { filter: brightness(.95); }
     target: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg>',
     targetS: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>',
     chev: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>',
+    table: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 10h18M3 15h18M9 4v16"></path></svg>',
+    cards: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"></rect><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"></rect><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"></rect><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"></rect></svg>',
     check: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>',
     back: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>',
     weight: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="3"></circle><path d="M6.5 8a2 2 0 0 0-1.9 1.5L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.9-2.5L19.4 9.5A2 2 0 0 0 17.5 8Z"></path></svg>'
@@ -1279,7 +1297,7 @@ button.tag:hover { filter: brightness(.95); }
     $$('.addb[data-act="q"]').forEach((b) => {
       const q = inQ(b.dataset.id), dis = !q && full;
       b.setAttribute("aria-pressed", String(q)); b.disabled = dis;
-      b.innerHTML = (q ? "In compare" : dis ? "List full" : "Add to compare") + (q ? I.check : I.plus);
+      b.innerHTML = q ? "In compare" + I.check : dis ? "List full" : I.plus + "Add to compare";
     });
     $("#badge-n").textContent = n + "/" + MAX_Q;
     $("#badge").classList.toggle("on", n > 0);
@@ -1312,7 +1330,7 @@ button.tag:hover { filter: brightness(.95); }
     const hl = (t) => { const i = t.toLowerCase().indexOf(q.toLowerCase()); return i < 0 ? esc(t) : esc(t.slice(0, i)) + '<mark class="hl">' + esc(t.slice(i, i + q.length)) + "</mark>" + esc(t.slice(i + q.length)); };
     dd.innerHTML = res.length ? res.map((d) => {
       const q2 = inQ(d.id), dis = q2 || full;
-      return '<button type="button" class="dd-item" data-act="add" data-id="' + esc(d.id) + '" data-from="' + which + '"' + (dis ? " disabled" : "") + '><div><div class="dd-n">' + hl(d._short) + '</div><div class="dd-s">' + esc(d._sub) + '</div></div><span class="dd-a">' + (q2 ? "Added" : full ? "List full" : "+ Compare") + "</span></button>";
+      return '<button type="button" class="dd-item" data-act="add" data-id="' + esc(d.id) + '" data-from="' + which + '"' + (dis ? " disabled" : "") + '><div><div class="dd-n">' + hl(d._short) + '</div><div class="dd-s">' + esc(d._sub) + '</div></div><span class="dd-a">' + (q2 ? "In compare" : full ? "List full" : I.plus + "Add to compare") + "</span></button>";
     }).join("") : '<div class="dd-none">No device matches “' + esc(q) + "”.</div>";
     dd.hidden = false;
   }
@@ -1531,6 +1549,7 @@ button.tag:hover { filter: brightness(.95); }
     if (html !== lastChips) { $("#fchips").innerHTML = html; lastChips = html; }
     const ts = $("#tf-sum"), nAct = an.act.length + (an.qt.length ? 1 : 0);
     if (ts) ts.textContent = plural(an.all.length, "result") + (nAct ? " · " + plural(nAct, "filter") : "");
+    const fr = $("#f-reset"); if (fr) fr.disabled = !nAct;
   }
   function sorted(list) {
     const c = COL[state.sortK] || COL.g3d, dir = state.sortDir;
@@ -1552,13 +1571,16 @@ button.tag:hover { filter: brightness(.95); }
     const ref = refDev(), cards = effLayout() === "cards";
     const an = analyse(), filt = an.all;
     let h = '<span class="lbar-n" id="lbar-n" aria-live="polite">' + plural(filt.length, "device") + '</span><span class="lbar-x" id="lbar-x">' + esc(listNote(filt, an)) + "</span>";
-    if (ref) h += '<span class="refpill">' + I.targetS + "Reference: <strong>" + esc(ref._short) + '</strong><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear reference" aria-label="Clear reference">' + I.x + "</button></span>";
+    if (ref) h += '<span class="refpill">' + I.targetS + "Reference: <strong>" + esc(ref._short) + '</strong><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear reference" aria-label="Clear reference">' + I.x + "</button></span>" +
+      '<span class="ckey lkey"><span><i class="kg"></i>better</span><span><i class="kb"></i>worse</span></span>';
     h += '<div class="lbar-r">';
-    if (!cards) h += '<span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("");
+    if (!cards) h += '<span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("") +
+      '<button type="button" class="tmore" id="tmore" data-act="tbl-more" hidden>More columns' + I.arrow + "</button>";
     else h += '<span class="lbl">Sort</span><div class="segs sm" role="group" aria-label="Sort">' + [["g3d", "G3D"], ["cpu", "CPU"], ["price", "Price"], ["weight", "Weight"], ["battery", "Battery"]].map(([k, l]) => seg("sort", k, l + (state.sortK === k ? (state.sortDir < 0 ? " ↓" : " ↑") : ""), state.sortK === k, "sort-c-" + k)).join("") + "</div>";
-    if (!isNarrow()) h += '<div class="segs sm" role="group" aria-label="Layout">' + seg("layout", "table", "Table", state.layout === "table", "lay-table") + seg("layout", "cards", "Cards", state.layout === "cards", "lay-cards") + "</div>";
+    if (!isNarrow()) h += '<div class="segs sm" role="group" aria-label="Layout">' + seg("layout", "table", I.table + "Table", state.layout === "table", "lay-table") + seg("layout", "cards", I.cards + "Cards", state.layout === "cards", "lay-cards") + "</div>";
     h += "</div>";
     $("#lbar").innerHTML = h;
+    syncTblFade();
   }
   /* The sticky columns cover the left of the scrollport. Scroll padding keeps a focused header or cell clear of them. */
   function stickyRight() { const th = $("#thead th.stk.c1"), w = $("#tblw"); return th && w ? th.getBoundingClientRect().right - w.getBoundingClientRect().left : 0; }
@@ -1591,13 +1613,13 @@ button.tag:hover { filter: brightness(.95); }
   }
   function refBtn(d, isRef, prefix) {
     const id = esc(d.id);
-    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Use as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + I.target + "</button>";
+    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Set as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + I.target + "</button>";
   }
   function rowHtml(d, cols, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
       '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-b">' + esc(d.brand) + (isRef ? ' <span class="tag ref">Reference</span>' : "") + '</div><button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-b">' + esc(d.brand) + (isRef ? '<span class="tag ref dtag">Reference</span>' : "") + '</div><button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
       cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
@@ -1609,7 +1631,7 @@ button.tag:hover { filter: brightness(.95); }
   function cardHtml(d, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     const o = outline(d, "top"), sh = openParts(d, o, "front"), silH = Math.round(Math.min(96, 84 * Math.min(1, o.w / 360) * sh.h / o.h));
-    const stat = (label, v, text, low, x) => { const dl = ref && !isRef ? delta(v, low === "nd" ? null : ref._stat[label], low === true) : null; return '<div class="stat"><div class="stat-l">' + label + '</div><div class="stat-v">' + esc(text) + (x ? ' <span class="stat-x">' + esc(x) + "</span>" : "") + "</div>" + (ref ? '<div class="stat-d">' + dpill(dl) + "</div>" : "") + "</div>"; };
+    const stat = (label, v, text, low, x, key) => { const dl = ref && !isRef ? delta(v, low === "nd" ? null : ref._stat[key || label], low === true) : null; return '<div class="stat"><div class="stat-l">' + label + '</div><div class="stat-v">' + esc(text) + (x ? ' <span class="stat-x">' + esc(x) + "</span>" : "") + "</div>" + (ref ? '<div class="stat-d">' + dpill(dl) + "</div>" : "") + "</div>"; };
     d._stat = { Weight: d._w, "G3D Mark": scoreOf(d, "g3d_mark"), Screen: (d.screen || {}).size_in, Battery: (d.battery || {}).wh };
     if (ref && !ref._stat) ref._stat = { Weight: ref._w, "G3D Mark": scoreOf(ref, "g3d_mark"), Screen: (ref.screen || {}).size_in, Battery: (ref.battery || {}).wh };
     const s = d.screen || {};
@@ -1618,9 +1640,9 @@ button.tag:hover { filter: brightness(.95); }
       "</div>" +
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
-      stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, s.size_in != null && s.refresh_hz ? s.refresh_hz + " Hz" : "") + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
-      '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare" : dis ? "List full" : "Add to compare") + (q ? I.check : I.plus) + "</button>" +
-      '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Compare every device against this one") + '" aria-label="' + (isRef ? "Reference: " + esc(d._name) + ". Press to clear." : "Use " + esc(d._name) + " as reference") + '">' + I.targetS + "Reference</button></div></article>";
+      stat(s.refresh_hz ? "Screen · " + s.refresh_hz + " Hz" : "Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen") + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
+      '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare" + I.check : dis ? "List full" : I.plus + "Add to compare") + "</button>" +
+      '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Compare every device against this one") + '" aria-label="' + (isRef ? "Reference: " + esc(d._name) + ". Press to clear." : "Use " + esc(d._name) + " as reference") + '">' + (isRef ? "Reference" + I.check : I.target + "Reference") + "</button></div></article>";
   }
   function buildCards() {
     const ref = refDev();
@@ -1675,7 +1697,7 @@ button.tag:hover { filter: brightness(.95); }
   function syncLayout() {
     placeFilterPanel();
     $("#lpanel").classList.toggle("flat", effLayout() === "cards");
-    $("#hq").placeholder = isNarrow() ? "Add to compare" : "Add a device to compare: type a name";
+    $("#hq").placeholder = isNarrow() ? "Add to compare" : "Add to compare: type a device name";
     renderListBar(); applyList();
   }
   let applyRaf = 0;
@@ -1709,7 +1731,7 @@ button.tag:hover { filter: brightness(.95); }
   let cmpHelpOpen = false;
   function cmpHelpHtml() {
     return '<details class="panel help" id="help-cmp"' + (cmpHelpOpen ? " open" : "") + '><summary>How to compare</summary><ol class="steps">' +
-      '<li><span class="step-n">1</span><div><b>Queue up to eight devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">Add to compare <span>+</span></span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
+      '<li><span class="step-n">1</span><div><b>Queue up to eight devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">' + I.plus + 'Add to compare</span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
       '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at 1 unit = 1 mm, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Clamshells are drawn open.</div></li>' +
       '<li><span class="step-n">3</span><div><b>Pick a reference, or none.</b> Press <span class="demo"><span class="tag">Set as reference</span></span> on a column to compare the others against it. Press <span class="demo"><span class="tag ref">Reference</span></span> again to turn the deltas off.</div></li>' +
       '<li><span class="step-n">4</span><div><b>Read the grid.</b> "Differences only" hides identical rows, and <span class="demo"><span class="best">Best</span></span> marks the best value in a row. Remove a device with the × on its column or in the size legend.</div></li>' +
@@ -1849,7 +1871,7 @@ button.tag:hover { filter: brightness(.95); }
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
         '<div class="ccol-t"><span class="dev-b"><svg class="csw" viewBox="0 0 20 10" width="18" height="9" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<button type="button" class="ccol-n" id="copen2-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
-        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? "Reference" : "Baseline") : "Set as reference") + "</button></div></div>";
+        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? "Reference" + I.x : "Baseline") : "Set as reference") + "</button></div></div>";
     }).join("");
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false"></div><div class="dd" id="sq-dd" hidden></div></div>';
     h += "</div>";
@@ -1919,9 +1941,9 @@ button.tag:hover { filter: brightness(.95); }
       const so = (paths) => matchSrc(s.sources, paths);
       const pm = s.passmark || {}, t = s.tdp_w || {}, g = s.igpu || {};
       R.push(["Maker", esc([s.vendor, s.codename].filter(Boolean).join(" · "))]);
-      R.push(["CPU", [s.cores ? mtxt(s.cores + "C / " + (s.threads || "?") + "T") : null, s.core_mix ? esc(s.core_mix) : null, s.boost_ghz ? "up to " + mtxt(s.boost_ghz + " GHz") : null].filter(Boolean).join(", ") || null]);
-      R.push(["GPU", [g.name ? esc(g.name) : null, g.cu ? mtxt(g.cu + " CU") : null, g.arch ? esc(g.arch) : null].filter(Boolean).join(", ") || null]);
-      if (t.min != null || t.max != null) R.push(["TDP", mtxt((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + " W") + (t.default != null ? ", default " + mtxt(t.default + " W") : "")]);
+      R.push(["CPU", esc([s.cores ? s.cores + "C / " + (s.threads || "?") + "T" : null, s.core_mix || null, s.boost_ghz ? "up to " + s.boost_ghz + "\u00a0GHz" : null].filter(Boolean).join(", ")) || null]);
+      R.push(["GPU", esc([g.name || null, g.cu ? g.cu + "\u00a0CU" : null, g.arch || null].filter(Boolean).join(", ")) || null]);
+      if (t.min != null || t.max != null) R.push(["TDP", t.default != null ? esc((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + "\u00a0W, default " + t.default + "\u00a0W") : mtxt((t.min != null ? t.min : "?") + "–" + (t.max != null ? t.max : "?") + " W")]);
       if (s.npu_tops != null) R.push(["NPU", s.npu_tops === 0 ? "None" : mtxt(s.npu_tops + " TOPS")]);
       if (pm.cpu_mark != null) R.push(["CPU Mark", sv(n0(pm.cpu_mark), so(["passmark.cpu_mark"]), true) + (pm.cpu_samples != null ? sub(n0(pm.cpu_samples) + " samples") : "")]);
       if (pm.single_thread != null) R.push(["Single Thread", sv(n0(pm.single_thread), so(["passmark.single_thread", "passmark.cpu_mark"]), true)]);
@@ -2005,17 +2027,17 @@ button.tag:hover { filter: brightness(.95); }
   }
   function grpLists(d) {
     const fmt = (v) => (v !== null && typeof v === "object" ? JSON.stringify(v) : String(v));
-    let s = "";
+    const out = [];
     const cf = d.conflicts || [];
-    if (cf.length) s += grp("Conflicts", '<ul class="dl">' + cf.map((c) => '<li><span class="f">' + esc(c.field) + '</span><div class="cfv">' +
+    if (cf.length) out.push(grp("Conflicts", '<ul class="dl">' + cf.map((c) => '<li><span class="f">' + esc(c.field) + '</span><div class="cfv">' +
       (c.values || []).map((v) => '<span><b class="m">' + esc(fmt(v.value)) + "</b> · " + link(v.url) + "</span>").join("") + "</div>" +
-      (c.chosen_reason ? '<span class="why">Chosen: ' + esc(c.chosen_reason) + "</span>" : "") + "</li>").join("") + "</ul>");
+      (c.chosen_reason ? '<span class="why">Chosen: ' + esc(c.chosen_reason) + "</span>" : "") + "</li>").join("") + "</ul>"));
     const un = d.unresolved || [];
-    if (un.length) s += grp("Unresolved", '<ul class="dl">' + un.map((u) => '<li><span class="f">' + esc(u.field) + '</span><span class="why">' + esc(u.reason) + "</span></li>").join("") + "</ul>");
+    if (un.length) out.push(grp("Unresolved", '<ul class="dl">' + un.map((u) => '<li><span class="f">' + esc(u.field) + '</span><span class="why">' + esc(u.reason) + "</span></li>").join("") + "</ul>"));
     const src = d.sources || [];
-    s += grp("Sources", '<ul class="dl">' + src.map((x) => "<li>" + link(x.url, host(x.url)) + ' <span class="f">' + esc(x.field === "*" ? "most fields" : x.field) + "</span>" +
-      (x.note ? '<span class="why">' + esc(x.note) + "</span>" : "") + '<span class="url">' + esc(x.url) + (x.accessed ? " · " + esc(x.accessed) : "") + "</span></li>").join("") + "</ul>");
-    return s;
+    out.push(grp("Sources", '<ul class="dl">' + src.map((x) => "<li>" + link(x.url, host(x.url)) + ' <span class="f">' + esc(x.field === "*" ? "most fields" : x.field) + "</span>" +
+      (x.note ? '<span class="why">' + esc(x.note) + "</span>" : "") + '<span class="url">' + esc(x.url) + (x.accessed ? " · " + esc(x.accessed) : "") + "</span></li>").join("") + "</ul>"));
+    return out;
   }
 
   /* ---------- detail screen ---------- */
@@ -2040,7 +2062,8 @@ button.tag:hover { filter: brightness(.95); }
       (isClam(d) ? '<p class="dnote">Drawn open: deck below, lid above. The size is the closed footprint; the height line marks the deck' + (sh.mod ? ", including the battery module on its front edge (shaded). The lid is the body without the module" : "") + ".</p>" : "");
     h += '<div class="tiles">' + tile("Width", dm.w ? mm(dm.w) + " mm" : "—") + tile("Height", dm.h ? mm(dm.h) + " mm" : "—") +
       tile("Thickness", dm.d ? mm(dm.d) + (dm.d_max != null ? " / " + mm(dm.d_max) : "") + " mm" : "—") + tile("Weight", d._w != null ? n0(d._w) + " g" : "—") + "</div></div>";
-    h += '<div class="panel pm"><div class="pm-h"><b>PassMark</b><span>' + esc([soc && soc.name, soc && soc.igpu && soc.igpu.name, tdpText(soc)].filter(Boolean).join(" · ")) + "</span></div><div>" +
+    h += '<div class="panel pm"><div class="pm-h"><b>PassMark</b><span>' + esc([soc && soc.name, soc && soc.igpu && soc.igpu.name, tdpText(soc)].filter(Boolean).join(" · ")) + "</span>" +
+      (ref && !isR ? '<span class="pm-key"><i></i>' + esc(ref._short) + " (reference)</span>" : "") + "</div><div>" +
       [["CPU Mark", "cpu_mark"], ["Single thread", "single_thread"], ["G3D Mark", "g3d_mark"]].map(([l, k]) => {
         const v = pm[k] != null ? pm[k] : null, rv = ref && !isR ? scoreOf(ref, k) : null, dl = rv != null ? delta(v, rv) : null;
         return '<div class="pm-r"><b>' + l + '</b><div class="pm-bar"><i style="width:' + (v ? (v / MAXS[k] * 100).toFixed(1) : 0) + '%"></i>' + (rv ? '<span class="pm-tick" style="left:' + (rv / MAXS[k] * 100).toFixed(1) + '%"></span>' : "") +
@@ -2049,11 +2072,15 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="pm-n">' + esc((ref && !isR ? "Tick mark = " + ref._short + " (reference). " : "") + "Bars scale to the fastest handheld in the list." + (pm.mapping_note ? " " + pm.mapping_note : "")) + "</div></div>";
     h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + esc(d.brand) + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released ' + esc(d.release_date) + "</span>" : "") + "</div>" +
-      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare list" : dis ? "Compare list full" : "Add to compare") + (q ? I.check : I.plus) + "</button>" +
+      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare list" + I.check : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="btn-o" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '">' + (isR ? "Reference device" : "Set as reference") + "</button>" +
       '<button type="button" class="btn-t" data-act="go" data-route="compare">Open comparison (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
-    h += '<div class="sgrid">' + grp("Size and weight", grpSize(d)) + grp("Compute", grpCompute(d)) + grp("Storage and ports", grpStorage(d)) + grp("Screen", grpScreen(d)) +
-      grp("Battery", grpBattery(d)) + grp("Controls", grpControls(d)) + grp("Other", grpOther(d)) + grpLists(d) + "</div></div></div>";
+    /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order;
+       on one column, "order" puts them back in that order. */
+    const G = [grp("Size and weight", grpSize(d)), grp("Compute", grpCompute(d)), grp("Storage and ports", grpStorage(d)), grp("Screen", grpScreen(d)),
+      grp("Battery", grpBattery(d)), grp("Controls", grpControls(d)), grp("Other", grpOther(d))].concat(grpLists(d)).filter(Boolean)
+      .map((g, i) => g.replace('<div class="panel grp"', '<div class="panel grp" style="order:' + i + '"'));
+    h += '<div class="sgrid"><div class="scol">' + G.filter((g, i) => i % 2 === 0).join("") + '</div><div class="scol">' + G.filter((g, i) => i % 2 === 1).join("") + "</div></div></div></div>";
     el.innerHTML = h;
   }
 
@@ -2374,6 +2401,7 @@ button.tag:hover { filter: brightness(.95); }
   applyTheme();
   $("#cnt").textContent = DEV.length;
   $("#cnt").title = DEV.length + " devices";
+  $("#cnt").innerHTML = DEV.length + '<span class="cnt-w"> devices</span>';
   $("#eyebrow").textContent = DEV.length + " x86 handhelds · 2022 onward";
   $("#home-eyebrow").textContent = DEV.length + " x86 handhelds · 2022 onward";
   $("#home-n").textContent = DEV.length; $("#home-socs").textContent = SOCS.length;
