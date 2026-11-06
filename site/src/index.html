@@ -432,6 +432,10 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .card-h .dev-v { min-height: 1.45em; }
 .card-n { font-weight: 800; font-size: 16px; line-height: 1.2; letter-spacing: -0.015em; }
 .card-n:hover { color: var(--fg-brand); }
+/* The empty part of a card opens the sheet (cardClick); text keeps its own cursor. */
+#cards .card { cursor: pointer; }
+#cards .card :is(.dev-b, .dev-v, .price, .stat-l, .stat-v, .dpill, .tag) { cursor: auto; }
+#cards .card:hover .card-n { color: var(--fg-brand); }
 .price { font: 600 13px var(--f-mono); white-space: nowrap; }
 .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .stat { padding: 6px 8px; background: var(--bg-page); border-radius: 5px; min-width: 0; }
@@ -2455,6 +2459,7 @@ button.tag:hover { filter: brightness(.95); }
   document.addEventListener("click", (e) => {
     const t = e.target.closest("[data-act]");
     if (!t) {
+      cardClick(e);
       if (!tip.hidden && !tip.contains(e.target)) hideTip();
       if (!pop.hidden && !pop.contains(e.target)) closePop();
       if (!$("#qpop").hidden && !e.target.closest("#qpop")) toggleQpop(false);
@@ -2506,6 +2511,24 @@ button.tag:hover { filter: brightness(.95); }
     const a = document.activeElement, lost = !a || a === document.body || a.offsetParent === null || !!a.closest("[hidden]");
     if (act !== "go" && act !== "open" && act !== "sv" && act !== "tip" && lost) restoreFocus(fid, act, id, prevVisible, prevQueue, prevChip);
   });
+  /* A click on the empty part of a card (the outline plate, the padding, the gaps) opens its sheet.
+     Text, controls, modifier clicks and the click that ends a text selection do nothing. The name button stays the keyboard target. */
+  const inertTarget = (el) => !(el instanceof Element) || !!el.closest("button, a, input, label") || Array.from(el.childNodes).some((n) => n.nodeType === 3 && n.textContent.trim());
+  /* A drag ends with a click on the shared parent, so the press must start on the same empty spot.
+     A click that only closes a popup does not also open a card; popups close on focus loss, so look at the press. */
+  const layerOpen = () => !tip.hidden || !pop.hidden || !$("#qpop").hidden || $$(".dd").some((x) => !x.hidden);
+  let downAt = null;
+  document.addEventListener("pointerdown", (e) => { downAt = { x: e.clientX, y: e.clientY, t: e.target, layer: layerOpen() }; }, true);
+  function cardClick(e) {
+    const c = e.target.closest("#cards .card[data-id]"), id = c && c.dataset.id;
+    if (!c || !hasKey(BY_ID, id) || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+    if (inertTarget(e.target)) return;
+    if (layerOpen() || (downAt && (downAt.layer || Math.abs(e.clientX - downAt.x) > 5 || Math.abs(e.clientY - downAt.y) > 5 || inertTarget(downAt.t)))) return;
+    const sel = window.getSelection ? getSelection() : null;
+    if (sel && !sel.isCollapsed && String(sel).trim()) return;
+    userNav = true; lastOpener = "copen-" + id;
+    go("detail", id);
+  }
   function toggleQBtn(id) { if (inQ(id)) removeQ(id); else addQ(id); }
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
