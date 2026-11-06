@@ -22,6 +22,7 @@ Reference site that inspired the project: https://retrocatalog.com. It lacks a l
 | `site/dist/index.html` | Local website (full document) |
 | `site/dist/artifact.html` | Same page as a fragment for the claude.ai Artifact |
 | `site/CONTRACT.md` | Page rules the artifact viewer enforces |
+| `site/static/og.png` | Link preview image (1200 × 630) for the surge.sh pages build |
 
 ## Re-run
 
@@ -33,7 +34,8 @@ All commands run from `scripts/`.
 4. `uv run build_outlines.py` — trace or box every device, write `outlines/`.
 5. `uv run export_csv.py` — write `data/export/*.csv`.
 6. `uv run build_site.py` — write `site/dist/index.html` and `site/dist/artifact.html`.
-7. `uv run serve.py` — serve `site/dist` at http://127.0.0.1:8765/ the way surge.sh does: a path with no file (`/compare`, `/<device-id>`) gets the page. You can also open `site/dist/index.html` from disk. A `file://` copy uses `#` addresses (`#compare`, `#<device-id>`) instead of paths.
+   Add `--pages DIR --site-url URL` to also write the surge.sh site: one small page per screen and device, with link preview tags. The Deploy workflow does this; nothing in DIR is committed.
+7. `uv run serve.py` — serve `site/dist` at http://127.0.0.1:8765/ the way surge.sh does: a path with no file (`/compare`, `/<device-id>`) gets the page. You can also open `site/dist/index.html` from disk. A `file://` copy uses `#` addresses (`#compare`, `#<device-id>`) instead of paths. Add `--dir DIR` to serve a pages build.
 8. `uv run gen_socs.py ../data/socs` — rebuild every SoC file from the embedded table (edit the table in the script to refresh PassMark scores).
 9. `uv run preview_outline.py --slugs <slug> ... --view top --out /tmp/sheet.png` — draw outlines on one sheet for a visual check.
 

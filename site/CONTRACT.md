@@ -41,6 +41,17 @@ The claude.ai Artifact viewer enforces these rules on `site/dist/artifact.html`.
 
 - Rendered page 16 MB or smaller, data URIs included. Inline SVG outline paths are small; keep each path under ~4 KB by simplifying contours.
 
+## The surge.sh pages build
+
+These rules hold for the Artifact and `site/dist`. The deployed site is a third output of the same template, so link previews work.
+
+- Link preview bots (Discord, Slack, iMessage, X) read `<title>`, `<meta name="description">` and the Open Graph tags without running JavaScript. One page for every path would give every link the same card.
+- `build_site.py --pages DIR --site-url URL` writes one small page per screen to DIR: `index.html`, `browse.html`, `compare.html`, `<device-id>.html` per device, and `200.html` for any other path. surge.sh serves `<name>.html` at `/<name>` and redirects `/<name>/` to `/<name>`. Nothing in DIR is committed.
+- Each page is the template markup (about 12 KB) with its own title, description, `og:*` and `twitter:card` tags and a canonical link. The CSS, the script and the data are shared files: `/atlas.css`, `/atlas.js`, and `/atlas-data.js`, which sets `window.ATLAS_DATA`. Each reference carries `?v=<content hash>`, so a deploy never mixes old and new files. The script reads `window.ATLAS_DATA` before the inline `#atlas-data` block.
+- A device page's description is one line from its JSON: size, weight (measured, else stated; "with battery pack" when the pack is external), screen, chip, and price with its kind when it is not an MSRP. Numbers round as the page's `mm()` and `n0()` do. Titles match `titleFor()`, so the tab title does not change on load. `compare.html` has a general card, because a query string cannot pick its own file. `200.html` has no canonical link and no `og:url`.
+- Every page shares one preview image, `site/static/og.png` (1200 × 630): the name, the headline and the Home art. Make it again from Home if the design changes. It holds no counts or dates, so it does not go stale.
+- `scripts/serve.py --dir DIR` serves a pages build locally with the same rules as surge.sh.
+
 ## Responsive
 
 - Must work at 400 px width. The body never scrolls horizontally.

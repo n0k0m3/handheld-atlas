@@ -885,7 +885,8 @@ button.tag:hover { filter: brightness(.95); }
   let urlReady = false, freshVisit = false;
 
   let DATA;
-  try { DATA = JSON.parse($("#atlas-data").textContent); }
+  /* The surge pages load the data from the shared /atlas-data.js (build_site.py --pages); the single-file builds inline it. */
+  try { DATA = window.ATLAS_DATA || JSON.parse($("#atlas-data").textContent); }
   catch (e) { $("#cnt").textContent = "0"; $("#eyebrow").textContent = "No data found. Run build_site.py."; return; }
 
   const DEV = DATA.devices || [], SOCS = DATA.socs || [], OUT = DATA.outlines || {};
@@ -2501,8 +2502,8 @@ button.tag:hover { filter: brightness(.95); }
     if (hasKey(BY_ID, h)) { go("detail", h); return true; }
     return false;
   }
-  /* Path mode: "/" is always Home. A trailing slash, capitals and /index.html are tidied away. An unknown name shows Browse (go() falls back). */
-  const pathSeg = () => location.pathname.replace(/\/index\.html$/i, "/").replace(/^\/+|\/+$/g, "").toLowerCase();
+  /* Path mode: "/" is always Home. A trailing slash, capitals, /index.html and a page's .html are tidied away. An unknown name shows Browse (go() falls back). */
+  const pathSeg = () => location.pathname.replace(/\/index\.html$/i, "/").replace(/\.html$/i, "").replace(/^\/+|\/+$/g, "").toLowerCase();
   /* Back or Forward into a new page load is not a shared link: the list or the filters may have changed since that entry. */
   function sharedLoad() {
     let nav = "";
@@ -2511,7 +2512,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   function routeFromPath() {
     const seg = pathSeg();
-    if (!seg || seg === "home") go("home");
+    if (!seg || seg === "home" || seg === "index") go("home");
     else if (seg === "browse" || seg === "compare") go(seg);
     else go("detail", seg);
   }
