@@ -887,7 +887,7 @@ button.tag:hover { filter: brightness(.95); }
     g3d_mark: "G3D Mark", msrp_usd: "Launch price", soc_id: "Chip", ram: "RAM", sizes_gb: "sizes", speed_mts: "speed", screen: "Screen", size_in: "size", refresh_hz: "refresh rate",
     battery: "Battery", wh: "capacity", release_date: "Release date", announce_date: "Announced", d_max: "thickest point", w: "width", h: "height", d: "thickness", stated: "stated", measured: "measured" };
   const fieldLabel = (f) => f === "*" ? "Most fields" : String(f || "").split(".").map((p) => (hasKey(FLAB, p) ? FLAB[p] : p.replace(/_/g, " "))).join(" · ").replace(/^./, (c) => c.toUpperCase());
-  const link = (url, text) => '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(text || host(url)) + "</a>";
+  const link = (url, text, id) => "<a" + (id ? ' id="' + id + '"' : "") + ' href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(text || host(url)) + "</a>";
   const yn = (v) => (v === true ? "Yes" : v === false ? "No" : null);
   const nameOf = (d) => [d.brand, d.model, d.variant].filter(Boolean).join(" ");
   const socOf = (d) => SOC[d.soc_id] || null;
@@ -908,7 +908,7 @@ button.tag:hover { filter: brightness(.95); }
     store: "Store price read after launch. It can differ from the launch price.",
   };
   const priceTip = (d) => (d.msrp_usd != null && hasKey(PTYPE, d.msrp_type) ? PTYPE[d.msrp_type] + (d.msrp_note ? " " + d.msrp_note : "") : "");
-  const pmark = (d) => { const t = priceTip(d); return t ? '<button type="button" class="pmark" data-act="tip" data-tip="' + esc(t) + '" aria-label="Price note: ' + esc(t) + '">*</button>' : ""; };
+  const pmark = (d, id) => { const t = priceTip(d); return t ? '<button type="button" class="pmark"' + (id ? ' id="' + id + '"' : "") + ' data-act="tip" data-tip="' + esc(t) + '" aria-label="Price note: ' + esc(t) + '">*</button>' : ""; };
   const NS = '<span class="na">Not stated</span>';
   const KLABEL = { tmr: "TMR", hall: "Hall", capacitive: "Capacitive", potentiometer: "Potentiometer", optical: "Optical", digital: "Digital", unknown: "Not stated" };
   const FORM = { classic: "Classic", clamshell: "Clamshell", "3-in-1": "3-in-1, detachable", slider: "Slider", other: "Other" };
@@ -1074,7 +1074,7 @@ button.tag:hover { filter: brightness(.95); }
   /* Row: [label, text, number, better ("low" | "high" | "n"), mark, options]. Option zeroIsNone: a 0 gets no delta (the text function writes "None"). */
   const CROWS = [
     ["Overview", [
-      ["MSRP", priceTxt, (d) => d.msrp_usd, "low", pmark],
+      ["MSRP", priceTxt, (d) => d.msrp_usd, "low", (d) => pmark(d, "cpmr-" + esc(d.id))],
       ["Status", (d) => STATUS[d.status] || d.status || "—"],
       ["Released", (d) => d.release_date || "—"],
       ["Form factor", (d) => FORM[d.form_factor] || d.form_factor || "—"]]],
@@ -1494,7 +1494,9 @@ button.tag:hover { filter: brightness(.95); }
     placeFilterPanel();
   }
   /* The breakpoint hides the old host at once, so the browser drops focus before this runs. The last focused control in the panel comes back. */
-  let lastFp = null;
+  /* The last focused filter control, and if it had keyboard focus. CSS hides the panel's old host at the breakpoint before the
+     resize handler runs, so focus is already on the body when the panel moves. */
+  let lastFp = null, lastFpKb = false;
   function placeFilterPanel() {
     const fp = $("#fpanel"), host = isNarrow() ? $("#topf-b") : $("#side");
     if (!fp || !host || fp.parentElement === host) return;
@@ -1503,7 +1505,7 @@ button.tag:hover { filter: brightness(.95); }
     const had = !!a && fp.contains(a);
     if (had && isNarrow() && !topOpen) { topOpen = true; $("#tf-toggle").setAttribute("aria-expanded", "true"); $("#topf-b").hidden = false; }
     host.appendChild(fp);
-    if (had && a.isConnected) a.focus({ preventScroll: true });
+    if (had && a.isConnected) { a.focus({ preventScroll: true }); if (lastFpKb) keepInView(a); }
   }
   let topOpen = false;
   function syncFilters() {
@@ -1753,7 +1755,7 @@ button.tag:hover { filter: brightness(.95); }
     return '<article class="card' + (isRef ? " ref" : "") + '" data-id="' + id + '">' +
       '<div class="plate"><svg class="sil" viewBox="0 0 ' + r2(sh.w) + " " + r2(sh.h) + '" style="height:' + silH + 'px" aria-hidden="true">' + partsSvg(sh, "o") + scrRect(sh.screen, "scr") + "</svg>" +
       "</div>" +
-      '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d) + "</div></div>" +
+      '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d, "lpm-" + id) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
       (s.size_in != null && s.refresh_hz ? (() => { const rs = ref ? ref.screen || {} : {}, dS = ref && !isRef ? delta(s.size_in, rs.size_in, false) : null, dH = ref && !isRef ? delta(s.refresh_hz, rs.refresh_hz, false) : null; return '<div class="stat"><div class="stat-l">Screen</div><div class="stat-g"><div class="stat-v">' + esc(s.size_in + "″") + '</div><div class="stat-v stat-x">' + esc(s.refresh_hz + " Hz") + "</div>" + (ref ? '<div class="stat-d" title="Screen size vs reference">' + dpill(dS) + '</div><div class="stat-d" title="Refresh rate vs reference">' + dpill(dH) + "</div>" : "") + "</div></div>"; })() : stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen")) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
       '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add to compare") + "</button>" +
@@ -1873,9 +1875,9 @@ button.tag:hover { filter: brightness(.95); }
     const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length;
     /* No reference: no deltas. A reference outside the list: the first column stands in as the baseline. */
     const ref = refDev(), hasRef = !!ref && inQ(ref.id), cref = hasRef ? ref : (ref ? cols[0] || null : null);
-    let h = '<div class="phead"><div><button type="button" class="btn-t" data-act="go" data-route="browse">' + I.back + 'Back to list</button><h1 id="cmp-h1" tabindex="-1">' + (n ? "Compare " + plural(n, "handheld") : "Nothing to compare yet") + "</h1></div></div>";
+    let h = '<div class="phead"><div><button type="button" class="btn-t" id="cmp-back" data-act="go" data-route="browse">' + I.back + 'Back to list</button><h1 id="cmp-h1" tabindex="-1">' + (n ? "Compare " + plural(n, "handheld") : "Nothing to compare yet") + "</h1></div></div>";
     if (!n) {
-      el.innerHTML = h + '<div class="panel cmp-empty">Nothing to compare yet. Use the search in the header, or tick devices in the <button type="button" class="btn-t" data-act="go" data-route="browse">list</button>.</div>';
+      el.innerHTML = h + '<div class="panel cmp-empty">Nothing to compare yet. Use the search in the header, or tick devices in the <button type="button" class="btn-t" id="cmp-list" data-act="go" data-route="browse">list</button>.</div>';
       return;
     }
     const prevWrap = $(".cmpw.scroll", el), prevSL = prevWrap ? prevWrap.scrollLeft : 0;
@@ -1886,7 +1888,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   let cmpHelpOpen = false;
   function cmpHelpHtml() {
-    return '<details class="panel help" id="help-cmp"' + (cmpHelpOpen ? " open" : "") + '><summary>How to compare</summary><ol class="steps">' +
+    return '<details class="panel help" id="help-cmp"' + (cmpHelpOpen ? " open" : "") + '><summary id="help-cmp-s">How to compare</summary><ol class="steps">' +
       '<li><span class="step-n">1</span><div><b>Queue up to eight devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">' + I.plus + 'Add to compare</span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
       '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at true scale, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Clamshells are drawn open.</div></li>' +
       '<li><span class="step-n">3</span><div><b>Pick a reference, or none.</b> Press <span class="demo"><span class="tag">Set as reference</span></span> on a column to compare the others against it. Press <span class="demo"><span class="tag ref">Reference</span></span> again to turn the deltas off.</div></li>' +
@@ -2013,7 +2015,7 @@ button.tag:hover { filter: brightness(.95); }
     lastScroll = scroll;
     let hidden = 0;
     const secs = CROWS.map(([name, rows]) => ({ name, rows: rows.map(([label, t, num, better, mark, opt = {}]) => {
-      const texts = cols.map(t), marks = cols.map((d) => (mark ? mark(d) : "")), diff = new Set(texts.map((x, i) => x + marks[i])).size > 1;
+      const texts = cols.map(t), marks = cols.map((d) => (mark ? mark(d) : "")), diff = new Set(texts.map((x, i) => x + marks[i].replace(/ id="[^"]*"/, ""))).size > 1; /* a mark's id differs per column */
       if (state.hideSame && n > 1 && !diff) { hidden++; return null; }
       const rd = (x) => Math.round(x * 10) / 10, nums = num ? cols.map(num) : [], valid = nums.filter((x) => typeof x === "number").map(rd);
       const best = better && better !== "n" && new Set(valid).size > 1 ? (better === "low" ? Math.min(...valid) : Math.max(...valid)) : null;
@@ -2033,7 +2035,7 @@ button.tag:hover { filter: brightness(.95); }
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
         '<div class="ccol-t"><span class="dev-b"><svg class="csw" viewBox="0 0 20 10" width="18" height="9" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<button type="button" class="ccol-n" id="copen2-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
-        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d) + '</span><button type="button" class="tag' + (isR ? " ref" : " off") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? I.check + "Reference" : "Baseline") : I.target + "Set as reference") + "</button></div></div>";
+        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d, "cpm-" + id) + '</span><button type="button" class="tag' + (isR ? " ref" : " off") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? I.check + "Reference" : "Baseline") : I.target + "Set as reference") + "</button></div></div>";
     }).join("");
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false"></div><div class="dd" id="sq-dd" hidden></div></div>';
     h += "</div>";
@@ -2048,7 +2050,7 @@ button.tag:hover { filter: brightness(.95); }
         h += "</div>";
       });
     });
-    if (state.hideSame && hidden > 0) h += '<div class="hid-note">' + plural(hidden, "identical row") + ' hidden. <button type="button" class="btn-t" data-act="hide-same">Show all rows</button></div>';
+    if (state.hideSame && hidden > 0) h += '<div class="hid-note">' + plural(hidden, "identical row") + ' hidden. <button type="button" class="btn-t" id="show-rows" data-act="hide-same">Show all rows</button></div>';
     return h + "</div></section>";
   }
 
@@ -2182,7 +2184,7 @@ button.tag:hover { filter: brightness(.95); }
       ["Status", sv(STATUS[d.status] || d.status, own(d, ["status"]))],
       ["Announced", d.announce_date ? sv(d.announce_date, own(d, ["announce_date"]), true) : NS],
       ["Released", d.release_date ? sv(d.release_date, own(d, ["release_date"]), true) : NS],
-      ["Launch price", d.msrp_usd != null ? sv("$" + NF.format(d.msrp_usd), own(d, ["msrp_usd"]), true) + pmark(d) + sub(priceTip(d)) + sub("Base configuration of this variant") : NS],
+      ["Launch price", d.msrp_usd != null ? sv("$" + NF.format(d.msrp_usd), own(d, ["msrp_usd"]), true) + pmark(d, "dt-pm2") + sub(priceTip(d)) + sub("Base configuration of this variant") : NS],
       ["OS", (d.os || []).length ? sv(d.os.join(", "), own(d, ["os"])) : NS],
       ["Wi-Fi", w.wifi ? sv(w.wifi, own(d, ["wireless.wifi", "wireless"])) : NS],
       ["Bluetooth", w.bt ? sv(w.bt, own(d, ["wireless.bt", "wireless"]), true) : NS],
@@ -2194,13 +2196,13 @@ button.tag:hover { filter: brightness(.95); }
     const fmt = (v) => (v !== null && typeof v === "object" ? JSON.stringify(v) : String(v));
     const out = [];
     const cf = d.conflicts || [];
-    if (cf.length) out.push(grp("Conflicts", '<ul class="dl">' + cf.map((c) => '<li><span class="f">' + esc(c.field) + '</span><div class="cfv">' +
-      (c.values || []).map((v) => '<span><b class="m">' + esc(fmt(v.value)) + "</b> · " + link(v.url) + "</span>").join("") + "</div>" +
+    if (cf.length) out.push(grp("Conflicts", '<ul class="dl">' + cf.map((c, ci) => '<li><span class="f">' + esc(c.field) + '</span><div class="cfv">' +
+      (c.values || []).map((v, vi) => '<span><b class="m">' + esc(fmt(v.value)) + "</b> · " + link(v.url, null, "dcf-" + ci + "-" + vi) + "</span>").join("") + "</div>" +
       (c.chosen_reason ? '<span class="why">Chosen: ' + esc(c.chosen_reason) + "</span>" : "") + "</li>").join("") + "</ul>"));
     const un = d.unresolved || [];
     if (un.length) out.push(grp("Unresolved", '<ul class="dl">' + un.map((u) => '<li><span class="f">' + esc(u.field) + '</span><span class="why">' + esc(u.reason) + "</span></li>").join("") + "</ul>"));
     const src = d.sources || [];
-    out.push(grp("Sources", '<ul class="dl">' + src.map((x) => "<li>" + link(x.url, host(x.url)) + ' <span class="f">' + esc(x.field === "*" ? "most fields" : x.field) + "</span>" +
+    out.push(grp("Sources", '<ul class="dl">' + src.map((x, i) => "<li>" + link(x.url, host(x.url), "dsrc-" + i) + ' <span class="f">' + esc(x.field === "*" ? "most fields" : x.field) + "</span>" +
       (x.note ? '<span class="why">' + esc(x.note) + "</span>" : "") + '<span class="url">' + esc(x.url) + (x.accessed ? " · " + esc(x.accessed) : "") + "</span></li>").join("") + "</ul>"));
     return out;
   }
@@ -2238,7 +2240,7 @@ button.tag:hover { filter: brightness(.95); }
       }).join("") + "</div>" +
       '<div class="pm-n">' + esc("Bars scale to the fastest handheld in the list." + (pm.mapping_note ? " " + pm.mapping_note : "")) + "</div></div>";
     h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + esc(d.brand) + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" +
-      '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
+      '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d, "dt-pm") : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear the reference" : "Compare every device against this one") + '">' + (isR ? I.check + "Reference" : I.target + "Set as reference") + "</button>" +
       '<button type="button" class="btn-t" id="dt-cmp" data-act="go" data-route="compare">Open Compare (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
@@ -2411,6 +2413,10 @@ button.tag:hover { filter: brightness(.95); }
       case "hide-same": if (focusId("hide-same")) return; break;
       default: break;
     }
+    focusScreen();
+  }
+  /* The last resort: the screen's heading or list bar. */
+  function focusScreen() {
     const tgt = state.route === "browse" ? $("#lbar") : state.route === "compare" ? $("#cmp-h1") : state.route === "home" ? $("#home-h1") : $("#dt-h1");
     if (tgt) tgt.focus({ preventScroll: true });
   }
@@ -2502,6 +2508,7 @@ button.tag:hover { filter: brightness(.95); }
     if (e.target instanceof Element && e.target.classList.contains("pmark")) showTip(e.target);
     if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); renderDD(e.target.id); }
     const fp = $("#fpanel"); lastFp = fp && e.target instanceof Element && fp.contains(e.target) ? e.target : null;
+    lastFpKb = !!lastFp && lastFp.matches(":focus-visible");
     if (e.target instanceof Element) revealInTable(e.target);
   });
   document.addEventListener("focusout", (e) => {
@@ -2553,22 +2560,38 @@ button.tag:hover { filter: brightness(.95); }
 
   /* ---------- resize ---------- */
   function measureHdr() { const h = $("#hdr").offsetHeight; if (h) root.style.setProperty("--hdr-h", h + "px"); }
+  /* A re-render on resize gives focus back to the same id, with the typed text of an input. The source popover sits outside
+     the screen; when it holds focus, focus goes back to its value (sv-N ids are the same in every layout). A control that the
+     new layout does not have (table and cards differ) hands focus to its device's name, else to the screen.
+     Keyboard focus (:focus-visible) is scrolled back into view; a mouse user's page does not jump. */
+  function rerender(scr, render) {
+    const a = document.activeElement, own = a && a !== document.body && a.closest(scr) ? a : popBtn && pop.contains(a) && popBtn.closest(scr) ? popBtn : null;
+    if (!own) { render(); return; }
+    const id = own.id, row = own.closest("[data-id]"), did = row && row.dataset.id, kb = a.matches(":focus-visible"), val = a.tagName === "INPUT" ? a.value : null;
+    render();
+    /* A control the render hid still holds focus until Chrome drops it later, so a hidden control counts as lost. */
+    if (document.activeElement !== a || !a.isConnected || a.offsetParent === null || a.closest("[hidden]")) {
+      if (id && focusId(id)) { if (val != null) document.getElementById(id).value = val; }
+      else if (!(did && (focusId("copen-" + did) || focusId("open-" + did)))) focusScreen();
+    }
+    if (kb) keepInView(document.activeElement);
+  }
+  function keepInView(el) {
+    const r = el.getBoundingClientRect(), hb = $("#hdr").getBoundingClientRect().bottom;
+    if (r.top < hb || r.bottom > window.innerHeight) el.scrollIntoView({ block: "center" });
+  }
   let rsz = 0, wasNarrow = isNarrow();
   window.addEventListener("resize", () => {
     clearTimeout(rsz);
     rsz = setTimeout(() => {
       measureHdr(); syncStickyPad(); syncTblFade();
       if (state.route === "detail") {
-        if ($("#scr-detail").dataset.one !== (sheetOne() ? "1" : "")) {
-          /* The popover sits outside #scr-detail. When it holds focus, focus goes back to its value, which keeps its sv-N id. */
-          const a = document.activeElement, id = a && a.id && a.closest("#scr-detail") ? a.id : popBtn && pop.contains(a) ? popBtn.id : "";
-          renderDetail(); if (id) focusId(id);
-        }
+        if ($("#scr-detail").dataset.one !== (sheetOne() ? "1" : "")) rerender("#scr-detail", renderDetail);
         else fitDimText();
       }
       const nw = isNarrow();
-      if (nw !== wasNarrow) { wasNarrow = nw; syncLayout(); if (state.route === "compare") renderCompare(); }
-      else if (state.route === "compare") { if (gridScrollWanted() !== lastScroll) renderCompare(); else layoutStage(); }
+      if (nw !== wasNarrow) { wasNarrow = nw; rerender("#scr-browse", syncLayout); if (state.route === "compare") rerender("#scr-compare", renderCompare); }
+      else if (state.route === "compare") { if (gridScrollWanted() !== lastScroll) rerender("#scr-compare", renderCompare); else layoutStage(); }
       closePop();
     }, 120);
   });
