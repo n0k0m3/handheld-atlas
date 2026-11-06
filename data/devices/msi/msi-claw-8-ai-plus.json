@@ -128,7 +128,7 @@
   "unresolved": [
     {
       "field": "announce_date",
-      "reason": "first-showing date (IFA 2024) not confirmed by a source"
+      "reason": "first-showing date (IFA 2024) not confirmed by the listed sources"
     },
     {
       "field": "screen.nits_sdr",

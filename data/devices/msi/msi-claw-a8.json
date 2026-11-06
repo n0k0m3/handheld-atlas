@@ -127,7 +127,7 @@
   "unresolved": [
     {
       "field": "announce_date",
-      "reason": "announce date not confirmed by a source"
+      "reason": "announce date not confirmed by the listed sources"
     },
     {
       "field": "screen.nits_sdr",

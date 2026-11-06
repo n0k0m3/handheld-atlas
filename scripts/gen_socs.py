@@ -395,7 +395,7 @@ ROWS["cu5-135h"] = row(
     "LPDDR5/X-7467, DDR5-5600, dual-channel, up to 96 GB", "2023-12-14",
     ("Intel Arc Graphics (8 Xe)", 8, "Xe-LPG", 2200, None), "135h", "arc",
     "CPU: exact entry. " + MTL_GPU,
-    "base_ghz is the P-core base (E-core 1.2 GHz, LP E-core 0.7 GHz). igpu.name says 8 Xe, not 7: "
+    "base_ghz is the P-core base (E-core 1.2 GHz, LP E-core 0.7 GHz). igpu.name says 8 Xe: "
     "ARK lists 8 Xe-cores for the 135H (TPU's CPU page says 96 EU, its GPU page lists it under 128 EU). "
     "NPU 11 TOPS (33 TOPS overall). " + INTEL_TDP,
     [src("*", ARK + "236850/intel-core-ultra-5-processor-135h-18m-cache-up-to-4-60-ghz/specifications.html",

@@ -37,7 +37,7 @@
     "fetched": "2026-10-27",
     "mapping_note": "CPU: exact entry. GPU: PassMark pools every 'Intel(R) Arc(TM) Graphics' iGPU (Meteor Lake and later H parts) under 'Intel Arc'; there is no per-SKU entry."
   },
-  "notes": "base_ghz is the P-core base (E-core 1.2 GHz, LP E-core 0.7 GHz). igpu.name says 8 Xe, not 7: ARK lists 8 Xe-cores for the 135H (TPU's CPU page says 96 EU, its GPU page lists it under 128 EU). NPU 11 TOPS (33 TOPS overall). Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
+  "notes": "base_ghz is the P-core base (E-core 1.2 GHz, LP E-core 0.7 GHz). igpu.name says 8 Xe: ARK lists 8 Xe-cores for the 135H (TPU's CPU page says 96 EU, its GPU page lists it under 128 EU). NPU 11 TOPS (33 TOPS overall). Intel tdp_w: default = Processor Base Power, min = Minimum Assured Power, max = Maximum Turbo Power (PL2); PL2 is not comparable to an AMD cTDP maximum. igpu.tflops_fp32 = shaders x 2 FLOP x vendor max GPU clock (single-issue FMA; RDNA 3 dual-issue is not counted). PassMark scores mix TDPs and host devices; treat them as a rough guide only.",
   "unresolved": [],
   "sources": [
     {
