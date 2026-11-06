@@ -662,7 +662,7 @@ button.tag:hover { filter: brightness(.95); }
 .sv[aria-expanded="true"] { background: var(--bg-selected); text-decoration-style: solid; border-radius: 3px; box-shadow: 0 0 0 3px var(--bg-selected); }
 .dl { list-style: none; margin: 0; padding: 8px 12px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; font-size: 12.5px; }
 .dl > li { min-width: 0; overflow-wrap: anywhere; }
-.dl .f { font: 12px var(--f-mono); color: var(--fg-2); }
+.dl .f { font-size: 12px; color: var(--fg-2); }
 .dl .why { display: block; color: var(--fg-2); font-size: 12px; overflow-wrap: anywhere; }
 .dl .url { display: block; font: 11px var(--f-mono); color: var(--fg-2); overflow-wrap: anywhere; }
 .cfv { display: grid; gap: 2px; margin-top: 2px; }
@@ -888,8 +888,14 @@ button.tag:hover { filter: brightness(.95); }
   /* Source field paths in plain words: "passmark.g3d_mark" reads "PassMark · G3D Mark". */
   const FLAB = { dims_mm: "Size", handheld: "as held", without_battery: "without battery", weight_g: "Weight", passmark: "PassMark", cpu_mark: "CPU Mark", single_thread: "Single thread",
     g3d_mark: "G3D Mark", msrp_usd: "Launch price", soc_id: "Chip", ram: "RAM", sizes_gb: "sizes", speed_mts: "speed", screen: "Screen", size_in: "size", refresh_hz: "refresh rate",
-    battery: "Battery", wh: "capacity", release_date: "Release date", announce_date: "Announced", d_max: "thickest point", w: "width", h: "height", d: "thickness", stated: "stated", measured: "measured" };
-  const fieldLabel = (f) => f === "*" ? "Most fields" : String(f || "").split(".").map((p) => (hasKey(FLAB, p) ? FLAB[p] : p.replace(/_/g, " "))).join(" · ").replace(/^./, (c) => c.toUpperCase());
+    battery: "Battery", wh: "capacity", release_date: "Release date", announce_date: "Announced", d_max: "thickest point", w: "width", h: "height", d: "thickness", stated: "stated", measured: "measured",
+    charge_w: "charging", dp_alt: "DisplayPort Alt Mode", pd_in_w: "USB-PD input", speed_gbps: "speed", os: "OS", hdr: "HDR", nits_peak: "peak brightness", nits_sdr: "SDR brightness",
+    vrr: "VRR", capacities_gb: "capacities", pcie_gen: "PCIe generation", bt: "Bluetooth", wifi: "Wi-Fi" };
+  /* A data path in words. A list index names the device's port when the device is known ("ports.2" -> "Ports · microSD slot"), else its place ("#3"). */
+  const fieldLabel = (f, d) => f === "*" ? "Most fields" : String(f || "").split(".").map((p, i, a) => {
+    if (/^\d+$/.test(p)) { const port = a[i - 1] === "ports" && d && (d.ports || [])[+p]; return port ? PORT_WORD[port.kind] || portName(port) : "#" + (+p + 1); }
+    return hasKey(FLAB, p) ? FLAB[p] : p.replace(/_/g, " ");
+  }).join(" · ").replace(/^./, (c) => c.toUpperCase());
   const link = (url, text, id) => "<a" + (id ? ' id="' + id + '"' : "") + ' href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(text || host(url)) + "</a>";
   const yn = (v) => (v === true ? "Yes" : v === false ? "No" : null);
   const nameOf = (d) => [d.brand, d.model, d.variant].filter(Boolean).join(" ");
@@ -2200,13 +2206,13 @@ button.tag:hover { filter: brightness(.95); }
     const fmt = (v) => (v !== null && typeof v === "object" ? JSON.stringify(v) : String(v));
     const out = [];
     const cf = d.conflicts || [];
-    if (cf.length) out.push(grp("Conflicts", '<ul class="dl">' + cf.map((c, ci) => '<li><span class="f">' + esc(c.field) + '</span><div class="cfv">' +
+    if (cf.length) out.push(grp("Conflicts", '<ul class="dl">' + cf.map((c, ci) => '<li><span class="f">' + esc(fieldLabel(c.field, d)) + '</span><div class="cfv">' +
       (c.values || []).map((v, vi) => '<span><b class="m">' + esc(fmt(v.value)) + "</b> · " + link(v.url, null, "dcf-" + ci + "-" + vi) + "</span>").join("") + "</div>" +
       (c.chosen_reason ? '<span class="why">Chosen: ' + esc(c.chosen_reason) + "</span>" : "") + "</li>").join("") + "</ul>"));
     const un = d.unresolved || [];
-    if (un.length) out.push(grp("Unresolved", '<ul class="dl">' + un.map((u) => '<li><span class="f">' + esc(u.field) + '</span><span class="why">' + esc(u.reason) + "</span></li>").join("") + "</ul>"));
+    if (un.length) out.push(grp("Unresolved", '<ul class="dl">' + un.map((u) => '<li><span class="f">' + esc(fieldLabel(u.field, d)) + '</span><span class="why">' + esc(u.reason) + "</span></li>").join("") + "</ul>"));
     const src = d.sources || [];
-    out.push(grp("Sources", '<ul class="dl">' + src.map((x, i) => "<li>" + link(x.url, host(x.url), "dsrc-" + i) + ' <span class="f">' + esc(x.field === "*" ? "most fields" : x.field) + "</span>" +
+    out.push(grp("Sources", '<ul class="dl">' + src.map((x, i) => "<li>" + link(x.url, host(x.url), "dsrc-" + i) + ' <span class="f">' + esc(fieldLabel(x.field, d)) + "</span>" +
       (x.note ? '<span class="why">' + esc(x.note) + "</span>" : "") + '<span class="url">' + esc(x.url) + (x.accessed ? " · " + esc(x.accessed) : "") + "</span></li>").join("") + "</ul>"));
     return out;
   }
@@ -2287,7 +2293,7 @@ button.tag:hover { filter: brightness(.95); }
     popBtn = btn; btn.setAttribute("aria-expanded", "true");
     pop.setAttribute("aria-label", "Source for " + btn.textContent.trim());
     pop.innerHTML = "<h4>Source" + (list.length > 1 ? "s" : "") + "</h4><ul>" + list.map((s) =>
-      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc([fieldLabel(s.field), s.accessed].filter(Boolean).join(" · ")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
+      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc([fieldLabel(s.field, BY_ID[state.detailId]), s.accessed].filter(Boolean).join(" · ")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
     pop.hidden = false;
     placePop();
     pop.focus({ preventScroll: true });
