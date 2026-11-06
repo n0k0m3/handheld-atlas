@@ -2420,11 +2420,12 @@ button.tag:hover { filter: brightness(.95); }
       if (!e.target.closest(".srch, .cslot")) hideDD();
       return;
     }
-    if (t.disabled || t.getAttribute("aria-disabled") === "true") return;
     const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length, prevQueue = state.queue.slice(), prevChip = $$("#fchips .fchip").indexOf(t);
     if (act !== "sv" && !pop.hidden) closePop();
     if (act !== "tip") hideTip();
     if (act !== "badge" && act !== "rm" && act !== "clear-queue" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
+    /* A dimmed control still closes the open popups above, then does nothing. */
+    if (t.disabled || t.getAttribute("aria-disabled") === "true") return;
     if (act === "go" || act === "open") userNav = true;
     if (act === "open") lastOpener = fid || null;
     switch (act) {
