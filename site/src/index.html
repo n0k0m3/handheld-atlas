@@ -17,7 +17,7 @@
   --dev-1: #2a78d6; --dev-2: #c97409; --dev-3: #ae49a3; --dev-4: #c79b01; --dev-5: #0b9db3; --dev-6: #904c1b; --dev-7: #a58bff; --dev-8: #db5784;
   --slice: #d5dae3; --slice-back: #738095;
   --shadow: 0 1px 3px rgba(17, 24, 39, .06), 0 8px 24px rgba(17, 24, 39, .10);
-  --edge-sh: rgba(17, 24, 39, .14);
+  --edge-sh: rgba(17, 24, 39, .22);
   --f-ui: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --hdr-h: 53px;
@@ -31,7 +31,7 @@
     --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
     --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #c25cb8; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
     --slice: #424b59; --slice-back: #111318;
-    --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5); --edge-sh: rgba(0, 0, 0, .45);
+    --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5); --edge-sh: rgba(0, 0, 0, .6);
     color-scheme: dark;
   }
 }
@@ -43,7 +43,7 @@
   --good: #75cca1; --good-bg: #16352a; --bad: #ffaaa1; --bad-bg: #3e2727;
   --dev-1: #3987e5; --dev-2: #bd6c01; --dev-3: #c25cb8; --dev-4: #b38c15; --dev-5: #0893a8; --dev-6: #9a5420; --dev-7: #967af0; --dev-8: #d14d7b;
   --slice: #424b59; --slice-back: #111318;
-  --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5); --edge-sh: rgba(0, 0, 0, .45);
+  --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .5); --edge-sh: rgba(0, 0, 0, .6);
   color-scheme: dark;
 }
 
@@ -304,7 +304,7 @@ a.ibtn { text-decoration: none; }
 .chip { padding: 3px 8px; font-size: 12px; font-weight: 600; border-radius: 4px; border: 1px solid var(--border-strong); background: var(--bg); color: var(--fg); white-space: nowrap; }
 .chip[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .chip .n { font: 10.5px var(--f-mono); opacity: .8; margin-left: 3px; }
-.lbar-k .chip[aria-pressed="true"] { background: var(--bg); color: var(--fg); border-color: var(--border-strong); }
+.lbar-k .chip[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg); border-color: var(--border-strong); }
 .lbar-k .chip:not([aria-pressed="true"]) { border-style: dashed; color: var(--fg-2); }
 
 .lbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 10px 12px; border-bottom: 1px solid var(--border); }
@@ -325,6 +325,7 @@ a.ibtn { text-decoration: none; }
 .lbar-k .lbl { margin-right: 4px; }
 .lbar-k .lkey { margin-left: auto; }
 .lbar-k .tmore { margin-left: auto; }
+#scr-browse.is-empty .lbar-r > .lbl, #scr-browse.is-empty .lbar-r > .segs[aria-label="Sort"] { opacity: .45; pointer-events: none; }
 .pkey { font-size: 11.5px; color: var(--fg-2); margin-left: 12px; }
 .lbar-k > .pkey:first-child { margin-left: auto; }
 .lbar-r .segs[aria-label="Layout"] { margin-left: 12px; }
@@ -351,6 +352,7 @@ a.ibtn { text-decoration: none; }
 .thi { display: grid; place-items: center; width: 16px; color: var(--fg-2); }
 .thi .ic { width: 12px; height: 12px; }
 .tbl th.on { color: var(--fg); }
+.tbl th.on .thb { font-weight: 700; }
 .tbl th.num, .tbl td.num { text-align: right; padding-left: 10px; }
 .tbl .dpill.eq { display: none; }
 .tbl td.num .cs { max-width: none; white-space: nowrap; }
@@ -417,7 +419,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .empty p { max-width: 46ch; }
 .empty .btn-p { margin-top: 10px; }
 .empty-ic { width: 64px; height: 64px; padding: 16px; border-radius: 50%; background: var(--bg-subtle); stroke-width: 1.5; color: var(--fg-2); margin-bottom: 6px; }
-#scr-browse.is-empty .lbar-r, #scr-browse.is-empty .lbar-k, #scr-browse.is-empty .lkey, #scr-browse.is-empty .foot, #scr-browse.is-empty #fx-clear { display: none; }
+#scr-browse.is-empty .lbar-k, #scr-browse.is-empty .lkey, #scr-browse.is-empty .foot, #scr-browse.is-empty #fx-clear { display: none; }
 .foot { font-size: 11.5px; color: var(--fg-2); max-width: 72ch; }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; padding: 12px; }
@@ -433,8 +435,6 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .sil .o { fill: var(--bg); stroke: var(--fg-2); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
 .sil .scr, .dstage .scr { fill: var(--slice); stroke: var(--fg-3); stroke-width: 1; vector-effect: non-scaling-stroke; rx: 1.5px; }
 .card-h { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-.card-h .price { position: relative; }
-.card-h .price .pmark { position: absolute; left: 100%; top: 0; }
 .card-h > div { min-width: 0; }
 .card-h .dev-v { min-height: 1.45em; }
 .card-n { font-weight: 800; font-size: 16px; line-height: 1.2; letter-spacing: -0.015em; }
@@ -445,6 +445,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stat-l { font-size: 10.5px; font-weight: 600; color: var(--fg-2); }
 .stat-v { font: 600 12.5px var(--f-mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .stat-d { min-height: 16px; line-height: 16px; }
+.stat-g { display: grid; grid-template-columns: auto auto; justify-content: start; column-gap: 14px; }
+.stat-g .stat-d .dpill.eq { display: none; }
 .stat-dk { margin-left: 4px; font-size: 11px; color: var(--fg-2); }
 .stat-x { font-weight: 600; color: var(--fg-2); }
 .stat-d .dpill { margin: 0; background: none; padding: 0; font-weight: 700; }
@@ -583,6 +585,11 @@ button.tag:hover { filter: brightness(.95); }
 .ccell.slot { background: var(--bg); border-left-color: transparent; border-bottom-color: transparent; }
 .ccell.ref { background: var(--bg-ref); box-shadow: inset 1px 0 0 var(--border-strong), inset -1px 0 0 var(--border-strong); }
 .ccell .v { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+@media (min-width: 760px) {
+  .ccell .v:has(.dpill, .best) { display: grid; grid-template-columns: minmax(0, 1fr) 56px 52px; column-gap: 6px; }
+  .ccell .v:has(.dpill, .best) .dpill { grid-column: 2; justify-self: end; }
+  .ccell .v:has(.dpill, .best) .best { grid-column: 3; justify-self: end; }
+}
 .ccell .ct { white-space: normal; }
 .ccell .dpill { margin: 0; }
 .ccell .dpill.eq { display: none; }
@@ -711,8 +718,7 @@ button.tag:hover { filter: brightness(.95); }
   .xbtn { min-width: 32px; min-height: 32px; }
   .lbar-r { margin-left: 0; width: 100%; }
   #scr-browse .phead .lede { display: none; }
-  .lg-t { flex-wrap: wrap; }
-  .lg-t .m { order: 3; width: 100%; padding-left: 28px; }
+  .lg-w { grid-template-columns: minmax(0, 1fr) auto auto; }
   .size-c .grp-c .lbl { min-width: 44px; }
   .cnt-w, .badge-w, .lkey, .refpill .pin, .scr-k { display: none; }
   .badge-p { display: inline; }
@@ -1045,7 +1051,7 @@ button.tag:hover { filter: brightness(.95); }
   /* ---------- table columns, grouped ---------- */
   const COLS = [
     { k: "price", g: "Price", label: "MSRP", v: (d) => d.msrp_usd, t: priceTxt, mark: pmark, low: true, num: true },
-    { k: "weight", g: "Size", label: "Weight", v: (d) => d._w, t: (d) => (d._w != null ? n0(d._w) + " g" : "—"), low: true, num: true,
+    { k: "weight", g: "Size", label: "Weight", htip: "Measured weight where available, otherwise the stated one. meas. = measured; pack = with the battery pack on.", tip: (d) => [wH(d).measured != null ? "Measured weight" : "", ext(d) ? "with the battery pack on" : ""].filter(Boolean).join(", "), v: (d) => d._w, t: (d) => (d._w != null ? n0(d._w) + " g" : "—"), low: true, num: true,
       sub: (d) => { const w = wH(d); return [w.measured != null ? "meas." : "", ext(d) ? "pack" : ""].filter(Boolean).join(" · "); } },
     { k: "dims", g: "Size", label: "W × H × D mm", v: (d) => { const h = dimsH(d); return h.w && h.h && h.d ? h.w * h.h * h.d : null; },
       t: (d) => { const h = dimsH(d); return h.w ? mm(h.w) + "×" + mm(h.h) + "×" + mm(h.d) : "—"; }, sub: (d) => (dimsH(d).d_max != null ? mm(dimsH(d).d_max) + " at grip" : ""), nodelta: true, num: true },
@@ -1707,7 +1713,7 @@ button.tag:hover { filter: brightness(.95); }
     const cols = visCols();
     $("#thead").innerHTML = '<tr><th class="stk c0"><span class="sr">Compare</span></th><th class="stk c1">Device</th>' + cols.map((c) => {
       const on = state.sortK === c.k;
-      return '<th class="c-' + c.k + (on ? " on" : "") + (c.num ? " num" : "") + '" aria-sort="' + (on ? (state.sortDir === 1 ? "ascending" : "descending") : "none") + '"><button type="button" class="thb" id="th-' + c.k + '" data-act="sort" data-v="' + c.k + '">' + esc(c.label) + (on ? (state.sortDir < 0 ? " ↓" : " ↑") : '<span class="srt" aria-hidden="true"> ↕</span>') + "</button></th>";
+      return '<th class="c-' + c.k + (on ? " on" : "") + (c.num ? " num" : "") + '" aria-sort="' + (on ? (state.sortDir === 1 ? "ascending" : "descending") : "none") + '"><button type="button" class="thb" id="th-' + c.k + '" data-act="sort" data-v="' + c.k + '"' + (c.htip ? ' title="' + esc(c.htip) + '"' : "") + ">" + esc(c.label) + (on ? (state.sortDir < 0 ? " ↓" : " ↑") : '<span class="srt" aria-hidden="true"> ↕</span>') + "</button></th>";
     }).join("") + "</tr>";
     syncStickyPad();
   }
@@ -1716,7 +1722,7 @@ button.tag:hover { filter: brightness(.95); }
     const dl = ref && !isRef && !c.nodelta && !c.text ? delta(val, c.v(ref), c.low) : null;
     const sub = c.sub ? c.sub(d) : "";
     const pre = sub && c.num && !c.nodelta;
-    return '<td class="c-' + c.k + (c.num ? " num" : "") + '"><div class="ct' + (c.num ? " m" : "") + (c.strong ? " b" : "") + (c.wrap ? " wrap" : "") + '">' + (pre ? '<span class="cq">' + esc(sub) + "</span>" : "") + esc(c.t(d)) + (c.mark ? c.mark(d) : "") + "</div>" + (sub && !pre ? '<div class="cs">' + esc(sub) + "</div>" : "") + dpill(dl) + "</td>";
+    return '<td class="c-' + c.k + (c.num ? " num" : "") + '"><div class="ct' + (c.num ? " m" : "") + (c.strong ? " b" : "") + (c.wrap ? " wrap" : "") + '">' + (pre ? '<span class="cq"' + (c.tip ? ' title="' + esc(c.tip(d)) + '"' : "") + ">" + esc(sub) + "</span>" : "") + esc(c.t(d)) + (c.mark ? c.mark(d) : "") + "</div>" + (sub && !pre ? '<div class="cs">' + esc(sub) + "</div>" : "") + dpill(dl) + "</td>";
   }
   function refBtn(d, isRef, prefix) {
     const id = esc(d.id);
@@ -1726,7 +1732,7 @@ button.tag:hover { filter: brightness(.95); }
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
       '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + (isRef ? '<span class="pin-t">Pinned</span> · ' : "") + esc(cols.some((c) => c.k === "soc") ? [d.release_date ? d.release_date.slice(0, 4) : STATUS[d.status] || "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + (isRef ? '<span class="pin-t" title="Stays on top while it is the reference">Reference</span> · ' : "") + esc(cols.some((c) => c.k === "soc") ? [d.release_date ? d.release_date.slice(0, 4) : STATUS[d.status] || "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
       cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
@@ -1747,7 +1753,7 @@ button.tag:hover { filter: brightness(.95); }
       "</div>" +
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
-      stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, s.size_in != null && s.refresh_hz ? "· " + s.refresh_hz + " Hz" : "", "Screen") + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
+      (s.size_in != null && s.refresh_hz ? (() => { const rs = ref ? ref.screen || {} : {}, dS = ref && !isRef ? delta(s.size_in, rs.size_in, false) : null, dH = ref && !isRef ? delta(s.refresh_hz, rs.refresh_hz, false) : null; return '<div class="stat"><div class="stat-l">Screen</div><div class="stat-g"><div class="stat-v">' + esc(s.size_in + "″") + '</div><div class="stat-v stat-x">' + esc(s.refresh_hz + " Hz") + "</div>" + (ref ? '<div class="stat-d" title="Screen size vs reference">' + dpill(dS) + '</div><div class="stat-d" title="Refresh rate vs reference">' + dpill(dH) + "</div>" : "") + "</div></div>"; })() : stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen")) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
       '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Compare every device against this one") + '" aria-label="' + (isRef ? "Reference: " + esc(d._name) + ". Press to clear." : "Use " + esc(d._name) + " as reference") + '">' + (isRef ? I.check + "Reference" : I.target + "Reference") + "</button></div></article>";
   }
@@ -1922,7 +1928,7 @@ button.tag:hover { filter: brightness(.95); }
     const heavy = cols.reduce((a, d) => (d._w != null && (a == null || d._w > a._w) ? d : a), null);
     return '<div class="legend">' + cols.map((d, i) => {
       const isR = cref && d.id === cref.id, dl = !isR && cref ? delta(d._w, cref._w, true) : null, dm = dimsH(d);
-      return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d)) + "</span>" +
+      return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d) + " mm") + "</span>" +
         '<button type="button" class="xbtn" id="lrm-' + esc(d.id) + '" data-act="rm" data-id="' + esc(d.id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + ' from the comparison">' + I.x + "</button></div>" +
         '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><svg width="100%" height="6" aria-hidden="true"><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6"/></svg></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? I.check + "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
     }).join("") + (heavy ? '<p class="lg-cap">Bar length = weight. Full bar = ' + esc(n0(heavy._w)) + "\u00a0g.</p>" : "") + "</div>";
@@ -2563,7 +2569,7 @@ button.tag:hover { filter: brightness(.95); }
     const devs = ["legion-go-2", "steam-deck-oled", "ayaneo-air-1s-7840u"].map((id) => BY_ID[id]).filter(Boolean), art = $("#home-art");
     if (devs.length) {
       const shapes = devs.map((d) => shapeFor(d, "front")), MW = Math.max(...shapes.map((sh) => sh.w)), MH = Math.max(...shapes.map((sh) => sh.h)), VW = MW + 8;
-      const g = shapes.map((sh, i) => '<g class="s' + (i + 1) + '" transform="translate(' + r2((MW - sh.w) / 2) + " " + r2((MH - sh.h) / 2) + ')">' + partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + "</g>").join("");
+      const g = shapes.map((sh, i) => '<g class="s' + (i + 1) + '" transform="translate(' + r2((MW - sh.w) / 2) + " " + r2((MH - sh.h) / 2) + ')">' + partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + scrRect(sh.screen, "scr").replace("<rect ", '<rect style="stroke-dasharray:' + DASH[i] + '" ') + "</g>").join("");
       art.innerHTML = '<div class="hart-st stage2d ov"><svg viewBox="-4 -4 ' + r2(VW) + " " + r2(MH + 8) + '" role="img" aria-label="' + esc(devs.map((d) => d._short).join(", ")) + ', overlaid at true scale">' + g + "</svg>" +
         '<div class="hart-sb" aria-hidden="true"><i style="width:' + (100 / VW * 100).toFixed(2) + '%"></i><span>100 mm</span></div></div>' +
         "<figcaption><b>True scale, front view</b><span class=\"hart-l\">" + devs.map((d, i) => '<span class="s' + (i + 1) + '"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d._short) + "</span>").join("") + "</span></figcaption>";
