@@ -388,7 +388,7 @@ a.ibtn { text-decoration: none; }
 .ct.b { font-weight: 600; }
 .ct.wrap { white-space: normal; max-width: 220px; }
 .cs { font-size: 11.5px; color: var(--fg-2); white-space: normal; max-width: 180px; }
-.dpill { display: inline-block; margin-top: 3px; font: 600 11px var(--f-mono); padding: 0 4px; border-radius: 3px; color: var(--fg-2); background: var(--bg-subtle); white-space: nowrap; }
+.dpill { position: relative; display: inline-block; margin-top: 3px; font: 600 11px var(--f-mono); padding: 0 4px; border-radius: 3px; color: var(--fg-2); background: var(--bg-subtle); white-space: nowrap; }
 .dpill.up { color: var(--good); background: var(--good-bg); }
 .dpill .tri { display: inline-block; width: 10px; height: 10px; margin-right: 3px; vertical-align: 0; fill: currentColor; }
 .dpill .tri.o { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -1694,8 +1694,7 @@ button.tag:hover { filter: brightness(.95); }
   /* The sticky columns cover the left of the scrollport. Scroll padding keeps a focused header or cell clear of them. */
   function stickyRight() { const th = $("#thead th.stk.c1"), w = $("#tblw"); return th && w ? th.getBoundingClientRect().right - w.getBoundingClientRect().left : 0; }
   function syncStickyPad() { const w = $("#tblw"); if (w) { w.style.scrollPaddingLeft = Math.round(stickyRight() + 8) + "px"; w.style.scrollPaddingRight = "24px"; } }
-  /* Focus moved into a scrolled cell: keep it clear of the sticky columns (the browser's own scroll stops at the scrollport edge). */
-  /* Focus moved into a horizontally scrolled grid: keep it clear of the frozen columns (the browser's own scroll stops at the scrollport edge). */
+  /* Focus moved into a horizontally scrolled table or grid: keep it clear of the frozen columns (the browser's own scroll stops at the scrollport edge). */
   function revealInTable(el) {
     const w = el.closest("#tblw, .cmpw.scroll");
     if (!w || el.closest(".stk, .clbl, .cmp-hint")) return;
@@ -1828,7 +1827,7 @@ button.tag:hover { filter: brightness(.95); }
     const lk = $("#tmore-l");
     if (!lk) return;
     /* The link hides at the end of the scroll: keep keyboard focus in the list bar. */
-    if (!more && !lk.hidden && document.activeElement === lk) $("#lbar").focus();
+    if (!more && !lk.hidden && document.activeElement === lk) $("#lbar").focus({ preventScroll: true });
     lk.hidden = !more;
     if (!more) return;
     /* Name the columns that wait to the right, so the link does not read as more column groups. */
@@ -1894,7 +1893,7 @@ button.tag:hover { filter: brightness(.95); }
   const presetOn = (k) => state.rx === PRESET[k][0] && state.ry === PRESET[k][1];
   function sizePanelHtml(cols, cref, hasRef) {
     const s = state, is3 = s.sizeTab === "3d";
-    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale<span class="scr-k"> · inner box = screen</span>' + (hasRef && state.sizeTab === "2d" && state.sizeMode === "overlay" ? '<span class="scr-k"> · filled = reference</span>' : "") + '</span></span>' + I.chev + "</button>";
+    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale<span class="scr-k"> · inner box = screen</span>' + (cref && state.sizeTab === "2d" && state.sizeMode === "overlay" ? '<span class="scr-k"> · filled = ' + (hasRef ? "reference" : "baseline") + "</span>" : "") + '</span></span>' + I.chev + "</button>";
     if (!s.sizeOpen) return h + "</section>";
     h += '<div class="size-c"><div class="grp-c"><span class="lbl">Mode</span><div class="segs sm" role="group" aria-label="Mode">' + seg("size-tab", "2d", "2D outline", !is3, "tab-2d") + seg("size-tab", "3d", "3D", is3, "tab-3d") + "</div></div>";
     const views = is3 ? [["iso", "3/4"], ["front", "Front"], ["top", "Top"], ["side", "Side"]] : [["front", "Front"], ["back", "Back"], ["top", "Top · thickness"], ["side", "Side"]];
@@ -2016,7 +2015,7 @@ button.tag:hover { filter: brightness(.95); }
       const rd = (x) => Math.round(x * 10) / 10, nums = num ? cols.map(num) : [], valid = nums.filter((x) => typeof x === "number").map(rd);
       const best = better && better !== "n" && new Set(valid).size > 1 ? (better === "low" ? Math.min(...valid) : Math.max(...valid)) : null;
       return { label, diff, cells: cols.map((d, i) => {
-        const isR = d === cref, dl = num && !isR && cref && !(better === "high" && nums[i] === 0) ? delta(nums[i], num(cref), better === "low" ? true : better === "n" ? "n" : false) : null;
+        const isR = d === cref, dl = num && !isR && cref && !(label === "NPU" && nums[i] === 0) ? delta(nums[i], num(cref), better === "low" ? true : better === "n" ? "n" : false) : null;
         return { text: texts[i], mark: marks[i], dl, best: best != null && typeof nums[i] === "number" && rd(nums[i]) === best, mono: (!!num && /\d/.test(texts[i])) || isNumText(texts[i]), isR };
       }) };
     }).filter(Boolean) })).filter((x) => x.rows.length);
@@ -2040,7 +2039,7 @@ button.tag:hover { filter: brightness(.95); }
       sec.rows.forEach((row) => {
         h += '<div class="cgrid' + (!state.hideSame && row.diff && n > 1 ? " diff" : "") + '" style="grid-template-columns:' + gcols + '"><div class="clbl">' + esc(row.label) + "</div>";
         row.cells.forEach((c) => {
-          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + (c.mono ? esc(c.text) : esc(c.text)) + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">★ Best</span>' : "") + "</div></div>";
+          h += '<div class="ccell' + (c.isR ? " ref" : "") + '"><div class="v"><span class="ct' + (c.mono ? " m" : "") + (c.best ? " b" : "") + '">' + esc(c.text) + c.mark + "</span>" + dpill(c.dl) + (c.best ? '<span class="best">★ Best</span>' : "") + "</div></div>";
         });
         if (slot) h += '<div class="ccell slot"></div>';
         h += "</div>";
@@ -2065,7 +2064,7 @@ button.tag:hover { filter: brightness(.95); }
     text = String(text).replace(/(\d) (W|Wh|GB|TB|Gbps|mm|g|Hz|GHz|MHz|CU|TOPS|nits)\b/g, "$1\u00a0$2");
     if (!list || !list.length) return mono ? '<span class="m">' + esc(text) + "</span>" : esc(text);
     drSrc.push(list);
-    return '<button type="button" class="sv' + (mono ? " m" : "") + '" id="sv-' + (drSrc.length - 1) + '" data-act="sv" data-si="' + (drSrc.length - 1) + '" aria-expanded="false" aria-haspopup="dialog">' + (mono ? esc(text) : esc(text)) + "</button>";
+    return '<button type="button" class="sv' + (mono ? " m" : "") + '" id="sv-' + (drSrc.length - 1) + '" data-act="sv" data-si="' + (drSrc.length - 1) + '" aria-expanded="false" aria-haspopup="dialog">' + esc(text) + "</button>";
   }
   const sub = (t) => (t ? '<span class="sub">' + esc(t) + "</span>" : "");
   const mtxt = (t) => '<span class="m">' + esc(t) + "</span>";
@@ -2240,8 +2239,8 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear the reference" : "Compare every device against this one") + '">' + (isR ? I.check + "Reference" : I.target + "Set as reference") + "</button>" +
       '<button type="button" class="btn-t" data-act="go" data-route="compare">Open Compare (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
-    /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order;
-       on one column, "order" puts them back in that order. */
+    /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order.
+       Where the sheet is one column (sheetOne), the cards go out as one list in reading order. */
     const G = [grp("Size & weight", grpSize(d)), grp("Compute", grpCompute(d)), grp("Storage & ports", grpStorage(d)), grp("Screen", grpScreen(d)),
       grp("Battery", grpBattery(d)), grp("Controls", grpControls(d)), grp("Other", grpOther(d))].concat(grpLists(d)).filter(Boolean)
       .map((g, i) => g.replace('<div class="panel grp"', '<div class="panel grp" style="order:' + i + '"'));
@@ -2421,7 +2420,7 @@ button.tag:hover { filter: brightness(.95); }
       if (!e.target.closest(".srch, .cslot")) hideDD();
       return;
     }
-    if (t.disabled) return;
+    if (t.disabled || t.getAttribute("aria-disabled") === "true") return;
     const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length, prevQueue = state.queue.slice(), prevChip = $$("#fchips .fchip").indexOf(t);
     if (act !== "sv" && !pop.hidden) closePop();
     if (act !== "tip") hideTip();
@@ -2555,7 +2554,10 @@ button.tag:hover { filter: brightness(.95); }
     clearTimeout(rsz);
     rsz = setTimeout(() => {
       measureHdr(); syncStickyPad(); syncTblFade();
-      if (state.route === "detail") { if ($("#scr-detail").dataset.one !== (sheetOne() ? "1" : "")) renderDetail(); else fitDimText(); }
+      if (state.route === "detail") {
+        if ($("#scr-detail").dataset.one !== (sheetOne() ? "1" : "")) { const a = document.activeElement, id = a && a.id && a.closest("#scr-detail") ? a.id : ""; renderDetail(); if (id) focusId(id); }
+        else fitDimText();
+      }
       const nw = isNarrow();
       if (nw !== wasNarrow) { wasNarrow = nw; syncLayout(); if (state.route === "compare") renderCompare(); }
       else if (state.route === "compare") { if (gridScrollWanted() !== lastScroll) renderCompare(); else layoutStage(); }
