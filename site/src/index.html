@@ -380,6 +380,8 @@ a.ibtn { text-decoration: none; }
 .dwrap .refb[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .dev-b { font-size: 11px; color: var(--fg-2); font-weight: 500; }
 .dev-n { font-weight: 700; font-size: 13px; line-height: 1.3; }
+/* Device names are links that look like the buttons they replaced. */
+a.dev-n, a.card-n, a.ccol-n { display: inline-block; color: inherit; text-decoration: none; }
 .dev-n:hover { color: var(--fg-brand); }
 .dev-l { font-size: 13px; line-height: 1.3; }
 .dev-l .dev-b { font-size: 13px; }
@@ -1775,7 +1777,7 @@ button.tag:hover { filter: brightness(.95); }
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
       '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + (isRef ? '<span class="pin-t" title="Stays on top while it is the reference">Reference</span> · ' : "") + esc(cols.some((c) => c.k === "soc") ? [d.status && d.status !== "shipped" ? STATUS[d.status] || "" : "", d.release_date ? d.release_date.slice(0, 4) : "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <a class="dev-n" id="open-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + (isRef ? '<span class="pin-t" title="Stays on top while it is the reference">Reference</span> · ' : "") + esc(cols.some((c) => c.k === "soc") ? [d.status && d.status !== "shipped" ? STATUS[d.status] || "" : "", d.release_date ? d.release_date.slice(0, 4) : "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
       cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
@@ -1794,7 +1796,7 @@ button.tag:hover { filter: brightness(.95); }
     return '<article class="card' + (isRef ? " ref" : "") + '" data-id="' + id + '">' +
       '<div class="plate"><svg class="sil" viewBox="0 0 ' + r2(sh.w) + " " + r2(sh.h) + '" style="height:' + silH + 'px" aria-hidden="true">' + partsSvg(sh, "o") + scrRect(sh.screen, "scr") + "</svg>" +
       "</div>" +
-      '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d, "lpm-" + id) + "</div></div>" +
+      '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><a class="card-n" id="copen-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d, "lpm-" + id) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
       (s.size_in != null && s.refresh_hz ? (() => { const rs = ref ? ref.screen || {} : {}, dS = ref && !isRef ? delta(s.size_in, rs.size_in, false) : null, dH = ref && !isRef ? delta(s.refresh_hz, rs.refresh_hz, false) : null; return '<div class="stat"><div class="stat-l">Screen</div><div class="stat-g"><div class="stat-v">' + esc(s.size_in + "″") + '</div><div class="stat-v stat-x">' + esc(s.refresh_hz + " Hz") + "</div>" + (ref ? '<div class="stat-d" title="Screen size vs reference">' + dpill(dS) + '</div><div class="stat-d" title="Refresh rate vs reference">' + dpill(dH) + "</div>" : "") + "</div></div>"; })() : stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen")) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
       '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add to compare") + "</button>" +
@@ -2089,7 +2091,7 @@ button.tag:hover { filter: brightness(.95); }
       const isR = d === cref, id = esc(d.id);
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
         '<div class="ccol-t"><span class="dev-b"><svg class="csw" viewBox="0 0 20 10" width="18" height="9" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
-        '<button type="button" class="ccol-n" id="copen2-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
+        '<a class="ccol-n" id="copen2-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
         '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d, "cpm-" + id) + '</span><button type="button" class="tag' + (isR ? " ref" : " off") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? I.check + "Reference" : "Baseline") : I.target + "Set as reference") + "</button></div></div>";
     }).join("");
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false"></div><div class="dd" id="sq-dd" hidden></div></div>';
@@ -2553,6 +2555,11 @@ button.tag:hover { filter: brightness(.95); }
       return;
     }
     const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length, prevQueue = state.queue.slice(), prevChip = $$("#fchips .fchip").indexOf(t);
+    /* A device name is a real link: a modifier click opens its address in a new tab or window, a plain click stays in the page. */
+    if (act === "open" && t.tagName === "A") {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+    }
     if (act !== "sv" && !pop.hidden) closePop();
     if (act !== "tip") hideTip();
     if (act !== "badge" && act !== "rm" && act !== "clear-queue" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
