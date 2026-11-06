@@ -87,7 +87,7 @@
     },
     "ports": {
       "type": "array",
-      "description": "One entry per port kind. USB4 means 40 Gbps USB4 without Thunderbolt certification. TB4/TB5 only when the vendor says Thunderbolt.",
+      "description": "One entry per port kind. USB4 means 40 Gbps USB4 without Thunderbolt certification; speed_gbps may stay null when the vendor gives no figure, and the site then shows no speed. TB4/TB5 only when the vendor says Thunderbolt.",
       "items": {
         "type": "object",
         "additionalProperties": false,
