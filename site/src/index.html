@@ -67,7 +67,7 @@ button { cursor: pointer; background: none; border: 0; padding: 0; text-align: l
 button:disabled { cursor: default; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 h1, h2, h3, h4, p, dl, dd, figure { margin: 0; }
-h1 { font-weight: 800; font-size: 32px; letter-spacing: -0.03em; line-height: 1.05; text-wrap: balance; }
+h1 { font-weight: 800; font-size: 32px; letter-spacing: -0.02em; line-height: 1.05; text-wrap: balance; }
 code { font-family: var(--f-mono); font-size: .92em; }
 input::placeholder { color: var(--fg-2); opacity: 1; }
 input[type="range"] { accent-color: var(--accent); width: 100%; margin: 0; }
@@ -101,7 +101,7 @@ svg { display: block; }
 .segs { display: flex; gap: 2px; background: var(--bg-subtle); padding: 2px; border-radius: 6px; }
 .seg { padding: 5px 12px; border-radius: 5px; font-weight: 600; color: var(--fg-2); white-space: nowrap; }
 .segs.sm .seg { padding: 4px 10px; font-size: 12px; }
-.seg[aria-pressed="true"] { background: var(--bg); color: var(--fg); box-shadow: 0 1px 2px rgba(0, 0, 0, .12); }
+.seg[aria-pressed="true"] { background: var(--bg); color: var(--fg-brand); box-shadow: 0 0 0 1px var(--border-strong), 0 1px 2px rgba(0, 0, 0, .12); }
 .srch { flex: 1 1 220px; max-width: 420px; position: relative; min-width: 0; }
 .srch-box { display: flex; align-items: center; gap: 8px; background: var(--bg-subtle); border: 1px solid transparent; border-radius: 6px; padding: 0 10px; height: 32px; color: var(--fg-2); }
 .srch-box:focus-within { border-color: var(--accent); background: var(--bg); }
@@ -124,10 +124,10 @@ svg { display: block; }
 a.ibtn { text-decoration: none; }
 .ic-fill { fill: currentColor; stroke: none; }
 .badge { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 6px 0 12px; border-radius: 6px; background: var(--bg-subtle); color: var(--fg-2); font-weight: 600; }
-.badge.on { background: var(--bg-brand); color: var(--fg-onbrand); }
+.badge.on { background: var(--bg-selected); color: var(--fg-brand); box-shadow: inset 0 0 0 1px var(--accent); }
 .badge:hover { filter: brightness(.95); }
 .badge-n { background: var(--bg); min-width: 22px; height: 20px; border-radius: 4px; display: grid; place-items: center; font: 600 11px var(--f-mono); padding: 0 4px; }
-.badge.on .badge-n { background: rgba(0, 0, 0, .22); }
+.badge.on .badge-n { background: var(--bg); color: var(--fg-brand); }
 .qpop { position: absolute; right: 0; top: 40px; width: min(320px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow); z-index: 40; }
 .qpop-h { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 12px; border-bottom: 1px solid var(--border); font-weight: 700; }
 .qpop-h span { font-size: 12px; color: var(--fg-2); font-weight: 400; }
@@ -144,7 +144,9 @@ a.ibtn { text-decoration: none; }
 .btn-p:hover { background: var(--bg-brand-hover); }
 .btn-o { padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border-strong); font-weight: 600; }
 .btn-o:hover { background: var(--bg-hover); }
-.btn-t { font-size: 12px; font-weight: 600; color: var(--fg-brand); }
+.btn-t { font-size: 12px; font-weight: 600; color: var(--fg-brand); display: inline-flex; align-items: center; gap: 4px; }
+.btn-t .ic { width: 12px; height: 12px; }
+.btn-p .ic { width: 15px; height: 15px; }
 .btn-t:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- screens ---------- */
@@ -173,13 +175,14 @@ a.ibtn { text-decoration: none; }
 .hart-sb i::before, .hart-sb i::after { content: ""; position: absolute; top: -5px; width: 2px; height: 8px; background: var(--fg-2); }
 .hart-sb i::before { left: 0; }
 .hart-sb i::after { right: 0; }
-.hart figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; font-size: 12px; color: var(--fg-2); }
-.hart figcaption b { color: var(--fg); font-weight: 700; margin-right: auto; }
-.hart figcaption span { display: inline-flex; align-items: center; gap: 6px; }
-.hstat.dt b { font-size: 15px; font-weight: 600; color: var(--fg-2); line-height: 32px; }
+.hart figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; font-size: 12px; color: var(--fg-2); }
+.hart figcaption b { color: var(--fg); font-weight: 700; }
+.hart-l { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.hart-l > span { display: inline-flex; align-items: center; gap: 6px; }
+.hstat.dt b { font-size: 15px; font-weight: 600; color: var(--fg-2); line-height: 30px; }
 .hcta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .hstats { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 8px; }
-.hstat b { display: block; font: 700 22px var(--f-mono); letter-spacing: -0.02em; }
+.hstat b { display: block; font: 700 22px/30px var(--f-mono); letter-spacing: -0.02em; }
 .hstat span { font-size: 12px; color: var(--fg-2); }
 .hgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 .hcard { padding: 16px; display: grid; gap: 8px; align-content: start; }
@@ -295,6 +298,9 @@ a.ibtn { text-decoration: none; }
 .lbar-r .lbl { margin-right: 4px; }
 .lbar-r .segs { margin-left: 8px; }
 .tblw { overflow-x: auto; }
+.tblbox { position: relative; }
+.tmore { position: absolute; top: 4px; right: 8px; z-index: 4; display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; border-radius: 13px; font-size: 12px; font-weight: 600; color: var(--fg-brand); background: var(--bg); border: 1px solid var(--border-strong); box-shadow: var(--shadow); }
+.tmore:hover { background: var(--bg-hover); }
 .tbl { width: 100%; border-collapse: separate; border-spacing: 0; }
 .tbl .stk { position: sticky; z-index: 2; background: var(--bg); }
 .tbl th.stk { z-index: 3; }
@@ -306,7 +312,8 @@ a.ibtn { text-decoration: none; }
 .tbl th { text-align: left; padding: 8px 12px 8px 0; font-size: 11px; font-weight: 600; color: var(--fg-2); white-space: nowrap; border-bottom: 1px solid var(--border); }
 .tbl th:first-child { padding-left: 12px; width: 36px; }
 .tbl th.on { color: var(--fg); }
-.tbl th.num, .tbl td.num { text-align: right; padding-left: 20px; }
+.tbl th.num, .tbl td.num { text-align: right; padding-left: 16px; }
+.tbl .dpill.eq { display: none; }
 .tbl td.num .cs { max-width: none; white-space: nowrap; }
 .tbl .dpill { background: none; padding: 0; }
 /* A soft right edge says the table scrolls sideways. */
@@ -317,7 +324,7 @@ a.ibtn { text-decoration: none; }
 .tbl td:first-child { padding: 10px 8px 10px 12px; }
 .tbl tbody tr:hover { background: var(--bg-hover); }
 .tbl tbody tr.ref { background: var(--bg-ref); }
-.dcell { min-width: 200px; white-space: normal; }
+.dcell { min-width: 190px; white-space: normal; }
 .dwrap { display: flex; align-items: flex-start; gap: 6px; }
 .dwrap > div { flex: 1; min-width: 0; }
 .dwrap .refb { margin: -3px -4px 0 0; }
@@ -376,9 +383,17 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stat-l { font-size: 10.5px; font-weight: 600; color: var(--fg-2); }
 .stat-v { font: 600 12.5px var(--f-mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .stat-d { min-height: 16px; line-height: 16px; }
+.stat-x { font-weight: 400; color: var(--fg-2); }
 .stat-d .dpill { margin: 0; background: none; padding: 0; }
-.addb { display: flex; align-items: center; justify-content: space-between; padding: 7px 10px; border-radius: 6px; font-weight: 700; border: 1px solid var(--border-strong); background: var(--bg); margin-top: auto; }
+.card-f { display: flex; gap: 6px; margin-top: auto; }
+.card-f .addb:first-child { flex: 1; min-width: 0; }
+.addb { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px 10px; border-radius: 6px; font-weight: 700; border: 1px solid var(--border-strong); background: var(--bg); white-space: nowrap; }
+.addb .ic { width: 14px; height: 14px; }
+.addb.refc { justify-content: center; gap: 6px; font-weight: 600; color: var(--fg-2); }
+.addb.refc .ic { width: 12px; height: 12px; }
+.addb.refc:hover { color: var(--fg-brand); }
 .addb[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
+.addb.refc[aria-pressed="true"] { background: var(--bg-brand); color: var(--fg-onbrand); border-color: var(--bg-brand); }
 .addb:disabled { opacity: .35; }
 
 /* ---------- compare ---------- */
@@ -399,7 +414,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage { background: var(--bg-page); border-radius: 6px; height: 320px; display: flex; align-items: center; justify-content: center; min-width: 0; position: relative; }
 .stage.dots { background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 20px; }
 .stage2d svg { width: 100%; height: 100%; overflow: visible; }
-.stage2d .shp { fill: var(--c); fill-opacity: .04; stroke: var(--c); stroke-width: 1.75; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.stage2d .shp { fill: var(--c); fill-opacity: .04; stroke: var(--c); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 .stage2d .scr { fill: none; stroke: var(--c); stroke-width: 1; stroke-opacity: .85; vector-effect: non-scaling-stroke; }
 .stage2d .grip { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 4 3; stroke-opacity: .7; vector-effect: non-scaling-stroke; }
 .stage2d .shp.lid { fill-opacity: .03; }
@@ -446,11 +461,18 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .cmpw.scroll .cgrid.hd { position: relative; top: auto; will-change: transform; }
 .cgrid { display: grid; border-bottom: 1px solid var(--border); }
 .cgrid.hd { position: sticky; top: calc(var(--hdr-h) + env(safe-area-inset-top, 0px)); z-index: 6; background: var(--bg); border-radius: 10px 10px 0 0; }
-.cmp-hint { padding: 12px; font-size: 11.5px; color: var(--fg-2); align-self: stretch; display: flex; align-items: flex-end; }
+.cmp-hint { padding: 12px; font-size: 11.5px; color: var(--fg-2); align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 8px; }
+.cmp-hint .tog { font-size: 12px; padding: 5px 8px 5px 6px; }
+.ckey { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+.ckey > span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.ckey i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.ckey .kg { background: var(--good); } .ckey .kb { background: var(--bad); } .ckey .kn { background: var(--fg-2); }
 .ccol { padding: 12px; border-left: 1px solid var(--border); cursor: pointer; box-shadow: inset 0 3px 0 var(--c); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .ccol:hover { background: var(--bg-hover); }
 .ccol.ref { background: var(--bg-ref); }
 .ccol-t { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.ccol-t .dev-b { display: inline-flex; align-items: center; gap: 6px; }
+.csw { flex: none; }
 .ccol-n { font-weight: 800; font-size: 15px; line-height: 1.2; letter-spacing: -0.01em; }
 .ccol-n:hover { color: var(--fg-brand); }
 .ccol-f { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; gap: 6px; }
@@ -505,7 +527,7 @@ button.tag:hover { filter: brightness(.95); }
 .pm-v .m { font-weight: 600; }
 .pm-v .dpill { margin: 0; }
 .pm-v .rk { font-size: 11px; color: var(--fg-2); }
-.pm-n { font-size: 11.5px; color: var(--fg-2); margin-top: 8px; }
+.pm-n { font-size: 11.5px; color: var(--fg-2); margin-top: 8px; max-width: 80ch; }
 .tcard { padding: 16px; display: grid; gap: 12px; }
 .tcard .dev-b { font-size: 12px; font-weight: 600; }
 .tcard h1 { margin: 2px 0; outline: none; }
@@ -515,7 +537,7 @@ button.tag:hover { filter: brightness(.95); }
 .dact .btn-p { min-width: 200px; gap: 20px; }
 .dact .btn-p[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
 .dact .btn-p:disabled { opacity: .4; }
-.sgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.sgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
 .grp { overflow: hidden; }
 .grp-h { font-weight: 700; font-size: 12px; color: var(--fg-2); padding: 8px 12px; background: var(--bg-page); border-bottom: 1px solid var(--border); }
 .kv { display: grid; grid-template-columns: 128px minmax(0, 1fr); }
@@ -524,8 +546,9 @@ button.tag:hover { filter: brightness(.95); }
 .kv dt:last-of-type, .kv dd:last-of-type { border-bottom: 0; }
 .kv .sub { display: block; font-size: 11.5px; color: var(--fg-2); font-weight: 400; margin-top: 1px; }
 .kv .na, .kv .u { font-weight: 400; }
+.kv dd .m { white-space: nowrap; }
 .gnote { font-size: 12px; color: var(--fg-2); padding: 8px 12px; border-top: 1px solid var(--border); }
-.sv { text-decoration: underline dotted; text-decoration-color: var(--fg-3); text-underline-offset: 3px; color: inherit; font-weight: inherit; }
+.sv { text-decoration: underline dotted; text-decoration-color: var(--fg-2); text-decoration-thickness: 1.5px; text-underline-offset: 3px; color: inherit; font-weight: inherit; }
 .sv:hover, .sv[aria-expanded="true"] { text-decoration-color: var(--accent); color: var(--fg-brand); }
 .dl { list-style: none; margin: 0; padding: 8px 12px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; font-size: 12.5px; }
 .dl > li { min-width: 0; overflow-wrap: anywhere; }
@@ -576,6 +599,7 @@ button.tag:hover { filter: brightness(.95); }
   .dd-s { white-space: normal; }
   .segs.sm .seg, .chip { min-height: 32px; }
   .xbtn { min-width: 32px; min-height: 32px; }
+  .lbar-r { margin-left: 0; width: 100%; }
   .bgrid { grid-template-columns: minmax(0, 1fr); }
   .side { display: none; }
   .topf { display: block; }
@@ -611,7 +635,7 @@ button.tag:hover { filter: brightness(.95); }
     <div class="srch" id="hsrch">
       <label class="sr" for="hq">Search devices</label>
       <div class="srch-box">
-        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg>
         <input id="hq" type="search" placeholder="Type a device name to add to comparison" autocomplete="off" spellcheck="false">
       </div>
       <div class="dd" id="hq-dd" hidden></div>
@@ -634,15 +658,15 @@ button.tag:hover { filter: brightness(.95); }
     <p class="eyebrow" id="home-eyebrow">x86 handhelds · 2022 onward</p>
     <h1 class="hero" id="home-h1" tabindex="-1">Find your next handheld</h1>
     <p class="lede">Every x86 handheld gaming PC since 2022. Every value has a source. True-scale outlines, PassMark scores per chip, and a side-by-side diff for up to eight devices.</p>
-    <div class="hcta"><button type="button" class="btn-p" data-act="go" data-route="browse">Browse the devices <span>→</span></button><button type="button" class="btn-o" data-act="go" data-route="compare">Open the comparison</button></div>
+    <div class="hcta"><button type="button" class="btn-p" data-act="go" data-route="browse">Browse the devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button><button type="button" class="btn-o" data-act="go" data-route="compare">Open the comparison</button></div>
     <div class="hstats"><div class="hstat"><b id="home-n">–</b><span>devices</span></div><div class="hstat"><b id="home-socs">–</b><span>chips</span></div><div class="hstat"><b id="home-traced">–</b><span>traced outlines</span></div><div class="hstat dt"><b id="home-date">–</b><span>data date</span></div></div>
    </div>
    <figure class="panel hart" id="home-art" hidden></figure>
   </section>
   <section class="hgrid">
-    <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip, and sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Go to Browse →</button></article>
-    <article class="panel hcard"><h2>Compare</h2><p>Up to eight devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Go to Compare →</button></article>
-    <article class="panel hcard"><h2>Sourced</h2><p>Every figure links to where it came from. Each device sheet lists its sources, conflicts and gaps.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device →</button></article>
+    <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip, and sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Go to Browse <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
+    <article class="panel hcard"><h2>Compare</h2><p>Up to eight devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Go to Compare <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
+    <article class="panel hcard"><h2>Sourced</h2><p>Every figure links to where it came from. Each device sheet lists its sources, conflicts and gaps.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
   </section>
   <p class="hcredit" id="home-credit">Inspired by <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>.<span id="home-rc"></span></p>
 </main>
@@ -655,7 +679,7 @@ button.tag:hover { filter: brightness(.95); }
   <details class="panel help" id="help-ref">
     <summary>How the reference works</summary>
     <ol class="steps">
-      <li><span class="step-n">1</span><div><b>Pick a device you know.</b> Press the target button on its card or table row <span class="demo"><span class="refb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg></span></span>, or <span class="demo"><span class="btn-o sm">Set as reference</span></span> on its sheet.</div></li>
+      <li><span class="step-n">1</span><div><b>Pick a device you know.</b> Press <span class="demo"><span class="addb refc sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference</span></span> on its card, or the target button on its table row <span class="demo"><span class="refb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg></span></span>, or <span class="demo"><span class="btn-o sm">Set as reference</span></span> on its sheet.</div></li>
       <li><span class="step-n">2</span><div><b>It pins to the top</b> and the list bar shows <span class="demo"><span class="refpill"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference: <strong>Valve Steam Deck OLED</strong></span></span>. It stays while you filter, sort or switch layout.</div></li>
       <li><span class="step-n">3</span><div><b>Read the deltas.</b> <span class="demo"><span class="dpill up">▲ 42%</span></span> is better than the reference, <span class="demo"><span class="dpill dn">▼ 18%</span></span> worse, <span class="demo"><span class="dpill eq">= 0%</span></span> the same. Lower is better for price, weight and thickness; higher for scores, screen, RAM and battery.</div></li>
       <li><span class="step-n">4</span><div><b>Turn it off</b> with the × on the pill, or press the target again. The reference is separate from the compare list.</div></li>
@@ -671,12 +695,15 @@ button.tag:hover { filter: brightness(.95); }
       <div class="topf panel" id="topf"></div>
       <div class="panel" id="lpanel">
         <div class="lbar" id="lbar" tabindex="-1"></div>
+        <div class="tblbox">
         <div class="tblw" id="tblw">
           <table class="tbl" id="tbl">
             <caption class="sr">Devices. Click a header to sort.</caption>
             <thead id="thead"></thead>
             <tbody id="tbody"></tbody>
           </table>
+        </div>
+        <button type="button" class="tmore" id="tmore" data-act="tbl-more" hidden>More columns <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
         </div>
         <div class="cards" id="cards" hidden></div>
         <button type="button" class="more" id="more-btn" data-act="show-all" hidden></button>
@@ -901,7 +928,7 @@ button.tag:hover { filter: brightness(.95); }
     { k: "weight", g: "Size", label: "Weight", v: (d) => d._w, t: (d) => (d._w != null ? n0(d._w) + " g" : "—"), low: true, num: true,
       sub: (d) => { const w = wH(d); return [w.measured == null && w.stated != null ? "stated" : "", ext(d) ? "with pack" : ""].filter(Boolean).join(", "); } },
     { k: "dims", g: "Size", label: "W × H × D mm", v: (d) => { const h = dimsH(d); return h.w && h.h && h.d ? h.w * h.h * h.d : null; },
-      t: (d) => { const h = dimsH(d); return h.w ? mm(h.w) + "×" + mm(h.h) + "×" + mm(h.d) : "—"; }, sub: (d) => (dimsH(d).d_max != null ? mm(dimsH(d).d_max) + " at the grip" : ""), nodelta: true, num: true },
+      t: (d) => { const h = dimsH(d); return h.w ? mm(h.w) + "×" + mm(h.h) + "×" + mm(h.d) : "—"; }, sub: (d) => (dimsH(d).d_max != null ? "grip " + mm(dimsH(d).d_max) : ""), nodelta: true, num: true },
     { k: "soc", g: "Performance", label: "SoC", v: (d) => socName(d.soc_id), t: (d) => socName(d.soc_id), sub: (d) => (((socOf(d) || {}).igpu || {}).name || ""), text: true },
     { k: "cpu", g: "Performance", label: "CPU Mark", v: (d) => scoreOf(d, "cpu_mark"), t: (d) => n0(scoreOf(d, "cpu_mark")) || "—", num: true, strong: true },
     { k: "g3d", g: "Performance", label: "G3D Mark", v: (d) => scoreOf(d, "g3d_mark"), t: (d) => n0(scoreOf(d, "g3d_mark")) || "—", num: true, strong: true },
@@ -1207,6 +1234,8 @@ button.tag:hover { filter: brightness(.95); }
     target: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg>',
     targetS: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>',
     chev: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>',
+    check: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>',
+    back: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>',
     weight: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="3"></circle><path d="M6.5 8a2 2 0 0 0-1.9 1.5L2.1 18.5A2 2 0 0 0 4 21h16a2 2 0 0 0 1.9-2.5L19.4 9.5A2 2 0 0 0 17.5 8Z"></path></svg>'
   };
   const chip = (act, v, label, on, id, extra) => '<button type="button" class="chip" data-act="' + act + '" data-v="' + esc(v) + '"' + (id ? ' id="' + id + '"' : "") + (extra || "") + ' aria-pressed="' + !!on + '">' + label + "</button>";
@@ -1247,10 +1276,10 @@ button.tag:hover { filter: brightness(.95); }
   function syncQueueUI() {
     const full = qFull(), n = state.queue.length;
     $$(".qbox[data-id]").forEach((cb) => { const q = inQ(cb.dataset.id); cb.checked = q; cb.disabled = !q && full; });
-    $$(".addb[data-id]").forEach((b) => {
+    $$('.addb[data-act="q"]').forEach((b) => {
       const q = inQ(b.dataset.id), dis = !q && full;
       b.setAttribute("aria-pressed", String(q)); b.disabled = dis;
-      b.innerHTML = (q ? "In compare" : dis ? "List full" : "Add to compare") + " <span>" + (q ? "✓" : "+") + "</span>";
+      b.innerHTML = (q ? "In compare" : dis ? "List full" : "Add to compare") + (q ? I.check : I.plus);
     });
     $("#badge-n").textContent = n + "/" + MAX_Q;
     $("#badge").classList.toggle("on", n > 0);
@@ -1326,7 +1355,7 @@ button.tag:hover { filter: brightness(.95); }
     $("#topf").innerHTML = '<button type="button" class="topf-h" id="tf-toggle" data-act="tf-toggle" aria-expanded="false" aria-controls="topf-b">Filters <span id="tf-sum"></span></button><div class="topf-b" id="topf-b" hidden></div>';
     const fp = document.createElement("div");
     fp.className = "fpanel"; fp.id = "fpanel";
-    fp.innerHTML = '<div class="fp-h"><span class="fp-t">Filters</span><button type="button" class="btn-t" id="f-reset" data-act="reset-f">Reset all</button></div>' +
+    fp.innerHTML = '<div class="fp-h"><span class="fp-t">Filters</span><button type="button" class="btn-t" id="f-reset" data-act="reset-f">Reset filters</button></div>' +
       FGROUPS.map((g, i) => '<details class="fsec" id="fs-' + slug(g.name) + '"' + (i < 2 ? " open" : "") + '><summary><span>' + esc(g.name) + '</span><span class="fsec-n" id="fsn-' + slug(g.name) + '"></span></summary>' + g.items.map(fctHtml).join("") + "</details>").join("");
     $("#side").appendChild(fp);
     FACETS.forEach((fc) => {
@@ -1498,7 +1527,7 @@ button.tag:hover { filter: brightness(.95); }
       }
       (state.f.sel[fc.k] || []).forEach((v) => chips.push(fxChip(fc.k, v, fc.label + ": " + optLab(fc, v))));
     });
-    const html = chips.length ? chips.join("") + '<button type="button" class="btn-t" id="fx-clear" data-act="reset-f">Clear all</button>' : "";
+    const html = chips.length ? chips.join("") + '<button type="button" class="btn-t" id="fx-clear" data-act="reset-f">Reset filters</button>' : "";
     if (html !== lastChips) { $("#fchips").innerHTML = html; lastChips = html; }
     const ts = $("#tf-sum"), nAct = an.act.length + (an.qt.length ? 1 : 0);
     if (ts) ts.textContent = plural(an.all.length, "result") + (nAct ? " · " + plural(nAct, "filter") : "");
@@ -1580,17 +1609,18 @@ button.tag:hover { filter: brightness(.95); }
   function cardHtml(d, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     const o = outline(d, "top"), sh = openParts(d, o, "front"), silH = Math.round(Math.min(96, 84 * Math.min(1, o.w / 360) * sh.h / o.h));
-    const stat = (label, v, text, low) => { const dl = ref && !isRef ? delta(v, low === "nd" ? null : ref._stat[label], low === true) : null; return '<div class="stat"><div class="stat-l">' + label + '</div><div class="stat-v">' + esc(text) + "</div>" + (ref ? '<div class="stat-d">' + dpill(dl) + "</div>" : "") + "</div>"; };
+    const stat = (label, v, text, low, x) => { const dl = ref && !isRef ? delta(v, low === "nd" ? null : ref._stat[label], low === true) : null; return '<div class="stat"><div class="stat-l">' + label + '</div><div class="stat-v">' + esc(text) + (x ? ' <span class="stat-x">' + esc(x) + "</span>" : "") + "</div>" + (ref ? '<div class="stat-d">' + dpill(dl) + "</div>" : "") + "</div>"; };
     d._stat = { Weight: d._w, "G3D Mark": scoreOf(d, "g3d_mark"), Screen: (d.screen || {}).size_in, Battery: (d.battery || {}).wh };
     if (ref && !ref._stat) ref._stat = { Weight: ref._w, "G3D Mark": scoreOf(ref, "g3d_mark"), Screen: (ref.screen || {}).size_in, Battery: (ref.battery || {}).wh };
     const s = d.screen || {};
     return '<article class="card' + (isRef ? " ref" : "") + '" data-id="' + id + '">' +
       '<div class="plate"><svg class="sil" viewBox="0 0 ' + r2(sh.w) + " " + r2(sh.h) + '" style="height:' + silH + 'px" aria-hidden="true">' + partsSvg(sh, "o") + scrRect(sh.screen, "scr") + "</svg>" +
-      (isRef ? '<span class="tag ref">Reference</span>' : "") + refBtn(d, isRef, "cref-") + "</div>" +
+      "</div>" +
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><button type="button" class="card-n" id="copen-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
-      stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" + (s.refresh_hz ? " " + s.refresh_hz + " Hz" : "") : "—", false) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
-      '<button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare" : dis ? "List full" : "Add to compare") + " <span>" + (q ? "✓" : "+") + "</span></button></article>";
+      stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, s.size_in != null && s.refresh_hz ? s.refresh_hz + " Hz" : "") + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
+      '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare" : dis ? "List full" : "Add to compare") + (q ? I.check : I.plus) + "</button>" +
+      '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Compare every device against this one") + '" aria-label="' + (isRef ? "Reference: " + esc(d._name) + ". Press to clear." : "Use " + esc(d._name) + " as reference") + '">' + I.targetS + "Reference</button></div></article>";
   }
   function buildCards() {
     const ref = refDev();
@@ -1625,7 +1655,13 @@ button.tag:hover { filter: brightness(.95); }
     syncFacetUI(an);
     syncTblFade();
   }
-  function syncTblFade() { const w = $("#tblw"); if (w) w.classList.toggle("can-r", !w.hidden && w.scrollWidth - w.scrollLeft - w.clientWidth > 1); }
+  function syncTblFade() {
+    const w = $("#tblw"), b = $("#tmore");
+    if (!w) return;
+    const more = !w.hidden && w.scrollWidth - w.scrollLeft - w.clientWidth > 1;
+    w.classList.toggle("can-r", more);
+    if (b) b.hidden = !more;
+  }
   function defaultSortK() { const v = visCols(); return (v.find((c) => c.k === "g3d") || v.find((c) => c.num) || v[0] || COL.g3d).k; }
   /* When the sort column leaves the table, sort by a visible column instead. */
   function ensureSortVisible() {
@@ -1639,7 +1675,7 @@ button.tag:hover { filter: brightness(.95); }
   function syncLayout() {
     placeFilterPanel();
     $("#lpanel").classList.toggle("flat", effLayout() === "cards");
-    $("#hq").placeholder = isNarrow() ? "Search devices" : "Type a device name to add to comparison";
+    $("#hq").placeholder = isNarrow() ? "Add to compare" : "Add a device to compare: type a name";
     renderListBar(); applyList();
   }
   let applyRaf = 0;
@@ -1659,8 +1695,7 @@ button.tag:hover { filter: brightness(.95); }
     const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length;
     /* No reference: no deltas. A reference outside the list: the first column stands in as the baseline. */
     const ref = refDev(), hasRef = !!ref && inQ(ref.id), cref = hasRef ? ref : (ref ? cols[0] || null : null);
-    let h = '<div class="phead"><div><button type="button" class="btn-t" data-act="go" data-route="browse">← Back to list</button><h1 id="cmp-h1" tabindex="-1">' + (n ? "Compare " + plural(n, "handheld") : "Nothing to compare yet") + "</h1></div>" +
-      '<button type="button" class="tog" id="hide-same" data-act="hide-same" aria-pressed="' + state.hideSame + '"><span class="sw"></span>Differences only</button></div>';
+    let h = '<div class="phead"><div><button type="button" class="btn-t" data-act="go" data-route="browse">' + I.back + 'Back to list</button><h1 id="cmp-h1" tabindex="-1">' + (n ? "Compare " + plural(n, "handheld") : "Nothing to compare yet") + "</h1></div></div>";
     if (!n) {
       el.innerHTML = h + '<div class="panel cmp-empty">Nothing to compare yet. Use the search in the header, or tick devices in the <button type="button" class="btn-t" data-act="go" data-route="browse">list</button>.</div>';
       return;
@@ -1729,7 +1764,7 @@ button.tag:hover { filter: brightness(.95); }
       const isR = cref && d.id === cref.id, dl = !isR && cref ? delta(d._w, cref._w, true) : null, dm = dimsH(d);
       return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d)) + "</span>" +
         '<button type="button" class="xbtn" id="lrm-' + esc(d.id) + '" data-act="rm" data-id="' + esc(d.id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + ' from the comparison">' + I.x + "</button></div>" +
-        '<div class="lg-w">' + I.weight + '<div class="wbar"><i style="width:' + ((d._w || 0) / maxW * 100).toFixed(1) + '%"></i></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="dpill refp">' + (hasRef ? "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "")) + "</div></div>";
+        '<div class="lg-w">' + I.weight + '<div class="wbar"><i style="width:' + ((d._w || 0) / maxW * 100).toFixed(1) + '%"></i></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "")) + "</div></div>";
     }).join("") + "</div>";
   }
   /* Fit the scale bar to the rendered 2D stage, lay out the 3D slices, and place the grid header. */
@@ -1807,11 +1842,12 @@ button.tag:hover { filter: brightness(.95); }
       : ref ? "The reference (" + esc(ref._short) + ") is not in this list, so deltas compare against the first column. Click a column to make it the reference."
       : "No reference, so no deltas. Press “Set as reference” on a column to compare the others against it.";
     let h = '<section class="panel cmpw' + (scroll ? " scroll" : "") + '"><div style="min-width:' + minW + '">';
-    h += '<div class="cgrid hd" style="grid-template-columns:' + gcols + '"><div class="cmp-hint">' + hint + "</div>";
+    h += '<div class="cgrid hd" style="grid-template-columns:' + gcols + '"><div class="cmp-hint"><button type="button" class="tog" id="hide-same" data-act="hide-same" aria-pressed="' + state.hideSame + '"><span class="sw"></span>Differences only</button><span>' + hint + "</span>" +
+      (cref ? '<span class="ckey"><span><i class="kg"></i>better</span><span><i class="kb"></i>worse</span><span><i class="kn"></i>neither</span></span>' : "") + "</div>";
     h += cols.map((d, i) => {
       const isR = d === cref, id = esc(d.id);
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
-        '<div class="ccol-t"><span class="dev-b">' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
+        '<div class="ccol-t"><span class="dev-b"><svg class="csw" viewBox="0 0 20 10" width="18" height="9" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<button type="button" class="ccol-n" id="copen2-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
         '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d) + '</span><button type="button" class="tag' + (isR ? " ref" : "") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? "Reference" : "Baseline") : "Set as reference") + "</button></div></div>";
     }).join("");
@@ -1995,7 +2031,7 @@ button.tag:hover { filter: brightness(.95); }
     const soc = socOf(d), pm = (soc && soc.passmark) || {};
     const rank = (k) => { const vals = [...new Set(DEV.map((x) => scoreOf(x, k)).filter((x) => x != null))].sort((a, b) => b - a); const r = vals.indexOf(scoreOf(d, k)); return r < 0 ? "" : "#" + (r + 1) + "/" + vals.length; };
     const tile = (l, v) => '<div class="tile"><div class="stat-l">' + l + '</div><div class="v">' + esc(v) + "</div></div>";
-    let h = '<div><button type="button" class="btn-t" data-act="go" data-route="browse">← Back to list</button></div><div class="dgrid"><div class="dcol">';
+    let h = '<div><button type="button" class="btn-t" data-act="go" data-route="browse">' + I.back + 'Back to list</button></div><div class="dgrid"><div class="dcol">';
     const TH = sh.h, B = TH + pad * 1.4;
     h += '<div class="panel"><div class="dstage"><svg viewBox="' + [r2(-pad), r2(-pad), r2(W + pad * 2), r2(TH + pad * 2.4)].join(" ") + '" role="img" aria-label="Outline of ' + esc(d._name) + ", " + (o.kind === "traced" ? "traced" : "spec box") + (isClam(d) ? ", drawn open" : "") + '">' +
       partsSvg(sh, "o") + scrRect(sh.screen, "scr") +
@@ -2013,9 +2049,9 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="pm-n">' + esc((ref && !isR ? "Tick mark = " + ref._short + " (reference). " : "") + "Bars scale to the fastest handheld in the list." + (pm.mapping_note ? " " + pm.mapping_note : "")) + "</div></div>";
     h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + esc(d.brand) + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d) : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released ' + esc(d.release_date) + "</span>" : "") + "</div>" +
-      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare list" : dis ? "Compare list full" : "Add to compare") + " <span>" + (q ? "✓" : "+") + "</span></button>" +
+      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? "In compare list" : dis ? "Compare list full" : "Add to compare") + (q ? I.check : I.plus) + "</button>" +
       '<button type="button" class="btn-o" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '">' + (isR ? "Reference device" : "Set as reference") + "</button>" +
-      '<button type="button" class="btn-t" data-act="go" data-route="compare">Open comparison (' + state.queue.length + ") →</button></div></div>";
+      '<button type="button" class="btn-t" data-act="go" data-route="compare">Open comparison (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
     h += '<div class="sgrid">' + grp("Size and weight", grpSize(d)) + grp("Compute", grpCompute(d)) + grp("Storage and ports", grpStorage(d)) + grp("Screen", grpScreen(d)) +
       grp("Battery", grpBattery(d)) + grp("Controls", grpControls(d)) + grp("Other", grpOther(d)) + grpLists(d) + "</div></div></div>";
     el.innerHTML = h;
@@ -2034,7 +2070,8 @@ button.tag:hover { filter: brightness(.95); }
     /* Keep the popover inside the page column, not just the viewport. */
     const scr = $("#scr-detail"), cr = scr && !scr.hidden ? scr.getBoundingClientRect().right - 8 : vw - 12;
     const x = clamp(r.left, 12, Math.max(12, Math.min(vw - 12, cr) - pw));
-    let y = r.bottom + 8;
+    const cell = popBtn.closest("dd") || popBtn;
+    let y = cell.getBoundingClientRect().bottom + 8;
     const up = y + ph > vh - 8;
     if (up) y = Math.max(hb + 8, r.top - ph - 8);
     pop.classList.toggle("up", up);
@@ -2116,6 +2153,7 @@ button.tag:hover { filter: brightness(.95); }
     if (route === "compare") renderCompare();
     else if (route === "detail") renderDetail();
     else syncStickyPad();
+    if (route === "browse") syncTblFade();
     const tok = route === "detail" ? state.detailId : route;
     try { if ((location.hash || "").slice(1) !== tok) history.replaceState(null, "", "#" + tok); } catch (e) { /* the viewer may refuse */ }
     if (!same) window.scrollTo(0, route === "browse" ? browseY : 0);
@@ -2212,6 +2250,7 @@ button.tag:hover { filter: brightness(.95); }
       case "grp": state.groups = state.groups.includes(v) ? state.groups.filter((g) => g !== v) : GROUPS.filter((g) => g === v || state.groups.includes(g));
         ensureSortVisible(); renderHead(); buildRows(); applyList(); renderListBar(); save(); break;
       case "layout": state.layout = v; syncLayout(); save(); break;
+      case "tbl-more": { const w = $("#tblw"); if (w) w.scrollBy({ left: Math.max(240, w.clientWidth * 0.6), behavior: REDUCED ? "auto" : "smooth" }); break; }
       case "reset-f": state.f = DEF_F(); syncFilters(); applyList(); save(); break;
       case "tf-toggle": topOpen = !topOpen; syncFilters(); applyList(); break;
       case "fx": clearFacet(t.dataset.k, v); break;
@@ -2351,13 +2390,13 @@ button.tag:hover { filter: brightness(.95); }
     if (devs.length) {
       const shapes = devs.map((d) => shapeFor(d, "front")), MW = Math.max(...shapes.map((sh) => sh.w)), MH = Math.max(...shapes.map((sh) => sh.h)), VW = MW + 8;
       const g = shapes.map((sh, i) => '<g class="s' + (i + 1) + '" transform="translate(' + r2((MW - sh.w) / 2) + " " + r2((MH - sh.h) / 2) + ')">' + partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + scrRect(sh.screen, "scr") + "</g>").join("");
-      art.innerHTML = '<div class="hart-st stage2d"><svg viewBox="-4 -4 ' + r2(VW) + " " + r2(MH + 8) + '" role="img" aria-label="' + esc(devs.map((d) => d._short).join(", ")) + ', overlaid at true scale">' + g + "</svg>" +
+      art.innerHTML = '<div class="hart-st stage2d ov"><svg viewBox="-4 -4 ' + r2(VW) + " " + r2(MH + 8) + '" role="img" aria-label="' + esc(devs.map((d) => d._short).join(", ")) + ', overlaid at true scale">' + g + "</svg>" +
         '<div class="hart-sb" aria-hidden="true"><i style="width:' + (100 / VW * 100).toFixed(2) + '%"></i><span>100 mm</span></div></div>' +
-        "<figcaption><b>True scale, front view</b>" + devs.map((d, i) => '<span class="s' + (i + 1) + '"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d._short) + "</span>").join("") + "</figcaption>";
+        "<figcaption><b>True scale, front view</b><span class=\"hart-l\">" + devs.map((d, i) => '<span class="s' + (i + 1) + '"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d.model) + "</span>").join("") + "</span></figcaption>";
       art.hidden = false;
     }
   }
-  $("#site-foot").innerHTML = "<p>" + DEV.length + " devices · " + SOCS.length + " chips · data " + esc(dataDate) + ". Every value links to its source. On a device sheet, click a value with a dotted underline to see where it came from. The sheet also lists conflicts and gaps.</p>" +
+  $("#site-foot").innerHTML = "<p>Every value links to its source. On a device sheet, click a value with a dotted underline to see where it came from. The sheet also lists conflicts and gaps.</p>" +
     "<p>Sizes and weights describe the device as held, with controllers and battery pack on. A clamshell uses its closed footprint and is drawn open. Top outlines are traced from product images. Other views are boxes from the stated sizes.</p>" +
     '<p>Code and data are on <a href="https://github.com/n0k0m3/handheld-atlas" target="_blank" rel="noopener">GitHub</a>. To report a wrong value, <a href="https://github.com/n0k0m3/handheld-atlas/issues" target="_blank" rel="noopener">open an issue</a>.</p>';
   buildFilters();
