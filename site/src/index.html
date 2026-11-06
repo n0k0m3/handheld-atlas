@@ -1885,7 +1885,7 @@ button.tag:hover { filter: brightness(.95); }
   const presetOn = (k) => state.rx === PRESET[k][0] && state.ry === PRESET[k][1];
   function sizePanelHtml(cols, cref, hasRef) {
     const s = state, is3 = s.sizeTab === "3d";
-    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale<span class="scr-k"> · inner box = screen</span>' + (cref && state.sizeMode === "overlay" ? '<span class="scr-k"> · filled = reference</span>' : "") + '</span></span>' + I.chev + "</button>";
+    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale<span class="scr-k"> · inner box = screen</span>' + (cref && state.sizeTab === "2d" && state.sizeMode === "overlay" ? '<span class="scr-k"> · filled = reference</span>' : "") + '</span></span>' + I.chev + "</button>";
     if (!s.sizeOpen) return h + "</section>";
     h += '<div class="size-c"><div class="grp-c"><span class="lbl">Mode</span><div class="segs sm" role="group" aria-label="Mode">' + seg("size-tab", "2d", "2D outline", !is3, "tab-2d") + seg("size-tab", "3d", "3D", is3, "tab-3d") + "</div></div>";
     const views = is3 ? [["iso", "3/4"], ["front", "Front"], ["top", "Top"], ["side", "Side"]] : [["front", "Front"], ["back", "Back"], ["top", "Top · thickness"], ["side", "Side"]];
