@@ -57,7 +57,7 @@
     { "field": "dims_mm.handheld.d_max", "reason": "single thickness value published" },
     { "field": "ports.0.pd_in_w", "reason": "per-port charge wattage not stated; bundled charger is 65 W" },
     { "field": "ports.1", "reason": "speed, DP, and PD do not apply to the audio jack" },
-    { "field": "ports.2", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the card standard or speed (see the port note), not a Gbps figure" },
+    { "field": "ports.2", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives only a read speed of 100 MB/s, not a Gbps figure" },
     { "field": "screen.vrr", "reason": "not stated" },
     { "field": "screen.nits_peak", "reason": "vendor gives one brightness value (350 nits)" },
     { "field": "screen.hdr", "reason": "not stated" },
