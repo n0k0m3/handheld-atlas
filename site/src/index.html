@@ -17,7 +17,7 @@
   --dev-1: #2a78d6; --dev-2: #c97409; --dev-3: #ae49a3; --dev-4: #c79b01; --dev-5: #0b9db3; --dev-6: #904c1b; --dev-7: #a58bff; --dev-8: #db5784;
   --slice: #d5dae3; --slice-back: #738095;
   --shadow: 0 1px 3px rgba(17, 24, 39, .06), 0 8px 24px rgba(17, 24, 39, .10);
-  --edge-sh: rgba(17, 24, 39, .10);
+  --edge-sh: rgba(17, 24, 39, .16);
   --f-ui: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --hdr-h: 53px;
@@ -345,10 +345,17 @@ a.ibtn { text-decoration: none; }
 .tbl th.num, .tbl td.num { text-align: right; padding-left: 10px; }
 .tbl .dpill.eq { display: none; }
 .tbl td.num .cs { max-width: none; white-space: nowrap; }
+.cl2 { display: flex; justify-content: flex-end; align-items: baseline; gap: 6px; white-space: nowrap; }
+.cl2 .dpill { margin-top: 0; }
 .tbl td.c-soc .cs { max-width: 140px; }
 .tbl .dpill { background: none; padding: 0; }
-/* A soft right edge says the table scrolls sideways. It covers only the cell padding. */
-.tblbox.can-r::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 12px; pointer-events: none; background: linear-gradient(to left, var(--edge-sh), transparent); }
+/* The rail at the right edge says the table scrolls sideways and how many columns wait there. */
+.trail { position: absolute; top: 0; right: 0; bottom: 0; width: 28px; z-index: 4; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 0; border: 0; border-left: 1px solid var(--border); background: var(--bg); color: var(--fg-brand); box-shadow: -6px 0 10px -6px var(--edge-sh); cursor: pointer; }
+.trail:hover { background: var(--bg-hover); }
+.trail:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.trail-i { position: sticky; top: calc(var(--hdr-h) + 8px); display: flex; flex-direction: column; align-items: center; gap: 2px; padding-top: 8px; }
+.trail .ic { width: 14px; height: 14px; }
+.trail-n { font: 600 11px var(--f-mono); }
 .thb { padding: 2px 4px; margin: -2px -4px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
 .thb:hover { background: var(--bg-subtle); color: var(--fg); }
 .thb { position: relative; }
@@ -359,7 +366,8 @@ a.ibtn { text-decoration: none; }
 .tbl td:first-child { padding: 10px 8px 10px 12px; }
 .tbl tbody tr:hover { background: var(--bg-hover); }
 .tbl tbody tr.ref { background: var(--bg-ref); }
-.dcell { min-width: 180px; max-width: 220px; white-space: normal; }
+.dcell { min-width: 204px; max-width: 228px; white-space: normal; }
+.tbl td.dcell { white-space: normal; }
 .dwrap { display: flex; align-items: flex-start; gap: 6px; }
 .dwrap > div { flex: 1; min-width: 0; }
 .dwrap .refb { margin: -3px -4px 0 0; border: 1px solid transparent; background: transparent; min-width: 28px; min-height: 28px; border-radius: 6px; }
@@ -369,6 +377,9 @@ a.ibtn { text-decoration: none; }
 .dtag { margin-left: 6px; }
 .dev-n { font-weight: 700; font-size: 13px; line-height: 1.3; }
 .dev-n:hover { color: var(--fg-brand); }
+.dev-l { font-size: 13px; line-height: 1.3; }
+.dev-l .dev-b { font-size: 13px; }
+.dev-l .dev-n { text-align: left; }
 .dev-v { font-size: 11.5px; color: var(--fg-2); max-width: 260px; }
 .ct { font-size: 13px; font-weight: 500; }
 .ct.m { font-size: 12.5px; }
@@ -766,7 +777,7 @@ button.tag:hover { filter: brightness(.95); }
     <ol class="steps">
       <li><span class="step-n">1</span><div><b>Pick a device you know.</b> Press <span class="demo"><span class="addb refc sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference</span></span> on its card, or the target button on its table row <span class="demo"><span class="refb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg></span></span>, or <span class="demo"><span class="btn-o sm">Set as reference</span></span> on its sheet.</div></li>
       <li><span class="step-n">2</span><div><b>It pins to the top</b> and the list bar shows <span class="demo"><span class="refpill"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference: <strong>Valve Steam Deck OLED</strong></span></span>. It stays while you filter, sort or switch layout.</div></li>
-      <li><span class="step-n">3</span><div><b>Read the deltas.</b> <span class="demo"><span class="dpill up"><svg class="tri" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 1 7.5 7h-7z"/></svg>42%</span></span> (filled) is better than the reference, <span class="demo"><span class="dpill dn"><svg class="tri o" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 6.7 1 1.3h6z"/></svg>18%</span></span> (outline) worse, <span class="demo"><span class="dpill eq">= 0%</span></span> the same. The triangle points the way the number moves. Lower is better for price, weight and thickness; higher for scores, screen, RAM and battery.</div></li>
+      <li><span class="step-n">3</span><div><b>Read the deltas.</b> <span class="demo"><span class="dpill up"><svg class="tri" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 1 7.5 7h-7z"/></svg>42%</span></span> (filled) is better than the reference, <span class="demo"><span class="dpill dn"><svg class="tri o" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 6.7 1 1.3h6z"/></svg>18%</span></span> (outline) worse, <span class="demo"><span class="dpill nt"><svg class="tri o" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 7.5V1M1.5 3.5 4 1l2.5 2.5"/></svg>2%</span></span> (arrow) neither, as for width and height. No mark means the same. The mark points the way the number moves. Lower is better for price, weight and thickness; higher for scores, screen, RAM and battery.</div></li>
       <li><span class="step-n">4</span><div><b>Turn it off</b> with the × on the pill, or press the target again. The reference is separate from the compare list.</div></li>
     </ol>
   </details>
@@ -788,6 +799,7 @@ button.tag:hover { filter: brightness(.95); }
             <tbody id="tbody"></tbody>
           </table>
         </div>
+        <button type="button" class="trail" id="tmore" data-act="tbl-more" hidden><span class="trail-i"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"></path></svg><span class="trail-n" id="tmore-n"></span></span></button>
         </div>
         <div class="cards" id="cards" hidden></div>
         <button type="button" class="more" id="more-btn" data-act="show-all" hidden></button>
@@ -1000,14 +1012,14 @@ button.tag:hover { filter: brightness(.95); }
     if (Math.abs(p) < 0.5) return { txt: "= 0%", cls: "eq" };
     const better = low === "n" ? null : (low ? p < 0 : p > 0);
     const up = p > 0, g = (better == null ? "n" : better ? "b" : "w") + (up ? "u" : "d");
-    return { txt: Math.round(Math.abs(p)) + "%", g, cls: better == null ? "eq" : (better ? "up" : "dn") };
+    return { txt: Math.round(Math.abs(p)) + "%", g, cls: better == null ? "nt" : (better ? "up" : "dn") };
   }
   /* Text that is a number, date or measure (not words) takes the mono face. */
   const isNumText = (t) => /^[$\d]/.test(t) && !/[A-Za-z]{3,}/.test(String(t).replace(/\b(TOPS|GHz|MHz|mAh)\b/g, ""));
   const TRI = {"bu": "<svg class=\"tri\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 1 7.5 7h-7z\"/></svg>", "bd": "<svg class=\"tri\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 7 .5 1h7z\"/></svg>", "wu": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 1.3 7 6.7H1z\"/></svg>", "wd": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 6.7 1 1.3h6z\"/></svg>", "nu": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 7.5V1M1.5 3.5 4 1l2.5 2.5\"/></svg>", "nd": "<svg class=\"tri o\" viewBox=\"0 0 8 8\" aria-hidden=\"true\"><path d=\"M4 .5V7M1.5 4.5 4 7l2.5-2.5\"/></svg>"};
   const dpill = (dl) => (dl ? '<span class="dpill ' + dl.cls + '">' + (dl.g ? TRI[dl.g] : "") + dl.txt + "</span>" : "");
   /* One key for the verdict glyphs, used in the list bar and above the compare grid. */
-  const VKEY = '<span class="ckey"><span class="ckl">vs reference:</span><span class="dpill up">' + TRI.bu + TRI.bd + 'better</span><span class="dpill dn">' + TRI.wu + TRI.wd + 'worse</span><span class="dpill eq">' + TRI.nu + TRI.nd + "neither</span></span>";
+  const VKEY = '<span class="ckey"><span class="ckl">vs reference:</span><span class="dpill up">' + TRI.bu + TRI.bd + 'better</span><span class="dpill dn">' + TRI.wu + TRI.wd + 'worse</span><span class="dpill nt">' + TRI.nu + TRI.nd + "neither</span></span>";
 
   /* ---------- table columns, grouped ---------- */
   const COLS = [
@@ -1649,7 +1661,7 @@ button.tag:hover { filter: brightness(.95); }
     const key = isNarrow() || !ref ? "" : VKEY.replace('class="ckey"', 'class="ckey lkey"');
     if (cards) h += key + '<div class="lbar-r">' + '<span class="lbl">Sort</span><div class="segs sm" role="group" aria-label="Sort">' + [["g3d", "G3D"], ["cpu", "CPU"], ["price", "Price"], ["weight", "Weight"], ["battery", "Battery"]].map(([k, l]) => seg("sort", k, l + (state.sortK === k ? (state.sortDir < 0 ? " ↓" : " ↑") : ""), state.sortK === k, "sort-c-" + k)).join("") + "</div>" + lay + "</div>";
     else h += '<div class="lbar-r">' + lay + '</div><div class="lbar-k"><span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("") +
-      '<button type="button" class="tmore" id="tmore" data-act="tbl-more" hidden>More columns' + I.arrow + "</button>" + key + "</div>";
+      key + "</div>";
     $("#lbar").innerHTML = h;
     syncTblFade();
   }
@@ -1680,7 +1692,7 @@ button.tag:hover { filter: brightness(.95); }
     const val = c.v(d);
     const dl = ref && !isRef && !c.nodelta && !c.text ? delta(val, c.v(ref), c.low) : null;
     const sub = c.sub ? c.sub(d) : "";
-    return '<td class="c-' + c.k + (c.num ? " num" : "") + '"><div class="ct' + (c.num ? " m" : "") + (c.strong ? " b" : "") + (c.wrap ? " wrap" : "") + '">' + esc(c.t(d)) + (c.mark ? c.mark(d) : "") + "</div>" + (sub ? '<div class="cs">' + esc(sub) + "</div>" : "") + dpill(dl) + "</td>";
+    return '<td class="c-' + c.k + (c.num ? " num" : "") + '"><div class="ct' + (c.num ? " m" : "") + (c.strong ? " b" : "") + (c.wrap ? " wrap" : "") + '">' + esc(c.t(d)) + (c.mark ? c.mark(d) : "") + "</div>" + (sub && dl && c.num ? '<div class="cl2"><span class="cs">' + esc(sub) + "</span>" + dpill(dl) + "</div>" : (sub ? '<div class="cs">' + esc(sub) + "</div>" : "") + dpill(dl)) + "</td>";
   }
   function refBtn(d, isRef, prefix) {
     const id = esc(d.id);
@@ -1690,7 +1702,7 @@ button.tag:hover { filter: brightness(.95); }
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
       '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-b">' + esc(d.brand) + "" + '</div><button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <button type="button" class="dev-n" id="open-' + id + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</button></div>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
       cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
@@ -1752,13 +1764,13 @@ button.tag:hover { filter: brightness(.95); }
   function syncTblFade() {
     const w = $("#tblw"), b = $("#tmore");
     if (!w) return;
-    /* At the start of the scroll, stretch the whole columns so that the last one ends at the panel edge (table cells honor min-width, not width).
+    /* At the start of the scroll, stretch the whole columns so that the last one ends where the rail starts (table cells honor min-width, not width).
        A cut column reads as broken data, and an empty strip reads as a missing column. */
     if (!w.hidden && w.scrollLeft === 0) {
       const ths = $$("#thead th");
       ths.forEach((th) => { th.style.minWidth = ""; th.style.boxSizing = ""; });
-      const avail = w.clientWidth;
-      if (w.scrollWidth - avail > 1) {
+      const avail = w.clientWidth - RAIL;
+      if (w.scrollWidth - w.clientWidth > 1) {
         const left = w.getBoundingClientRect().left, rightOf = (th) => th.getBoundingClientRect().right - left;
         const vis = ths.filter((th) => rightOf(th) <= avail + 0.5), last = vis[vis.length - 1];
         const grow = vis.filter((th) => !th.classList.contains("c0"));
@@ -1773,8 +1785,18 @@ button.tag:hover { filter: brightness(.95); }
     }
     const more = !w.hidden && w.scrollWidth - w.scrollLeft - w.clientWidth > 1;
     w.parentNode.classList.toggle("can-r", more);
-    if (b) b.hidden = !more;
+    if (b) {
+      b.hidden = !more;
+      if (more) {
+        const n = $$("#thead th").filter((th) => th.getBoundingClientRect().right > railLeft(w) + 0.5).length;
+        $("#tmore-n").textContent = "+" + n;
+        b.title = plural(n, "more column") + " to the right";
+        b.setAttribute("aria-label", "Scroll right. " + plural(n, "more column") + ".");
+      }
+    }
   }
+  const RAIL = 28;
+  const railLeft = (w) => w.getBoundingClientRect().left + w.clientWidth - RAIL;
   function defaultSortK() { const v = visCols(); return (v.find((c) => c.k === "g3d") || v.find((c) => c.num) || v[0] || COL.g3d).k; }
   /* When the sort column leaves the table, sort by a visible column instead. */
   function ensureSortVisible() {
@@ -2375,7 +2397,7 @@ button.tag:hover { filter: brightness(.95); }
       case "grp": state.groups = state.groups.includes(v) ? state.groups.filter((g) => g !== v) : GROUPS.filter((g) => g === v || state.groups.includes(g));
         ensureSortVisible(); renderHead(); buildRows(); applyList(); renderListBar(); save(); break;
       case "layout": state.layout = v; syncLayout(); save(); break;
-      case "tbl-more": { const w = $("#tblw"); if (w) w.scrollBy({ left: Math.max(240, w.clientWidth * 0.6), behavior: REDUCED ? "auto" : "smooth" }); break; }
+      case "tbl-more": { const w = $("#tblw"); if (!w) break; const lim = railLeft(w), th = $$("#thead th").find((t) => t.getBoundingClientRect().right > lim + 0.5); w.scrollBy({ left: th ? Math.max(48, Math.ceil(th.getBoundingClientRect().right - lim) + 4) : 240, behavior: REDUCED ? "auto" : "smooth" }); break; }
       case "reset-f": state.f = DEF_F(); syncFilters(); applyList(); save(); break;
       case "tf-toggle": topOpen = !topOpen; syncFilters(); applyList(); break;
       case "fx": clearFacet(t.dataset.k, v); break;
