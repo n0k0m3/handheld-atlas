@@ -168,7 +168,7 @@
   ],
   "cooling": "Dual 5400 RPM fans, 4 copper heat pipes, 47,200 mm2 fins; 80 W air-cooled; Liquid Cooling version up to 120 W with the Frost Bay unit",
   "fingerprint": true,
-  "notes": "Teased in April 2026 as the X2 Mini with a Ryzen AI Max+ 395; it launched with the Max+ 388 instead, so there is no 395 row. Indiegogo from 2026-06-15 ($2,466 and up; VideoCardz quoted $2,399). Store list price $2,699, sale price $2,499 at crawl time. Sources show Indiegogo in June and shipping from late July 2026.",
+  "notes": "Teased in April 2026 as the X2 Mini with a Ryzen AI Max+ 395; it launched with the Max+ 388 instead, so there is no 395 row. Indiegogo from 2026-06-15 ($2,466 and up; VideoCardz quoted $2,399). Store list price $2,699, sale price $2,499 on 2026-10-27. Sources show Indiegogo in June and shipping from late July 2026.",
   "unresolved": [
     {
       "field": "dims_mm.tablet_only",

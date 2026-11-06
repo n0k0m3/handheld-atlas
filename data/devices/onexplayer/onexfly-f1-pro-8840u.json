@@ -134,7 +134,7 @@
   ],
   "cooling": "Single liquid-bearing fan, aluminium fins, 3 copper heat pipes",
   "fingerprint": null,
-  "notes": "OLED F1 Pro with the Ryzen 7 8840U. A Liliputing teaser (Oct 2024) showed the 8840U option; DroiX reviewed an 8840U unit by Feb 2025; Amazon lists 32 GB/2 TB. The official store re-listed a 32 GB/1 TB variant in Dec 2025. msrp_usd is the store list price at crawl time; the launch price was not found.",
+  "notes": "OLED F1 Pro with the Ryzen 7 8840U. A Liliputing teaser (Oct 2024) showed the 8840U option; DroiX reviewed an 8840U unit by Feb 2025; Amazon lists 32 GB/2 TB. The official store re-listed a 32 GB/1 TB variant in Dec 2025. msrp_usd is the store list price on 2026-10-27; the launch price was not found.",
   "unresolved": [
     {
       "field": "screen.vrr",
@@ -262,7 +262,7 @@
       "field": "msrp_usd",
       "url": "https://onexplayerstore.com/products/onexfly-f1-pro-wolrd-s-first-amd-ai-370-oled-144hz-gaming-handheld-console.json",
       "accessed": "2026-10-27",
-      "note": "Store list (compare-at) price $1,099 at crawl time; sale price $999"
+      "note": "Store list (compare-at) price $1,099 when accessed; sale price $999"
     },
     {
       "field": "controls.stick_type",

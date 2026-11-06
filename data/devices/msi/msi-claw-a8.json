@@ -127,7 +127,7 @@
   "unresolved": [
     {
       "field": "announce_date",
-      "reason": "announce date not confirmed from a source read in this crawl"
+      "reason": "announce date not confirmed by a source"
     },
     {
       "field": "screen.nits_sdr",

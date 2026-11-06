@@ -48,7 +48,7 @@
   "os": ["Windows 11 Home"],
   "cooling": "active (heatsink and fan)",
   "fingerprint": true,
-  "notes": "zotac.com product page is behind a SafeLine WAF captcha for both Firecrawl and the agent browser. The ZOTAC store page (official ZOTAC property) is the main source. US pre-orders were not offered at first; EU price was EUR 849.",
+  "notes": "The zotac.com product page is behind a captcha, so it could not be read. The ZOTAC store page (official ZOTAC property) is the main source. US pre-orders were not offered at first; EU price was EUR 849.",
   "unresolved": [
     { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
     { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },

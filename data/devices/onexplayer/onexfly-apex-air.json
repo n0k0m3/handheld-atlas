@@ -157,7 +157,7 @@
   ],
   "cooling": "Dual 5400 RPM fans, 4 copper heat pipes, 47,200 mm2 fins; 45 W sustained",
   "fingerprint": true,
-  "notes": "Intel version of the OneXFly Apex shell. No DC power jack (NotebookCheck). Store list price at crawl time: $2,039 (sale $1,839).",
+  "notes": "Intel version of the OneXFly Apex shell. No DC power jack (NotebookCheck). Store list price on 2026-10-27: $2,039 (sale $1,839).",
   "unresolved": [
     {
       "field": "controls.stick_type",

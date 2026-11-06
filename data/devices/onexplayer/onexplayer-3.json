@@ -151,7 +151,7 @@
   ],
   "cooling": "Single 4200 RPM fan, 11,203 mm2 vapor chamber, 16,644 mm2 aluminium fins; 35 W",
   "fingerprint": true,
-  "notes": "Indiegogo from 2026-06-24 ($1,399 base). Moved to the official store for pre-order on 2026-07-30 at $1,499 (24 GB/512 GB); shipping expected late August 2026. Store list price at crawl time $1,699 (sale $1,549).",
+  "notes": "Indiegogo from 2026-06-24 ($1,399 base). Moved to the official store for pre-order on 2026-07-30 at $1,499 (24 GB/512 GB); shipping expected late August 2026. Store list price on 2026-10-27: $1,699 (sale $1,549).",
   "unresolved": [
     {
       "field": "dims_mm.tablet_only",
