@@ -1100,7 +1100,8 @@ button.tag:hover { filter: brightness(.95); }
       ["VRR", (d) => yn(scr(d).vrr) || "—"],
       ["Touch", (d) => yn(scr(d).touch) || "—"]]],
     ["Memory & storage", [
-      ["RAM", (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? s.join(" / ") + " GB" : "—"; }, (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? Math.max(...s) : null; }, "high"],
+      /* "16/32/64 GB" with a no-break space: short enough for the value track beside a delta, so the value never wraps. */
+      ["RAM", (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? s.join("/") + "\u00a0GB" : "—"; }, (d) => { const s = (d.ram || {}).sizes_gb || []; return s.length ? Math.max(...s) : null; }, "high"],
       ["RAM type", (d) => (d.ram || {}).type || "—"],
       ["RAM speed", (d) => ((d.ram || {}).speed_mts ? n0(d.ram.speed_mts) + " MT/s" : "—"), (d) => (d.ram || {}).speed_mts || null, "high"],
       ["SSD slot", (d) => ssdText(d) || "—"],
