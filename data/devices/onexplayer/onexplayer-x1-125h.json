@@ -22,7 +22,7 @@
       "d": 13,
       "d_max": null
     },
-    "note": "Handheld width is the DroiX tape measurement of the X1 8840U with controllers (same 252 mm tablet and same controllers). d_max is the controller thickness."
+    "note": "Handheld width is the DroiX tape measurement of the X1 8840U with controllers (same 252 mm tablet and same controllers). The thickest point is the controller thickness."
   },
   "weight_g": {
     "handheld": {
@@ -152,7 +152,7 @@
   ],
   "cooling": "liquid bearing fan, aluminum fins, dual copper heat pipes",
   "fingerprint": true,
-  "notes": "Entry X1 configuration with the Core Ultra 5 125H (7-core Arc iGPU). Price is the Indiegogo regular price, the same basis as onexplayer-x1-155h. Chassis, ports and screen are copied from onexplayer-x1-155h; the Thunderbolt 4 claim on the Indiegogo page is not split by SKU.",
+  "notes": "Entry X1 configuration with the Core Ultra 5 125H (7-core Arc iGPU). Price is the Indiegogo regular price, the same basis as the Core Ultra 7 155H model. Chassis, ports and screen are copied from that row; the Thunderbolt 4 claim on the Indiegogo page is not split by SKU.",
   "unresolved": [
     {
       "field": "weight_g.handheld.stated",
@@ -196,11 +196,11 @@
     },
     {
       "field": "weight_g.handheld.measured",
-      "reason": "No review of this SKU; measurements in onexplayer-x1-155h are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the OneXPlayer X1 (Core Ultra 7 155H) row"
     },
     {
       "field": "weight_g.tablet_only.measured",
-      "reason": "No review of this SKU; measurements in onexplayer-x1-155h are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the OneXPlayer X1 (Core Ultra 7 155H) row"
     }
   ],
   "conflicts": [],

@@ -52,8 +52,8 @@
   "fingerprint": false,
   "notes": "Rows merged: 512 GB, 1 TB, and the 1 TB Limited Edition (translucent shell, $679, US/Canada only) share this hardware. Replaces the hand-written seed row; the seed cited /en/tech/deck, which is the LCD tech page.",
   "unresolved": [
-    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
-    { "field": "ports.2", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "ports.1", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to the 3.5mm jack" },
+    { "field": "ports.2", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see the port note), not a Gbps figure" },
     { "field": "dims_mm.handheld.d_max", "reason": "Valve publishes one thickness value" },
     { "field": "controls.trigger_type", "reason": "Valve lists 'L & R analog triggers' without the sensor type; no review or teardown found that names it" },
     { "field": "controls.trigger_lock", "reason": "Not stated by Valve or the reviews used" }

@@ -135,7 +135,7 @@
   ],
   "cooling": "Large turbo fan, triple copper heat pipes + copper sheet; up to 35 W",
   "fingerprint": true,
-  "notes": "Indiegogo early-bird price for 32GB/1TB was $1,299 (January 2025); retail $1,499. Backer shipping was planned for April 2025. release_date uses the AYANEO store listing for the HX 370 model (published 2025-08-04). OLED and LCD versions share one row: same price, dimensions and stated weight.",
+  "notes": "Indiegogo early-bird price for 32GB/1TB was $1,299 (January 2025); retail $1,499. Backer shipping was planned for April 2025. The release date uses the AYANEO store listing for the HX 370 model (published 2025-08-04). OLED and LCD versions share one row: same price, dimensions and stated weight.",
   "conflicts": [],
   "sources": [
     {
@@ -172,7 +172,7 @@
       "field": "release_date",
       "url": "https://shop.ayaneo.com/products/ayaneo-3-amd-ai-9-hx370",
       "accessed": "2026-10-27",
-      "note": "Store product published 2025-08-04 (Shopify products.json)"
+      "note": "Store product published 2025-08-04 (Shopify store data)"
     },
     {
       "field": "ram.sizes_gb",

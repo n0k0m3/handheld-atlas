@@ -23,7 +23,7 @@
       "d": 13,
       "d_max": null
     },
-    "note": "Handheld width is the DroiX measurement with controllers (14 in). Tablet size is the X1-series official value. d_max is the controller thickness."
+    "note": "Handheld width is the DroiX measurement with controllers (14 in). Tablet size is the X1-series official value. The thickest point is the controller thickness."
   },
   "weight_g": {
     "handheld": {
@@ -154,7 +154,7 @@
   ],
   "cooling": "liquid bearing fan, aluminum fins, dual copper heat pipes",
   "fingerprint": true,
-  "notes": "2026 refresh of the X1 Pro with the Ryzen AI 9 HX 470. NotebookCheck: the device is otherwise the same as the HX 370 model, so chassis fields are copied from onexplayer-x1-pro. Store list price $1,999 (sale $1,799) for 32 GB/1 TB. The store page shows an 'LPDDR5' heading; the RAM type is kept from the HX 370 row.",
+  "notes": "2026 refresh of the X1 Pro with the Ryzen AI 9 HX 470. NotebookCheck: the device is otherwise the same as the HX 370 model, so chassis data is copied from the HX 370 row. Store list price $1,999 (sale $1,799) for 32 GB/1 TB. The store page shows an 'LPDDR5' heading; the RAM type is kept from the HX 370 row.",
   "unresolved": [
     {
       "field": "weight_g.handheld.stated",
@@ -198,11 +198,11 @@
     },
     {
       "field": "weight_g.handheld.measured",
-      "reason": "No review of this SKU; measurements in onexplayer-x1-pro are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the OneXPlayer X1 Pro (Ryzen AI 9 HX 370) row"
     },
     {
       "field": "weight_g.tablet_only.measured",
-      "reason": "No review of this SKU; measurements in onexplayer-x1-pro are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the OneXPlayer X1 Pro (Ryzen AI 9 HX 370) row"
     },
     {
       "field": "ram.speed_mts",

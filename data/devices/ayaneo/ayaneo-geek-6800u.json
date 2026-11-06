@@ -133,7 +133,7 @@
   ],
   "cooling": "Custom fan cooler; vendor states up to 32-35 W heat dissipation",
   "fingerprint": true,
-  "notes": "AYANEO lists the Geek with AMD 6800U or AMD 6600U. This row is the 6800U; the Ryzen 5 6600U option is ayaneo-geek-6600u. Retail start price $949 (16GB/512GB); Super Early Bird $799 on Indiegogo. Launched with the AYANEO 2 on the same Indiegogo campaign; release month is the December 2022 shipping start reported for both models. Only the 512GB capacity is confirmed for the base price.",
+  "notes": "AYANEO lists the Geek with AMD 6800U or AMD 6600U. This row is the 6800U; the Ryzen 5 6600U option has its own row. Retail start price $949 (16GB/512GB); Super Early Bird $799 on Indiegogo. Launched with the AYANEO 2 on the same Indiegogo campaign; release month is the December 2022 shipping start reported for both models. Only the 512GB capacity is confirmed for the base price.",
   "unresolved": [
     {
       "field": "announce_date",

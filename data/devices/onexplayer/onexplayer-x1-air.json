@@ -22,7 +22,7 @@
       "d": 13.5,
       "d_max": null
     },
-    "note": "Handheld width and d_max are not published for the Air. They come from the X1-series controllers (DroiX measured 35.5 cm on the X1 8840U; controllers 44 mm thick). The X1 Air uses the same 252 mm tablet width and the controllers are sold for X1/X1 Mini/X1 Pro/X1 Air."
+    "note": "Handheld width and thickest point are not published for the Air. They come from the X1-series controllers (DroiX measured 35.5 cm on the X1 8840U; controllers 44 mm thick). The X1 Air uses the same 252 mm tablet width and the controllers are sold for X1/X1 Mini/X1 Pro/X1 Air."
   },
   "weight_g": {
     "handheld": {
@@ -154,7 +154,7 @@
   ],
   "cooling": "dual fans (8500 RPM, liquid bearing), dual heat pipes",
   "fingerprint": true,
-  "notes": "No OCuLink. Built-in metal kickstand (173 degrees). Store list (compare-at) $1499 for 258V/32GB/1TB; global pre-order $1299 (Sept 2025). The Core Ultra 5 228V SKU ($1099 pre-order) is the onexplayer-x1-air-228v row. In 2026 the store renamed this listing to X2 Air; see the onexplayer-x2-air row for the revised hardware.",
+  "notes": "No OCuLink. Built-in metal kickstand (173 degrees). Store list (compare-at) $1499 for 258V/32GB/1TB; global pre-order $1299 (Sept 2025). The Core Ultra 5 228V SKU ($1099 pre-order) is the OneXPlayer X1 Air (Core Ultra 5 228V) row. In 2026 the store renamed this listing to X2 Air; see the OneXPlayer X2 Air row for the revised hardware.",
   "unresolved": [
     {
       "field": "weight_g.handheld.measured",

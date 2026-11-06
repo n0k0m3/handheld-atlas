@@ -123,7 +123,7 @@
   ],
   "cooling": "1 turbo centrifugal fan, vapor-chamber cooling fins",
   "fingerprint": true,
-  "notes": "KONKR is an AYANEO sub-brand; KONKR Fit is its first Windows handheld. Sold only through the AYANEO store (no crowdfunding). HX 470 config: 32GB/1TB (Luminous Silver or Dragonveil Gold). Pre-order opened 2026-02-06 at an early-bird price of $1,299; retail $1,699. AYANEO gives one size and weight for both chips. AYANEO scheduled shipments for the end of April 2026. No shipment confirmation was found; status stays pre-order. Sibling row: ayaneo-konkr-fit-hx370.",
+  "notes": "KONKR is an AYANEO sub-brand; KONKR Fit is its first Windows handheld. Sold only through the AYANEO store (no crowdfunding). HX 470 config: 32GB/1TB (Luminous Silver or Dragonveil Gold). Pre-order opened 2026-02-06 at an early-bird price of $1,299; retail $1,699. AYANEO gives one size and weight for both chips. AYANEO scheduled shipments for the end of April 2026. No shipment confirmation was found; status stays pre-order. Sibling row: KONKR Fit (Ryzen AI 9 HX 370).",
   "conflicts": [
     {
       "field": "ports",

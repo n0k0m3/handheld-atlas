@@ -137,7 +137,7 @@
   ],
   "cooling": "Single turbo fan, \"3+1\" three copper heat pipes, copper sheet, graphene patch",
   "fingerprint": true,
-  "notes": "Same chassis as the 8840U refresh (ayaneo-2s-8840u). Indiegogo early-bird price $949 for 16GB/512GB (overkill.wtf, 2023-05-30); launch retail price of the 7840U base config not found. First units shipped to Indiegogo backers in early June 2023 (NotebookCheck, 2023-06-08). The 64GB configurations were B.Duck special editions.",
+  "notes": "Same chassis as the 8840U refresh, which has its own row. Indiegogo early-bird price $949 for 16GB/512GB (overkill.wtf, 2023-05-30); launch retail price of the 7840U base config not found. First units shipped to Indiegogo backers in early June 2023 (NotebookCheck, 2023-06-08). The 64GB configurations were B.Duck special editions.",
   "unresolved": [
     {
       "field": "announce_date",

@@ -17,7 +17,7 @@
       "d": 22,
       "d_max": 39.5
     },
-    "note": "d_max derived: 22 mm body + 17.5 mm battery pack (vendor gives no combined figure)"
+    "note": "Thickest point derived: 22 mm body + 17.5 mm battery pack (vendor gives no combined figure)"
   },
   "weight_g": {
     "handheld": {
@@ -30,7 +30,7 @@
       "measured": null,
       "measured_source": null
     },
-    "note": "Vendor: about 799 g with controllers and without battery (standard version; Liquid Cooling version +70 g). handheld.stated = 799 g + vendor 381 g battery."
+    "note": "Vendor: about 799 g with controllers and without battery (standard version; Liquid Cooling version +70 g). The stated handheld weight is 799 g + vendor 381 g battery."
   },
   "soc_id": "ai-max-388",
   "ram": {

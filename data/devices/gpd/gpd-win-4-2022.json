@@ -143,7 +143,7 @@
   ],
   "cooling": "single fan + dual heat pipes",
   "fingerprint": true,
-  "notes": "Launch Win 4. No OCuLink; a USB-A port sits where later models have OCuLink. Dock ports (HDMI, RJ45, 3x USB-A, charge-only USB-C) are not counted. msrp_usd is the Indiegogo price of the 16 GB base model. RAM is LPDDR5, which is soldered by design. The pre-launch spec page (2022-09) claimed Hall sticks and 570 g; the post-launch page (2023-05) lists ALPS sticks and 598 g.",
+  "notes": "Launch Win 4. No OCuLink; a USB-A port sits where later models have OCuLink. Dock ports (HDMI, RJ45, 3x USB-A, charge-only USB-C) are not counted. The price shown is the Indiegogo price of the 16 GB base model. RAM is LPDDR5, which is soldered by design. The pre-launch spec page (2022-09) claimed Hall sticks and 570 g; the post-launch page (2023-05) lists ALPS sticks and 598 g.",
   "unresolved": [
     {
       "field": "announce_date",

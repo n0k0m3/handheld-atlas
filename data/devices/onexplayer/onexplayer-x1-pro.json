@@ -22,7 +22,7 @@
       "d": 13,
       "d_max": null
     },
-    "note": "Handheld width is the DroiX measurement with controllers (14 in). Tablet size is the X1-series official value. d_max is the controller thickness."
+    "note": "Handheld width is the DroiX measurement with controllers (14 in). Tablet size is the X1-series official value. The thickest point is the controller thickness."
   },
   "weight_g": {
     "handheld": {
@@ -155,7 +155,7 @@
   ],
   "cooling": "liquid bearing fan, aluminum fins, dual copper heat pipes",
   "fingerprint": true,
-  "notes": "Retail list $1599 for 32GB/1TB; pre-order $1399 (Dec 2024). Later SKUs have their own rows: the EVA limited edition with Core Ultra 7 255H and Thunderbolt 4 (Apr 2025, onexplayer-x1-pro-255h) and the 2026 refresh with Ryzen AI 9 HX 470 (onexplayer-x1-pro-hx470). The store page title also mentions 8840U, but no X1 Pro 8840U SKU was seen (the 8840U model is the X1 8840U row).",
+  "notes": "Retail list $1599 for 32GB/1TB; pre-order $1399 (Dec 2024). Later SKUs have their own rows: the EVA limited edition with Core Ultra 7 255H and Thunderbolt 4 (Apr 2025) and the 2026 refresh with Ryzen AI 9 HX 470. The store page title also mentions 8840U, but no X1 Pro 8840U SKU was seen (the 8840U model is the X1 8840U row).",
   "unresolved": [
     {
       "field": "weight_g.handheld.stated",

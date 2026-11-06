@@ -145,7 +145,7 @@
   ],
   "cooling": "single fan + dual heat pipes",
   "fingerprint": true,
-  "notes": "Includes the 8840U configuration that GPD also sells as 'Win 4 (2025)' (32 GB / 1 TB): same chassis, ports, screen and battery on the official pages. The 2025 page lists Wi-Fi 6E and BT 5.3 for that config (see conflicts). The Ryzen 5 8640U option is its own row (-8640u). msrp_usd is the Indiegogo InDemand launch config (32 GB / 2 TB). LPDDR5X is soldered by design.",
+  "notes": "Includes the 8840U configuration that GPD also sells as 'Win 4 (2025)' (32 GB / 1 TB): same chassis, ports, screen and battery on the official pages. The 2025 page lists Wi-Fi 6E and BT 5.3 for that config (see conflicts). The Ryzen 5 8640U option has its own row. The price shown is for the Indiegogo InDemand launch config (32 GB / 2 TB). LPDDR5X is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

@@ -11,7 +11,7 @@
   "form_factor": "classic",
   "dims_mm": {
     "handheld": { "w": 290, "h": 121, "d": 27.5, "d_max": 50.9 },
-    "note": "ASUS: 29.0 x 12.1 x 2.75 ~ 5.09 cm (W x D x H). d is the thinnest point, d_max the grips."
+    "note": "ASUS: 29.0 x 12.1 x 2.75 ~ 5.09 cm (W x D x H). The thickness is the thinnest point; the thickest point is the grips."
   },
   "weight_g": {
     "handheld": { "stated": 715, "measured": 718, "measured_source": "https://www.notebookcheck.net/Xbox-Full-screen-Experience-for-Gaming-Handhelds-Asus-ROG-Xbox-Ally-X-Review.1139045.0.html" },
@@ -53,8 +53,8 @@
   "fingerprint": true,
   "notes": "Black chassis. Boots into the Xbox full-screen experience. ASUS lists Bluetooth 5.4 and says the version may change with the OS version.",
   "unresolved": [
-    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
-    { "field": "ports.3", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to the 3.5mm jack" },
+    { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see the port note), not a Gbps figure" },
     { "field": "storage.slots.0.lanes", "reason": "ASUS gives PCIe 4.0 but not the lane count" },
     { "field": "screen.nits_peak", "reason": "ASUS gives one brightness value (500 nits); no HDR or peak figure" },
     { "field": "controls.trigger_lock", "reason": "Not stated by ASUS or the reviews used" },

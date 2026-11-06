@@ -21,7 +21,7 @@
       "d": 26,
       "d_max": null
     },
-    "note": "Clamshell. handheld = closed footprint W x H x D; the lid opens upward (max 168 degrees). GPD lists one size."
+    "note": "Clamshell. The handheld size is the closed footprint W x H x D; the lid opens upward (max 168 degrees). GPD lists one size."
   },
   "weight_g": {
     "handheld": {
@@ -146,7 +146,7 @@
   ],
   "cooling": "fan + heat pipe",
   "fingerprint": null,
-  "notes": "Ryzen 5 8640U config of the Win Mini (2024); same chassis, ports, screen and battery as gpd-win-mini-2024. form_factor is clamshell (hinged lid). LPDDR5 is soldered by design.",
+  "notes": "Ryzen 5 8640U config of the Win Mini (2024); same chassis, ports, screen and battery as the Win Mini 2024 (Ryzen 7 8840U) row. The form factor is clamshell (hinged lid). LPDDR5 is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

@@ -125,15 +125,15 @@
   ],
   "cooling": "dual fan (one metal Predator AeroBlade fan, one plastic fan)",
   "fingerprint": true,
-  "notes": "UK units reached buyers in September 2026 (Currys, GBP 1,300 for 24 GB / 1 TB); US launch at US$1,299.99 in October 2026. Acer UK SKUs: Arc G3 Extreme 24 GB / 1 TB / 80 Wh GBP 1,299.99 and 32 GB / 1 TB / 80 Wh GBP 1,499.99. The Arc G3 (non-Extreme) SKUs are in acer-predator-atlas-8-g3.",
+  "notes": "UK units reached buyers in September 2026 (Currys, GBP 1,300 for 24 GB / 1 TB); US launch at US$1,299.99 in October 2026. Acer UK SKUs: Arc G3 Extreme 24 GB / 1 TB / 80 Wh GBP 1,299.99 and 32 GB / 1 TB / 80 Wh GBP 1,499.99. The Arc G3 (non-Extreme) SKUs are in the Predator Atlas 8 (Arc G3) row.",
   "unresolved": [
     {
       "field": "ports.1",
-      "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port"
+      "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port"
     },
     {
       "field": "ports.2",
-      "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port"
+      "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port"
     },
     {
       "field": "weight_g.handheld.measured",

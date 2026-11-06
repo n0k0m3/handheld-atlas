@@ -22,7 +22,7 @@
       "d": 23,
       "d_max": null
     },
-    "note": "Clamshell. handheld = closed footprint W x H x D; the lid opens upward. GPD lists one size."
+    "note": "Clamshell. The handheld size is the closed footprint W x H x D; the lid opens upward. GPD lists one size."
   },
   "weight_g": {
     "handheld": {

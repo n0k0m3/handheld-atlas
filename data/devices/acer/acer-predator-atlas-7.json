@@ -10,11 +10,11 @@
   "form_factor": "classic",
   "dims_mm": {
     "handheld": { "w": 292, "h": 123, "d": 28.5, "d_max": 48.4 },
-    "note": "Acer lists 292 x 112.7-123 x 28.5-48.4 mm. h uses the maximum (123 mm); d is the body, d_max the grips."
+    "note": "Acer lists 292 x 112.7-123 x 28.5-48.4 mm. The height uses the maximum (123 mm). The thickness is the body; the thickest point is the grips."
   },
   "weight_g": {
     "handheld": { "stated": 750, "measured": null, "measured_source": null },
-    "note": "Acer: under 750 g with the 80 Wh battery, under 700 g with the 60 Wh battery. 750 g assumes the 80 Wh battery (see battery.note)."
+    "note": "Acer: under 750 g with the 80 Wh battery, under 700 g with the 60 Wh battery. 750 g assumes the 80 Wh battery (see the Battery card)."
   },
   "soc_id": "arc-g3-extreme",
   "ram": { "sizes_gb": [24], "type": "LPDDR5X", "speed_mts": 7467, "channels": null, "soldered": null },
@@ -41,16 +41,16 @@
     "keyboard": false,
     "detachable_controllers": false,
     "haptics": null,
-    "note": "The Atlas 7 control list omits the adjustable trigger switches that the Atlas 8 lists, so trigger_lock is false. Rear L/R macro buttons."
+    "note": "The Atlas 7 control list omits the adjustable trigger switches that the Atlas 8 lists, so trigger lock is marked No. Rear L/R macro buttons."
   },
   "wireless": { "wifi": "Wi-Fi 7", "bt": "5.4" },
   "os": ["Windows 11 Home"],
   "cooling": "dual fan (one metal Predator AeroBlade fan, one plastic fan)",
   "fingerprint": true,
-  "notes": "Announced at IFA 2026. Availability: North America Q4 2026, EMEA November 2026. Memory is \"up to 24 GB\"; lower RAM SKUs may exist. The Intel Arc G3 (non-Extreme, Arc B370) SKUs are in acer-predator-atlas-7-g3.",
+  "notes": "Announced at IFA 2026. Availability: North America Q4 2026, EMEA November 2026. Memory is \"up to 24 GB\"; lower RAM SKUs may exist. The Intel Arc G3 (non-Extreme, Arc B370) SKUs are in the Predator Atlas 7 (Arc G3) row.",
   "unresolved": [
-    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
-    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
+    { "field": "ports.1", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port" },
+    { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port" },
     { "field": "release_date", "reason": "Not on sale yet as of 2026-10-27" },
     { "field": "msrp_usd", "reason": "No US price announced" },
     { "field": "weight_g.handheld.measured", "reason": "Not released; no reviewer scale reading" },

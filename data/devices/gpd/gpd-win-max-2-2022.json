@@ -22,7 +22,7 @@
       "d": 23,
       "d_max": null
     },
-    "note": "Clamshell. handheld = closed footprint W x H x D; the lid opens upward. GPD lists one size."
+    "note": "Clamshell. The handheld size is the closed footprint W x H x D; the lid opens upward. GPD lists one size."
   },
   "weight_g": {
     "handheld": {
@@ -174,7 +174,7 @@
   ],
   "cooling": "single fan + dual heat pipes",
   "fingerprint": true,
-  "notes": "Launch Win Max 2. No OCuLink; three USB-A 3.2 Gen1 ports. The Intel Core i7-1260P version (Thunderbolt 4) is its own row (gpd-win-max-2-2022-1260p). msrp_usd is the Indiegogo price of the 6800U / 16 GB / 1 TB model (a limited US$899 early-bird tier had 128 GB storage). LPDDR5 is soldered by design.",
+  "notes": "Launch Win Max 2. No OCuLink; three USB-A 3.2 Gen1 ports. The Intel Core i7-1260P version (Thunderbolt 4) has its own row. The price shown is the Indiegogo price of the 6800U / 16 GB / 1 TB model (a limited US$899 early-bird tier had 128 GB storage). LPDDR5 is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

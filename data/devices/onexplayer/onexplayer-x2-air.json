@@ -23,7 +23,7 @@
       "d": 14,
       "d_max": null
     },
-    "note": "Official sheet gives only the size without controllers. Handheld width and d_max come from the X1-series controllers (DroiX 35.5 cm on a 252 mm tablet; controllers 44 mm thick); the controllers listing names the X2 series as compatible."
+    "note": "Official sheet gives only the size without controllers. Handheld width and thickest point come from the X1-series controllers (DroiX 35.5 cm on a 252 mm tablet; controllers 44 mm thick); the controllers listing names the X2 series as compatible."
   },
   "weight_g": {
     "handheld": {

@@ -141,7 +141,7 @@
   ],
   "cooling": "single fan + dual heat pipes",
   "fingerprint": true,
-  "notes": "Strix Point refresh of the Win 4 chassis. The 8840U config sold under the same name is merged into gpd-win-4-2024. Dock ports are not counted. Optional clip-on 4G LTE module. LPDDR5X is soldered by design.",
+  "notes": "Strix Point refresh of the Win 4 chassis. The 8840U config sold under the same name is merged into the Win 4 2024 (Ryzen 7 8840U) row. Dock ports are not counted. Optional clip-on 4G LTE module. LPDDR5X is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

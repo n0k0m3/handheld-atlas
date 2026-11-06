@@ -16,7 +16,7 @@
       "d": 22,
       "d_max": 39.5
     },
-    "note": "d_max derived: 22 mm body + 17.5 mm battery pack (vendor gives no combined figure)"
+    "note": "Thickest point derived: 22 mm body + 17.5 mm battery pack (vendor gives no combined figure)"
   },
   "weight_g": {
     "handheld": {

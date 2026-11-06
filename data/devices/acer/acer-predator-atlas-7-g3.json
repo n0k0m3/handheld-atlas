@@ -15,7 +15,7 @@
       "d": 28.5,
       "d_max": 48.4
     },
-    "note": "Acer lists 292 x 112.7-123 x 28.5-48.4 mm. h uses the maximum (123 mm); d is the body, d_max the grips."
+    "note": "Acer lists 292 x 112.7-123 x 28.5-48.4 mm. The height uses the maximum (123 mm). The thickness is the body; the thickest point is the grips."
   },
   "weight_g": {
     "handheld": {
@@ -107,7 +107,7 @@
     "keyboard": false,
     "detachable_controllers": false,
     "haptics": null,
-    "note": "The Atlas 7 control list omits the adjustable trigger switches that the Atlas 8 lists, so trigger_lock is false. Rear L/R macro buttons."
+    "note": "The Atlas 7 control list omits the adjustable trigger switches that the Atlas 8 lists, so trigger lock is marked No. Rear L/R macro buttons."
   },
   "wireless": {
     "wifi": "Wi-Fi 7",
@@ -118,15 +118,15 @@
   ],
   "cooling": "dual fan (one metal Predator AeroBlade fan, one plastic fan)",
   "fingerprint": true,
-  "notes": "Base Arc G3 SKUs of the Predator Atlas 7 (announced at IFA 2026; North America Q4 2026, EMEA November 2026). No SKU list, price or battery mapping published. Chassis, ports, screen and controls are shared with acer-predator-atlas-7 (Arc G3 Extreme).",
+  "notes": "Base Arc G3 SKUs of the Predator Atlas 7 (announced at IFA 2026; North America Q4 2026, EMEA November 2026). No SKU list, price or battery mapping published. Chassis, ports, screen and controls are shared with the Predator Atlas 7 (Arc G3 Extreme) row.",
   "unresolved": [
     {
       "field": "ports.1",
-      "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port"
+      "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port"
     },
     {
       "field": "ports.2",
-      "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port"
+      "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port"
     },
     {
       "field": "release_date",

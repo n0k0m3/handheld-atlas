@@ -153,7 +153,7 @@
   ],
   "cooling": "single fan, two 8.6 mm copper heat pipes",
   "fingerprint": null,
-  "notes": "Retail list $1399 for 32GB/1TB; pre-order $1159 (Liliputing) and $1259 (store, Aug 2023). The Intel Core i7-1360P version (refurbished '2 Pro 8.4') is the onexplayer-2-pro-1360p row.",
+  "notes": "Retail list $1399 for 32GB/1TB; pre-order $1159 (Liliputing) and $1259 (store, Aug 2023). The Intel Core i7-1360P version (refurbished '2 Pro 8.4') is the OneXPlayer 2 Pro (Intel Core i7-1360P) row.",
   "unresolved": [
     {
       "field": "screen.nits_sdr",

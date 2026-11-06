@@ -123,15 +123,15 @@
   ],
   "cooling": "dual fan (one metal Predator AeroBlade fan, one plastic fan)",
   "fingerprint": true,
-  "notes": "Base Arc G3 SKUs of the Predator Atlas 8. Acer UK prices: 16 GB / 512 GB / 60 Wh GBP 999.99; 24 GB / 512 GB / 60 Wh GBP 1,099.99 (PA08-I51-G9Q2 / NH.U7XEF.003, listed as Coming Soon on the Acer UK store on 2026-10-27). No US SKU or US price found. Chassis, ports, screen and controls are shared with acer-predator-atlas-8 (Arc G3 Extreme).",
+  "notes": "Base Arc G3 SKUs of the Predator Atlas 8. Acer UK prices: 16 GB / 512 GB / 60 Wh GBP 999.99; 24 GB / 512 GB / 60 Wh GBP 1,099.99 (PA08-I51-G9Q2 / NH.U7XEF.003, listed as Coming Soon on the Acer UK store on 2026-10-27). No US SKU or US price found. Chassis, ports, screen and controls are shared with the Predator Atlas 8 (Arc G3 Extreme) row.",
   "unresolved": [
     {
       "field": "ports.1",
-      "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port"
+      "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port"
     },
     {
       "field": "ports.2",
-      "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port"
+      "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port"
     },
     {
       "field": "ram.channels",

@@ -126,7 +126,7 @@
     "charge_w": null,
     "note": "7350 mAh"
   },
-  "notes": "AYANEO Air (2022). Lite (8GB LPDDR4X-3200, 128GB, white, TDP 8-12 W) and Standard (16GB LPDDR4X-4266, 256GB or 512GB, TDP 8-15 W) share one row: same chassis, they differ only by RAM and SSD. ram.speed_mts is the Standard value. Launch prices (NotebookCheck 2022-05-29): 8GB/128GB $599 retail ($499 early bird); 16GB/256GB $629 retail ($569 early bird). Release month is the planned start of shipments (early August 2022) for non-Pro models. NotebookCheck says the 8GB/128GB model has no fingerprint reader; the official table says all models have one.",
+  "notes": "AYANEO Air (2022). Lite (8GB LPDDR4X-3200, 128GB, white, TDP 8-12 W) and Standard (16GB LPDDR4X-4266, 256GB or 512GB, TDP 8-15 W) share one row: same chassis, they differ only by RAM and SSD. The RAM speed is the Standard value. Launch prices (NotebookCheck 2022-05-29): 8GB/128GB $599 retail ($499 early bird); 16GB/256GB $629 retail ($569 early bird). Release month is the planned start of shipments (early August 2022) for non-Pro models. NotebookCheck says the 8GB/128GB model has no fingerprint reader; the official table says all models have one.",
   "unresolved": [
     {
       "field": "announce_date",

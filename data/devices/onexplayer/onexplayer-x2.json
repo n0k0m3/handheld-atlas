@@ -22,7 +22,7 @@
       "d": 14,
       "d_max": null
     },
-    "note": "Vendor gives only the tablet size (excluding controllers). Handheld width and d_max come from the X1-series controllers, which the store lists as X2-compatible: DroiX measured 35.5 cm with controllers on the 252 mm X1 tablet; One Netbook gives the controllers as 44 mm thick. Same method as the X1 Air and X2 Air rows."
+    "note": "Vendor gives only the tablet size (excluding controllers). Handheld width and thickest point come from the X1-series controllers, which the store lists as X2-compatible: DroiX measured 35.5 cm with controllers on the 252 mm X1 tablet; One Netbook gives the controllers as 44 mm thick. Same method as the X1 Air and X2 Air rows."
   },
   "weight_g": {
     "handheld": {

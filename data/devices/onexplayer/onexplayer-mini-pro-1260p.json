@@ -131,7 +131,7 @@
   "os": [],
   "cooling": "Fan, dual copper heat pipes, aluminium heat sink",
   "fingerprint": null,
-  "notes": "Intel Mini Pro with a 1280 x 800 screen. Pre-order from $1,399 (Aug 2022). Shares the Mini Pro body with onexplayer-mini-pro-6800u. The earlier Gundam RX-78-2 edition (China, 1920 x 1200) used the same chip and is not a separate row.",
+  "notes": "Intel Mini Pro with a 1280 x 800 screen. Pre-order from $1,399 (Aug 2022). Shares the Mini Pro body with the Ryzen 7 6800U model. The earlier Gundam RX-78-2 edition (China, 1920 x 1200) used the same chip and is not a separate row.",
   "unresolved": [
     {
       "field": "screen.refresh_hz",
@@ -183,7 +183,7 @@
     },
     {
       "field": "weight_g.handheld.measured",
-      "reason": "No review of this SKU; measurements in onexplayer-mini-pro-6800u are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the OneXPlayer Mini Pro (Ryzen 7 6800U) row"
     },
     {
       "field": "ram.channels",

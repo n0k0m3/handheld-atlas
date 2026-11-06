@@ -23,7 +23,7 @@
       "d": 23,
       "d_max": null
     },
-    "note": "Clamshell. handheld = closed footprint W x H x D; the lid opens upward. GPD lists one size."
+    "note": "Clamshell. The handheld size is the closed footprint W x H x D; the lid opens upward. GPD lists one size."
   },
   "weight_g": {
     "handheld": {
@@ -173,7 +173,7 @@
   ],
   "cooling": "single fan + dual heat pipes",
   "fingerprint": true,
-  "notes": "Intel version of the launch Win Max 2. Same chassis as gpd-win-max-2-2022; the 40 Gbps port is Thunderbolt 4 and RAM is LPDDR5-5200. msrp_usd is the Indiegogo price of the only config (16 GB / 1 TB; retail US$1,159). LPDDR5 is soldered by design.",
+  "notes": "Intel version of the launch Win Max 2. Same chassis as the Win Max 2 2022 (Ryzen 7 6800U) row; the 40 Gbps port is Thunderbolt 4 and RAM is LPDDR5-5200. The price shown is the Indiegogo price of the only config (16 GB / 1 TB; retail US$1,159). LPDDR5 is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

@@ -49,8 +49,8 @@
   "fingerprint": null,
   "notes": "First shown as an upgraded Zone at CES 2025, renamed Zone Pro at Computex/Gamescom 2025 with a ZOTAC build of Manjaro Linux. ZOTAC targeted October 2025; VideoCardz reported in late 2025 that no retail launch happened. No 2026 launch news found. On 2026-10-27 zotac.com was behind a captcha, so no official spec page was reachable.",
   "unresolved": [
-    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
-    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
+    { "field": "ports.1", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port" },
+    { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port" },
     { "field": "release_date", "reason": "No retail launch found as of 2026-10-27" },
     { "field": "msrp_usd", "reason": "ZOTAC never announced a price" },
     { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value published" },

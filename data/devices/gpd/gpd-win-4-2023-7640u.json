@@ -141,7 +141,7 @@
   ],
   "cooling": "single fan + dual heat pipes",
   "fingerprint": true,
-  "notes": "Win 4 refresh with OCuLink in place of the USB-A port. Dock ports are not counted. msrp_usd is the Indiegogo crowdfunding price. channels = 4 x 32-bit as GPD lists it. LPDDR5X is soldered by design.",
+  "notes": "Win 4 refresh with OCuLink in place of the USB-A port. Dock ports are not counted. The price shown is the Indiegogo crowdfunding price. RAM channels: 4 x 32-bit, as GPD lists them. LPDDR5X is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

@@ -144,7 +144,7 @@
   ],
   "cooling": "Legion Coldfront cooling system",
   "fingerprint": false,
-  "notes": "PSREF model list shows 9 Ryzen Z1 models of machine type 83E1, all 16GB LPDDR5X-7500 with a 256GB, 512GB or 1TB M.2 2242 SSD: 83E1000CBR and 83E1000DBR (announced 2024-03-30), 83E1004RMJ/SMJ/TMJ (2024-06), 83E1004XVN, 83E10050TA, 83E10051VN (2024-07), 83E10057AR (2024-11). No US model. Same chassis as legion-go.",
+  "notes": "PSREF model list shows 9 Ryzen Z1 models of machine type 83E1, all 16GB LPDDR5X-7500 with a 256GB, 512GB or 1TB M.2 2242 SSD: 83E1000CBR and 83E1000DBR (announced 2024-03-30), 83E1004RMJ/SMJ/TMJ (2024-06), 83E1004XVN, 83E10050TA, 83E10051VN (2024-07), 83E10057AR (2024-11). No US model. Same chassis as the Legion Go (Ryzen Z1 Extreme) row.",
   "unresolved": [
     {
       "field": "release_date",

@@ -131,7 +131,7 @@
   ],
   "cooling": "Vapor chamber + heat-sink fins with fan (air cooling); 30 W max TDP",
   "fingerprint": true,
-  "notes": "Launch price for 32GB + 1TB: early bird $1299, retail $1499. Indiegogo pre-orders opened 2025-07-10 with shipping planned for mid-September 2025. In late December 2025 AYANEO said the remaining HX 370 units would ship before Chinese New Year 2026. release_date is the AYANEO store listing date (2026-03-31); earlier units went to Indiegogo backers.",
+  "notes": "Launch price for 32GB + 1TB: early bird $1299, retail $1499. Indiegogo pre-orders opened 2025-07-10 with shipping planned for mid-September 2025. In late December 2025 AYANEO said the remaining HX 370 units would ship before Chinese New Year 2026. The release date is the AYANEO store listing date (2026-03-31); earlier units went to Indiegogo backers.",
   "unresolved": [
     {
       "field": "weight_g.handheld.measured",
@@ -225,7 +225,7 @@
       "field": "release_date",
       "url": "https://shop.ayaneo.com/products/ayaneo-flip-1s-ds",
       "accessed": "2026-10-27",
-      "note": "Shopify products.json published_at 2026-03-31 (HX 370 configs only)"
+      "note": "Store product published 2026-03-31 (Shopify store data; HX 370 configs only)"
     },
     {
       "field": "status",

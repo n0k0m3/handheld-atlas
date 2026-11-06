@@ -23,7 +23,7 @@
       "d": 13.5,
       "d_max": null
     },
-    "note": "Handheld width and d_max are not published for the Air. They come from the X1-series controllers (DroiX measured 35.5 cm on the X1 8840U; controllers 44 mm thick). The X1 Air uses the same 252 mm tablet width and the controllers are sold for X1/X1 Mini/X1 Pro/X1 Air."
+    "note": "Handheld width and thickest point are not published for the Air. They come from the X1-series controllers (DroiX measured 35.5 cm on the X1 8840U; controllers 44 mm thick). The X1 Air uses the same 252 mm tablet width and the controllers are sold for X1/X1 Mini/X1 Pro/X1 Air."
   },
   "weight_g": {
     "handheld": {
@@ -154,7 +154,7 @@
   ],
   "cooling": "dual fans (8500 RPM, liquid bearing), dual heat pipes",
   "fingerprint": true,
-  "notes": "Entry X1 Air configuration with the Core Ultra 5 228V (Arc 130V). Global pre-order $1,099 (Sept 2025). Chassis fields are copied from onexplayer-x1-air.",
+  "notes": "Entry X1 Air configuration with the Core Ultra 5 228V (Arc 130V). Global pre-order $1,099 (Sept 2025). Chassis data is copied from the OneXPlayer X1 Air (Core Ultra 7 258V) row.",
   "unresolved": [
     {
       "field": "screen.nits_peak",
@@ -194,11 +194,11 @@
     },
     {
       "field": "weight_g.handheld.measured",
-      "reason": "No review of this SKU; measurements in onexplayer-x1-air are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the OneXPlayer X1 Air (Core Ultra 7 258V) row"
     },
     {
       "field": "weight_g.tablet_only.measured",
-      "reason": "No review of this SKU; measurements in onexplayer-x1-air are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the OneXPlayer X1 Air (Core Ultra 7 258V) row"
     }
   ],
   "conflicts": [],

@@ -11,7 +11,7 @@
   "form_factor": "classic",
   "dims_mm": {
     "handheld": { "w": 280, "h": 111, "d": 21.2, "d_max": 32.4 },
-    "note": "ASUS: 28.0 x 11.1 x 2.12 ~ 3.24 cm (W x D x H). d is the thinnest point, d_max the grips."
+    "note": "ASUS: 28.0 x 11.1 x 2.12 ~ 3.24 cm (W x D x H). The thickness is the thinnest point; the thickest point is the grips."
   },
   "weight_g": {
     "handheld": { "stated": 608, "measured": null, "measured_source": null },
@@ -54,8 +54,8 @@
   "notes": "Same RC71L chassis as the Z1 Extreme row; only the processor differs. The Z1 model shipped after the Z1 Extreme. ASUS lists Bluetooth 5.4 and says the version may change with the OS version.",
   "unresolved": [
     { "field": "ports.1", "reason": "ASUS gives no speed, DP or PD data for the XG Mobile interface itself; video and power run through the USB-C side of the combo port" },
-    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to the 3.5mm jack" },
-    { "field": "ports.3", "reason": "dp_alt and pd_in_w do not apply to a card reader; the vendor gives the bus standard (see note), not a Gbps figure" },
+    { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to the 3.5mm jack" },
+    { "field": "ports.3", "reason": "DisplayPort Alt Mode and USB-PD input do not apply to a card reader; the vendor gives the bus standard (see the port note), not a Gbps figure" },
     { "field": "release_date", "reason": "No dated source for first retail availability; NotebookCheck and Liliputing (May 2023) only say 'later this year' / Q3 2023" },
     { "field": "weight_g.handheld.measured", "reason": "No review weighed a Z1 unit; NotebookCheck weighed the Z1 Extreme unit at 611 g" },
     { "field": "storage.slots.0.lanes", "reason": "ASUS gives PCIe 4.0 but not the lane count" },

@@ -131,7 +131,7 @@
   ],
   "cooling": null,
   "fingerprint": null,
-  "notes": "Base A2 Ultra with the Core Ultra 5 125H, later sold on aokzoestore.com as a refurbished 'A2 Intel'. Chassis fields are copied from aokzoe-a2-ultra (whose size is itself copied from the A2).",
+  "notes": "Base A2 Ultra with the Core Ultra 5 125H, later sold on aokzoestore.com as a refurbished 'A2 Intel'. Chassis data is copied from the A2 Ultra (Core Ultra 7 155H) row, whose size is itself copied from the A2.",
   "unresolved": [
     {
       "field": "dims_mm.handheld",
@@ -183,7 +183,7 @@
     },
     {
       "field": "weight_g.handheld.measured",
-      "reason": "No review of this SKU; measurements in aokzoe-a2-ultra are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the A2 Ultra (Core Ultra 7 155H) row"
     },
     {
       "field": "ram.channels",

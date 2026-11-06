@@ -140,7 +140,7 @@
   ],
   "cooling": "single fan + dual heat pipes",
   "fingerprint": true,
-  "notes": "Ryzen 5 8640U config of the Win 4 (2024); same chassis, ports, screen and battery as gpd-win-4-2024. GPD sold the 8840U first; NotebookCheck said the 8640U release date was unclear. DroiX lists the 16 GB / 512 GB config. LPDDR5X is soldered by design.",
+  "notes": "Ryzen 5 8640U config of the Win 4 (2024); same chassis, ports, screen and battery as the Win 4 2024 (Ryzen 7 8840U) row. GPD sold the 8840U first; NotebookCheck said the 8640U release date was unclear. DroiX lists the 16 GB / 512 GB config. LPDDR5X is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

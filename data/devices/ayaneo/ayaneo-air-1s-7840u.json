@@ -11,7 +11,7 @@
   "form_factor": "classic",
   "dims_mm": {
     "handheld": { "w": 224, "h": 89.5, "d": 21.6, "d_max": null },
-    "note": "Official size 224 x 89.5 x 21.6 mm. The Ultra Thin & Light Limited Edition is 18 mm thick (see ayaneo-air-1s-limited)."
+    "note": "Official size 224 x 89.5 x 21.6 mm. The Ultra Thin & Light Limited Edition is 18 mm thick (see the Air 1S Limited Edition row)."
   },
   "weight_g": {
     "handheld": { "stated": 450, "measured": 443.8, "measured_source": "https://www.notebookcheck.net/Ayaneo-Air-1S-Retro-Power-gaming-handheld-in-test-Zen4-Power-for-your-pocket.761047.0.html" },
@@ -30,7 +30,7 @@
     { "kind": "microSD", "count": 1, "speed_gbps": null, "dp_alt": null, "pd_in_w": null, "location": "bottom", "note": "TF card slot, up to 100 MB/s, under a cover" }
   ],
   "screen": { "size_in": 5.5, "panel": "AMOLED", "res_w": 1920, "res_h": 1080, "refresh_hz": 60, "vrr": null, "touch": true, "nits_sdr": 350, "nits_peak": null, "hdr": null, "note": "404 PPI, 100% sRGB, 99% DCI-P3, 96% Adobe RGB coverage. NotebookCheck measured 363 nits maximum." },
-  "battery": { "wh": 38, "removable": false, "external": false, "charge_w": 65, "note": "10050 mAh. charge_w is the bundled 65 W power supply (NotebookCheck)." },
+  "battery": { "wh": 38, "removable": false, "external": false, "charge_w": 65, "note": "10050 mAh. The charging power is the bundled 65 W power supply (NotebookCheck)." },
   "controls": {
     "stick_type": "hall",
     "stick_note": "Hall sensing joystick",

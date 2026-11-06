@@ -22,7 +22,7 @@
       "d": 26,
       "d_max": null
     },
-    "note": "Clamshell. handheld = closed footprint W x H x D; the lid opens upward (max 168 degrees). GPD lists one size."
+    "note": "Clamshell. The handheld size is the closed footprint W x H x D; the lid opens upward (max 168 degrees). GPD lists one size."
   },
   "weight_g": {
     "handheld": {
@@ -149,7 +149,7 @@
   ],
   "cooling": "fan + heat pipe",
   "fingerprint": null,
-  "notes": "OCuLink removed, USB-A added. The Ryzen 5 8640U option is its own row (-8640u). form_factor is clamshell (hinged lid). msrp_usd is the Indiegogo launch price. LPDDR5 is soldered by design.",
+  "notes": "OCuLink removed, USB-A added. The Ryzen 5 8640U option has its own row. The form factor is clamshell (hinged lid). The price shown is the Indiegogo launch price. LPDDR5 is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

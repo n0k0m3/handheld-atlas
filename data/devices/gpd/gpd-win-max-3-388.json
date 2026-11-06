@@ -29,7 +29,7 @@
       "d": 34,
       "d_max": null
     },
-    "note": "Clamshell. handheld = closed footprint W x H x D with the battery module on the front edge (it doubles as a palm rest); the lid opens upward. without_battery = the body without modules, 207 x 147 x 34 mm; the lid has this footprint."
+    "note": "Clamshell. The handheld size is the closed footprint W x H x D with the battery module on the front edge (it doubles as a palm rest); the lid opens upward. The size without the battery is the body without modules, 207 x 147 x 34 mm; the lid has this footprint."
   },
   "weight_g": {
     "handheld": {
@@ -185,7 +185,7 @@
   ],
   "cooling": "dual fans + four heat pipes; optional external dual-fan module",
   "fingerprint": true,
-  "notes": "Status rule differs here: the official 'Release Date August 2026' is treated as an announcement month, because only presales (China 2026-09, Indiegogo 2026-09-02, DroiX shipping 2026-12-15) were found and no retail units have shipped. msrp_usd is the Indiegogo price of 388 / 32 GB / 1 TB (list US$1,999). The official page lists no mini SSD slot. LPDDR5X is soldered by design.",
+  "notes": "Status rule differs here: the official 'Release Date August 2026' is treated as an announcement month, because only presales (China 2026-09, Indiegogo 2026-09-02, DroiX shipping 2026-12-15) were found and no retail units have shipped. The price shown is the Indiegogo price of 388 / 32 GB / 1 TB (list US$1,999). The official page lists no mini SSD slot. LPDDR5X is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

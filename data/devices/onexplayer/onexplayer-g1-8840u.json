@@ -152,7 +152,7 @@
   ],
   "cooling": "Dual fans (up to 6000 RPM), 2 copper heat pipes, aluminium heatsink",
   "fingerprint": true,
-  "notes": "The vendor sells the G1 as a mini laptop with a removable keyboard over built-in controllers, so form_factor is clamshell. Indiegogo (Jan 2025) also offered an Intel Core Ultra 7 255H version; see the onexplayer-g1-255h row. Store availability: May 2025.",
+  "notes": "The vendor sells the G1 as a mini laptop with a removable keyboard over built-in controllers, so the form factor is clamshell. Indiegogo (Jan 2025) also offered an Intel Core Ultra 7 255H version; see the G1 (Core Ultra 7 255H) row. Store availability: May 2025.",
   "unresolved": [
     {
       "field": "weight_g.handheld.measured",

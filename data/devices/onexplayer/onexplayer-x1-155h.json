@@ -22,7 +22,7 @@
       "d": 13,
       "d_max": null
     },
-    "note": "Handheld width is the DroiX tape measurement of the X1 8840U with controllers (same 252 mm tablet and same controllers). d_max is the controller thickness."
+    "note": "Handheld width is the DroiX tape measurement of the X1 8840U with controllers (same 252 mm tablet and same controllers). The thickest point is the controller thickness."
   },
   "weight_g": {
     "handheld": {
@@ -155,7 +155,7 @@
   ],
   "cooling": "liquid bearing fan, aluminum fins, dual copper heat pipes",
   "fingerprint": true,
-  "notes": "Indiegogo regular price $1189 for 155H/32GB/1TB (early bird $999); store pre-order $1099 (Mar 2024). The Core Ultra 5 125H 16GB/1TB SKU is the onexplayer-x1-125h row.",
+  "notes": "Indiegogo regular price $1189 for 155H/32GB/1TB (early bird $999); store pre-order $1099 (Mar 2024). The Core Ultra 5 125H 16GB/1TB SKU is the OneXPlayer X1 (Core Ultra 5 125H) row.",
   "unresolved": [
     {
       "field": "weight_g.handheld.stated",

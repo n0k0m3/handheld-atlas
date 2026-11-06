@@ -22,7 +22,7 @@
       "d": 27,
       "d_max": null
     },
-    "note": "Clamshell. handheld = closed footprint W x H x D; the lid opens upward (max 168 degrees). GPD lists one size."
+    "note": "Clamshell. The handheld size is the closed footprint W x H x D; the lid opens upward (max 168 degrees). GPD lists one size."
   },
   "weight_g": {
     "handheld": {
@@ -148,7 +148,7 @@
   ],
   "cooling": "fan + heat pipe (35 W TDP)",
   "fingerprint": null,
-  "notes": "2025 Win Mini: larger shell (172 x 109 x 27 mm), 2280 SSD slot, LPDDR5X-7500. The 8840U config differs from gpd-win-mini-2024 (RAM type, SSD slot, size). form_factor is clamshell (hinged lid). msrp_usd is the Indiegogo price. LPDDR5X is soldered by design.",
+  "notes": "2025 Win Mini: larger shell (172 x 109 x 27 mm), 2280 SSD slot, LPDDR5X-7500. The 8840U config differs from the Win Mini 2024 (RAM type, SSD slot, size). The form factor is clamshell (hinged lid). The price shown is the Indiegogo price. LPDDR5X is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",

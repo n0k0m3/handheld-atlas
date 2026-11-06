@@ -22,7 +22,7 @@
       "d": 20,
       "d_max": null
     },
-    "note": "Handheld width is the DroiX tape measurement with controllers. d_max is the controller thickness."
+    "note": "Handheld width is the DroiX tape measurement with controllers. The thickest point is the controller thickness."
   },
   "weight_g": {
     "handheld": {

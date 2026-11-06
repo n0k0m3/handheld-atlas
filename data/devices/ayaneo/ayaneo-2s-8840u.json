@@ -134,7 +134,7 @@
   ],
   "cooling": "Single turbo fan, \"3+1\" three copper heat pipes, copper sheet, graphene patch",
   "fingerprint": true,
-  "notes": "Ryzen 7 8840U refresh of the AYANEO 2S, same chassis as ayaneo-2s-7840u. Pre-orders opened on Indiegogo on 2024-05-24. Early-bird price $799 and Indiegogo price $999 for 16GB/512GB; retail $999 (Liliputing). Retro Power edition is 32GB/2TB only. The AYANEO store listed 16GB/512GB at $1139 on 2026-10-27. Release month is the planned first-batch shipment, not a confirmed retail date.",
+  "notes": "Ryzen 7 8840U refresh of the AYANEO 2S, same chassis as the 7840U model. Pre-orders opened on Indiegogo on 2024-05-24. Early-bird price $799 and Indiegogo price $999 for 16GB/512GB; retail $999 (Liliputing). Retro Power edition is 32GB/2TB only. The AYANEO store listed 16GB/512GB at $1139 on 2026-10-27. Release month is the planned first-batch shipment, not a confirmed retail date.",
   "unresolved": [
     {
       "field": "weight_g.handheld.measured",

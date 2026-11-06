@@ -145,7 +145,7 @@
   ],
   "cooling": "Legion Coldfront cooling system",
   "fingerprint": false,
-  "notes": "US launch price $699.99 (512GB); 1TB was $749.99. EMEA price EUR 799 from November 2023. A Ryzen Z1 (non-Extreme) version of the same 8APU1 chassis is a separate row: legion-go-z1.",
+  "notes": "US launch price $699.99 (512GB); 1TB was $749.99. EMEA price EUR 799 from November 2023. A Ryzen Z1 (non-Extreme) version of the same 8APU1 chassis has its own row: Legion Go (Ryzen Z1).",
   "unresolved": [
     {
       "field": "dims_mm.handheld.d_max",

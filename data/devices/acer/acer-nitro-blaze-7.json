@@ -49,8 +49,8 @@
   "fingerprint": true,
   "notes": "Sold in Europe and Taiwan (Acer UK store GN771-08HS7 1 TB GBP 699 in stock; Acer Taiwan NT$24,900; EU pre-order price EUR 849 for 512 GB). No US price or US launch was announced. All storage sizes share this row.",
   "unresolved": [
-    { "field": "ports.1", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a microSD port" },
-    { "field": "ports.2", "reason": "speed_gbps, dp_alt and pd_in_w do not apply to a 3.5mm port" },
+    { "field": "ports.1", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a microSD port" },
+    { "field": "ports.2", "reason": "Speed, DisplayPort Alt Mode and USB-PD input do not apply to a 3.5mm port" },
     { "field": "release_date", "reason": "First retail date not found. Units are in stock at the Acer UK store on 2026-10-27." },
     { "field": "msrp_usd", "reason": "No US launch; Acer never published a US price" },
     { "field": "dims_mm.handheld.d_max", "reason": "Only one thickness value published" },
@@ -71,7 +71,7 @@
     { "field": "cooling", "reason": "Not stated" }
   ],
   "sources": [
-    { "field": "controls.stick_type", "url": "https://gizmodo.com/acer-nitro-blaze-7-hands-on-staying-within-the-speed-limit-2000495157", "accessed": "2026-10-27", "note": "\"The sticks, unfortunately, don't include Hall effect sensors.\" The sensor is not named, so stick_type stays null." },
+    { "field": "controls.stick_type", "url": "https://gizmodo.com/acer-nitro-blaze-7-hands-on-staying-within-the-speed-limit-2000495157", "accessed": "2026-10-27", "note": "\"The sticks, unfortunately, don't include Hall effect sensors.\" The sensor is not named, so the stick type stays not stated." },
     { "field": "controls.rear_buttons", "url": "https://gizmodo.com/acer-nitro-blaze-7-hands-on-staying-within-the-speed-limit-2000495157", "accessed": "2026-10-27", "note": "\"There are no back buttons to speak of.\"" },
     { "field": "*", "url": "https://news.acer.com/acer-debuts-its-first-handheld-gaming-pc-the-nitro-blaze-7", "accessed": "2026-10-27", "note": "Official spec table (IFA 2024 press release)" },
     { "field": "*", "url": "https://www.acer.com/us-en/handheld-gaming/nitro-handheld-gaming/nitro-blaze-7", "accessed": "2026-10-27", "note": "Official product page; no spec table" },

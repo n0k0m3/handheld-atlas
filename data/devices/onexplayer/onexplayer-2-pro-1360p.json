@@ -151,7 +151,7 @@
   ],
   "cooling": "single fan, two 8.6 mm copper heat pipes",
   "fingerprint": null,
-  "notes": "Intel version of the OneXPlayer 2 Pro (8.4-inch). The only official evidence is a refurb store listing (2026). Chassis, screen and controls are copied from onexplayer-2-pro. Liliputing reported a planned i7-1370P model in 2023 (https://liliputing.com/the-next-onexplayer-handheld-gaming-pc-could-have-core-i7-1370p-and-detachable-controllers/).",
+  "notes": "Intel version of the OneXPlayer 2 Pro (8.4-inch). The only official evidence is a refurb store listing (2026). Chassis, screen and controls are copied from the OneXPlayer 2 Pro (Ryzen 7 7840U) row. Liliputing reported a planned i7-1370P model in 2023 (https://liliputing.com/the-next-onexplayer-handheld-gaming-pc-could-have-core-i7-1370p-and-detachable-controllers/).",
   "unresolved": [
     {
       "field": "screen.nits_sdr",
@@ -227,11 +227,11 @@
     },
     {
       "field": "weight_g.handheld.measured",
-      "reason": "No review of this SKU; measurements in onexplayer-2-pro are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the OneXPlayer 2 Pro (Ryzen 7 7840U) row"
     },
     {
       "field": "weight_g.tablet_only.measured",
-      "reason": "No review of this SKU; measurements in onexplayer-2-pro are from a different SKU"
+      "reason": "No review of this SKU; the measurements come from the OneXPlayer 2 Pro (Ryzen 7 7840U) row"
     },
     {
       "field": "ram.channels",
