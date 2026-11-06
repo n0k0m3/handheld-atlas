@@ -147,7 +147,7 @@
   ],
   "cooling": "fan + heat pipe",
   "fingerprint": null,
-  "notes": "First Win Mini; the only Win Mini with OCuLink. form_factor is clamshell because the Win Mini has a hinged lid (the crawler brief said classic). msrp_usd is the Indiegogo price; list price started at US$820. LPDDR5 is soldered by design.",
+  "notes": "First Win Mini; the only Win Mini with OCuLink. form_factor is clamshell because the Win Mini has a hinged lid. msrp_usd is the Indiegogo price; list price started at US$820. LPDDR5 is soldered by design.",
   "unresolved": [
     {
       "field": "announce_date",
