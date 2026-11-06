@@ -225,7 +225,7 @@ ROWS["z2-a"] = row(
     "z2-a", "AMD", "Ryzen Z2 A", "Van Gogh", 4, 8, "4x Zen 2", "Zen 2", 2.8, 3.8, (15, 6, 20),
     7, "TSMC 7nm (Van Gogh, as the Steam Deck LCD APU)", 0, "LPDDR5-6400", "2025-06-08",
     ("Radeon (8 CU RDNA 2)", 8, "RDNA 2", 1800, None), "z2a", "0405",
-    "CPU: exact entry 'AMD Ryzen Z2 A' (22 samples), so no Steam Deck stand-in is needed. "
+    "CPU: exact entry 'AMD Ryzen Z2 A' (22 samples), not a stand-in. "
     "GPU: no Z2 A iGPU entry; stand-in 'Custom GPU 0405' = Steam Deck LCD iGPU (same Van Gogh "
     "8 CU RDNA 2; Z2 A clocks to 1.8 GHz, Deck to 1.6 GHz).",
     NPU0,
