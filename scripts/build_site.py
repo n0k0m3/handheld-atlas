@@ -28,10 +28,11 @@ The wrapper moves that leading run into <head> and the rest into <body>.
 
 --pages DIR also writes the surge.sh site to DIR (the Deploy workflow uses
 it; nothing in DIR is committed). Link preview bots do not run JavaScript, so
-every screen gets its own small page with its own title, description, Open
-Graph tags and canonical URL: index.html, browse.html, compare.html, one
+every screen gets its own small page with its own title, description and
+Open Graph tags: index.html, browse.html, compare.html, one
 <device-id>.html per device, and 200.html, the surge fallback for any other
-path. surge serves <name>.html at /<name>. The pages share atlas.css,
+path. surge serves <name>.html at /<name>. DIR should be a new folder: the
+build adds files and removes none. The pages share atlas.css,
 atlas.js and atlas-data.js (window.ATLAS_DATA), so each page stays small.
 og.png, the preview image, comes from site/static/og.png.
 """
@@ -208,7 +209,9 @@ def write_pages(out_dir, site_url, head, body, data_js, devices, soc_names):
             f'<meta property="og:image:height" content="{OG_H}">',
             '<meta name="twitter:card" content="summary_large_image">',
         ]
-        # 200.html answers any unknown path, so it claims no address of its own.
+        # 200.html answers any unknown path, and browse.html and compare.html carry their content in
+        # the query, so they claim no address of their own: a static og:url or canonical link would drop
+        # the query when Facebook or Chrome for Android shares the page.
         if path is not None:
             tags += [f'<meta property="og:url" content="{e(site_url + path)}">', f'<link rel="canonical" href="{e(site_url + path)}">']
         write_atomic(out_dir / name, f"{DOC_HEAD}{''.join(tags)}{rest}</head><body>{page_body}</body></html>\n")
@@ -217,13 +220,13 @@ def write_pages(out_dir, site_url, head, body, data_js, devices, soc_names):
     page("index.html", SITE, SITE, site_desc, "/")
     page("200.html", SITE, SITE, site_desc, None)
     page("browse.html", f"Browse handhelds · {SITE}", "Browse handhelds",
-         "Filter x86 handheld gaming PCs by price, size, weight, chip, screen, battery, controls and ports.", "/browse")
+         "Filter x86 handheld gaming PCs by price, size, weight, chip, screen, battery, controls and ports.", None)
     page("compare.html", f"Compare handhelds · {SITE}", "Compare handhelds",
-         "Compare up to eight x86 handhelds: outlines at true scale, weight, and every spec side by side.", "/compare")
+         "Compare up to eight x86 handhelds: outlines at true scale, weight, and every spec side by side.", None)
     for d in devices:
         name = device_name(d)
         page(f"{d['id']}.html", f"{name} · {SITE}", name, device_summary(d, soc_names), f"/{d['id']}")
-    return 5 + len(devices)
+    return 4 + len(devices)
 
 
 def main(argv=None):
