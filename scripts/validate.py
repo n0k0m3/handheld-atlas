@@ -32,9 +32,11 @@ RANGES = {
     "battery.wh": (30, 130),
 }
 
-# The site serves /home, /browse and /compare as screens before it looks up
-# a device id, so a device with one of these ids could never open its sheet.
-RESERVED_IDS = {"home", "browse", "compare"}
+# The site serves /home, /browse, /compare and /index as screens before it
+# looks up a device id, so a device with one of these ids could never open its
+# sheet. The pages build also writes index.html and 200.html, and a device page
+# <id>.html with one of those names would overwrite them.
+RESERVED_IDS = {"home", "browse", "compare", "index", "200"}
 
 # Every device needs a source entry for each of these groups,
 # or one "*" source (the official spec page) that covers all of them.
