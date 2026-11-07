@@ -84,6 +84,7 @@ body { background: var(--bg); color: var(--fg) }
 ## Icon
 
 - First publish passes `icon: "chart"`. Redeploys omit it.
+- The template head links an inline SVG favicon: the logo badge as a `data:` URI. Without it, browsers ask for `/favicon.ico`, which the site does not have. Keep `<`, `>` and `#` percent-encoded in the URI, because `build_site.py` reads a head `<link>` only up to its first `>`.
 
 ## Design notes for this page
 
