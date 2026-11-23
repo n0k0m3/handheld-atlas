@@ -1539,10 +1539,13 @@ button.tag:hover { filter: brightness(.95); }
     restoreQ = null;
     afterQ();
   }
-  /* A device that the visitor picks ends the shared-link offer, as an edit of the list does. */
+  /* A device that the visitor picks ends the device half of the shared-link offer: "Restore" must not overwrite the pick.
+     The list half stays while the visitor's own list differs from the current one. The same holds for an offer that "Undo" can bring back. */
+  const keepListOffer = (r, q) => (r && r.queue.length && r.queue.join() !== q.join() ? { queue: r.queue, refId: state.refId } : null);
   function setRef(id) {
     state.refId = id && hasKey(BY_ID, id) ? id : null;
-    restoreQ = null;
+    restoreQ = keepListOffer(restoreQ, state.queue);
+    if (undoQ) undoQ.restore = keepListOffer(undoQ.restore, undoQ.queue);
     afterRef();
     save();
   }
@@ -2783,7 +2786,7 @@ button.tag:hover { filter: brightness(.95); }
     window.addEventListener("popstate", () => { popNav = true; userNav = true; try { if (!routeFromHash()) routeFromPath(); } finally { popNav = false; } });
   }
   /* A shared link /compare?d=a,b&ref=a replaces the compare list and the reference on a fresh page load only.
-     When the visitor had a different list or a device of their own, the Compare screen offers it back until they restore it, keep the new one, edit the list, or pick a device.
+     When the visitor had a different list or a device of their own, the Compare screen offers it back until they restore it, keep the new one, or edit the list; a device pick keeps only the list half.
      A second shared link keeps the first offer, so "Restore" always returns the visitor's own list. */
   function applyShared() {
     if (!sharedLoad() || pathSeg() !== "compare") return;
