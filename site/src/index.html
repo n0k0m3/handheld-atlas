@@ -1539,7 +1539,7 @@ button.tag:hover { filter: brightness(.95); }
     restoreQ = null;
     afterQ();
   }
-  /* A device that the visitor picks ends the device half of the shared-link offer: "Restore" must not overwrite the pick.
+  /* A device that the visitor picks or clears (also a re-pick of the same device) ends the device half of the shared-link offer: "Restore" must not overwrite that choice.
      The list half stays while the visitor's own list differs from the current one. The same holds for an offer that "Undo" can bring back. */
   const keepListOffer = (r, q) => (r && r.queue.length && r.queue.join() !== q.join() ? { queue: r.queue, refId: state.refId } : null);
   function setRef(id) {
