@@ -241,18 +241,18 @@ a.ibtn { text-decoration: none; }
 .hl-n { min-width: 0; }
 .hl-n a { font-weight: 700; }
 .hl-s { font-size: 12px; color: var(--fg-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.hl-v { display: grid; justify-items: end; gap: 3px; font: 12.5px var(--f-mono); white-space: nowrap; }
+.hl-v { display: grid; justify-items: end; gap: 3px; font: 12.5px var(--f-mono); white-space: nowrap; padding-top: 1px; }
 /* The price mark hangs in a fixed slot, so prices with and without it keep their digits in line. */
 .hl-pr { display: inline-flex; align-items: baseline; }
 .hl-pr .pm-slot { display: inline-block; width: 14px; text-align: left; }
+.hl-l { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .hl-d { font: 12.5px var(--f-mono); color: var(--fg); text-align: right; white-space: nowrap; padding-top: 1px; }
 .hl-r .hadd { align-self: center; }
-.hl-v { padding-top: 1px; }
 .hl-v .tag { font-family: var(--f-ui); }
-.hadd { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--border-strong); border-radius: 6px; color: var(--fg-2); background: var(--bg); justify-self: end; }
+.hadd { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--border-strong); border-radius: 6px; color: var(--fg-2); background: var(--bg); justify-self: center; }
 .hadd:hover, .hadd:focus-visible { color: var(--fg-brand); border-color: var(--accent); }
 .hadd[aria-pressed="true"] { color: var(--fg-brand); background: var(--bg-selected); border-color: var(--accent); }
-.hadd { color: var(--fg-2); justify-self: center; }
+
 .hl-h > span:last-child { text-align: center; }
 .hadd:disabled { opacity: .45; cursor: default; }
 @media (max-width: 980px) { .hcols { grid-template-columns: minmax(0, 1fr); } }
@@ -263,7 +263,7 @@ a.ibtn { text-decoration: none; }
   .hl-n { grid-column: 1 / -1; }
   .hl-r.hl-h { display: none; }
   .hl-v { justify-items: start; }
-  .hl-v::before { content: attr(data-l); font: 600 11px var(--f-ui); color: var(--fg-2); }
+  .hl-l { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: nowrap; font: 600 11px var(--f-ui); color: var(--fg-2); }
   .hlg-r { grid-template-columns: 22px minmax(0, 1fr) 64px; }
   .hlg-r .m.dim { display: none; }
 }
@@ -1409,7 +1409,8 @@ button.tag:hover { filter: brightness(.95); }
     if (s.prev && typeof s.prev === "object" && Array.isArray(s.prev.queue)) {
       /* An offer whose devices all left the data has nothing to give back. */
       const pq = s.prev.queue.filter((id, i, a) => typeof id === "string" && hasKey(BY_ID, id) && a.indexOf(id) === i).slice(0, MAX_Q);
-      if (pq.length) restoreQ = { queue: pq, refId: typeof s.prev.refId === "string" && hasKey(BY_ID, s.prev.refId) ? s.prev.refId : null };
+      const pr = typeof s.prev.refId === "string" && hasKey(BY_ID, s.prev.refId) ? s.prev.refId : null;
+      if (pq.length || pr) restoreQ = { queue: pq, refId: pr };
     }
     if (typeof s.sortK === "string" && hasKey(COL, s.sortK)) { state.sortK = s.sortK; state.sortDir = s.sortDir === 1 ? 1 : -1; }
     if (s.f && typeof s.f === "object" && !Array.isArray(s.f)) state.f = cleanF(s.f);
@@ -1500,7 +1501,6 @@ button.tag:hover { filter: brightness(.95); }
     arrow: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>',
     plus: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg>',
     target: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle></svg>',
-    targetS: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle></svg>',
     targetOn: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"></circle></svg>',
     chev: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>',
     table: '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 10h18M3 15h18M9 4v16"></path></svg>',
@@ -1525,7 +1525,7 @@ button.tag:hover { filter: brightness(.95); }
   /* Adding a device never sets the reference: no reference is a valid choice. */
   function addQ(id) {
     if (inQ(id) || qFull() || !hasKey(BY_ID, id)) return false;
-    undoQ = null;
+    undoQ = null; clearTimeout(undoT);
     state.queue.push(id);
     /* An edit of the list keeps the shared list, so the offer to restore the old one ends. */
     restoreQ = null;
@@ -1550,13 +1550,16 @@ button.tag:hover { filter: brightness(.95); }
     if (state.route === "compare") renderCompare();
     if (state.route === "detail") renderDetail();
   }
+  /* The card add button reads "Add" or "In compare"; its name says which device and which list. */
+  const addName = (d, q, dis) => (q ? d._name + ", in compare" : dis ? "Compare list full" : "Add " + d._name + " to compare");
   function syncQueueUI() {
     const full = qFull(), n = state.queue.length;
     $$(".qbox[data-id]").forEach((cb) => { const q = inQ(cb.dataset.id); cb.checked = q; cb.disabled = !q && full; });
     $$('.addb[data-act="q"]').forEach((b) => {
       const q = inQ(b.dataset.id), dis = !q && full;
       b.setAttribute("aria-pressed", String(q)); b.disabled = dis;
-      b.innerHTML = q ? I.check + "In compare" : dis ? "List full" : I.plus + (b.closest(".card-f") ? "Add" : "Add to compare");
+      b.innerHTML = q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add";
+      b.setAttribute("aria-label", addName(BY_ID[b.dataset.id], q, dis));
     });
     $("#badge-n").textContent = n + "/" + MAX_Q;
     $("#badge").classList.toggle("on", n > 0);
@@ -1580,7 +1583,7 @@ button.tag:hover { filter: brightness(.95); }
     return DEV.filter((d) => t.every((x) => d._search.includes(x))).map((d) => [score(d), d])
       .sort((a, b) => b[0] - a[0] || a[1]._name.localeCompare(b[1]._name)).slice(0, 8).map((x) => x[1]);
   }
-  /* Both search boxes are comboboxes: focus stays in the box, aria-activedescendant names the active result.
+  /* The three search boxes (#hq, #sq, #mq) are comboboxes: focus stays in the box, aria-activedescendant names the active result.
      Header box (hq) finds: a result opens its sheet, its own button adds it to compare, and the last row searches Browse.
      Compare slot (sq) adds: a result adds the device. */
   const ddActive = { hq: null, sq: null };
@@ -1595,7 +1598,7 @@ button.tag:hover { filter: brightness(.95); }
     let h = res.map((d) => {
       const q2 = inQ(d.id), dis = q2 || full, id = esc(d.id), txt = '<div><div class="dd-n"><span>' + hl(d._short) + '</span><span class="dd-p">' + priceTxt(d) + '</span></div><div class="dd-s">' + esc(d._sub) + "</div></div>";
       /* The add button is for the pointer (tabindex -1); the keyboard adds with Shift+Enter, so the option holds no tab stop. */
-      if (mine) return '<div class="dd-item" role="option" aria-selected="false" id="mq-o-' + id + '" data-act="mine" data-id="' + id + '">' + txt + (state.refId === d.id ? '<span class="dd-a">' + I.check + "My device</span>" : "") + "</div>";
+      if (mine) return '<div class="dd-item" role="option" aria-selected="false" id="mq-o-' + id + '" data-act="mine" data-id="' + id + '">' + txt + (state.refId === d.id ? '<span class="dd-a">' + I.targetOn + "My device</span>" : "") + "</div>";
       if (find) return '<div class="dd-item" role="option" aria-selected="false" id="hq-o-' + id + '" data-act="open" data-id="' + id + '">' + txt +
         '<button type="button" class="dd-a" tabindex="-1" data-act="add" data-id="' + id + '" data-from="hq"' + (dis ? ' aria-disabled="true"' : "") + ">" + addTxt(q2) + "</button></div>";
       return '<div class="dd-item" role="option" aria-selected="false" id="sq-o-' + id + '" data-act="add" data-id="' + id + '" data-from="sq"' + (dis ? ' aria-disabled="true"' : "") + ">" + txt + '<span class="dd-a">' + addTxt(q2) + "</span></div>";
@@ -1646,13 +1649,14 @@ button.tag:hover { filter: brightness(.95); }
       h += '<div class="mine-q"><div class="srch-box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m20 20-4.4-4.4"></path></svg><label class="sr" for="mq">Which handheld do you play on now?</label>' +
         '<input id="mq" type="search" placeholder="Which handheld do you play on now?" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="mq-dd"></div>' +
         '<div class="dd" id="mq-dd" role="listbox" aria-label="Devices" hidden></div></div>' +
-        '<p class="mine-x">Every list then shows how other devices differ from it. No handheld yet? Pick the one that you know best.</p>';
+        (ref ? '<p class="mine-x">Now: <b>' + esc(ref._short) + '</b>. <button type="button" class="btn-t" id="mine-cancel" data-act="mine-cancel">Cancel</button></p>'
+          : '<p class="mine-x">Every list then shows how other devices differ from it. No handheld yet? Pick the one that you know best.</p>');
     }
     el.innerHTML = h;
   }
   function homeAdd(d) {
     const q = inQ(d.id), dis = !q && qFull(), id = esc(d.id);
-    return '<button type="button" class="hadd" id="hadd-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ' title="' + (q ? "In compare. Press to remove." : dis ? "Compare list full" : "Add to compare") + '" aria-label="' + (q ? "Remove " + esc(d._name) + " from compare" : "Add " + esc(d._name) + " to compare") + '">' + (q ? I.check : I.plus) + "</button>";
+    return '<button type="button" class="hadd" id="hadd-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ' title="' + (q ? "In compare. Press to remove." : dis ? "Compare list full" : "Add to compare") + '" aria-label="Add ' + esc(d._name) + ' to compare">' + (q ? I.check : I.plus) + "</button>";
   }
   function renderHomeLists() {
     const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length, ref = refDev();
@@ -1673,8 +1677,8 @@ button.tag:hover { filter: brightness(.95); }
     $("#home-new-f").hidden = !LATEST.some(({ d }) => priceTip(d));
     $("#home-new").innerHTML = '<div class="hl-r hl-h" aria-hidden="true"><span>Device</span><span>Released</span><span>Price</span><span>G3D Mark</span><span>Weight</span><span>Compare</span></div>' + LATEST.map(({ d, n: nv }) => {
       const id = esc(d.id), isR = !!ref && ref.id === d.id, g = scoreOf(d, "g3d_mark");
-      const cell = (l, txt, dl) => '<span class="hl-v" data-l="' + l + '">' + txt + (ref && !isR ? dpill(dl) : "") + "</span>";
-      return '<div class="hl-r"><div class="hl-n"><a id="hl-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d._short) + "</a>" + (isR ? ' <span class="tag ref">' + I.check + "My device</span>" : "") +
+      const cell = (l, txt, dl) => '<span class="hl-v"><span class="hl-l">' + l + " </span>" + txt + (ref && !isR ? dpill(dl) : "") + "</span>";
+      return '<div class="hl-r"><div class="hl-n"><a id="hl-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d._short) + "</a>" + (isR ? ' <span class="tag ref">' + I.targetOn + "My device</span>" : "") +
         '<div class="hl-s">' + esc(socName(d.soc_id) + (nv > 1 ? ", and " + (nv - 1) + " more variant" + (nv > 2 ? "s" : "") : "")) + '<span class="sr">, released ' + esc(d.release_date) + "</span></div></div>" +
         '<span class="hl-d" aria-hidden="true">' + esc(d.release_date.slice(0, 7)) + "</span>" +
         cell("Price", '<span class="hl-pr">' + priceTxt(d) + '<span class="pm-slot">' + pmark(d, "hpm-" + id) + "</span></span>", ref ? delta(d.msrp_usd, ref.msrp_usd, true) : null) +
@@ -1979,7 +1983,7 @@ button.tag:hover { filter: brightness(.95); }
   function renderHead() {
     const cols = visCols();
     /* The two narrow controls in each row get visible column names: the box adds to the compare list, the target sets My device. */
-    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="th-ic" title="Compare: in the compare list" aria-hidden="true">' + I.plus + '</span><span class="sr">Compare</span></th><th class="stk c1"><span class="th-dev">Device<span class="th-mine" title="Set as my device">My device</span></span></th>' + cols.map((c) => {
+    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="th-ic" title="Compare: in the compare list" aria-hidden="true">' + I.plus + '</span><span class="sr">Compare</span></th><th class="stk c1"><span class="th-dev">Device<span class="th-mine" title="Set as my device" aria-hidden="true">My device</span></span></th>' + cols.map((c) => {
       const on = state.sortK === c.k;
       return '<th class="c-' + c.k + (on ? " on" : "") + (c.num ? " num" : "") + '" aria-sort="' + (on ? (state.sortDir === 1 ? "ascending" : "descending") : "none") + '"><button type="button" class="thb" id="th-' + c.k + '" data-act="sort" data-v="' + c.k + '"' + (c.htip ? ' title="' + esc(c.htip) + '"' : "") + ">" + esc(c.label) + (on ? (state.sortDir < 0 ? " ↓" : " ↑") : '<span class="srt" aria-hidden="true"> ↕</span>') + "</button></th>";
     }).join("") + "</tr>";
@@ -1994,7 +1998,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   function refBtn(d, isRef, prefix) {
     const id = esc(d.id);
-    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear my device" : "Set as my device") + '" aria-label="' + (isRef ? "Clear my device" : "Set " + esc(d._name) + " as my device") + '">' + (isRef ? I.targetOn : I.targetS) + "</button>";
+    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear my device" : "Set as my device") + '" aria-label="' + (isRef ? "Clear my device" : "Set " + esc(d._name) + " as my device") + '">' + (isRef ? I.targetOn : I.target) + "</button>";
   }
   function rowHtml(d, cols, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
@@ -2022,7 +2026,7 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><a class="card-n" id="copen-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d, "lpm-" + id) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
       (s.size_in != null && s.refresh_hz ? (() => { const rs = ref ? ref.screen || {} : {}, dS = ref && !isRef ? delta(s.size_in, rs.size_in, false) : null, dH = ref && !isRef ? delta(s.refresh_hz, rs.refresh_hz, false) : null; return '<div class="stat"><div class="stat-l">Screen</div><div class="stat-g"><div class="stat-v">' + esc(s.size_in + "″") + '</div><div class="stat-v stat-x">' + esc(s.refresh_hz + " Hz") + "</div>" + (ref ? '<div class="stat-d" title="Screen size vs my device">' + dpill(dS) + '</div><div class="stat-d" title="Refresh rate vs my device">' + dpill(dH) + "</div>" : "") + "</div></div>"; })() : stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen")) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
-      '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add") + "</button>" +
+      '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '" aria-label="' + esc(addName(d, q, dis)) + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add") + "</button>" +
       '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear my device" : "Set as my device. Every other device shows how it differs. This is separate from the compare list.") + '" aria-label="' + (isRef ? "My device: " + esc(d._name) + ". Press to clear." : "Set " + esc(d._name) + " as my device") + '">' + (isRef ? I.targetOn + "My device" : I.target + "Set as my device") + "</button></div></article>";
   }
   function buildCards() {
@@ -2237,7 +2241,7 @@ button.tag:hover { filter: brightness(.95); }
     syncGridHead();
   }
   /* Hover or keyboard focus on a legend entry or a column head sets data-hl to that slot; CSS fades the other devices.
-     Only keyboard focus counts, so a mouse click on "Set as reference" does not leave the drawing faded. */
+     Only keyboard focus counts, so a mouse click on "Set as my device" does not leave the drawing faded. */
   const scrCmp = $("#scr-compare");
   let hlHover = "", hlKey = "";
   const slotOf = (cls) => { const m = /(?:^| )s([1-8])(?: |$)/.exec(cls || ""); return m ? m[1] : ""; };
@@ -2270,7 +2274,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   scrCmp.addEventListener("pointermove", (e) => { if (e.pointerType !== "touch") stageHover(e); });
   /* Touch has no hover. A tap (no drag, so a scroll never counts) picks out the device under the finger and keeps it; a tap elsewhere in the screen clears it.
-     A tap on a control such as "Set as reference" re-renders, and that clears it too. */
+     A tap on a control such as "Set as my device" re-renders, and that clears it too. */
   let tapAt = null;
   scrCmp.addEventListener("pointerdown", (e) => { tapAt = e.pointerType === "touch" ? [e.clientX, e.clientY] : null; });
   scrCmp.addEventListener("pointerup", (e) => {
@@ -2570,10 +2574,8 @@ button.tag:hover { filter: brightness(.95); }
       }).join("") + "</div>" +
       '<div class="pm-n">' + esc("Bars scale to the fastest handheld in the list." + (pm.mapping_note ? " " + pm.mapping_note : "")) + "</div></div>";
     h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + (() => { const nb = DEV.filter((x) => x.brand === d.brand).length; return nb > 1 ? flink("brands", d.brand, d.brand + ", " + nb + " devices", "dt-brandall", "dt-bl") : esc(d.brand); })() + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
-      (() => { const nb = DEV.filter((x) => x.brand === d.brand).length, ns = DEV.filter((x) => x.soc_id === d.soc_id).length;
-        const l = [];
-        if (ns > 1) l.push(flink("soc", d.soc_id, plural(ns, "device") + " with " + socName(d.soc_id), "dt-soc"));
-        return l.length ? '<div class="tlinks">' + l.join("") + "</div>" : ""; })() + "</div>" +
+      (() => { const ns = DEV.filter((x) => x.soc_id === d.soc_id).length;
+        return ns > 1 ? '<div class="tlinks">' + flink("soc", d.soc_id, plural(ns, "device") + " with " + socName(d.soc_id), "dt-soc") + "</div>" : ""; })() + "</div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d, "dt-pm") : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear my device" : "Every other device then shows how it differs. This is separate from the compare list.") + '">' + (isR ? I.targetOn + "My device" : I.target + "Set as my device") + "</button>" +
@@ -2621,7 +2623,7 @@ button.tag:hover { filter: brightness(.95); }
     pop.hidden = false;
     /* The popover opens below its value, so the rows above it (CPU Mark, Single thread) stay in view. With no room below, the page scrolls up just enough. */
     const cell = btn.closest("dd") || btn, need = cell.getBoundingClientRect().bottom + 8 + pop.offsetHeight - (window.innerHeight - 16);
-    if (need > 0) window.scrollBy(0, Math.min(need, btn.getBoundingClientRect().top - $("#hdr").getBoundingClientRect().bottom - 8));
+    if (need > 0) window.scrollBy(0, Math.max(0, Math.min(need, btn.getBoundingClientRect().top - $("#hdr").getBoundingClientRect().bottom - 8)));
     placePop();
     pop.focus({ preventScroll: true });
   }
@@ -2791,7 +2793,7 @@ button.tag:hover { filter: brightness(.95); }
     if (q.join() === state.queue.join() && ref === state.refId) return;
     /* A link that brings back the visitor's own list ends the offer. */
     if (restoreQ && restoreQ.queue.join() === q.join() && restoreQ.refId === ref) restoreQ = null;
-    else if (!restoreQ && !freshVisit && state.queue.length) restoreQ = { queue: state.queue.slice(), refId: state.refId };
+    else if (!restoreQ && !freshVisit && (state.queue.length || state.refId)) restoreQ = { queue: state.queue.slice(), refId: state.refId };
     state.queue = q; state.refId = ref;
   }
   /* /browse carries the filters, the quick search and the sort, like RTINGS and PCPartPicker do:
@@ -2841,9 +2843,13 @@ button.tag:hover { filter: brightness(.95); }
   function restoreHtml() {
     /* Nothing to offer when the list and the reference already equal the visitor's own. */
     if (!restoreQ || (restoreQ.queue.join() === state.queue.join() && restoreQ.refId === state.refId)) return "";
-    const sameList = restoreQ.queue.join() === state.queue.join();
-    return '<p class="snote" id="shared-note"><span>' + (sameList ? "This comparison came from a shared link. It changed your device." : "This list came from a shared link. Your own list had " + plural(restoreQ.queue.length, "device") + ".") + "</span>" +
-      '<button type="button" class="btn-t" id="restore-q" data-act="restore-q">' + (sameList ? "Restore my device" : restoreQ.refId !== state.refId ? "Restore my list and device" : "Restore my list") + '</button><button type="button" class="btn-t" id="keep-q" data-act="keep-q">Keep this one</button></p>';
+    /* A visitor who had no list keeps the shared list; only the device can go back. */
+    const devOnly = !restoreQ.queue.length || restoreQ.queue.join() === state.queue.join(), refChanged = restoreQ.refId !== state.refId;
+    const msg = devOnly ? (restoreQ.refId ? "This comparison came from a shared link. It changed your device." : "This comparison came from a shared link. It set a device as yours.")
+      : "This list came from a shared link. Your own list had " + plural(restoreQ.queue.length, "device") + ".";
+    const btn = devOnly ? (restoreQ.refId ? "Restore my device" : "Clear my device") : refChanged ? "Restore my list and device" : "Restore my list";
+    return '<p class="snote" id="shared-note"><span>' + msg + "</span>" +
+      '<button type="button" class="btn-t" id="restore-q" data-act="restore-q">' + btn + '</button><button type="button" class="btn-t" id="keep-q" data-act="keep-q">Keep this one</button></p>';
   }
 
   /* ---------- events ---------- */
@@ -2865,13 +2871,14 @@ button.tag:hover { filter: brightness(.95); }
       case "show-all": { const d = visibleList[prevVisible]; if (d && (focusId("open-" + d.id) || focusId("copen-" + d.id))) return; break; }
       case "rm": {
         const i = prevQueue.indexOf(id), nx = state.queue[i] || state.queue[i - 1], pre = fid ? fid.slice(0, 4) : "crm-";
-        if (pre === "qrm-") { if (nx && focusId("qrm-" + nx)) return; if (focusId("qpop-clear")) return; }
+        if (pre === "qrm-") { if (nx && focusId("qrm-" + nx)) return; if (focusId("qpop-clear") || focusId("qpop-open") || focusId("badge")) return; }
         else { if (nx && (focusId(pre + nx) || focusId("crm-" + nx))) return; if (focusId("sq")) return; }
         break;
       }
       case "add": if (focusId("cref2-" + id)) return; break;
       case "clear-queue": if (focusId("qpop-undo") || focusId("qpop-clear") || focusId("badge")) return; break;
       case "undo-clear": if (focusId("qpop-open") || focusId("badge")) return; break;
+      case "clear-ref": if (state.route === "home" && focusId("mq")) return; break;
       case "reset-f": if (focusId("f-reset") || focusId("fq")) return; break;
       case "fx": { const c = $$("#fchips .fchip")[prevChip]; if (c) { c.focus(); return; } if (fid && fid.startsWith("efx-") && focusId("lbar")) return; if (focusId("fq")) return; break; }
       case "hide-same": if (focusId("hide-same")) return; break;
@@ -2902,7 +2909,7 @@ button.tag:hover { filter: brightness(.95); }
     }
     if (act !== "sv" && !pop.hidden) closePop();
     if (act !== "tip") hideTip();
-    if (act !== "badge" && act !== "rm" && act !== "clear-queue" && act !== "undo-clear" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
+    if (act !== "badge" && act !== "rm" && act !== "clear-queue" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
     /* A dimmed control still closes the open popups above, then does nothing. */
     if (t.disabled || t.getAttribute("aria-disabled") === "true") return;
     if (act === "go" || act === "open") userNav = true;
@@ -2913,10 +2920,11 @@ button.tag:hover { filter: brightness(.95); }
         if (PATHS && t.dataset.back && history.state && history.state.from === t.dataset.route) { history.back(); break; }
         go(t.dataset.route); break;
       case "open": go("detail", id); break;
-      case "mine": homeMineEdit = false; hideDD(); setRef(id); save(); if (!focusId("mine-change")) focusId("home-h1"); break;
+      case "mine": homeMineEdit = false; hideDD(); setRef(id); focusId("mine-change"); break;
       case "mine-change": homeMineEdit = true; renderHomeMine(); focusId("mq"); break;
+      case "mine-cancel": homeMineEdit = false; renderHomeMine(); focusId("mine-change"); break;
       /* A chip or brand link starts a new Browse question with only that filter. */
-      case "fl": state.f = DEF_F(); state.f.sel[t.dataset.k] = [v]; syncFilters(); applyList(); userNav = true; go("browse"); save(); break;
+      case "fl": state.f = DEF_F(); state.f.sel[t.dataset.k] = [v]; syncFilters(); applyList(); lastOpener = null; browseY = 0; userNav = true; go("browse"); break;
       case "q": toggleQBtn(id); break;
       /* The header search keeps its query and results after an add, so several matches can go in; the Compare slot clears for the next name. */
       case "add": { addQ(id); const inp = document.getElementById(t.dataset.from); if (inp) { if (t.dataset.from !== "hq") inp.value = ""; renderDD(t.dataset.from); inp.focus(); } break; }
@@ -2924,10 +2932,18 @@ button.tag:hover { filter: brightness(.95); }
       case "find-all": { const q = $("#hq").value.trim().slice(0, 80); hideDD(); state.f.q = q; syncFilters(); applyList(); save(); userNav = true; lastOpener = null; browseY = 0; go("browse"); window.scrollTo(0, 0); break; }
       case "rm": removeQ(id); break;
       case "clear-queue":
-        if (state.queue.length) { undoQ = state.queue.slice(); clearTimeout(undoT); undoT = setTimeout(() => { const had = document.activeElement && document.activeElement.id === "qpop-undo"; undoQ = null; renderQpop(); if (had && !focusId("qpop-clear")) focusId("badge"); }, 8000); }
+        if (state.queue.length) {
+          undoQ = { queue: state.queue.slice(), restore: restoreQ }; clearTimeout(undoT);
+          undoT = setTimeout(() => {
+            if (!undoQ) return;
+            const a = document.activeElement, fid2 = a && $("#qpop").contains(a) ? a.id : null;
+            undoQ = null; renderQpop();
+            if (fid2 && !focusId(fid2) && !focusId("qpop-open")) focusId("badge");
+          }, 8000);
+        }
         state.queue = []; restoreQ = null; afterQ(); break;
-      case "undo-clear": if (undoQ) { state.queue = undoQ; undoQ = null; clearTimeout(undoT); afterQ(); } break;
-      case "restore-q": if (restoreQ) { const r = restoreQ; restoreQ = null; state.queue = r.queue; setRef(r.refId); afterQ(); } break;
+      case "undo-clear": if (undoQ) { state.queue = undoQ.queue; restoreQ = undoQ.restore; undoQ = null; clearTimeout(undoT); afterQ(); } break;
+      case "restore-q": if (restoreQ) { const r = restoreQ; restoreQ = null; if (r.queue.length) state.queue = r.queue; setRef(r.refId); afterQ(); } break;
       case "keep-q": restoreQ = null; renderCompare(); save(); break;
       case "ref": setRef(refDev() && refDev().id === id ? null : id); break;
       case "setref": setRef(state.refId === id ? null : id); break;
@@ -2984,7 +3000,7 @@ button.tag:hover { filter: brightness(.95); }
       if (!pop.hidden) { const b = popBtn; closePop(); if (b) b.focus(); return; }
       if (!$("#qpop").hidden) { toggleQpop(false); $("#badge").focus(); return; }
       /* Escape in the My device box with a device already set ends the "Change" and keeps the device. */
-      if (e.target.id === "mq" && homeMineEdit && refDev() && (!$("#mq-dd") || $("#mq-dd").hidden)) { homeMineEdit = false; renderHomeMine(); focusId("mine-change"); return; }
+      if (e.target.id === "mq" && homeMineEdit && refDev() && $("#mq-dd").hidden) { homeMineEdit = false; renderHomeMine(); focusId("mine-change"); return; }
       const dd = e.target.closest ? e.target.closest(".dd") : null;
       if (dd) { const inp = document.getElementById(dd.id.slice(0, -3)); if (inp) inp.focus(); }
       hideDD();
@@ -3170,6 +3186,7 @@ button.tag:hover { filter: brightness(.95); }
     applyTheme(); syncFilters(); renderHead(); buildRows(); buildCards(); syncLayout(); syncQueueUI();
     if (state.route === "compare") renderCompare();
     if (state.route === "detail") renderDetail();
+    if (state.route === "home") { if (document.activeElement && document.activeElement.id === "mq") renderHomeLists(); else renderHome(); }
     if (PATHS) writeUrl(false);
   }
   window.addEventListener("storage", (e) => { if (e.key === null || e.key === KEY) syncFromStorage(); });
