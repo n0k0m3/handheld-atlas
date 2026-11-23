@@ -119,7 +119,9 @@ svg { display: block; }
 .th-ic .ic { width: 12px; height: 12px; }
 .th-dev { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .th-mine { font-size: 11px; font-weight: 600; color: var(--fg-2); }
-.dd-p { flex: none; font: 12.5px var(--f-mono); color: var(--fg); min-width: 52px; text-align: right; }
+.dd-n { display: flex; justify-content: space-between; gap: 12px; }
+.dd-p { flex: none; font: 500 12.5px var(--f-mono); color: var(--fg); }
+.dd-item .dd-a { min-width: 128px; justify-content: center; }
 .dd-s { font-size: 12px; color: var(--fg-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dd-a { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: var(--fg-brand); white-space: nowrap; padding: 3px 8px; border: 1px solid transparent; border-radius: 6px; }
 .dd-item.on span.dd-a { border-color: var(--accent); background: var(--bg); }
@@ -200,7 +202,7 @@ a.ibtn { text-decoration: none; }
 .hsub { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
 .hscope { color: var(--fg-2); }
 .hsub .btn-o { padding: 6px 12px; font-size: 13px; }
-.hmine { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 12px 16px; }
+.hmine { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 12px 16px; min-height: 62px; }
 .hmine h2 { font-size: 14px; flex: none; }
 .mine-q { position: relative; flex: 1 1 280px; max-width: 440px; min-width: 0; }
 .mine-q .srch-box { background: var(--bg); border-color: var(--border-strong); height: 36px; }
@@ -213,22 +215,27 @@ a.ibtn { text-decoration: none; }
 .mine-set .mute { font-size: 13px; }
 .mine-set .btn-t { font-size: 13px; }
 .hcols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
-.hpan-h { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; padding: 12px 16px; min-height: 56px; border-bottom: 1px solid var(--border); }
+.hpan-h { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; padding: 10px 16px; min-height: 66px; border-bottom: 1px solid var(--border); }
 .hpan-h h2 { font-size: 15px; letter-spacing: -0.01em; }
-.hpan-s { color: var(--fg-2); font-size: 12.5px; }
-.hpan-h .btn-o { margin-left: auto; padding: 6px 12px; font-size: 13px; }
+.hpan-s { color: var(--fg-2); font-size: 12.5px; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.hl-foot { padding: 8px 16px 12px; font-size: 12px; color: var(--fg-2); border-top: 1px solid var(--border); }
+.hpan-h .btn-o { margin-left: auto; padding: 5px 12px; font-size: 13px; }
 .hcmp .hart-st { margin: 16px 16px 0; }
 .hempty { padding: 24px 16px; color: var(--fg-2); display: grid; gap: 10px; justify-items: start; }
 .hlg { padding: 8px 16px 12px; }
 .hlg-r { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto 64px; gap: 12px; align-items: center; padding: 7px 0; border-top: 1px solid var(--border); font-size: 13px; }
 .hlg-r:first-child { border-top: 0; }
+.hlg-n { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.hlg-r .tag { display: inline-flex; align-items: center; gap: 3px; flex: none; }
+.tag.ref .ic { width: 10px; height: 10px; vertical-align: -1px; }
 .hlg-r a, .hl-n a { color: var(--fg); font-weight: 600; text-decoration: none; min-width: 0; }
 .hlg-r a:hover, .hl-n a:hover { color: var(--fg-brand); text-decoration: underline; }
 .hlg-r .m { color: var(--fg-2); font-size: 12px; text-align: right; }
 .hlg-r .m.w { color: var(--fg); }
-.hl-r { display: grid; grid-template-columns: minmax(0, 1fr) 64px 86px 70px 70px 60px; gap: 8px; align-items: center; min-height: 54px; padding: 6px 16px; border-top: 1px solid var(--border); }
+.hl-r { display: grid; grid-template-columns: minmax(0, 1fr) 64px 86px 70px 70px 60px; gap: 8px; align-items: start; min-height: 54px; padding: 6px 16px; border-top: 1px solid var(--border); }
 .hl-r:first-child { border-top: 0; }
-.hl-r.hl-h { padding-block: 8px 6px; font-size: 11.5px; color: var(--fg-2); font-weight: 600; }
+.hl-r.hl-h { min-height: 0; padding-block: 8px 6px; font-size: 11.5px; color: var(--fg-2); font-weight: 600; }
+.hl-h > span:first-child { text-align: left; }
 .hl-h > span { text-align: right; }
 .hl-n { min-width: 0; }
 .hl-n a { font-weight: 700; }
@@ -237,7 +244,9 @@ a.ibtn { text-decoration: none; }
 /* The price mark hangs in a fixed slot, so prices with and without it keep their digits in line. */
 .hl-pr { display: inline-flex; align-items: baseline; }
 .hl-pr .pm-slot { display: inline-block; width: 14px; text-align: left; }
-.hl-d { font: 12px var(--f-mono); color: var(--fg-2); text-align: right; white-space: nowrap; }
+.hl-d { font: 12.5px var(--f-mono); color: var(--fg); text-align: right; white-space: nowrap; padding-top: 1px; }
+.hl-r .hadd { align-self: center; }
+.hl-v { padding-top: 1px; }
 .hl-v .tag { font-family: var(--f-ui); }
 .hadd { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--border-strong); border-radius: 6px; color: var(--fg-2); background: var(--bg); justify-self: end; }
 .hadd:hover { color: var(--fg-brand); border-color: var(--accent); }
@@ -486,9 +495,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .fixb b { font-weight: 700; }
 .fixb .m { flex: none; margin-left: auto; color: var(--fg-2); font-family: var(--f-mono); font-size: 12px; }
 .fixb .fx-v { color: var(--fg-brand); font-weight: 600; }
-.fixb .ic { flex: none; width: 14px; height: 14px; color: var(--fg-2); align-self: center; }
-.fixb:hover .ic { color: var(--fg-brand); }
 .empty .btn-p, .empty .btn-o { margin-top: 10px; }
+.empty .btn-o { background: var(--bg); color: var(--fg); }
 #scr-browse.is-empty .lbar-k, #scr-browse.is-empty .lkey, #scr-browse.is-empty .foot, #scr-browse.is-empty #fx-clear { display: none; }
 .foot { font-size: 11.5px; color: var(--fg-2); max-width: 72ch; }
 
@@ -526,17 +534,17 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stat-d .dpill.eq { visibility: hidden; }
 .card-f { display: flex; gap: 6px; margin-top: auto; }
 .card-f .addb:first-child { flex: 1; min-width: 0; }
+.card-f .addb { padding-inline: 8px; }
 .addb { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 10px; border-radius: 6px; font-weight: 700; border: 1px solid var(--border-strong); background: var(--bg); white-space: nowrap; }
 .addb .ic { width: 14px; height: 14px; }
 .addb.refc { justify-content: center; gap: 6px; font-weight: 600; color: var(--fg); }
 .addb.refc:not([aria-pressed="true"]) .ic, .tag.off .ic, .dact .btn-o:not([aria-pressed="true"]) .ic { color: var(--fg-brand); }
-.addb.refc:not([aria-pressed="true"]) { border-color: transparent; background: transparent; color: var(--fg-brand); }
+.addb.refc:not([aria-pressed="true"]) { border-color: var(--border-strong); background: var(--bg); color: var(--fg-brand); }
 .addb.refc:not([aria-pressed="true"]):hover { background: var(--bg-selected); }
 .addb.refc .ic { width: 12px; height: 12px; }
 .addb.refc:hover { color: var(--fg-brand); }
 .addb[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
-.addb.refc.ico { width: 36px; padding: 7px 0; border-color: var(--border-strong); background: var(--bg); }
-.addb.refc.ico .ic { width: 16px; height: 16px; }
+.card-f .addb.refc { flex: 1.35; min-width: 0; }
 .addb:disabled { opacity: .35; }
 
 /* ---------- compare ---------- */
@@ -554,7 +562,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .size-b.many { grid-template-columns: minmax(0, 1fr); }
 .size-b.many .stage { height: 380px; }
 .size-b.many .legend { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
-.stage { background: var(--bg-page); border-radius: 6px; height: clamp(260px, 40vh, 360px); display: flex; align-items: center; justify-content: center; min-width: 0; position: relative; }
+.stage { background: var(--bg-page); border-radius: 6px; height: clamp(260px, 36vh, 324px); display: flex; align-items: center; justify-content: center; min-width: 0; position: relative; }
 .stage.dots { background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 14px 14px 30px; }
 .stage2d svg { width: 100%; height: 100%; overflow: visible; }
 .stage2d .shp { fill: var(--c); fill-opacity: .04; stroke: var(--c); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
@@ -652,12 +660,12 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .ccol-n:hover { color: var(--fg-brand); }
 .ccol-f { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 6px; gap: 6px; }
 .tag { font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--bg-subtle); color: var(--fg-2); white-space: nowrap; }
-.tag.ref { background: var(--bg-brand); color: var(--fg-onbrand); }
+.tag.ref { background: var(--bg-selected); color: var(--fg-brand); box-shadow: inset 0 0 0 1px var(--accent); }
 .ccol-f .tag { display: inline-flex; align-items: center; gap: 4px; min-height: 24px; font-size: 12px; padding: 2px 8px; }
 .ccol-f .tag .ic { width: 12px; height: 12px; }
 .tag.off { background: transparent; border: 1px solid transparent; color: var(--fg-brand); font-weight: 600; }
 .tag.off:hover { background: var(--bg-selected); filter: none; }
-.ccol-f .tag.ref:hover { background: var(--bg-brand-hover); filter: none; }
+.ccol-f .tag.ref:hover { background: var(--bg-hover); filter: none; }
 button.tag:hover { filter: brightness(.95); }
 .tag.good { background: var(--good-bg); color: var(--good); }
 .tag.info { background: var(--bg-selected); color: var(--fg-brand); }
@@ -775,6 +783,7 @@ button.tag:hover { filter: brightness(.95); }
 #pop::before { content: ""; position: absolute; top: -7px; left: var(--cx, 16px); width: 12px; height: 12px; background: var(--bg); border-left: 1px solid var(--border-strong); border-top: 1px solid var(--border-strong); transform: rotate(45deg); }
 #pop.up::before { top: auto; bottom: -7px; transform: rotate(225deg); }
 #pop h4 { font-size: 13px; color: var(--fg); font-weight: 700; margin: 0 0 6px; }
+#pop .pop-k { font-weight: 700; color: var(--fg); }
 #pop ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
 #pop li { min-width: 0; overflow-wrap: anywhere; }
 #pop:focus { outline: none; }
@@ -815,6 +824,9 @@ button.tag:hover { filter: brightness(.95); }
   .dd-a { min-height: 32px; }
   .bgrid { grid-template-columns: minmax(0, 1fr); }
   .side { display: none; }
+  .seg { min-height: 40px; }
+  .refpill .xbtn { position: relative; }
+  .refpill .xbtn::after { content: ""; position: absolute; inset: -12px; }
   .topf { display: block; }
   .stage { height: 240px; }
   .cards { grid-template-columns: minmax(0, 1fr); }
@@ -876,6 +888,7 @@ button.tag:hover { filter: brightness(.95); }
     <section class="panel hnew" aria-labelledby="home-new-h">
       <div class="hpan-h"><h2 id="home-new-h">Latest releases</h2><span class="hpan-s" id="home-new-s">Newest first</span></div>
       <div class="hlist" id="home-new"></div>
+      <p class="hl-foot" id="home-new-f" hidden>A price with a <span class="pmark-demo">*</span> is not a retail MSRP. Point at the * to see the kind.</p>
     </section>
   </div>
   <p class="hcredit" id="home-credit">Inspired by <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>.<span id="home-rc"></span></p>
@@ -1531,7 +1544,7 @@ button.tag:hover { filter: brightness(.95); }
     $$('.addb[data-act="q"]').forEach((b) => {
       const q = inQ(b.dataset.id), dis = !q && full;
       b.setAttribute("aria-pressed", String(q)); b.disabled = dis;
-      b.innerHTML = q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add to compare";
+      b.innerHTML = q ? I.check + "In compare" : dis ? "List full" : I.plus + (b.closest(".card-f") ? "Compare" : "Add to compare");
     });
     $("#badge-n").textContent = n + "/" + MAX_Q;
     $("#badge").classList.toggle("on", n > 0);
@@ -1568,7 +1581,7 @@ button.tag:hover { filter: brightness(.95); }
     const hl = (t) => { const i = t.toLowerCase().indexOf(q.toLowerCase()); return i < 0 ? esc(t) : esc(t.slice(0, i)) + '<mark class="hl">' + esc(t.slice(i, i + q.length)) + "</mark>" + esc(t.slice(i + q.length)); };
     const addTxt = (q2) => (q2 ? I.check + "In compare" : full ? "List full" : I.plus + "Add to compare");
     let h = res.map((d) => {
-      const q2 = inQ(d.id), dis = q2 || full, id = esc(d.id), txt = '<div><div class="dd-n">' + hl(d._short) + '</div><div class="dd-s">' + esc(d._sub) + '</div></div><span class="dd-p">' + priceTxt(d) + "</span>";
+      const q2 = inQ(d.id), dis = q2 || full, id = esc(d.id), txt = '<div><div class="dd-n"><span>' + hl(d._short) + '</span><span class="dd-p">' + priceTxt(d) + '</span></div><div class="dd-s">' + esc(d._sub) + "</div></div>";
       /* The add button is for the pointer (tabindex -1); the keyboard adds with Shift+Enter, so the option holds no tab stop. */
       if (mine) return '<div class="dd-item" role="option" aria-selected="false" id="mq-o-' + id + '" data-act="mine" data-id="' + id + '">' + txt + (state.refId === d.id ? '<span class="dd-a">' + I.check + "My device</span>" : "") + "</div>";
       if (find) return '<div class="dd-item" role="option" aria-selected="false" id="hq-o-' + id + '" data-act="open" data-id="' + id + '">' + txt +
@@ -1621,7 +1634,7 @@ button.tag:hover { filter: brightness(.95); }
       h += '<div class="mine-q"><div class="srch-box">' + I.targetS + '<label class="sr" for="mq">Which handheld do you play on now?</label>' +
         '<input id="mq" type="search" placeholder="Which handheld do you play on now?" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="mq-dd"></div>' +
         '<div class="dd" id="mq-dd" role="listbox" aria-label="Devices" hidden></div></div>' +
-        '<p class="mine-x">Every list, sheet and comparison then shows how other devices differ from it.</p>';
+        '<p class="mine-x">No handheld yet? Pick the one that you know best. Every list then shows how other devices differ from it.</p>';
     }
     el.innerHTML = h;
   }
@@ -1631,8 +1644,8 @@ button.tag:hover { filter: brightness(.95); }
   }
   function renderHomeLists() {
     const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length, ref = refDev();
-    let h = '<div class="hpan-h"><h2 id="home-cmp-h">Compare list at true scale</h2><span class="hpan-s">' + (n ? plural(n, "device") + ", front view" : "Empty") + "</span>" +
-      (n ? '<button type="button" class="btn-o" id="home-open-cmp" data-act="go" data-route="compare">Open the comparison</button>' : "") + "</div>";
+    let h = '<div class="hpan-h"><h2 id="home-cmp-h">Compare list at true scale</h2><span class="hpan-s">' + (n ? plural(n, "device") + ", front view" + (ref && state.queue.includes(ref.id) ? ", filled = my device" : "") : "Empty") + "</span>" +
+      (n ? '<button type="button" class="btn-o" id="home-open-cmp" data-act="go" data-route="compare">Open Compare (' + n + ')</button>' : "") + "</div>";
     if (n) {
       const shapes = cols.map((d) => shapeFor(d, "front")), MW = Math.max(...shapes.map((sh) => sh.w)), MH = Math.max(...shapes.map((sh) => sh.h)), VW = MW + 8;
       const g = shapes.map((sh, i) => '<g class="s' + (i + 1) + (ref && cols[i].id === ref.id ? " rf" : "") + '" transform="translate(' + r2((MW - sh.w) / 2) + " " + r2((MH - sh.h) / 2) + ')">' + partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + scrRect(sh.screen, "scr").replace("<rect ", '<rect style="stroke-dasharray:' + DASH[i] + '" ') + "<title>" + esc(cols[i]._name) + "</title></g>").join("");
@@ -1640,12 +1653,13 @@ button.tag:hover { filter: brightness(.95); }
         '<div class="hart-sb" aria-hidden="true"><i style="width:' + (100 / VW * 100).toFixed(2) + '%"></i><span>100 mm</span></div></div>';
       h += '<div class="hlg">' + cols.map((d, i) => { const dm = dimsH(d);
         return '<div class="hlg-r s' + (i + 1) + '"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' +
-          '<a id="hlg-' + esc(d.id) + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + esc(d.id) + '">' + esc(d._short) + "</a>" +
+          '<span class="hlg-n"><a id="hlg-' + esc(d.id) + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + esc(d.id) + '">' + esc(d._short) + "</a>" + (ref && ref.id === d.id ? '<span class="tag ref">' + I.targetOn + "My device</span>" : "") + "</span>" +
           '<span class="m dim">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d) + " mm") + '</span><span class="m w">' + (d._w != null ? n0(d._w) + " g" : "—") + "</span></div>"; }).join("") + "</div>";
     } else h += '<div class="hempty"><p>Add devices from Browse or from the search at the top. They show here at true scale, one outline over the other.</p><button type="button" class="btn-o" id="home-go-browse" data-act="go" data-route="browse">Open Browse</button></div>';
     $("#home-cmp").innerHTML = h;
-    $("#home-new-s").textContent = ref ? "Newest first, against " + ref._short : "Newest first";
-    $("#home-new").innerHTML = '<div class="hl-r hl-h" aria-hidden="true"><span></span><span>Released</span><span>Price</span><span>G3D Mark</span><span>Weight</span><span>Compare</span></div>' + LATEST.map(({ d, n: nv }) => {
+    $("#home-new-s").innerHTML = ref ? "Newest first, against " + esc(ref._short) + " " + VKEY : "Newest first";
+    $("#home-new-f").hidden = !LATEST.some(({ d }) => priceTip(d));
+    $("#home-new").innerHTML = '<div class="hl-r hl-h" aria-hidden="true"><span>Device</span><span>Released</span><span>Price</span><span>G3D Mark</span><span>Weight</span><span>Compare</span></div>' + LATEST.map(({ d, n: nv }) => {
       const id = esc(d.id), isR = !!ref && ref.id === d.id, g = scoreOf(d, "g3d_mark");
       const cell = (l, txt, dl) => '<span class="hl-v" data-l="' + l + '">' + txt + (ref && !isR ? dpill(dl) : "") + "</span>";
       return '<div class="hl-r"><div class="hl-n"><a id="hl-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d._short) + "</a>" + (isR ? ' <span class="tag ref">' + I.check + "My device</span>" : "") +
@@ -1953,7 +1967,7 @@ button.tag:hover { filter: brightness(.95); }
   function renderHead() {
     const cols = visCols();
     /* The two narrow controls in each row get visible column names: the box adds to the compare list, the target sets My device. */
-    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="th-ic" title="In the compare list" aria-hidden="true">' + I.plus + '</span><span class="sr">Compare</span></th><th class="stk c1"><span class="th-dev">Device<span class="th-mine" title="Set as my device">My device</span></span></th>' + cols.map((c) => {
+    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="th-mine" title="In the compare list">Compare</span></th><th class="stk c1"><span class="th-dev">Device<span class="th-mine" title="Set as my device">My device</span></span></th>' + cols.map((c) => {
       const on = state.sortK === c.k;
       return '<th class="c-' + c.k + (on ? " on" : "") + (c.num ? " num" : "") + '" aria-sort="' + (on ? (state.sortDir === 1 ? "ascending" : "descending") : "none") + '"><button type="button" class="thb" id="th-' + c.k + '" data-act="sort" data-v="' + c.k + '"' + (c.htip ? ' title="' + esc(c.htip) + '"' : "") + ">" + esc(c.label) + (on ? (state.sortDir < 0 ? " ↓" : " ↑") : '<span class="srt" aria-hidden="true"> ↕</span>') + "</button></th>";
     }).join("") + "</tr>";
@@ -1996,8 +2010,8 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><a class="card-n" id="copen-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d, "lpm-" + id) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
       (s.size_in != null && s.refresh_hz ? (() => { const rs = ref ? ref.screen || {} : {}, dS = ref && !isRef ? delta(s.size_in, rs.size_in, false) : null, dH = ref && !isRef ? delta(s.refresh_hz, rs.refresh_hz, false) : null; return '<div class="stat"><div class="stat-l">Screen</div><div class="stat-g"><div class="stat-v">' + esc(s.size_in + "″") + '</div><div class="stat-v stat-x">' + esc(s.refresh_hz + " Hz") + "</div>" + (ref ? '<div class="stat-d" title="Screen size vs my device">' + dpill(dS) + '</div><div class="stat-d" title="Refresh rate vs my device">' + dpill(dH) + "</div>" : "") + "</div></div>"; })() : stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen")) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
-      '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add to compare") + "</button>" +
-      '<button type="button" class="addb refc' + (isRef ? "" : " ico") + '" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear my device" : "Set as my device. Every other device shows how it differs. This is separate from the compare list.") + '" aria-label="' + (isRef ? "My device: " + esc(d._name) + ". Press to clear." : "Set " + esc(d._name) + " as my device") + '">' + (isRef ? I.check + "My device" : I.target) + "</button></div></article>";
+      '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Compare") + "</button>" +
+      '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear my device" : "Set as my device. Every other device shows how it differs. This is separate from the compare list.") + '" aria-label="' + (isRef ? "My device: " + esc(d._name) + ". Press to clear." : "Set " + esc(d._name) + " as my device") + '">' + (isRef ? I.targetOn + "My device" : I.target + "Set as my device") + "</button></div></article>";
   }
   function buildCards() {
     const ref = refDev();
@@ -2033,7 +2047,7 @@ button.tag:hover { filter: brightness(.95); }
     if (!filt.length) {
       const fix = removals();
       $("#empty-why").innerHTML = fix.length
-        ? '<p>Remove one filter:</p><div class="empty-l">' + fix.map((o) => '<button type="button" class="fixb" id="efx-' + o.k + (o.v ? "-" + oslug(o.v) : "") + '" data-act="fx" data-k="' + o.k + '" data-v="' + esc(o.v) + '"><span><span class="fx-v">Remove</span> <b>' + esc(o.text) + '</b></span><span class="m">' + plural(o.n, "device") + "</span>" + I.x + "</button>").join("") + "</div>"
+        ? '<p>Remove one filter:</p><div class="empty-l">' + fix.map((o) => '<button type="button" class="fixb" id="efx-' + o.k + (o.v ? "-" + oslug(o.v) : "") + '" data-act="fx" data-k="' + o.k + '" data-v="' + esc(o.v) + '"><span><span class="fx-v">Remove</span> <b>' + esc(o.text) + '</b></span><span class="m">shows ' + plural(o.n, "device") + "</span></button>").join("") + "</div>"
         : "<p>No single filter brings a device back. Reset the filters to start again.</p>";
     }
     syncTblFade();
@@ -2190,7 +2204,7 @@ button.tag:hover { filter: brightness(.95); }
       const isR = cref && d.id === cref.id, dl = !isR && cref ? delta(d._w, cref._w, true) : null, dm = dimsH(d);
       return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d) + " mm") + "</span>" +
         '<button type="button" class="xbtn" id="lrm-' + esc(d.id) + '" data-act="rm" data-id="' + esc(d.id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + ' from the comparison">' + I.x + "</button></div>" +
-        '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><svg width="100%" height="6" aria-hidden="true"><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6"/></svg></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? I.check + "My device" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
+        '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><svg width="100%" height="6" aria-hidden="true"><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6"/></svg></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? I.targetOn + "My device" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
     }).join("") + (heavy ? '<p class="lg-cap">Bar length = weight. Full bar = ' + esc(n0(heavy._w)) + "\u00a0g.</p>" : "") + "</div>";
   }
   /* Fit the scale bar to the rendered 2D stage, lay out the 3D slices, and place the grid header. */
@@ -2325,7 +2339,7 @@ button.tag:hover { filter: brightness(.95); }
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
         '<div class="ccol-t"><span class="dev-b"><svg class="csw" viewBox="0 0 20 10" width="18" height="9" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + flink("brands", d.brand, d.brand, "cbr-" + id) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<a class="ccol-n" id="copen2-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
-        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d, "cpm-" + id) + '</span><button type="button" class="tag' + (isR ? " ref" : " off") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Clear my device, " + esc(d._name) : "Set " + esc(d._name) + " as my device") + '">' + (isR ? (hasRef ? I.check + "My device" : "Baseline") : I.target + "Set as my device") + "</button></div></div>";
+        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d, "cpm-" + id) + '</span><button type="button" class="tag' + (isR ? " ref" : " off") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Clear my device, " + esc(d._name) : "Set " + esc(d._name) + " as my device") + '">' + (isR ? (hasRef ? I.targetOn + "My device" : "Baseline") : I.target + "Set as my device") + "</button></div></div>";
     }).join("");
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sq-dd"></div><div class="dd" id="sq-dd" role="listbox" aria-label="Devices to add" hidden></div></div>';
     h += "</div>";
@@ -2591,8 +2605,8 @@ button.tag:hover { filter: brightness(.95); }
     if (popBtn && popBtn !== btn) popBtn.setAttribute("aria-expanded", "false");
     popBtn = btn; btn.setAttribute("aria-expanded", "true");
     pop.setAttribute("aria-label", "Source for " + btn.textContent.trim());
-    pop.innerHTML = "<h4>Source" + (list.length > 1 ? "s" : "") + "</h4><ul>" + list.map((s) =>
-      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc(fieldLabel(s.field, BY_ID[state.detailId]).replace(/ · /g, " ") + (s.accessed ? ", read " + s.accessed : "")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
+    pop.innerHTML = (list.length > 1 ? "<h4>Sources</h4>" : "") + "<ul>" + list.map((s) =>
+      "<li>" + (list.length > 1 ? "" : '<span class="pop-k">Source: </span>') + link(s.url, host(s.url)) + '<span class="why">' + esc(fieldLabel(s.field, BY_ID[state.detailId]).replace(/ · /g, " ") + (s.accessed ? ", checked " + s.accessed : "")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
     pop.hidden = false;
     /* The popover opens below its value, so the rows above it (CPU Mark, Single thread) stay in view. With no room below, the page scrolls up just enough. */
     const cell = btn.closest("dd") || btn, need = cell.getBoundingClientRect().bottom + 8 + pop.offsetHeight - (window.innerHeight - 16);
@@ -3114,7 +3128,6 @@ button.tag:hover { filter: brightness(.95); }
   $("#cnt").textContent = DEV.length;
   $("#eyebrow").hidden = true;
   $("#home-scope").textContent = plural(DEV.length, "device") + " and " + plural(SOCS.length, "chip") + ". Each value links to its source. Data from " + dataDate + ".";
-  $("#home-browse").textContent = "Browse all " + DEV.length + " devices";
   /* Credit line on Home: count the traced top outlines that come from retrocatalog.com front images. */
   {
     const traced = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced"), rc = traced.filter((d) => host(OUT[d.id].top.source) === "retrocatalog.com").length;
