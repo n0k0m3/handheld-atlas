@@ -548,6 +548,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .addb.refc .ic { width: 12px; height: 12px; }
 .addb.refc:hover { color: var(--fg-brand); }
 .addb[aria-pressed="true"] { background: var(--bg-selected); color: var(--fg-brand); border-color: var(--accent); }
+.addb.refc[aria-pressed="true"] { background: transparent; border-color: transparent; font-weight: 700; }
+.addb.refc[aria-pressed="true"]:hover { background: var(--bg-selected); }
 .card-f .addb.refc { flex: 1.35; min-width: 0; }
 .addb:disabled { opacity: .35; }
 
@@ -669,7 +671,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .ccol-f .tag .ic { width: 12px; height: 12px; }
 .tag.off { background: transparent; border: 1px solid transparent; color: var(--fg-brand); font-weight: 600; }
 .tag.off:hover { background: var(--bg-selected); filter: none; }
-.ccol-f .tag.ref:hover { background: var(--bg-hover); filter: none; }
+.ccol-f .tag.ref { background: transparent; box-shadow: none; font-size: 12px; }
+.ccol-f .tag.ref:hover { background: var(--bg-selected); filter: none; }
 button.tag:hover { filter: brightness(.95); }
 .tag.good { background: var(--good-bg); color: var(--good); }
 .tag.info { background: var(--bg-selected); color: var(--fg-brand); }
@@ -750,7 +753,8 @@ button.tag:hover { filter: brightness(.95); }
 .dact .btn-o .ic { width: 14px; height: 14px; }
 .dact .btn-o.refo:not([aria-pressed="true"]) { border-color: transparent; background: transparent; color: var(--fg-brand); }
 .dact .btn-o.refo:not([aria-pressed="true"]):hover { background: var(--bg-selected); }
-.dact .btn-o[aria-pressed="true"] { background: var(--bg-brand); color: var(--fg-onbrand); border-color: var(--bg-brand); }
+.dact .btn-o[aria-pressed="true"] { background: transparent; color: var(--fg-brand); border-color: transparent; font-weight: 700; }
+.dact .btn-o.refo[aria-pressed="true"]:hover { background: var(--bg-selected); }
 .sgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
 .scol { display: grid; gap: 16px; min-width: 0; }
 .grp { overflow: hidden; }
@@ -877,7 +881,7 @@ button.tag:hover { filter: brightness(.95); }
         <svg class="ic" id="ic-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
         <svg class="ic" id="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
       </button>
-      <button type="button" class="badge" id="badge" data-act="badge" aria-expanded="false" aria-controls="qpop"><span class="badge-w">Compare list</span><svg class="ic badge-c" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><span class="badge-p">List</span><span class="badge-n" id="badge-n">0/4</span></button>
+      <button type="button" class="badge" id="badge" data-act="badge" aria-expanded="false" aria-controls="qpop"><span class="badge-w">Compare list</span><svg class="ic badge-c" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><span class="badge-p">Compare list</span><span class="badge-n" id="badge-n">0/4</span></button>
       <div class="qpop" id="qpop" hidden></div>
     </div>
   </div>
@@ -1550,7 +1554,7 @@ button.tag:hover { filter: brightness(.95); }
     $$('.addb[data-act="q"]').forEach((b) => {
       const q = inQ(b.dataset.id), dis = !q && full;
       b.setAttribute("aria-pressed", String(q)); b.disabled = dis;
-      b.innerHTML = q ? I.check + "In compare" : dis ? "List full" : I.plus + "Compare";
+      b.innerHTML = q ? I.check + "In compare" : dis ? "List full" : I.plus + (b.closest(".card-f") ? "Add" : "Add to compare");
     });
     $("#badge-n").textContent = n + "/" + MAX_Q;
     $("#badge").classList.toggle("on", n > 0);
@@ -1585,7 +1589,7 @@ button.tag:hover { filter: brightness(.95); }
     if (!q) { dd.hidden = true; dd.innerHTML = ""; syncCombo(inp, dd); return; }
     const res = searchDevs(q), full = qFull(), find = which === "hq", mine = which === "mq";
     const hl = (t) => { const i = t.toLowerCase().indexOf(q.toLowerCase()); return i < 0 ? esc(t) : esc(t.slice(0, i)) + '<mark class="hl">' + esc(t.slice(i, i + q.length)) + "</mark>" + esc(t.slice(i + q.length)); };
-    const addTxt = (q2) => (q2 ? I.check + "In compare" : full ? "List full" : I.plus + "Compare");
+    const addTxt = (q2) => (q2 ? I.check + "In compare" : full ? "List full" : I.plus + "Add to compare");
     let h = res.map((d) => {
       const q2 = inQ(d.id), dis = q2 || full, id = esc(d.id), txt = '<div><div class="dd-n"><span>' + hl(d._short) + '</span><span class="dd-p">' + priceTxt(d) + '</span></div><div class="dd-s">' + esc(d._sub) + "</div></div>";
       /* The add button is for the pointer (tabindex -1); the keyboard adds with Shift+Enter, so the option holds no tab stop. */
@@ -2016,7 +2020,7 @@ button.tag:hover { filter: brightness(.95); }
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><a class="card-n" id="copen-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d, "lpm-" + id) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
       (s.size_in != null && s.refresh_hz ? (() => { const rs = ref ? ref.screen || {} : {}, dS = ref && !isRef ? delta(s.size_in, rs.size_in, false) : null, dH = ref && !isRef ? delta(s.refresh_hz, rs.refresh_hz, false) : null; return '<div class="stat"><div class="stat-l">Screen</div><div class="stat-g"><div class="stat-v">' + esc(s.size_in + "″") + '</div><div class="stat-v stat-x">' + esc(s.refresh_hz + " Hz") + "</div>" + (ref ? '<div class="stat-d" title="Screen size vs my device">' + dpill(dS) + '</div><div class="stat-d" title="Refresh rate vs my device">' + dpill(dH) + "</div>" : "") + "</div></div>"; })() : stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen")) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
-      '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Compare") + "</button>" +
+      '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add") + "</button>" +
       '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear my device" : "Set as my device. Every other device shows how it differs. This is separate from the compare list.") + '" aria-label="' + (isRef ? "My device: " + esc(d._name) + ". Press to clear." : "Set " + esc(d._name) + " as my device") + '">' + (isRef ? I.targetOn + "My device" : I.target + "Set as my device") + "</button></div></article>";
   }
   function buildCards() {
@@ -2154,7 +2158,7 @@ button.tag:hover { filter: brightness(.95); }
   let cmpHelpOpen = false;
   function cmpHelpHtml() {
     return '<details class="panel help" id="help-cmp"' + (cmpHelpOpen ? " open" : "") + '><summary id="help-cmp-s">How to compare</summary><ol class="steps">' +
-      '<li><span class="step-n">1</span><div><b>Queue up to eight devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">' + I.plus + 'Add to compare</span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
+      '<li><span class="step-n">1</span><div><b>Queue up to eight devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">' + I.plus + 'Add</span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
       '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at true scale, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Point at a device, its legend entry or its column head to pick it out. Clamshells are drawn open.</div></li>' +
       '<li><span class="step-n">3</span><div><b>Pick your device, or none.</b> Press <span class="demo"><span class="tag">Set as my device</span></span> on a column to compare the others against it. Press <span class="demo"><span class="tag ref">My device</span></span> again to turn the deltas off.</div></li>' +
       '<li><span class="step-n">4</span><div><b>Read the grid.</b> "Differences only" hides identical rows, and <span class="demo"><span class="best">Best</span></span> marks the best value in a row. Remove a device with the × on its column or in the size legend.</div></li>' +
@@ -2569,8 +2573,8 @@ button.tag:hover { filter: brightness(.95); }
         if (ns > 1) l.push(flink("soc", d.soc_id, plural(ns, "device") + " with " + socName(d.soc_id), "dt-soc"));
         return l.length ? '<div class="tlinks">' + l.join("") + "</div>" : ""; })() + "</div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d, "dt-pm") : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
-      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Compare") + "</button>" +
-      '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear my device" : "Every other device then shows how it differs. This is separate from the compare list.") + '">' + (isR ? I.check + "My device" : I.target + "Set as my device") + "</button>" +
+      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
+      '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear my device" : "Every other device then shows how it differs. This is separate from the compare list.") + '">' + (isR ? I.targetOn + "My device" : I.target + "Set as my device") + "</button>" +
       '<button type="button" class="btn-t" id="dt-cmp" data-act="go" data-route="compare">Open Compare (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
     /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order.
        Where the sheet is one column (sheetOne), the cards go out as one list in reading order. */
