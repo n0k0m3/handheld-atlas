@@ -1403,11 +1403,11 @@ button.tag:hover { filter: brightness(.95); }
     }
     if (Array.isArray(s.queue)) state.queue = s.queue.filter((id, i, a) => typeof id === "string" && hasKey(BY_ID, id) && a.indexOf(id) === i).slice(0, MAX_Q);
     else if (s.fresh) state.queue = DEFAULT_Q.slice();
-    /* A fresh visitor has no device of their own yet: Home asks for it, so the page never claims one for them. */
+    /* A fresh visitor gets no preset device: Home asks for it. (A first-visit shared link with ref= still sets one; see applyShared.) */
     if (typeof s.refId === "string" && hasKey(BY_ID, s.refId)) state.refId = s.refId;
     restoreQ = null;
     if (s.prev && typeof s.prev === "object" && Array.isArray(s.prev.queue)) {
-      /* An offer whose devices all left the data has nothing to give back. */
+      /* An offer whose list and device all left the data has nothing to give back. An offer with only a device is kept. */
       const pq = s.prev.queue.filter((id, i, a) => typeof id === "string" && hasKey(BY_ID, id) && a.indexOf(id) === i).slice(0, MAX_Q);
       const pr = typeof s.prev.refId === "string" && hasKey(BY_ID, s.prev.refId) ? s.prev.refId : null;
       if (pq.length || pr) restoreQ = { queue: pq, refId: pr };
@@ -1539,8 +1539,10 @@ button.tag:hover { filter: brightness(.95); }
     restoreQ = null;
     afterQ();
   }
+  /* A device that the visitor picks ends the shared-link offer, as an edit of the list does. */
   function setRef(id) {
     state.refId = id && hasKey(BY_ID, id) ? id : null;
+    restoreQ = null;
     afterRef();
     save();
   }
@@ -1551,7 +1553,7 @@ button.tag:hover { filter: brightness(.95); }
     if (state.route === "detail") renderDetail();
   }
   /* The card add button reads "Add" or "In compare"; its name says which device and which list. */
-  const addName = (d, q, dis) => (q ? d._name + ", in compare" : dis ? "Compare list full" : "Add " + d._name + " to compare");
+  const addName = (d, q, dis) => (q ? d._name + ", in compare" : dis ? "Add " + d._name + " to compare, list full" : "Add " + d._name + " to compare");
   function syncQueueUI() {
     const full = qFull(), n = state.queue.length;
     $$(".qbox[data-id]").forEach((cb) => { const q = inQ(cb.dataset.id); cb.checked = q; cb.disabled = !q && full; });
@@ -1585,8 +1587,8 @@ button.tag:hover { filter: brightness(.95); }
   }
   /* The three search boxes (#hq, #sq, #mq) are comboboxes: focus stays in the box, aria-activedescendant names the active result.
      Header box (hq) finds: a result opens its sheet, its own button adds it to compare, and the last row searches Browse.
-     Compare slot (sq) adds: a result adds the device. */
-  const ddActive = { hq: null, sq: null };
+     Compare slot (sq) adds: a result adds the device. Home box (mq) sets My device: a result becomes the visitor's device. */
+  const ddActive = { hq: null, sq: null, mq: null };
   function renderDD(which) {
     const inp = document.getElementById(which), dd = document.getElementById(which + "-dd");
     if (!inp || !dd) return;
@@ -2781,7 +2783,7 @@ button.tag:hover { filter: brightness(.95); }
     window.addEventListener("popstate", () => { popNav = true; userNav = true; try { if (!routeFromHash()) routeFromPath(); } finally { popNav = false; } });
   }
   /* A shared link /compare?d=a,b&ref=a replaces the compare list and the reference on a fresh page load only.
-     When the visitor had a different list, the Compare screen offers it back until they restore it, keep the new one, or edit the list.
+     When the visitor had a different list or a device of their own, the Compare screen offers it back until they restore it, keep the new one, edit the list, or pick a device.
      A second shared link keeps the first offer, so "Restore" always returns the visitor's own list. */
   function applyShared() {
     if (!sharedLoad() || pathSeg() !== "compare") return;
@@ -2793,7 +2795,7 @@ button.tag:hover { filter: brightness(.95); }
     if (q.join() === state.queue.join() && ref === state.refId) return;
     /* A link that brings back the visitor's own list ends the offer. */
     if (restoreQ && restoreQ.queue.join() === q.join() && restoreQ.refId === ref) restoreQ = null;
-    else if (!restoreQ && !freshVisit && (state.queue.length || state.refId)) restoreQ = { queue: state.queue.slice(), refId: state.refId };
+    else if (!restoreQ && !freshVisit && (state.queue.length || (state.refId && state.refId !== ref))) restoreQ = { queue: state.queue.slice(), refId: state.refId };
     state.queue = q; state.refId = ref;
   }
   /* /browse carries the filters, the quick search and the sort, like RTINGS and PCPartPicker do:
@@ -2845,9 +2847,10 @@ button.tag:hover { filter: brightness(.95); }
     if (!restoreQ || (restoreQ.queue.join() === state.queue.join() && restoreQ.refId === state.refId)) return "";
     /* A visitor who had no list keeps the shared list; only the device can go back. */
     const devOnly = !restoreQ.queue.length || restoreQ.queue.join() === state.queue.join(), refChanged = restoreQ.refId !== state.refId;
+    if (devOnly && !refChanged) return "";
     const msg = devOnly ? (restoreQ.refId ? "This comparison came from a shared link. It changed your device." : "This comparison came from a shared link. It set a device as yours.")
       : "This list came from a shared link. Your own list had " + plural(restoreQ.queue.length, "device") + ".";
-    const btn = devOnly ? (restoreQ.refId ? "Restore my device" : "Clear my device") : refChanged ? "Restore my list and device" : "Restore my list";
+    const btn = devOnly ? (restoreQ.refId ? "Restore my device" : "Clear my device") : !refChanged ? "Restore my list" : restoreQ.refId ? "Restore my list and device" : "Restore my list and clear my device";
     return '<p class="snote" id="shared-note"><span>' + msg + "</span>" +
       '<button type="button" class="btn-t" id="restore-q" data-act="restore-q">' + btn + '</button><button type="button" class="btn-t" id="keep-q" data-act="keep-q">Keep this one</button></p>';
   }
@@ -3012,7 +3015,7 @@ button.tag:hover { filter: brightness(.95); }
       else if (e.shiftKey && (e.target === first || e.target === pop)) { e.preventDefault(); const b = popBtn; closePop(); if (b) b.focus(); }
     }
   });
-  /* Search box keys: the arrows move the active result, Enter acts on it (header: open the sheet, or Shift+Enter to add it; Compare slot: add).
+  /* Search box keys: the arrows move the active result, Enter acts on it (header: open the sheet, or Shift+Enter to add it; Compare slot: add; Home box: set My device).
      Escape is handled above. */
   document.addEventListener("keydown", (e) => {
     const inp = e.target;
