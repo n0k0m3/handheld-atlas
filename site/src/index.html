@@ -825,17 +825,8 @@ button.tag:hover { filter: brightness(.95); }
 <main class="main" id="scr-browse" aria-label="Browse" hidden>
   <div class="phead">
     <div><p class="eyebrow" id="eyebrow">Loading data</p><h1 id="browse-h1">Browse handhelds</h1></div>
-    <p class="lede">Filter, search and sort. Pick a reference to see how every device differs from it.</p>
+    <p class="lede">Filter, search and sort. Mark the handheld you own as your device, and every other one shows how it differs.</p>
   </div>
-  <details class="panel help" id="help-ref">
-    <summary>How the reference works</summary>
-    <ol class="steps">
-      <li><span class="step-n">1</span><div><b>Pick a device you know.</b> Press <span class="demo"><span class="addb refc sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference</span></span> on its card, or the target button on its table row <span class="demo"><span class="refb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.2" fill="currentColor"></circle></svg></span></span>, or <span class="demo"><span class="btn-o sm">Set as reference</span></span> on its sheet.</div></li>
-      <li><span class="step-n">2</span><div><b>It pins to the top</b> and the list bar shows <span class="demo"><span class="refpill"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3" fill="currentColor"></circle></svg>Reference: <strong>Valve Steam Deck OLED</strong></span></span>. It stays while you filter, sort or switch layout.</div></li>
-      <li><span class="step-n">3</span><div><b>Read the deltas.</b> <span class="demo"><span class="dpill up"><svg class="tri" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 1 7.5 7h-7z"/></svg>42%</span></span> (filled) is better than the reference, <span class="demo"><span class="dpill dn"><svg class="tri o" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 6.7 1 1.3h6z"/></svg>18%</span></span> (outline) worse, <span class="demo"><span class="dpill nt"><svg class="tri o" viewBox="0 0 8 8" aria-hidden="true"><path d="M4 7.5V1M1.5 3.5 4 1l2.5 2.5"/></svg>2%</span></span> (arrow) neither, as for width and height. No mark means the same. The mark points the way the number moves. Lower is better for price, weight and thickness; higher for scores, screen, RAM and battery.</div></li>
-      <li><span class="step-n">4</span><div><b>Turn it off</b> with the × on the pill, or press the target again. The reference is separate from the compare list.</div></li>
-    </ol>
-  </details>
   <div class="bgrid">
     <aside class="side panel" id="side" aria-label="Filters"></aside>
     <section class="bsec">
@@ -1095,7 +1086,7 @@ button.tag:hover { filter: brightness(.95); }
   const VSR = { up: "better", dn: "worse", eq: "same" };
   const dpill = (dl) => (dl ? '<span class="dpill ' + dl.cls + '">' + (dl.g ? TRI[dl.g] : "") + '<span class="sr">' + (dl.cls === "nt" ? (/u$/.test(dl.g || "") ? "higher" : "lower") : VSR[dl.cls] || "") + " </span>" + dl.txt + "</span>" : "");
   /* One key for the verdict glyphs, used in the list bar and above the compare grid. */
-  const VKEY = '<span class="ckey"><span class="ckl">vs reference:</span><span class="dpill up">' + TRI.bu + TRI.bd + 'better</span><span class="dpill dn">' + TRI.wu + TRI.wd + 'worse</span><span class="dpill nt">' + TRI.nu + TRI.nd + "neither</span></span>";
+  const VKEY = '<span class="ckey"><span class="ckl">vs my device:</span><span class="dpill up">' + TRI.bu + TRI.bd + 'better</span><span class="dpill dn">' + TRI.wu + TRI.wd + 'worse</span><span class="dpill nt">' + TRI.nu + TRI.nd + "neither</span></span>";
 
   /* ---------- table columns, grouped ---------- */
   const COLS = [
@@ -1701,7 +1692,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   function listNote(filt, an) {
     const ref = refDev(), parts = [];
-    if (ref && filt.length && !filt.some((d) => d.id === ref.id)) parts.push("plus the pinned reference");
+    if (ref && filt.length && !filt.some((d) => d.id === ref.id)) parts.push("plus your device, pinned");
     const hu = hiddenUnknown(an || analyse());
     if (hu) parts.push(hu);
     return parts.join(" · ");
@@ -1781,7 +1772,7 @@ button.tag:hover { filter: brightness(.95); }
     const ref = refDev(), cards = effLayout() === "cards";
     const an = analyse(), filt = an.all;
     let h = '<span class="lbar-n" id="lbar-n" aria-live="polite">' + plural(filt.length, "device") + '</span><span class="lbar-x" id="lbar-x">' + esc(listNote(filt, an)) + "</span>";
-    if (ref) h += '<span class="refpill" title="The reference is pinned first in the list">' + I.targetS + "Reference: <strong>" + esc(ref._short) + '</strong><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear reference" aria-label="Clear reference">' + I.x + "</button></span>";
+    if (ref) h += '<span class="refpill" title="Your device stays first in the list. It is separate from the compare list.">' + I.targetS + "My device: <strong>" + esc(ref._short) + '</strong><button type="button" class="xbtn" id="ref-clear" data-act="clear-ref" title="Clear my device" aria-label="Clear my device">' + I.x + "</button></span>";
     /* Row 1: count, reference, sort and the view switch. The verdict key and the column chips take row 2. */
     const lay = isNarrow() ? "" : '<div class="segs sm" role="group" aria-label="Layout">' + seg("layout", "table", I.table + "Table", state.layout === "table", "lay-table") + seg("layout", "cards", I.cards + "Cards", state.layout === "cards", "lay-cards") + "</div>";
     /* Lists show only better and worse: no list column has a neutral delta. */
@@ -1827,13 +1818,13 @@ button.tag:hover { filter: brightness(.95); }
   }
   function refBtn(d, isRef, prefix) {
     const id = esc(d.id);
-    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Set as reference") + '" aria-label="' + (isRef ? "Clear the reference" : "Use " + esc(d._name) + " as reference") + '">' + (isRef ? I.targetOn : I.targetS) + "</button>";
+    return '<button type="button" class="refb" id="' + prefix + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear my device" : "Set as my device") + '" aria-label="' + (isRef ? "Clear my device" : "Set " + esc(d._name) + " as my device") + '">' + (isRef ? I.targetOn : I.targetS) + "</button>";
   }
   function rowHtml(d, cols, ref) {
     const isRef = !!ref && ref.id === d.id, id = esc(d.id), q = inQ(d.id), dis = !q && qFull();
     return '<tr data-id="' + id + '"' + (isRef ? ' class="ref"' : "") + ">" +
       '<td class="stk c0"><input type="checkbox" class="qbox" id="q-' + id + '" data-id="' + id + '"' + (q ? " checked" : "") + (dis ? " disabled" : "") + ' aria-label="Compare ' + esc(d._name) + '"></td>' +
-      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <a class="dev-n" id="open-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + (isRef ? '<span class="pin-t" title="Stays on top while it is the reference">Reference</span> · ' : "") + esc(cols.some((c) => c.k === "soc") ? [d.status && d.status !== "shipped" ? STATUS[d.status] || "" : "", d.release_date ? d.release_date.slice(0, 4) : "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
+      '<td class="dcell stk c1"><div class="dwrap"><div><div class="dev-l"><span class="dev-b">' + esc(d.brand) + '</span> <a class="dev-n" id="open-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a></div>" + '<div class="dev-v" title="' + esc(d.variant || socName(d.soc_id)) + '">' + (isRef ? '<span class="pin-t" title="Stays on top while it is your device">My device</span> · ' : "") + esc(cols.some((c) => c.k === "soc") ? [d.status && d.status !== "shipped" ? STATUS[d.status] || "" : "", d.release_date ? d.release_date.slice(0, 4) : "", FORM[d.form_factor] || ""].filter(Boolean).join(" · ") : d.variant || socName(d.soc_id)) + "</div></div>" + refBtn(d, isRef, "ref-") + "</div></td>" +
       cols.map((c) => cellHtml(c, d, ref, isRef)).join("") + "</tr>";
   }
   function buildRows() {
@@ -1854,9 +1845,9 @@ button.tag:hover { filter: brightness(.95); }
       "</div>" +
       '<div class="card-h"><div><div class="dev-b">' + esc(d.brand) + '</div><a class="card-n" id="copen-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" + '</div><div class="price">' + priceTxt(d) + pmark(d, "lpm-" + id) + "</div></div>" +
       '<div class="stats">' + stat("Weight", d._w, d._w != null ? n0(d._w) + " g" : "—", true) + stat("G3D Mark", scoreOf(d, "g3d_mark"), n0(scoreOf(d, "g3d_mark")) || "—", false) +
-      (s.size_in != null && s.refresh_hz ? (() => { const rs = ref ? ref.screen || {} : {}, dS = ref && !isRef ? delta(s.size_in, rs.size_in, false) : null, dH = ref && !isRef ? delta(s.refresh_hz, rs.refresh_hz, false) : null; return '<div class="stat"><div class="stat-l">Screen</div><div class="stat-g"><div class="stat-v">' + esc(s.size_in + "″") + '</div><div class="stat-v stat-x">' + esc(s.refresh_hz + " Hz") + "</div>" + (ref ? '<div class="stat-d" title="Screen size vs reference">' + dpill(dS) + '</div><div class="stat-d" title="Refresh rate vs reference">' + dpill(dH) + "</div>" : "") + "</div></div>"; })() : stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen")) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
+      (s.size_in != null && s.refresh_hz ? (() => { const rs = ref ? ref.screen || {} : {}, dS = ref && !isRef ? delta(s.size_in, rs.size_in, false) : null, dH = ref && !isRef ? delta(s.refresh_hz, rs.refresh_hz, false) : null; return '<div class="stat"><div class="stat-l">Screen</div><div class="stat-g"><div class="stat-v">' + esc(s.size_in + "″") + '</div><div class="stat-v stat-x">' + esc(s.refresh_hz + " Hz") + "</div>" + (ref ? '<div class="stat-d" title="Screen size vs my device">' + dpill(dS) + '</div><div class="stat-d" title="Refresh rate vs my device">' + dpill(dH) + "</div>" : "") + "</div></div>"; })() : stat("Screen", s.size_in, s.size_in != null ? s.size_in + "″" : "—", false, "", "Screen")) + stat("Battery", (d.battery || {}).wh, (d.battery || {}).wh != null ? d.battery.wh + " Wh" : "—", false) + "</div>" +
       '<div class="card-f"><button type="button" class="addb" id="add-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "List full" : I.plus + "Add to compare") + "</button>" +
-      '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear the reference" : "Compare every device against this one") + '" aria-label="' + (isRef ? "Reference: " + esc(d._name) + ". Press to clear." : "Use " + esc(d._name) + " as reference") + '">' + (isRef ? I.check + "Reference" : I.target + "Reference") + "</button></div></article>";
+      '<button type="button" class="addb refc" id="cref-' + id + '" data-act="ref" data-id="' + id + '" aria-pressed="' + isRef + '" title="' + (isRef ? "Clear my device" : "Set as my device. Every other device shows how it differs. This is separate from the compare list.") + '" aria-label="' + (isRef ? "My device: " + esc(d._name) + ". Press to clear." : "Set " + esc(d._name) + " as my device") + '">' + (isRef ? I.check + "My device" : I.target + "My device") + "</button></div></article>";
   }
   function buildCards() {
     const ref = refDev();
@@ -1990,14 +1981,14 @@ button.tag:hover { filter: brightness(.95); }
     return '<details class="panel help" id="help-cmp"' + (cmpHelpOpen ? " open" : "") + '><summary id="help-cmp-s">How to compare</summary><ol class="steps">' +
       '<li><span class="step-n">1</span><div><b>Queue up to eight devices.</b> Tick a table row, press <span class="demo"><span class="addb sm">' + I.plus + 'Add to compare</span></span> on a card, or type a name in the header search or the "Add a device" slot below.</div></li>' +
       '<li><span class="step-n">2</span><div><b>Check the sizes.</b> The size panel draws the outlines at true scale, overlaid or side by side, from the front, back, top or side. The 3D tab stacks them to the stated thickness; drag to rotate. Point at a device, its legend entry or its column head to pick it out. Clamshells are drawn open.</div></li>' +
-      '<li><span class="step-n">3</span><div><b>Pick a reference, or none.</b> Press <span class="demo"><span class="tag">Set as reference</span></span> on a column to compare the others against it. Press <span class="demo"><span class="tag ref">Reference</span></span> again to turn the deltas off.</div></li>' +
+      '<li><span class="step-n">3</span><div><b>Pick your device, or none.</b> Press <span class="demo"><span class="tag">Set as my device</span></span> on a column to compare the others against it. Press <span class="demo"><span class="tag ref">My device</span></span> again to turn the deltas off.</div></li>' +
       '<li><span class="step-n">4</span><div><b>Read the grid.</b> "Differences only" hides identical rows, and <span class="demo"><span class="best">Best</span></span> marks the best value in a row. Remove a device with the × on its column or in the size legend.</div></li>' +
       "</ol></details>";
   }
   const presetOn = (k) => state.rx === PRESET[k][0] && state.ry === PRESET[k][1];
   function sizePanelHtml(cols, cref, hasRef) {
     const s = state, is3 = s.sizeTab === "3d";
-    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale<span class="scr-k"> · inner box = screen</span>' + (cref && state.sizeTab === "2d" && state.sizeMode === "overlay" ? '<span class="scr-k"> · filled = ' + (hasRef ? "reference" : "baseline") + "</span>" : "") + '</span></span>' + I.chev + "</button>";
+    let h = '<section class="panel"><button type="button" class="size-h" id="size-open" data-act="size-open" aria-expanded="' + s.sizeOpen + '"><span><b>Size &amp; weight</b><span class="mute">True scale<span class="scr-k"> · inner box = screen</span>' + (cref && state.sizeTab === "2d" && state.sizeMode === "overlay" ? '<span class="scr-k"> · filled = ' + (hasRef ? "my device" : "baseline") + "</span>" : "") + '</span></span>' + I.chev + "</button>";
     if (!s.sizeOpen) return h + "</section>";
     h += '<div class="size-c"><div class="grp-c"><span class="lbl">Mode</span><div class="segs sm" role="group" aria-label="Mode">' + seg("size-tab", "2d", "2D outline", !is3, "tab-2d") + seg("size-tab", "3d", "3D", is3, "tab-3d") + "</div></div>";
     const views = is3 ? [["iso", "3/4"], ["front", "Front"], ["top", "Top"], ["side", "Side"]] : [["front", "Front"], ["back", "Back"], ["top", "Top · thickness"], ["side", "Side"]];
@@ -2044,7 +2035,7 @@ button.tag:hover { filter: brightness(.95); }
       const isR = cref && d.id === cref.id, dl = !isR && cref ? delta(d._w, cref._w, true) : null, dm = dimsH(d);
       return '<div class="lg s' + (i + 1) + '"><div class="lg-t"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg><b>' + esc(d._short) + '</b><span class="m">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d) + " mm") + "</span>" +
         '<button type="button" class="xbtn" id="lrm-' + esc(d.id) + '" data-act="rm" data-id="' + esc(d.id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + ' from the comparison">' + I.x + "</button></div>" +
-        '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><svg width="100%" height="6" aria-hidden="true"><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6"/></svg></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? I.check + "Reference" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
+        '<div class="lg-w"><div class="wbar" title="Weight, scaled to the heaviest device"><svg width="100%" height="6" aria-hidden="true"><line x1="0" y1="3" x2="' + ((d._w || 0) / maxW * 100).toFixed(1) + '%" y2="3" style="stroke:var(--c);stroke-width:6"/></svg></div><span class="m">' + (d._w != null ? n0(d._w) + " g" + (ext(d) ? " with pack" : "") : "—") + "</span>" + (dl ? dpill(dl) : (isR ? '<span class="tag ref">' + (hasRef ? I.check + "My device" : "Baseline") + "</span>" : cref ? '<span class="dpill">—</span>' : "<span></span>")) + "</div></div>";
     }).join("") + (heavy ? '<p class="lg-cap">Bar length = weight. Full bar = ' + esc(n0(heavy._w)) + "\u00a0g.</p>" : "") + "</div>";
   }
   /* Fit the scale bar to the rendered 2D stage, lay out the 3D slices, and place the grid header. */
@@ -2169,8 +2160,8 @@ button.tag:hover { filter: brightness(.95); }
       }) };
     }).filter(Boolean) })).filter((x) => x.rows.length);
     const hint = hasRef ? ""
-      : ref ? "The reference (" + esc(ref._short) + ") is not in this list, so deltas compare against the first column. Click a column to make it the reference."
-      : "No reference, so no deltas. Press “Set as reference” on a column to compare the others against it.";
+      : ref ? "Your device (" + esc(ref._short) + ") is not in this list, so deltas compare against the first column. Press “Set as my device” on a column to change it."
+      : "No device is set as yours, so no deltas. Press “Set as my device” on a column to compare the others against it.";
     let h = '<section class="panel cmpw' + (scroll ? " scroll" : "") + '"><div style="min-width:' + minW + '"><p class="cmp-cap">' + (hint ? "<span>" + hint + "</span>" : "") +
       (cref ? VKEY : "") + "</p>";
     h += '<div class="cgrid hd" style="grid-template-columns:' + gcols + '"><div class="cmp-hint"><button type="button" class="tog" id="hide-same" data-act="hide-same" aria-pressed="' + state.hideSame + '"><span class="sw"></span>Differences only' + (state.hideSame && hidden ? '<span class="tog-n">' + plural(hidden, "identical row") + " hidden</span>" : "") + "</button></div>";
@@ -2179,7 +2170,7 @@ button.tag:hover { filter: brightness(.95); }
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
         '<div class="ccol-t"><span class="dev-b"><svg class="csw" viewBox="0 0 20 10" width="18" height="9" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<a class="ccol-n" id="copen2-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
-        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d, "cpm-" + id) + '</span><button type="button" class="tag' + (isR ? " ref" : " off") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Turn off the reference, " + esc(d._name) : "Use " + esc(d._name) + " as reference") + '">' + (isR ? (hasRef ? I.check + "Reference" : "Baseline") : I.target + "Set as reference") + "</button></div></div>";
+        '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d, "cpm-" + id) + '</span><button type="button" class="tag' + (isR ? " ref" : " off") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Clear my device, " + esc(d._name) : "Set " + esc(d._name) + " as my device") + '">' + (isR ? (hasRef ? I.check + "My device" : "Baseline") : I.target + "Set as my device") + "</button></div></div>";
     }).join("");
     if (slot) h += '<div class="cslot"><span class="lbl">Add a device</span><div class="srch-box">' + I.plus + '<label class="sr" for="sq">Add a device</label><input id="sq" type="search" placeholder="Type a name…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sq-dd"></div><div class="dd" id="sq-dd" role="listbox" aria-label="Devices to add" hidden></div></div>';
     h += "</div>";
@@ -2390,7 +2381,7 @@ button.tag:hover { filter: brightness(.95); }
     h += '<div class="tiles">' + tile("Width", dm.w ? mm(dm.w) + " mm" : "—") + tile("Height", dm.h ? mm(dm.h) + " mm" : "—") +
       tile("Thickness", dm.d ? mm(dm.d) + (dm.d_max != null ? " / " + mm(dm.d_max) : "") + " mm" : "—") + tile("Weight", d._w != null ? n0(d._w) + " g" : "—") + "</div></div>";
     h += '<div class="panel pm"><div class="pm-h"><b>PassMark</b><span>' + esc([soc && soc.name, soc && soc.igpu && soc.igpu.name, tdpText(soc)].filter(Boolean).join(" · ")) + "</span>" +
-      (ref && !isR ? '<span class="pm-key"><i></i>' + esc(ref._short) + " (reference)</span>" : "") + "</div><div>" +
+      (ref && !isR ? '<span class="pm-key"><i></i>' + esc(ref._short) + " (my device)</span>" : "") + "</div><div>" +
       [["CPU Mark", "cpu_mark"], ["Single thread", "single_thread"], ["G3D Mark", "g3d_mark"]].map(([l, k]) => {
         const v = pm[k] != null ? pm[k] : null, rv = ref && !isR ? scoreOf(ref, k) : null, dl = rv != null ? delta(v, rv) : null;
         return '<div class="pm-r"><b>' + l + '</b><div class="pm-bar"><i style="width:' + (v ? (v / MAXS[k] * 100).toFixed(1) : 0) + '%"></i>' + (rv ? '<span class="pm-tick" style="left:' + (rv / MAXS[k] * 100).toFixed(1) + '%"></span>' : "") +
@@ -2400,7 +2391,7 @@ button.tag:hover { filter: brightness(.95); }
     h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + esc(d.brand) + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d, "dt-pm") : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
-      '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear the reference" : "Compare every device against this one") + '">' + (isR ? I.check + "Reference" : I.target + "Set as reference") + "</button>" +
+      '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear my device" : "Every other device then shows how it differs. This is separate from the compare list.") + '">' + (isR ? I.check + "My device" : I.target + "Set as my device") + "</button>" +
       '<button type="button" class="btn-t" id="dt-cmp" data-act="go" data-route="compare">Open Compare (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
     /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order.
        Where the sheet is one column (sheetOne), the cards go out as one list in reading order. */
@@ -2662,8 +2653,8 @@ button.tag:hover { filter: brightness(.95); }
     /* Nothing to offer when the list and the reference already equal the visitor's own. */
     if (!restoreQ || (restoreQ.queue.join() === state.queue.join() && restoreQ.refId === state.refId)) return "";
     const sameList = restoreQ.queue.join() === state.queue.join();
-    return '<p class="snote" id="shared-note"><span>' + (sameList ? "This comparison came from a shared link. It changed your reference." : "This list came from a shared link. Your own list had " + plural(restoreQ.queue.length, "device") + ".") + "</span>" +
-      '<button type="button" class="btn-t" id="restore-q" data-act="restore-q">Restore my list</button><button type="button" class="btn-t" id="keep-q" data-act="keep-q">Keep this one</button></p>';
+    return '<p class="snote" id="shared-note"><span>' + (sameList ? "This comparison came from a shared link. It changed your device." : "This list came from a shared link. Your own list had " + plural(restoreQ.queue.length, "device") + ".") + "</span>" +
+      '<button type="button" class="btn-t" id="restore-q" data-act="restore-q">' + (sameList ? "Restore my device" : restoreQ.refId !== state.refId ? "Restore my list and device" : "Restore my list") + '</button><button type="button" class="btn-t" id="keep-q" data-act="keep-q">Keep this one</button></p>';
   }
 
   /* ---------- events ---------- */
