@@ -131,6 +131,7 @@ button.dd-a[aria-disabled="true"] { border-color: transparent; background: none;
 @media (hover: none) { .dd-hint { display: none; } }
 .dd-n .hl { background: var(--bg-selected); color: var(--fg-brand); border-radius: 2px; }
 .dd-none { padding: 10px 8px; color: var(--fg-2); }
+.qundo { display: flex; align-items: center; gap: 8px; color: var(--fg); }
 .hdr-r { margin-left: auto; display: flex; align-items: center; gap: 8px; position: relative; }
 .ibtn { width: 32px; height: 32px; border-radius: 6px; display: grid; place-items: center; color: var(--fg-2); }
 .ibtn:hover { background: var(--bg-subtle); color: var(--fg); }
@@ -1451,6 +1452,7 @@ button.tag:hover { filter: brightness(.95); }
   /* Adding a device never sets the reference: no reference is a valid choice. */
   function addQ(id) {
     if (inQ(id) || qFull() || !hasKey(BY_ID, id)) return false;
+    undoQ = null;
     state.queue.push(id);
     /* An edit of the list keeps the shared list, so the offer to restore the old one ends. */
     restoreQ = null;
@@ -1546,12 +1548,15 @@ button.tag:hover { filter: brightness(.95); }
     if (dd.hidden) inp.removeAttribute("aria-activedescendant");
   }
   function hideDD() { $$(".dd").forEach((d) => { d.hidden = true; const inp = document.getElementById(d.id.slice(0, -3)); if (inp) syncCombo(inp, d); }); }
+  /* "Clear" keeps the old list for 8 s, so one stray press does not lose a list built over a session. Any add ends the offer. */
+  let undoQ = null, undoT = 0;
   function renderQpop() {
     const n = state.queue.length;
     $("#qpop").innerHTML = '<div class="qpop-h">Compare list <span>' + n + " of " + MAX_Q + '</span></div><div class="qpop-l">' +
       (n ? state.queue.map((id, i) => { const d = BY_ID[id]; return '<div class="qitem s' + (i + 1) + '"><span class="dot"></span><div><div class="dd-n">' + esc(d._short) + '</div><div class="dd-s">' + esc(d.variant || d.brand) + '</div></div><button type="button" class="xbtn" id="qrm-' + esc(id) + '" data-act="rm" data-id="' + esc(id) + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>"; }).join("")
+        : undoQ ? '<div class="dd-none qundo">List cleared. <button type="button" class="btn-t" id="qpop-undo" data-act="undo-clear">Undo</button></div>'
         : '<div class="dd-none">Nothing queued yet. Tick devices in the list, or search above.</div>') +
-      '</div><div class="qpop-f"><button type="button" class="btn-p" id="qpop-open" data-act="go" data-route="compare">Open comparison ' + I.arrow + '</button><button type="button" class="btn-o" id="qpop-clear" data-act="clear-queue">Clear</button></div>';
+      '</div><div class="qpop-f"><button type="button" class="btn-p" id="qpop-open" data-act="go" data-route="compare">Open comparison ' + I.arrow + '</button><button type="button" class="btn-o" id="qpop-clear" data-act="clear-queue"' + (n ? "" : " disabled") + '>Clear</button></div>';
   }
   function toggleQpop(open) {
     const p = $("#qpop"), o = open == null ? p.hidden : open;
@@ -2726,7 +2731,8 @@ button.tag:hover { filter: brightness(.95); }
         break;
       }
       case "add": if (focusId("cref2-" + id)) return; break;
-      case "clear-queue": if (focusId("qpop-clear") || focusId("badge")) return; break;
+      case "clear-queue": if (focusId("qpop-undo") || focusId("qpop-clear") || focusId("badge")) return; break;
+      case "undo-clear": if (focusId("qpop-open") || focusId("badge")) return; break;
       case "reset-f": if (focusId("f-reset") || focusId("fq")) return; break;
       case "fx": { const c = $$("#fchips .fchip")[prevChip]; if (c) { c.focus(); return; } if (fid && fid.startsWith("efx-") && focusId("lbar")) return; if (focusId("fq")) return; break; }
       case "hide-same": if (focusId("hide-same")) return; break;
@@ -2757,7 +2763,7 @@ button.tag:hover { filter: brightness(.95); }
     }
     if (act !== "sv" && !pop.hidden) closePop();
     if (act !== "tip") hideTip();
-    if (act !== "badge" && act !== "rm" && act !== "clear-queue" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
+    if (act !== "badge" && act !== "rm" && act !== "clear-queue" && act !== "undo-clear" && !$("#qpop").hidden && !t.closest("#qpop")) toggleQpop(false);
     /* A dimmed control still closes the open popups above, then does nothing. */
     if (t.disabled || t.getAttribute("aria-disabled") === "true") return;
     if (act === "go" || act === "open") userNav = true;
@@ -2776,7 +2782,10 @@ button.tag:hover { filter: brightness(.95); }
       /* A new search starts at the top of the list, with focus on the list bar rather than on a card opened earlier. */
       case "find-all": { const q = $("#hq").value.trim().slice(0, 80); hideDD(); state.f.q = q; syncFilters(); applyList(); save(); userNav = true; lastOpener = null; browseY = 0; go("browse"); window.scrollTo(0, 0); break; }
       case "rm": removeQ(id); break;
-      case "clear-queue": state.queue = []; restoreQ = null; afterQ(); break;
+      case "clear-queue":
+        if (state.queue.length) { undoQ = state.queue.slice(); clearTimeout(undoT); undoT = setTimeout(() => { const had = document.activeElement && document.activeElement.id === "qpop-undo"; undoQ = null; renderQpop(); if (had && !focusId("qpop-clear")) focusId("badge"); }, 8000); }
+        state.queue = []; restoreQ = null; afterQ(); break;
+      case "undo-clear": if (undoQ) { state.queue = undoQ; undoQ = null; clearTimeout(undoT); afterQ(); } break;
       case "restore-q": if (restoreQ) { const r = restoreQ; restoreQ = null; state.queue = r.queue; setRef(r.refId); afterQ(); } break;
       case "keep-q": restoreQ = null; renderCompare(); save(); break;
       case "ref": setRef(refDev() && refDev().id === id ? null : id); break;
