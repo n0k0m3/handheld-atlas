@@ -834,6 +834,8 @@ button.tag:hover { filter: brightness(.95); }
   .bgrid { grid-template-columns: minmax(0, 1fr); }
   .side { display: none; }
   .seg { min-height: 44px; }
+  /* The header tabs keep the height of the header controls beside them. */
+  nav.segs .seg { min-height: 0; }
   .card-f .addb { min-height: 44px; }
   .refpill .xbtn { position: relative; }
   .refpill .xbtn::after { content: ""; position: absolute; inset: -12px; }
