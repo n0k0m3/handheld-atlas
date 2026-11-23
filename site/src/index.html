@@ -423,6 +423,11 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .empty { padding: 48px 16px 56px; display: grid; justify-items: center; text-align: center; gap: 6px; color: var(--fg-2); }
 .empty h2 { font-size: 16px; letter-spacing: -0.01em; color: var(--fg); }
 .empty p { max-width: 46ch; }
+.flink { color: inherit; text-decoration: none; }
+.flink:hover { color: var(--fg-brand); text-decoration: underline; text-underline-offset: 2px; }
+.dev-b .flink { color: inherit; }
+.tlinks { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 8px; font-size: 13px; }
+.tlinks .flink { color: var(--fg-brand); font-weight: 600; }
 /* Each removal names the device count it gives, so the user does not guess which filter is too strict. */
 .empty-why { display: grid; gap: 6px; justify-items: center; width: 100%; }
 .empty-l { display: grid; gap: 6px; width: min(360px, 100%); margin-top: 4px; }
@@ -938,6 +943,8 @@ button.tag:hover { filter: brightness(.95); }
     }
     return hasKey(FLAB, p) ? FLAB[p] : p.replace(/_/g, " ");
   }).filter(Boolean).join(" · ").replace(/^./, (c) => c.toUpperCase());
+  /* A link to Browse with one list filter. In path mode the href is the real /browse address, so a modifier click opens it in a new tab. */
+  const flink = (k, v, text, id, cls) => '<a class="flink' + (cls ? " " + cls : "") + '"' + (id ? ' id="' + id + '"' : "") + ' href="' + esc(PATHS ? "/browse?" + k + "=" + encodeURIComponent(v).replace(/%20/g, "+") : "#browse") + '" data-act="fl" data-k="' + k + '" data-v="' + esc(v) + '">' + esc(text) + "</a>";
   const link = (url, text, id) => "<a" + (id ? ' id="' + id + '"' : "") + ' href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(text || host(url)) + "</a>";
   const yn = (v) => (v === true ? "Yes" : v === false ? "No" : null);
   const nameOf = (d) => [d.brand, d.model, d.variant].filter(Boolean).join(" ");
@@ -2201,7 +2208,7 @@ button.tag:hover { filter: brightness(.95); }
     h += cols.map((d, i) => {
       const isR = d === cref, id = esc(d.id);
       return '<div class="ccol s' + (i + 1) + (isR ? " ref" : "") + '" id="ccol-' + id + '" data-act="setref" data-id="' + id + '">' +
-        '<div class="ccol-t"><span class="dev-b"><svg class="csw" viewBox="0 0 20 10" width="18" height="9" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d.brand) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
+        '<div class="ccol-t"><span class="dev-b"><svg class="csw" viewBox="0 0 20 10" width="18" height="9" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + flink("brands", d.brand, d.brand, "cbr-" + id) + '</span><button type="button" class="xbtn" id="crm-' + id + '" data-act="rm" data-id="' + id + '" title="Remove" aria-label="Remove ' + esc(d._name) + '">' + I.x + "</button></div>" +
         '<a class="ccol-n" id="copen2-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d.model) + "</a>" + '<div class="dev-v">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
         '<div class="ccol-f"><span class="price">' + priceTxt(d) + pmark(d, "cpm-" + id) + '</span><button type="button" class="tag' + (isR ? " ref" : " off") + '" id="cref2-' + id + '" data-act="setref" data-id="' + id + '" aria-pressed="' + (isR && hasRef) + '" aria-label="' + (isR && hasRef ? "Clear my device, " + esc(d._name) : "Set " + esc(d._name) + " as my device") + '">' + (isR ? (hasRef ? I.check + "My device" : "Baseline") : I.target + "Set as my device") + "</button></div></div>";
     }).join("");
@@ -2421,7 +2428,12 @@ button.tag:hover { filter: brightness(.95); }
           '</div><div class="pm-v"><span class="m">' + (n0(v) || "—") + "</span>" + dpill(dl) + '<span class="rk" title="Rank among the chip scores in the list">' + rank(k) + "</span></div></div>";
       }).join("") + "</div>" +
       '<div class="pm-n">' + esc("Bars scale to the fastest handheld in the list." + (pm.mapping_note ? " " + pm.mapping_note : "")) + "</div></div>";
-    h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + esc(d.brand) + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div></div>" +
+    h += '</div><div class="dcol"><div class="panel tcard"><div><div class="dev-b">' + flink("brands", d.brand, d.brand, "dt-brand", "") + '</div><h1 id="dt-h1" tabindex="-1">' + esc(d.model) + "</h1>" + '<div class="mute">' + esc(d.variant || socName(d.soc_id)) + "</div>" +
+      (() => { const nb = DEV.filter((x) => x.brand === d.brand).length, ns = DEV.filter((x) => x.soc_id === d.soc_id).length;
+        const l = [];
+        if (ns > 1) l.push(flink("soc", d.soc_id, plural(ns, "device") + " with " + socName(d.soc_id), "dt-soc"));
+        if (nb > 1) l.push(flink("brands", d.brand, "All " + nb + " " + d.brand + " devices", "dt-brandall"));
+        return l.length ? '<div class="tlinks">' + l.join("") + "</div>" : ""; })() + "</div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d, "dt-pm") : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
       '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
       '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear my device" : "Every other device then shows how it differs. This is separate from the compare list.") + '">' + (isR ? I.check + "My device" : I.target + "Set as my device") + "</button>" +
@@ -2739,7 +2751,7 @@ button.tag:hover { filter: brightness(.95); }
     }
     const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length, prevQueue = state.queue.slice(), prevChip = $$("#fchips .fchip").indexOf(t);
     /* A device name is a real link: a modifier click opens its address in a new tab or window, a plain click stays in the page. */
-    if (act === "open" && t.tagName === "A") {
+    if ((act === "open" || act === "fl") && t.tagName === "A") {
       if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
       e.preventDefault();
     }
@@ -2756,6 +2768,8 @@ button.tag:hover { filter: brightness(.95); }
         if (PATHS && t.dataset.back && history.state && history.state.from === t.dataset.route) { history.back(); break; }
         go(t.dataset.route); break;
       case "open": go("detail", id); break;
+      /* A chip or brand link starts a new Browse question with only that filter. */
+      case "fl": state.f = DEF_F(); state.f.sel[t.dataset.k] = [v]; syncFilters(); applyList(); userNav = true; go("browse"); save(); break;
       case "q": toggleQBtn(id); break;
       /* The header search keeps its query and results after an add, so several matches can go in; the Compare slot clears for the next name. */
       case "add": { addQ(id); const inp = document.getElementById(t.dataset.from); if (inp) { if (t.dataset.from !== "hq") inp.value = ""; renderDD(t.dataset.from); inp.focus(); } break; }
