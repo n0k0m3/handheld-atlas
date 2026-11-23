@@ -2675,7 +2675,8 @@ button.tag:hover { filter: brightness(.95); }
     $("#nav-compare").setAttribute("aria-pressed", String(route === "compare"));
     if (route === "compare") renderCompare();
     else if (route === "detail") renderDetail();
-    else { if (route === "home") renderHome(); syncStickyPad(); }
+    /* A return to Home ends an unfinished "Change" of My device. */
+    else { if (route === "home") { if (!same) homeMineEdit = false; renderHome(); } syncStickyPad(); }
     if (route === "browse") syncTblFade();
     /* A user's move to another screen adds a history entry, so the browser's Back button works. Start-up, clean-up and Back itself replace. */
     writeUrl(PATHS && userNav && !popNav && !same, from);
@@ -2936,6 +2937,8 @@ button.tag:hover { filter: brightness(.95); }
       if (!tip.hidden) { hideTip(); return; }
       if (!pop.hidden) { const b = popBtn; closePop(); if (b) b.focus(); return; }
       if (!$("#qpop").hidden) { toggleQpop(false); $("#badge").focus(); return; }
+      /* Escape in the My device box with a device already set ends the "Change" and keeps the device. */
+      if (e.target.id === "mq" && homeMineEdit && refDev() && (!$("#mq-dd") || $("#mq-dd").hidden)) { homeMineEdit = false; renderHomeMine(); focusId("mine-change"); return; }
       const dd = e.target.closest ? e.target.closest(".dd") : null;
       if (dd) { const inp = document.getElementById(dd.id.slice(0, -3)); if (inp) inp.focus(); }
       hideDD();
