@@ -177,17 +177,12 @@ a.ibtn { text-decoration: none; }
 .phead h1:focus { outline: none; }
 .phead h1:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .eyebrow { font-size: 12px; font-weight: 600; color: var(--fg-2); }
-.hero { font-size: 52px; letter-spacing: -0.035em; line-height: 1; margin-top: 4px; }
 .lede { max-width: 60ch; color: var(--fg-2); font-size: 14px; }
 
 /* ---------- home ---------- */
-.home { gap: 20px; }
+.home { gap: 16px; }
 #home-h1:focus { outline: none; }
 #home-h1:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.hhero { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 12px; align-items: center; padding: 24px 0 4px; }
-.htxt { display: grid; gap: 12px; min-width: 0; grid-column: span 2; padding-right: 36px; }
-.hhero .lede { max-width: 600px; }
-.hart { margin: 0; padding: 12px; display: grid; gap: 10px; min-width: 0; }
 .hart-st { position: relative; border-radius: 6px; background: var(--bg-page); background-image: radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 16px 16px; padding: 20px 20px 36px; }
 .hart-st svg { width: 100%; height: auto; overflow: visible; }
 .hart-sb { position: absolute; left: 20px; bottom: 10px; display: flex; align-items: center; gap: 6px; font: 12px var(--f-mono); color: var(--fg-2); width: calc(100% - 40px); }
@@ -195,19 +190,60 @@ a.ibtn { text-decoration: none; }
 .hart-sb i::before, .hart-sb i::after { content: ""; position: absolute; top: -5px; width: 2px; height: 8px; background: var(--fg-2); }
 .hart-sb i::before { left: 0; }
 .hart-sb i::after { right: 0; }
-.hart figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; font-size: 12px; color: var(--fg-2); }
-.hart figcaption b { color: var(--fg); font-weight: 700; }
-.hart-l { display: flex; flex-wrap: wrap; gap: 4px 14px; }
-.hart-l > span { display: inline-flex; align-items: center; gap: 6px; }
-.hcta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
-.hstats { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 8px; }
-.hstat b { display: block; font: 700 22px/30px var(--f-mono); letter-spacing: -0.02em; }
-.hstat span { font-size: 12px; color: var(--fg-2); }
-.hgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-.hcard { padding: 16px; display: grid; gap: 8px; align-content: start; }
-.hcard h2 { font-size: 16px; letter-spacing: -0.01em; }
+/* Home is a working screen: My device, the compare list at true scale, and the newest devices. */
+.hhead { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; padding-top: 8px; }
+.hhead > div { min-width: 0; }
+.hscope { color: var(--fg-2); margin-top: 6px; }
+.hmine { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 12px 16px; }
+.hmine h2 { font-size: 14px; flex: none; }
+.mine-q { position: relative; flex: 1 1 280px; max-width: 440px; min-width: 0; }
+.mine-q .srch-box { background: var(--bg); border-color: var(--border-strong); height: 36px; }
+.mine-q .srch-box:focus-within { border-color: var(--accent); }
+.mine-x { color: var(--fg-2); font-size: 13px; flex: 1 1 240px; }
+.mine-set { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; flex: 1 1 auto; min-width: 0; }
+.mine-set .mine-n { font-weight: 700; font-size: 15px; color: var(--fg); text-decoration: none; }
+.mine-set .mine-n:hover { color: var(--fg-brand); text-decoration: underline; }
+.mine-set .mute { font-size: 13px; }
+.mine-set .btn-t { font-size: 13px; }
+.hcols { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 16px; align-items: start; }
+.hpan-h { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; padding: 12px 16px; min-height: 56px; border-bottom: 1px solid var(--border); }
+.hpan-h h2 { font-size: 15px; letter-spacing: -0.01em; }
+.hpan-s { color: var(--fg-2); font-size: 12.5px; }
+.hpan-h .btn-o { margin-left: auto; padding: 6px 12px; font-size: 13px; }
+.hcmp .hart-st { margin: 16px 16px 0; }
+.hempty { padding: 24px 16px; color: var(--fg-2); display: grid; gap: 10px; justify-items: start; }
+.hlg { padding: 8px 16px 12px; }
+.hlg-r { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto 64px; gap: 12px; align-items: center; padding: 7px 0; border-top: 1px solid var(--border); font-size: 13px; }
+.hlg-r:first-child { border-top: 0; }
+.hlg-r a, .hl-n a { color: var(--fg); font-weight: 600; text-decoration: none; min-width: 0; }
+.hlg-r a:hover, .hl-n a:hover { color: var(--fg-brand); text-decoration: underline; }
+.hlg-r .m { color: var(--fg-2); font-size: 12px; text-align: right; }
+.hlg-r .m.w { color: var(--fg); }
+.hl-r { display: grid; grid-template-columns: minmax(0, 1fr) 92px 92px 84px 32px; gap: 8px; align-items: center; padding: 8px 16px; border-top: 1px solid var(--border); }
+.hl-r:first-child { border-top: 0; }
+.hl-r.hl-h { padding-block: 8px 6px; font-size: 11.5px; color: var(--fg-2); font-weight: 600; }
+.hl-h > span { text-align: right; }
+.hl-n { min-width: 0; }
+.hl-n a { font-weight: 700; }
+.hl-s { font-size: 12px; color: var(--fg-2); overflow-wrap: anywhere; }
+.hl-v { display: grid; justify-items: end; gap: 3px; font: 12.5px var(--f-mono); white-space: nowrap; }
+.hl-v .tag { font-family: var(--f-ui); }
+.hadd { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid var(--border-strong); border-radius: 6px; color: var(--fg-2); background: var(--bg); justify-self: end; }
+.hadd:hover { color: var(--fg-brand); border-color: var(--accent); }
+.hadd[aria-pressed="true"] { color: var(--fg-onaccent); background: var(--bg-brand); border-color: var(--bg-brand); }
+.hadd:disabled { opacity: .45; cursor: default; }
+@media (max-width: 980px) { .hcols { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) {
+  .hl-r { grid-template-columns: repeat(3, minmax(0, 1fr)) 32px; row-gap: 6px; }
+  .hl-n { grid-column: 1 / -1; }
+  .hl-r.hl-h { display: none; }
+  .hl-v { justify-items: start; }
+  .hl-v::before { content: attr(data-l); font: 600 11px var(--f-ui); color: var(--fg-2); }
+  .hlg-r { grid-template-columns: 22px minmax(0, 1fr) 64px; }
+  .hlg-r .m.dim { display: none; }
+}
 .hcredit { max-width: 760px; font-size: 12px; color: var(--fg-2); text-wrap: pretty; }
-.hcard p, .steps { color: var(--fg-2); font-size: 13px; line-height: 1.5; }
+.steps { color: var(--fg-2); font-size: 13px; line-height: 1.5; }
 .help > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-weight: 700; font-size: 13px; border-radius: 10px; }
 .help > summary::-webkit-details-marker { display: none; }
 .help > summary::before { content: "?"; width: 18px; height: 18px; border-radius: 9px; display: grid; place-items: center; font: 700 11px var(--f-mono); color: var(--fg-2); box-shadow: inset 0 0 0 1.5px var(--fg-2); flex: none; }
@@ -511,7 +547,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .stage2d .shp.lid { fill-opacity: .03; }
 /* Overlay: outlines only, so the fills never mix. The reference keeps a light fill. */
 .stage2d.ov .shp { fill-opacity: 0; }
-.stage2d .s3 .shp, .hart .s3 .shp { stroke-width: 2.6; stroke-linecap: round; }
+.stage2d .s3 .shp { stroke-width: 2.6; stroke-linecap: round; }
 .stage2d.ov .rf .shp { fill: var(--fg-2); fill-opacity: .08; }
 
 .stage2d .shp.mod { fill-opacity: .22; }
@@ -735,8 +771,6 @@ button.tag:hover { filter: brightness(.95); }
 @media (max-width: 1100px) { .sgrid { grid-template-columns: minmax(0, 1fr); } .scol { display: contents; } }
 @media (max-width: 960px) {
   .dgrid { grid-template-columns: minmax(0, 1fr); }
-  .hhero { grid-template-columns: minmax(0, 1fr); }
-  .htxt { grid-column: auto; padding-right: 0; }
   .size-b { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 759px) {
@@ -769,7 +803,6 @@ button.tag:hover { filter: brightness(.95); }
   .stage { height: 240px; }
   .cards { grid-template-columns: minmax(0, 1fr); }
   h1 { font-size: 24px; }
-  .hero { font-size: 32px; }
   .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tile:nth-child(3) { border-left: 0; }
   .tile:nth-child(n+3) { border-top: 1px solid var(--border); }
@@ -817,21 +850,18 @@ button.tag:hover { filter: brightness(.95); }
 </header>
 
 <main class="main home" id="scr-home" aria-label="Home" hidden>
-  <section class="hhero">
-   <div class="htxt">
-    <p class="eyebrow" id="home-eyebrow">x86 handhelds · 2022 onward</p>
-    <h1 class="hero" id="home-h1" tabindex="-1">Find your next handheld</h1>
-    <p class="lede">Every x86 handheld gaming PC since 2022. True-scale outlines, PassMark scores per chip, and a side-by-side diff for up to eight devices.</p>
-    <div class="hcta"><button type="button" class="btn-p" data-act="go" data-route="browse">Browse the devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button><button type="button" class="btn-o" data-act="go" data-route="compare">Open Compare</button></div>
-    <div class="hstats"><div class="hstat"><b id="home-n">–</b><span>devices</span></div><div class="hstat"><b id="home-socs">–</b><span>chips</span></div><div class="hstat"><b id="home-traced">–</b><span>traced outlines</span></div></div>
-   </div>
-   <figure class="panel hart" id="home-art" hidden></figure>
-  </section>
-  <section class="hgrid">
-    <article class="panel hcard"><h2>Browse</h2><p>Filter by price, chip, screen, ports and more. Search by name or chip, and sort any column.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Filter all devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
-    <article class="panel hcard"><h2>Compare</h2><p>Up to eight devices side by side: outlines at true scale, a 3D view, and a diff of every spec.</p><button type="button" class="btn-t" data-act="go" data-route="compare">Compare up to eight <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
-    <article class="panel hcard"><h2>Sources</h2><p>Each device sheet lists its sources, conflicts and gaps. A value with a dotted underline opens its own source.</p><button type="button" class="btn-t" data-act="go" data-route="browse">Open a device sheet <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></article>
-  </section>
+  <div class="hhead">
+    <div><h1 id="home-h1" tabindex="-1">x86 handheld PCs since 2022</h1><p class="hscope" id="home-scope"></p></div>
+    <button type="button" class="btn-p" id="home-browse" data-act="go" data-route="browse">Browse all devices</button>
+  </div>
+  <section class="panel hmine" id="home-mine" aria-labelledby="home-mine-h"></section>
+  <div class="hcols">
+    <section class="panel hcmp" id="home-cmp" aria-labelledby="home-cmp-h"></section>
+    <section class="panel hnew" aria-labelledby="home-new-h">
+      <div class="hpan-h"><h2 id="home-new-h">Latest releases</h2><span class="hpan-s" id="home-new-s">Newest first</span></div>
+      <div class="hlist" id="home-new"></div>
+    </section>
+  </div>
   <p class="hcredit" id="home-credit">Inspired by <a href="https://retrocatalog.com" target="_blank" rel="noopener">retrocatalog.com</a>.<span id="home-rc"></span></p>
 </main>
 
@@ -1332,7 +1362,8 @@ button.tag:hover { filter: brightness(.95); }
     }
     if (Array.isArray(s.queue)) state.queue = s.queue.filter((id, i, a) => typeof id === "string" && hasKey(BY_ID, id) && a.indexOf(id) === i).slice(0, MAX_Q);
     else if (s.fresh) state.queue = DEFAULT_Q.slice();
-    if (typeof s.refId === "string" && hasKey(BY_ID, s.refId)) state.refId = s.refId; else if (s.fresh) state.refId = state.queue[0] || null;
+    /* A fresh visitor has no device of their own yet: Home asks for it, so the page never claims one for them. */
+    if (typeof s.refId === "string" && hasKey(BY_ID, s.refId)) state.refId = s.refId;
     restoreQ = null;
     if (s.prev && typeof s.prev === "object" && Array.isArray(s.prev.queue)) {
       /* An offer whose devices all left the data has nothing to give back. */
@@ -1445,6 +1476,7 @@ button.tag:hover { filter: brightness(.95); }
   function rebuildList() { buildRows(); buildCards(); applyList(); renderListBar(); }
   function afterQ() {
     syncQueueUI();
+    if (state.route === "home") renderHomeLists();
     if (state.route === "compare") renderCompare();
     if (state.route === "detail") renderDetail();
     save();
@@ -1473,6 +1505,7 @@ button.tag:hover { filter: brightness(.95); }
   }
   function afterRef() {
     rebuildList();
+    if (state.route === "home") renderHome();
     if (state.route === "compare") renderCompare();
     if (state.route === "detail") renderDetail();
   }
@@ -1515,12 +1548,13 @@ button.tag:hover { filter: brightness(.95); }
     if (!inp || !dd) return;
     const q = inp.value.trim();
     if (!q) { dd.hidden = true; dd.innerHTML = ""; syncCombo(inp, dd); return; }
-    const res = searchDevs(q), full = qFull(), find = which === "hq";
+    const res = searchDevs(q), full = qFull(), find = which === "hq", mine = which === "mq";
     const hl = (t) => { const i = t.toLowerCase().indexOf(q.toLowerCase()); return i < 0 ? esc(t) : esc(t.slice(0, i)) + '<mark class="hl">' + esc(t.slice(i, i + q.length)) + "</mark>" + esc(t.slice(i + q.length)); };
     const addTxt = (q2) => (q2 ? I.check + "In compare" : full ? "List full" : I.plus + "Add to compare");
     let h = res.map((d) => {
       const q2 = inQ(d.id), dis = q2 || full, id = esc(d.id), txt = '<div><div class="dd-n">' + hl(d._short) + '</div><div class="dd-s">' + esc(d._sub) + "</div></div>";
       /* The add button is for the pointer (tabindex -1); the keyboard adds with Shift+Enter, so the option holds no tab stop. */
+      if (mine) return '<div class="dd-item" role="option" aria-selected="false" id="mq-o-' + id + '" data-act="mine" data-id="' + id + '">' + txt + (state.refId === d.id ? '<span class="dd-a">' + I.check + "My device</span>" : "") + "</div>";
       if (find) return '<div class="dd-item" role="option" aria-selected="false" id="hq-o-' + id + '" data-act="open" data-id="' + id + '">' + txt +
         '<button type="button" class="dd-a" tabindex="-1" data-act="add" data-id="' + id + '" data-from="hq"' + (dis ? ' aria-disabled="true"' : "") + ">" + addTxt(q2) + "</button></div>";
       return '<div class="dd-item" role="option" aria-selected="false" id="sq-o-' + id + '" data-act="add" data-id="' + id + '" data-from="sq"' + (dis ? ' aria-disabled="true"' : "") + ">" + txt + '<span class="dd-a">' + addTxt(q2) + "</span></div>";
@@ -1528,7 +1562,7 @@ button.tag:hover { filter: brightness(.95); }
     if (!res.length) h = '<div class="dd-none" role="option" aria-disabled="true" id="' + which + '-none">No device matches “' + esc(q) + "”.</div>";
     if (find) h += '<div class="dd-item dd-all" role="option" aria-selected="false" id="hq-o-all" data-act="find-all"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m20 20-4.4-4.4"></path></svg><div>Search Browse for “' + esc(q) + "”</div></div>" +
       '<div class="dd-hint" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd> move · <kbd>Enter</kbd> open · <kbd>Shift</kbd>+<kbd>Enter</kbd> add to compare</div>';
-    else if (res.length) h += '<div class="dd-hint" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd> move · <kbd>Enter</kbd> add</div>';
+    else if (res.length) h += '<div class="dd-hint" aria-hidden="true"><kbd>↑</kbd><kbd>↓</kbd> move · <kbd>Enter</kbd> ' + (mine ? "set as my device" : "add") + "</div>";
     dd.innerHTML = h;
     dd.hidden = false;
     const opts = ddOpts(dd), keep = opts.find((o) => o.dataset.key === ddActive[which]);
@@ -1548,6 +1582,64 @@ button.tag:hover { filter: brightness(.95); }
     if (dd.hidden) inp.removeAttribute("aria-activedescendant");
   }
   function hideDD() { $$(".dd").forEach((d) => { d.hidden = true; const inp = document.getElementById(d.id.slice(0, -3)); if (inp) syncCombo(inp, d); }); }
+  /* ---------- home ---------- */
+  /* Home asks one question (which handheld the visitor owns), resumes the compare list at true scale, and lists the newest devices against My device. */
+  let homeMineEdit = false;
+  const LATEST = (() => {
+    const seen = Object.create(null), out = [];
+    DEV.filter((d) => d.release_date).slice().sort((a, b) => b.release_date.localeCompare(a.release_date) || a._name.localeCompare(b._name)).forEach((d) => {
+      const k = d.brand + " " + d.model;
+      if (seen[k]) { seen[k].n++; return; }
+      seen[k] = { d, n: 1 }; out.push(seen[k]);
+    });
+    return out.slice(0, 8);
+  })();
+  function renderHomeMine() {
+    const ref = refDev(), el = $("#home-mine");
+    let h = '<h2 id="home-mine-h">My device</h2>';
+    if (ref && !homeMineEdit) {
+      h += '<div class="mine-set"><a class="mine-n" id="mine-open" href="' + esc(urlFor("detail", ref.id)) + '" data-act="open" data-id="' + esc(ref.id) + '">' + esc(ref._short) + "</a>" +
+        '<span class="mute">' + esc([ref.variant || socName(ref.soc_id), ref._w != null ? n0(ref._w) + " g" : null, ref.msrp_usd != null ? priceTxt(ref) : null].filter(Boolean).join(", ")) + "</span>" +
+        '<button type="button" class="btn-t" id="mine-change" data-act="mine-change">Change</button><button type="button" class="btn-t" id="mine-clear" data-act="clear-ref">Clear</button></div>';
+    } else {
+      h += '<div class="mine-q"><div class="srch-box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m20 20-4.4-4.4"></path></svg><label class="sr" for="mq">Which handheld do you play on now?</label>' +
+        '<input id="mq" type="search" placeholder="Which handheld do you play on now?" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="mq-dd"></div>' +
+        '<div class="dd" id="mq-dd" role="listbox" aria-label="Devices" hidden></div></div>' +
+        '<p class="mine-x">Every list, sheet and comparison then shows how other devices differ from it.</p>';
+    }
+    el.innerHTML = h;
+  }
+  function homeAdd(d) {
+    const q = inQ(d.id), dis = !q && qFull(), id = esc(d.id);
+    return '<button type="button" class="hadd" id="hadd-' + id + '" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ' title="' + (q ? "In compare. Press to remove." : dis ? "Compare list full" : "Add to compare") + '" aria-label="' + (q ? "Remove " + esc(d._name) + " from compare" : "Add " + esc(d._name) + " to compare") + '">' + (q ? I.check : I.plus) + "</button>";
+  }
+  function renderHomeLists() {
+    const cols = state.queue.map((id) => BY_ID[id]).filter(Boolean), n = cols.length, ref = refDev();
+    let h = '<div class="hpan-h"><h2 id="home-cmp-h">Compare list at true scale</h2><span class="hpan-s">' + (n ? plural(n, "device") + ", front view" : "Empty") + "</span>" +
+      (n ? '<button type="button" class="btn-o" id="home-open-cmp" data-act="go" data-route="compare">Open the comparison</button>' : "") + "</div>";
+    if (n) {
+      const shapes = cols.map((d) => shapeFor(d, "front")), MW = Math.max(...shapes.map((sh) => sh.w)), MH = Math.max(...shapes.map((sh) => sh.h)), VW = MW + 8;
+      const g = shapes.map((sh, i) => '<g class="s' + (i + 1) + (ref && cols[i].id === ref.id ? " rf" : "") + '" transform="translate(' + r2((MW - sh.w) / 2) + " " + r2((MH - sh.h) / 2) + ')">' + partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + scrRect(sh.screen, "scr").replace("<rect ", '<rect style="stroke-dasharray:' + DASH[i] + '" ') + "<title>" + esc(cols[i]._name) + "</title></g>").join("");
+      h += '<div class="hart-st stage2d ov"><svg viewBox="-4 -4 ' + r2(VW) + " " + r2(MH + 8) + '" role="img" aria-label="' + esc(cols.map((d) => d._short).join(", ")) + ', overlaid at true scale, front view">' + g + "</svg>" +
+        '<div class="hart-sb" aria-hidden="true"><i style="width:' + (100 / VW * 100).toFixed(2) + '%"></i><span>100 mm</span></div></div>';
+      h += '<div class="hlg">' + cols.map((d, i) => { const dm = dimsH(d);
+        return '<div class="hlg-r s' + (i + 1) + '"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' +
+          '<a id="hlg-' + esc(d.id) + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + esc(d.id) + '">' + esc(d._short) + "</a>" +
+          '<span class="m dim">' + esc(mm(dm.w) + " × " + mm(dm.h) + " × " + mm(dm.d) + " mm") + '</span><span class="m w">' + (d._w != null ? n0(d._w) + " g" : "—") + "</span></div>"; }).join("") + "</div>";
+    } else h += '<div class="hempty"><p>Add devices from Browse or from the search at the top. They show here at true scale, one outline over the other.</p><button type="button" class="btn-o" id="home-go-browse" data-act="go" data-route="browse">Open Browse</button></div>';
+    $("#home-cmp").innerHTML = h;
+    $("#home-new-s").textContent = ref ? "Newest first, against " + ref._short : "Newest first";
+    $("#home-new").innerHTML = '<div class="hl-r hl-h" aria-hidden="true"><span></span><span>Price</span><span>G3D Mark</span><span>Weight</span><span></span></div>' + LATEST.map(({ d, n: nv }) => {
+      const id = esc(d.id), isR = !!ref && ref.id === d.id, g = scoreOf(d, "g3d_mark");
+      const cell = (l, txt, dl) => '<span class="hl-v" data-l="' + l + '">' + txt + (ref && !isR ? dpill(dl) : "") + "</span>";
+      return '<div class="hl-r"><div class="hl-n"><a id="hl-' + id + '" href="' + esc(urlFor("detail", d.id)) + '" data-act="open" data-id="' + id + '">' + esc(d._short) + "</a>" + (isR ? ' <span class="tag ref">' + I.check + "My device</span>" : "") +
+        '<div class="hl-s">' + esc(socName(d.soc_id) + (nv > 1 ? ", and " + (nv - 1) + " more variant" + (nv > 2 ? "s" : "") : "") + ", released ") + '<span class="nw">' + esc(d.release_date) + "</span></div></div>" +
+        cell("Price", "<span>" + priceTxt(d) + pmark(d, "hpm-" + id) + "</span>", ref ? delta(d.msrp_usd, ref.msrp_usd, true) : null) +
+        cell("G3D Mark", g != null ? n0(g) : "—", ref ? delta(g, scoreOf(ref, "g3d_mark")) : null) +
+        cell("Weight", d._w != null ? n0(d._w) + " g" : "—", ref ? delta(d._w, ref._w, true) : null) + homeAdd(d) + "</div>";
+    }).join("");
+  }
+  function renderHome() { renderHomeMine(); renderHomeLists(); }
   /* "Clear" keeps the old list for 8 s, so one stray press does not lose a list built over a session. Any add ends the offer. */
   let undoQ = null, undoT = 0;
   function renderQpop() {
@@ -2583,7 +2675,7 @@ button.tag:hover { filter: brightness(.95); }
     $("#nav-compare").setAttribute("aria-pressed", String(route === "compare"));
     if (route === "compare") renderCompare();
     else if (route === "detail") renderDetail();
-    else syncStickyPad();
+    else { if (route === "home") renderHome(); syncStickyPad(); }
     if (route === "browse") syncTblFade();
     /* A user's move to another screen adds a history entry, so the browser's Back button works. Start-up, clean-up and Back itself replace. */
     writeUrl(PATHS && userNav && !popNav && !same, from);
@@ -2752,7 +2844,7 @@ button.tag:hover { filter: brightness(.95); }
       if (!tip.hidden && !tip.contains(e.target)) hideTip();
       if (!pop.hidden && !pop.contains(e.target)) closePop();
       if (!$("#qpop").hidden && !e.target.closest("#qpop")) toggleQpop(false);
-      if (!e.target.closest(".srch, .cslot")) hideDD();
+      if (!e.target.closest(".srch, .cslot, .mine-q")) hideDD();
       return;
     }
     const act = t.dataset.act, id = t.dataset.id, v = t.dataset.v, fid = t.id, prevVisible = visibleList.length, prevQueue = state.queue.slice(), prevChip = $$("#fchips .fchip").indexOf(t);
@@ -2774,6 +2866,8 @@ button.tag:hover { filter: brightness(.95); }
         if (PATHS && t.dataset.back && history.state && history.state.from === t.dataset.route) { history.back(); break; }
         go(t.dataset.route); break;
       case "open": go("detail", id); break;
+      case "mine": homeMineEdit = false; hideDD(); setRef(id); save(); if (!focusId("mine-change")) focusId("home-h1"); break;
+      case "mine-change": homeMineEdit = true; renderHomeMine(); focusId("mq"); break;
       /* A chip or brand link starts a new Browse question with only that filter. */
       case "fl": state.f = DEF_F(); state.f.sel[t.dataset.k] = [v]; syncFilters(); applyList(); userNav = true; go("browse"); save(); break;
       case "q": toggleQBtn(id); break;
@@ -2857,7 +2951,7 @@ button.tag:hover { filter: brightness(.95); }
      Escape is handled above. */
   document.addEventListener("keydown", (e) => {
     const inp = e.target;
-    if (!(inp instanceof HTMLInputElement) || (inp.id !== "hq" && inp.id !== "sq") || e.altKey || e.ctrlKey || e.metaKey || e.isComposing) return;
+    if (!(inp instanceof HTMLInputElement) || (inp.id !== "hq" && inp.id !== "sq" && inp.id !== "mq") || e.altKey || e.ctrlKey || e.metaKey || e.isComposing) return;
     const dd = document.getElementById(inp.id + "-dd");
     if (!dd) return;
     if (dd.hidden) { if (e.key === "ArrowDown" && inp.value.trim()) { e.preventDefault(); renderDD(inp.id); } return; }
@@ -2885,7 +2979,7 @@ button.tag:hover { filter: brightness(.95); }
   });
   document.addEventListener("input", (e) => {
     const t = e.target;
-    if (t.id === "hq" || t.id === "sq") { ddActive[t.id] = null; renderDD(t.id); return; }
+    if (t.id === "hq" || t.id === "sq" || t.id === "mq") { ddActive[t.id] = null; renderDD(t.id); return; }
     if (t.classList.contains("frng")) { rangeInput(t); return; }
     if (t.id === "fq") { state.f.q = t.value.slice(0, 80); scheduleApply(); }
   });
@@ -2893,7 +2987,7 @@ button.tag:hover { filter: brightness(.95); }
   document.addEventListener("focusin", (e) => {
     if (e.target instanceof Element && e.target.classList.contains("pmark")) showTip(e.target);
     /* A new visit to a search box starts on its first result. */
-    if (e.target.id === "hq" || e.target.id === "sq") { closePop(); toggleQpop(false); ddActive[e.target.id] = null; renderDD(e.target.id); }
+    if (e.target.id === "hq" || e.target.id === "sq" || e.target.id === "mq") { closePop(); toggleQpop(false); ddActive[e.target.id] = null; renderDD(e.target.id); }
     const fp = $("#fpanel"); lastFp = fp && e.target instanceof Element && (fp.contains(e.target) || e.target.id === "tf-toggle") ? e.target : null;
     lastFpKb = !!lastFp && lastFp.matches(":focus-visible");
     if (e.target instanceof Element) revealInTable(e.target);
@@ -2902,7 +2996,7 @@ button.tag:hover { filter: brightness(.95); }
     const t = e.target;
     if (!(t instanceof Element)) return;
     if (t === tipBtn) hideTip();
-    const box = t.closest(".dd") || ((t.id === "hq" || t.id === "sq") ? document.getElementById(t.id + "-dd") : null);
+    const box = t.closest(".dd") || ((t.id === "hq" || t.id === "sq" || t.id === "mq") ? document.getElementById(t.id + "-dd") : null);
     const inQpop = !!t.closest("#qpop"), inPop = pop.contains(t);
     if (!box && !inQpop && !inPop) return;
     /* Decide on the next tick. A re-render also fires focusout, and the restored focus lands after it. */
@@ -2995,25 +3089,12 @@ button.tag:hover { filter: brightness(.95); }
   $("#cnt").title = DEV.length + " devices";
   $("#cnt").textContent = DEV.length;
   $("#eyebrow").hidden = true;
-  $("#home-eyebrow").textContent = "x86 handhelds · 2022 onward · data from " + dataDate;
-  $("#home-n").textContent = DEV.length; $("#home-socs").textContent = SOCS.length;
-  $("#home-traced").textContent = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced").length;
+  $("#home-scope").textContent = plural(DEV.length, "device") + " and " + plural(SOCS.length, "chip") + ", data from " + dataDate + ".";
+  $("#home-browse").textContent = "Browse all " + DEV.length + " devices";
   /* Credit line on Home: count the traced top outlines that come from retrocatalog.com front images. */
   {
     const traced = DEV.filter((d) => ((OUT[d.id] || {}).top || {}).kind === "traced"), rc = traced.filter((d) => host(OUT[d.id].top.source) === "retrocatalog.com").length;
     $("#home-rc").textContent = rc ? " " + rc + " of the " + traced.length + " traced outlines come from its front images." : "";
-  }
-  /* Home art: three common handhelds overlaid at true scale, drawn with the compare colours and dashes. */
-  {
-    const devs = ["legion-go-2", "steam-deck-oled", "ayaneo-air-1s-7840u"].map((id) => BY_ID[id]).filter(Boolean), art = $("#home-art");
-    if (devs.length) {
-      const shapes = devs.map((d) => shapeFor(d, "front")), MW = Math.max(...shapes.map((sh) => sh.w)), MH = Math.max(...shapes.map((sh) => sh.h)), VW = MW + 8;
-      const g = shapes.map((sh, i) => '<g class="s' + (i + 1) + '" transform="translate(' + r2((MW - sh.w) / 2) + " " + r2((MH - sh.h) / 2) + ')">' + partsSvg(sh, "shp", ' style="stroke-dasharray:' + DASH[i] + '"') + scrRect(sh.screen, "scr").replace("<rect ", '<rect style="stroke-dasharray:' + DASH[i] + '" ') + "</g>").join("");
-      art.innerHTML = '<div class="hart-st stage2d ov"><svg viewBox="-4 -4 ' + r2(VW) + " " + r2(MH + 8) + '" role="img" aria-label="' + esc(devs.map((d) => d._short).join(", ")) + ', overlaid at true scale">' + g + "</svg>" +
-        '<div class="hart-sb" aria-hidden="true"><i style="width:' + (100 / VW * 100).toFixed(2) + '%"></i><span>100 mm</span></div></div>' +
-        "<figcaption><b>True scale, front view</b><span class=\"hart-l\">" + devs.map((d, i) => '<span class="s' + (i + 1) + '"><svg viewBox="0 0 20 10" width="20" height="10" aria-hidden="true"><line x1="0" y1="5" x2="20" y2="5" style="stroke:var(--c);stroke-width:2.5;stroke-dasharray:' + DASH[i] + '"/></svg>' + esc(d._short) + "</span>").join("") + "</span></figcaption>";
-      art.hidden = false;
-    }
   }
   $("#site-foot").innerHTML = "<p>" + DEV.length + " devices · " + SOCS.length + " chips · data " + esc(dataDate) + ".</p><p>Sizes and weights describe the device as held, with controllers and battery pack on. A clamshell uses its closed footprint and is drawn open. Top outlines are traced from product images. Other views are boxes from the stated sizes.</p>" +
     '<p>Code and data are on <a href="https://github.com/n0k0m3/handheld-atlas" target="_blank" rel="noopener">GitHub</a>. To report a wrong value, <a href="https://github.com/n0k0m3/handheld-atlas/issues" target="_blank" rel="noopener">open an issue</a>.</p>';
