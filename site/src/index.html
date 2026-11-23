@@ -201,14 +201,14 @@ a.ibtn { text-decoration: none; }
 .hhead { display: grid; gap: 8px; padding-top: 8px; }
 .hsub { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
 .hscope { color: var(--fg-2); }
-.hsub .btn-o { padding: 6px 12px; font-size: 13px; }
+.hsub .btn-t { font-size: 14px; }
+.hsub .btn-t .ic { width: 14px; height: 14px; }
 .hmine { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 12px 16px; min-height: 62px; }
 .hmine h2 { font-size: 14px; flex: none; }
 .mine-q { position: relative; flex: 1 1 280px; max-width: 440px; min-width: 0; }
-.mine-q .srch-box { background: var(--bg); border-color: var(--border-strong); height: 36px; }
-.mine-q .srch-box .ic { color: var(--fg-brand); }
+.mine-q .srch-box { background: var(--bg); border-color: var(--accent); height: 40px; }
 .mine-q .srch-box:focus-within { border-color: var(--accent); }
-.mine-x { color: var(--fg-2); font-size: 13px; flex: 1 1 240px; }
+.mine-x { color: var(--fg); font-size: 13px; flex: 1 1 240px; }
 .mine-set { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; flex: 1 1 auto; min-width: 0; }
 .mine-set .mine-n { font-weight: 700; font-size: 15px; color: var(--fg); text-decoration: none; }
 .mine-set .mine-n:hover { color: var(--fg-brand); text-decoration: underline; }
@@ -248,8 +248,9 @@ a.ibtn { text-decoration: none; }
 .hl-r .hadd { align-self: center; }
 .hl-v { padding-top: 1px; }
 .hl-v .tag { font-family: var(--f-ui); }
-.hadd { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--border-strong); border-radius: 6px; color: var(--fg-2); background: var(--bg); justify-self: end; }
-.hadd:hover { color: var(--fg-brand); border-color: var(--accent); }
+.hadd { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 6px; color: var(--fg-2); background: var(--bg); justify-self: end; }
+.hadd:hover, .hadd:focus-visible { color: var(--fg-brand); border-color: var(--accent); }
+.hl-r:hover .hadd:not([aria-pressed="true"]) { border-color: var(--border-strong); }
 .hadd[aria-pressed="true"] { color: var(--fg-onaccent); background: var(--bg-brand); border-color: var(--bg-brand); }
 .hadd:disabled { opacity: .45; cursor: default; }
 @media (max-width: 980px) { .hcols { grid-template-columns: minmax(0, 1fr); } }
@@ -493,7 +494,8 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .fixb { display: flex; align-items: baseline; gap: 10px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--fg); font: inherit; font-size: 13px; text-align: left; cursor: pointer; }
 .fixb:hover { border-color: var(--accent); background: var(--bg-hover); }
 .fixb b { font-weight: 700; }
-.fixb .m { flex: none; margin-left: auto; color: var(--fg-2); font-family: var(--f-mono); font-size: 12px; }
+.fixb .fx-n { flex: none; margin-left: auto; color: var(--fg-2); font-size: 12px; }
+.fixb .fx-n .m { font-family: var(--f-mono); color: var(--fg); }
 .fixb .fx-v { color: var(--fg-brand); font-weight: 600; }
 .empty .btn-p, .empty .btn-o { margin-top: 10px; }
 .empty .btn-o { background: var(--bg); color: var(--fg); }
@@ -539,7 +541,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 .addb .ic { width: 14px; height: 14px; }
 .addb.refc { justify-content: center; gap: 6px; font-weight: 600; color: var(--fg); }
 .addb.refc:not([aria-pressed="true"]) .ic, .tag.off .ic, .dact .btn-o:not([aria-pressed="true"]) .ic { color: var(--fg-brand); }
-.addb.refc:not([aria-pressed="true"]) { border-color: var(--border-strong); background: var(--bg); color: var(--fg-brand); }
+.addb.refc:not([aria-pressed="true"]) { border-color: transparent; background: transparent; color: var(--fg-brand); }
 .addb.refc:not([aria-pressed="true"]):hover { background: var(--bg-selected); }
 .addb.refc .ic { width: 12px; height: 12px; }
 .addb.refc:hover { color: var(--fg-brand); }
@@ -572,7 +574,7 @@ input.qbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16
 /* Overlay: outlines only, so the fills never mix. The reference keeps a light fill. */
 .stage2d.ov .shp { fill-opacity: 0; }
 .stage2d .s3 .shp { stroke-width: 2.6; stroke-linecap: round; }
-.stage2d.ov .rf .shp { fill: var(--fg-2); fill-opacity: .08; }
+.stage2d.ov .rf .shp { fill: var(--c); fill-opacity: .1; }
 
 .stage2d .shp.mod { fill-opacity: .22; }
 .sil .o.mod, .dstage .o.mod { fill: var(--slice); }
@@ -818,13 +820,15 @@ button.tag:hover { filter: brightness(.95); }
   .lg-t { flex-wrap: wrap; }
   .lg-t .m { order: 3; flex-basis: 100%; padding-left: 28px; }
   .size-c .grp-c .lbl { min-width: 44px; }
-  .badge-w, .lkey, .scr-k { display: none; }
+  .badge-w, .scr-k { display: none; }
+  .lkey { flex-basis: 100%; order: 9; }
   .badge-p { display: inline; }
   #gh-link { display: none; }
   .dd-a { min-height: 32px; }
   .bgrid { grid-template-columns: minmax(0, 1fr); }
   .side { display: none; }
-  .seg { min-height: 40px; }
+  .seg { min-height: 44px; }
+  .card-f .addb { min-height: 44px; }
   .refpill .xbtn { position: relative; }
   .refpill .xbtn::after { content: ""; position: absolute; inset: -12px; }
   .topf { display: block; }
@@ -880,7 +884,7 @@ button.tag:hover { filter: brightness(.95); }
 <main class="main home" id="scr-home" aria-label="Home" hidden>
   <div class="hhead">
     <h1 id="home-h1" tabindex="-1">x86 handheld PCs since 2022</h1>
-    <div class="hsub"><p class="hscope" id="home-scope"></p><button type="button" class="btn-o" id="home-browse" data-act="go" data-route="browse">Browse all devices</button></div>
+    <div class="hsub"><p class="hscope" id="home-scope"></p><button type="button" class="btn-t" id="home-browse" data-act="go" data-route="browse">Browse all devices <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button></div>
   </div>
   <section class="panel hmine" id="home-mine" aria-labelledby="home-mine-h"></section>
   <div class="hcols">
@@ -1544,7 +1548,7 @@ button.tag:hover { filter: brightness(.95); }
     $$('.addb[data-act="q"]').forEach((b) => {
       const q = inQ(b.dataset.id), dis = !q && full;
       b.setAttribute("aria-pressed", String(q)); b.disabled = dis;
-      b.innerHTML = q ? I.check + "In compare" : dis ? "List full" : I.plus + (b.closest(".card-f") ? "Compare" : "Add to compare");
+      b.innerHTML = q ? I.check + "In compare" : dis ? "List full" : I.plus + "Compare";
     });
     $("#badge-n").textContent = n + "/" + MAX_Q;
     $("#badge").classList.toggle("on", n > 0);
@@ -1579,7 +1583,7 @@ button.tag:hover { filter: brightness(.95); }
     if (!q) { dd.hidden = true; dd.innerHTML = ""; syncCombo(inp, dd); return; }
     const res = searchDevs(q), full = qFull(), find = which === "hq", mine = which === "mq";
     const hl = (t) => { const i = t.toLowerCase().indexOf(q.toLowerCase()); return i < 0 ? esc(t) : esc(t.slice(0, i)) + '<mark class="hl">' + esc(t.slice(i, i + q.length)) + "</mark>" + esc(t.slice(i + q.length)); };
-    const addTxt = (q2) => (q2 ? I.check + "In compare" : full ? "List full" : I.plus + "Add to compare");
+    const addTxt = (q2) => (q2 ? I.check + "In compare" : full ? "List full" : I.plus + "Compare");
     let h = res.map((d) => {
       const q2 = inQ(d.id), dis = q2 || full, id = esc(d.id), txt = '<div><div class="dd-n"><span>' + hl(d._short) + '</span><span class="dd-p">' + priceTxt(d) + '</span></div><div class="dd-s">' + esc(d._sub) + "</div></div>";
       /* The add button is for the pointer (tabindex -1); the keyboard adds with Shift+Enter, so the option holds no tab stop. */
@@ -1631,10 +1635,10 @@ button.tag:hover { filter: brightness(.95); }
         '<span class="mute">' + esc([ref.variant || socName(ref.soc_id), ref._w != null ? n0(ref._w) + " g" : null, ref.msrp_usd != null ? priceTxt(ref) : null].filter(Boolean).join(", ")) + "</span>" +
         '<button type="button" class="btn-t" id="mine-change" data-act="mine-change">Change</button><button type="button" class="btn-t" id="mine-clear" data-act="clear-ref">Clear</button></div>';
     } else {
-      h += '<div class="mine-q"><div class="srch-box">' + I.targetS + '<label class="sr" for="mq">Which handheld do you play on now?</label>' +
+      h += '<div class="mine-q"><div class="srch-box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m20 20-4.4-4.4"></path></svg><label class="sr" for="mq">Which handheld do you play on now?</label>' +
         '<input id="mq" type="search" placeholder="Which handheld do you play on now?" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="mq-dd"></div>' +
         '<div class="dd" id="mq-dd" role="listbox" aria-label="Devices" hidden></div></div>' +
-        '<p class="mine-x">No handheld yet? Pick the one that you know best. Every list then shows how other devices differ from it.</p>';
+        '<p class="mine-x">Every list then shows how other devices differ from it. No handheld yet? Pick the one that you know best.</p>';
     }
     el.innerHTML = h;
   }
@@ -1657,7 +1661,7 @@ button.tag:hover { filter: brightness(.95); }
           '<span class="m dim">' + esc(mm(dm.w) + "×" + mm(dm.h) + "×" + mm(dm.d) + " mm") + '</span><span class="m w">' + (d._w != null ? n0(d._w) + " g" : "—") + "</span></div>"; }).join("") + "</div>";
     } else h += '<div class="hempty"><p>Add devices from Browse or from the search at the top. They show here at true scale, one outline over the other.</p><button type="button" class="btn-o" id="home-go-browse" data-act="go" data-route="browse">Open Browse</button></div>';
     $("#home-cmp").innerHTML = h;
-    $("#home-new-s").innerHTML = ref ? "Newest first, against " + esc(ref._short) + " " + VKEY : "Newest first";
+    $("#home-new-s").innerHTML = ref ? "Newest first" + VKEY.replace(/<span class="dpill nt">.*?neither<\/span>/, '<span class="dpill eq">= same</span>') : "Newest first";
     $("#home-new-f").hidden = !LATEST.some(({ d }) => priceTip(d));
     $("#home-new").innerHTML = '<div class="hl-r hl-h" aria-hidden="true"><span>Device</span><span>Released</span><span>Price</span><span>G3D Mark</span><span>Weight</span><span>Compare</span></div>' + LATEST.map(({ d, n: nv }) => {
       const id = esc(d.id), isR = !!ref && ref.id === d.id, g = scoreOf(d, "g3d_mark");
@@ -1939,7 +1943,7 @@ button.tag:hover { filter: brightness(.95); }
     /* Row 1: count, reference, sort and the view switch. The verdict key and the column chips take row 2. */
     const lay = isNarrow() ? "" : '<div class="segs sm" role="group" aria-label="Layout">' + seg("layout", "table", I.table + "Table", state.layout === "table", "lay-table") + seg("layout", "cards", I.cards + "Cards", state.layout === "cards", "lay-cards") + "</div>";
     /* Lists show only better and worse: no list column has a neutral delta. */
-    const key = isNarrow() || !ref ? "" : VKEY.replace('class="ckey"', 'class="ckey lkey"').replace(/<span class="dpill nt">.*?neither<\/span>/, "");
+    const key = !ref ? "" : VKEY.replace('class="ckey"', 'class="ckey lkey"').replace(/<span class="dpill nt">.*?neither<\/span>/, "");
     if (cards) h += key + '<div class="lbar-r">' + '<span class="lbl">Sort</span><div class="segs sm" role="group" aria-label="Sort">' + [["g3d", "G3D"], ["cpu", "CPU"], ["price", "Price"], ["weight", "Weight"], ["battery", "Battery"]].map(([k, l]) => seg("sort", k, l + (state.sortK === k ? (state.sortDir < 0 ? " ↓" : " ↑") : ""), state.sortK === k, "sort-c-" + k)).join("") + "</div>" + lay + "</div>";
     else h += key + '<div class="lbar-r">' + lay + '</div><div class="lbar-k"><span class="lbl">Columns</span>' + GROUPS.map((g) => { const on = state.groups.includes(g); return chip("grp", g, (on ? "✓ " : "+ ") + esc(g), on, "g-" + slug(g)); }).join("") +
       '<button type="button" class="tmore" id="tmore-l" data-act="tbl-more" hidden></button></div>';
@@ -1967,7 +1971,7 @@ button.tag:hover { filter: brightness(.95); }
   function renderHead() {
     const cols = visCols();
     /* The two narrow controls in each row get visible column names: the box adds to the compare list, the target sets My device. */
-    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="th-mine" title="In the compare list">Compare</span></th><th class="stk c1"><span class="th-dev">Device<span class="th-mine" title="Set as my device">My device</span></span></th>' + cols.map((c) => {
+    $("#thead").innerHTML = '<tr><th class="stk c0"><span class="th-ic" title="Compare: in the compare list" aria-hidden="true">' + I.plus + '</span><span class="sr">Compare</span></th><th class="stk c1"><span class="th-dev">Device<span class="th-mine" title="Set as my device">My device</span></span></th>' + cols.map((c) => {
       const on = state.sortK === c.k;
       return '<th class="c-' + c.k + (on ? " on" : "") + (c.num ? " num" : "") + '" aria-sort="' + (on ? (state.sortDir === 1 ? "ascending" : "descending") : "none") + '"><button type="button" class="thb" id="th-' + c.k + '" data-act="sort" data-v="' + c.k + '"' + (c.htip ? ' title="' + esc(c.htip) + '"' : "") + ">" + esc(c.label) + (on ? (state.sortDir < 0 ? " ↓" : " ↑") : '<span class="srt" aria-hidden="true"> ↕</span>') + "</button></th>";
     }).join("") + "</tr>";
@@ -2047,7 +2051,7 @@ button.tag:hover { filter: brightness(.95); }
     if (!filt.length) {
       const fix = removals();
       $("#empty-why").innerHTML = fix.length
-        ? '<p>Remove one filter:</p><div class="empty-l">' + fix.map((o) => '<button type="button" class="fixb" id="efx-' + o.k + (o.v ? "-" + oslug(o.v) : "") + '" data-act="fx" data-k="' + o.k + '" data-v="' + esc(o.v) + '"><span><span class="fx-v">Remove</span> <b>' + esc(o.text) + '</b></span><span class="m">shows ' + plural(o.n, "device") + "</span></button>").join("") + "</div>"
+        ? '<p>Remove one filter:</p><div class="empty-l">' + fix.map((o) => '<button type="button" class="fixb" id="efx-' + o.k + (o.v ? "-" + oslug(o.v) : "") + '" data-act="fx" data-k="' + o.k + '" data-v="' + esc(o.v) + '"><span><span class="fx-v">Remove</span> <b>' + esc(o.text) + '</b></span><span class="fx-n">shows <span class="m">' + o.n + "</span> " + (o.n === 1 ? "device" : "devices") + "</span></button>").join("") + "</div>"
         : "<p>No single filter brings a device back. Reset the filters to start again.</p>";
     }
     syncTblFade();
@@ -2564,7 +2568,7 @@ button.tag:hover { filter: brightness(.95); }
         if (nb > 1) l.push(flink("brands", d.brand, "All " + nb + " " + d.brand + " devices", "dt-brandall"));
         return l.length ? '<div class="tlinks">' + l.join("") + "</div>" : ""; })() + "</div>" +
       '<div class="tmeta"><span class="price">' + (d.msrp_usd != null ? "$" + n0(d.msrp_usd) + pmark(d, "dt-pm") : "Price TBA") + "</span>" + statusTag(d) + (d.release_date ? '<span class="mute sm">Released <span class="m">' + esc(d.release_date) + "</span></span>" : "") + "</div>" +
-      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Add to compare") + "</button>" +
+      '<div class="dact"><button type="button" class="btn-p" id="dt-add" data-act="q" data-id="' + id + '" aria-pressed="' + q + '"' + (dis ? " disabled" : "") + ">" + (q ? I.check + "In compare" : dis ? "Compare list full" : I.plus + "Compare") + "</button>" +
       '<button type="button" class="btn-o refo" id="dt-ref" data-act="ref" data-id="' + id + '" aria-pressed="' + isR + '" title="' + (isR ? "Press to clear my device" : "Every other device then shows how it differs. This is separate from the compare list.") + '">' + (isR ? I.check + "My device" : I.target + "Set as my device") + "</button>" +
       '<button type="button" class="btn-t" id="dt-cmp" data-act="go" data-route="compare">Open Compare (' + state.queue.length + ")" + I.arrow + "</button></div></div>";
     /* Two columns that stack on their own, so a short card leaves no hole. Cards alternate left and right in reading order.
