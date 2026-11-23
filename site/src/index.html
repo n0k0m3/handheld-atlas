@@ -709,7 +709,7 @@ button.tag:hover { filter: brightness(.95); }
 /* The caret points at the value that opened the popover. */
 #pop::before { content: ""; position: absolute; top: -7px; left: var(--cx, 16px); width: 12px; height: 12px; background: var(--bg); border-left: 1px solid var(--border-strong); border-top: 1px solid var(--border-strong); transform: rotate(45deg); }
 #pop.up::before { top: auto; bottom: -7px; transform: rotate(225deg); }
-#pop h4 { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); font-weight: 700; margin: 0 0 6px; }
+#pop h4 { font-size: 13px; color: var(--fg); font-weight: 700; margin: 0 0 6px; }
 #pop ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
 #pop li { min-width: 0; overflow-wrap: anywhere; }
 #pop:focus { outline: none; }
@@ -2432,7 +2432,7 @@ button.tag:hover { filter: brightness(.95); }
     popBtn = btn; btn.setAttribute("aria-expanded", "true");
     pop.setAttribute("aria-label", "Source for " + btn.textContent.trim());
     pop.innerHTML = "<h4>Source" + (list.length > 1 ? "s" : "") + "</h4><ul>" + list.map((s) =>
-      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc([fieldLabel(s.field, BY_ID[state.detailId]), s.accessed && "accessed " + s.accessed].filter(Boolean).join(" · ")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
+      "<li>" + link(s.url, host(s.url)) + '<span class="why">' + esc(fieldLabel(s.field, BY_ID[state.detailId]).replace(/ · /g, " ") + (s.accessed ? ", read " + s.accessed : "")) + "</span>" + (s.note ? '<span class="why">' + esc(s.note) + "</span>" : "") + "</li>").join("") + "</ul>";
     pop.hidden = false;
     placePop();
     pop.focus({ preventScroll: true });
